@@ -1,0 +1,1 @@
+select distinct i.pitem_id, ir.pitem_revision_id, rs.pname from infodba.pworkspaceobject wso, infodba.prelease_status_list rsl, infodba.pitem i, infodba.pitemrevision ir, infodba.preleasestatus rs where i.puid=ir.ritems_tagu and ir.puid=wso.puid and ir.puid=rsl.puid and rsl.pvalu_0=rs.puid and wso.pobject_type='GET6MaterialRevision' and rs.pname!='Approved';

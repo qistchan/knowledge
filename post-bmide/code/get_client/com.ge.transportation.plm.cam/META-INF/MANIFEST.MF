@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: GE Trans PLM Cam Plugin
+Bundle-SymbolicName: com.ge.transportation.plm.cam;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Activator: com.ge.transportation.plm.cam.Activator
+Bundle-Vendor: TCS
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.teamcenter.rac.aifrcp;bundle-version="11000.2.0",
+ com.teamcenter.rac.kernel;bundle-version="11000.2.0",
+ com.teamcenter.rac.util;bundle-version="11000.2.0",
+ TcSoaAdministrationRac;bundle-version="11000.2.0",
+ TcSoaCommon;bundle-version="11000.2.0",
+ TcSoaAdministrationTypes;bundle-version="11000.2.0",
+ TcSoaManufacturingRac;bundle-version="11000.2.0",
+ TcSoaManufacturingTypes;bundle-version="11000.2.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: lib/ojdbc14.jar,
+ .

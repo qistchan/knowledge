@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="Resources"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.jboss.ide.eclipse.as.core.server.runtime.runtimeTarget/JBoss 7.1 Runtime">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/502018564/Downloads/GET_CASDataDownloader/GET_CASDataDownloader/libs/commons-httpclient-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/502018564/Downloads/GET_CASDataDownloader/GET_CASDataDownloader/libs/commons-net-3.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/502018564/Downloads/GET_CASDataDownloader/GET_CASDataDownloader/libs/jboss-jsp-api_2.2_spec-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/502018564/Downloads/GET_CASDataDownloader/GET_CASDataDownloader/libs/jboss-servlet-api_3.0_spec-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="C:/Users/502018564/Downloads/GET_CASDataDownloader/GET_CASDataDownloader/libs/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="C:/Users/502018564/Downloads/GET_CASDataDownloader/GET_CASDataDownloader/libs/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="C:/Users/502018564/Downloads/GET_CASDataDownloader/GET_CASDataDownloader/libs/poi-3.16.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

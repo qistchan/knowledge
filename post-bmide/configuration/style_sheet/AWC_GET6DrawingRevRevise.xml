@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rendering>
+    <page>
+        <section>
+          <property name="item_revision_id"/>
+           <property name="object_name" />
+           <property name="object_desc" />
+        </section>
+    </page>
+</rendering>

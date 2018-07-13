@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>  
+   <bean name="idmController" class="war.src.com.get.tc.Restservice.IdmController">
+     <property name="idmService">
+        <ref bean="idmServices"/>
+     </property>
+   </bean>
+
+   <bean name="idmServices" 
+         class="com.get.tc.soa.service.GETIDMServices">
+   </bean>
+</beans>

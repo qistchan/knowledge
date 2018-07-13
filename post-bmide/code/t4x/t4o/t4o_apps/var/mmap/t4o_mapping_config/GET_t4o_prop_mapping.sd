@@ -1,0 +1,712 @@
+#===================================================
+##
+#
+# T4O EBS property mapping
+#
+# \file          t4o_prop_mapping_template.sd
+#
+# \brief         Mapping file for EBS data view to show attributes from EBS in the Teamcenter GUI
+#
+# \details       The file contains the custom specific part of the EBS data view. \n
+#                Procedures with fixed name \c GetEBSData_<TargetType> are defined for the following target types:
+#                \li \c Item
+#                \li \c BillOfMaterial
+#                \li \c ChangeOrder
+#                \li \c QueryResultObject
+#
+# \author        kh, 20131022
+#
+# \copyright     2014
+#                Siemens Product Lifecycle Management Software Inc.
+#                All Rights Reserved.
+#
+namespace eval ::T4O::PROP::CUSTOM::MAPPING {
+  namespace export GetEBSData_Item
+  namespace export GetEBSData_BillOfMaterial
+  namespace export GetEBSData_QueryResultObject
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::PROP::CUSTOM::MAPPING::GetEBSData_Item
+  #
+  # \brief          Creates the XML payload for the EBS data view for an EBS Item
+  #
+  # \param          SessionId - TC session id
+  # \param          ItemType - TC item type (which has been selected in the portal)
+  # \param          ItemRevisionType - TC item rev type (which has been selected in the portal)
+  # \param          ObjectType - TC object type (which has been selected in the portal)
+  # \param          TCUser - TC user who initiated the data view call
+  # \param          TCLanguage - Language which will be used for the data view call
+  # \param          ContainerId
+  # \param          Parameters
+  #
+  # \return         XML-Payload used to render the data view
+  #
+  # \author         kh, 20101013
+  #
+  #
+  proc GetEBSData_Item { SessionId ItemType ItemRevisionType ObjectType TCUser TCLanguage ContainerId Parameters args } {
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with >$SessionId< >$ItemType< >$ItemRevisionType< >$ObjectType< >$TCUser< >$TCLanguage< >$ContainerId< >$Parameters<"
+    #
+    # set some defaults
+    #
+    set ItemRev         "$ItemRevisionType"
+    set Item            "$ItemRev:items_tag:$ItemType"
+    #
+    # get necessary TC object data
+    #
+    set ItemNumber      [::T4X::TC::MAPPING::FieldMapping $Item "item_id"]
+    set OrgCode         $::T4O_Defaults(MASTER_ORG)
+    set Alternate       ""
+    #
+    set rc [::T4O::PROP::CUSTOM::MAPPING::prepareDataView4Item $ItemType $ItemRevisionType $ObjectType $ItemNumber $OrgCode $Alternate $Parameters]
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished with >$rc<"
+    #
+    return $rc
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::PROP::CUSTOM::MAPPING::GetEBSData_BillOfMaterial
+  #
+  # \brief          Creates the XML payload for the EBS data view for an EBS BOM
+  #
+  # \param          SessionId - TC session id
+  # \param          ItemType - TC item type (which has been selected in the portal)
+  # \param          ItemRevisionType - TC item rev type (which has been selected in the portal)
+  # \param          ObjectType - TC object type (which has been selected in the portal)
+  # \param          TCUser - TC user who initiated the data view call
+  # \param          TCLanguage - Language which will be used for the data view call
+  # \param          ContainerId
+  # \param          Parameters
+  #
+  # \return         XML-Payload used to render the data view
+  #
+  # \author         kh, 20101025
+  #
+  #
+  proc GetEBSData_BillOfMaterial { SessionId ItemType ItemRevisionType ObjectType TCUser TCLanguage ContainerId Parameters args } {
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    set rc "ERROR"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with >$SessionId< >$ItemType< >$ItemRevisionType< >$ObjectType< >$TCUser< >$TCLanguage< >$ContainerId< >$Parameters<"
+    #
+    # set some defaults
+    #
+    set ItemRev            "$ItemRevisionType"
+    set Item               "$ItemRev:items_tag:$ItemType"
+    #
+    # get necessary TC object data
+    #
+    set AssemblyItem       [::T4X::TC::MAPPING::IndexedFieldMapping 0 $Item  "item_id"]
+    set AssemblyRevId      [string toupper [::T4X::TC::MAPPING::IndexedFieldMapping 0 $ItemRev "item_revision_id"]]
+    set OrgCode            $::T4O_Defaults(MASTER_ORG)
+    set BomAlternative     ""
+    set AssyItemId         ""
+    set OrgId              ""
+    set BomId              ""
+    set EffDate            [::T4O::getTimeString4Now]
+    set EffDisplayType     "FUTURE AND CURRENT"
+    set OperationSeqNumber ""
+    set ImpOnly            "TRUE"
+    #
+    # check if Parameters contains a chosen organization and if so, use this org instead of the default master org.
+    #
+    if {[dict exists $Parameters orgs]} {
+      set OrgCode [dict get $Parameters orgs]
+    }
+    #
+    # now we get all organizations for this bom in order to add a dropdown for all of them...
+    #
+    set rc_func [::TPEBS::BOM::getBomOrganizations $AssemblyItem $BomAlternative]
+    #
+    if {[lindex $rc_func 0] eq "OK"} {
+      foreach elem [lrange $rc_func 1 end] {
+        lappend lstOrganizations [lindex $elem 0]
+      }
+      set lstOrganizations [lsort $lstOrganizations]
+      if {[lsearch -exact -sorted $lstOrganizations $OrgCode] < 0} {
+        set OrgCode [lindex $lstOrganizations 0]
+      }
+    } else {
+      set lstOrganizations $OrgCode
+    }
+    #
+    # Get EBS Eco Data
+    #
+    set Status [::TPEBS::BOM::getBomInfoAll $AssemblyItem $OrgCode $BomAlternative $AssyItemId $OrgId $BomId $EffDate $EffDisplayType $OperationSeqNumber $ImpOnly]
+    #
+    # Prepare the XML-Result-Stream, if the EBS-Call was ok...
+    #
+    if { $Status ne "OK" } {
+      #
+      # Example, how an error could be shown in the GUI
+      #
+      set rc [::T4X::PROP::MAPPING::createMainEntry $ObjectType "ERROR" "getBomInfoAll for Item >$AssemblyItem< finished with >[lindex $Status 0] - [::T4O::hex2String [lindex $Status 1]]<"]
+      #
+    } else {
+      #
+      # XML Header with Status OK
+      #
+      set rc [::T4X::PROP::MAPPING::createMainEntry $ObjectType "OK" ""]
+      #
+      # Add a dropdown with all organizations found for this item...
+      #
+      append rc [::T4X::PROP::MAPPING::createSectionEntry "CONTROLS" "Controls"          "true"]
+      append rc [::T4X::PROP::MAPPING::create chooser -name "Organization" -itemNames $lstOrganizations -parameter orgs -submitOn DEFAULT_EVENT -value $OrgCode]
+      append rc [::T4X::PROP::MAPPING::createSectionEndEntry]
+      #
+      append rc [prepareSection4BillOfMaterial "Main"]
+    }
+    #
+    append rc [::T4X::PROP::MAPPING::createMainEndEntry]
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished with >$rc<"
+    #
+    return $rc
+  }
+
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::PROP::CUSTOM::MAPPING::prepareSection4BillOfMaterial
+  #
+  # \brief          Prepares the XML payload for the EBS data view for an EBS Item
+  #
+  # \param          SectionName - Section name for GUI
+  #
+  # \return         XML-Payload used to render the data view
+  #
+  #
+  proc prepareSection4BillOfMaterial { SectionName } {
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    set ItemNumber       [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_HEADER_REC:ASSEMBLY_ITEM_NAME]
+    set BomAlternative   [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_HEADER_REC:ALTERNATE_BOM_CODE]
+#    set CommonItemNumber [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_HEADER_REC:COMMON_ASSEMBLY_ITEM_NAME]
+#    set CommonOrgCode    [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_HEADER_REC:COMMON_ORGANIZATION_CODE]
+    set AssyType         [::T4O::CUSTOM::MAPPING::TOOLBOX::translateAssemblyTypeCode [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_HEADER_REC:ASSEMBLY_TYPE]]
+    #
+    # Create an expandable section for Main Data
+    #
+    append rc [::T4X::PROP::MAPPING::createSectionEntry "MAIN_DATA"                 $SectionName            "true"]
+    #                                                   EBS Name                    GUI Name                Value             Multiline(true/false)
+    append rc [::T4X::PROP::MAPPING::createFieldEntry   "ASSEMBLY_ITEM_NAME"        "Assembly Item Name"    $ItemNumber       "false"]
+    append rc [::T4X::PROP::MAPPING::createFieldEntry   "ALTERNATE_BOM_CODE"        "BOM Alternative"       $BomAlternative   "false"]
+#    append rc [::T4X::PROP::MAPPING::createFieldEntry   "COMMON_ASSEMBLY_ITEM_NAME" "Common BOM Item Name"  $CommonItemNumber "false"]
+#    append rc [::T4X::PROP::MAPPING::createFieldEntry   "COMMON_ORGANIZATION_CODE"  "Common BOM Org"        $CommonOrgCode    "false"]
+    append rc [::T4X::PROP::MAPPING::createFieldEntry   "ASSEMBLY_TYPE"             "Assembly Type"         $AssyType         "false"]
+    #
+    append rc [::T4X::PROP::MAPPING::createSectionEndEntry]
+    #
+    # Fetch Common BOM if needed
+    #
+#    if { $CommonItemNumber ne "" && [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:1] eq "" } {
+#      set AssyItemId         [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_HEADER_REC:COMMON_ASSEMBLY_ITEM_ID]
+#      set OrgId              [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_HEADER_REC:COMMON_ORGANIZATION_ID]
+#      set BomId              [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_HEADER_REC:COMMON_BILL_SEQUENCE_ID]
+#      set EffDate            [::T4O::getTimeString4Now]
+#      set EffDisplayType     "FUTURE AND CURRENT"
+#      set OperationSeqNumber ""
+#      set ImpOnly            "TRUE"
+#      ::TPEBS::BOM::getBomInfoAll $CommonItemNumber $CommonOrgCode $BomAlternative $AssyItemId $OrgId $BomId $EffDate $EffDisplayType $OperationSeqNumber $ImpOnly
+#    }
+    #
+    # Create a section for the BOM positions
+    #
+    append rc [::T4X::PROP::MAPPING::createSectionEntry "X_BOM_COMPONENT_TBL" "Component Data"          "true"]
+    #
+    # Build a dictionary of reference designators
+    #
+    set RefDes [dict create]
+    foreach Line [::T4X::CORE::sortIndexedInterfaceTable [array names ::BomResultDat X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:COMPONENT_ITEM_NAME:*]] {
+      set LineIndex [lindex [split $Line :] end]
+      set component   [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:COMPONENT_ITEM_NAME:$LineIndex]
+      set designator  [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:REFERENCE_DESIGNATOR_NAME:$LineIndex]
+      if { $component eq "" } continue
+
+      dict lappend RefDes $component $designator
+    }
+    #
+    # Create a table control with all required columns to hold the component information
+    #
+    append rc [::T4X::PROP::MAPPING::createTableEntry "X_BOM_COMPONENT_TBL"   "BOM Positions" [list "ITEM_SEQUENCE_NUMBER" "OPERATION_SEQUENCE_NUMBER" "COMPONENT_ITEM_NAME" "QUANTITY_PER_ASSEMBLY" "WIP_SUPPLY_TYPE" "START_EFFECTIVE_DATE" "DISABLE_DATE" "REF_DESIGNATORS" "SUPPLY_LOCATOR_ID" "COMPONENT_REMARKS"] [list "Seq" "OSN" "Component" "Qty" "WIP Supply Type" "Effective From" "Effective To" "Ref Designators" "Locator" "Comments"] 200]
+    #
+    foreach Line [::T4X::CORE::sortIndexedInterfaceTable [array names ::BomResultDat X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:*]] {
+      #
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      set item_no    [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:ITEM_SEQUENCE_NUMBER:$LineIndex]
+      set op_seq_no  [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndex]
+      set component  [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:$LineIndex]
+      set quantity   [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:QUANTITY_PER_ASSEMBLY:$LineIndex]
+      set wip_supply [::T4O::CUSTOM::MAPPING::TOOLBOX::translateWIPSupplyTypeCode [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:WIP_SUPPLY_TYPE:$LineIndex]]
+      set valid_from [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndex]
+      set valid_to   [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:DISABLE_DATE:$LineIndex]
+      set ref_des    [expr {[dict exists $RefDes $component] ? [join [lsort -dictionary [dict get $RefDes $component]] ","] : ""}]
+      set locator    [::T4O::CUSTOM::MAPPING::TOOLBOX::getLocationName [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:SUPPLY_LOCATOR_ID:$LineIndex] "" [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:ORGANIZATION_ID:$LineIndex]]
+      set comments   [::T4O::TC::MAPPING::EBSFieldMapping BOM X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:COMPONENT_REMARKS:$LineIndex]
+      if { $item_no eq "" } continue
+      #
+      # Add a table record for each bom line...
+      #
+      #                                                       EBS Column Values
+      append rc [::T4X::PROP::MAPPING::createTableRecordEntry [list $item_no $op_seq_no $component $quantity $wip_supply $valid_from $valid_to $ref_des $locator $comments]]
+    }
+    #
+    append rc [::T4X::PROP::MAPPING::createTableEndEntry]
+    #
+    append rc [::T4X::PROP::MAPPING::createSectionEndEntry]
+    #
+    # Create a section for the BOM revisions
+    #
+    append rc [prepareSection4ItemRevs "BOM Revisions" ::BomResultDat X_BOM_REVISION_TBL:X_BOM_REVISION_TBL_ITEM]
+  }
+
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::PROP::CUSTOM::MAPPING::prepareSection4Routing
+  #
+  # \brief          Prepares the XML payload for the EBS data view for an EBS Item
+  #
+  # \param          SectionName - Section name for GUI
+  #
+  # \return         XML-Payload used to render the data view
+  #
+  #
+  proc prepareSection4Routing { SectionName } {
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    # Create an expandable section for Main Data
+    #
+    append rc [::T4X::PROP::MAPPING::createSectionEntry "MAIN_DATA"              $SectionName            "true"]
+    #                                                   EBS Name                 GUI Name                Value                                                                       Multiline(true/false)
+    append rc [::T4X::PROP::MAPPING::createFieldEntry   "ASSEMBLY_ITEM_NAME"     "Assembly Item Name"    [::T4O::TC::MAPPING::EBSFieldMapping RTG X_RTG_HEADER_REC:ASSEMBLY_ITEM_NAME]     "false"]
+    append rc [::T4X::PROP::MAPPING::createFieldEntry   "ALTERNATE_ROUTING_CODE" "Routing Alternative"   [::T4O::TC::MAPPING::EBSFieldMapping RTG X_RTG_HEADER_REC:ALTERNATE_ROUTING_CODE] "false"]
+    append rc [::T4X::PROP::MAPPING::createFieldEntry   "ROUTING_TYPE"           "Routing Type"          [::T4O::CUSTOM::MAPPING::TOOLBOX::translateAssemblyTypeCode [::T4O::TC::MAPPING::EBSFieldMapping RTG X_RTG_HEADER_REC:ROUTING_TYPE]] "false"]
+    #
+    append rc [::T4X::PROP::MAPPING::createSectionEndEntry]
+    #
+    # Create a section for the routing operations
+    #
+    append rc [::T4X::PROP::MAPPING::createSectionEntry "X_RTG_OPERATION_TBL" "Operation Data"       "true"]
+    append rc [::T4X::PROP::MAPPING::createTableEntry   "X_RTG_OPERATION_TBL" "Operations" [list "OPERATION_SEQUENCE_NUMBER" "OPERATION_DESCRIPTION" "DEPARTMENT_CODE" "COUNT_POINT_TYPE" "START_EFFECTIVE_DATE" "DISABLE_DATE"] [list "Seq" "Description" "Department" "Count Point Type" "Effective From" "Effective To"] 200]
+    foreach Line [::T4X::CORE::sortIndexedInterfaceTable [array names ::RoutingResultDat X_RTG_OPERATION_TBL:X_RTG_OPERATION_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:*]] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      set op_seq_no  [string trim [::T4O::TC::MAPPING::EBSFieldMapping RTG X_RTG_OPERATION_TBL:X_RTG_OPERATION_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndex]]
+      set desc       [string trim [::T4O::TC::MAPPING::EBSFieldMapping RTG X_RTG_OPERATION_TBL:X_RTG_OPERATION_TBL_ITEM:OPERATION_DESCRIPTION:$LineIndex]]
+      set dept       [string trim [::T4O::TC::MAPPING::EBSFieldMapping RTG X_RTG_OPERATION_TBL:X_RTG_OPERATION_TBL_ITEM:DEPARTMENT_CODE:$LineIndex]]
+      set count_pt   [::T4O::CUSTOM::MAPPING::TOOLBOX::translateCountPointTypeCode [string trim [::T4O::TC::MAPPING::EBSFieldMapping RTG X_RTG_OPERATION_TBL:X_RTG_OPERATION_TBL_ITEM:COUNT_POINT_TYPE:$LineIndex]]]
+      set valid_from [string trim [::T4O::TC::MAPPING::EBSFieldMapping RTG X_RTG_OPERATION_TBL:X_RTG_OPERATION_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndex]]
+      set valid_to   [string trim [::T4O::TC::MAPPING::EBSFieldMapping RTG X_RTG_OPERATION_TBL:X_RTG_OPERATION_TBL_ITEM:DISABLE_DATE:$LineIndex]]
+      if { $op_seq_no eq "" } continue
+      #
+      append rc [::T4X::PROP::MAPPING::createTableRecordEntry [list $op_seq_no $desc $dept $count_pt $valid_from $valid_to]]
+    }
+    append rc [::T4X::PROP::MAPPING::createTableEndEntry]
+    append rc [::T4X::PROP::MAPPING::createSectionEndEntry]
+    #
+    # Create a section for the routing resources
+    #
+    append rc [::T4X::PROP::MAPPING::createSectionEntry "X_RTG_OP_RESOURCE_TBL" "Resource Data"       "true"]
+    append rc [::T4X::PROP::MAPPING::createTableEntry   "X_RTG_OP_RESOURCE_TBL" "Resources" [list "OPERATION_SEQUENCE_NUMBER" "RESOURCE_SEQUENCE_NUMBER" "RESOURCE_CODE" "ASSIGNED_UNITS" "USAGE_RATE_OR_AMOUNT" "SCHEDULE_FLAG" "START_EFFECTIVE_DATE"] [list "OSN" "Seq" "Resource" "Units" "Usage" "Schedule" "Effective From"] 200]
+    #
+    foreach Line [::T4X::CORE::sortIndexedInterfaceTable [array names ::RoutingResultDat X_RTG_OP_RESOURCE_TBL:X_RTG_OP_RESOURCE_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:*]] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      set op_seq_no  [string trim [::T4O::TC::MAPPING::EBSFieldMapping RTG X_RTG_OP_RESOURCE_TBL:X_RTG_OP_RESOURCE_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndex]]
+      set seq_no     [string trim [::T4O::TC::MAPPING::EBSFieldMapping RTG X_RTG_OP_RESOURCE_TBL:X_RTG_OP_RESOURCE_TBL_ITEM:RESOURCE_SEQUENCE_NUMBER:$LineIndex]]
+      set res_code   [string trim [::T4O::TC::MAPPING::EBSFieldMapping RTG X_RTG_OP_RESOURCE_TBL:X_RTG_OP_RESOURCE_TBL_ITEM:RESOURCE_CODE:$LineIndex]]
+      set units      [string trim [::T4O::TC::MAPPING::EBSFieldMapping RTG X_RTG_OP_RESOURCE_TBL:X_RTG_OP_RESOURCE_TBL_ITEM:ASSIGNED_UNITS:$LineIndex]]
+      set usage      [string trim [::T4O::TC::MAPPING::EBSFieldMapping RTG X_RTG_OP_RESOURCE_TBL:X_RTG_OP_RESOURCE_TBL_ITEM:USAGE_RATE_OR_AMOUNT:$LineIndex]]
+      set schedule   [::T4O::CUSTOM::MAPPING::TOOLBOX::translateScheduleTypeCode [string trim [::T4O::TC::MAPPING::EBSFieldMapping RTG X_RTG_OP_RESOURCE_TBL:X_RTG_OP_RESOURCE_TBL_ITEM:SCHEDULE_FLAG:$LineIndex]]]
+      set valid_from [string trim [::T4O::TC::MAPPING::EBSFieldMapping RTG X_RTG_OP_RESOURCE_TBL:X_RTG_OP_RESOURCE_TBL_ITEM:OP_START_EFFECTIVE_DATE:$LineIndex]]
+      if { $op_seq_no eq "" } continue
+      #
+      append rc [::T4X::PROP::MAPPING::createTableRecordEntry [list $op_seq_no $seq_no $res_code $units $usage $schedule $valid_from]]
+    }
+    append rc [::T4X::PROP::MAPPING::createTableEndEntry]
+    append rc [::T4X::PROP::MAPPING::createSectionEndEntry]
+    #
+    # Create a section for the routing revisions
+    #
+    append rc [prepareSection4ItemRevs "Routing Revisions" ::RoutingResultDat X_RTG_REVISION_TBL:X_RTG_REVISION_TBL_ITEM]
+  }
+
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::PROP::CUSTOM::MAPPING::prepareSection4ItemRevs
+  #
+  # \brief          Prepares the XML payload for the EBS data view for EBS Item Revisions
+  #
+  # \param          SectionName - Section name for GUI
+  # \param          ResultDatName - Result buffer name (e.g., ::ItemRevResultDat or ::BomResultDat)
+  # \param          Table - Item Revision Table name (e.g., X_ITEM_REVISION_TBL:X_ITEM_REVISION_TBL_ITEM)
+  #
+  # \return         XML-Payload used to render the data view
+  #
+  #
+  proc prepareSection4ItemRevs { SectionName ResultDatName Table args } {
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    upvar $ResultDatName ResultDat
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with >$SectionName< >$ResultDatName< >$Table<"
+    #
+    # Create an expandable section for revision data
+    #
+    append rc [::T4X::PROP::MAPPING::createSectionEntry  "X_ITEM_REVISION_TBL" $SectionName "true"]
+    append rc [::T4X::PROP::MAPPING::createTableEntry    "X_ITEM_REVISION_TBL" "Revisions"  [list "REVISION" "REVISION_LABEL" "DESCRIPTION" "EFFECTIVITY_DATE" "IMPLEMENTATION_DATE"] [list "Revision" "Label"          "Description" "Effective Date"   "Implementation Date"]]
+    #
+    foreach Line [::T4X::CORE::sortIndexedInterfaceTable [array names ResultDat $Table:REVISION:*]] {
+      set LineIndex [lindex [split $Line :] end]
+      #
+      set rev        [string trim $ResultDat($Table:REVISION:$LineIndex)]
+      if { [info exists ResultDat($Table:REVISION_LABEL:$LineIndex)] } {
+        set label    [string trim $ResultDat($Table:REVISION_LABEL:$LineIndex)]
+      } else {
+        set label    ""
+      }
+      if { [info exists ResultDat($Table:DESCRIPTION:$LineIndex)] } {
+        set desc     [string trim $ResultDat($Table:DESCRIPTION:$LineIndex)]
+      } else {
+        set desc     ""
+      }
+      if { [info exists ResultDat($Table:EFFECTIVITY_DATE:$LineIndex)] } {
+        set eff_date [string trim $ResultDat($Table:EFFECTIVITY_DATE:$LineIndex)]
+      } else {
+        set eff_date [string trim $ResultDat($Table:START_EFFECTIVE_DATE:$LineIndex)]
+      }
+      set imp_date   [string trim $ResultDat($Table:IMPLEMENTATION_DATE:$LineIndex)]
+      #
+      append rc [::T4X::PROP::MAPPING::createTableRecordEntry [list $rev $label $desc $eff_date $imp_date]]
+    }
+    append rc [::T4X::PROP::MAPPING::createTableEndEntry]
+    append rc [::T4X::PROP::MAPPING::createSectionEndEntry]
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished with >$rc<"
+    #
+    return $rc
+  }
+
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::PROP::CUSTOM::MAPPING::GetEBSData_QueryResultObject
+  #
+  # \brief          Creates the XML payload for the EBS data view for an external query object
+  #
+  # \param          SessionId - TC session id
+  # \param          QueryName - Query name to be executed
+  # \param          ObjectKey - EBS object key used for query
+  # \param          TCUser - TC user who initiated the data view call
+  # \param          TCLanguage - Language which will be used for the data view call
+  # \param          ContainerId - Not yet used - In the future the data view update can be done partially, based on such container ( = sections)
+  # \param          Parameters - Key/Value (use array set) information delivered by parameter controls of the GUI. Can be used to create specific EBS data view results (e. g. BOM info for a certain plant (plant would be the parameter))
+  #
+  # \return         XML-Payload used to render the data view
+  #
+  # \author         kh, 20110921
+  #
+  #
+  proc GetEBSData_QueryResultObject { SessionId QueryName ObjectKey TCUser TCLanguage ContainerId Parameters args } {
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with >$SessionId< >$QueryName< >$ObjectKey< >$TCUser< >$TCLanguage< >$ContainerId< >$Parameters<"
+    #
+    # set some defaults
+    #
+    set rc "ERROR"
+    #
+    switch $QueryName {
+      "GET Oracle Routing" {
+        set ItemType    ""
+        set ItemRevType ""
+        set ObjectType  "Item"
+        set ItemNumber  [lindex [split $ObjectKey :] 0]
+        set OrgCode     [lindex [split $ObjectKey :] 1]
+        set Alternate   [lindex [split $ObjectKey :] 2]
+        #
+        set rc [::T4O::PROP::CUSTOM::MAPPING::prepareDataView4Item $ItemType $ItemRevType $ObjectType $ItemNumber $OrgCode $Alternate $Parameters]
+      }
+      default {
+        set rc [::T4X::PROP::MAPPING::createMainEntry $QueryName "ERROR" "Query ($QueryName) not supported"]
+        append rc [::T4X::PROP::MAPPING::createMainEndEntry]
+      }
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished with >$rc<"
+    #
+    return $rc
+  }
+
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::PROP::CUSTOM::MAPPING::prepareDataView4Item
+  #
+  # \brief          Prepares the XML payload for the EBS data view for an EBS Item
+  #
+  # \param          ItemType - TC item type (which has been selected in the portal)
+  # \param          ItemRevisionType - TC item rev type (which has been selected in the portal)
+  # \param          ObjectType - TC object type (which has been selected in the portal)
+  # \param          ItemNumber - Item Name
+  # \param          OrgCode - Organization code
+  # \param          Alternate - BOM/Routing alternate code
+  # \param          Parameters - Control settings
+  #
+  # \return         XML-Payload used to render the data view
+  #
+  # \author         kh, 20140307
+  #
+  #
+  proc prepareDataView4Item { ItemType ItemRevisionType ObjectType ItemNumber OrgCode Alternate Parameters } {
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    set rc "ERROR"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with >$ItemType< >$ItemRevisionType< >$ObjectType< >$ItemNumber< >$OrgCode< >$Alternate< >$Parameters<"
+    #
+    set ItemRev         "$ItemRevisionType"
+    set Item            "$ItemRev:items_tag:$ItemType"
+    set mfgFormPath     "$Item:GET6PartOrgRelation:*"
+    #
+    # Use selections from Parameters instead of the default values.
+    #
+    if {[dict exists $Parameters orgs]} {
+      set OrgCode [dict get $Parameters orgs]
+    }
+    if {[dict exists $Parameters alt]} {
+      set Alternate [dict get $Parameters alt]
+    }
+    #
+    # find Mfg Attr form for the selected Org
+    #
+    # FIXME: This works around a bug in findObjectId4Value; the "if" can be removed once it is fixed (post T4O 11.4.1)
+    if {[info exists ::TcData(ItemInfo)]} {
+        set OrgMfgForm [lindex [::T4X::TC::MAPPING::findObjectId4Value $mfgFormPath "project_ids" $OrgCode] 1]
+    } else {
+      set OrgMfgForm ""
+    }
+    #
+    # now we get all organizations for this item in order to add a dropdown for all of them...
+    #
+    set rc_func [::TPEBS::ITEM::getItemOrganizations $ItemNumber]
+    #
+    if {[lindex $rc_func 0] eq "OK"} {
+      foreach elem [lrange $rc_func 1 end] {
+        lappend lstOrganizations [lindex $elem 0]
+      }
+      set lstOrganizations [lsort $lstOrganizations]
+      if {[lsearch -exact -sorted $lstOrganizations $OrgCode] < 0} {
+        set OrgCode [lindex $lstOrganizations 0]
+      }
+    } else {
+      set lstOrganizations $OrgCode
+    }
+    #
+    # now we get all BOM/Routing alternates for this item in order to add a dropdown for all of them...
+    #
+    set lstAlternates [list]
+    set rc_func [::TPEBS::BOM::getBomList3 $ItemNumber $OrgCode]
+    if {[lindex $rc_func 0] eq "OK"} {
+      foreach elem [array names ::BomResultDat X_FOUND_BOM_TBL:X_FOUND_BOM_TBL_ITEM:ALTERNATE_BOM_CODE:*] {
+        lappend lstAlternates $::BomResultDat($elem)
+      }
+    }
+    set rc_func [::TPEBS::RTG::getRoutingList3 $ItemNumber $OrgCode]
+    if {[lindex $rc_func 0] eq "OK"} {
+      foreach elem [array names ::RoutingResultDat X_FOUND_RTG_TBL:X_FOUND_RTG_TBL_ITEM:ALTERNATE_RTG_CODE:*] {
+        lappend lstAlternates $::RoutingResultDat($elem)
+      }
+    }
+    if { [llength $lstAlternates] > 0 } {
+      set lstAlternates [lsort -unique $lstAlternates]
+      if {[lsearch -exact -sorted $lstAlternates $Alternate] < 0} {
+        set Alternate [lindex $lstAlternates 0]
+      }
+    } else {
+      set lstAlternates $Alternate
+    }
+    #
+    # Get EBS Item Data
+    #
+    set Status [::TPEBS::ITEM::getItemInfo $ItemNumber $OrgCode]
+    #
+    # Prepare the XML-Result-Stream, if the EBS-Call was ok...
+    #
+    if { $Status ne "OK" } {
+      #
+      # Example, how an error could be shown in the GUI
+      #
+      set rc [::T4X::PROP::MAPPING::createMainEntry $ObjectType "ERROR" "getItemInfo for Item >$ItemNumber< finished with >[lindex $Status 0] - [::T4O::hex2String [lindex $Status 1]]<"]
+      #
+    } else {
+      #
+      # XML Header with Status OK
+      #
+      set rc [::T4X::PROP::MAPPING::createMainEntry $ObjectType "OK" ""]
+      #
+      # Add a dropdown with all organizations found for this item...
+      #
+      append rc [::T4X::PROP::MAPPING::createSectionEntry "CONTROLS" "Controls"          "true"]
+      append rc [::T4X::PROP::MAPPING::create chooser -name "Organization" -itemNames $lstOrganizations -parameter orgs -submitOn DEFAULT_EVENT -value $OrgCode]
+      append rc [::T4X::PROP::MAPPING::create chooser -name "Alternative"  -itemNames $lstAlternates    -parameter alt  -submitOn DEFAULT_EVENT -value $Alternate]
+      append rc [::T4X::PROP::MAPPING::createSectionEndEntry]
+      #
+      # Example mapping for an extra page
+      #
+      append rc [::T4X::PROP::MAPPING::begin page -id real -title "Item Data ($OrgCode)"]
+      #
+      # Create an expandable section for Main data
+      #
+      #                                                   Section Name    GUI Name        Expanded(true/false) BackgroundColor(optional, R-G-B, from 0-0-0 to 255-255-255)
+      append rc [::T4X::PROP::MAPPING::createSectionEntry "MAIN_DATA"     "Main"          "true"]
+      #                                                   EBS Name                     GUI Name                  Value                                                                                   Multiline(true/false)
+      append rc [::T4X::PROP::MAPPING::createFieldEntry   "INVENTORY_ITEM_NUMBER"      "Inventory Item Number"      [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:ITEM_NUMBER]                  "false"]
+      append rc [::T4X::PROP::MAPPING::createFieldEntry   "INVENTORY_ITEM_ID"          "Inventory Item Id"          [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:INVENTORY_ITEM_ID]            "false"]
+
+      if { $OrgMfgForm ne "" } {
+        append rc [::T4X::PROP::MAPPING::createFieldEntry   "ITEM_PUB_DATE"              "Item Sent to Oracle"        [lindex [::T4X::TC::MAPPING::getObjectAttributeValue $OrgMfgForm $mfgFormPath "get6ItemPublishDate"] 1] "false"]
+        append rc [::T4X::PROP::MAPPING::createFieldEntry   "BOM_PUB_DATE"               "BOM Sent to Oracle"         [lindex [::T4X::TC::MAPPING::getObjectAttributeValue $OrgMfgForm $mfgFormPath "get6BOMPublishDate"] 1]  "false"]
+      }
+      append rc [::T4X::PROP::MAPPING::createFieldEntry   "ORGANIZATION_CODE"          "Inventory Organization"     [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:ORGANIZATION_CODE]            "false"]
+      set temp [::T4O::CUSTOM::MAPPING::TOOLBOX::translateMakeBuyCode [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:PLANNING_MAKE_BUY_CODE]]
+      append rc [::T4X::PROP::MAPPING::createFieldEntry   "PLANNING_MAKE_BUY_CODE"     "Make/Buy"                   $temp                                                                                "false"]
+      set temp [::T4O::CUSTOM::MAPPING::TOOLBOX::translateWIPSupplyTypeCode [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:WIP_SUPPLY_TYPE]]
+      append rc [::T4X::PROP::MAPPING::createFieldEntry   "WIP_SUPPLY_TYPE"            "WIP Supply Type"            $temp                                                                                "false"]
+      set temp [lindex [::TPEBS::BASE::getOrgCode4OrgId [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:SOURCE_ORGANIZATION_ID]] 1]
+      append rc [::T4X::PROP::MAPPING::createFieldEntry   "SOURCE_ORGANIZATION_ID"     "Source Org"                 $temp                                                                                "false"]
+      append rc [::T4X::PROP::MAPPING::createFieldEntry   "PLANNER_CODE"               "Planner Code"               [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:PLANNER_CODE]                 "false"]
+      append rc [::T4X::PROP::MAPPING::createFieldEntry   "DESCRIPTION"                "Description"                [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:DESCRIPTION]                  "false"]
+      append rc [::T4X::PROP::MAPPING::createFieldEntry   "ITEMREVISIONTYPE"           "Revision"                   [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_LAST_REV_REC:REVISION]                 "false"]
+      append rc [::T4X::PROP::MAPPING::createFieldEntry   "INVENTORY_ITEM_STATUS_CODE" "Inventory Item Status Code" [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:INVENTORY_ITEM_STATUS_CODE]   "false"]
+      append rc [::T4X::PROP::MAPPING::createFieldEntry   "PRIMARY_UOM_CODE"           "Primary UOM Code"           [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:PRIMARY_UOM_CODE]             "false"]
+      append rc [::T4X::PROP::MAPPING::createFieldEntry   "PRIMARY_UNIT_OF_MEASURE"    "Primary Unit of Measure"    [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:PRIMARY_UNIT_OF_MEASURE]      "false"]
+      append rc [::T4X::PROP::MAPPING::createFieldEntry   "WEIGHT_UOM_CODE"            "Weight UOM"                 [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:WEIGHT_UOM_CODE]              "false"]
+      append rc [::T4X::PROP::MAPPING::createFieldEntry   "UNIT_WEIGHT"                "Weight"                     [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:UNIT_WEIGHT]                  "false"]
+
+      if { [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:ORGANIZATION_CODE] ne $::T4O_Defaults(MASTER_ORG) } {
+        set categoryValue ""
+        set orgCode  [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:ORGANIZATION_CODE]
+        if { [::TPEBS::ITEM::getItemCategoryAssignment $ItemNumber $orgCode] eq "OK" } {
+          foreach row [array names ::ItemCategoryResultDat X_ITEM_CATEGORY_TBL:X_ITEM_CATEGORY_TBL_ITEM:CATEGORY_CODE:*] {
+            set n [lindex [split $row ":"] end]
+            set CSName  $::ItemCategoryResultDat(X_ITEM_CATEGORY_TBL:X_ITEM_CATEGORY_TBL_ITEM:CATEGORY_SET_NAME:$n)
+            set CatCode $::ItemCategoryResultDat(X_ITEM_CATEGORY_TBL:X_ITEM_CATEGORY_TBL_ITEM:CATEGORY_CODE:$n)
+            if { $CSName eq "Item Structure Code" } {
+              set categoryValue $CatCode
+            }
+          }
+        }
+        append rc [::T4X::PROP::MAPPING::createFieldEntry   "STRUCTURE_CODE"   "Structure Code"   $categoryValue    "false"]
+      }
+      #
+      set blnEngItem "false"
+      if { [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:ENG_ITEM_FLAG] eq "Y" } {
+        set blnEngItem "true"
+      }
+      append rc [::T4X::PROP::MAPPING::createFieldEntry   "ENG_ITEM_FLAG"           "Engineering Item"        $blnEngItem     "false"               "checkbox"]
+      #
+      append rc [::T4X::PROP::MAPPING::createSectionEndEntry]
+      #
+      # Create an expandable section for Bill of Material data
+      #
+      #                                                   Section Name    GUI Name          Expanded(true/false) BackgroundColor(optional, R-G-B, from 0-0-0 to 255-255-255)
+      append rc [::T4X::PROP::MAPPING::createSectionEntry "BOM_DATA"      "Bill of Material" "true"]
+      #
+      set blnBomEnabled "false"
+      if { [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:BOM_ENABLED_FLAG] eq "Y" } {
+        set blnBomEnabled "true"
+      }
+      #                                                   EBS Name                  GUI Name                  Value                                                                                    Multiline(true/false)
+      append rc [::T4X::PROP::MAPPING::createFieldEntry   "BOM_ENABLED_FLAG"        "BOM Allowed"             $blnBomEnabled                                                                           "false"               "checkbox"]
+      #
+      set strBomItemType [::T4O::CUSTOM::MAPPING::TOOLBOX::translateBomTypeCode [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:BOM_ITEM_TYPE]]
+      append rc [::T4X::PROP::MAPPING::createFieldEntry   "BOM_ITEM_TYPE"           "BOM Item Type"           $strBomItemType                                                                          "false"]
+      #
+      append rc [::T4X::PROP::MAPPING::createSectionEndEntry]
+      #
+      # Create an expandable section for Order Management data
+      #
+      #                                                   Section Name    GUI Name           Expanded(true/false) BackgroundColor(optional, R-G-B, from 0-0-0 to 255-255-255)
+      append rc [::T4X::PROP::MAPPING::createSectionEntry "ORD_DATA"      "Order Management" "true"]
+      #
+      set QtyOnHand 0
+      set Status [::TPEBS::ITEM::getItemOnHandQuantity $ItemNumber]
+      if { [lindex $Status 0] eq "OK" } {
+        foreach Line [::T4X::CORE::sortIndexedInterfaceTable [array names ::ItemOnHandResultDat X_ITEM_ONHAND_TBL:X_ITEM_ONHAND_TBL_ITEM:ORGANIZATION_CODE:*]] {
+          set LineIndex [lindex [split $Line :] end]
+          set org $::ItemOnHandResultDat(X_ITEM_ONHAND_TBL:X_ITEM_ONHAND_TBL_ITEM:ORGANIZATION_CODE:$LineIndex)
+          set qty $::ItemOnHandResultDat(X_ITEM_ONHAND_TBL:X_ITEM_ONHAND_TBL_ITEM:PRIMARY_TRANSACTION_QUANTITY:$LineIndex)
+          if { $org eq $OrgCode } {
+            set QtyOnHand [expr { $QtyOnHand + $qty }]
+          }
+        }
+      }
+      #                                                   EBS Name                       GUI Name                  Value                                                                                    Multiline(true/false)
+      set blnReplenishToOrder "false"
+      if { [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:REPLENISH_TO_ORDER_FLAG] eq "Y" } {
+        set blnReplenishToOrder "true"
+      }
+      #
+      append rc [::T4X::PROP::MAPPING::createFieldEntry   "PRIMARY_TRANSACTION_QUANTITY" "Qty on Hand in Org"      $QtyOnHand                                                                               "false"]
+      append rc [::T4X::PROP::MAPPING::createFieldEntry   "REPLENISH_TO_ORDER_FLAG"      "Replenish to Order"      $blnReplenishToOrder                                                                     "false"               "checkbox"]
+      #
+      append rc [::T4X::PROP::MAPPING::createSectionEndEntry]
+      #
+      append rc [::T4X::PROP::MAPPING::end page]
+      #
+      # If BOM data, create separate tab for it
+      #
+      set AssyItemId         ""
+      set OrgId              ""
+      set BomId              ""
+      set EffDate            [::T4O::getTimeString4Now]
+      set EffDisplayType     "FUTURE AND CURRENT"
+      set OperationSeqNumber ""
+      set ImpOnly            "TRUE"
+      set Status [::TPEBS::BOM::getBomInfoAll $ItemNumber $OrgCode $Alternate $AssyItemId $OrgId $BomId $EffDate $EffDisplayType $OperationSeqNumber $ImpOnly]
+      if { $Status eq "OK" } {
+        append rc [::T4X::PROP::MAPPING::begin page -id real -title "BOM Data ($OrgCode)"]
+        append rc [prepareSection4BillOfMaterial "Main"]
+        append rc [::T4X::PROP::MAPPING::end page]
+      }
+      #
+      # If routing data, create separate tab for it
+      #
+      set AssyItemId         ""
+      set OrgId              ""
+      set RoutingId          ""
+      set EffDate            [::T4O::getTimeString4Now]
+      set EffDisplayType     "FUTURE AND CURRENT"
+      set ImpOnly            "TRUE"
+      set Status [::TPEBS::RTG::getRoutingInfoAll $ItemNumber $OrgCode $Alternate $AssyItemId $OrgId $RoutingId $EffDate $EffDisplayType $ImpOnly]
+      if { $Status eq "OK" } {
+        append rc [::T4X::PROP::MAPPING::begin page -id real -title "Routing Data ($OrgCode)"]
+        append rc [prepareSection4Routing "Main"]
+        append rc [::T4X::PROP::MAPPING::end page]
+      }
+    }
+    #
+    append rc [::T4X::PROP::MAPPING::createMainEndEntry]
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished with >$rc<"
+    #
+    return $rc
+  }
+}

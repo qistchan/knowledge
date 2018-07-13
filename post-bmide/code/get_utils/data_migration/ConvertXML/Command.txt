@@ -1,0 +1,1 @@
+C:\Amit\code\Checkin>java -jar XMLParserDOM.jar -inTxt="C:\Amit\SIT\Drawing Import Test\ConvertXML\InputDwg.txt" -inXml="C:\Amit\SIT\Drawing Import Test\ConvertXML\xmlFiles\41A224049.xml" -inXsl="C:\Amit\SIT\Drawing Import Test\ConvertXML\start_dwg\Parsexml.xsl" -outFol="C:\Amit\SIT\Drawing Import Test\ConvertXML\TransformedXML"

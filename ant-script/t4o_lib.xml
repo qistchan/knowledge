@@ -1,0 +1,74 @@
+<project name="t4o_lib" default="deploy" >
+    
+    <!--
+     ==============================================================================================================================
+     ===== Use ant contrib
+     ==============================================================================================================================
+     -->
+    <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+    
+    <!--
+     ==============================================================================================================================
+     ===== Set the property for the directory you desire to process and the Info display string
+     ==============================================================================================================================
+     -->
+    
+    <property environment="env"/>
+	<property name="dir.name" value="var/mmap/t4o_mapping_config"/>
+    <property name="info" value="Copy lib directory"/>
+    <property name="base.dir" location="${user.dir}/post-bmide/code/t4x/t4o/t4o_apps"/>
+    <property name="src.dir" location="${base.dir}/${dir.name}"/>
+    <property name="t4o.dir" location="${env.TP_T4XINSTL}"/>
+	<property name="t4o.src.dir" location="${t4o.dir}/var/mmap/t4o_mapping_config"/>
+	<property name="t4o.lib.dest" location="${t4o.dir}/lib"/>
+	<property name="t4o.tmp.dir" location="${t4o.dir}/tmp"/>
+    <property name="t4o.dest" location="${t4o.dir}/${dir.name}"/>
+    <!--
+     ==============================================================================================================================
+     ===== NOTE you must define {src.dir} BEFORE including "common_task.xml"
+     ==============================================================================================================================
+     -->
+    
+    <import file="../common_loop.xml" />
+    <import file="../common_task.xml" />
+    
+    <!--
+     ==============================================================================================================================
+     ===== Initialize ant properties not set elsewhere
+     ==============================================================================================================================
+     -->
+    
+    <target name="init-properties">
+    </target>
+
+    <target name="deploy" depends="common_task , init-properties">
+	  <copy todir="${t4o.src.dir}">
+		<fileset dir="${src.dir}">
+		   <include name="**/*.sd"/>
+		</fileset>
+	  </copy>
+	  <antcall target="build64">
+	  </antcall>
+	 <copy todir="${t4o.lib.dest}">
+		<fileset dir="${t4o.tmp.dir}">
+		   <include name="**/*t4o_mapping_config.rfdt"/>
+		   <include name="**/*t4x_mapping_config.rfdt"/>
+		</fileset>
+	  </copy>
+    </target>
+
+	<target name="build64">
+	  <mmap locn="${t4o.dir}/bin64"/>
+	</target>
+	
+	
+    <!--
+     ==============================================================================================================================
+     ===== clean up after yourself
+     ==============================================================================================================================
+     -->
+    <target name="clean" depends="common_task">
+	    <!-- we really don't do anythign here -->
+    </target>
+    
+</project>

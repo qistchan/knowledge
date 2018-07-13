@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/activation.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/avalon-framework-4.1.5.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/CAE0SoaSimProcStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/CAE0SoaSimProcTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/castor-0.9.4.1-xml.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/com.teamcenter.contmgmtpublish.dc.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/com.teamcenter.contmgmtpublish.util.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/commons-codec.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/commons-httpclient-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/contmgmtpublish_dc.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/contmgmtpublish_util.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/DCCore.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/DCTransSvcs.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/DispatcherClient.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/DispatcherClientTask.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/docmgt_dc_batchprint.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/docmgt_dc_rendermgt.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/fileserver.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/fscclient.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/jacorb.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/jaxb-api.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/jaxb-impl.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/jaxb-xjc.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/jsr173_1.0_api.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/log4j-1.2.13.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/logkit-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/logwriter.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/mail.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/tcgatewaystubs.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/tcgatewaystubs.source.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSimTranslators.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaAdministrationStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaAdministrationTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaCadStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaCadTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaCaeStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaCaeTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaClient.source_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaClient_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaCommon.source_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaCommon_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaContMgmtBaseStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaContMgmtBaseTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaCoreStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaCoreTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaDocumentManagementStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaDocumentManagementTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaGlobalMultiSiteStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaGlobalMultiSiteTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaStrongModel_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaStrongModelContmgmtBase_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaWorkflowStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/TcSoaWorkflowTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/teamcenter_sso_applib.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/teamcenter_sso_common.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/transclient.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Siemens/Dispatcher/DispatcherClient/lib/xerces.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Ads0SoaAdsFoundationLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Ads0SoaAdsFoundationStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Ads0SoaAdsFoundationTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Apb0SoaStrongModelAttrParmBase_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Asp0SoaAspectLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Asp0SoaAspectStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Asp0SoaAspectTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Asp0SoaStrongModelAspect_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Att0SoaAttrTargetMgmtLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Att0SoaAttrTargetMgmtStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Att0SoaAttrTargetMgmtTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Att0SoaStrongModelAttrTargetMgmt_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/avalon-framework-4.1.5.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/CAE0SoaSimProcLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/CAE0SoaSimProcStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/CAE0SoaSimProcTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Cba1SoaCbaExtLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Cba1SoaCbaExtStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Cba1SoaCbaExtTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Cba1SoaStrongModelCbaExt_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Cbm0SoaStrongModelColorBomPmm_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Cdm0SoaContractManagementLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Cdm0SoaContractManagementStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Cdm0SoaContractManagementTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Cfg0SoaConfiguratorLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Cfg0SoaConfiguratorStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Cfg0SoaConfiguratorTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Cfg0SoaStrongModelConfigurator_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Civ0SoaContMgmtS1000D40Loose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Civ0SoaContMgmtS1000D40Strong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Civ0SoaContMgmtS1000D40Types_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Clr0SoaColorAppearanceLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Clr0SoaColorAppearanceStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Clr0SoaColorAppearanceTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Clr0SoaStrongModelColorAppearance_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Clr1SoaStrongModelColorRule_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Cls0SoaClassificationCoreLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Cls0SoaClassificationCoreStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Cls0SoaClassificationCoreTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/com.teamcenter.rac.aif.registryeditor_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/com.teamcenter.rac.aifrcp_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/com.teamcenter.rac.kernel.testing_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/com.teamcenter.rac.kernel_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/com.teamcenter.rac.util.testing_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/com.teamcenter.rac.util_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/commons-codec.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/commons-httpclient-3.1.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/commons-logging.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Cpd0SoaCpdCoreLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Cpd0SoaCpdCoreStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Cpd0SoaCpdCoreTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Crt0SoaStrongModelValidationContract_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Crt0SoaValidationContractLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Crt0SoaValidationContractStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Crt0SoaValidationContractTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Dia0SoaDiagrammingLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Dia0SoaDiagrammingStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Dia0SoaDiagrammingTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Esm0SoaESMBaseLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Esm0SoaESMBaseStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Esm0SoaESMBaseTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/fccclient.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fdp0SoaFourDPlanningLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fdp0SoaFourDPlanningStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fdp0SoaFourDPlanningTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fdp0SoaStrongModelFourDPlanning_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaAuditManagerLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaAuditManagerStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaAuditManagerTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaConfigFilterCriteriaLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaConfigFilterCriteriaStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaConfigFilterCriteriaTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaDiagrammingLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaDiagrammingStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaDiagrammingTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaEditContextLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaEditContextStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaEditContextTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaNotificationLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaNotificationStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaNotificationTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaQualificationLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaQualificationStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaQualificationTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaUiConfigLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaUiConfigStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaUiConfigTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaWProxyLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaWProxyStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Fnd0SoaWProxyTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/fscclient.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/jacorb.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Lbr0SoaLibraryManagementLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Lbr0SoaLibraryManagementStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Lbr0SoaLibraryManagementTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Lgt0SoaLogisticsLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Lgt0SoaLogisticsStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Lgt0SoaLogisticsTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Lgt0SoaStrongModelLogistics_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Lis0SoaLdfLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Lis0SoaLdfStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Lis0SoaLdfTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Lis0SoaStrongModelLdf_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/log4j.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/logkit-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mat1SoaMaterialMgmtLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mat1SoaMaterialMgmtStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mat1SoaMaterialMgmtTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mci0SoaPMIManagementLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mci0SoaPMIManagementStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mci0SoaPMIManagementTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mci0SoaStrongModelPMIManagement_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mdc0SoaMDConnectivityLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mdc0SoaMDConnectivityStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mdc0SoaMDConnectivityTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mdl0SoaModelCoreLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mdl0SoaModelCoreStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mdl0SoaModelCoreTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mdo0SoaMDOManagementLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mdo0SoaMDOManagementStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mdo0SoaMDOManagementTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mdo0SoaStrongModelMdo_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mei0SoaMESIntegLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mei0SoaMESIntegStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mei0SoaMESIntegTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Mei0SoaStrongModelMESInteg_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Nxc0SoaTcinCpdLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Nxc0SoaTcinCpdStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Nxc0SoaTcinCpdTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Ptn0SoaPartitionLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Ptn0SoaPartitionStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Ptn0SoaPartitionTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/resolver.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Rlz0SoaRealizationLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Rlz0SoaRealizationStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Rlz0SoaRealizationTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/SAS0SoaStrongModelServiceAutomatedScheduling_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/SAS0SoaSvcAutoSchedulingLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/SAS0SoaSvcAutoSchedulingStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/SAS0SoaSvcAutoSchedulingTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Sci0SoaIMDSIntegrationLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Sci0SoaIMDSIntegrationStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Sci0SoaIMDSIntegrationTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Scp0SoaSubsCmplLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Scp0SoaSubsCmplStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Scp0SoaSubsCmplTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/SSF0SoaServiceForecastingLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/SSF0SoaServiceForecastingStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/SSF0SoaServiceForecastingTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/SSF0SoaStrongModelServiceForecasting_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/SSS0SoaStrongModelServiceScheduling_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/SSS0SoaSvcSchedulingLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/SSS0SoaSvcSchedulingStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/SSS0SoaSvcSchedulingTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/tcgatewaystubs.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/tcmemjavabinding.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/tcserverjavabinding.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAdministrationLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAdministrationStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAdministrationTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAiLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAiStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAiTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAllocationsLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAllocationsStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAllocationsTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAsbAsmAlignmentLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAsbAsmAlignmentStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAsbAsmAlignmentTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAsBuiltLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAsBuiltStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAsBuiltTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAsMaintainedLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAsMaintainedStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAsMaintainedTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAuthorizedDataAccessLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAuthorizedDataAccessStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaAuthorizedDataAccessTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaBomLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaBomStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaBomTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaBusinessModelerLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaBusinessModelerStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaBusinessModelerTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaCadBomAlignmentLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaCadBomAlignmentStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaCadBomAlignmentTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaCadLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaCadStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaCadTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaCaeLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaCaeStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaCaeTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaCalendarManagementLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaCalendarManagementStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaCalendarManagementTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaChangeManagementLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaChangeManagementStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaChangeManagementTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaClassificationLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaClassificationStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaClassificationTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaClient_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaCommon_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaConfigurationLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaConfigurationStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaConfigurationTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaContMgmtBaseLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaContMgmtBaseStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaContMgmtBaseTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaCoreLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaCoreStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaCoreTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaDocumentManagementLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaDocumentManagementStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaDocumentManagementTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaGlobalMultiSiteLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaGlobalMultiSiteStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaGlobalMultiSiteTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaImportExportLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaImportExportStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaImportExportTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaIssueManagementLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaIssueManagementStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaIssueManagementTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaManufacturingLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaManufacturingStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaManufacturingTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaMESLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaMESStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaMESTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaMROCoreLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaMROCoreStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaMROCoreTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaMultisiteLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaMultisiteStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaMultisiteTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaParameterManagementLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaParameterManagementStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaParameterManagementTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaProductionManagementLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaProductionManagementStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaProductionManagementTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaProjectManagementLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaProjectManagementStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaProjectManagementTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaQueryLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaQueryStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaQueryTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaRdvLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaRdvStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaRdvTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaReportsLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaReportsStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaReportsTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaRequirementsManagementLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaRequirementsManagementStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaRequirementsManagementTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaSrmIntegrationLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaSrmIntegrationStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaSrmIntegrationTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModel_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelAcadGmo_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelAdsChangeManagement_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelAdsFoundation_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelAsBuilt_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelAsMaintained_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelBrndMgmt_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelCba_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelCbaExt_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelCcdm_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelCdm0ContractManagement_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelClassificationCore_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelCm_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelCmtEbop_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelCmtEmserver_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelCmtPadTwp_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelContmgmtBase_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelContmgmtDita_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelContmgmtS1000d_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelContmgmtS1000d40_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelCpdCm_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelCpdCore_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelCpgMaterials_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelDiagramming_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelDpv_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelEdaLibrary_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelEdaServer_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelEmps_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelEsddm_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelEsddmScm_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelEsmBase_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelEsmProcessor_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelEsmSoftware_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelFnshmgmt_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelFpMgmt_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelGmdpv_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelGmo_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelHrn_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelIssueManagement_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelLibraryManagement_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelMaterialMgmt_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelMDConnectivity_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelMES_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelModelCore_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelMROCore_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelPartition_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelPenetrationmgmt_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelPkgArt_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelPlp0ProdLinePlan_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelProductVariant_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelRealization_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelScdt_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelSci0IMDSIntegration_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelScmCc_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelServiceEventManagement_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelServiceProcessing_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelServiceRequest_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelSpecMgr_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelStockMaterial_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelSubsCmpl_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelTcae_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelTransactionProcessing_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelVendorManagement_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelWeldManagement_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStrongModelWorkPackageManagement_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStructureManagementLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStructureManagementStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaStructureManagementTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaSvcProcessingLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaSvcProcessingStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaSvcProcessingTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaSvcRequestLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaSvcRequestStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaSvcRequestTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaSystemsEngineeringLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaSystemsEngineeringStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaSystemsEngineeringTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaTranslationLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaTranslationStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaTranslationTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaVendorManagementLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaVendorManagementStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaVendorManagementTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaVisualizationLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaVisualizationStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaVisualizationTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaWireHarnessLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaWireHarnessStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaWireHarnessTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaWorkflowLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaWorkflowStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/TcSoaWorkflowTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/tctp_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/teamcenter_sso_applib.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/teamcenter_sso_common.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/teamcenter_sso_webtoolkit.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Tm0SoaStrongModelTestManagement_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Tm0SoaTestManagementLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Tm0SoaTestManagementStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/Tm0SoaTestManagementTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/WdM0SoaWeldManagementLoose_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/WdM0SoaWeldManagementStrong_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/WdM0SoaWeldManagementTypes_11000.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/xerces.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/xercesImpl.jar"/>
+	<classpathentry kind="lib" path="C:/SW/Software Dump/Teamcenter/Windows/Tc11.2.0a_win64_1_of_2/soa_client/java/libs/xml-apis.jar"/>
+	<classpathentry kind="lib" path="C:/SW/eclipse/workspace/jar/GETCommon.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

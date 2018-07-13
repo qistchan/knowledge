@@ -1,0 +1,621 @@
+#
+#===================================================
+# Siemens Product Lifecycle Management Software Inc.
+# All Rights Reserved.
+#
+#==================================================
+#
+#
+# Patch to correctly merge alternate BOMs
+#
+#
+# author         ljj, 20180614
+#
+#
+#
+namespace eval ::TPEBS::BOM {
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:        ::TPEBS::BOM::mergeBillOfMaterialComponents
+  # \tpinternal
+  # \brief         Combines the EBSDat array from the mapping with actual data
+  #                from the EBS to update the BOM components
+  #
+  # \author        kh, 20101122
+  #
+  #
+  proc mergeBillOfMaterialComponents { datDisabledDate args } {
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    set LastEBSDatIndex 0
+    set cleanList {} ; # In dieser Liste werden nachher alle Indizes gespeichert, die aus dem EBSDat zu löschen sind...
+    set dictStartEffectiveDate4ComponentsWithTypeUPDATE {}
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "Custom $FunctionName starts with datDisabledDate = >$datDisabledDate<"
+    #
+    # Step 1: Wir müssen doppelte Komponenten entfernen und dafür die Quantity hochdrehen und
+    #         wir berechnen noch den höchsten Index im EBSDat Array, da wir evtl. weiter unten
+    #         noch Einträge an das Array anfügen müssen...
+    #
+    set EBSDatTags {}
+    #
+    foreach Line [array names ::EBSDat Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:*] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      if { $::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:TRANSACTION_TYPE:$LineIndex) eq ""} {
+        set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:TRANSACTION_TYPE:$LineIndex) "CREATE"
+      }
+      #
+      if { $LineIndex > $LastEBSDatIndex } {
+        set LastEBSDatIndex $LineIndex
+      }
+      #
+      # Im folgenden Code berechnen wir die Quantity für "mehr als einmal enthaltene Components", da dies in der
+      # EBS nicht erlaubt ist. Also addieren wir die Quantity aller gleichen Components zusammen und übertragen
+      # diese nur noch einmal an die EBS. Diese Logik kann deaktiviert werden...
+      #
+      if { [info exists ::EBSDat(Bom:CtrlParam:ReCalculateComponentQuantity)] && $::EBSDat(Bom:CtrlParam:ReCalculateComponentQuantity) eq "TRUE" } {
+        #
+        set Component         $::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:$LineIndex)
+        set OperationSequence $::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndex)
+        set EffectivityDate   $::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndex)
+        set Quantity          $::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:QUANTITY_PER_ASSEMBLY:$LineIndex)
+        if {$Quantity == {}}  {set Quantity 0}
+        #
+        set tag [list $Component $OperationSequence $EffectivityDate]
+        #
+        if { [dict exists $EBSDatTags $tag] } {
+          #
+          # Diese Komponente hatten wir also schon mal -> Vormerken zum Löschen und die Quantity aufaddieren...
+          #
+          lappend cleanList $LineIndex
+          lassign [dict get $EBSDatTags $tag] OldQuantity LineIndex
+          set Quantity [expr { $OldQuantity + $Quantity }]
+          #
+          # Die neue Quantity gleich ins EBSDat zurück schreiben (in den ersten gefundenen Index. der im EBSDatTags ja mit hinterlegt wurde)...
+          #
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:QUANTITY_PER_ASSEMBLY:$LineIndex) $Quantity
+        }
+        #
+        # Dem Cache hinzufügen oder Quatitiy updaten
+        #
+        dict set EBSDatTags $tag [list $Quantity $LineIndex]
+      }
+    }
+    unset -nocomplain EBSDatTags
+    #
+    if { [info exists ::EBSDat(Bom:CtrlParam:ReCalculateComponentQuantity)] == 0 || $::EBSDat(Bom:CtrlParam:ReCalculateComponentQuantity) ne "TRUE" } {
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype WARNING "$FunctionName - Bom:CtrlParam:ReCalculateComponentQuantity is deactivated!"
+    }
+    #
+    # Jetzt löschen wir noch alle EBSDat-Einträge, die in dem cleanList gesammelt wurden (deren Quantity wurde oben ja aufsummiert)...
+    #
+    if { [llength $cleanList] > 0 } {
+      foreach Line [array names ::EBSDat Bom:P_BOM_COMPONENT_TBL:*] {
+        set LineList [split $Line :]
+        set LineIndex [lindex $LineList end]
+        #
+        if {[lsearch $cleanList $LineIndex] != -1} {
+          array unset ::EBSDat $Line
+        }
+      }
+    }
+
+    #
+    # Step 2: Die Daten aus der aktuellen BOM in der EBS mit denen des EBSDat Arrays zusammenfügen
+    #
+
+    #
+    # Loop über alle TC BOM Lines, um diese in anderer, besser (schneller) verarbeitbarer Form abzulegen
+    #
+    set EBSDatTags {}
+    #
+    foreach LineTC [array names ::EBSDat Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:*] {
+      set LineListTC [split $LineTC :]
+      set LineIndexTC [lindex $LineListTC end]
+      #
+      set tag {}
+      #
+      # 20151119-kh: Die Key-Attribute für den Merge/Vergleich sind ab jetzt konfigurierbar
+      #
+      foreach strAttribute $::EBSDat(Bom:CtrlParam:AttrList4CompMergeTC) {
+        lappend tag $::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:$strAttribute:$LineIndexTC)
+      }
+      #
+      dict set EBSDatTags $tag $LineIndexTC
+    }
+    #
+    # Loop über alle EBS BOM Lines, um zu prüfen, ob diese Components im EBSDat vorhanden sind...
+    #
+    foreach Line [array names ::BomResultDat X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:*] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      set blnFound "FALSE"
+      #
+      set Component           $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:$LineIndex)
+      set OperationSequence   $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndex)
+      set EffectivityDateFrom $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndex)
+      set OrganizationCode    $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:ORGANIZATION_CODE:$LineIndex)
+      set EffectivityDateTo   $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:DISABLE_DATE:$LineIndex)
+      set AssemblyItemName    $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:ASSEMBLY_ITEM_NAME:$LineIndex)
+      set AlternateBomCode    $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:ALTERNATE_BOM_CODE:$LineIndex)
+      #
+      set tag {}
+      #
+      # 20151119-kh: Die Key-Attribute für den Merge/Vergleich sind ab jetzt konfigurierbar
+      #
+      foreach strAttribute $::EBSDat(Bom:CtrlParam:AttrList4CompMergeEBS) {
+        lappend tag $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:$strAttribute:$LineIndex)
+      }
+      #
+      # Erst mal auf Komponent und Operation Sequence Number prüfen
+      #
+      if { [dict exists $EBSDatTags $tag] } {
+        #
+        # Wenn der tag (also die BOMLine in dem EBSDatTags existiert, dann können wir
+        # darüber nun den Index der BOMLine im EBSDat ermitteln...
+        #
+        set LineIndexTC [dict get $EBSDatTags $tag]
+        #
+        set ComponentTC           $::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:$LineIndexTC)
+        set OperationSequenceTC   $::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndexTC)
+        set EffectivityDateFromTC $::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndexTC)
+        set EffectivityDateToTC   $::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:DISABLE_DATE:$LineIndexTC)
+        #
+        # Jetzt können wir noch auf die Effectivity Dates abprüfen...
+        #
+        set EffectivityDateFromTC_CTime [::T4O::time2CTime $EffectivityDateFromTC]
+        set EffectivityDateFrom_CTime   [::T4O::time2CTime $EffectivityDateFrom]
+        set EffectivityDateToTC_CTime   [::T4O::time2CTime $EffectivityDateToTC]
+        set EffectivityDateTo_CTime     [::T4O::time2CTime $EffectivityDateTo]
+        #
+        if { $EffectivityDateFromTC_CTime >= $EffectivityDateFrom_CTime && ($EffectivityDateTo_CTime eq "-1" || ($EffectivityDateToTC_CTime <= $EffectivityDateTo_CTime))} {
+          #
+          # Gefunden -> Transaction Type auf UPDATE stellen
+          #
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:TRANSACTION_TYPE:$LineIndexTC) "UPDATE"
+          #
+          # Bei einem CHANGE müssen wir uns noch um die OPERATION_SEQUENCE_NUMBER (inkl. NEW_OPERATION_SEQUENCE_NUMBER) kümmern,
+          # da sich diese ja wegen der Funktion AttrList4CompMergeEBS bzw. AttrList4CompMergeTC geändert hat können.
+          # Das machen wir aber nur, wenn TC und EBS an der Stelle unterschiedlich sind und die Werte vom Mapping nicht
+          # schon bestimmt wurden
+          #
+          if { $OperationSequenceTC ne $OperationSequence && $::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:NEW_OPERATION_SEQUENCE_NUMBER:$LineIndexTC) eq "" } {
+            #
+            set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndexTC) $OperationSequence
+            set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:NEW_OPERATION_SEQUENCE_NUMBER:$LineIndexTC) $OperationSequenceTC
+          }
+          #
+          # In diesem Dict werden alle Components und deren altes START_EFFECTIVE_DATE mit TRANSACTION_TYPE UPDATE als Key hinterlegt,
+          # da für diese später noch das START_EFFECTIVE_DATE aller dazugehöriger Substitutes and Reference Designators
+          # geändert werden muss. Die neue START_EFFECTIVE_DATE ist dabei als Value im Dict abgelegt
+          #
+          dict set dictStartEffectiveDate4ComponentsWithTypeUPDATE $ComponentTC$OperationSequenceTC$EffectivityDateFromTC $EffectivityDateFrom
+          #
+          # Bei einem BOM Line Update darf das START_EFFECTIVE_DATE nicht mehr geändert werden!
+          #
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndexTC) $EffectivityDateFrom
+          #
+          set blnFound "TRUE"
+        }
+      }
+      #
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - Component = >$Component< (LineIndex >$LineIndex<) -> blnFound = >$blnFound<"
+      #
+      if { $blnFound eq "FALSE" } {
+        #
+        # EBS BOM Line existiert nicht mehr im TC - zum Löschen vormerken...
+        #
+        incr LastEBSDatIndex
+        #
+        set tmpEBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:$LastEBSDatIndex)       $Component
+        set tmpEBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LastEBSDatIndex) $OperationSequence
+        set tmpEBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ORGANIZATION_CODE:$LastEBSDatIndex)         $OrganizationCode
+        set tmpEBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ASSEMBLY_ITEM_NAME:$LastEBSDatIndex)        $AssemblyItemName
+        set tmpEBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ALTERNATE_BOM_CODE:$LastEBSDatIndex)        $AlternateBomCode
+        set tmpEBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$LastEBSDatIndex)      $EffectivityDateFrom
+        if { $::EBSDat(Bom:CtrlParam:DELETE_GROUP_NAME) ne "" } {
+          #
+          # Mittel Delete Group löschen
+          #
+          set tmpEBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:TRANSACTION_TYPE:$LastEBSDatIndex)          "DELETE"
+          set tmpEBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:DELETE_GROUP_NAME:$LastEBSDatIndex)         $::EBSDat(Bom:CtrlParam:DELETE_GROUP_NAME)
+        } else {
+          #
+          # Mittels Effectivity Date löschen
+          #
+          set tmpEBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:TRANSACTION_TYPE:$LastEBSDatIndex)          "UPDATE"
+          set tmpEBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:DISABLE_DATE:$LastEBSDatIndex)              $datDisabledDate
+        }
+      }
+    }
+    #
+    unset -nocomplain EBSDatTags
+    #
+    # Nachdem wir oben das START_EFFECTIVE_DATE aller Component mit TRANSACTION_TYPE UPDATE geändert haben, müssen
+    # wir noch das entsprechende START_EFFECTIVE_DATE aller Reference Designators und Substitutes anpassen
+    #
+    if { [dict size $dictStartEffectiveDate4ComponentsWithTypeUPDATE] > 0 } {
+      ::TPEBS::BOM::mergeComponentStartEffectiveDate4RefDesAndSubstitutes $dictStartEffectiveDate4ComponentsWithTypeUPDATE
+    }
+    #
+    # Jetzt prüfen wir noch, ob NEW_OPERATION_SEQUENCE_NUMBER für TRANSACTION_TYPE ungleich UPDATE existieren.
+    # Laut Oracle (SR) darf NEW_OPERATION_SEQUENCE_NUMBER nur gesetzt sein, wenn es ein UPDATE ist.
+    #
+    if { $::EBSDat(Bom:CtrlParam:cleanNewOpSeqNo4TrxTypeCreate) eq "TRUE" } {
+      foreach LineTC [array names ::EBSDat Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:*] {
+        set LineListTC [split $LineTC :]
+        set LineIndexTC [lindex $LineListTC end]
+        #
+        set TransactionType $::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:TRANSACTION_TYPE:$LineIndexTC)
+        #
+        if { $TransactionType eq "CREATE" && $::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:NEW_OPERATION_SEQUENCE_NUMBER:$LineIndexTC) ne "" } {
+          #
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:NEW_OPERATION_SEQUENCE_NUMBER:$LineIndexTC) ""
+          #
+          tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype WARNING "$FunctionName - Cleaned NEW_OPERATION_SEQUENCE_NUMBER due to TRANSACTION_TYPE >$TransactionType< for index >$LineIndexTC<!"
+        }
+      }
+    } else {
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype WARNING "$FunctionName - Feature >Clean NEW_OPERATION_SEQUENCE_NUMBER for TRANSACTION_TYPE CREATE< deactivated by config!"
+    }
+    #
+    # Jetzt noch alle zum Löschen markierten Elemente in das EBSDat übernehmen...
+    #
+    foreach Line [array names tmpEBSDat Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:*] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      # Init Structure
+      #
+      ::TPEBS::BOM::initBomStructure_P_BOM_COMPONENT_TBL $LineIndex
+    }
+    #
+    foreach elem [array names tmpEBSDat] {
+      set ::EBSDat($elem) $tmpEBSDat($elem)
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished!"
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:        ::TPEBS::BOM::mergeBillOfMaterialRefDesignators
+  # \tpinternal
+  # \brief         Combines the EBSDat array from the mapping with actual data
+  #                from the EBS to update the BOM Reference Designators
+  #
+  # \author        kh, 20111123
+  #
+  #
+  proc mergeBillOfMaterialRefDesignators { args } {
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    set LastEBSDatIndex 0
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "Custom $FunctionName starts..."
+    #
+    # Wir berechnen noch den höchsten Index im EBSDat Array, da wir evtl. weiter unten noch Einträge an das Array anfügen müssen...
+    #
+    set EBSDatTags {}
+    #
+    foreach Line [array names ::EBSDat Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:REFERENCE_DESIGNATOR_NAME:*] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      # Per Default sind alle EBSDat Ref Designator Lines erst mal mit CREATE gekennzeichnet und werden weiter unten dann entsprechend angepasst.
+      #
+      if { $::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:TRANSACTION_TYPE:$LineIndex) eq "" } {
+        set ::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:TRANSACTION_TYPE:$LineIndex) "CREATE"
+      }
+      #
+      if { $LineIndex > $LastEBSDatIndex } {
+        set LastEBSDatIndex $LineIndex
+      }
+      #
+      # Bei dieser Gelegenheit legen wir gleich noch alle Ref Designators in besser (schneller) verarbeitbarer Form ab...
+      #
+      set tag {}
+      #
+      # 20151119-kh: Die Key-Attribute für den Merge/Vergleich sind ab jetzt konfigurierbar
+      #
+      foreach strAttribute $::EBSDat(Bom:CtrlParam:AttrList4RefDesMergeTC) {
+        lappend tag $::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:$strAttribute:$LineIndex)
+      }
+      #
+      dict set EBSDatTags $tag $LineIndex
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - LastEBSDatIndex = >$LastEBSDatIndex<"
+    #
+    # Jetzt die Daten aus der aktuellen BOM in der EBS mit denen des EBSDat Arrays zusammenfügen
+    #
+    #
+    # Loop über alle EBS Ref Designators, um zu prüfen, ob diese Ref Designators im EBSDat vorhanden sind...
+    #
+    foreach Line [array names ::BomResultDat X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:REFERENCE_DESIGNATOR_NAME:*] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      set blnFound "FALSE"
+      #
+      set AssemblyItemName             $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:ASSEMBLY_ITEM_NAME:$LineIndex)
+      set AlternateBomCode             $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:ALTERNATE_BOM_CODE:$LineIndex)
+      set OrganizationCode             $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:ORGANIZATION_CODE:$LineIndex)
+      set OperationSequence            $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndex)
+      set ReferenceDesignatorName      $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:REFERENCE_DESIGNATOR_NAME:$LineIndex)
+      set ComponentItemId              $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:COMPONENT_ITEM_ID:$LineIndex)
+      set ComponentItemName            $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:COMPONENT_ITEM_NAME:$LineIndex)
+      set ComponentEffectivityDateFrom $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndex)
+      #
+      set tag {}
+      #
+      # 20151119-kh: Die Key-Attribute für den Merge/Vergleich sind ab jetzt konfigurierbar
+      #
+      foreach strAttribute $::EBSDat(Bom:CtrlParam:AttrList4RefDesMergeEBS) {
+        lappend tag $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:$strAttribute:$LineIndex)
+      }
+      #
+      # Auf ReferenceDesignatorName, ComponentItemName, OperationSequence und das ComponentEffectivityDateFrom prüfen
+      #
+      if { [dict exists $EBSDatTags $tag] } {
+        #
+        # Wenn der tag (also die Ref Designator im EBSDatTags existiert, dann können wir
+        # darüber nun den Index der Ref Designator im EBSDat ermitteln...
+        #
+        set LineIndexTC [dict get $EBSDatTags $tag]
+        #
+        # Gefunden -> Transaction Type auf UPDATE stellen
+        #
+        set ::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:TRANSACTION_TYPE:$LineIndexTC) "UPDATE"
+        #
+        set blnFound "TRUE"
+      }
+      #
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - ReferenceDesignatorName = >$ReferenceDesignatorName< (LineIndex >$LineIndex<) -> blnFound = >$blnFound<"
+      #
+      if { $blnFound eq "FALSE" } {
+        #
+        # EBS Reference Designator existiert nicht mehr im TC - zum Löschen vormerken...
+        #
+        incr LastEBSDatIndex
+        #
+        # Löschen...
+        #
+        set tmpEBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:COMPONENT_ITEM_ID:$LastEBSDatIndex)           $ComponentItemId
+        set tmpEBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:COMPONENT_ITEM_NAME:$LastEBSDatIndex)         $ComponentItemName
+        set tmpEBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:START_EFFECTIVE_DATE:$LastEBSDatIndex)        $ComponentEffectivityDateFrom
+        set tmpEBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:REFERENCE_DESIGNATOR_NAME:$LastEBSDatIndex)   $ReferenceDesignatorName
+        set tmpEBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LastEBSDatIndex)   $OperationSequence
+        set tmpEBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:ORGANIZATION_CODE:$LastEBSDatIndex)           $OrganizationCode
+        set tmpEBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:ASSEMBLY_ITEM_NAME:$LastEBSDatIndex)          $AssemblyItemName
+        set tmpEBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:ALTERNATE_BOM_CODE:$LastEBSDatIndex)          $AlternateBomCode
+        set tmpEBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:TRANSACTION_TYPE:$LastEBSDatIndex)            "DELETE"
+      }
+    }
+    #
+    array unset EBSDatTags
+    #
+    # Jetzt noch alle zum Löschen markierten Elemente in das EBSDat übernehmen...
+    #
+    foreach Line [array names tmpEBSDat Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:REFERENCE_DESIGNATOR_NAME:*] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      # Init Structure
+      #
+      ::TPEBS::BOM::initBomStructure_P_BOM_REF_DESIGNATOR_TBL $LineIndex
+    }
+    #
+    foreach elem [array names tmpEBSDat] {
+      set ::EBSDat($elem) $tmpEBSDat($elem)
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished!"
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:        ::TPEBS::BOM::mergeBillOfMaterialSubstitutes
+  # \tpinternal
+  # \brief         Combines the EBSDat array from the mapping with actual data
+  #                from the EBS to update the BOM substitutes
+  #
+  # \author        kh, 20111123
+  #
+  #
+  proc mergeBillOfMaterialSubstitutes { args } {
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    set LastEBSDatIndex 0
+    set cleanList {} ; # In dieser Liste werden nachher alle Indizes gespeichert, die aus dem EBSDat zu löschen sind...
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "Custom $FunctionName starts..."
+    #
+    # Step 1: Wir müssen doppelte Substitutes entfernen und dafür die Quantity hochdrehen und
+    #         wir berechnen noch den höchsten Index im EBSDat Array, da wir evtl. weiter unten
+    #         noch Einträge an das Array anfügen müssen...
+    #
+    set EBSDatTags {}
+    #
+    foreach Line [array names ::EBSDat Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:SUBSTITUTE_COMPONENT_NAME:*] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      # Per Default sind alle EBSDat Operation Lines erst mal mit CREATE gekennzeichnet und werden weiter unten dann entsprechend angepasst.
+      #
+      if { $::EBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:TRANSACTION_TYPE:$LineIndex) eq "" } {
+        set ::EBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:TRANSACTION_TYPE:$LineIndex) "CREATE"
+      }
+      #
+      if { $LineIndex > $LastEBSDatIndex } {
+        set LastEBSDatIndex $LineIndex
+      }
+      #
+      # Im folgenden Code berechnen wir die Quantity für "mehr als einmal enthaltene Substitutes", da dies in der
+      # EBS nicht erlaubt ist. Also addieren wir die Quantity aller gleichen Substitutes zusammen und übertragen
+      # diese nur noch einmal an die EBS. Diese Logik kann deaktiviert werden...
+      #
+      if { [info exists ::EBSDat(Bom:CtrlParam:ReCalculateSubstituteQuantity)] && $::EBSDat(Bom:CtrlParam:ReCalculateSubstituteQuantity) eq "TRUE" } {
+        #
+        set Component         $::EBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:$LineIndex)
+        set Substitute        $::EBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:SUBSTITUTE_COMPONENT_NAME:$LineIndex)
+        set Quantity          $::EBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:SUBSTITUTE_ITEM_QUANTITY:$LineIndex)
+        set OperationSequence $::EBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndex)
+        set EffectivityDate   $::EBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndex)
+        set Quantity          $::EBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:SUBSTITUTE_ITEM_QUANTITY:$LineIndex)
+        if {$Quantity == {}}  {set Quantity 0}
+        #
+        # Die Elemente lesen, mit der die Substitute eindeutig identifizierbar ist
+        #
+        set tag [list $Component $Substitute $OperationSequence $EffectivityDate]
+        #
+        if { [dict exists $EBSDatTags $tag] } {
+          #
+          # Diese Substitute hatten wir also schon mal -> Vormerken zum Löschen und die Quantity aufaddieren...
+          #
+          lappend cleanList $LineIndex
+          lassign [dict get $EBSDatTags $tag] OldQuantity LineIndex
+          set Quantity [expr { $OldQuantity + $Quantity }]
+          #
+          # Die neue Quantity gleich ins EBSDat zurück schreiben (in den ersten gefundenen Index. der im EBSDatTags ja mit hinterlegt wurde)...
+          #
+          set ::EBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:SUBSTITUTE_ITEM_QUANTITY:$LineIndex) $Quantity
+          #
+        }
+        #
+        # Dem Cache hinzufügen oder Quatitiy updaten
+        #
+        dict set EBSDatTags $tag [list $Quantity $LineIndex]
+      }
+    }
+    #
+    if { [info exists ::EBSDat(Bom:CtrlParam:ReCalculateSubstituteQuantity)] == 0 || $::EBSDat(Bom:CtrlParam:ReCalculateSubstituteQuantity) ne "TRUE" } {
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype WARNING "$FunctionName - Bom:CtrlParam:ReCalculateSubstituteQuantity is deactivated!"
+    }
+    #
+    # Jetzt löschen wir noch alle EBSDat-Einträge, die in dem cleanList gesammelt wurden (deren Quantity wurde oben ja aufsummiert)...
+    #
+    if { [llength $cleanList] > 0 } {
+      foreach Line [array names ::EBSDat Bom:P_BOM_SUB_COMPONENT_TBL:*] {
+        set LineList [split $Line :]
+        set LineIndex [lindex $LineList end]
+        #
+        if {[lsearch $cleanList $LineIndex] != -1} {
+          array unset ::EBSDat $Line
+        }
+      }
+    }
+    #
+    # Jetzt die Daten aus der aktuellen BOM in der EBS mit denen des EBSDat Arrays zusammenfügen
+    #
+    set EBSDatTags {}
+    #
+    # Loop über alle EBS Substitutes, um diese in anderer, besser (schneller) verarbeitbarer Form abzulegen
+    #
+    foreach LineTC [array names ::EBSDat Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:SUBSTITUTE_COMPONENT_NAME:*] {
+      set LineListTC [split $LineTC :]
+      set LineIndexTC [lindex $LineListTC end]
+      #
+      set SubstituteComponentNameTC      $::EBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:SUBSTITUTE_COMPONENT_NAME:$LineIndexTC)
+      set ComponentItemNameTC            $::EBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:$LineIndexTC)
+      set OperationSequenceTC            $::EBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndexTC)
+      set ComponentEffectivityDateFromTC $::EBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndexTC)
+      #
+      set tag {}
+      #
+      # 20151119-kh: Die Key-Attribute für den Merge/Vergleich sind ab jetzt konfigurierbar
+      #
+      foreach strAttribute $::EBSDat(Bom:CtrlParam:AttrList4SubstituteMergeTC) {
+        lappend tag $::EBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:$strAttribute:$LineIndexTC)
+      }
+      #
+      dict set EBSDatTags $tag $LineIndexTC
+    }
+    #
+    foreach Line [array names ::BomResultDat X_BOM_SUB_COMPONENT_TBL:X_BOM_SUB_COMPONENT_TBL_ITEM:SUBSTITUTE_COMPONENT_NAME:*] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      set blnFound "FALSE"
+      #
+      set AssemblyItemName             $::BomResultDat(X_BOM_SUB_COMPONENT_TBL:X_BOM_SUB_COMPONENT_TBL_ITEM:ASSEMBLY_ITEM_NAME:$LineIndex)
+      set AlternateBomCode             $::BomResultDat(X_BOM_SUB_COMPONENT_TBL:X_BOM_SUB_COMPONENT_TBL_ITEM:ALTERNATE_BOM_CODE:$LineIndex)
+      set OrganizationCode             $::BomResultDat(X_BOM_SUB_COMPONENT_TBL:X_BOM_SUB_COMPONENT_TBL_ITEM:ORGANIZATION_CODE:$LineIndex)
+      set OperationSequence            $::BomResultDat(X_BOM_SUB_COMPONENT_TBL:X_BOM_SUB_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndex)
+      set SubstituteComponentName      $::BomResultDat(X_BOM_SUB_COMPONENT_TBL:X_BOM_SUB_COMPONENT_TBL_ITEM:SUBSTITUTE_COMPONENT_NAME:$LineIndex)
+      set ComponentItemId              $::BomResultDat(X_BOM_SUB_COMPONENT_TBL:X_BOM_SUB_COMPONENT_TBL_ITEM:COMPONENT_ITEM_ID:$LineIndex)
+      set ComponentItemName            $::BomResultDat(X_BOM_SUB_COMPONENT_TBL:X_BOM_SUB_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:$LineIndex)
+      set ComponentEffectivityDateFrom $::BomResultDat(X_BOM_SUB_COMPONENT_TBL:X_BOM_SUB_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndex)
+      #
+      set tag {}
+      #
+      # 20151119-kh: Die Key-Attribute für den Merge/Vergleich sind ab jetzt konfigurierbar
+      #
+      foreach strAttribute $::EBSDat(Bom:CtrlParam:AttrList4SubstituteMergeEBS) {
+        lappend tag $::BomResultDat(X_BOM_SUB_COMPONENT_TBL:X_BOM_SUB_COMPONENT_TBL_ITEM:$strAttribute:$LineIndex)
+      }
+      #
+      # Erst mal auf SubstituteComponentName, ComponentItemName, OperationSequenceNumber und das ComponentEffectivityDateFrom prüfen
+      #
+      if { [dict exists $EBSDatTags $tag] } {
+        #
+        # Wenn der tag (also die BOMLine in dem EBSDatTags existiert, dann können wir
+        # darüber nun den Index der BOMLine im EBSDat ermitteln...
+        #
+        set LineIndexTC [dict get $EBSDatTags $tag]
+        #
+        # Gefunden -> Transaction Type auf UPDATE stellen
+        #
+        set ::EBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:TRANSACTION_TYPE:$LineIndexTC) "UPDATE"
+        #
+        set blnFound "TRUE"
+      }
+      #
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - SubstituteComponentName = >$SubstituteComponentName< (LineIndex >$LineIndex<) -> blnFound = >$blnFound<"
+      #
+      if { $blnFound eq "FALSE" } {
+        #
+        # EBS Substitute existiert nicht mehr im TC - zum Löschen vormerken...
+        #
+        incr LastEBSDatIndex
+        #
+        # Löschen...
+        #
+        set tmpEBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:COMPONENT_ITEM_ID:$LastEBSDatIndex)           $ComponentItemId
+        set tmpEBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:$LastEBSDatIndex)         $ComponentItemName
+        set tmpEBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$LastEBSDatIndex)        $ComponentEffectivityDateFrom
+        set tmpEBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:SUBSTITUTE_COMPONENT_NAME:$LastEBSDatIndex)   $SubstituteComponentName
+        set tmpEBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LastEBSDatIndex)   $OperationSequence
+        set tmpEBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:ORGANIZATION_CODE:$LastEBSDatIndex)           $OrganizationCode
+        set tmpEBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:ASSEMBLY_ITEM_NAME:$LastEBSDatIndex)          $AssemblyItemName
+        set tmpEBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:ALTERNATE_BOM_CODE:$LastEBSDatIndex)          $AlternateBomCode
+        set tmpEBSDat(Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:TRANSACTION_TYPE:$LastEBSDatIndex)            "DELETE"
+      }
+    }
+    #
+    unset -nocomplain EBSDatTags
+    #
+    # Jetzt noch alle zum Löschen markierten Elemente in das EBSDat übernehmen...
+    #
+    foreach Line [array names tmpEBSDat Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM:SUBSTITUTE_COMPONENT_NAME:*] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      # Init Structure
+      #
+      ::TPEBS::BOM::initBomStructure_P_BOM_SUB_COMPONENT_TBL $LineIndex
+    }
+    #
+    foreach elem [array names tmpEBSDat] {
+      set ::EBSDat($elem) $tmpEBSDat($elem)
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished!"
+  }
+##
+# Ende tpinternal
+}

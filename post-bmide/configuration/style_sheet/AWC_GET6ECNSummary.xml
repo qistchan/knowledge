@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+=================================================================================
+Copyright 2014.
+Siemens Product Lifecycle Management Software Inc.
+All Rights Reserved.
+=================================================================================
+     Filename: Cm1ChangeItemSummary.xml
+
+    Style sheet rendering for ChangeItem summary when Change Management is installed.
+=================================================================================
+-->
+<rendering xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XMLRenderingStylesheet_Schema.xsd">
+    <header>
+        <image source="thumbnail"/>
+        <classificationTrace/>
+        <property name="owning_user"/>
+        <property name="last_mod_date"/>
+        <property name="release_status_list"/>
+        <property name="object_type"/>
+    </header>
+    <page titleKey="tc_xrt_Overview">
+        <column>
+            <section titleKey="tc_xrt_ItemProperties">
+                <property name="ip_classification"/>
+				<separator/>
+                <property name="owning_user" renderingHint="objectlink" modifiable="false"/>
+                <property name="owning_group" renderingHint="objectlink" modifiable="false"/>
+                <property name="last_mod_user"/>
+                <separator/>
+                <property name="checked_out"/>
+                <property name="checked_out_user"/>
+                <separator/>
+                <command commandId="com.teamcenter.rac.properties" titleKey="tc_xrt_moreProperties"/>
+            </section>
+            <section titleKey="revision_list">
+            	<label textKey="NOTE: Please use the slider to see additional revision information"/>
+                <objectSet source="revision_list.ItemRevision" defaultdisplay="tableDisplay" sortdirection="descending" sortby="item_revision_id">
+                    <tableDisplay>
+                        <property name="object_string"/>
+                        <property name="item_revision_id"/>
+                        <property name="release_status_list"/>
+                        <property name="date_released"/>
+                        <property name="owning_user"/>
+                    </tableDisplay>
+                    <thumbnailDisplay/>
+                    <treeDisplay>
+                        <property name="object_string"/>
+                        <property name="item_revision_id"/>
+                        <property name="release_status_list"/>
+                        <property name="date_released"/>
+                        <property name="owning_user"/>
+                    </treeDisplay>
+                    <listDisplay/>
+                </objectSet>
+            </section>
+            
+        </column>
+        <column>
+            <section titleKey="tc_xrt_actions" commandLayout="vertical">
+                <command actionKey="copyAction" commandId="com.teamcenter.rac.copy"/>
+            </section>
+        </column>
+    </page>
+    <page titleKey="tc_xrt_AttachedFiles">
+        <objectSet source="IMAN_reference.Dataset,IMAN_manifestation.Dataset,IMAN_Rendering.Dataset" defaultdisplay="tableDisplay" sortby="object_string" sortdirection="ascending">
+            <tableDisplay>
+                <property name="object_string"/>
+                <property name="release_status_list"/>
+                <property name="relation"/>
+                <property name="last_mod_date"/>
+                <property name="last_mod_user"/>
+                <property name="checked_out_user"/>
+            </tableDisplay>
+            <thumbnailDisplay/>
+            <treeDisplay>
+                <property name="object_string"/>
+                <property name="release_status_list"/>
+                <property name="relation"/>
+                <property name="last_mod_date"/>
+                <property name="last_mod_user"/>
+                <property name="checked_out_user"/>
+            </treeDisplay>
+            <listDisplay/>
+            <command actionKey="newBusinessObjectContextualAction" commandId="com.teamcenter.rac.common.AddNew" renderingHint="commandbutton"/>
+            <command actionKey="pasteAction" commandId="com.teamcenter.rac.viewer.pastewithContext" renderingHint="commandbutton"/>
+            <command actionKey="cutAction" commandId="org.eclipse.ui.edit.cut" renderingHint="commandbutton">
+                <parameter name="localSelection" value="true"/>
+            </command>
+        </objectSet>
+    </page>
+    
+</rendering>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TcBusinessDataLocalization xmlns="http://teamcenter.com/BusinessModel/TcBusinessDataLocalization"
+    Date="">
+<Add>
+   <key locale="en_US" id="BusinessObject{::}GET9FnctLvlMasterS" status="Approved">GET Functional Level Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET9FnctLvlMaster" status="Approved">GET Functional Level Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET9FnctLvlRevMasterS" status="Approved">GET Functional Level Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET9FnctLvlRevisionMaster" status="Approved">GET Functional Level Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET9FnctLvlRevision" status="Approved">GET Functional Level Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET9FnctLvl" status="Approved">GET Functional Level</key>
+   <key locale="en_US" id="BusinessObject{::}GET9SCNMasterS" status="Approved">Service Change Notice Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET9SCNMaster" status="Approved">Service Change Notice Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET9SCNRevMasterS" status="Approved">Service Change Notice Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET9SCNRevisionMaster" status="Approved">Service Change Notice Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET9SCNRevision" status="Approved">Service Change Notice Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET9SCN" status="Approved">Service Change Notice</key>
+   <key locale="en_US" id="BusinessObject{::}GET9SerAttrFormStorage" status="Approved">GET9SerAttrFormStorage</key>
+   <key locale="en_US" id="BusinessObject{::}GET9SerAttrForm" status="Approved">GET Service Form</key>
+   <key locale="en_US" id="BusinessObject{::}GET9ServFormAtt" status="Approved">Has Service Form</key>
+   <key locale="en_US" id="BusinessObject{::}GET9SrvPartMasterS" status="Approved">GET Service Part Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET9SrvPartMaster" status="Approved">GET Service Part Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET9SrvPartRevMasterS" status="Approved">GET Service Part Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET9SrvPartRevisionMaster" status="Approved">GET Service Part Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET9SrvPartRevision" status="Approved">GET Service Part Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET9SrvPart" status="Approved">GET Service Part</key>
+   <key locale="en_US" id="BusinessObject{::}GET9ZnlLvlMasterS" status="Approved">GET Zonal Level Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET9ZnlLvlMaster" status="Approved">GET Zonal Level Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET9ZnlLvlRevMasterS" status="Approved">GET Zonal Level Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET9ZnlLvlRevisionMaster" status="Approved">GET Zonal Level Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET9ZnlLvlRevision" status="Approved">GET Zonal Level Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET9ZnlLvl" status="Approved">GET Zonal Level</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGPRODLINE{::}Services" status="Approved">Services</key>
+   <key locale="en_US" id="Property{::}BOMLine{::}get9CatalogNo" status="Approved">Catalog No</key>
+   <key locale="en_US" id="Property{::}BOMLine{::}get9ComponentID" status="Approved">Component ID</key>
+   <key locale="en_US" id="Property{::}BOMLine{::}get9HasServiceForm" status="Approved">Has Service Form</key>
+   <key locale="en_US" id="Property{::}GET9SCNRevision{::}get6ECNEngrDisp" status="Approved">Service Material Disposition</key>
+   <key locale="en_US" id="Property{::}GET9SCNRevision{::}get9SCNCustomers" status="Approved">Customers Affected</key>
+   <key locale="en_US" id="Property{::}GET9SCNRevision{::}get9SCNFMI" status="Approved">FMI</key>
+   <key locale="en_US" id="Property{::}GET9SCNRevision{::}get9SCNFleet" status="Approved">Fleet Affected</key>
+   <key locale="en_US" id="Property{::}GET9SCNRevision{::}get9SCNReliability" status="Approved">Reliability</key>
+   <key locale="en_US" id="Property{::}GET9SCNRevision{::}get9SCNSafety" status="Approved">Safety</key>
+   <key locale="en_US" id="Property{::}GET9SCNRevision{::}item_id" status="Approved">SCN Number</key>
+   <key locale="en_US" id="Property{::}GET9SCN{::}item_id" status="Approved">SCN Number</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrFormStorage{::}get9CatalogNo" status="Approved">Catalog No</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrFormStorage{::}get9ComponentID"
+       status="Approved">Component ID</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrFormStorage{::}get9EngineFamily"
+       status="Approved">Engine Family</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrFormStorage{::}get9HasServiceForm"
+       status="Approved">Has Service Form</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrFormStorage{::}get9PositionTracked"
+       status="Approved">Position Tracked</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrFormStorage{::}get9Repairable" status="Approved">Repairable</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrFormStorage{::}get9Serialized" status="Approved">Serialized</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrFormStorage{::}get9ServiceItemType"
+       status="Approved">Service Item Type</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrFormStorage{::}get9Serviceable"
+       status="Approved">Serviceable</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrFormStorage{::}get9TierType" status="Approved">Tier Type</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrForm{::}get9CatalogNo" status="Approved">Catalog No</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrForm{::}get9ComponentID" status="Approved">Component ID</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrForm{::}get9EngineFamily" status="Approved">Engine Family</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrForm{::}get9HasServiceForm" status="Approved">Has Service Form</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrForm{::}get9ParentID" status="Approved">Parent ID</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrForm{::}get9PositionTracked" status="Approved">Position Tracked</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrForm{::}get9Repairable" status="Approved">Repairable</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrForm{::}get9Serialized" status="Approved">Serialized</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrForm{::}get9ServiceItemType" status="Approved">Service Item Type</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrForm{::}get9Serviceable" status="Approved">Serviceable</key>
+   <key locale="en_US" id="Property{::}GET9SerAttrForm{::}get9TierType" status="Approved">Tier Type</key>
+</Add>
+</TcBusinessDataLocalization>

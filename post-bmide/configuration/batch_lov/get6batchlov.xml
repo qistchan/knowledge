@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<TcBusinessData xmlns="http://teamcenter.com/BusinessModel/TcBusinessData" batchXSDVersion="1.0" Date="Wed Oct 12 10:33:06 AM 2016">
+<Add>
+   <TcLOVValueSubLOVAttach targetLOVName="GET6GROUP_PROJECT_LOV" targetValue="Digital Engineering"
+       subLOVName="GET6DIGITALTECH_PROJECTS_SUBLOV" conditionName="isTrue"/>
+   <TcLOVValueSubLOVAttach targetLOVName="GET6GROUP_PROJECT_LOV" targetValue="Electrical COE"
+       subLOVName="GET6ELECTRICAL_PROJECTS_SUBLOV" conditionName="isTrue"/>
+   <TcLOVValueSubLOVAttach targetLOVName="GET6GROUP_PROJECT_LOV" targetValue="Engine"
+       subLOVName="GET6ENGINE_PROJECTS_SUBLOV" conditionName="isTrue"/>
+   <TcLOVValueSubLOVAttach targetLOVName="GET6GROUP_PROJECT_LOV" targetValue="Engineering Admin"
+       subLOVName="GET6ENGGADMIN_PROJECTS_SUBLOV" conditionName="isTrue"/>
+   <TcLOVValueSubLOVAttach targetLOVName="GET6GROUP_PROJECT_LOV" targetValue="GETSA Engineering"
+       subLOVName="GET6GETSA_PROJECTS_SUBLOV" conditionName="isTrue"/>
+   <TcLOVValueSubLOVAttach targetLOVName="GET6GROUP_PROJECT_LOV" targetValue="Mechanical COE"
+       subLOVName="GET6MECHANICAL_PROJECTS_SUBLOV" conditionName="isTrue"/>
+   <TcLOVValueSubLOVAttach targetLOVName="GET6GROUP_PROJECT_LOV" targetValue="Off Highway Vehicle (OHV)"
+       subLOVName="GET6OHV_PROJECTS_SUBLOV" conditionName="isTrue"/>
+   <TcLOVValueSubLOVAttach targetLOVName="GET6GROUP_PROJECT_LOV" targetValue="Principal Engineering"
+       subLOVName="GET6PRINCIPALENG_PROJECTS_SUBLOV" conditionName="isTrue"/>
+   <TcLOVValueSubLOVAttach targetLOVName="GET6GROUP_PROJECT_LOV" targetValue="Propulsion"
+       subLOVName="GET6PROPULSION_PROJECTS_SUBLOV" conditionName="isTrue"/>
+   <TcLOVValueSubLOVAttach targetLOVName="GET6GROUP_PROJECT_LOV" targetValue="Services Technologies"
+       subLOVName="GET6SERVICES_PROJECTS_SUBLOV" conditionName="isTrue"/>
+   <TcLOVValueSubLOVAttach targetLOVName="GET6GROUP_PROJECT_LOV" targetValue="Software"
+       subLOVName="GET6SOFTWARE_PROJECTS_SUBLOV" conditionName="isTrue"/>
+   <TcLOVValueSubLOVAttach targetLOVName="GET6GROUP_PROJECT_LOV" targetValue="Technical Publications"
+       subLOVName="GET6TECHNICAL_PROJECTS_SUBLOV" conditionName="isTrue"/>
+   <TcLOVValueSubLOVAttach targetLOVName="GET6GROUP_PROJECT_LOV" targetValue="Transportation Systems"
+       subLOVName="GET6TRANSSYSTEMS_PROJECTS_SUBLOV" conditionName="isTrue"/>
+   <TcLOVValueSubLOVAttach targetLOVName="GET6GROUP_PROJECT_LOV" targetValue="Underground Mining"
+       subLOVName="GET6MINING_PROJECTS_SUBLOV" conditionName="isTrue"/>
+</Add>
+<Change>
+   	<TcLOV name="GET6DISPOSITION_LOV" lovType="ListOfValuesString" usage="Exhaustive"
+        description="" isManagedExternally="true">
+      <TcLOVValue value="Use Existing Inventory" description="" conditionName="isTrue"/>
+      <TcLOVValue value="Scrap Existing Inventory" description="" conditionName="isTrue"/>
+    </TcLOV>
+	<TcLOV name="GET6PRIMARY_REASON_LOV" lovType="ListOfValuesString" usage="Exhaustive"
+        description="" isManagedExternally="true">
+      <TcLOVValue value="Part Obsolescence" description="" conditionName="isTrue"/>
+      <TcLOVValue value="Reliability" description="" conditionName="isTrue"/>
+      <TcLOVValue value="Productivity" description="" conditionName="isTrue"/>
+      <TcLOVValue value="Safety/Compliance" description="" conditionName="isTrue"/>
+      <TcLOVValue value="Material" description="" conditionName="isTrue"/>
+      <TcLOVValue value="Tooling" description="" conditionName="isTrue"/>
+      <TcLOVValue value="Other" description="" conditionName="isTrue"/>
+      <TcLOVValue value="NA" description="" conditionName="isTrue"/>
+    </TcLOV>
+   <TcLOV name="GET6GROUP_PROJECT_LOV" lovType="ListOfValuesString" usage="Exhaustive"
+       description="Group - Projects List" isManagedExternally="true">
+     <TcLOVValue value="Digital Engineering" description="" conditionName="isTrue"/>
+     <TcLOVValue value="Electrical COE" description="" conditionName="isTrue"/>
+     <TcLOVValue value="Engine" description="" conditionName="isTrue"/>
+     <TcLOVValue value="Engineering Admin" description="" conditionName="isTrue"/>
+     <TcLOVValue value="GETSA Engineering" description="" conditionName="isTrue"/>
+     <TcLOVValue value="Mechanical COE" description="" conditionName="isTrue"/>
+     <TcLOVValue value="Off Highway Vehicle (OHV)" description="" conditionName="isTrue"/>
+     <TcLOVValue value="Principal Engineering" description="" conditionName="isTrue"/>
+     <TcLOVValue value="Propulsion" description="" conditionName="isTrue"/>
+     <TcLOVValue value="Services Technologies" description="" conditionName="isTrue"/>
+     <TcLOVValue value="Software" description="" conditionName="isTrue"/>
+     <TcLOVValue value="Technical Publications" description="" conditionName="isTrue"/>
+     <TcLOVValue value="Transportation Systems" description="" conditionName="isTrue"/>
+     <TcLOVValue value="Underground Mining" description="" conditionName="isTrue"/>
+   </TcLOV>
+   <TcLOV name="GET6DIGITALTECH_PROJECTS_SUBLOV" lovType="ListOfValuesString" usage="Exhaustive"
+       description="Digital Technology Group - Projects List" isManagedExternally="true">
+     <TcLOVValue value="TSEAFE" description="Digital Applications and Tools -38183"
+         conditionName="isTrue"/>
+     <TcLOVValue value="TSEAFF" description="Digital Transformation -38184" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAFG" description="Digital Consumption -38186" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAFH" description="Digital Technology Administration -38189"
+         conditionName="isTrue"/>
+   </TcLOV>
+   <TcLOV name="GET6ELECTRICAL_PROJECTS_SUBLOV" lovType="ListOfValuesString" usage="Exhaustive"
+       description="Electrical COE Group - Projects List" isManagedExternally="true">
+     <TcLOVValue value="TSEADA" description="Electrical COE Admin US -38800" conditionName="isTrue"/>
+     <TcLOVValue value="TSEADB" description="Electrical COE Admin India -38860" conditionName="isTrue"/>
+     <TcLOVValue value="TSEADF" description="Train Control -38790" conditionName="isTrue"/>
+     <TcLOVValue value="TSEADG" description="Drives Control -38831" conditionName="isTrue"/>
+     <TcLOVValue value="TSEADH" description="Train Control-EDDC-38863" conditionName="isTrue"/>
+     <TcLOVValue value="TSEADI" description="Drives Control-EDDC-38864" conditionName="isTrue"/>
+     <TcLOVValue value="TSEADT" description="Electrical Packaging -38825" conditionName="isTrue"/>
+     <TcLOVValue value="TSEADX" description="Controls Simulation Modeling -38835"
+         conditionName="isTrue"/>
+     <TcLOVValue value="TSEADY" description="Control Systems Admin -38850" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAEA" description="Control Systems TR AUX-38851" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAEB" description="Loco Engine Control -38852" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAEC" description="Control Systems Infrastructure-38853"
+         conditionName="isTrue"/>
+     <TcLOVValue value="TSEAED" description="Control Systems TR, AUX EDDC-38861" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAEE" description="Control Systems M and S, VCEDDC-38862"
+         conditionName="isTrue"/>
+     <TcLOVValue value="TSEAEF" description="Control Simulation Modeling EDDC-38865"
+         conditionName="isTrue"/>
+     <TcLOVValue value="TSEAEH" description="Electronics CTC -38840" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAEI" description="Hardware and Devices -38880" conditionName="isTrue"/>
+   </TcLOV>
+   <TcLOV name="GET6ENGGADMIN_PROJECTS_SUBLOV" lovType="ListOfValuesString" usage="Exhaustive"
+       description="Engineering Admin Group - Projects List" isManagedExternally="true">
+     <TcLOVValue value="TSEAAA" description="Administration -38000" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAB" description="Engineering Operation Management -38032"
+         conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAC" description="Product Cost Innovation -38310" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAG" description="India Core -48000" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAI" description="China Engineering -48400" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAJ" description="Russia ETEC -48600" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAK" description="Loco Reliability -38666" conditionName="isTrue"/>
+   </TcLOV>
+   <TcLOV name="GET6ENGINE_PROJECTS_SUBLOV" lovType="ListOfValuesString" usage="Exhaustive"
+       description="Engine Group - Projects List" isManagedExternally="true">
+     <TcLOVValue value="TSEACM" description="Engine Section Mgr and System Leaders -38780"
+         conditionName="isTrue"/>
+     <TcLOVValue value="TSEACN" description="M and S -38010" conditionName="isTrue"/>
+     <TcLOVValue value="TSEACO" description="Analysis -38110" conditionName="isTrue"/>
+     <TcLOVValue value="TSEACP" description="Engine Mechanical System -38781" conditionName="isTrue"/>
+     <TcLOVValue value="TSEACQ" description="Engine Factory Support and Cost -38782"
+         conditionName="isTrue"/>
+     <TcLOVValue value="TSEACR" description="Engine Components -India-38783" conditionName="isTrue"/>
+     <TcLOVValue value="TSEACS" description="Mechanical Design and Reliability -38786"
+         conditionName="isTrue"/>
+     <TcLOVValue value="TSEACT" description="Turbocharger -38789" conditionName="isTrue"/>
+     <TcLOVValue value="TSEACV" description="Fuel Systems -38012" conditionName="isTrue"/>
+     <TcLOVValue value="TSEACW" description="Quality and Validation -38784" conditionName="isTrue"/>
+     <TcLOVValue value="TSEACX" description="Engine Performance-Emissions -38785"
+         conditionName="isTrue"/>
+     <TcLOVValue value="TSEACY" description="Engine Cooling and Lubrication -38787"
+         conditionName="isTrue"/>
+   </TcLOV>
+   <TcLOV name="GET6GETSA_PROJECTS_SUBLOV" lovType="ListOfValuesString" usage="Exhaustive"
+       description="GETSA Engineering Group - Projects List" isManagedExternally="true">
+     <TcLOVValue value="TSEAFI" description="GETSA - Engineering Project Structure (40403)"
+         conditionName="isTrue"/>
+     <TcLOVValue value="TSEAFJ" description="GETSA - General Engineering RTS (40505)"
+         conditionName="isTrue"/>
+     <TcLOVValue value="TSEAFK" description="GETSA-Dual Fuel Engineering (03670)"
+         conditionName="isTrue"/>
+   </TcLOV>
+   <TcLOV name="GET6MECHANICAL_PROJECTS_SUBLOV" lovType="ListOfValuesString" usage="Exhaustive"
+       description="Mechanical COE Group - Projects List" isManagedExternally="true">
+     <TcLOVValue value="TSEABR" description="Mechanical Engineering Technology Admin -38301"
+         conditionName="isTrue"/>
+     <TcLOVValue value="TSEABS" description="Mechanical Systems Admin -38180" conditionName="isTrue"/>
+     <TcLOVValue value="TSEABU" description="Truck Design -38640" conditionName="isTrue"/>
+     <TcLOVValue value="TSEABV" description="Cabs and Structures Eng -38610" conditionName="isTrue"/>
+     <TcLOVValue value="TSEABW" description="Platform Engineering -38910" conditionName="isTrue"/>
+     <TcLOVValue value="TSEADS" description="Comp Air and Ventilation -38182" conditionName="isTrue"/>
+   </TcLOV>
+   <TcLOV name="GET6MINING_PROJECTS_SUBLOV" lovType="ListOfValuesString" usage="Exhaustive"
+       description="Underground Mining - Projects List" isManagedExternally="true">
+	 <TcLOVValue value="TSEABG" description="EDDC Mining Systems -38988" conditionName="isTrue"/>
+     <TcLOVValue value="TSEABH" description="Fairchild Technical Design -38992" conditionName="isTrue"/>
+     <TcLOVValue value="TSEABI" description="IME Technical Design -38993" conditionName="isTrue"/>
+     <TcLOVValue value="TSEABJ" description="IMT Technical Design -38994" conditionName="isTrue"/>
+     <TcLOVValue value="TSEABK" description="Underground Mining Systems Engineering -38995" conditionName="isTrue"/>
+     <TcLOVValue value="TSEABL" description="Fairchild Equipment Engineering -38996" conditionName="isTrue"/>
+     <TcLOVValue value="TSEABM" description="IME Engineering -38997" conditionName="isTrue"/>
+     <TcLOVValue value="TSEABN" description="IMT Engineering -38998" conditionName="isTrue"/>
+     <TcLOVValue value="TSEABP" description="Underground Propulsion Systems -38999" conditionName="isTrue"/>
+   </TcLOV>
+   <TcLOV name="GET6OHV_PROJECTS_SUBLOV" lovType="ListOfValuesString" usage="Exhaustive"
+       description="OHV Group - Projects List" isManagedExternally="true">
+     <TcLOVValue value="TSEABE" description="OHV Systems -38980" conditionName="isTrue"/>
+     <TcLOVValue value="TSEABF" description="OHV Advanced Tech -38984" conditionName="isTrue"/>
+   </TcLOV>
+   <TcLOV name="GET6PRINCIPALENG_PROJECTS_SUBLOV" lovType="ListOfValuesString" usage="Exhaustive"
+       description="Principal Engineering Group - Projects List" isManagedExternally="true">
+     <TcLOVValue value="TSEAAD" description="Safety and Compliance -38130" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAE" description="Principal Engineers -38400" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAF" description="Cyber Product Security -38401" conditionName="isTrue"/>
+   </TcLOV>
+   <TcLOV name="GET6PROPULSION_PROJECTS_SUBLOV" lovType="ListOfValuesString" usage="Exhaustive"
+       description="Propulsion Group - Projects List" isManagedExternally="true">
+     <TcLOVValue value="TSEABQ" description="Mechanical Drives Admin -38031" conditionName="isTrue"/>
+     <TcLOVValue value="TSEABT" description="Drive Train -38033" conditionName="isTrue"/>
+     <TcLOVValue value="TSEADR" description="Mechanical Propulsion -38032" conditionName="isTrue"/>
+     <TcLOVValue value="TSEADU" description="Electrical Propulsion -38830" conditionName="isTrue"/>
+   </TcLOV>
+   <TcLOV name="GET6SERVICES_PROJECTS_SUBLOV" lovType="ListOfValuesString" usage="Exhaustive"
+       description="Services Technologies Group - Projects List" isManagedExternally="true">
+     <TcLOVValue value="TSEACK" description="Services Technology Engineering -38754"
+         conditionName="isTrue"/>
+     <TcLOVValue value="TSEACL" description="Services Reliability -38758" conditionName="isTrue"/>
+   </TcLOV>
+   <TcLOV name="GET6SOFTWARE_PROJECTS_SUBLOV" lovType="ListOfValuesString" usage="Exhaustive"
+       description="Software Group - Projects List" isManagedExternally="true">
+     <TcLOVValue value="TSEADO" description="Heavy Haul Control Software -38821" conditionName="isTrue"/>
+     <TcLOVValue value="TSEADP" description="Trip Optimizer Software -38822" conditionName="isTrue"/>
+     <TcLOVValue value="TSEADQ" description="VSPD and Panel Software -38823" conditionName="isTrue"/>
+   </TcLOV>
+   <TcLOV name="GET6TECHNICAL_PROJECTS_SUBLOV" lovType="ListOfValuesString" usage="Exhaustive"
+       description="Technical Publications Group - Projects List" isManagedExternally="true">
+     <TcLOVValue value="TSEABY" description="Technical Publications -38530" conditionName="isTrue"/>
+   </TcLOV>
+   <TcLOV name="GET6TRANSSYSTEMS_PROJECTS_SUBLOV" lovType="ListOfValuesString" usage="Exhaustive"
+       description="Transportation Systems Group - Projects List" isManagedExternally="true">
+     <TcLOVValue value="TSEAAM" description="Transportation Systems Admin -38100"
+         conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAN" description="Services NPI Solutions -38185" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAO" description="Loco Mods and Kits -38105" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAP" description="Global Loco Systems -38170" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAQ" description="Global Loco Systems and Electrical Integration -38171"
+         conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAR" description="Mods, PH, and CIS Systems Engineering -38175"
+         conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAS" description="Systems Engineering -38985" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAT" description="NA Legacy Loco Systems -38060" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAU" description="Aftermarket Technology -38085" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAV" description="Loco Systems North America -38120" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAW" description="Loco Systems Electrical Integration -38331"
+         conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAX" description="Loco DFMA Factory Support -38150" conditionName="isTrue"/>
+     <TcLOVValue value="TSEAAY" description="Configuration Control -38520" conditionName="isTrue"/>
+     <TcLOVValue value="TSEABA" description="Tier 4 Execution Systems -38125" conditionName="isTrue"/>
+     <TcLOVValue value="TSEABB" description="Loco Systems Technology Admin -38755"
+         conditionName="isTrue"/>
+     <TcLOVValue value="TSEABC" description="Loco Systems Modeling -38756" conditionName="isTrue"/>
+     <TcLOVValue value="TSEABD" description="Proposals -38759" conditionName="isTrue"/>
+   </TcLOV>
+</Change>
+</TcBusinessData>

@@ -1,0 +1,1 @@
+Required input arguments -asse/-part, -default_d, -clone_out not received in ITK C:\PROGRA~1\Siemens\TEAMCE~1\bin\tc_nxclone_postprocess

@@ -1,0 +1,87 @@
+TSEAAA|Administration|Administration - 38000|A|dba.DBA|
+TSEAAB|Engineering OPR Management|Engineering Operation Management - 38032|A|dba.DBA|
+TSEAAC|Product Cost Innovation|Product Cost Innovation - 38310|A|dba.DBA|
+TSEAAD|Safety and Compliance|Safety and Compliance - 38130|A|dba.DBA|
+TSEAAE|Principal Engineers|Principal Engineers - 38400|A|dba.DBA|
+TSEAAF|Cyber Product Security|Cyber Product Security - 38401|A|dba.DBA|
+TSEAAG|India Core|India Core - 48000|A|dba.DBA|
+TSEAAI|China Engineering|China Engineering - 48400|A|dba.DBA|
+TSEAAJ|Russia ETEC|Russia ETEC - 48600|A|dba.DBA|
+TSEAAK|Loco Reliability|Loco Reliability - 38666|A|dba.DBA|
+TSEAAM|Transportation Systems Admin|Transportation Systems Admin - 38100|A|dba.DBA|
+TSEAAN|Services NPI Solutions|Services NPI Solutions - 38185|A|dba.DBA|
+TSEAAO|Loco Mods and Kits|Loco Mods and Kits - 38105|A|dba.DBA|
+TSEAAP|Global Loco Systems|Global Loco Systems - 38170|A|dba.DBA|
+TSEAAQ|Global Loco Sys- Elect Integrn|Global Loco Systems and Electrical Integration - 38171|A|dba.DBA|
+TSEAAR|Mods, PH, and CIS Sys Engr|Mods, PH, and CIS Systems Engineering - 38175|A|dba.DBA|
+TSEAAS|Systems Engineering|Systems Engineering - 38985|A|dba.DBA|
+TSEAAT|NA Legacy Loco Systems|NA Legacy Loco Systems - 38060|A|dba.DBA|
+TSEAAU|Aftermarket Technology|Aftermarket Technology - 38085|A|dba.DBA|
+TSEAAV|Loco Systems North America|Loco Systems North America - 38120|A|dba.DBA|
+TSEAAW|Loco Sys Electrical Integration|Loco Systems Electrical Integration - 38331|A|dba.DBA|
+TSEAAX|Loco DFMA Factory Support|Loco DFMA Factory Support - 38150|A|dba.DBA|
+TSEAAY|Configuration Control|Configuration Control - 38520|A|dba.DBA|
+TSEABA|Tier 4 Execution Systems|Tier 4 Execution Systems - 38125|A|dba.DBA|
+TSEABB|Loco Systems Technology Admin|Loco Systems Technology Admin - 38755|A|dba.DBA|
+TSEABC|Loco Systems Modeling|Loco Systems Modeling - 38756|A|dba.DBA|
+TSEABD|Proposals|Proposals - 38759|A|dba.DBA|
+TSEABE|OHV Systems|OHV Systems - 38980|A|dba.DBA|
+TSEABF|OHV Advanced Tech|OHV Advanced Tech - 38984|A|dba.DBA|
+TSEABG|EDDC Mining Systems|EDDC Mining Systems - 38988|A|dba.DBA|
+TSEABH|Fairchild Technical Design|Fairchild Technical Design - 38992|A|dba.DBA|
+TSEABI|IME Technical Design|IME Technical Design - 38993|A|dba.DBA|
+TSEABJ|IMT Technical Design|IMT Technical Design - 38994|A|dba.DBA|
+TSEABK|Underground Mining Sys Engr|Underground Mining Systems Engineering - 38995|A|dba.DBA|
+TSEABL|Fairchild Equipment Engineering|Fairchild Equipment Engineering - 38996|A|dba.DBA|
+TSEABM|IME Engineering|IME Engineering - 38997|A|dba.DBA|
+TSEABN|IMT Engineering|IMT Engineering - 38998|A|dba.DBA|
+TSEABP|Underground Propulsion Systems|Underground Propulsion Systems - 38999|A|dba.DBA|
+TSEABQ|Mechanical Drives Admin|Mechanical Drives Admin - 38031|A|dba.DBA|
+TSEABR|Mechanical Engr Tech Admin|Mechanical Engineering Technology Admin - 38301|A|dba.DBA|
+TSEABS|Mechanical Systems Admin|Mechanical Systems Admin - 38180|A|dba.DBA|
+TSEABT|Drive Train|Drive Train - 38033|A|dba.DBA|
+TSEABU|Truck Design|Truck Design - 38640|A|dba.DBA|
+TSEABV|Cabs and Structures Eng|Cabs and Structures Eng - 38610|A|dba.DBA|
+TSEABW|Platform Engineering|Platform Engineering - 38910|A|dba.DBA|
+TSEABY|Technical Publications|Technical Publications - 38530|A|dba.DBA|
+TSEACK|Services Technology Engineering|Services Technology Engineering - 38754|A|dba.DBA|
+TSEACL|Services Reliability|Services Reliability - 38758|A|dba.DBA|
+TSEACM|Engine Sec Mgr and Sys Leaders|Engine Section Mgr and System Leaders - 38780|A|dba.DBA|
+TSEACN|M and S|M and S - 38010|A|dba.DBA|
+TSEACO|Analysis|Analysis - 38110|A|dba.DBA|
+TSEACP|Engine Mechanical System|Engine Mechanical System - 38781|A|dba.DBA|
+TSEACQ|Engine Factory Support and Cost|Engine Factory Support and Cost - 38782|A|dba.DBA|
+TSEACR|Engine Components - India|Engine Components -India- 38783|A|dba.DBA|
+TSEACS|Mech Design and Reliability|Mechanical Design and Reliability - 38786|A|dba.DBA|
+TSEACT|Turbocharger|Turbocharger - 38789|A|dba.DBA|
+TSEACV|Fuel Systems|Fuel Systems - 38012|A|dba.DBA|
+TSEACW|Quality and Validation|Quality and Validation - 38784|A|dba.DBA|
+TSEACX|Engine Performance-Emissions|Engine Performance-Emissions - 38785|A|dba.DBA|
+TSEACY|Engine Cooling and Lubrication|Engine Cooling and Lubrication - 38787|A|dba.DBA|
+TSEADA|Electrical COE Admin US|Electrical COE Admin US - 38800|A|dba.DBA|
+TSEADB|Electrical COE Admin India|Electrical COE Admin India - 38860|A|dba.DBA|
+TSEADF|Train Control|Train Control - 38790|A|dba.DBA|
+TSEADG|Drives Control|Drives Control - 38831|A|dba.DBA|
+TSEADH|Train Control - EDDC|Train Control-EDDC- 38863|A|dba.DBA|
+TSEADI|Drives Control - EDDC|Drives Control -EDDC- 38864|A|dba.DBA|
+TSEADO|Heavy Haul Control Software|Heavy Haul Control Software - 38821|A|dba.DBA|
+TSEADP|Trip Optimizer Software|Trip Optimizer Software - 38822|A|dba.DBA|
+TSEADQ|VSPD and Panel Software|VSPD and Panel Software - 38823|A|dba.DBA|
+TSEADR|Mechanical Propulsion|Mechanical Propulsion - 38032|A|dba.DBA|
+TSEADS|Comp Air and Ventilation|Comp Air and Ventilation - 38182|A|dba.DBA|
+TSEADT|Electrical Packaging|Electrical Packaging - 38825|A|dba.DBA|
+TSEADU|Electrical Propulsion|Electrical Propulsion - 38830|A|dba.DBA|
+TSEADX|Controls Simulation Modeling|Controls Simulation Modeling - 38835|A|dba.DBA|
+TSEADY|Control Systems Admin|Control Systems Admin - 38850|A|dba.DBA|
+TSEAEA|Control Systems TR AUX|Control Systems TR AUX- 38851|A|dba.DBA|
+TSEAEB|Loco Engine Control|Loco Engine Control - 38852|A|dba.DBA|
+TSEAEC|Control Systems Infrastructure|Control Systems Infrastructure- 38853|A|dba.DBA|
+TSEAED|Control Systems TR, AUX EDDC|Control Systems TR, AUX EDDC- 38861|A|dba.DBA|
+TSEAEE|Control Systems M and S, VC-EDDC|Control Systems M and S, VCEDDC- 38862|A|dba.DBA|
+TSEAEF|Control Simulation Modeling EDDC|Control Simulation Modeling EDDC- 38865|A|dba.DBA|
+TSEAEH|Electronics CTC|Electronics CTC - 38840|A|dba.DBA|
+TSEAEI|Hardware and Devices|Hardware and Devices - 38880|A|dba.DBA|
+TSEAFE|Digital Applications and Tools|Digital Applications and Tools - 38183|A|dba.DBA|
+TSEAFF|Digital Transformation|Digital Transformation - 38184|A|dba.DBA|
+TSEAFG|Digital Consumption|Digital Consumption - 38186|A|dba.DBA|
+TSEAFH|Digital Technology Admin|Digital Technology Administration - 38189|A|dba.DBA|

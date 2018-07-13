@@ -1,0 +1,20 @@
+<project name="Master BMIDE" default="deploy">
+   
+    
+    <import file="common_logging.xml" />
+    <target name="deploy" depends="antlog" description="Master Build of all BMIDE Sub-Projects">
+        <!--    build the deploy target for all files in the ant-script directory
+                The pattern you see in the fileset is the set of files that will get processed
+                In this case we will execute all xml files starting with "bmide_"
+         -->
+        <subant target="deploy">
+            <fileset dir="." includes="ant-script/bmide_${category}*.xml"/>
+        </subant>
+    </target>
+    <target name="clean">
+        <subant target="clean">
+            <fileset dir="." includes="ant-script/bmide_*.xml"/>
+        </subant>
+    </target>
+</project>
+

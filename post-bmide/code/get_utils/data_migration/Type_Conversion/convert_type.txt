@@ -1,0 +1,3 @@
+source_class_name=Item
+target_class_name=GET6MechPart
+item_id_list=000051

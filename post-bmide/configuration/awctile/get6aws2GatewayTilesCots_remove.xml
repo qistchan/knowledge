@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE ActiveWorkspaceGateway SYSTEM "Awp0aws2ActiveWorkspaceGateway.dtd" >
+<ActiveWorkspaceGateway version="1.0">
+    <!-- Remove tiles from collection -->
+    <TileCollection>
+        <SiteScope/>
+        <CollectionTiles tileId="Awp0SearchTile"             groupName="main"       size="0" ></CollectionTiles>
+		<CollectionTiles tileId="Awp0ReportProblemTile"      groupName="main"       size="0" ></CollectionTiles>
+        <CollectionTiles tileId="Awp0CreateDocumentTile"     groupName="favorites"  size="0" ></CollectionTiles>
+        <CollectionTiles tileId="Awp0PrintReportsTile"       groupName="quicklinks" size="0" ></CollectionTiles>
+        <CollectionTiles tileId="Awp0CreatePartTile"         groupName="quicklinks" size="0" ></CollectionTiles>
+		<CollectionTiles tileId="Awp0QuickStartTile"         groupName="quicklinks" size="0" ></CollectionTiles>
+	</TileCollection>
+</ActiveWorkspaceGateway>

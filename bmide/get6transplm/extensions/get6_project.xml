@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TcBusinessData xmlns="http://teamcenter.com/BusinessModel/TcBusinessData" Date="">
+<Add>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET6Project" propertyName="get6AppBuildRefDatePrimary"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET6Project" propertyName="get6AppBuildRefDateSecond"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET6Project" propertyName="get6CustomerName"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET6Project" propertyName="GET6DsgnReleasePlanRelation"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET6Project" propertyName="get6Model"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET6Project" propertyName="get6OrderNumber"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET6Project" propertyName="get6PrimaryProjectNumber"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET6Project" propertyName="get6SalesForceID"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET6Project" propertyName="get6SecondaryProjectNumber"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6Project" propertyName="get6AppBuildRefDatePrimary"
+       value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6Project" propertyName="get6AppBuildRefDateSecond"
+       value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6Project" propertyName="get6CustomerName"
+       value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6Project" propertyName="GET6DsgnReleasePlanRelation"
+       value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6Project" propertyName="get6Model"
+       value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6Project" propertyName="get6OrderNumber"
+       value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6Project" propertyName="get6PrimaryProjectNumber"
+       value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6Project" propertyName="get6SalesForceID"
+       value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6Project" propertyName="get6SecondaryProjectNumber"
+       value="Write"/>
+   <TcGRMRule primaryTypeName="GET6Project" secondaryTypeName="GET6DsgnRelPlan" relationTypeName="GET6DsgnReleasePlanRelation"
+       primaryCardinality="1" secondaryCardinality="1" secured="false" attachability="WriteAccessReq"
+       changeability="Changeable" detachability="WriteAccessReq" description=""/>
+</Add>
+</TcBusinessData>

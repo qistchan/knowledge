@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Palette xmlns="http://www.ugsolutions.com/Schemas/2001/UGPalettes" schemaVersion="1.0">
+
+  <Presentation name="Sheet Templates (Inch)" bitmap="drawing_new.bmp" FileNewTab="" application="All" UsesMasterModel="No" Environment="Managed"/>
+
+  <PaletteEntry id="d1">
+    <References/>
+    <Presentation name="A - Drawing" description="NX Example Sheet">
+        <PreviewImage type="UGPart" location="@DB/Drawing-A-Size2D-template/0"/>
+    </Presentation>
+    <ObjectData class="SheetTemplate">
+        <TemplateFileType>none</TemplateFileType>
+        <Filename>@DB/Drawing-A-Size2D-template/0</Filename>
+        <Units>English</Units>
+        <ItemType>Item</ItemType>
+        <RelationType>master</RelationType>
+    </ObjectData>
+  </PaletteEntry>
+
+  <PaletteEntry id="d2">
+    <References/>
+    <Presentation name="B - Drawing" description="NX Example Sheet">
+        <PreviewImage type="UGPart" location="@DB/Drawing-B-Size2D-template/0"/>
+    </Presentation>
+    <ObjectData class="SheetTemplate">
+        <TemplateFileType>none</TemplateFileType>
+        <Filename>@DB/Drawing-B-Size2D-template/0</Filename>
+        <Units>English</Units>
+        <ItemType>Item</ItemType>
+        <RelationType>master</RelationType>
+    </ObjectData>
+  </PaletteEntry>
+  
+  <PaletteEntry id="d3">
+    <References/>
+    <Presentation name="C - Drawing" description="NX Example Sheet">
+        <PreviewImage type="UGPart" location="@DB/Drawing-C-Size2D-template/0"/>
+    </Presentation>
+    <ObjectData class="SheetTemplate">
+        <TemplateFileType>none</TemplateFileType>
+        <Filename>@DB/Drawing-C-Size2D-template/0</Filename>
+        <Units>English</Units>
+        <ItemType>Item</ItemType>
+        <RelationType>master</RelationType>
+        </ObjectData>
+  </PaletteEntry>
+
+ <PaletteEntry id="d4">
+    <References/>
+    <Presentation name="D - Drawing" description="NX Example Sheet">
+        <PreviewImage type="UGPart" location="@DB/Drawing-D-Size2D-template/0"/>
+    </Presentation>
+    <ObjectData class="SheetTemplate">
+        <TemplateFileType>none</TemplateFileType>
+        <Filename>@DB/Drawing-D-Size2D-template/0</Filename>
+        <Units>English</Units>
+        <ItemType>Item</ItemType>
+        <RelationType>master</RelationType>
+    </ObjectData>
+  </PaletteEntry>
+
+  <PaletteEntry id="d5">
+    	 <References/>
+         <Presentation name="E - Drawing" description="NX Example Sheet">
+        <PreviewImage type="UGPart" location="@DB/Drawing-E-Size2D-template/0"/>
+    </Presentation>
+    <ObjectData class="SheetTemplate">
+        <TemplateFileType>none</TemplateFileType>
+        <Filename>@DB/Drawing-E-Size2D-template/0</Filename>
+        <Units>English</Units>
+        <ItemType>Item</ItemType>
+        <RelationType>master</RelationType>
+    </ObjectData>
+  </PaletteEntry>  
+
+  <PaletteEntry id="d6">
+    <References/>
+    <Presentation name="F - Drawing" description="NX Example Sheet">
+        <PreviewImage type="UGPart" location="@DB/Drawing-F-Size2D-template/0"/>
+    </Presentation>
+    <ObjectData class="SheetTemplate">
+        <TemplateFileType>none</TemplateFileType>
+        <Filename>@DB/Drawing-F-Size2D-template/0</Filename>
+        <Units>English</Units>
+        <ItemType>Item</ItemType>
+        <RelationType>master</RelationType>
+    </ObjectData>
+  </PaletteEntry>  
+
+  <PaletteEntry id="d7">
+    <References/>
+    <Presentation name="A0 - Drawing" description="NX Example Sheet">
+        <PreviewImage type="UGPart" location="@DB/Drawing-A0-Size2D-template/0"/>
+    </Presentation>
+    <ObjectData class="SheetTemplate">
+        <TemplateFileType>none</TemplateFileType>
+        <Filename>@DB/Drawing-A0-Size2D-template/0</Filename>
+        <Units>Metric</Units>
+        <ItemType>Item</ItemType>
+        <RelationType>master</RelationType>
+    </ObjectData>
+  </PaletteEntry>  
+
+  <PaletteEntry id="d8">
+    <References/>
+    <Presentation name="A1 - Drawing" description="NX Example Sheet">
+        <PreviewImage type="UGPart" location="@DB/Drawing-A1-Size2D-template/0"/>
+    </Presentation>
+    <ObjectData class="SheetTemplate">
+        <TemplateFileType>none</TemplateFileType>
+        <Filename>@DB/Drawing-A1-Size2D-template/0</Filename>
+        <Units>Metric</Units>
+        <ItemType>Item</ItemType>
+        <RelationType>master</RelationType>
+     </ObjectData>
+  </PaletteEntry>  
+
+  <PaletteEntry id="d9">
+    <References/>
+    <Presentation name="A2 - Drawing" description="NX Example Sheet">
+        <PreviewImage type="UGPart" location="@DB/Drawing-A2-Size2D-template/0"/>
+    </Presentation>
+    <ObjectData class="SheetTemplate">
+        <TemplateFileType>none</TemplateFileType>
+        <Filename>@DB/Drawing-A2-Size2D-template/0</Filename>
+        <Units>Metric</Units>
+        <ItemType>Item</ItemType>
+        <RelationType>master</RelationType>
+    </ObjectData>
+  </PaletteEntry> 
+
+  <PaletteEntry id="d10">
+    <References/>
+    <Presentation name="A3 - Drawing" description="NX Example Sheet">
+        <PreviewImage type="UGPart" location="@DB/Drawing-A3-Size2D-template/0"/>
+    </Presentation>
+    <ObjectData class="SheetTemplate">
+        <TemplateFileType>none</TemplateFileType>
+        <Filename>@DB/Drawing-A3-Size2D-template/0</Filename>
+        <Units>Metric</Units>
+        <ItemType>Item</ItemType>
+        <RelationType>master</RelationType>
+    </ObjectData>
+  </PaletteEntry> 
+
+  <PaletteEntry id="d11">
+    <References/>
+    <Presentation name="A4 - Drawing" description="NX Example Sheet">
+        <PreviewImage type="UGPart" location="@DB/Drawing-A4-Size2D-template/0"/>
+    </Presentation>
+    <ObjectData class="SheetTemplate">
+        <TemplateFileType>none</TemplateFileType>
+        <Filename>@DB/Drawing-A4-Size2D-template/0</Filename>
+        <Units>Metric</Units>
+        <ItemType>Item</ItemType>
+        <RelationType>master</RelationType>
+    </ObjectData>
+  </PaletteEntry>
+  
+ 
+</Palette>
+

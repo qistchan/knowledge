@@ -1,0 +1,3 @@
+QUERY.HEADER=ITEM.ID~REVISION.ID~RELEASE.STATUS
+QUERY.OUTPUTTYPES=string,string,string
+QUERY.SQL=select distinct i.pitem_id, ir.pitem_revision_id, rs.pname from pworkspaceobject wso, prelease_status_list rsl, pitem i, pitemrevision ir, preleasestatus rs where i.puid=ir.ritems_tagu and ir.puid=wso.puid and ir.puid=rsl.puid and rsl.pvalu_0=rs.puid and upper(rs.pname) != 'Approved' and upper(wso.pobject_type)='GET6MaterialRevision'

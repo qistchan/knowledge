@@ -1,0 +1,443 @@
+<!--
+ =====================================================================================
+ 
+ You MUST perform the following steps before running this ANT script:
+ 
+ 1) export TC_DATA
+ 2) export TC_ROOT
+ 3) cd to /
+ 4) run the tesis setup command:
+	. /app/t4o/101/t4o_apps_Linux_x86_64/etc/t4xcust.unix
+ 5) run tcprofilevars
+ 6) check to see that you have a full TC environment
+ 7) check to see that you have the Tesis environment set
+	specifically, this script relies upon TP_T4XLIB
+ 
+ Assuming you have just checked out the SVN tree, you are good to go.
+ If you have been working in a directory that might be stale, execute:
+	svn update
+ 
+ After you have checked out this file, run ANT like this:
+ 
+ ant -f master_master.xml	-Dinfodba.password=<somepassword> \
+				-Dsvn.user=<someuser> \
+				-Dsvn.password=<somepassword> \
+				-Dt4o.system=<systemid> \
+				-Dt4o.schema=<schemaname> \
+				-Dt4o.version=<number> \
+
+				-Dsvn.url=<somebranch>
+ 
+ An example of a branch might be:
+	-Dsvn.url=https://openge.ge.com/svn/get4p1/branches/refactor
+ 
+ An example of t4o data  might be:
+	-Dt4o.system=TSOADEV1
+ 	-Dt4o.schema=T4O_RST
+ 	-Dt4o.version=1011
+ 
+ 
+ The build will run magically!
+ 
+ If you want to force a complete rebuild, you will need to use the clean option.
+ 
+ Cleaning the directories will remove all the atrifacts and rebuild the directory.  If you passed any special targets
+ using -Dprefs.special when you built originally, then you must pass that switch to clean:
+ 
+ An example of how to clean would be:
+ 
+ ant -f master_master.xml -Dprefs.special=clowns clean
+ 
+ 
+ There are a few special "DEVELOPER ONLY" flag that you can pass:
+	1) to skip the SVN checkout: -Dsvn.nocheckout=TRUE
+	2) to skip the BMIDE template update: -Dbmide.skip=TRUE
+	3) to skip the compile/link: -Dcompile.skip=TRUE
+	4) to skip the t4o meta-file compile: -Dt4o.skip=TRUE
+	5) to pass compiler options : -Dcompile.opts=-DDEBUG
+	6) to pass linker options : -Dlink.opts=-g
+	7) to input "special" preferences: -Dprefs.special=<some string>
+	8) to create project: -Dproject.create=TRUE
+
+Here is an example of a build that skips SVN checkput, BMIDE Template push, and t4o:
+
+	ant -f master_master.xml -Dinfodba.password=infodba -Dsvn.nocheckout=TRUE -Dbmide.skip=TRUE -Dt4o.skip=TRUE 
+				
+ 
+ To use "special" preferences you must do the following:
+	assuming you passed -Dprefs.special=clowns
+ cd 
+ 1) create a master_clowns.xml file
+	This file can do whatever you want.  As an example lets say you wanted to import some preferences
+		You would set up a deploy and clean target.  A sample deploy might look like this:
+ 
+		<target name="deploy" depends="antlog" description="Master Clowns File Sub-Projects">
+			<subant target="deploy">
+				<fileset dir="." includes="ant-script/clowns_*.xml"/>
+			</subant>
+		</target>
+ 
+ 2) in the ant-scripts directory creat the corresponding set of files named beginning with the prefix "clowns_"
+	An example might be a script that imports preferences named "clowns_preference.xml"
+ 
+ 3)  In the buid directory, create the directories necessary to support your commands.
+	In the case of clowns_preference.xml we woud need a directory tree looking like this:
+	build
+	 tc
+	  clowns
+	    preference
+	      clowns_preference.xml
+ -->
+
+<!--
+ ==============================================================================================================================
+ ===== Use ant contrib
+ ==============================================================================================================================
+ -->
+
+
+<project name="MasterMaster" default="deploy">
+	<taskdef resource="net/sf/antcontrib/antlib.xml"/>
+	
+	<property name="svn.executable" value="/usr/bin/svn" />
+	<condition property="ge.wntx" value="TRUE">
+		<os family="windows"/>
+	</condition>
+	<condition property="ge.lnx" value="TRUE">
+		<os name="SunOS"/>
+	</condition>
+	<condition property="ge.lnx" value="TRUE">
+		<os name="linux"/>
+	</condition>
+	<property environment="env"/>
+	
+	<target name="args" description="Checks command line arguments">
+		<echo message="Compiler options: ${compile.opts}"/>
+		<echo message="Linker options: ${link.opts}"/>
+		<echo message="Compile skip: ${compile.skip}"/>
+		<echo message="BMIDE skip: ${bmide.skip}"/>
+		<echo message="Transplm BMIDE skip: ${transplm.skip}"/>
+		<echo message="t40 BMIDE skip: ${t4o.skip}"/>
+		<echo message="sbom BMIDE skip: ${sbom.skip}"/>
+		<echo message="Organization skip: ${organization.skip}"/>
+		<echo message="Classification Skip: ${classification.skip}"/>
+		<echo message="access_manager Skip : ${access_manager.skip}"/>
+		<echo message="nxtc_attribute_mapping Skip: ${nxtc_attribute_mapping.skip}"/>
+		<echo message="plmxml Skip: ${plmxml.skip}"/>
+		<echo message="preference Skip: ${preference.skip}"/>
+		<echo message="project Skip: ${project.skip}"/>
+		<echo message="revision_rule Skip: ${revision_rule.skip}"/>
+		<echo message="closure_rule Skip: ${closure_rule.skip}"/>
+		<echo message="saved_query Skip: ${saved_query.skip}"/>
+		<echo message="stylesheet Skip: ${stylesheet.skip}"/>
+		<echo message="transfer_mode Skip: ${transfer_mode.skip}"/>
+		<echo message="product_configurator Skip: ${product_configurator.skip}"/>
+		<echo message="report Skip: ${report.skip}"/>
+		<echo message="workflow Skip: ${workflow.skip}"/>
+		<echo message="Batch LOV Skip: ${batchlov.skip}"/>
+		<echo message="AWC Tile Skip: ${awctile.skip}"/>
+		<echo message="Environment : ${env}"/>
+	</target>
+
+	<!-- this target builds everything in the order that the depends are listed -->
+
+	<!--<target name="deploy" depends="checkout , compile , preamble , prebmide , bmide , postbmide , special , t4o , finish" description="Deploy System">
+		<echo message="System Deploy"/>
+	</target>-->
+
+	<target name="deploy" depends="compile, prebmide-01, bmide-01, prebmide-02, bmide-02 ,bmide-03, postbmide, envdeploy, t4o, sbom" description="Deploy System">
+		<echo message="System Deploy"/>
+	</target>
+
+	<target name="deploy-package" depends="deploy-bin, prebmide-01 , bmide-01, prebmide-02, bmide-02, bmide-03, postbmide" description="Deploy System">
+		<echo message="System Deploy"/>
+	</target>
+
+	<target name="deploy-bin">
+		<echo message="System Deploy"/>
+		<echo message="TC_ROOT : ${env.TC_ROOT}"/>
+		<if>
+		 <equals arg1="${ge.wntx}" arg2="TRUE" />
+		 <then>
+			<copy todir="${env.TC_ROOT}/bin" verbose="true" failonerror="false">
+             <fileset dir="${user.dir}/code/wntx64/bin">
+               <include name="*.dll" />
+			   <include name="*.exe" />
+             </fileset>
+           </copy>
+		   <copy todir="${env.TC_ROOT}/lib" verbose="true" failonerror="false">
+             <fileset dir="${user.dir}/code/wntx64/lib">
+               <include name="*.lib" />
+             </fileset>
+           </copy>
+		 </then>
+	     <else>
+		  <copy todir="${env.TC_ROOT}/lib" verbose="true" failonerror="false">
+             <fileset dir="${user.dir}/code/lnx64/lib">
+               <include name="*.so" />
+             </fileset>
+           </copy>
+		 </else>
+		</if>
+	</target>
+
+	<target name="package" depends="compile" description="Build Package">
+	    <echo message="System Package"/>
+		<property name="package.dir" location="${user.dir}/Package"/>
+		<property name="code.dir" location="${user.dir}/post-bmide/code"/>
+		<mkdir dir="${package.dir}"/>
+		<mkdir dir="${package.dir}/code"/>
+		<mkdir dir="${package.dir}/configuration"/>
+		<copy todir="${package.dir}" verbose="true" failonerror="false">
+          <fileset dir="${user.dir}">
+            <include name="*.xml" />
+          </fileset>
+        </copy>
+		<copy todir="${package.dir}/code"  flatten="true" verbose="true" failonerror="false">
+          <fileset dir="${user.dir}/post-bmide/code">
+            <include name="**/GETDesignReleasePLM.war" />
+          </fileset>
+	   </copy>
+		<if>
+		 <equals arg1="${ge.wntx}" arg2="TRUE" />
+		 <then>
+		   <mkdir dir="${package.dir}/code/wntx64/bin"/>
+		   <mkdir dir="${package.dir}/code/wntx64/lib"/>
+		   <copy todir="${package.dir}/code/wntx64/bin" verbose="true" failonerror="false">
+             <fileset dir="${code.dir}/bin">
+               <include name="*.dll" />
+			   <include name="*.exe" />
+             </fileset>
+           </copy>
+		   <copy todir="${package.dir}/code/wntx64/lib" verbose="true" failonerror="false">
+             <fileset dir="${code.dir}/lib">
+               <include name="*.lib" />
+             </fileset>
+           </copy>
+		   </then>
+		   <else>
+			<mkdir dir="${package.dir}/code/lnx64/lib"/>
+         	  <copy todir="${package.dir}/code/lnx/lib" verbose="true" failonerror="false">
+                <fileset dir="${code.dir}/lib">
+                 <include name="*.so" />
+                </fileset>
+              </copy>
+		   </else>
+		</if>
+		<copy todir="${package.dir}/bmide" verbose="true" failonerror="false">
+          <fileset dir="${user.dir}/bmide"/>
+        </copy>
+		<copy todir="${package.dir}/post-bmide" verbose="true" failonerror="false">
+		  <fileset dir="${user.dir}/post-bmide">
+			<exclude name="**/code/**"/>
+		  </fileset>
+        </copy>
+		<copy todir="${package.dir}/pre-bmide" verbose="true" failonerror="false">
+		  <fileset dir="${user.dir}/pre-bmide"/>
+        </copy>
+	    <copy todir="${package.dir}/ant-script" verbose="true" failonerror="false">
+		  <fileset dir="${user.dir}/ant-script"/>
+        </copy>
+		<zip destfile="${package.dir}.zip"  basedir="${package.dir}"/>
+		<delete dir="${package.dir}"/>
+	</target>
+
+	<!-- this target checks out the svn project -->
+	<target name="checkout" description="checkout">
+		<switch value="${svn.nocheckout}">
+			<case value="TRUE">
+				<echo message="Skipping SVN checkout" />
+			</case>
+			<default>
+				<echo message="SVN Checkout"/>
+				<input message="svn user  :" addproperty="svn.user"/>
+				<input message="svn passwd:" addproperty="svn.password"/>
+				<input message="svn url   :" addproperty="svn.url"/>
+				<input message="infodba password   :" addproperty="infodba.password"/>
+				<exec executable="${svn.executable}" failonerror="true">
+					<arg value="checkout"/>
+					<arg value="--username"/>
+					<arg value="${svn.user}"/>
+					<arg value="--password"/>
+					<arg value="${svn.password}"/>
+					<arg value="${svn.url}"/>
+					<arg value="." />
+				</exec>
+			</default>
+		</switch>
+	</target>
+	
+	<!-- this target compiles the ITK code -->
+	<target name="compile" depends="args" unless="compile.skip"  description="Compile code">
+		<echo message="Make compiled code"/>
+		<subant target="deploy" >
+			<fileset dir="." includes="master_compile.xml"/>
+		</subant>
+	</target>
+	
+	<!-- this target builds the stuff that needs to happen before anything else -->
+	<target name="preamble" description="Preamble">
+		<echo message="Master Preamble"/>
+		<subant target="deploy" >
+			<fileset dir="." includes="master_preamble.xml"/>
+		</subant>
+	</target>
+
+	<!-- this target updates the BMIDE template -->
+	<target name="prebmide" depends="args" description="Pre BMIDE">
+		<echo message="Master BMIDE"/>
+		<antcall target="prebmide-01"/>
+		<antcall target="prebmide-02"/>
+	</target>
+
+	<!-- this target builds the stuff that happens before the BMIDE -->
+	<target name="prebmide-01" description="Pre-BMIDE">
+		<echo message="Master pre-BMIDE"/>
+		<subant target="deploy" >
+			<property name="category" value="01"/>
+			<fileset dir="." includes="master_pre-bmide.xml"/>
+		</subant>
+	</target>
+
+	<!-- this target builds the stuff that happens before the BMIDE -->
+	<target name="prebmide-02" unless="t4o.skip" description="Pre-BMIDE">
+		<echo message="Master pre-BMIDE"/>
+		<subant target="deploy" >
+			<property name="category" value="02"/>
+			<fileset dir="." includes="master_pre-bmide.xml"/>
+		</subant>
+	</target>
+
+	<target name="postbmide" description="Post-BMIDE">
+		<echo message="Master post-BMIDE"/>
+		<subant target="deploy" >
+			<property name="organization.skip" value="${organization.skip}"/>
+			<property name="access_manager.skip" value="${access_manager.skip}"/>
+			<property name="classification.skip" value="${classification.skip}"/>
+			<property name="nxtc_attribute_mapping.skip" value="${nxtc_attribute_mapping.skip}"/>
+			<property name="plmxml.skip" value="${plmxml.skip}"/>
+			<property name="preference.skip" value="${preference.skip}"/>
+			<property name="project.skip" value="${project.skip}"/>
+			<property name="revision_rule.skip" value="${revision_rule.skip}"/>
+			<property name="closure_rule.skip" value="${closure_rule.skip}"/>
+			<property name="saved_query.skip" value="${saved_query.skip}"/>
+			<property name="stylesheet.skip" value="${stylesheet.skip}"/>
+			<property name="report.skip" value="${report.skip}"/>
+			<property name="product_configurator.deploy" value="${product_configurator.deploy}"/>
+			<!--<property name="transfer_mode.skip" value="${transfer_mode.skip}"/> -->
+			<property name="workflow.skip" value="${workflow.skip}"/>
+			<property name="batchlov.skip" value="${batchlov.skip}"/>
+			<property name="awctile.skip" value="${awctile.skip}"/>
+			<fileset dir="." includes="master_post-bmide.xml"/>
+		</subant>
+	</target>
+	
+	<!-- this target updates the BMIDE template -->
+	<target name="bmide" depends="args" unless="bmide.skip" description="BMIDE">
+		<echo message="Master BMIDE"/>
+		<antcall target="bmide-01"/>
+		<antcall target="bmide-02"/>
+		<antcall target="bmide-03"/>
+	</target>
+
+	<!-- this target updates the BMIDE template -->
+	<target name="bmide-01" depends="args" unless="transplm.skip" description="BMIDE">
+		<echo message="Master BMIDE"/>
+		<subant target="deploy" >
+			<property name="category" value="01"/>
+			<fileset dir="." includes="master_bmide.xml"/>
+		</subant>
+	</target>
+
+	<!-- this target updates the BMIDE template -->
+	<target name="bmide-02" depends="args" unless="t4o.skip" description="BMIDE">
+		<echo message="Master BMIDE"/>
+		<subant target="deploy" >
+			<property name="category" value="02"/>
+			<fileset dir="." includes="master_bmide.xml"/>
+		</subant>
+	</target>
+	
+	<!-- this target updates the BMIDE template -->
+	<target name="bmide-03" depends="args" unless="sbom.skip" description="BMIDE">
+		<echo message="Master BMIDE"/>
+		<subant target="deploy" >
+			<property name="category" value="03"/>
+			<fileset dir="." includes="master_bmide.xml"/>
+		</subant>
+	</target>
+
+	<!-- this target builds the stuff for the Tesis integration -->
+
+	<target name="t4o" depends="args" unless="t4o.skip" description="t4o Tasks">
+		<echo message="Master T4O"/>
+		<subant target="deploy" >
+			<fileset dir="." includes="master_t4o.xml"/>
+		</subant>
+	</target>
+	
+	<!-- this target builds the stuff for the sbom project -->
+
+	<target name="sbom" depends="args" unless="sbom.skip" description="sbom Tasks">
+		<echo message="Master SBOM"/>
+		<subant target="deploy" >
+			<fileset dir="." includes="master_sbom.xml"/>
+		</subant>
+	</target>
+
+	<!-- 
+		You might use this for things like "installation specific" values such as the URL used to connect to a dev
+		instance of a Oracle database etc
+	 -->
+	<target name="envdeploy" depends="args" if="env" description="Env specific tasks">
+		<echo message="Running for env : ${env}"/>
+		<subant target="deploy" >
+			<fileset dir="." includes="master_env.xml"/>
+		</subant>
+	</target>
+
+	<target name="special" depends="args" if="prefs.special" description="Special Tasks">
+		<echo message="Checking for Special Preferences"/>
+		<subant target="deploy" >
+			<fileset dir="." includes="master_${prefs.special}.xml"/>
+		</subant>
+	</target>
+
+	<!-- this target is the final step.  It writes the build info to the preferences in Teamcenter -->
+
+	<!-- <target name="finish" description="Finish Tasks">
+		<echo message="Master Finish"/>
+		<subant target="deploy" >
+			<fileset dir="." includes="master_finish.xml"/>
+		</subant>
+	</target> -->
+
+	<!-- this target cleans up all the targets -->
+	<!-- <target name="clean" depends="clean_special" description="clean"> -->
+	<target name="clean" description="clean">
+		<echo message="Master Cleanup"/>
+		<subant target="clean" >
+			<fileset dir="." includes="master_compile.xml"/>
+			<fileset dir="." includes="master_post-bmide.xml"/>
+			<fileset dir="." includes="master_bmide.xml"/>
+			<fileset dir="." includes="master_pre-bmide.xml"/>
+			<fileset dir="." includes="master_env.xml"/>
+			<!-- <fileset dir="." includes="master_post-bmide-01.xml"/> -->
+			<!-- <fileset dir="." includes="master_post-bmide-02.xml"/> -->
+			<!-- <fileset dir="." includes="master_special.xml"/> -->
+			<fileset dir="." includes="master_t4o.xml"/>
+			<fileset dir="." includes="master_sbom.xml"/>
+			<!-- <fileset dir="." includes="master_finish.xml"/> -->
+		</subant>
+		<delete dir="antlogs"/>
+	</target>
+	
+	<!-- <target name="clean_special" depends="args" if="prefs.special" description="Special Tasks Clean">
+		<echo message="Cleaning  Special Preferences"/>
+		<subant target="clean" >
+			<fileset dir="." includes="master_${prefs.special}.xml"/>
+		</subant>
+	</target> -->
+	
+</project>
+

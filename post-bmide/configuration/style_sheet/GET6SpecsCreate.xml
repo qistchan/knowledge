@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+===============================================================================
+Copyright (c) 2012 Siemens PLM Corporation
+Unpublished - All Rights Reserved
+===============================================================================
+
+Filename: UiE-DocumentCreate10.xml
+
+New style sheet for creating documents for TC 10.1 
+===============================================================================
+-->
+
+<rendering>
+  <page>
+    <section>
+      <property name="item_id" renderingHint="textfield"/>
+      <property name="revision:item_revision_id" />
+      <property name="object_name"/>
+      <property name="get6EngrProdLine"/>
+	</section>
+				
+	<section title="United States Export Control " titleKey="tc_xrt_USExportControl">
+	  <property name="get6ECCN"/>
+	  <property name="get6ECCNSource"/> 
+	  <property name="ip_classification" />
+    </section>  
+	<section title="Compliance" titleKey="tc_xrt_ComplianceAttr">
+	  <property name="get6ECC"/>
+	  <property name="get6CCC"/>
+	  <property name="get6CriticalPart"/>
+	  <property name="get6Homologation"/>
+    </section>
+  </page>
+</rendering>

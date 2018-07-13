@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences version="10.0">
+  <category name="GET">
+    <category_description></category_description>
+    <preference name="TC_GET6ECNRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>Submit ECN for Review</value>
+        <value>Submit to Cancel Change</value>
+        <value>Submit to Retrieve Change</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6ECRRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>Submit ECR for Review</value>
+        <value>Submit to Cancel Change</value>
+        <value>Submit to Retrieve Change</value>
+        <value>Submit to Close Change</value>
+        <value>Submit ECR for Modification</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6DsgnReleaseRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET EDOT Publish</value>
+        <value>GET EDOT Close</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6MCNRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET MCN Process</value>
+        <value>GET Manufacturing Preliminary Process</value>
+        <value>GET FlipToBuy</value>
+        <value>GET StockMaterial Update</value>      
+      </context>
+    </preference>
+    <preference name="TC_GET6MechPart_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Obsolete Process</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6ElectPart_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Obsolete Process</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6MechPartRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Baseline Process</value>
+        <value>GET Part Prel Release Process</value>
+        <value>GET MEStampIds</value>
+        <value>GET Generate 3D PDF (Non - Production Release)</value>
+        <value>GET Generate 3D PDF (Prelim Release)</value>
+        <value>GET Generate 3D PDF (Released)</value>
+        <value>GET Generate 3D PDF (Obsolete)</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6ElectPartRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Baseline Process</value>
+        <value>GET Part Prel Release Process</value>
+        <value>GET MEStampIds</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6DocumentRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Document Release</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6MaterialRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Material Release</value>
+      </context>
+    </preference>
+    <preference name="TC_Text_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Process Import</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6Process_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET BOP Obsolete</value>
+      </context>
+    </preference>
+     <preference name="TC_GET6StockMtrlRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET StockMaterial Release</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6MfgPartRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET MEStampIds</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6NCMachiningRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET C2C Release Process</value>
+        <value>GET NC Machining Preliminary Release</value>
+      </context>
+    </preference>
+  </category>
+</preferences>

@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: com.ge.GET6DRSFilePushFromTC.GET6DRSFilePushFromTC
+Class-Path: getDrgIDFromPartList.jar
+

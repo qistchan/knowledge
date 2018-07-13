@@ -1,0 +1,52 @@
+# ============================================================================
+#                    Copyright (c) 2017 GE Transportation.
+#                             All rights reserved
+# ============================================================================
+# File description:
+# File name       :    ps_traverse.cfg 
+#
+# This is a configuration file is required for the ps_traverse utility in 
+# $TC_ROOT/bin.
+# All entries should preferably be in lowercase.
+# Default mode in this cfg file is reporting. Actions are commented out. 
+# ============================================================================
+# Date      Name                    Description of Change
+# 15 Aug 2017   Prasad Palaniyandi          Initial
+# $HISTORY$
+# ============================================================================
+
+substitute=
+yes
+
+bomreport=
+Level
+BOM Line Name
+Item ID
+Revision
+Item Rev Status
+Find No.
+Unit Of Measure
+Quantity
+Owning User
+
+woreport=
+
+formattributes=
+
+delimiter=
+#
+
+columnwidth=
+50
+
+action=
+#fastrelease
+#changeowner
+#setprecise
+
+relstat=
+
+newowner=
+
+group=
+

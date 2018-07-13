@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+    Document   : feature_get8t4o.xml
+    Description: This XML is used by TEM to install or upgrade the "get8t4o" solution.
+--><feature>
+    <name value="GET TEAMCENTER TO ORACLE"/>
+    <property name="feature_name" value="get8t4o"/>
+    <group value="package"/>
+    <guid value="4C8591D39BEDA98248DD5D25D36C555E"/>
+    <bundle value="${feature_name}Bundle.xml"/>
+    <description value="${feature_name}.description"/>
+    <include file="dataModelDependency.xml"/>
+    <relation>
+        <depends name="aws2" value="EF6284519D32B8DADCF0F05213AF807B"/>
+        <depends name="cm" value="E9B8A3F6B7B53AE540DCC54C13B3C201"/>
+        <depends name="materialmgmt" value="D8B1E07653BB28A09F52C2FAAF18553A"/>
+        <depends name="nx0tcin" value="0BEECDCD0AD8B6D45617733583A4A78C"/>
+        <depends name="t4oebs" value="B9D7A55E8CB9A7C7C1A6EDC1BCCD2523"/>
+        <depends name="Cm1cmaws" value="B75C673EA57FD9D5EBEF544DE7F07F4E"/>
+        <depends name="activeworkspacebom" value="0F47FD6920230AC9CFDB79C9AC941ADA"/>
+        <depends name="get6transplm" value="AAE13BEE5B077A63D0ADB2348A144232"/>
+    </relation>
+    <feature>
+        <!--  Feature: Data Model -->
+        <name value="Data Model"/>
+        <property name="feature_id" value="datamodel"/>
+        <property name="bmide_optional" value="false"/>
+        <property name="template_name" value="${feature_name}"/>
+        <property name="template_file" value="${template_name}_template.xml"/>
+        <root value="true"/>
+        <bundle value="${template_name}Bundle.xml"/>
+        <description value="${template_name}.description"/>
+        <guid value="3E0A323E1D20CDF716EDF09CA4D9E482"/>
+        <include file="coreDataModel.xml"/>
+        <include file="generatePlmxmlSchema.xml"/>
+    </feature>
+<dependencyReferences>
+        <reference name="foundation" value="8C061DD51E13E0CB9DC4687B1A3348BE"/>
+    </dependencyReferences>
+</feature>

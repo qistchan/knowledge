@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+=======================================================================
+Copyright 2009.
+Siemens Product Lifecycle Management Software Inc.
+All Rights Reserved.
+=======================================================================
+     Filename: GET9FnctLvlCreate.xml
+
+    Style sheet rendering for Item creation.
+=======================================================================
+-->
+<rendering> 
+   <page title="General Information" titleKey="tc_xrt_cm_general_information">
+         <section titleKey="tc_xrt_properties">
+             <property name="item_id" />
+            <property name="object_desc" />
+            <property name="object_name" />            
+         </section>
+   </page>
+</rendering>

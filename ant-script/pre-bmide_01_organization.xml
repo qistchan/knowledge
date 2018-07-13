@@ -1,0 +1,86 @@
+<project name="Organization" default="deploy" >
+    
+    <!--
+     ==============================================================================================================================
+     ===== Use ant contrib
+     ==============================================================================================================================
+     -->
+    <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+    
+    
+    <!--
+     ==============================================================================================================================
+     ===== Set the property for the directory you desire to process and the Info display string
+     ==============================================================================================================================
+     -->
+    
+    <property environment="env"/>
+    <property name="dir.name" value="organization"/>
+    <property name="info" value="Organization Import"/>
+    <property name="base.dir" location="${user.dir}/pre-bmide"/>
+    <property name="src.dir" location="${base.dir}/${dir.name}"/>
+    
+    
+    <!--
+     ==============================================================================================================================
+     ===== NOTE you must define {src.dir} BEFORE including "common_task.xml"
+     ==============================================================================================================================
+     -->
+    
+    <import file="../common_loop.xml" />
+    <import file="../common_task.xml" />
+    
+    
+    <fileset id="targetcheckfs" dir="${src.dir}" casesensitive="yes">
+        <include name="**/*.txt"/>
+        <exclude name="**/.target*"/>
+    </fileset>
+    
+
+    
+    <!--
+     ==============================================================================================================================
+     ===== Initialize ant properties not set elsewhere
+     ==============================================================================================================================
+     -->
+
+
+    <target name="init-properties">
+    </target>
+    
+    
+    <target name="check_local">
+        <property name="target.file" value="${target.file}"/>
+        <echo message="Target ${target.file}"/>
+        <echo message="Dir ${src.dir}"/>
+        <uptodate property="isUpToDate"
+            targetfile="${target.file}">
+            <srcfiles dir="${src.dir}">
+                <include name="*.txt"/>
+            </srcfiles>
+        </uptodate>
+        <property name="already.processed" value="${isUpToDate}"/>
+    </target>
+
+
+    <target name="deploy" depends="deploy_loop">
+        <deploy_loop filesetref="targetcheckfs" info="${info}" src.dir="${src.dir}" file.ext=".xml"/>
+    </target>
+
+
+    <target name="process_target" depends="common_task">
+        <property name="file" value="${file}"/>
+        <make_user file="${file}"/>
+    </target>
+    
+
+<!--
+ ==============================================================================================================================
+ ===== clean up after yourself
+ ==============================================================================================================================
+ -->
+    <target name="clean" depends="common_task">
+           <remove_targets dir="${src.dir}"/>
+    </target>
+
+</project>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<TcBusinessDataIncludes>
+    <include iconfile="GET6ECRRev_16.png"/>
+    <include iconfile="GET6ECR_16.png"/>
+    <include iconfile="GET6ECN_16.png"/>
+    <include iconfile="GET6ECNRev_16.png"/>
+    <include iconfile="GET6Workarea_16.png"/>
+    <include iconfile="GET6SpecsRev_16.png"/>
+    <include iconfile="GET6ElectPartRev_16.png"/>
+    <include iconfile="GET6MfgPart_16.png"/>
+    <include iconfile="GET6DrawingRev_16.png"/>
+    <include iconfile="GET6SoftItem_16.png"/>
+    <include iconfile="GET6MechPartRev_16.png"/>
+    <include iconfile="GET6ModuleRev_16.png"/>
+    <include iconfile="GET6MfgPartRev_16.png"/>
+    <include iconfile="GET6StockMtrlRev_16.png"/>
+    <include iconfile="GET6Drawing_16.png"/>
+    <include iconfile="GET6Module_16.png"/>
+    <include iconfile="GET6DocumentRev_16.png"/>
+    <include iconfile="GET6Project_16.png"/>
+    <include iconfile="GET6ElectPart_16.png"/>
+    <include iconfile="GET6StockMtrl_16.png"/>
+    <include iconfile="GET6MechPart_16.png"/>
+    <include iconfile="GET6Specs_16.png"/>
+    <include iconfile="GET6ProjectRev_16.png"/>
+    <include iconfile="GET6WorkareaRev_16.png"/>
+    <include iconfile="GET6Document_16.png"/>
+    <include iconfile="GET6SoftItemRev_16.png"/>
+    <include iconfile="GET6MachineRev_16.png"/>
+    <include iconfile="GET6Machine_16.png"/>
+    <include iconfile="GET6Operator_16.png"/>
+    <include iconfile="GET6OperatorRev_16.png"/>
+    <include iconfile="GET6DesingMisc_16.png"/>
+    <include iconfile="GET6DesingMiscRevision_16.png"/>
+    <include iconfile="GET6DsgnReleasePlan_16.png"/>
+    <include iconfile="GET6DsgnReleasePlanRevision_16.png"/>
+    <include iconfile="GET6NCMachining_16.png"/>
+    <include iconfile="GET6NCMachiningRev_16.png"/>
+    <include iconfile="GET6Obsolete.png"/>
+    <include iconfile="GET6GenResourceRev_16.png"/>
+    <include iconfile="GET6GenResource_16.png"/>
+</TcBusinessDataIncludes>

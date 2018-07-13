@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<TcBusinessDataIncludes currentTemplateVersion="11.2_4" displayName="GET TEAMCENTER TO ORACLE" enableOpsDataDeploy="true" guid="3E0A323E1D20CDF716EDF09CA4D9E482" isDescriptionMandatory="false" name="get8t4o" optional="true" prefixes="GET8" teamcenterTemplate="false">
+    <include file="foundation_template.xml"/>
+    <include file="aws2_template.xml"/>
+    <include file="cm_template.xml"/>
+    <include file="materialmgmt_template.xml"/>
+    <include file="nx0tcin_template.xml"/>
+    <include file="t4oebs_template.xml"/>
+    <include file="Cm1cmaws_template.xml"/>
+    <include file="activeworkspacebom_template.xml"/>
+    <include file="get6transplm_template.xml"/>
+</TcBusinessDataIncludes>

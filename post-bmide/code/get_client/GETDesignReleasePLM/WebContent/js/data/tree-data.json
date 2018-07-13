@@ -1,0 +1,33 @@
+[{
+	"id":1,
+	"text":"Foods",
+	"children":[{
+		"id":2,
+		"text":"Fruits",
+		"state":"closed",
+		"children":[{
+			"text":"apple",
+			"checked":true
+		},{
+			"text":"orange"
+		}]
+	},{
+		"id":3,
+		"text":"Vegetables",
+		"state":"open",
+		"children":[{
+			"text":"tomato",
+			"checked":true
+		},{
+			"text":"carrot",
+			"checked":true
+		},{
+			"text":"cabbage"
+		},{
+			"text":"potato",
+			"checked":true
+		},{
+			"text":"lettuce"
+		}]
+	}]
+}]

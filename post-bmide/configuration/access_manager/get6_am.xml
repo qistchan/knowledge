@@ -1,0 +1,5893 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TC Encapsulation : Mapping X-File  -->
+
+<Tc_data_access_config>
+	<named_acls>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Configurator Rule Set ACL</acl_name>
+			<ace_entry>
+				<accessor_type>Group</accessor_type>
+				<accessor>dba</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>CICO</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_PRODUCIBILITY_DISP_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Role in Group</accessor_type>
+				<accessor>Approver in Global Producibility.Advance Manufacturing.SUPPLY CHAIN.TRANSPORTATION.GE TRANSPORTATION</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_CUTIN_DISP_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Role in Group</accessor_type>
+				<accessor>Mfg Change Control in Operations.SUPPLY CHAIN.TRANSPORTATION.GE TRANSPORTATION</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">NXDerived Access</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>COPY</p>
+					<p>CHANGE_OWNER</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Archived Objects</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Vault</acl_name>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Groups with Security</accessor_type>
+				<accessor>External</accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>COPY</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>CHANGE_OWNER</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Import/Export</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>EXPORT</p>
+					<p>IMPORT</p>
+					<p>TRANSFER_IN</p>
+				</grant>
+				<revoke>
+					<p>TRANSFER_OUT</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Remote Site</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>IMPORT</p>
+				</grant>
+				<revoke>
+					<p>TRANSFER_IN</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">POM Open Access</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>COPY</p>
+					<p>CHANGE_OWNER</p>
+					<p>PUBLISH</p>
+					<p>SUBSCRIBE</p>
+					<p>EXPORT</p>
+					<p>IMPORT</p>
+					<p>TRANSFER_OUT</p>
+					<p>TRANSFER_IN</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Bypass</acl_name>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>COPY</p>
+					<p>CHANGE_OWNER</p>
+					<p>PUBLISH</p>
+					<p>SUBSCRIBE</p>
+					<p>EXPORT</p>
+					<p>IMPORT</p>
+					<p>TRANSFER_OUT</p>
+					<p>TRANSFER_IN</p>
+					<p>WRITE_ICOS</p>
+					<p>ASSIGN_TO_PROJECT</p>
+					<p>REMOVE_FROM_PROJECT</p>
+					<p>REMOTE_CICO</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">System Objects</acl_name>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Job</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>CHANGE_OWNER</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>CHANGE_OWNER</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>COPY</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>CHANGE_OWNER</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Task</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>CHANGE_OWNER</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>CHANGE_OWNER</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>COPY</p>
+				</grant>
+				<revoke>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>CHANGE_OWNER</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Person</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>CHANGE_OWNER</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>CHANGE_OWNER</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>COPY</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>CHANGE_OWNER</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Role</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>CHANGE_OWNER</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>CHANGE_OWNER</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>COPY</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>CHANGE_OWNER</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Newstuff, Home</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>COPY</p>
+					<p>CHANGE_OWNER</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Mailbox</acl_name>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+				</grant>
+				<revoke>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>COPY</p>
+					<p>CHANGE_OWNER</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Transfer Pending</acl_name>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>COPY</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Working</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>CHANGE_OWNER</p>
+					<p>PUBLISH</p>
+					<p>SUBSCRIBE</p>
+					<p>DIGITAL_SIGN</p>
+					<p>VOID_DIGITAL_SIGN</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>WRITE</p>
+					<p>SUBSCRIBE</p>
+					<p>DIGITAL_SIGN</p>
+					<p>VOID_DIGITAL_SIGN</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>CHANGE_OWNER</p>
+					<p>SUBSCRIBE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>COPY</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>CHANGE_OWNER</p>
+					<p>PUBLISH</p>
+					<p>SUBSCRIBE</p>
+					<p>REMOTE_CICO</p>
+					<p>CICO</p>
+					<p>DIGITAL_SIGN</p>
+					<p>VOID_DIGITAL_SIGN</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">IMAN Volume</acl_name>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+				</grant>
+				<revoke>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>COPY</p>
+					<p>CHANGE_OWNER</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">System</acl_name>
+			<ace_entry>
+				<accessor_type>User</accessor_type>
+				<accessor>infodba</accessor>
+				<grant>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>CHANGE_OWNER</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>COPY</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>CHANGE_OWNER</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">EPM Open</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Signoff</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>COPY</p>
+					<p>CHANGE_OWNER</p>
+				</grant>
+				<revoke>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Private Rev Rule</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>COPY</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Public Rev Rule</acl_name>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>COPY</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Personal Address List</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GA Working</acl_name>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">UG Note Types</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Remote Import</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>IMPORT</p>
+					<p>TRANSFER_IN</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">AuditLog Rule</acl_name>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">AuditLog Access</acl_name>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">TCM Released Rule</acl_name>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Groups with Security</accessor_type>
+				<accessor>External</accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">in-CLASS Objects</acl_name>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Projects</acl_name>
+			<ace_entry>
+				<accessor_type>Project Teams</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">External Data</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>CHANGE_OWNER</p>
+					<p>PUBLISH</p>
+					<p>SUBSCRIBE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Groups with Security</accessor_type>
+				<accessor>External</accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Groups with Security</accessor_type>
+				<accessor>Internal</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Internal Data</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>CHANGE_OWNER</p>
+					<p>PUBLISH</p>
+					<p>SUBSCRIBE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Groups with Security</accessor_type>
+				<accessor>External</accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Groups with Security</accessor_type>
+				<accessor>Internal</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Project Objects</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>CHANGE_OWNER</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Project Administrator</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Project Team Administrator</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Personal PAL</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>COPY</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Shared PAL</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+				</grant>
+				<revoke>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>COPY</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Scheduling Objects</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Resource Graph Viewers</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>RoleInSchedule</accessor_type>
+				<accessor>Coordinator</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>RoleInSchedule</accessor_type>
+				<accessor>Observer</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>RoleInSchedule</accessor_type>
+				<accessor>Participant</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Public Schedule</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Scheduling Execution Objects</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Resource Graph Viewers</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>RoleInSchedule</accessor_type>
+				<accessor>Coordinator</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>RoleInSchedule</accessor_type>
+				<accessor>Observer</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>RoleInSchedule</accessor_type>
+				<accessor>Participant</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+				</grant>
+				<revoke>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Public Schedule</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Scheduling Fixed Cost</acl_name>
+			<ace_entry>
+				<accessor_type>RoleInSchedule</accessor_type>
+				<accessor>Coordinator</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Scheduling Bill Rate</acl_name>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>CostDBA</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Group</accessor_type>
+				<accessor>dba</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">User Cost</acl_name>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>CostDBA</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Inactive Sequence Objects</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>EXPORT</p>
+					<p>IMPORT</p>
+					<p>TRANSFER_OUT</p>
+					<p>TRANSFER_IN</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>CHANGE_OWNER</p>
+					<p>PUBLISH</p>
+					<p>SUBSCRIBE</p>
+					<p>WRITE_ICOS</p>
+					<p>ASSIGN_TO_PROJECT</p>
+					<p>REMOVE_FROM_PROJECT</p>
+					<p>REMOTE_CICO</p>
+					<p>UNMANAGE</p>
+					<p>IP_ADMIN</p>
+					<p>ITAR_ADMIN</p>
+					<p>CICO</p>
+					<p>Administer_ADA_Licenses</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">WSO Schedule Read Access</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Resource Graph Viewers</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Public Schedule</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Read WSOSchedule</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">WSO Schedule No Access</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">WSO Schedule</acl_name>
+			<ace_entry>
+				<accessor_type>Read WSOSchedule</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Not Current Program</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>EXPORT</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Inactive Program</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>EXPORT</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Not Program Member</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Invisible Program</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Private Saved Search</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>COPY</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Translation</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>TRANSLATION</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Group</accessor_type>
+				<accessor>dba</accessor>
+				<grant>
+					<p>TRANSLATION</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>TRANSLATION</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Markup Item</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>MARKUP</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>MARKUP</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>MARKUP</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Markup Item Revision</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>MARKUP</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>MARKUP</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>MARKUP</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Markup Dataset</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>MARKUP</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>MARKUP</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>MARKUP</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Markup Type</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE_OWNER</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Private Markup</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">General Markup</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Markup Official</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>CICO</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>CICO</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Batch Print Item</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>BATCH_PRINT</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>BATCH_PRINT</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>BATCH_PRINT</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Batch Print Item Revision</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>BATCH_PRINT</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>BATCH_PRINT</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>BATCH_PRINT</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Batch Print Dataset</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>BATCH_PRINT</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>BATCH_PRINT</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>BATCH_PRINT</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Digital Sign Item</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>DIGITAL_SIGN</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>DIGITAL_SIGN</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>DIGITAL_SIGN</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Digital Sign Item Revision</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>DIGITAL_SIGN</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>DIGITAL_SIGN</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>DIGITAL_SIGN</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Digital Sign Dataset</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>DIGITAL_SIGN</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>DIGITAL_SIGN</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>DIGITAL_SIGN</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Client Session Info</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">UserIPAddressReport</acl_name>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Classification hierarchy</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE_ICOS</p>
+					<p>ADD_CONTENT</p>
+					<p>REMOVE_CONTENT</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Group</accessor_type>
+				<accessor>dba</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE_ICOS</p>
+					<p>ADD_CONTENT</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>REMOVE_CONTENT</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Digitally Signed No Write</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>WRITE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Invalid DS Status No More DS</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>DIGITAL_SIGN</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Propagated DS Status No More DS</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>DIGITAL_SIGN</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Digital Signature Delete</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Qualification Access</acl_name>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>DBA</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Inactive Edit Context</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>WRITE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_MCN_ACCESS_GRR</acl_name>
+			<ace_entry>
+				<accessor_type>Current Project Team</accessor_type>
+				<accessor>Grove City Engine Remanufacturi</accessor>
+				<grant>
+					<p>WRITE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_MCN_ACCESS_GRV</acl_name>
+			<ace_entry>
+				<accessor_type>Current Project Team</accessor_type>
+				<accessor>Grove City Engine Manufacturing</accessor>
+				<grant>
+					<p>WRITE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_INJOB_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Role in Owning Group</accessor_type>
+				<accessor>Engineer</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_ENGR_DISP_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Role in Owning Group</accessor_type>
+				<accessor>Engineer</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_ADMIN_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Application Administrator</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>CHANGE_OWNER</p>
+					<p>CICO</p>
+				</grant>
+				<revoke>
+					<p>COPY</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Data Administrator</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE_OWNER</p>
+					<p>CICO</p>
+				</grant>
+				<revoke>
+					<p>COPY</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_SUBSCRIBE_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>SUBSCRIBE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Digital Eng_RES_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Digital Engineering - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Digital Eng_CONF_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Digital Engineering - (C)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Digital Engineering - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_DRELEASE_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>DENV Admin</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Design Release</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>COPY</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_EPM_RESPPARTY</acl_name>
+			<ace_entry>
+				<accessor_type>Responsible Party</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_DSGNRELEASE_COPY</acl_name>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Design Release</accessor>
+				<grant>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>COPY</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_DRAWING_COPY</acl_name>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Designer</accessor>
+				<grant>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Services Engineer</accessor>
+				<grant>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Services Engineering Manager</accessor>
+				<grant>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>COPY</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_MATERIAL_COPY</acl_name>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Material Analyst</accessor>
+				<grant>
+					<p>COPY</p>
+					<p>WRITE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>COPY</p>
+					<p>WRITE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_SPECS_COPY</acl_name>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Engineer</accessor>
+				<grant>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Material Analyst</accessor>
+				<grant>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Services Engineer</accessor>
+				<grant>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Services Engineering Manager</accessor>
+				<grant>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>COPY</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">PROPULSION_CONF_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Propulsion - (C)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Propulsion - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Off Highway Vehicle (OHV)_CONF_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Off Highway Vehicle (OHV) - (C)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Off Highway Vehicle (OHV) - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Off Highway Vehicle (OHV)_RES_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Off Highway Vehicle (OHV) - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">PROPULSION_RES_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Propulsion - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_VAULT_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>User</accessor_type>
+				<accessor>dcproxy</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>CICO</p>
+					<p>MARKUP</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+					<p>DELETE</p>
+					<p>CICO</p>
+					<p>MARKUP</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">UNDERGROUND_MINING_RES_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Underground Mining - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">SOFTWARE_RES_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Software - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">SOFTWARE_CONF_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Software - (C)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Software - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_EDOT_PROJECT_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Project Teams</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">UNDERGROUND_MINING_CONF_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Underground Mining - (C)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Underground Mining - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">ELECTRICAL_COE_RES_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Electrical COE - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">ENGINE_RES_ACESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Engine - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">ENGINE_CONF_ACESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Engine - (C)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Engine - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">PRODUCT_DEFINITION_RES_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Product Definition - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">PRODUCT_DEFINITION_CONF_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Product Definition - (C)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Product Definition - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GLOBAL_LAB_RES_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Global Lab - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GLOBAL_LAB_CONF_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Global Lab - (C)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Global Lab - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">MECH_COE_RES_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Mechanical COE - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">MECH_COE_CONF_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Mechanical COE - (C)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Mechanical COE - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">ENGG_ADMIN_RES_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Engineering Admin - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">ENGG_ADMIN_CONF_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Engineering Admin - (C)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Engineering Admin - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">ELECTRICAL_COE_CONF_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Electrical COE - (C)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Electrical COE - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_DELETE_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>DELETE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_SA_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>DIGITAL_SIGN</p>
+					<p>VOID_DIGITAL_SIGN</p>
+					<p>CICO</p>
+					<p>MARKUP</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_NO_COPY</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>COPY</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_DRE_COPY</acl_name>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>DENV Admin</accessor>
+				<grant>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Design Release</accessor>
+				<grant>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>COPY</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_ENGPART_COPY</acl_name>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Design Release</accessor>
+				<grant>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Designer</accessor>
+				<grant>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Engineer</accessor>
+				<grant>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>COPY</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_MFG_PROJECT_WRITE_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Grove City Engine Remanufacturi</accessor>
+				<grant>
+					<p>WRITE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_WORLD_READ</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_GRV_MFG_PROJECT_WRITE_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Role in Projects of Object</accessor_type>
+				<accessor>Mfg Process Engineer</accessor>
+				<grant>
+					<p>WRITE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role in Projects of Object</accessor_type>
+				<accessor>Mfg Process Planner</accessor>
+				<grant>
+					<p>WRITE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>WRITE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_GRR_MFG_PROJECT_WRITE_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Role in Projects of Object</accessor_type>
+				<accessor>Mfg Process Engineer</accessor>
+				<grant>
+					<p>WRITE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role in Projects of Object</accessor_type>
+				<accessor>Mfg Process Planner</accessor>
+				<grant>
+					<p>WRITE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>WRITE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_MFG_GEN_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_EDOT</acl_name>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>DENV Admin</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Design Release</accessor>
+				<grant>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>COPY</p>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>COPY</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_DRPLAN_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>DENV Admin</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role</accessor_type>
+				<accessor>Design Release</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>COPY</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">PE SAFETY CS_RES_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>PrncplEngg-Safety-CybrSec - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">PE SAFETY CS_CONF_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>PrncplEngg-Safety-CybrSec - (C)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>PrncplEngg-Safety-CybrSec - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Digital Tech_RES_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Digital Engineering - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Digital Tech_CONF_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Digital Engineering - (C)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Digital Engineering - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Engg Support_RES_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Engineering Support - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Engg Support_CONF_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Engineering Support - (C)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Engineering Support - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GETSA Engg_RES_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>GETSA Engineering - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GETSA Engg_CONF_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>GETSA Engineering - (C)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>GETSA Engineering - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Compliance_RES_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Compliance - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Compliance_CONF_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Compliance - (C)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Compliance - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Tech Pub_RES_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Technical Publications - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Tech Pub_CONF_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Technical Publications - (C)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Technical Publications - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Trans Systems_RES_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Transportation Systems - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Trans Systems_CONF_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Transportation Systems - (C)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Transportation Systems - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Sponsors</acl_name>
+			<ace_entry>
+				<accessor_type>Group</accessor_type>
+				<accessor>Sponsor</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>COPY</p>
+					<p>CHANGE_OWNER</p>
+					<p>PUBLISH</p>
+					<p>SUBSCRIBE</p>
+					<p>EXPORT</p>
+					<p>IMPORT</p>
+					<p>TRANSFER_OUT</p>
+					<p>TRANSFER_IN</p>
+					<p>WRITE_ICOS</p>
+					<p>ASSIGN_TO_PROJECT</p>
+					<p>REMOVE_FROM_PROJECT</p>
+					<p>REMOTE_CICO</p>
+					<p>UNMANAGE</p>
+					<p>IP_ADMIN</p>
+					<p>ITAR_ADMIN</p>
+					<p>CICO</p>
+					<p>Administer_ADA_Licenses</p>
+					<p>TRANSLATION</p>
+					<p>MARKUP</p>
+					<p>BATCH_PRINT</p>
+					<p>DIGITAL_SIGN</p>
+					<p>ADD_CONTENT</p>
+					<p>REMOVE_CONTENT</p>
+					<p>IP_Classifier</p>
+					<p>ITAR_Classifier</p>
+					<p>VOID_DIGITAL_SIGN</p>
+					<p>MANAGE_VARIABILITY</p>
+					<p>PDF_CONTROL</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">PDF Control Item</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>PDF_CONTROL</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>PDF_CONTROL</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>PDF_CONTROL</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">PDF Control Item Revision</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>PDF_CONTROL</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>PDF_CONTROL</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>PDF_CONTROL</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">PDF Control Dataset</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>PDF_CONTROL</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>PDF_CONTROL</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>PDF_CONTROL</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">Closed Edit Context</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>WRITE</p>
+					<p>ADD_CONTENT</p>
+					<p>REMOVE_CONTENT</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_ECN_DISP_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Role in Owning Group</accessor_type>
+				<accessor>Engineer</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">DispatcherRequest</acl_name>
+			<ace_entry>
+				<accessor_type>User</accessor_type>
+				<accessor>dcproxy</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+					<p>PROMOTE</p>
+					<p>DEMOTE</p>
+					<p>COPY</p>
+					<p>CHANGE_OWNER</p>
+					<p>TRANSFER_OUT</p>
+					<p>TRANSFER_IN</p>
+					<p>CICO</p>
+					<p>TRANSLATION</p>
+					<p>MARKUP</p>
+					<p>BATCH_PRINT</p>
+					<p>DIGITAL_SIGN</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_MCN_CONTRL_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_MCN_ATTR_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Responsible Party</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_MFG_ATTR_FRM_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Role in Projects of Object</accessor_type>
+				<accessor>Mfg Process Engineer</accessor>
+				<grant>
+					<p>WRITE</p>
+					<p>ASSIGN_TO_PROJECT</p>
+					<p>REMOVE_FROM_PROJECT</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_SERVICE_FORM_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DEMOTE</p>
+					<p>COPY</p>
+				</grant>
+				<revoke>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Group</accessor_type>
+				<accessor>SERVICES.TRANSPORTATION.GE TRANSPORTATION</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DEMOTE</p>
+					<p>COPY</p>
+				</grant>
+				<revoke>
+					<p>DELETE</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>WRITE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_SRVPART_COPY</acl_name>
+			<ace_entry>
+				<accessor_type>Owning Group</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Group</accessor_type>
+				<accessor>SERVICES.TRANSPORTATION.GE TRANSPORTATION</accessor>
+				<grant>
+					<p>COPY</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>COPY</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_WF_NO_EDIT</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>WRITE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">SERVICES_RES_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Services - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">SERVICES_CONF_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Owning User</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Services - (C)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Project Team</accessor_type>
+				<accessor>Services - (R)</accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>READ</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="RULETREE">
+			<acl_name language="en_US">GET_PDF_MARKUP_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>MARKUP</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="WORKFLOW">
+			<acl_name language="en_US">GET_WF_C2C_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Approver</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+					<p>CICO</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Task Owner</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+					<p>CICO</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Responsible Party</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+					<p>CICO</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role in Group</accessor_type>
+				<accessor>Programmer in Operations.SUPPLY CHAIN.TRANSPORTATION.GE TRANSPORTATION</accessor>
+				<grant>
+					<p>CHANGE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="WORKFLOW">
+			<acl_name language="en_US">GET_WF_CHANGE_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Approver</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Task Owner</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Responsible Party</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="WORKFLOW">
+			<acl_name language="en_US">GET_VAULT</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="WORKFLOW">
+			<acl_name language="en_US">GET_WF_VAULT</acl_name>
+			<ace_entry>
+				<accessor_type>World</accessor_type>
+				<accessor></accessor>
+				<grant/>
+				<revoke>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+				</revoke>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="WORKFLOW">
+			<acl_name language="en_US">GET_WF_FULL_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Approver</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Task Owner</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+				</grant>
+				<revoke>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+				</revoke>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Responsible Party</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="WORKFLOW">
+			<acl_name language="en_US">GET_DELETE</acl_name>
+			<ace_entry>
+				<accessor_type>Approver</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Task Owner</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>System Administrator</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>DELETE</p>
+					<p>CHANGE</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+		<named_acl type="WORKFLOW">
+			<acl_name language="en_US">GET_WF_T4O_ACCESS</acl_name>
+			<ace_entry>
+				<accessor_type>Approver</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+					<p>ADD_CONTENT</p>
+					<p>REMOVE_CONTENT</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Task Owner</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+					<p>ADD_CONTENT</p>
+					<p>REMOVE_CONTENT</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Responsible Party</accessor_type>
+				<accessor></accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+					<p>ADD_CONTENT</p>
+					<p>REMOVE_CONTENT</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role in Group</accessor_type>
+				<accessor>Mfg Process Engineer in Operations.SUPPLY CHAIN.TRANSPORTATION.GE TRANSPORTATION</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+					<p>ADD_CONTENT</p>
+					<p>REMOVE_CONTENT</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+			<ace_entry>
+				<accessor_type>Role in Group</accessor_type>
+				<accessor>Mfg Process Planner in Operations.SUPPLY CHAIN.TRANSPORTATION.GE TRANSPORTATION</accessor>
+				<grant>
+					<p>READ</p>
+					<p>WRITE</p>
+					<p>CHANGE</p>
+					<p>ADD_CONTENT</p>
+					<p>REMOVE_CONTENT</p>
+				</grant>
+				<revoke/>
+			</ace_entry>
+		</named_acl>
+	</named_acls>
+	<rule_tree>
+		<tree_node>
+			<rule_name>Has Class</rule_name>
+			<rule_argument>POM_object</rule_argument>
+			<acl_name/>
+			<tree_node>
+				<rule_name>Has Bypass</rule_name>
+				<rule_argument>true</rule_argument>
+				<acl_name>Bypass</acl_name>
+			</tree_node>
+			<tree_node>
+				<rule_name>Has Class</rule_name>
+				<rule_argument>POM_application_object</rule_argument>
+				<acl_name/>
+				<tree_node>
+					<rule_name>Has Digital Signature</rule_name>
+					<rule_argument>Valid</rule_argument>
+					<acl_name>Digitally Signed No Write</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Digital Signature</rule_name>
+					<rule_argument>Invalid</rule_argument>
+					<acl_name>Invalid DS Status No More DS</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Digital Signature</rule_name>
+					<rule_argument>Propagated</rule_argument>
+					<acl_name>Propagated DS Status No More DS</acl_name>
+				</tree_node>
+			</tree_node>
+			<tree_node collapsed="true" protected="true">
+				<rule_name>Has Class</rule_name>
+				<rule_argument>POM_object</rule_argument>
+				<acl_name>System Objects</acl_name>
+				<tree_node>
+					<rule_name>Is Archived</rule_name>
+					<rule_argument>true</rule_argument>
+					<acl_name>Archived Objects</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Owning User</rule_name>
+					<rule_argument>infodba</rule_argument>
+					<acl_name>System</acl_name>
+					<tree_node>
+						<rule_name>Has Object ACL</rule_name>
+						<rule_argument>true</rule_argument>
+						<acl_name/>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>WorkspaceObject</rule_argument>
+						<acl_name/>
+						<tree_node>
+							<rule_name>Inactive Sequence</rule_name>
+							<rule_argument>true</rule_argument>
+							<acl_name>Inactive Sequence Objects</acl_name>
+						</tree_node>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>RevisionRule</rule_argument>
+						<acl_name>Public Rev Rule</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>Mail Folder</rule_argument>
+						<acl_name>Mailbox</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>ImanAliasList</rule_argument>
+						<acl_name>Personal Address List</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>Form</rule_argument>
+						<acl_name/>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>DistributionList</rule_argument>
+						<acl_name/>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>ReportDefinition</rule_argument>
+						<acl_name/>
+						<tree_node>
+							<rule_name>Has Attribute</rule_name>
+							<rule_argument>ReportDefinition:rd_name=User Login IP Address Report</rule_argument>
+							<acl_name>UserIPAddressReport</acl_name>
+						</tree_node>
+						<tree_node>
+							<rule_name>Has Attribute</rule_name>
+							<rule_argument>ReportDefinition:rd_name=Users Login Date Information</rule_argument>
+							<acl_name>UserIPAddressReport</acl_name>
+						</tree_node>
+					</tree_node>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Attribute</rule_name>
+					<rule_argument>NoteType:name=UG*</rule_argument>
+					<acl_name>UG Note Types</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>TaskType</rule_argument>
+					<acl_name>System</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>FormTypeDef</rule_argument>
+					<acl_name>System</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>DatasetType</rule_argument>
+					<acl_name>System</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>EPMJob</rule_argument>
+					<acl_name>Job</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>EPMTask</rule_argument>
+					<acl_name>Task</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>Signoff</rule_argument>
+					<acl_name>Signoff</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>Person</rule_argument>
+					<acl_name>Person</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>Role</rule_argument>
+					<acl_name>Role</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>Fnd0ClientSessionInfo</rule_argument>
+					<acl_name>Client Session Info</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>ImanVolume</rule_argument>
+					<acl_name>IMAN Volume</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>VolumeSubDir</rule_argument>
+					<acl_name>IMAN Volume</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>TransferPending</rule_argument>
+					<acl_name>Transfer Pending</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>HSM_Info</rule_argument>
+					<acl_name>POM Open Access</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>VM_Info</rule_argument>
+					<acl_name>POM Open Access</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>DistributionList</rule_argument>
+					<acl_name>POM Open Access</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>PSAlternateList</rule_argument>
+					<acl_name>POM Open Access</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>RevisionAnchor</rule_argument>
+					<acl_name>POM Open Access</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>Folder</rule_argument>
+					<acl_name/>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>Newstuff Folder</rule_argument>
+						<acl_name>Newstuff, Home</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Name</rule_name>
+						<rule_argument>Home</rule_argument>
+						<acl_name>Newstuff, Home</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>Mail Folder</rule_argument>
+						<acl_name>Mailbox</acl_name>
+					</tree_node>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>POM_imc</rule_argument>
+					<acl_name>Remote Import</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>SchedulingFixedCost</rule_argument>
+					<acl_name/>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>SchedulingFixedCost</rule_argument>
+						<acl_name>Scheduling Fixed Cost</acl_name>
+					</tree_node>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>POM_object</rule_argument>
+					<acl_name>in-CLASS Objects</acl_name>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>smlb0</rule_argument>
+						<acl_name/>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>bldb0</rule_argument>
+						<acl_name/>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>icm0</rule_argument>
+						<acl_name/>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>unct_dict</rule_argument>
+						<acl_name/>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>stxt</rule_argument>
+						<acl_name/>
+					</tree_node>
+				</tree_node>
+				<tree_node>
+					<rule_name>Is Project Member</rule_name>
+					<rule_argument>true</rule_argument>
+					<acl_name>Project Objects</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>ImanRelation</rule_argument>
+					<acl_name/>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>CostValue_Relation</rule_argument>
+						<acl_name>User Cost</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>Fnd0UserHasQual</rule_argument>
+						<acl_name>Qualification Access</acl_name>
+					</tree_node>
+				</tree_node>
+			</tree_node>
+			<tree_node>
+				<rule_name>Has Class</rule_name>
+				<rule_argument>WorkspaceObject</rule_argument>
+				<acl_name/>
+				<tree_node>
+					<rule_name>Inactive Sequence</rule_name>
+					<rule_argument>true</rule_argument>
+					<acl_name>Inactive Sequence Objects</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>Fnd0Qualification</rule_argument>
+					<acl_name>Qualification Access</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>Fnd0EditContext</rule_argument>
+					<acl_name/>
+					<tree_node>
+						<rule_name>Has Attribute</rule_name>
+						<rule_argument>Fnd0EditContext:fnd0EditContextState=Inactive</rule_argument>
+						<acl_name>Inactive Edit Context</acl_name>
+					</tree_node>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>Schedule</rule_argument>
+					<acl_name/>
+					<tree_node>
+						<rule_name>Has Attribute</rule_name>
+						<rule_argument>Schedule:fnd0IsLegacy=0</rule_argument>
+						<acl_name>WSO Schedule Read Access</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Attribute</rule_name>
+						<rule_argument>Schedule:fnd0IsLegacy=1</rule_argument>
+						<acl_name>WSO Schedule No Access</acl_name>
+					</tree_node>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>ScheduleTask</rule_argument>
+					<acl_name/>
+					<tree_node>
+						<rule_name>Has Attribute</rule_name>
+						<rule_argument>ScheduleTask:fnd0IsLegacy=0</rule_argument>
+						<acl_name>WSO Schedule Read Access</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Attribute</rule_name>
+						<rule_argument>ScheduleTask:fnd0IsLegacy=1</rule_argument>
+						<acl_name>WSO Schedule No Access</acl_name>
+					</tree_node>
+				</tree_node>
+			</tree_node>
+			<tree_node>
+				<rule_name>Has Class</rule_name>
+				<rule_argument>SavedSearch</rule_argument>
+				<acl_name/>
+				<tree_node>
+					<rule_name>Has Object ACL</rule_name>
+					<rule_argument>true</rule_argument>
+					<acl_name/>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Attribute</rule_name>
+					<rule_argument>SavedSearch:shared=0</rule_argument>
+					<acl_name>Private Saved Search</acl_name>
+				</tree_node>
+			</tree_node>
+			<tree_node>
+				<rule_name>In Job</rule_name>
+				<rule_argument>true</rule_argument>
+				<acl_name/>
+				<tree_node>
+					<rule_name>Has Type</rule_name>
+					<rule_argument>GET6ECNRevision</rule_argument>
+					<acl_name/>
+					<tree_node>
+						<rule_name>Has Attribute</rule_name>
+						<rule_argument>GET6ECNRevision:get6ECNCtrl=Update_Disposition</rule_argument>
+						<acl_name>GET_ECN_DISP_ACCESS</acl_name>
+					</tree_node>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Type</rule_name>
+					<rule_argument>GET6MfgAttrForm1</rule_argument>
+					<acl_name>GET_MFG_ATTR_FRM_ACCESS</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Type</rule_name>
+					<rule_argument>GET6MfgAttrForm2</rule_argument>
+					<acl_name>GET_MFG_ATTR_FRM_ACCESS</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Type</rule_name>
+					<rule_argument>GET6MfgAttrForm3</rule_argument>
+					<acl_name>GET_MFG_ATTR_FRM_ACCESS</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Type</rule_name>
+					<rule_argument>GET6MfgAttrForm4</rule_argument>
+					<acl_name>GET_MFG_ATTR_FRM_ACCESS</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Type</rule_name>
+					<rule_argument>GET6MfgAttrForm5</rule_argument>
+					<acl_name>GET_MFG_ATTR_FRM_ACCESS</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Type</rule_name>
+					<rule_argument>GET6MfgAttrForm6</rule_argument>
+					<acl_name>GET_MFG_ATTR_FRM_ACCESS</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Type</rule_name>
+					<rule_argument>GET6MfgAttrForm7</rule_argument>
+					<acl_name>GET_MFG_ATTR_FRM_ACCESS</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Type</rule_name>
+					<rule_argument>GET6MfgAttrForm8</rule_argument>
+					<acl_name>GET_MFG_ATTR_FRM_ACCESS</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Type</rule_name>
+					<rule_argument>GET6MfgAttrForm9</rule_argument>
+					<acl_name>GET_MFG_ATTR_FRM_ACCESS</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Type</rule_name>
+					<rule_argument>GET6MfgAttrForm10</rule_argument>
+					<acl_name>GET_MFG_ATTR_FRM_ACCESS</acl_name>
+				</tree_node>
+			</tree_node>
+			<tree_node>
+				<rule_name>In Current Program</rule_name>
+				<rule_argument>false</rule_argument>
+				<acl_name>Not Current Program</acl_name>
+			</tree_node>
+			<tree_node>
+				<rule_name>In Inactive Program</rule_name>
+				<rule_argument>true</rule_argument>
+				<acl_name>Inactive Program</acl_name>
+			</tree_node>
+			<tree_node>
+				<rule_name>Is Program Member</rule_name>
+				<rule_argument>false</rule_argument>
+				<acl_name>Not Program Member</acl_name>
+			</tree_node>
+			<tree_node>
+				<rule_name>In Invisible Program</rule_name>
+				<rule_argument>true</rule_argument>
+				<acl_name>Invisible Program</acl_name>
+			</tree_node>
+			<tree_node>
+				<rule_name>Has Status</rule_name>
+				<rule_argument>TCM Released</rule_argument>
+				<acl_name>TCM Released Rule</acl_name>
+			</tree_node>
+			<tree_node>
+				<rule_name>Owning Group</rule_name>
+				<rule_argument>*.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+				<acl_name>GET_SA_ACCESS</acl_name>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>WorkspaceObject</rule_argument>
+					<acl_name>GET_SUBSCRIBE_ACCESS</acl_name>
+					<tree_node>
+						<rule_name>Has Status</rule_name>
+						<rule_argument></rule_argument>
+						<acl_name>GET_VAULT_ACCESS</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>GET9SrvPart</rule_argument>
+						<acl_name>GET_SRVPART_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>GET9SrvPartRevision</rule_argument>
+						<acl_name>GET_SRVPART_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>GET9SerAttrForm</rule_argument>
+						<acl_name>GET_SERVICE_FORM_ACCESS</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>GET6LegacyPart</rule_argument>
+						<acl_name>GET_NO_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>GET6LegacyPartRevision</rule_argument>
+						<acl_name>GET_NO_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>GET6AbsUniPart</rule_argument>
+						<acl_name>GET_ENGPART_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>GET6AbsUniPartRevision</rule_argument>
+						<acl_name>GET_ENGPART_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>ChangeItem</rule_argument>
+						<acl_name>GET_NO_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>ChangeItemRevision</rule_argument>
+						<acl_name>GET_NO_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>GET6Drawing</rule_argument>
+						<acl_name>GET_DRAWING_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>GET6DrawingRevision</rule_argument>
+						<acl_name>GET_DRAWING_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>GET6DsgnRelease</rule_argument>
+						<acl_name>GET_DRELEASE_ACCESS</acl_name>
+						<tree_node>
+							<rule_name>In Project</rule_name>
+							<rule_argument></rule_argument>
+							<acl_name>GET_EDOT_PROJECT_ACCESS</acl_name>
+						</tree_node>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>GET6DsgnReleaseRevision</rule_argument>
+						<acl_name>GET_EDOT</acl_name>
+						<tree_node>
+							<rule_name>In Project</rule_name>
+							<rule_argument></rule_argument>
+							<acl_name>GET_EDOT_PROJECT_ACCESS</acl_name>
+						</tree_node>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>GET6DsgnRelPlan</rule_argument>
+						<acl_name>GET_DRPLAN_ACCESS</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>GET6Material</rule_argument>
+						<acl_name>GET_MATERIAL_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>GET6MaterialRevision</rule_argument>
+						<acl_name>GET_MATERIAL_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>GET6Module</rule_argument>
+						<acl_name>GET_DRE_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>GET6ModuleRevision</rule_argument>
+						<acl_name>GET_DRE_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>GET6Project</rule_argument>
+						<acl_name>GET_DRE_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>GET6ProjectRevision</rule_argument>
+						<acl_name>GET_DRE_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>GET6Specs</rule_argument>
+						<acl_name>GET_SPECS_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>GET6SpecsRevision</rule_argument>
+						<acl_name>GET_SPECS_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>GET6Workarea</rule_argument>
+						<acl_name>GET_DRE_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>GET6WorkareaRevision</rule_argument>
+						<acl_name>GET_DRE_COPY</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>PDF</rule_argument>
+						<acl_name>GET_PDF_MARKUP_ACCESS</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Owning Group</rule_name>
+						<rule_argument>*.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+						<acl_name>GET_ADMIN_ACCESS</acl_name>
+						<tree_node>
+							<rule_name>Owning Group</rule_name>
+							<rule_argument>*.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+							<acl_name/>
+							<tree_node>
+								<rule_name>Has Class</rule_name>
+								<rule_argument>Dataset</rule_argument>
+								<acl_name/>
+								<tree_node>
+									<rule_name>Owning Group</rule_name>
+									<rule_argument>Off Highway Vehicle (OHV).ENGINEERING.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+									<acl_name/>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Confidential</rule_argument>
+										<acl_name>Off Highway Vehicle (OHV)_CONF_ACCESS</acl_name>
+									</tree_node>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Restricted</rule_argument>
+										<acl_name>Off Highway Vehicle (OHV)_RES_ACCESS</acl_name>
+									</tree_node>
+								</tree_node>
+								<tree_node>
+									<rule_name>Owning Group</rule_name>
+									<rule_argument>Engine.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+									<acl_name/>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Restricted</rule_argument>
+										<acl_name>ENGINE_RES_ACESS</acl_name>
+									</tree_node>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Confidential</rule_argument>
+										<acl_name>ENGINE_CONF_ACESS</acl_name>
+									</tree_node>
+								</tree_node>
+								<tree_node>
+									<rule_name>Owning Group</rule_name>
+									<rule_argument>Product Definition.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+									<acl_name/>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Restricted</rule_argument>
+										<acl_name>PRODUCT_DEFINITION_RES_ACCESS</acl_name>
+									</tree_node>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Confidential</rule_argument>
+										<acl_name>PRODUCT_DEFINITION_CONF_ACCESS</acl_name>
+									</tree_node>
+								</tree_node>
+								<tree_node>
+									<rule_name>Owning Group</rule_name>
+									<rule_argument>Global Lab.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+									<acl_name/>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Restricted</rule_argument>
+										<acl_name>GLOBAL_LAB_RES_ACCESS</acl_name>
+									</tree_node>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Confidential</rule_argument>
+										<acl_name>GLOBAL_LAB_CONF_ACCESS</acl_name>
+									</tree_node>
+								</tree_node>
+								<tree_node>
+									<rule_name>Owning Group</rule_name>
+									<rule_argument>Mechanical COE.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+									<acl_name/>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Restricted</rule_argument>
+										<acl_name>MECH_COE_RES_ACCESS</acl_name>
+									</tree_node>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Confidential</rule_argument>
+										<acl_name>MECH_COE_CONF_ACCESS</acl_name>
+									</tree_node>
+								</tree_node>
+								<tree_node>
+									<rule_name>Owning Group</rule_name>
+									<rule_argument>Software.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+									<acl_name/>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Restricted</rule_argument>
+										<acl_name>SOFTWARE_RES_ACCESS</acl_name>
+									</tree_node>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Confidential</rule_argument>
+										<acl_name>SOFTWARE_CONF_ACCESS</acl_name>
+									</tree_node>
+								</tree_node>
+								<tree_node>
+									<rule_name>Owning Group</rule_name>
+									<rule_argument>Engineering Admin.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+									<acl_name/>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Restricted</rule_argument>
+										<acl_name>ENGG_ADMIN_RES_ACCESS</acl_name>
+									</tree_node>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Confidential</rule_argument>
+										<acl_name>ENGG_ADMIN_CONF_ACCESS</acl_name>
+									</tree_node>
+								</tree_node>
+								<tree_node>
+									<rule_name>Owning Group</rule_name>
+									<rule_argument>Underground Mining.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+									<acl_name/>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Restricted</rule_argument>
+										<acl_name>UNDERGROUND_MINING_RES_ACCESS</acl_name>
+									</tree_node>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Confidential</rule_argument>
+										<acl_name>UNDERGROUND_MINING_CONF_ACCESS</acl_name>
+									</tree_node>
+								</tree_node>
+								<tree_node>
+									<rule_name>Owning Group</rule_name>
+									<rule_argument>Electrical COE.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+									<acl_name/>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Restricted</rule_argument>
+										<acl_name>ELECTRICAL_COE_RES_ACCESS</acl_name>
+									</tree_node>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Confidential</rule_argument>
+										<acl_name>ELECTRICAL_COE_CONF_ACCESS</acl_name>
+									</tree_node>
+								</tree_node>
+								<tree_node>
+									<rule_name>Owning Group</rule_name>
+									<rule_argument>Propulsion.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+									<acl_name/>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Restricted</rule_argument>
+										<acl_name>PROPULSION_RES_ACCESS</acl_name>
+									</tree_node>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Confidential</rule_argument>
+										<acl_name>PROPULSION_CONF_ACCESS</acl_name>
+									</tree_node>
+								</tree_node>
+								<tree_node>
+									<rule_name>Owning Group</rule_name>
+									<rule_argument>Principal Engineering, Safety, and Cyber Security.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+									<acl_name/>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Restricted</rule_argument>
+										<acl_name>PE SAFETY CS_RES_ACCESS</acl_name>
+									</tree_node>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Confidential</rule_argument>
+										<acl_name>PE SAFETY CS_CONF_ACCESS</acl_name>
+									</tree_node>
+								</tree_node>
+								<tree_node>
+									<rule_name>Owning Group</rule_name>
+									<rule_argument>Digital Engineering.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+									<acl_name/>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Restricted</rule_argument>
+										<acl_name>Digital Eng_RES_ACCESS</acl_name>
+									</tree_node>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Confidential</rule_argument>
+										<acl_name>Digital Eng_CONF_ACCESS</acl_name>
+									</tree_node>
+								</tree_node>
+								<tree_node>
+									<rule_name>Owning Group</rule_name>
+									<rule_argument>Engineering Support.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+									<acl_name/>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Restricted</rule_argument>
+										<acl_name>Engg Support_RES_ACCESS</acl_name>
+									</tree_node>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Confidential</rule_argument>
+										<acl_name>Engg Support_CONF_ACCESS</acl_name>
+									</tree_node>
+								</tree_node>
+								<tree_node>
+									<rule_name>Owning Group</rule_name>
+									<rule_argument>GETSA Engineering.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+									<acl_name/>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Restricted</rule_argument>
+										<acl_name>GETSA Engg_RES_ACCESS</acl_name>
+									</tree_node>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Confidential</rule_argument>
+										<acl_name>GETSA Engg_CONF_ACCESS</acl_name>
+									</tree_node>
+								</tree_node>
+								<tree_node>
+									<rule_name>Owning Group</rule_name>
+									<rule_argument>Compliance.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+									<acl_name/>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Restricted</rule_argument>
+										<acl_name>Compliance_RES_ACCESS</acl_name>
+									</tree_node>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Confidential</rule_argument>
+										<acl_name>Compliance_CONF_ACCESS</acl_name>
+									</tree_node>
+								</tree_node>
+								<tree_node>
+									<rule_name>Owning Group</rule_name>
+									<rule_argument>Technical Publications.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+									<acl_name/>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Restricted</rule_argument>
+										<acl_name>Tech Pub_RES_ACCESS</acl_name>
+									</tree_node>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Confidential</rule_argument>
+										<acl_name>Tech Pub_CONF_ACCESS</acl_name>
+									</tree_node>
+								</tree_node>
+								<tree_node>
+									<rule_name>Owning Group</rule_name>
+									<rule_argument>Transportation Systems.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+									<acl_name/>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Restricted</rule_argument>
+										<acl_name>Trans Systems_RES_ACCESS</acl_name>
+									</tree_node>
+									<tree_node>
+										<rule_name>Has Attribute</rule_name>
+										<rule_argument>Dataset:ip_classification=GE - Confidential</rule_argument>
+										<acl_name>Trans Systems_CONF_ACCESS</acl_name>
+									</tree_node>
+								</tree_node>
+							</tree_node>
+						</tree_node>
+						<tree_node>
+							<rule_name>Owning Group</rule_name>
+							<rule_argument>*.SUPPLY CHAIN.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+							<acl_name>GET_MFG_GEN_ACCESS</acl_name>
+							<tree_node>
+								<rule_name>In Current Project</rule_name>
+								<rule_argument>GRR</rule_argument>
+								<acl_name>GET_GRR_MFG_PROJECT_WRITE_ACCESS</acl_name>
+								<tree_node>
+									<rule_name>Has Type</rule_name>
+									<rule_argument>GET6MCN</rule_argument>
+									<acl_name>GET_MCN_ACCESS_GRR</acl_name>
+								</tree_node>
+								<tree_node>
+									<rule_name>Has Type</rule_name>
+									<rule_argument>GET6MCNRevision</rule_argument>
+									<acl_name>GET_MCN_ACCESS_GRR</acl_name>
+								</tree_node>
+							</tree_node>
+							<tree_node>
+								<rule_name>In Current Project</rule_name>
+								<rule_argument>GRV</rule_argument>
+								<acl_name>GET_GRV_MFG_PROJECT_WRITE_ACCESS</acl_name>
+								<tree_node>
+									<rule_name>Has Type</rule_name>
+									<rule_argument>GET6MCN</rule_argument>
+									<acl_name>GET_MCN_ACCESS_GRV</acl_name>
+								</tree_node>
+								<tree_node>
+									<rule_name>Has Type</rule_name>
+									<rule_argument>GET6MCNRevision</rule_argument>
+									<acl_name>GET_MCN_ACCESS_GRV</acl_name>
+								</tree_node>
+							</tree_node>
+							<tree_node>
+								<rule_name>Has Class</rule_name>
+								<rule_argument>Folder</rule_argument>
+								<acl_name>Working</acl_name>
+							</tree_node>
+						</tree_node>
+						<tree_node>
+							<rule_name>Owning Group</rule_name>
+							<rule_argument>SERVICES.TRANSPORTATION.GE TRANSPORTATION</rule_argument>
+							<acl_name/>
+							<tree_node>
+								<rule_name>Has Class</rule_name>
+								<rule_argument>Dataset</rule_argument>
+								<acl_name/>
+								<tree_node>
+									<rule_name>Has Attribute</rule_name>
+									<rule_argument>Dataset:ip_classification=GE - Restricted</rule_argument>
+									<acl_name>SERVICES_RES_ACCESS</acl_name>
+								</tree_node>
+								<tree_node>
+									<rule_name>Has Attribute</rule_name>
+									<rule_argument>Dataset:ip_classification=GE - Confidential</rule_argument>
+									<acl_name>SERVICES_CONF_ACCESS</acl_name>
+								</tree_node>
+							</tree_node>
+						</tree_node>
+					</tree_node>
+				</tree_node>
+			</tree_node>
+			<tree_node>
+				<rule_name>Has Status</rule_name>
+				<rule_argument></rule_argument>
+				<acl_name>Vault</acl_name>
+			</tree_node>
+			<tree_node>
+				<rule_name>Has Object ACL</rule_name>
+				<rule_argument>true</rule_argument>
+				<acl_name/>
+			</tree_node>
+			<tree_node>
+				<rule_name>Has Class</rule_name>
+				<rule_argument>POM_application_object</rule_argument>
+				<acl_name>Import/Export</acl_name>
+			</tree_node>
+			<tree_node>
+				<rule_name>In Project</rule_name>
+				<rule_argument></rule_argument>
+				<acl_name>Projects</acl_name>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>Schedule</rule_argument>
+					<acl_name>Scheduling Objects</acl_name>
+				</tree_node>
+			</tree_node>
+			<tree_node>
+				<rule_name>Owning Group Has Security</rule_name>
+				<rule_argument>Internal</rule_argument>
+				<acl_name>Internal Data</acl_name>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>RevisionRule</rule_argument>
+					<acl_name>Private Rev Rule</acl_name>
+					<tree_node>
+						<rule_name>Owning Group</rule_name>
+						<rule_argument>dba</rule_argument>
+						<acl_name>Public Rev Rule</acl_name>
+					</tree_node>
+				</tree_node>
+			</tree_node>
+			<tree_node>
+				<rule_name>Owning Group Has Security</rule_name>
+				<rule_argument>External</rule_argument>
+				<acl_name>External Data</acl_name>
+			</tree_node>
+			<tree_node>
+				<rule_name>Has Class</rule_name>
+				<rule_argument>POM_object</rule_argument>
+				<acl_name>Translation</acl_name>
+			</tree_node>
+			<tree_node>
+				<rule_name>Has Class</rule_name>
+				<rule_argument>Fnd0AuditLog</rule_argument>
+				<acl_name>AuditLog Access</acl_name>
+			</tree_node>
+			<tree_node>
+				<rule_name>Has Class</rule_name>
+				<rule_argument>Fnd0DigitalSignature</rule_argument>
+				<acl_name>Digital Signature Delete</acl_name>
+			</tree_node>
+			<tree_node>
+				<rule_name>Has Class</rule_name>
+				<rule_argument>POM_application_object</rule_argument>
+				<acl_name>Working</acl_name>
+				<tree_node>
+					<rule_name>Has Type</rule_name>
+					<rule_argument>NXDerived</rule_argument>
+					<acl_name>NXDerived Access</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Is GA</rule_name>
+					<rule_argument>true</rule_argument>
+					<acl_name>GA Working</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>Item</rule_argument>
+					<acl_name/>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>Schedule</rule_argument>
+						<acl_name>Scheduling Objects</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>Item</rule_argument>
+						<acl_name>Markup Item</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>Item</rule_argument>
+						<acl_name>Batch Print Item</acl_name>
+					</tree_node>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>ItemRevision</rule_argument>
+					<acl_name/>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>ItemRevision</rule_argument>
+						<acl_name>Markup Item Revision</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>ItemRevision</rule_argument>
+						<acl_name>Batch Print Item Revision</acl_name>
+					</tree_node>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>Dataset</rule_argument>
+					<acl_name/>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>UGMASTER</rule_argument>
+						<acl_name/>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>UGPART</rule_argument>
+						<acl_name/>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Attribute</rule_name>
+						<rule_argument>Dataset:markup_official=1</rule_argument>
+						<acl_name>Markup Official</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Attribute</rule_name>
+						<rule_argument>Dataset:markup_acl=PrivateMarkup</rule_argument>
+						<acl_name>Private Markup</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Attribute</rule_name>
+						<rule_argument>Dataset:markup_acl=GeneralMarkup</rule_argument>
+						<acl_name>General Markup</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>Markup</rule_argument>
+						<acl_name>Markup Type</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>Dataset</rule_argument>
+						<acl_name>Markup Dataset</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>Dataset</rule_argument>
+						<acl_name>Batch Print Dataset</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Class</rule_name>
+						<rule_argument>Dataset</rule_argument>
+						<acl_name>Digital Sign Dataset</acl_name>
+					</tree_node>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>PSBOMViewRevision</rule_argument>
+					<acl_name/>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>Form</rule_argument>
+					<acl_name/>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>ScheduleTaskRevision Execution</rule_argument>
+						<acl_name>Scheduling Execution Objects</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>ScheduleTaskRevision Scheduling</rule_argument>
+						<acl_name>Scheduling Objects</acl_name>
+					</tree_node>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>SchMgtCostForm</rule_argument>
+						<acl_name>Scheduling Objects</acl_name>
+					</tree_node>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>Folder</rule_argument>
+					<acl_name/>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>RevisionRule</rule_argument>
+					<acl_name>Private Rev Rule</acl_name>
+					<tree_node>
+						<rule_name>Owning Group</rule_name>
+						<rule_argument>dba</rule_argument>
+						<acl_name>Public Rev Rule</acl_name>
+					</tree_node>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>AuditLog</rule_argument>
+					<acl_name>AuditLog Rule</acl_name>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>Identifier</rule_argument>
+					<acl_name/>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>EPMAssignmentList</rule_argument>
+					<acl_name>Personal PAL</acl_name>
+					<tree_node>
+						<rule_name>Has Attribute</rule_name>
+						<rule_argument>EPMAssignmentList:shared=1</rule_argument>
+						<acl_name>Shared PAL</acl_name>
+					</tree_node>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>BillRate</rule_argument>
+					<acl_name/>
+					<tree_node>
+						<rule_name>Has Type</rule_name>
+						<rule_argument>BillRate</rule_argument>
+						<acl_name>Scheduling Bill Rate</acl_name>
+					</tree_node>
+				</tree_node>
+				<tree_node>
+					<rule_name>Has Class</rule_name>
+					<rule_argument>DispatcherRequest</rule_argument>
+					<acl_name>DispatcherRequest</acl_name>
+				</tree_node>
+			</tree_node>
+		</tree_node>
+	</rule_tree>
+</Tc_data_access_config>

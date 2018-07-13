@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TcBusinessDataLocalization xmlns="http://teamcenter.com/BusinessModel/TcBusinessDataLocalization"
+    Date="">
+<Add>
+   <key locale="en_US" id="BusinessObject{::}GET8OracleRouting" status="Approved">GET Oracle Routing</key>
+</Add>
+</TcBusinessDataLocalization>

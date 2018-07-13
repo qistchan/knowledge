@@ -1,0 +1,14 @@
+SQL> @"/package/ugiman/ug/utilities/DIRT/SQL/item_part_family_all.sql"
+
+PITEM_ID                      ITEM2
+------------------------------------------------------------
+L506-FAM                      L506P02024
+L506-FAM                      L506P22020
+L15-FAM                       L15P15018B35
+L15-FAM                       L15P15020
+L14L-FAM                      L14LP19070V2
+L14L-FAM                      L14LP29200M4
+N733-FAM                      N733P37032
+L29-FAM                       L29P17025
+L29-FAM                       L29P15012
+SQL> spool off;

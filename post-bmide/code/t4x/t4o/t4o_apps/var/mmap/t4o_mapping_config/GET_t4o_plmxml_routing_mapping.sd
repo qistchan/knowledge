@@ -1,0 +1,870 @@
+#==================================================
+##
+#
+# \file          t4o_plmxml_routing_mapping_template.sd
+#
+# \brief         This is a template file for a routing mapping
+#                based on a PLMXML file of a CC-Object. It now uses the
+#                new XML Connector.
+#
+# \author        kh, 20120113
+#
+# \copyright     2014
+#                Siemens Product Lifecycle Management Software Inc.
+#                All Rights Reserved.
+#
+namespace eval ::T4O::PLMXML::ROUTING::CUSTOM::MAPPING {
+  namespace export PLMXML_Data2EBS_Routing
+  namespace export PLMXML_Data2EBS_RoutingHeader
+  namespace export PLMXML_Data2EBS_BOMHeader
+  namespace export PLMXML_Data2EBS_RoutingOperations
+  namespace export PLMXML_Data2EBS_RoutingOperation_Standard
+  namespace export EBS_Routing2PLMXML_Data
+  #
+  namespace import ::T4X::OBJECTS::*
+  #
+  variable MCNName         ; # string
+  variable MCNOrgValue     ; # string
+  variable MfgFormId       ; # Id
+  variable resIndex        ; # int
+  variable BOMEffDate      ; # TimeString
+  variable BOMDisDate      ; # TimeString
+  variable BOPEffDate      ; # TimeString
+  variable BOPDisDate      ; # TimeString
+  variable ChildAlloc      ; # dict: BOMLine OpSeqNumber Quantity
+  variable ChildInfo       ; # dict: [list: ChildName OpSeqNo] LineIndexEBS
+  variable RefDesInfo      ; # dict: [list: ChildName OpSeqNo] [list: LineIndexEBS]
+  variable disAllowedTypes ; # list: TypeName
+  variable ProcessedLines  ; # list: LineIndexEBS
+  variable SolutionItems   ; # list: RevTag
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::PLMXML::ROUTING::CUSTOM::MAPPING::PLMXML_Data2EBS_Routing
+  #
+  # \brief
+  #
+  #
+  # \author         kh, 20120113
+  # \return
+  #
+  proc PLMXML_Data2EBS_Routing { TransactionId Document args } {
+    variable MCNName        ""
+    variable MCNOrgValue    ""
+    variable MfgFormId      ""
+    variable resIndex       0
+    variable BOMEffDate     [::T4O::getTimeString4Now2]
+    variable BOMDisDate     ""
+    variable BOPEffDate     $BOMEffDate
+    variable BOPDisDate     ""
+    variable ChildAlloc     [dict create]
+    variable ChildInfo      [dict create]
+    variable RefDesInfo     [dict create]
+    variable ProcessedLines [list]
+    variable SolutionItems  [list]
+    #
+    set Status "OK"
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with Document >$Document<"
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN [concat $FunctionName {$Id: GET_t4o_plmxml_routing_mapping.sd,v 1.14 2018/04/06 13:06:00 scjones Exp $}]
+    #
+    set MCNPath     "RootTask:EPM_target_attachment:GET6MCNRevision"
+    set SolItemPath "$MCNPath:CMHasSolutionItem:*"
+
+    # print workflow info
+    ::T4X::TC::MAPPING::printTcData [::T4X::CORE::getSessionLogChannel]
+    tpwith $Document dump
+
+    set MCNName [::T4X::TC::MAPPING::RootTaskFieldMapping $MCNPath "item_id"]
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId INFO "Processing MCN $MCNName"
+    tpco_setLogIndex -logchannel $TransactionId -key "mcn_name" -value $MCNName
+    set SolutionItems [::T4X::TC::MAPPING::getRootTaskFieldMappingValueList $SolItemPath "object_tag"]
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "Solution Items: $SolutionItems"
+
+    #Getting MCN org value, if item belongs to multiple orgs say GRR, GRV and MCN belongs to GRV..then transfer only to GRV
+    set MCNOrgValues         [::T4X::TC::MAPPING::RootTaskFieldMapping $MCNPath "project_ids"]
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG " Org list $MCNOrgValues"
+
+    # Multi Org Change : Tokenizing the List of Org from MCN
+    set MCNOrgList [split $MCNOrgValues ","]
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Multi Org : Org list After Token - $MCNOrgList"
+
+    #As MCN always belongs to one org, get the first element of the list
+    set MCNOrgValue [lindex $MCNOrgList 0]
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: MCNOrgValue is $MCNOrgValue"
+
+    # Get effectivity from new MCN fields rather than RSO
+    set EffDateStr [::T4X::TC::MAPPING::RootTaskFieldMapping $MCNPath "get6MBOMEffStartDate"]
+    set DisDateStr [::T4X::TC::MAPPING::RootTaskFieldMapping $MCNPath "get6MBOMEffEndDate"]
+    # Ignore the time of day
+    set EffDateStr [lindex [split $EffDateStr] 0]
+    set DisDateStr [lindex [split $DisDateStr] 0]
+    #
+    if { $EffDateStr ne "0.01.00" } {
+      set EffDateInSec      [clock scan $EffDateStr -format {%Y.%m.%d}]
+      set currentTimeInSecs [::T4O::time2CTime $BOMEffDate]
+      if { $EffDateInSec > $currentTimeInSecs } { set BOMEffDate [::T4O::CTime2time $EffDateInSec] }
+    }
+    if { $DisDateStr ne "0.01.00" } {
+      set BOMDisDate [::T4O::CTime2time [clock scan $DisDateStr -format {%Y.%m.%d}]]
+    }
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId INFO " BOM Effectivity Start >$BOMEffDate<   End >$BOMDisDate<"
+
+    set EffDateStr [::T4X::TC::MAPPING::RootTaskFieldMapping $MCNPath "get6BOPEffStartDate"]
+    set DisDateStr [::T4X::TC::MAPPING::RootTaskFieldMapping $MCNPath "get6BOPEffEndDate"]
+    # Ignore the time of day
+    set EffDateStr [lindex [split $EffDateStr] 0]
+    set DisDateStr [lindex [split $DisDateStr] 0]
+    #
+    if { $EffDateStr ne "0.01.00" } {
+      set EffDateInSec      [clock scan $EffDateStr -format {%Y.%m.%d}]
+      set currentTimeInSecs [::T4O::time2CTime $BOPEffDate]
+      if { $EffDateInSec > $currentTimeInSecs } { set BOPEffDate [::T4O::CTime2time $EffDateInSec] }
+    }
+    if { $DisDateStr ne "0.01.00" } {
+      set BOPDisDate [::T4O::CTime2time [clock scan $DisDateStr -format {%Y.%m.%d}]]
+    }
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId INFO " BOP Effectivity Start >$BOPEffDate<   End >$BOPDisDate<"
+
+    tplet PLMXMLHeader  $Document getHeader 0
+    tplet ProductHeader $Document findHeader "MEProductContext"
+    tplet ProcessHeader $Document findHeader "MEProcessContext"
+
+    # get the CC object
+    set CCObject ""
+    tplet ObjectList $PLMXMLHeader resolveTraverseRootURIs
+    foreach Object $ObjectList {
+      tplet Attachment $Object resolveAttachmentURI
+      if { [tpwith $Attachment isA CollaborationContext] } {
+        set CCObject $Attachment
+        tplet CCName $CCObject getName
+        tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "$FunctionName - CCObject found: >$CCName<"
+        break
+      }
+    }
+
+    if { $CCObject eq "" } {
+      ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId ERROR "ERROR: No CollaborationContext found in PLMXML traverse root refs!!"
+      set Status "ERROR"
+    } elseif { $ProductHeader eq "null" } {
+      ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId ERROR "ERROR: No product tree found in CC!!"
+      set Status "ERROR"
+    } elseif { $ProcessHeader eq "null" } {
+      ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId ERROR "ERROR: No process tree found in CC!!"
+      set Status "ERROR"
+    } else {
+      #
+      # set the EBS routing data
+      set Status [::T4O::PLMXML::ROUTING::CUSTOM::MAPPING::PLMXML_Data2EBS_RoutingHeader $TransactionId $ProductHeader $ProcessHeader]
+      if {$Status eq "OK"} {
+        set Status [::T4O::PLMXML::ROUTING::CUSTOM::MAPPING::PLMXML_Data2EBS_RoutingOperations $TransactionId $ProcessHeader]
+      }
+
+      # set the EBS BOM data
+      if {$Status eq "OK"} {
+        set Status [::T4O::PLMXML::ROUTING::CUSTOM::MAPPING::PLMXML_Data2EBS_BOMHeader $TransactionId $ProductHeader]
+      }
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype [::T4X::CORE::getLogLineMessageType4rc $Status] "$FunctionName finished with >$Status<"
+    return $Status
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::PLMXML::ROUTING::CUSTOM::MAPPING::PLMXML_Data2EBS_RoutingHeader_Standard
+  #
+  # \brief
+  #
+  #
+  # \author         kh, 20120116
+  # \return
+  #
+  proc PLMXML_Data2EBS_RoutingHeader { TransactionId ProductHeader ProcessHeader args } {
+    variable MCNOrgValue
+    variable BOPEffDate
+    #
+    set Status "OK"
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with ProductHeader >$ProductHeader<, ProcessHeader >$ProcessHeader<"
+    #
+    tplet ProcessItemRevision $ProcessHeader       resolveInstancedURI
+    tplet ProcessItem         $ProcessItemRevision resolveMasterURI
+    tplet ProcessItemRevId    $ProcessItemRevision getRevision
+    tplet ProcessAlternate    $ProcessItemRevision getUserDataValue get6Alternate
+    if { $ProcessAlternate eq "Null" } { set ProcessAlternate "" }
+    tplet ProcessItemId       $ProcessItem         getCatalogueId
+    #
+    tplet ItemRevision        $ProductHeader       resolveInstancedURI
+    tplet ItemRevisionType    $ItemRevision        getSubType
+    tplet ItemRevId           $ItemRevision        getRevision
+    tplet Item                $ItemRevision        resolveMasterURI
+    tplet ItemType            $Item                getSubType
+    tplet ItemName            $Item                getName
+    tplet ItemId              $Item                getCatalogueId
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "$FunctionName - Process Tree found - ItemId >$ProcessItemId< and ItemRevId >$ProcessItemRevId<"
+    tpco_setLogIndex -logchannel $TransactionId -key "routing_process" -value $ProcessItemId
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "$FunctionName - Product Tree found - ItemType >$ItemType<, ItemId >$ItemId< and ItemRevId >$ItemRevId<"
+    tpco_setLogIndex -logchannel $TransactionId -key "object_string" -value "$ItemId/$ItemRevId"
+
+    set ::EBSDat(Routing:CtrlParam:useEco4RoutingTransfer)   $::T4O_Defaults(FALSE)
+    set ::EBSDat(Routing:CtrlParam:CleanRoutingResources)    $::T4O_Defaults(TRUE)
+    set ::EBSDat(Routing:CtrlParam:UpdateBOM)                $::T4O_Defaults(FALSE)
+    set ::EBSDat(Routing:CtrlParam:EFFECTIVITY_DATE)         $BOPEffDate
+
+    set ::EBSDat(Routing:P_RTG_HEADER_REC:ASSEMBLY_ITEM_NAME)     $ItemId
+    set ::EBSDat(Routing:P_RTG_HEADER_REC:ORGANIZATION_CODE)      $MCNOrgValue
+    set ::EBSDat(Routing:P_RTG_HEADER_REC:ALTERNATE_ROUTING_CODE) $ProcessAlternate
+    set ::EBSDat(Routing:P_RTG_HEADER_REC:ROUTING_COMMENT)        $ItemName
+
+#    ::TPEBS::RTG::initRoutingStructure_P_RTG_REVISION_TBL 1
+#    set ::EBSDat(Routing:P_RTG_REVISION_TBL:P_RTG_REVISION_TBL_ITEM:ASSEMBLY_ITEM_NAME:1)     $ItemId
+#    set ::EBSDat(Routing:P_RTG_REVISION_TBL:P_RTG_REVISION_TBL_ITEM:ORGANIZATION_CODE:1)      $MCNOrgValue
+#    set ::EBSDat(Routing:P_RTG_REVISION_TBL:P_RTG_REVISION_TBL_ITEM:ALTERNATE_ROUTING_CODE:1) $ProcessAlternate
+#    set ::EBSDat(Routing:P_RTG_REVISION_TBL:P_RTG_REVISION_TBL_ITEM:REVISION:1)               $ProcessItemRevId
+
+    set rc_func [::TPEBS::BASE::getOrgId4OrgCode $MCNOrgValue]
+    if { [lindex $rc_func 0] ne "OK" } {
+      if { [lindex $rc_func 0] eq "NOT_FOUND" } {
+        ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId ERROR "ERROR: Org '$MCNOrgValue' does not exist. Incorrect Project ID on top-level process?"
+      } else {
+        ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId ERROR "ERROR: Unable to get ID for Org '$MCNOrgValue': $rc_func"
+      }
+      return "ERROR"
+    }
+    set OrgId [lindex $rc_func 1]
+
+    set ItemNumber [string toupper $ItemId]
+    set Status [::TPEBS::ITEM::getItemInfo $ItemNumber $MCNOrgValue "" $OrgId]
+    set subInventory ""
+    set supplyLocator ""
+    if { $Status eq "OK" } {
+      set subInventory  [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:WIP_SUPPLY_SUBINVENTORY]
+      set supplyLocator [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:WIP_SUPPLY_LOCATOR_ID]
+    } else {
+      ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId ERROR "ERROR: Unable to get Item Info for $ItemNumber in Org '$MCNOrgValue': [lindex $Status 0]: [::T4O::hex2String [lindex $Status 1]]"
+    }
+    set ::EBSDat(Routing:P_RTG_HEADER_REC:COMPLETION_SUBINVENTORY) $subInventory
+    if { $supplyLocator ne "" } {
+      set ::EBSDat(Routing:P_RTG_HEADER_REC:COMPLETION_LOCATOR_ID) $supplyLocator
+      set ::EBSDat(Routing:P_RTG_HEADER_REC:COMPLETION_LOCATION_NAME) [::T4O::CUSTOM::MAPPING::TOOLBOX::getLocationName $supplyLocator $MCNOrgValue $OrgId]
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype [::T4X::CORE::getLogLineMessageType4rc $Status] "$FunctionName finished with >$Status<"
+    return $Status
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::PLMXML::ROUTING::CUSTOM::MAPPING::PLMXML_Data2EBS_BOMHeader
+  #
+  # \brief
+  #
+  #
+  # \author         kh, 20120117
+  # \return
+  #
+  proc PLMXML_Data2EBS_BOMHeader { TransactionId ProductHeader args } {
+    variable MCNName
+    variable MfgFormId
+    variable MCNOrgValue
+    variable BOMEffDate
+    variable BOMDisDate
+    variable ChildAlloc
+    variable ChildInfo
+    variable RefDesInfo
+    variable ProcessedLines
+    variable SolutionItems
+    #
+    set Status "OK"
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with ProductHeader >$ProductHeader<"
+
+    tplet ItemRevision $ProductHeader resolveInstancedURI
+    tplet BomLines     $ProductHeader getBomLines
+    tplet ItemRevId    $ItemRevision  getRevision
+    tplet hasModule    $ItemRevision  getUserDataValue   "has_module"
+    tplet Item         $ItemRevision  resolveMasterURI
+    tplet AssocForms   $Item          getElementsByClass "AssociatedForm"
+
+    if { $hasModule ne "True" } {
+      set TcCondAttr "bl_formula"
+    } else {
+      set TcCondAttr "bl_variant_condition"
+    }
+
+    # Find the correct Mfg Attr form
+    foreach Form $AssocForms {
+      tplet Role $Form getRole
+      if { $Role ne "GET6PartOrgRelation" } continue
+      tplet MfgAttrForm $Form resolveFormURI
+      tplet Org $MfgAttrForm getUserDataValue "project_ids"
+      if { $Org eq $MCNOrgValue } {
+        tplet MfgFormId $MfgAttrForm getId
+        tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "$FunctionName - MfgFormId $MfgFormId"
+        break
+      }
+    }
+
+    # Set up BOM header
+    #
+    # NOTE: This should match the logic in ::T4O::BOM::CUSTOM::MAPPING::TC_Object2EBS_BillOfMaterial
+    #
+    ::TPEBS::BOM::initBomStructure
+
+    set ::EBSDat(Bom:CtrlParam:allowEmptyBomTransfer)              $::T4O_Defaults(FALSE)
+    set ::EBSDat(Bom:CtrlParam:skipEmptyBomTransfer)               $::T4O_Defaults(TRUE)
+    set ::EBSDat(Bom:CtrlParam:useEco4BomTransfer)                 $::T4O_Defaults(FALSE)
+    set ::EBSDat(Bom:CtrlParam:Check4AttributeChanges_Components)  $::T4O_Defaults(TRUE)
+    set ::EBSDat(Bom:CtrlParam:Check4AttributeChanges_Substitutes) $::T4O_Defaults(FALSE)
+    set ::EBSDat(Bom:CtrlParam:Check4AttributeChanges_RefDes)      $::T4O_Defaults(FALSE)
+    set ::EBSDat(Bom:CtrlParam:EFFECTIVITY_DATE)                   $BOMEffDate
+    set ::EBSDat(Bom:CtrlParam:EFFECTIVITY_DISPLAY_TYPE)           "FUTURE AND CURRENT"
+
+    set ::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ASSEMBLY_ITEM_NAME:1)       $::EBSDat(Routing:P_RTG_HEADER_REC:ASSEMBLY_ITEM_NAME)
+    set ::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ORGANIZATION_CODE:1)        $::EBSDat(Routing:P_RTG_HEADER_REC:ORGANIZATION_CODE)
+    set ::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ALTERNATE_BOM_CODE:1)       $::EBSDat(Routing:P_RTG_HEADER_REC:ALTERNATE_ROUTING_CODE)
+    set ::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ASSEMBLY_TYPE:1)            $::T4O_Defaults(ASSEMBLY_TYPE_MANUFACTURING)
+
+#    ::TPEBS::BOM::initBomStructure_P_BOM_REVISION_TBL 1
+#    set ::EBSDat(Bom:P_BOM_REVISION_TBL:P_BOM_REVISION_TBL_ITEM:ASSEMBLY_ITEM_NAME:1)   $::EBSDat(Routing:P_RTG_HEADER_REC:ASSEMBLY_ITEM_NAME)
+#    set ::EBSDat(Bom:P_BOM_REVISION_TBL:P_BOM_REVISION_TBL_ITEM:ORGANIZATION_CODE:1)    $::EBSDat(Routing:P_RTG_HEADER_REC:ORGANIZATION_CODE)
+#    set ::EBSDat(Bom:P_BOM_REVISION_TBL:P_BOM_REVISION_TBL_ITEM:ALTERNATE_BOM_CODE:1)   $::EBSDat(Routing:P_RTG_HEADER_REC:ALTERNATE_ROUTING_CODE)
+#    set ::EBSDat(Bom:P_BOM_REVISION_TBL:P_BOM_REVISION_TBL_ITEM:REVISION:1)             $ItemRevId
+
+    #Read existing components from EBS
+    set AssyItemName  $::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ASSEMBLY_ITEM_NAME:1)
+    set OrgId         $::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ORGANIZATION_CODE:1)
+    set Alternative   $::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ALTERNATE_BOM_CODE:1)
+    set AssyItemId    ""
+    set OrgId         ""
+    set BomId         ""
+    set BomEffType    $::EBSDat(Bom:CtrlParam:EFFECTIVITY_DISPLAY_TYPE)
+    set OpSeqNo       ""
+    set rc_func [::TPEBS::BOM::getBomInfoAll $AssyItemName $OrgId $Alternative $AssyItemId $OrgId $BomId $BOMEffDate $BomEffType $OpSeqNo]
+    if { $rc_func eq "OK" } {
+      foreach elem [array names ::BomResultDat X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:*] {
+        set LineIndexEBS [lindex [split $elem :] end]
+        set ChildName  $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:$LineIndexEBS)
+        set OpSeqNo    $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndexEBS)
+        if { $ChildName eq "" } continue
+
+        dict set ChildInfo [list $ChildName $OpSeqNo] $LineIndexEBS
+      }
+      foreach elem [array names ::BomResultDat X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:REFERENCE_DESIGNATOR_NAME:*] {
+        set LineIndexEBS [lindex [split $elem :] end]
+        set ChildName  $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:COMPONENT_ITEM_NAME:$LineIndexEBS)
+        set OpSeqNo    $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndexEBS)
+        if { $ChildName eq "" } continue
+
+        dict lappend RefDesInfo [list $ChildName $OpSeqNo] $LineIndexEBS
+      }
+    }
+
+    #
+    # NOTE: This should match the logic in ::T4O::BOM::CUSTOM::MAPPING::TC_Object2EBS_BillOfMaterialPosition!
+    #
+    set PositionIndex 0
+    set RefDesIndex   0
+    foreach BOMLine $BomLines {
+      tplet bomlineUOM        $BOMLine      getUserDataValue "bl_item_uom_tag"
+      tplet bomlineSeq        $BOMLine      getUserDataValue "SequenceNumber"
+      tplet bomlineSubst      $BOMLine      getUserDataValue "bl_substitute"
+      tplet Quantity          $BOMLine      getUserDataValue "Quantity"
+      tplet TcCondString      $BOMLine      getUserDataValue $TcCondAttr
+      tplet ItemRevision      $BOMLine      resolveInstancedURI
+      tplet ItemRevisionType  $ItemRevision getSubType
+      tplet ItemRevId         $ItemRevision getRevision
+      tplet Item              $ItemRevision resolveMasterURI
+      tplet AppRef            $ItemRevision getApplicationRef 0
+      tplet ItemId            $Item         getCatalogueId
+      tplet RevTag            $AppRef       getVersion
+      #
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "$FunctionName - AppRef >$AppRef<"
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "$FunctionName - RevTag >$RevTag<"
+
+      set bomlineSeq [string trimleft [string trim $bomlineSeq] 0]
+      set RevTag [::T4O::string2Hex "${RevTag}AAAAAAAAAAAAA"]
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "$FunctionName - Encoded RevTag >$RevTag<"
+
+      if { [isAllowedType $ItemRevisionType] ne "OK" } {
+        ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId INFO "Skipping component $ItemId with disallowed ItemRevisionType $ItemRevisionType on line $bomlineSeq"
+        continue
+      } elseif { $bomlineUOM eq $::T4O_Defaults(UOM) } {
+        ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId INFO "Skipping component $ItemId with Default UOM ($::T4O_Defaults(UOM)) on line $bomlineSeq"
+        continue
+      } elseif { $bomlineSubst eq "Substitute" } {
+        ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId INFO "Skipping substitute component $ItemId on line $bomlineSeq"
+        continue
+      } elseif { ![string is integer $bomlineSeq] } {
+        ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId ERROR "ERROR: Invalid Find Number ($bomlineSeq) for component $ItemId on line $bomlineSeq - Packed Find Numbers?"
+        set Status "ERROR"
+      } else {
+        if {[string trim $Quantity] eq "" || [string trim $Quantity] == 0} {
+          set Quantity       "1"
+        } elseif { $Quantity eq "A/R" } {
+          set Quantity       "0"
+        } elseif { $Quantity < 0 } {
+          ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId ERROR "ERROR: Negative quantity for item $ItemId on line $bomlineSeq."
+          set Status "ERROR"
+        }
+
+        if { $TcCondString ne "" } {
+          set Optional $::T4O_Defaults(SYS_YES_NO_YES) ; # Component is optional
+        } else {
+          set Optional $::T4O_Defaults(SYS_YES_NO_NO) ; # Component is NOT optional
+        }
+
+        # Handle consumed quantities
+        if { [dict exists $ChildAlloc $BOMLine] } {
+          dict for { OpSeqNo Qty } [dict get $ChildAlloc $BOMLine] {
+            ::TPEBS::BOM::initBomStructure_P_BOM_COMPONENT_TBL [incr PositionIndex]
+
+            set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ASSEMBLY_ITEM_NAME:$PositionIndex)        $::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ASSEMBLY_ITEM_NAME:1)
+            set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ORGANIZATION_CODE:$PositionIndex)         $::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ORGANIZATION_CODE:1)
+            set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ALTERNATE_BOM_CODE:$PositionIndex)        $::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ALTERNATE_BOM_CODE:1)
+
+            set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:$PositionIndex)       $ItemId
+            set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ITEM_SEQUENCE_NUMBER:$PositionIndex)      $bomlineSeq
+            set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:COMMENTS:$PositionIndex)                  $MCNName
+            set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$PositionIndex) $OpSeqNo
+            set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:QUANTITY_PER_ASSEMBLY:$PositionIndex)     $Qty
+            set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:OPTIONAL:$PositionIndex)                  $Optional
+
+            if { [dict exists $ChildInfo [list $ItemId $OpSeqNo]] } {
+              set LineIndexEBS [dict get $ChildInfo [list $ItemId $OpSeqNo]]
+              set OldEffDate $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndexEBS)
+              set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$PositionIndex)      $OldEffDate
+              if { [lsearch -exact $SolutionItems $RevTag] >= 0 } {
+                if { $BOMEffDate ne $OldEffDate } {
+                  set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:NEW_EFFECTIVITY_DATE:$PositionIndex)  $BOMEffDate
+                }
+                set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:DISABLE_DATE:$PositionIndex) $BOMDisDate
+              }
+              # Copy any existing reference designators for this component
+              if { [dict exists $RefDesInfo [list $ItemId $OpSeqNo]] } {
+                foreach LineIndexEBS [dict get $RefDesInfo [list $ItemId $OpSeqNo]] {
+                  ::TPEBS::BOM::initBomStructure_P_BOM_REF_DESIGNATOR_TBL [incr RefDesIndex]
+
+                  set ::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:ASSEMBLY_ITEM_NAME:$RefDesIndex)        $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:ASSEMBLY_ITEM_NAME:$LineIndexEBS)
+                  set ::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:ORGANIZATION_CODE:$RefDesIndex)         $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:ORGANIZATION_CODE:$LineIndexEBS)
+                  set ::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:ALTERNATE_BOM_CODE:$RefDesIndex)        $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:ALTERNATE_BOM_CODE:$LineIndexEBS)
+                  set ::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:START_EFFECTIVE_DATE:$RefDesIndex)      $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndexEBS)
+                  set ::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$RefDesIndex) $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndexEBS)
+                  set ::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:COMPONENT_ITEM_NAME:$RefDesIndex)       $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:COMPONENT_ITEM_NAME:$LineIndexEBS)
+                  set ::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:REFERENCE_DESIGNATOR_NAME:$RefDesIndex) $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:REFERENCE_DESIGNATOR_NAME:$LineIndexEBS)
+                  set ::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:REF_DESIGNATOR_COMMENT:$RefDesIndex)    $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:REF_DESIGNATOR_COMMENT:$LineIndexEBS)
+                }
+              }
+              lappend ProcessedLines $LineIndexEBS
+            } elseif { [dict exists $ChildInfo [list $ItemId "1"]] } {
+              set LineIndexEBS [dict get $ChildInfo [list $ItemId "1"]]
+              set OldEffDate $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndexEBS)
+              set OldDisDate $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:DISABLE_DATE:$LineIndexEBS)
+              set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$PositionIndex)      $OldEffDate
+              set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:DISABLE_DATE:$PositionIndex)              $OldDisDate
+              if { [lsearch -exact $SolutionItems $RevTag] >= 0 } {
+                if { $BOMEffDate ne $OldEffDate } {
+                  set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:NEW_EFFECTIVITY_DATE:$PositionIndex)  $BOMEffDate
+                }
+                set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:DISABLE_DATE:$PositionIndex)            $BOMDisDate
+              }
+              # TODO: Do we need to copy the reference designators in this case?
+            } else {
+              set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$PositionIndex)      $BOMEffDate
+              set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:DISABLE_DATE:$PositionIndex)              $BOMDisDate
+            }
+
+            set Quantity [expr { $Quantity - $Qty }]
+          }
+        }
+
+        # Handle any unconsumed quantity
+        if { $Quantity > 0 } {
+          ::TPEBS::BOM::initBomStructure_P_BOM_COMPONENT_TBL [incr PositionIndex]
+
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ASSEMBLY_ITEM_NAME:$PositionIndex)        $::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ASSEMBLY_ITEM_NAME:1)
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ORGANIZATION_CODE:$PositionIndex)         $::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ORGANIZATION_CODE:1)
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ALTERNATE_BOM_CODE:$PositionIndex)        $::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ALTERNATE_BOM_CODE:1)
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:$PositionIndex)       $ItemId
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ITEM_SEQUENCE_NUMBER:$PositionIndex)      $bomlineSeq
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:COMMENTS:$PositionIndex)                  $MCNName
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$PositionIndex) "1"
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:QUANTITY_PER_ASSEMBLY:$PositionIndex)     $Quantity
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:OPTIONAL:$PositionIndex)                  $Optional
+
+          if { [dict exists $ChildInfo [list $ItemId "1"]] } {
+            set LineIndexEBS [dict get $ChildInfo [list $ItemId "1"]]
+            set OldEffDate $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndexEBS)
+            set OldDisDate $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:DISABLE_DATE:$LineIndexEBS)
+            set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$PositionIndex)      $OldEffDate
+            set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:DISABLE_DATE:$PositionIndex)              $OldDisDate
+            if { [lsearch -exact $SolutionItems $RevTag] >= 0 } {
+              if { $BOMEffDate ne $OldEffDate } {
+                set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:NEW_EFFECTIVITY_DATE:$PositionIndex)  $BOMEffDate
+              }
+              set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:DISABLE_DATE:$PositionIndex)            $BOMDisDate
+            }
+            lappend ProcessedLines $LineIndexEBS
+          } else {
+            set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$PositionIndex)      $BOMEffDate
+            set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:DISABLE_DATE:$PositionIndex)              $BOMDisDate
+          }
+
+        } elseif { $Quantity < 0 } {
+          ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId ERROR "ERROR: Over-consumed component $ItemId on line $bomlineSeq ($Quantity)."
+          set Status "ERROR"
+        }
+      }
+    }
+    #
+    # NOTE: This logic should match the logic in ::T4O::BOM::CUSTOM::MAPPING::TC_Object2EBS_BillOfMaterialPostAction!
+    #
+    set NowC [::T4O::time2CTime $BOMEffDate]
+
+    dict for { Key LineIndexEBS } $ChildInfo {
+      lassign $Key ChildName OpSeqNo
+      if { [lsearch -exact $ProcessedLines $LineIndexEBS] < 0 } {
+        tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "Checking deleted component index $LineIndexEBS - $ChildName"
+
+        set OldEffDate $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndexEBS)
+        set OldEffDateC [::T4O::time2CTime $OldEffDate]
+        tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "Now >$BOMEffDate<   OldEffDate >$OldEffDate<"
+        tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "NowC >$NowC<   OldEffDateC >$OldEffDateC<"
+
+        if { $OldEffDateC > $NowC } {
+          # Component is not yet effective so disable it on its effective date
+          ::TPEBS::BOM::initBomStructure_P_BOM_COMPONENT_TBL [incr PositionIndex]
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ORGANIZATION_CODE:$PositionIndex)         $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:ORGANIZATION_CODE:$LineIndexEBS)
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ASSEMBLY_ITEM_NAME:$PositionIndex)        $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:ASSEMBLY_ITEM_NAME:$LineIndexEBS)
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:$PositionIndex)       $ChildName
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ITEM_SEQUENCE_NUMBER:$PositionIndex)      $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:ITEM_SEQUENCE_NUMBER:$LineIndexEBS)
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$PositionIndex) $OpSeqNo
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$PositionIndex)      $OldEffDate
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:DISABLE_DATE:$PositionIndex)              $OldEffDate
+        }
+      }
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype [::T4X::CORE::getLogLineMessageType4rc $Status] "$FunctionName finished with >$Status<"
+    return $Status
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::PLMXML::ROUTING::CUSTOM::MAPPING::PLMXML_Data2EBS_RoutingOperations
+  #
+  # \brief
+  #
+  #
+  # \author         kh, 20120116
+  # \return
+  #
+  proc PLMXML_Data2EBS_RoutingOperations { TransactionId ProcessHeader args } {
+    set Status "OK"
+    set OperationIndex 0
+    set FunctionName "[lindex [info level 0] 0]"
+
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with ProcessHeader >$ProcessHeader<"
+    #
+    # get the process occurrences
+    #
+    tplet BopLines $ProcessHeader getBomLines -maxLevel 1
+
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "$FunctionName - ProcessOccurrence BopLines >$BopLines<"
+    #
+    # loop through all operations and set the correspondig EBS data
+    #
+    foreach ProcessOccurrence $BopLines {
+      ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: processing BOP lines"
+
+      # Get the instance, a TC ItemRevision element
+      tplet ItemRevision $ProcessOccurrence resolveInstancedURI
+
+      # Navigate to the master (PLMXML attribute masterRef), a TC Product (Item)
+      tplet Item $ItemRevision resolveMasterURI
+
+      # Get the ItemType,  from the selected object
+      tplet ItemName $Item getName
+      tplet ItemType $Item getSubType
+
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "$FunctionName - ProcessOccurrence $ProcessOccurrence $ItemRevision $Item $ItemType $ItemName"
+
+      # If immediate child is process, consider it as an operation
+      if {$ItemType eq "GET6Process"} {
+        ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: Child is an operation"
+        set Status [::T4O::PLMXML::ROUTING::CUSTOM::MAPPING::PLMXML_Data2EBS_RoutingOperation_Standard $TransactionId $ProcessOccurrence [incr OperationIndex]]
+      }
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype [::T4X::CORE::getLogLineMessageType4rc $Status] "$FunctionName finished with >$Status<"
+    return $Status
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::PLMXML::ROUTING::CUSTOM::MAPPING::PLMXML_Data2EBS_RoutingOperation_Standard
+  #
+  # \brief
+  # \author         kh, 20120116
+  # \return
+  #
+  proc PLMXML_Data2EBS_RoutingOperation_Standard {TransactionId ProcessOccurrence OperationIndex args} {
+    variable resIndex
+    variable BOPEffDate
+    variable BOPDisDate
+    variable ChildAlloc
+    #
+    set Status "OK"
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with ProcessOccurrence >$ProcessOccurrence<, OperationIndex >$OperationIndex<"
+
+    tplet OpSeqNumber  $ProcessOccurrence getUserDataValue SequenceNumber
+    tplet ItemRevision $ProcessOccurrence resolveInstancedURI
+    tplet Description  $ItemRevision      getName
+    tplet autocharge   $ItemRevision      getUserDataValue get6Autocharge
+    tplet checkpoint   $ItemRevision      getUserDataValue get6Checkpoint
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: Operation description is $Description"
+
+    # Prepare the operation sequence number
+    set OpSeqNumber [string trimleft $OpSeqNumber 0]
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "$FunctionName - OpSeqNumber >$OpSeqNumber<"
+
+    #Error out if operation sequence number is empty
+    if {$OpSeqNumber eq ""} {
+      set strMessage "ERROR: No operation sequence number assigned for $Description"
+      ::T4X::TRANSLOG::writeCustomMappingLog $TransactionId ERROR $strMessage
+      ::T4X::CORE::storeMessage2 MAPPING $strMessage ERROR $strMessage
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype ERROR "$FunctionName - $strMessage"
+      set Status "ERROR"
+    }
+
+
+    set countPoint ""
+    if {$checkpoint eq "True"} {
+      set countPoint $::T4O_Defaults(BOM_COUNT_POINT_TYPE_YES_AUTO)
+    } elseif {$autocharge eq "True"} {
+      set countPoint $::T4O_Defaults(BOM_COUNT_POINT_TYPE_NO_AUTO)
+    } else {
+      set countPoint $::T4O_Defaults(BOM_COUNT_POINT_TYPE_NO_DIRECT)
+    }
+
+    # get list of Occurrence for given ProcessOccurrence
+    tplet OccurrenceList $ProcessOccurrence getBomLines -maxLevel infinite
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "$FunctionName - OccurrenceList >$OccurrenceList< ProcessOccurrence >$ProcessOccurrence<"
+
+
+    # process the occurrences
+    set DepartmentCode ""
+    foreach Occurrence $OccurrenceList {
+      tplet OccurrenceType $Occurrence getSubType
+      tplet SeqNo          $Occurrence getUserDataValue "SequenceNumber"
+      tplet Quantity       $Occurrence getUserDataValue "Quantity"
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "$FunctionName - assigned occurrence >$Occurrence< with type >$OccurrenceType<, sequence >$SeqNo<, quantity >$Quantity<"
+
+      switch $OccurrenceType {
+
+        "MEWorkArea" {
+          tplet MEWorkAreaRevision $Occurrence         resolveInstancedURI
+          tplet MEWorkArea         $MEWorkAreaRevision resolveMasterURI
+          tplet DepartmentCode     $MEWorkAreaRevision getUserDataValue get6Department
+
+          if { $DepartmentCode ne "" } {
+            ::TPEBS::RTG::initRoutingStructure_P_OPERATION_TBL $OperationIndex
+            set ::EBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:ASSEMBLY_ITEM_NAME:$OperationIndex)        $::EBSDat(Routing:P_RTG_HEADER_REC:ASSEMBLY_ITEM_NAME)
+            set ::EBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:ORGANIZATION_CODE:$OperationIndex)         $::EBSDat(Routing:P_RTG_HEADER_REC:ORGANIZATION_CODE)
+            set ::EBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:ALTERNATE_ROUTING_CODE:$OperationIndex)    $::EBSDat(Routing:P_RTG_HEADER_REC:ALTERNATE_ROUTING_CODE)
+            set ::EBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:START_EFFECTIVE_DATE:$OperationIndex)      $BOPEffDate
+            set ::EBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:DISABLE_DATE:$OperationIndex)              $BOPDisDate
+            set ::EBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:OPERATION_DESCRIPTION:$OperationIndex)     $Description
+            set ::EBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$OperationIndex) $OpSeqNumber
+            set ::EBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:DEPARTMENT_CODE:$OperationIndex)           $DepartmentCode
+            set ::EBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:COUNT_POINT_TYPE:$OperationIndex)          $countPoint
+          } else {
+            tplet Name $MEWorkAreaRevision getName
+            ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId WARNING "Warning: Work Area $Name Oracle Department is not set"
+          }
+        }
+
+        "MEResource" {
+          tplet MEResourceRevision   $Occurrence           resolveInstancedURI
+          tplet MEResource           $MEResourceRevision   resolveMasterURI
+          tplet ResourceCode         $MEResourceRevision   getUserDataValue get6OracleResourceName
+          tplet ResourceUnits        $MEResourceRevision   getUserDataValue get6ResourceUnits
+          tplet parentProcess        $Occurrence           resolveParentURI
+          tplet ResourceSeqNumber    $parentProcess        getUserDataValue SequenceNumber
+          tplet AllocatedTime        $parentProcess        getUserDataValue Mfg0allocated_time
+          tplet MESubProcessRevision $parentProcess        resolveInstancedURI
+          tplet scheduledFlag        $MESubProcessRevision getUserDataValue get6ScheduledFlag
+
+          if { $ResourceCode ne "" } {
+            ::TPEBS::RTG::initRoutingStructure_P_OP_RESOURCE_TBL [incr resIndex]
+            set ::EBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:ASSEMBLY_ITEM_NAME:$resIndex)        $::EBSDat(Routing:P_RTG_HEADER_REC:ASSEMBLY_ITEM_NAME)
+            set ::EBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:ORGANIZATION_CODE:$resIndex)         $::EBSDat(Routing:P_RTG_HEADER_REC:ORGANIZATION_CODE)
+            set ::EBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:ALTERNATE_ROUTING_CODE:$resIndex)    $::EBSDat(Routing:P_RTG_HEADER_REC:ALTERNATE_ROUTING_CODE)
+            set ::EBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:OP_START_EFFECTIVE_DATE:$resIndex)   $BOPEffDate
+            set ::EBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:RESOURCE_SEQUENCE_NUMBER:$resIndex)  [string trimleft $ResourceSeqNumber 0]
+            set ::EBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$resIndex) $OpSeqNumber
+            set ::EBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:RESOURCE_CODE:$resIndex)             $ResourceCode
+            set ::EBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:USAGE_RATE_OR_AMOUNT:$resIndex)      [expr { $AllocatedTime / 3600 }]
+            set ::EBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:SCHEDULE_FLAG:$resIndex)             $scheduledFlag
+            set ::EBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:ASSIGNED_UNITS:$resIndex)            $ResourceUnits
+          } else {
+            tplet Name $MEResourceRevision getName
+            ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId WARNING "Warning: Resource $Name Oracle Resource Name is not set"
+          }
+        }
+
+        "MEConsumed" {
+          tplet BOMLine  $Occurrence resolveLinkedOccurrenceURI
+          tplet Quantity $Occurrence getUserDataValue "Quantity"
+          tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "$FunctionName - consumed BOMLine >$BOMLine<, quantity >$Quantity<"
+          if {[string trim $Quantity] eq "" || [string trim $Quantity] == 0} {
+            set Quantity "1"
+          } elseif { $Quantity eq "A/R" } {
+            set Quantity "0"
+          } elseif { $Quantity < 0 } {
+            ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId ERROR "ERROR: Negative consumed quantity."
+            set Status "ERROR"
+          }
+          if { [dict exists $ChildAlloc $BOMLine $OpSeqNumber] } {
+            # TODO: Can this actually happen?
+            set OldQuantity [dict get $ChildAlloc $BOMLine $OpSeqNumber]
+            set Quantity [expr { $OldQuantity + $Quantity }]
+          }
+          dict set ChildAlloc $BOMLine $OpSeqNumber $Quantity
+        }
+      }
+    }
+
+    if { $DepartmentCode eq "" } {
+        ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId ERROR "ERROR: Operation $Description does not have a department set"
+        set Status "ERROR"
+    }
+
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype [::T4X::CORE::getLogLineMessageType4rc $Status] "$FunctionName finished for OperationIndex >$OperationIndex< with >$Status<"
+    return $Status
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::PLMXML::ROUTING::CUSTOM::MAPPING::EBS_Routing2PLMXML_Data
+  # \brief
+  # \author         kh, 20120113
+  # \return
+  #
+  proc EBS_Routing2PLMXML_Data {TransactionId PlmXmlString TransferStatus ObjectNumber OrgCode {ObjectId {}} {OrgId {}}} {
+    variable MfgFormId
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName Starts with >$TransactionId< >$TransferStatus< >$ObjectNumber< >$OrgCode< >$ObjectId< >$OrgId<"
+    #
+    if { $TransferStatus eq "CREATED" || $TransferStatus eq "CHANGED" || $TransferStatus eq "UPDATED" } {
+      set now  [clock seconds]
+      set Date [clock format $now -format "%Y-%m-%d"]
+      set Time [clock format $now -format "%T"]
+      set Publ [clock format $now -timezone "-0000" -format "%Y-%m-%dT%TZ"]
+      #
+      set FormTag [::PXM::getTagSeg4Id $PlmXmlString "Form" $MfgFormId]
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "$FunctionName - FormTag >$FormTag<"
+      set FormTag [::PXM::setFormAttributeValue $FormTag "get6BOMPublishDate" $Publ]
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "$FunctionName - FormTag >$FormTag<"
+      #
+      set NewPLMXML     "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+      append  NewPLMXML "<PLMXML xmlns=\"http://www.plmxml.org/Schemas/PLMXMLSchema\"\n"
+      append  NewPLMXML " schemaVersion=\"6\" date=\"$Date\" time=\"$Time\" author=\"T4O Routing Transfer\">\n"
+      append  NewPLMXML "<Header id=\"id1\" traverseRootRefs=\"#$MfgFormId\" transferContext=\"GET_EBS2TransferMode_Import_EBS\"></Header>\n"
+      append  NewPLMXML "$FormTag\n"
+      append  NewPLMXML "</PLMXML>\n"
+      set Status "OK"
+      lappend Status $NewPLMXML
+    } else {
+      set Status "SKIPPED"
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype [::T4X::CORE::getLogLineMessageType4rc $Status] "$FunctionName Returns $Status"
+    return $Status
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::PLMXML::ROUTING::CUSTOM::isAllowedType
+  # \brief          Check to see if an Item Revision Type is allowed in a BOM.
+  #
+  # \param          ItemRevisionType - type to check
+  # \return         OK or SKIPPED
+  #
+  proc isAllowedType { ItemRevisionType } {
+    variable disAllowedTypes
+    #
+    set rc "SKIPPED"
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with >$ItemRevisionType<"
+
+    if { ![info exists disAllowedTypes] } {
+      # Get the disallowed child types from TC preference/arg and store in a global variable.
+      # Global variable value will retain till the end of TC session.
+      set disAllowedTypes [dict get [::T4X::TC::MAPPING::getWorkflowArgumentValue2 "-DisAllowedChildTypes"] ArgumentValue]
+    }
+
+    if { [lsearch -exact $disAllowedTypes $ItemRevisionType] < 0 } {
+      set rc "OK"
+    }
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished with >$rc<"
+    return $rc
+  }
+}
+
+# TODO: Remove this is favor of setting ::EBSDat(Routing:CtrlParam:UpdateBOM) to "FULL" once that is supported post T4O 11.4
+#
+namespace eval ::T4O::PLMXML::ROUTING::CUSTOM {
+  namespace export additionalUpdates4Routing
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::PLMXML::ROUTING::CUSTOM::additionalUpdates4Routing
+  # \brief          Customer-specific function to perform additional updates.
+  #
+  #                 Warning:
+  #                 The ObjectNumber depends on whether it was a BOM or ECO transfer:
+  #                 either ASSEMBLY_ITEM_NAME or ECO_NAME
+  #
+  # \return         OK or ERROR
+  #
+  proc additionalUpdates4Routing { AppLogTransactionId ObjectNumber args } {
+    #
+    set Status "OK"
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with ObjectNumber >$ObjectNumber<"
+    #
+    set rc [::TPEBS::BOM::updateBom]
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "$FunctionName - ::TPEBS::BOM::updateBom returns $rc"
+    #
+    set rc [lindex $rc 0]
+    #
+    if { $rc ne "UPDATED" && $rc ne "CREATED" } {
+      if { [llength $rc] == 1 } {
+        set msg "An unknown error occurred"
+      } elseif { [llength $rc] == 2 } {
+        set msg [lindex $rc 1]
+      } else {
+        set msg [::T4O::hex2String [lindex $rc 2]]
+      }
+      ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $AppLogTransactionId ERROR "ERROR updating the BOM: $msg"
+      set Status [list "ERROR" $msg]
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype [::T4X::CORE::getLogLineMessageType4rc $Status] "$FunctionName finished with $Status"
+    return $Status
+  }
+}

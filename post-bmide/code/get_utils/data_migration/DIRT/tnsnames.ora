@@ -1,0 +1,24 @@
+################
+# Filename......: tnsnames.ora
+# Oracle Server.: 
+# Date..........: 
+# Created by....: 
+################
+getcmigd =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (FAILOVER = on)
+      (LOAD_BALANCE = on)
+      (ADDRESS = (PROTOCOL = TCP)(HOST = trntcplmd-scan.trans.ge.com)(PORT = 1621))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = getcmigd)
+      (FAILOVER_MODE =
+        (METHOD = BASIC)
+        (TYPE = SELECT)
+        (RETRIES = 18)
+        (DELAY = 1)
+      )
+    )
+  )
+ 

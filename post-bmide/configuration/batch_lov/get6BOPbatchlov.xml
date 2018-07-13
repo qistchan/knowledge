@@ -1,0 +1,1017 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TcBusinessData xmlns="http://teamcenter.com/BusinessModel/TcBusinessData" batchXSDVersion="1.0"
+    Date="Wed Nov 08 05:22:11 PM 2017">
+  <Add>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="ALTTESTPNT"
+        subLOVName="GET6ALTTESTPNTGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="ARTRODS"
+        subLOVName="GET6ARTRODSGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="CAMLINE"
+        subLOVName="GET6CAMLINEGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="CONNRODS"
+        subLOVName="GET6CONNRODSGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="CROWNS" subLOVName="GET6CROWNSGRV"
+        conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="EVOFRAMES"
+        subLOVName="GET6EVOFRAMESGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="EVOPAASM"
+        subLOVName="GET6EVOPAASMGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="EVOPAMACH"
+        subLOVName="GET6EVOPAMACHGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="FARMOUT"
+        subLOVName="GET6FARMOUTGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="FDLCYLSUB"
+        subLOVName="GET6FDLCYLSUBGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="FDLFRAMES"
+        subLOVName="GET6FDLFRAMESGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="FDLHEADS"
+        subLOVName="GET6FDLHEADSGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="GAGECAL"
+        subLOVName="GET6GAGECALGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="JACKETS"
+        subLOVName="GET6JACKETSGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="LAYDOWN"
+        subLOVName="GET6LAYDOWNGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="LINERS" subLOVName="GET6LINERSGRV"
+        conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="MAINASM"
+        subLOVName="GET6MAINASMGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="MAINTNCE"
+        subLOVName="GET6MAINTNCEGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="MASTERRODS"
+        subLOVName="GET6MASTERRODSGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="MATLKITTG"
+        subLOVName="GET6MATLKITTGGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="MOONSHINE"
+        subLOVName="GET6MOONSHINEGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="NEWMFG" subLOVName="GET6NEWMFGGRV"
+        conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="OVP" subLOVName="GET6OVPGRV"
+        conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="PINS" subLOVName="GET6PINSGRV"
+        conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="PISTONS"
+        subLOVName="GET6PISTONSGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="REBUILD"
+        subLOVName="GET6REBUILDGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="SHIPREC"
+        subLOVName="GET6SHIPRECGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="SKIRTS" subLOVName="GET6SKIRTSGRV"
+        conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="TOOLCRIB"
+        subLOVName="GET6TOOLCRIBGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="TOOLGRIND"
+        subLOVName="GET6TOOLGRINDGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="TURBOASM"
+        subLOVName="GET6TURBOASMGRV" conditionName="isTrue"/>
+    <TcLOVValueSubLOVAttach targetLOVName="GET6GRVRESOURCE" targetValue="TURBOMACH"
+        subLOVName="GET6TURBOMACHGRV" conditionName="isTrue"/>
+  </Add>
+  <Change>
+  <TcLOV name="GET6DEPARTMENTGRV" lovType="ListOfValuesString" usage="Exhaustive"
+        description="LOV for GRV Department" isManagedExternally="true">
+      <TcLOVValue value="ALTTESTPNT" description="" conditionName="isTrue"/>
+      <TcLOVValue value="ARTRODS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CAMLINE" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CONNRODS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CROWNS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EVOFRAMES" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EVOPAASM" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EVOPAMACH" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FARMOUT" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FDLCYLSUB" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FDLFRAMES" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FDLHEADS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GAGECAL" description="" conditionName="isTrue"/>
+      <TcLOVValue value="JACKETS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LAYDOWN" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LINERS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MAINASM" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MAINTNCE" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MASTERRODS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MATLKITTG" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MOONSHINE" description="" conditionName="isTrue"/>
+      <TcLOVValue value="NEWMFG" description="" conditionName="isTrue"/>
+      <TcLOVValue value="OVP" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PHANTOM" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PINS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PISTONS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="REBUILD" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SHIPREC" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SKIRTS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TOOLCRIB" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TOOLGRIND" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TURBOASM" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TURBOMACH" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6GRVRESOURCE" lovType="ListOfValuesString" usage="Exhaustive"
+        description="LOV for GRV GET6GRVRESOURCE" isManagedExternally="true">
+      <TcLOVValue value="ALTTESTPNT" description="" conditionName="isTrue"/>
+      <TcLOVValue value="ARTRODS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CAMLINE" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CONNRODS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CROWNS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EVOFRAMES" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EVOPAASM" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EVOPAMACH" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FARMOUT" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FDLCYLSUB" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FDLFRAMES" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FDLHEADS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GAGECAL" description="" conditionName="isTrue"/>
+      <TcLOVValue value="JACKETS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LAYDOWN" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LINERS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MAINASM" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MAINTNCE" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MASTERRODS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MATLKITTG" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MOONSHINE" description="" conditionName="isTrue"/>
+      <TcLOVValue value="NEWMFG" description="" conditionName="isTrue"/>
+      <TcLOVValue value="OVP" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PHANTOM" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PINS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PISTONS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="REBUILD" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SHIPREC" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SKIRTS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TOOLCRIB" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TOOLGRIND" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TURBOASM" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TURBOMACH" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6ALTTESTPNTGRV" lovType="ListOfValuesString" usage="Exhaustive"
+       description="GET6ALTTESTPNTGRV Resource" isManagedExternally="true">
+      <TcLOVValue value="ALTTESTPNT" description="" conditionName="isTrue"/>
+      <TcLOVValue value="ENGCB" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-ALTSTPT" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PS002" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SJ009" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SJ011" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SJ012" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SJ019" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE009" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE010" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE011" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE012" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE059" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE071" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6ARTRODSGRV" lovType="ListOfValuesString" usage="Exhaustive" description="GET6ARTRODSGRV Resource"
+        isManagedExternally="true">
+      <TcLOVValue value="ARTRODS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL139" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC100" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC107" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DR019" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-ARTRODS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM243" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE112" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE150" description="" conditionName="isTrue"/>
+      <TcLOVValue value="XX262" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6CAMLINEGRV" lovType="ListOfValuesString" usage="Exhaustive" description="GET6CAMLINEGRV Resource"
+        isManagedExternally="true">
+      <TcLOVValue value="CAMLINE" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CH032" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL125" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL149" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL152" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL161" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL162" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL163" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CME00" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CME01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CMF01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CMF02" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CMF03" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CSAM1" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC183" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DR029" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GL052" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR070" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR076" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR079" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR091" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR098" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HT007" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HT033" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA039" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA041" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA048" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA061" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-CAMLINE" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM171" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM176" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM183" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM184" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM185" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM202" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM257" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM258" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PRT003" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE050" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE123" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE135" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE136" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL126" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL263" description="" conditionName="isTrue"/>
+      <TcLOVValue value="XX012" description="" conditionName="isTrue"/>
+      <TcLOVValue value="XX256" description="" conditionName="isTrue"/>
+      <TcLOVValue value="XX257" description="" conditionName="isTrue"/>
+      <TcLOVValue value="XX261" description="" conditionName="isTrue"/>
+      <TcLOVValue value="XX270" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6CONNRODSGRV" lovType="ListOfValuesString" usage="Exhaustive"
+        description="GET6CONNRODSGRV Resource" isManagedExternally="true">
+      <TcLOVValue value="BS016" description="" conditionName="isTrue"/>
+      <TcLOVValue value="BS022" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL123" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL143" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CON01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CON02" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CONNRODS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC096" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC190" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DD053" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DR026" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GAU01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GAU01(T3)" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR080" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR099" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-CONNRDS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM197" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM198" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM199" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM219" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM222" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM233" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PRE01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RAE01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RAE02" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE101" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE113" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE164" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL257" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL258" description="" conditionName="isTrue"/>
+      <TcLOVValue value="XX263" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6CROWNSGRV" lovType="ListOfValuesString" usage="Exhaustive" description="GET6CROWNSGRV Resource"
+        isManagedExternally="true">
+      <TcLOVValue value="CL132" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CROWNS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA056" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA057" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-CROWNS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM196" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM241" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RB001" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE022" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6EVOFRAMESGRV" lovType="ListOfValuesString" usage="Exhaustive"
+        description="GET6EVOFRAMESGRV Resource" isManagedExternally="true">
+      <TcLOVValue value="DC114" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC115" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC116" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC117" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC118" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC119" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC120" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC121" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC122" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC123" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC124" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC125" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC126" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC127" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC128" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC174" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DR030" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DY016" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EVOFRAMES" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FME00" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FME01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FME02" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FME03" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-EFRAMES" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM045" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM046" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM047" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM217" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM218" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM260" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM261" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RB005" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RB006" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RB007" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RB008" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RO031" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RO035" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RO036" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RO041" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RO044" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SJ018" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE003" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE160" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL279" description="" conditionName="isTrue"/>
+      <TcLOVValue value="WD060" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6EVOPAASMGRV" lovType="ListOfValuesString" usage="Exhaustive"
+        description="GET6EVOPAASMGRV Resource" isManagedExternally="true">
+      <TcLOVValue value="BRA01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL160" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EVOPAASM" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FLE01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HAE01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HAE02" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HAE03" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HAE04" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HAE05" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HAE06" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HVA01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HYDRO" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-EPAASM" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM213" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM214" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM215" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM255" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PAE01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PR043" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RAE01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RAE02" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SAE01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SAE02" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SAE03" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SLA01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="T4HA1" description="" conditionName="isTrue"/>
+      <TcLOVValue value="T4HA2" description="" conditionName="isTrue"/>
+      <TcLOVValue value="T4HA3" description="" conditionName="isTrue"/>
+      <TcLOVValue value="T4HA4" description="" conditionName="isTrue"/>
+      <TcLOVValue value="T4HA5" description="" conditionName="isTrue"/>
+      <TcLOVValue value="T4HA6" description="" conditionName="isTrue"/>
+      <TcLOVValue value="T4LA1" description="" conditionName="isTrue"/>
+      <TcLOVValue value="T4PA1" description="" conditionName="isTrue"/>
+      <TcLOVValue value="T4PA2" description="" conditionName="isTrue"/>
+      <TcLOVValue value="T4PA3" description="" conditionName="isTrue"/>
+      <TcLOVValue value="T4PA4" description="" conditionName="isTrue"/>
+      <TcLOVValue value="T4PA5" description="" conditionName="isTrue"/>
+      <TcLOVValue value="T4PA6" description="" conditionName="isTrue"/>
+      <TcLOVValue value="T4SA1" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE119" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL223" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL276" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL277" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL278" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL290" description="" conditionName="isTrue"/>
+      <TcLOVValue value="XX251" description="" conditionName="isTrue"/>
+      <TcLOVValue value="XX290" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6EVOPAMACHGRV" lovType="ListOfValuesString" usage="Exhaustive"
+        description="GET6EVOPAMACHGRV Resource" isManagedExternally="true">
+      <TcLOVValue value="CL091" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL153" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL158" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL159" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL160" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EVOPAMACH" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HME00" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-EPAMACH" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM209" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM210" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM211" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM212" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM213" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM214" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM215" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM223" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM247" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM248" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM249" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM250" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM251" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM252" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM253" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM255" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM256" description="" conditionName="isTrue"/>
+      <TcLOVValue value="T4INS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE021" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE114" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE119" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE156" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE159" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE161" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL143" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6FARMOUTGRV" lovType="ListOfValuesString" usage="Exhaustive" description=""
+        isManagedExternally="true">
+      <TcLOVValue value="029P4Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="029P5Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="045G3Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="067ABP2Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="075ABG1Y2" description="" conditionName="isTrue"/>
+      <TcLOVValue value="075ABG1Y3" description="" conditionName="isTrue"/>
+      <TcLOVValue value="075G2Y2" description="" conditionName="isTrue"/>
+      <TcLOVValue value="075G2Y3" description="" conditionName="isTrue"/>
+      <TcLOVValue value="100P7Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="111G1Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="116P2Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="124G3Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="135G2Y3" description="" conditionName="isTrue"/>
+      <TcLOVValue value="147P3Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="162P1Y2" description="" conditionName="isTrue"/>
+      <TcLOVValue value="190P1Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="269P3Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="278G1Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="279G1Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="280G1Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="282G1Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="283G1Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="329P1Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="375P7Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="375P8Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="393P2Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="414P7Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="414P8Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="621G1Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="637P1Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="637P2Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="746ABP1Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="795P1Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="796P1Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="830P1Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="847P1Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="927G34Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="927G34Y2" description="" conditionName="isTrue"/>
+      <TcLOVValue value="932P4Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="962P1Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="963P1Y" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FOLABOR" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-FARMOUT" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6FDLCYLSUBGRV" lovType="ListOfValuesString" usage="Exhaustive"
+        description="GET6FDLCYLSUBGRV Resource" isManagedExternally="true">
+      <TcLOVValue value="CL005" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL010" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL013" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL086" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL099" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL107" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL141" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FDLCYLSUB" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FHINS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FLF01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR069" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HLV01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HT001" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HT002" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HT003" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HT006" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HT042" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA030" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA033" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA034" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA055" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA060" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LAF01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-FCYLSUB" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM170" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM223" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM224" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM225" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM226" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PAF01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PAF02" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PAF03" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PAF04" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PAF05" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PCC01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PR030" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PR036" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RB009" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RB014" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE165" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL248" description="" conditionName="isTrue"/>
+      <TcLOVValue value="WD107" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6FDLFRAMESGRV" lovType="ListOfValuesString" usage="Exhaustive"
+        description="GET6FDLFRAMESGRV Resource" isManagedExternally="true">
+      <TcLOVValue value="CP043" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CV007" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CV061" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CV062" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC027" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC093" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC109" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC135" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DR001" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DR002" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DR005" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DR007" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DR008" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAF01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FDLFRAMES" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FEC01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FMF00" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FMF01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FMF02" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FMF03" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FMF04" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HV008" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-FFRAMES" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM005" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM006" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM017" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM018" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM020" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM021" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM052" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM132" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM178" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RO001" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RO002" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SJ017" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE105" description="" conditionName="isTrue"/>
+      <TcLOVValue value="XX005" description="" conditionName="isTrue"/>
+      <TcLOVValue value="XX029" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6FDLHEADSGRV" lovType="ListOfValuesString" usage="Exhaustive"
+        description="GET6FDLHEADSGRV Resource" isManagedExternally="true">
+      <TcLOVValue value="BS021" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL086" description="" conditionName="isTrue"/>
+      <TcLOVValue value="D093" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC005" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DR015" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FDLHEADS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FFL01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HT001" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HT002" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HT006" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HT013" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA033" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA034" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-FHEADS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM223" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM224" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM225" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM226" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM245" description="" conditionName="isTrue"/>
+      <TcLOVValue value="New Robot" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PAF05" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PHA01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RB009" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RB010" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RB011" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL254" description="" conditionName="isTrue"/>
+      <TcLOVValue value="WD020" description="" conditionName="isTrue"/>
+      <TcLOVValue value="WD091" description="" conditionName="isTrue"/>
+      <TcLOVValue value="WD093" description="" conditionName="isTrue"/>
+      <TcLOVValue value="WD097" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6GAGECALGRV" lovType="ListOfValuesString" usage="Exhaustive" description="GET6GAGECALGRV Resource"
+        isManagedExternally="true">
+      <TcLOVValue value="GAGECAL" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-GAGECAL" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6JACKETSGRV" lovType="ListOfValuesString" usage="Exhaustive" description="GET6JACKETSGRV Resource"
+        isManagedExternally="true">
+      <TcLOVValue value="CL040" description="" conditionName="isTrue"/>
+      <TcLOVValue value="JACKETS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="JAF01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-JACKETS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM054" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM055" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM056" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RB002" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RB003" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RB004" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL099" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DR015" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6LAYDOWNGRV" lovType="ListOfValuesString" usage="Exhaustive" description="GET6LAYDOWNGRV Resource"
+        isManagedExternally="true">
+      <TcLOVValue value="LAYDOWN" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-LAYDOWN" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PS003" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6LINERSGRV" lovType="ListOfValuesString" usage="Exhaustive" description="GET6LINERSGRV Resource"
+        isManagedExternally="true">
+      <TcLOVValue value="CH041" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL005" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR069" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA030" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA055" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA060" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LAF01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LINERS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-LINERS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM170" description="" conditionName="isTrue"/>
+      <TcLOVValue value="WD107" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6MAINASMGRV" lovType="ListOfValuesString" usage="Exhaustive" description="GET6MAINASMGRV Resource"
+        isManagedExternally="true">
+      <TcLOVValue value="ALTER" description="" conditionName="isTrue"/>
+      <TcLOVValue value="ALTER OFF" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL150" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL151" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAE01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAE02" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAE03" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAE04" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAE05" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAE06" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAE07" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAE08" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAE09" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAE10" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAE11" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAE12" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAE13" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAF01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAF02" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAF03" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAF04" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAF05" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAF06" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAF07" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAF08" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAF09" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAF10" description="" conditionName="isTrue"/>
+      <TcLOVValue value="EAF11" description="" conditionName="isTrue"/>
+      <TcLOVValue value="ENGCB" description="" conditionName="isTrue"/>
+      <TcLOVValue value="FPA01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GCA01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="IFE01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LAH01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-MAINASM" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MAINASM" description="" conditionName="isTrue"/>
+      <TcLOVValue value="OFF01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="OFF02" description="" conditionName="isTrue"/>
+      <TcLOVValue value="OFP01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="OPA01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="OPE01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="OPF01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PRE01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PS002" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SICKB" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE009" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE010" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE011" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE012" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE059" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE071" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE155" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL159" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL169" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL231" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL255" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL256" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL259" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL262" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL270" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL271" description="" conditionName="isTrue"/>
+      <TcLOVValue value="WPA01" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6MAINTNCEGRV" lovType="ListOfValuesString" usage="Exhaustive"
+        description="GET6MAINTNCEGRV Resource" isManagedExternally="true">
+      <TcLOVValue value="LT-MAINTCE" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MAINTNCE" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6MASTERRODSGRV" lovType="ListOfValuesString" usage="Exhaustive"
+        description="GET6MASTERRODSGRV Resource" isManagedExternally="true">
+      <TcLOVValue value="LT-MRODS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MASTERRODS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL164" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6MATLKITTGGRV" lovType="ListOfValuesString" usage="Exhaustive"
+        description="GET6MATLKITTGGRV Resource" isManagedExternally="true">
+      <TcLOVValue value="LT-MATLKIT" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MATLKITTG" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6MOONSHINEGRV" lovType="ListOfValuesString" usage="Exhaustive"
+        description="GET6MOONSHINEGRV Resource" isManagedExternally="true">
+      <TcLOVValue value="LT-MOONSHN" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MOONSHINE" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6NEWMFGGRV" lovType="ListOfValuesString" usage="Exhaustive" description="GET6NEWMFGGRV Resource"
+        isManagedExternally="true">
+      <TcLOVValue value="BS025" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL094" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC083" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC084" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC085" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC088" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC092" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC145" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DR004" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR012" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR043" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR044" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HV006" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA003" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA021" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA053" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-NEWMFG" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM001" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM100" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM174" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM206" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM216" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM238" description="" conditionName="isTrue"/>
+      <TcLOVValue value="NEWMFG" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PB001" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PR003" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PS003" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PS010" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SB028" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SB033" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SB035" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE056" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL012" description="" conditionName="isTrue"/>
+      <TcLOVValue value="WD012" description="" conditionName="isTrue"/>
+      <TcLOVValue value="WD074" description="" conditionName="isTrue"/>
+      <TcLOVValue value="WD109" description="" conditionName="isTrue"/>
+      <TcLOVValue value="WD112" description="" conditionName="isTrue"/>
+      <TcLOVValue value="WD113" description="" conditionName="isTrue"/>
+      <TcLOVValue value="WD114" description="" conditionName="isTrue"/>
+      <TcLOVValue value="WD116" description="" conditionName="isTrue"/>
+      <TcLOVValue value="XX260" description="" conditionName="isTrue"/>
+      <TcLOVValue value="BS010" description="" conditionName="isTrue"/>
+      <TcLOVValue value="BS015" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL129" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DR014" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR045" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HT014" description="" conditionName="isTrue"/>
+      <TcLOVValue value="NMBUR" description="" conditionName="isTrue"/>
+      <TcLOVValue value="NMWLD" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PICKL" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SH001" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6OVPGRV" lovType="ListOfValuesString" usage="Exhaustive" description=""
+        isManagedExternally="true">
+      <TcLOVValue value="006G2V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="009ABG1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="009G1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="009G2V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="048G1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="048G2V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="075ABG1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="075G2V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="080P1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="080P1V2" description="" conditionName="isTrue"/>
+      <TcLOVValue value="103G1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="103G3V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="103G4V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="132G1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="135G1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="135G2V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="137ABP4V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="137P8V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="162P1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="162P2V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="162P2V2" description="" conditionName="isTrue"/>
+      <TcLOVValue value="162P3V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="162P3V2" description="" conditionName="isTrue"/>
+      <TcLOVValue value="162P5V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="194ABG2V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="194G2V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="194G4V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="194G5V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="198P1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="206P2V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="268G1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="315P1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="356P1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="358G6V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="379P4V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="412G1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="412G2V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="412G3V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="419ABP1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="419G1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="422G2V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="557P1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="557P2V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="557P3V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="557P4V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="651P11V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="651P11V2" description="" conditionName="isTrue"/>
+      <TcLOVValue value="651P12V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="651P12V2" description="" conditionName="isTrue"/>
+      <TcLOVValue value="681G2V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="692P3V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="742P3V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="793G2V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="793G2V3" description="" conditionName="isTrue"/>
+      <TcLOVValue value="866P2V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="880ABP1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="880ABP1V2" description="" conditionName="isTrue"/>
+      <TcLOVValue value="884P1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="884P2V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="920G1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="944P3V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="964ABP1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="964ABP2V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="964P3V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="964P6V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="982P1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="982P1V2" description="" conditionName="isTrue"/>
+      <TcLOVValue value="048G5V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="048G7V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="060P1V2" description="" conditionName="isTrue"/>
+      <TcLOVValue value="137ABP5V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="269P4V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="391P3V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="542P1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="976G1V" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6PINSGRV" lovType="ListOfValuesString" usage="Exhaustive" description="GET6PINSGRV Resource"
+        isManagedExternally="true">
+      <TcLOVValue value="CL129" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL135" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC045" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC091" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR029" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR030" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR032" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR096" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR097" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HT003" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HT004" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HT015" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HT049" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA028" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA036" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA058" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA059" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-PINS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM227" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM235" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM236" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM242" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PINS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PME01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PMF01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PMF02" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PPA01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PR041" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PR042" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SB008" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SB010" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE005" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE136" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE138" description="" conditionName="isTrue"/>
+      <TcLOVValue value="XX002" description="" conditionName="isTrue"/>
+      <TcLOVValue value="XX254" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6PISTONSGRV" lovType="ListOfValuesString" usage="Exhaustive" description="GET6PISTONSGRV Resource"
+        isManagedExternally="true">
+      <TcLOVValue value="LT-PISTONS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PAF01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PISTONS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL273" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PNA01" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6REBUILDGRV" lovType="ListOfValuesString" usage="Exhaustive" description="GET6REBUILDGRV Resource"
+        isManagedExternally="true">
+      <TcLOVValue value="BS024" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL004" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL096" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL117" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC071" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR094" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA008" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-REBUILD" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM019" description="" conditionName="isTrue"/>
+      <TcLOVValue value="REBUILD" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SB032" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6SHIPRECGRV" lovType="ListOfValuesString" usage="Exhaustive" description="GET6SHIPRECGRV Resource"
+        isManagedExternally="true">
+      <TcLOVValue value="LT-SHIPREC" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SHIPREC" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6SKIRTSGRV" lovType="ListOfValuesString" usage="Exhaustive" description="GET6SKIRTSGRV Resource"
+        isManagedExternally="true">
+      <TcLOVValue value="CL130" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL147" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC049" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DR009" description="" conditionName="isTrue"/>
+      <TcLOVValue value="ET283" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HT051" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA035" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA051" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA052" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-SKIRTS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM041" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM042" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM191" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM207" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SKIRTS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE042" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE145" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE146" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE147" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TL253" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6TOOLCRIBGRV" lovType="ListOfValuesString" usage="Exhaustive"
+        description="GET6TOOLCRIBGRV Resource" isManagedExternally="true">
+      <TcLOVValue value="LT-TOOLCRB" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TOOLCRIB" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6TOOLGRINDGRV" lovType="ListOfValuesString" usage="Exhaustive"
+        description="GET6TOOLGRINDGRV Resource" isManagedExternally="true">
+      <TcLOVValue value="LT-TOOLGRD" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TOOLGRIND" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6TURBOASMGRV" lovType="ListOfValuesString" usage="Exhaustive"
+        description="GET6TURBOASMGRV Resource" isManagedExternally="true">
+      <TcLOVValue value="BCA01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CWA01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CWA02" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CWA03" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CWA04" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA062" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-TURBASM" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RA001" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RA002" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RA003" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RO018" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RO021" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RO023" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RO025" description="" conditionName="isTrue"/>
+      <TcLOVValue value="RO026" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SJ015" description="" conditionName="isTrue"/>
+      <TcLOVValue value="T4TA1" description="" conditionName="isTrue"/>
+      <TcLOVValue value="T4TA2" description="" conditionName="isTrue"/>
+      <TcLOVValue value="T4TA3" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TA001" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TA002" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TA003" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TA004" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TA005" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TCA01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TCA02" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TCA03" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE156" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TFA01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TIA01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TTA01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TURBOASM" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TWA01" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TWA02" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TWA03" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TWA04" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6TURBOMACHGRV" lovType="ListOfValuesString" usage="Exhaustive"
+        description="GET6TURBOMACHGRV Resource" isManagedExternally="true">
+      <TcLOVValue value="BR001" description="" conditionName="isTrue"/>
+      <TcLOVValue value="BS019" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL077" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL079" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL080" description="" conditionName="isTrue"/>
+      <TcLOVValue value="CL124" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC011" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC080" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC110" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC166" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DC175" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DR016" description="" conditionName="isTrue"/>
+      <TcLOVValue value="GR057" description="" conditionName="isTrue"/>
+      <TcLOVValue value="HT055" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA023" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA025" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA037" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA042" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA049" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA054" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA062" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LA063" description="" conditionName="isTrue"/>
+      <TcLOVValue value="LT-TURBMAC" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM140" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM168" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM177" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM181" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM220" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM228" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM229" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM231" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM239" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM254" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM259" description="" conditionName="isTrue"/>
+      <TcLOVValue value="PR033" description="" conditionName="isTrue"/>
+      <TcLOVValue value="SJ015" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TE156" description="" conditionName="isTrue"/>
+      <TcLOVValue value="TURBOMACH" description="" conditionName="isTrue"/>
+      <TcLOVValue value="542P1V" description="" conditionName="isTrue"/>
+      <TcLOVValue value="DR015" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MM050" description="" conditionName="isTrue"/>
+    </TcLOV>
+    <TcLOV name="GET6Alternate" lovType="ListOfValuesString" usage="Exhaustive" description=""
+        isManagedExternally="true">
+      <TcLOVValue value="Null" description="" conditionName="isTrue"/>
+      <TcLOVValue value="A" description="" conditionName="isTrue"/>
+      <TcLOVValue value="B" description="" conditionName="isTrue"/>
+      <TcLOVValue value="C" description="" conditionName="isTrue"/>
+    </TcLOV>
+  </Change>
+</TcBusinessData>

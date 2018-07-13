@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences version="10.0">
+  <category name="GET">
+    <category_description></category_description>
+    <preference name="TC_GET6ECNRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Remove Status</value>
+        <value>GET Admin - Reset Change</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6ECRRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Remove Status</value>
+        <value>GET Admin - Reset Change</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6MCNRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Remove Status</value>
+        <value>GET Admin - Reset Change</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6MechPart_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6ElectPart_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6MechPartRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6ElectPartRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6FlatPatternRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6DrawingRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6SpecsRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6DocumentRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6MaterialRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6DesignMiscRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6ProjectRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6WorkareaRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6ModuleRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+  </category>
+</preferences>

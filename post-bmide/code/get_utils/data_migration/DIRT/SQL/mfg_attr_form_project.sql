@@ -1,0 +1,1 @@
+SELECT distinct wso.puid, wso.pobject_name, COUNT(*) count FROM infodba.pworkspaceobject wso, infodba.pproject_list pl where wso.puid=pl.puid and wso.pobject_type like'GET6MfgAttrForm%' GROUP BY wso.puid, wso.pobject_name Having COUNT(*) > 1;

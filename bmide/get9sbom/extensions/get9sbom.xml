@@ -1,0 +1,871 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TcBusinessData xmlns="http://teamcenter.com/BusinessModel/TcBusinessData" Date="">
+<Add>
+   <TcClass className="GET9FnctLvl" parentClassName="GET6AbsContainer" isExportable="false"
+       isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET9FnctLvlMasterS" parentClassName="GET6AbsContainerMasterS"
+       isExportable="false" isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET9FnctLvlRevMasterS" parentClassName="GET6AbsContainerRevMasterS"
+       isExportable="false" isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET9FnctLvlRevision" parentClassName="GET6AbsContainerRevision"
+       isExportable="false" isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET9SCN" parentClassName="GET6ECN" isExportable="false" isUninstantiable="false"
+       isUninheritable="false" description=""/>
+   <TcClass className="GET9SCNMasterS" parentClassName="GET6ECNMasterS" isExportable="false"
+       isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET9SCNRevMasterS" parentClassName="GET6ECNRevMasterS" isExportable="false"
+       isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET9SCNRevision" parentClassName="GET6ECNRevision" isExportable="false"
+       isUninstantiable="false" isUninheritable="false" description="">
+     <TcAttribute attributeName="get9SCNSafety" description="" attributeType="POM_logical"
+         maxStringLength="0" isArray="false" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         isTransient="false" exportAsString="false" noBackpointer="false" initialValue=""/>
+     <TcAttribute attributeName="get9SCNReliability" description="" attributeType="POM_logical"
+         maxStringLength="0" isArray="false" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         isTransient="false" exportAsString="false" noBackpointer="false"/>
+     <TcAttribute attributeName="get9SCNFMI" description="" attributeType="POM_logical"
+         maxStringLength="0" isArray="false" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         isTransient="false" exportAsString="false" noBackpointer="false"/>
+     <TcAttribute attributeName="get9SCNFleet" description="" attributeType="POM_long_string"
+         maxStringLength="0" isArray="true" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         arrayLength="-1" isTransient="false" exportAsString="false" noBackpointer="false"/>
+     <TcAttribute attributeName="get9SCNCustomers" description="" attributeType="POM_long_string"
+         maxStringLength="0" isArray="true" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         arrayLength="-1" isTransient="false" exportAsString="false" noBackpointer="false"/>
+   </TcClass>
+   <TcClass className="GET9SerAttrFormStorage" parentClassName="POM_object" isExportable="false"
+       isUninstantiable="false" isUninheritable="false" description="">
+     <TcAttribute attributeName="get9Serviceable" description="" attributeType="POM_logical"
+         maxStringLength="0" isArray="false" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         isTransient="false" exportAsString="false" noBackpointer="false"/>
+     <TcAttribute attributeName="get9Repairable" description="" attributeType="POM_logical"
+         maxStringLength="0" isArray="false" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         isTransient="false" exportAsString="false" noBackpointer="false"/>
+     <TcAttribute attributeName="get9Serialized" description="" attributeType="POM_logical"
+         maxStringLength="0" isArray="false" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         isTransient="false" exportAsString="false" noBackpointer="false"/>
+     <TcAttribute attributeName="get9PositionTracked" description="" attributeType="POM_logical"
+         maxStringLength="0" isArray="false" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         isTransient="false" exportAsString="false" noBackpointer="false"/>
+     <TcAttribute attributeName="get9ServiceItemType" description="" attributeType="POM_string"
+         maxStringLength="64" isArray="false" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         isTransient="false" exportAsString="false" noBackpointer="false" lowerBoundValue=""
+         upperBoundValue=""/>
+     <TcAttribute attributeName="get9CatalogNo" description="" attributeType="POM_long_string"
+         maxStringLength="0" isArray="true" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         arrayLength="-1" isTransient="false" exportAsString="false" noBackpointer="false"/>
+     <TcAttribute attributeName="get9TierType" description="" attributeType="POM_long_string"
+         maxStringLength="0" isArray="true" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         arrayLength="-1" isTransient="false" exportAsString="false" noBackpointer="false"/>
+     <TcAttribute attributeName="get9EngineFamily" description="" attributeType="POM_long_string"
+         maxStringLength="0" isArray="true" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         arrayLength="-1" isTransient="false" exportAsString="false" noBackpointer="false"/>
+     <TcAttribute attributeName="get9HasServiceForm" description="" attributeType="POM_logical"
+         maxStringLength="0" isArray="false" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         isTransient="false" exportAsString="false" noBackpointer="false" initialValue="true"/>
+     <TcAttribute attributeName="get9ComponentID" description="" attributeType="POM_long_string"
+         maxStringLength="0" isArray="true" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         arrayLength="-1" isTransient="false" exportAsString="false" noBackpointer="false"/>
+   </TcClass>
+   <TcClass className="GET9ServFormAtt" parentClassName="ImanRelation" isExportable="false"
+       isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET9SrvPart" parentClassName="GET6AbsUniPart" isExportable="false"
+       isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET9SrvPartMasterS" parentClassName="GET6AbsUniPartMasterS"
+       isExportable="false" isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET9SrvPartRevMasterS" parentClassName="GET6AbsUniPartRevMasterS"
+       isExportable="false" isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET9SrvPartRevision" parentClassName="GET6AbsUniPartRevision"
+       isExportable="false" isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET9ZnlLvl" parentClassName="GET6AbsContainer" isExportable="false"
+       isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET9ZnlLvlMasterS" parentClassName="GET6AbsContainerMasterS"
+       isExportable="false" isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET9ZnlLvlRevMasterS" parentClassName="GET6AbsContainerRevMasterS"
+       isExportable="false" isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET9ZnlLvlRevision" parentClassName="GET6AbsContainerRevision"
+       isExportable="false" isUninstantiable="false" isUninheritable="false" description=""/>
+   <OperationInputType typeName="GET9FnctLvlCreI" parentTypeName="GET6AbsContainerCreI"
+       typeClassName="GET9FnctLvlCreI" description="CreateInput object for &quot;GET9FnctLvl&quot; business object"
+       isAbstract="false" artifactName="GET9FnctLvlCreI"/>
+   <OperationInputType typeName="GET9FnctLvlMasterCreI" parentTypeName="GET6AbsContainerMasterCreI"
+       typeClassName="GET9FnctLvlMasterCreI" description="CreateInput object for &quot;GET9FnctLvlMaster&quot; business object"
+       isAbstract="false" artifactName="GET9FnctLvlMasterCreI"/>
+   <OperationInputType typeName="GET9FnctLvlMasterSCreI" parentTypeName="GET6AbsContainerMasterSCreI"
+       typeClassName="GET9FnctLvlMasterSCreI" description="CreateInput object for &quot;GET9FnctLvlMasterS&quot; business object"
+       isAbstract="false" artifactName="GET9FnctLvlMasterSCreI"/>
+   <OperationInputType typeName="GET9FnctLvlMasterSSvAI" parentTypeName="GET6AbsContainerMasterSSvAI"
+       typeClassName="GET9FnctLvlMasterSSvAI" description="SaveAsInput object for &quot;GET9FnctLvlMasterS&quot; business object"
+       isAbstract="false" artifactName="GET9FnctLvlMasterSSvAI"/>
+   <OperationInputType typeName="GET9FnctLvlMasterSvAI" parentTypeName="GET6AbsContainerMasterSvAI"
+       typeClassName="GET9FnctLvlMasterSvAI" description="SaveAsInput object for &quot;GET9FnctLvlMaster&quot; business object"
+       isAbstract="false" artifactName="GET9FnctLvlMasterSvAI"/>
+   <OperationInputType typeName="GET9FnctLvlRevMasterSCreI" parentTypeName="GET6AbsContainerRevMasterSCreI"
+       typeClassName="GET9FnctLvlRevMasterSCreI" description="CreateInput object for &quot;GET9FnctLvlRevMasterS&quot; business object"
+       isAbstract="false" artifactName="GET9FnctLvlRevMasterSCreI"/>
+   <OperationInputType typeName="GET9FnctLvlRevMasterSSvAI" parentTypeName="GET6AbsContainerRevMasterSSvAI"
+       typeClassName="GET9FnctLvlRevMasterSSvAI" description="SaveAsInput object for &quot;GET9FnctLvlRevMasterS&quot; business object"
+       isAbstract="false" artifactName="GET9FnctLvlRevMasterSSvAI"/>
+   <OperationInputType typeName="GET9FnctLvlRevisionCreI" parentTypeName="GET6AbsContainerRevisionCreI"
+       typeClassName="GET9FnctLvlRevisionCreI" description="CreateInput object for &quot;GET9FnctLvlRevision&quot; business object"
+       isAbstract="false" artifactName="GET9FnctLvlRevisionCreI"/>
+   <OperationInputType typeName="GET9FnctLvlRevisionMasterCreI" parentTypeName="GET6AbsContainerRevisi_alt0CreI"
+       typeClassName="GET9FnctLvlRevisionMasterCreI" description="CreateInput object for &quot;GET9FnctLvlRevisionMaster&quot; business object"
+       isAbstract="false" artifactName="GET9FnctLvlRevisionMasterCreI"/>
+   <OperationInputType typeName="GET9FnctLvlRevisionMasterSvAI" parentTypeName="GET6AbsContainerRevisi_alt0SvAI"
+       typeClassName="GET9FnctLvlRevisionMasterSvAI" description="SaveAsInput object for &quot;GET9FnctLvlRevisionMaster&quot; business object"
+       isAbstract="false" artifactName="GET9FnctLvlRevisionMasterSvAI"/>
+   <OperationInputType typeName="GET9FnctLvlRevisionRevI" parentTypeName="GET6AbsContainerRevisionRevI"
+       typeClassName="GET9FnctLvlRevisionRevI" description="ReviseInput object for &quot;GET9FnctLvlRevision&quot; business object"
+       isAbstract="false" artifactName="GET9FnctLvlRevisionRevI"/>
+   <OperationInputType typeName="GET9FnctLvlRevisionSvAI" parentTypeName="GET6AbsContainerRevisionSvAI"
+       typeClassName="GET9FnctLvlRevisionSvAI" description="SaveAsInput object for &quot;GET9FnctLvlRevision&quot; business object"
+       isAbstract="false" artifactName="GET9FnctLvlRevisionSvAI"/>
+   <OperationInputType typeName="GET9FnctLvlSvAI" parentTypeName="GET6AbsContainerSvAI"
+       typeClassName="GET9FnctLvlSvAI" description="SaveAsInput object for &quot;GET9FnctLvl&quot; business object"
+       isAbstract="false" artifactName="GET9FnctLvlSvAI"/>
+   <OperationInputType typeName="GET9SCNCreI" parentTypeName="GET6ECNCreI" typeClassName="GET9SCNCreI"
+       description="CreateInput object for &quot;GET9SCN&quot; business object" isAbstract="false"
+       artifactName="GET9SCNCreI"/>
+   <OperationInputType typeName="GET9SCNMasterCreI" parentTypeName="GET6ECNMasterCreI"
+       typeClassName="GET9SCNMasterCreI" description="CreateInput object for &quot;GET9SCNMaster&quot; business object"
+       isAbstract="false" artifactName="GET9SCNMasterCreI"/>
+   <OperationInputType typeName="GET9SCNMasterSCreI" parentTypeName="GET6ECNMasterSCreI"
+       typeClassName="GET9SCNMasterSCreI" description="CreateInput object for &quot;GET9SCNMasterS&quot; business object"
+       isAbstract="false" artifactName="GET9SCNMasterSCreI"/>
+   <OperationInputType typeName="GET9SCNMasterSSvAI" parentTypeName="GET6ECNMasterSSvAI"
+       typeClassName="GET9SCNMasterSSvAI" description="SaveAsInput object for &quot;GET9SCNMasterS&quot; business object"
+       isAbstract="false" artifactName="GET9SCNMasterSSvAI"/>
+   <OperationInputType typeName="GET9SCNMasterSvAI" parentTypeName="GET6ECNMasterSvAI"
+       typeClassName="GET9SCNMasterSvAI" description="SaveAsInput object for &quot;GET9SCNMaster&quot; business object"
+       isAbstract="false" artifactName="GET9SCNMasterSvAI"/>
+   <OperationInputType typeName="GET9SCNRevMasterSCreI" parentTypeName="GET6ECNRevMasterSCreI"
+       typeClassName="GET9SCNRevMasterSCreI" description="CreateInput object for &quot;GET9SCNRevMasterS&quot; business object"
+       isAbstract="false" artifactName="GET9SCNRevMasterSCreI"/>
+   <OperationInputType typeName="GET9SCNRevMasterSSvAI" parentTypeName="GET6ECNRevMasterSSvAI"
+       typeClassName="GET9SCNRevMasterSSvAI" description="SaveAsInput object for &quot;GET9SCNRevMasterS&quot; business object"
+       isAbstract="false" artifactName="GET9SCNRevMasterSSvAI"/>
+   <OperationInputType typeName="GET9SCNRevisionCreI" parentTypeName="GET6ECNRevisionCreI"
+       typeClassName="GET9SCNRevisionCreI" description="CreateInput object for &quot;GET9SCNRevision&quot; business object"
+       isAbstract="false" artifactName="GET9SCNRevisionCreI">
+     <OperationInputProperty propName="get9SCNFleet" compoundObjectConstant="" srcPropName="get9SCNFleet"
+         compoundObjectType="" fieldType="SimpleProperty" description=""/>
+     <OperationInputProperty propName="get9SCNCustomers" compoundObjectConstant=""
+         srcPropName="get9SCNCustomers" compoundObjectType="" fieldType="SimpleProperty"
+         description=""/>
+   </OperationInputType>
+   <OperationInputType typeName="GET9SCNRevisionMasterCreI" parentTypeName="GET6ECNRevisionMasterCreI"
+       typeClassName="GET9SCNRevisionMasterCreI" description="CreateInput object for &quot;GET9SCNRevisionMaster&quot; business object"
+       isAbstract="false" artifactName="GET9SCNRevisionMasterCreI"/>
+   <OperationInputType typeName="GET9SCNRevisionMasterSvAI" parentTypeName="GET6ECNRevisionMasterSvAI"
+       typeClassName="GET9SCNRevisionMasterSvAI" description="SaveAsInput object for &quot;GET9SCNRevisionMaster&quot; business object"
+       isAbstract="false" artifactName="GET9SCNRevisionMasterSvAI"/>
+   <OperationInputType typeName="GET9SCNRevisionRevI" parentTypeName="GET6ECNRevisionRevI"
+       typeClassName="GET9SCNRevisionRevI" description="ReviseInput object for &quot;GET9SCNRevision&quot; business object"
+       isAbstract="false" artifactName="GET9SCNRevisionRevI"/>
+   <OperationInputType typeName="GET9SCNRevisionSvAI" parentTypeName="GET6ECNRevisionSvAI"
+       typeClassName="GET9SCNRevisionSvAI" description="SaveAsInput object for &quot;GET9SCNRevision&quot; business object"
+       isAbstract="false" artifactName="GET9SCNRevisionSvAI"/>
+   <OperationInputType typeName="GET9SCNSvAI" parentTypeName="GET6ECNSvAI" typeClassName="GET9SCNSvAI"
+       description="SaveAsInput object for &quot;GET9SCN&quot; business object" isAbstract="false"
+       artifactName="GET9SCNSvAI"/>
+   <OperationInputType typeName="GET9SerAttrFormCreI" parentTypeName="FormCreI" typeClassName="GET9SerAttrFormCreI"
+       description="CreateInput object for &quot;GET9SerAttrForm&quot; business object"
+       isAbstract="false" artifactName="GET9SerAttrFormCreI"/>
+   <OperationInputType typeName="GET9SerAttrFormStorageCreI" parentTypeName="POM_objectCreI"
+       typeClassName="GET9SerAttrFormStorageCreI" description="CreateInput object for &quot;GET9SerAttrFormStorage&quot; business object"
+       isAbstract="false" artifactName="GET9SerAttrFormStorageCreI"/>
+   <OperationInputType typeName="GET9SerAttrFormStorageSvAI" parentTypeName="POM_objectSvAI"
+       typeClassName="GET9SerAttrFormStorageSvAI" description="SaveAsInput object for &quot;GET9SerAttrFormStorage&quot; business object"
+       isAbstract="false" artifactName="GET9SerAttrFormStorageSvAI"/>
+   <OperationInputType typeName="GET9SerAttrFormSvAI" parentTypeName="FormSvAI" typeClassName="GET9SerAttrFormSvAI"
+       description="SaveAsInput object for &quot;GET9SerAttrForm&quot; business object"
+       isAbstract="false" artifactName="GET9SerAttrFormSvAI"/>
+   <OperationInputType typeName="GET9ServFormAttCreI" parentTypeName="ImanRelationCreI"
+       typeClassName="GET9ServFormAttCreI" description="CreateInput object for &quot;GET9ServFormAtt&quot; business object"
+       isAbstract="false" artifactName="GET9ServFormAttCreI"/>
+   <OperationInputType typeName="GET9ServFormAttSvAI" parentTypeName="ImanRelationSvAI"
+       typeClassName="GET9ServFormAttSvAI" description="SaveAsInput object for &quot;GET9ServFormAtt&quot; business object"
+       isAbstract="false" artifactName="GET9ServFormAttSvAI"/>
+   <OperationInputType typeName="GET9SrvPartCreI" parentTypeName="GET6AbsUniPartCreI"
+       typeClassName="GET9SrvPartCreI" description="CreateInput object for &quot;GET9SrvPart&quot; business object"
+       isAbstract="false" artifactName="GET9SrvPartCreI">
+     <OperationInputProperty propName="ip_classification" compoundObjectConstant=""
+         srcPropName="ip_classification" compoundObjectType="" fieldType="SimpleProperty"
+         description=""/>
+   </OperationInputType>
+   <OperationInputType typeName="GET9SrvPartMasterCreI" parentTypeName="GET6AbsUniPartMasterCreI"
+       typeClassName="GET9SrvPartMasterCreI" description="CreateInput object for &quot;GET9SrvPartMaster&quot; business object"
+       isAbstract="false" artifactName="GET9SrvPartMasterCreI"/>
+   <OperationInputType typeName="GET9SrvPartMasterSCreI" parentTypeName="GET6AbsUniPartMasterSCreI"
+       typeClassName="GET9SrvPartMasterSCreI" description="CreateInput object for &quot;GET9SrvPartMasterS&quot; business object"
+       isAbstract="false" artifactName="GET9SrvPartMasterSCreI"/>
+   <OperationInputType typeName="GET9SrvPartMasterSSvAI" parentTypeName="GET6AbsUniPartMasterSSvAI"
+       typeClassName="GET9SrvPartMasterSSvAI" description="SaveAsInput object for &quot;GET9SrvPartMasterS&quot; business object"
+       isAbstract="false" artifactName="GET9SrvPartMasterSSvAI"/>
+   <OperationInputType typeName="GET9SrvPartMasterSvAI" parentTypeName="GET6AbsUniPartMasterSvAI"
+       typeClassName="GET9SrvPartMasterSvAI" description="SaveAsInput object for &quot;GET9SrvPartMaster&quot; business object"
+       isAbstract="false" artifactName="GET9SrvPartMasterSvAI"/>
+   <OperationInputType typeName="GET9SrvPartRevMasterSCreI" parentTypeName="GET6AbsUniPartRevMasterSCreI"
+       typeClassName="GET9SrvPartRevMasterSCreI" description="CreateInput object for &quot;GET9SrvPartRevMasterS&quot; business object"
+       isAbstract="false" artifactName="GET9SrvPartRevMasterSCreI"/>
+   <OperationInputType typeName="GET9SrvPartRevMasterSSvAI" parentTypeName="GET6AbsUniPartRevMasterSSvAI"
+       typeClassName="GET9SrvPartRevMasterSSvAI" description="SaveAsInput object for &quot;GET9SrvPartRevMasterS&quot; business object"
+       isAbstract="false" artifactName="GET9SrvPartRevMasterSSvAI"/>
+   <OperationInputType typeName="GET9SrvPartRevisionCreI" parentTypeName="GET6AbsUniPartRevisionCreI"
+       typeClassName="GET9SrvPartRevisionCreI" description="CreateInput object for &quot;GET9SrvPartRevision&quot; business object"
+       isAbstract="false" artifactName="GET9SrvPartRevisionCreI"/>
+   <OperationInputType typeName="GET9SrvPartRevisionMasterCreI" parentTypeName="GET6AbsUniPartRevision_alt0CreI"
+       typeClassName="GET9SrvPartRevisionMasterCreI" description="CreateInput object for &quot;GET9SrvPartRevisionMaster&quot; business object"
+       isAbstract="false" artifactName="GET9SrvPartRevisionMasterCreI"/>
+   <OperationInputType typeName="GET9SrvPartRevisionMasterSvAI" parentTypeName="GET6AbsUniPartRevision_alt0SvAI"
+       typeClassName="GET9SrvPartRevisionMasterSvAI" description="SaveAsInput object for &quot;GET9SrvPartRevisionMaster&quot; business object"
+       isAbstract="false" artifactName="GET9SrvPartRevisionMasterSvAI"/>
+   <OperationInputType typeName="GET9SrvPartRevisionRevI" parentTypeName="GET6AbsUniPartRevisionRevI"
+       typeClassName="GET9SrvPartRevisionRevI" description="ReviseInput object for &quot;GET9SrvPartRevision&quot; business object"
+       isAbstract="false" artifactName="GET9SrvPartRevisionRevI"/>
+   <OperationInputType typeName="GET9SrvPartRevisionSvAI" parentTypeName="GET6AbsUniPartRevisionSvAI"
+       typeClassName="GET9SrvPartRevisionSvAI" description="SaveAsInput object for &quot;GET9SrvPartRevision&quot; business object"
+       isAbstract="false" artifactName="GET9SrvPartRevisionSvAI"/>
+   <OperationInputType typeName="GET9SrvPartSvAI" parentTypeName="GET6AbsUniPartSvAI"
+       typeClassName="GET9SrvPartSvAI" description="SaveAsInput object for &quot;GET9SrvPart&quot; business object"
+       isAbstract="false" artifactName="GET9SrvPartSvAI">
+     <OperationInputProperty propName="ip_classification" compoundObjectConstant=""
+         srcPropName="" compoundObjectType="" fieldType="SimpleProperty" description=""/>
+   </OperationInputType>
+   <OperationInputType typeName="GET9ZnlLvlCreI" parentTypeName="GET6AbsContainerCreI"
+       typeClassName="GET9ZnlLvlCreI" description="CreateInput object for &quot;GET9ZnlLvl&quot; business object"
+       isAbstract="false" artifactName="GET9ZnlLvlCreI"/>
+   <OperationInputType typeName="GET9ZnlLvlMasterCreI" parentTypeName="GET6AbsContainerMasterCreI"
+       typeClassName="GET9ZnlLvlMasterCreI" description="CreateInput object for &quot;GET9ZnlLvlMaster&quot; business object"
+       isAbstract="false" artifactName="GET9ZnlLvlMasterCreI"/>
+   <OperationInputType typeName="GET9ZnlLvlMasterSCreI" parentTypeName="GET6AbsContainerMasterSCreI"
+       typeClassName="GET9ZnlLvlMasterSCreI" description="CreateInput object for &quot;GET9ZnlLvlMasterS&quot; business object"
+       isAbstract="false" artifactName="GET9ZnlLvlMasterSCreI"/>
+   <OperationInputType typeName="GET9ZnlLvlMasterSSvAI" parentTypeName="GET6AbsContainerMasterSSvAI"
+       typeClassName="GET9ZnlLvlMasterSSvAI" description="SaveAsInput object for &quot;GET9ZnlLvlMasterS&quot; business object"
+       isAbstract="false" artifactName="GET9ZnlLvlMasterSSvAI"/>
+   <OperationInputType typeName="GET9ZnlLvlMasterSvAI" parentTypeName="GET6AbsContainerMasterSvAI"
+       typeClassName="GET9ZnlLvlMasterSvAI" description="SaveAsInput object for &quot;GET9ZnlLvlMaster&quot; business object"
+       isAbstract="false" artifactName="GET9ZnlLvlMasterSvAI"/>
+   <OperationInputType typeName="GET9ZnlLvlRevMasterSCreI" parentTypeName="GET6AbsContainerRevMasterSCreI"
+       typeClassName="GET9ZnlLvlRevMasterSCreI" description="CreateInput object for &quot;GET9ZnlLvlRevMasterS&quot; business object"
+       isAbstract="false" artifactName="GET9ZnlLvlRevMasterSCreI"/>
+   <OperationInputType typeName="GET9ZnlLvlRevMasterSSvAI" parentTypeName="GET6AbsContainerRevMasterSSvAI"
+       typeClassName="GET9ZnlLvlRevMasterSSvAI" description="SaveAsInput object for &quot;GET9ZnlLvlRevMasterS&quot; business object"
+       isAbstract="false" artifactName="GET9ZnlLvlRevMasterSSvAI"/>
+   <OperationInputType typeName="GET9ZnlLvlRevisionCreI" parentTypeName="GET6AbsContainerRevisionCreI"
+       typeClassName="GET9ZnlLvlRevisionCreI" description="CreateInput object for &quot;GET9ZnlLvlRevision&quot; business object"
+       isAbstract="false" artifactName="GET9ZnlLvlRevisionCreI"/>
+   <OperationInputType typeName="GET9ZnlLvlRevisionMasterCreI" parentTypeName="GET6AbsContainerRevisi_alt0CreI"
+       typeClassName="GET9ZnlLvlRevisionMasterCreI" description="CreateInput object for &quot;GET9ZnlLvlRevisionMaster&quot; business object"
+       isAbstract="false" artifactName="GET9ZnlLvlRevisionMasterCreI"/>
+   <OperationInputType typeName="GET9ZnlLvlRevisionMasterSvAI" parentTypeName="GET6AbsContainerRevisi_alt0SvAI"
+       typeClassName="GET9ZnlLvlRevisionMasterSvAI" description="SaveAsInput object for &quot;GET9ZnlLvlRevisionMaster&quot; business object"
+       isAbstract="false" artifactName="GET9ZnlLvlRevisionMasterSvAI"/>
+   <OperationInputType typeName="GET9ZnlLvlRevisionRevI" parentTypeName="GET6AbsContainerRevisionRevI"
+       typeClassName="GET9ZnlLvlRevisionRevI" description="ReviseInput object for &quot;GET9ZnlLvlRevision&quot; business object"
+       isAbstract="false" artifactName="GET9ZnlLvlRevisionRevI"/>
+   <OperationInputType typeName="GET9ZnlLvlRevisionSvAI" parentTypeName="GET6AbsContainerRevisionSvAI"
+       typeClassName="GET9ZnlLvlRevisionSvAI" description="SaveAsInput object for &quot;GET9ZnlLvlRevision&quot; business object"
+       isAbstract="false" artifactName="GET9ZnlLvlRevisionSvAI"/>
+   <OperationInputType typeName="GET9ZnlLvlSvAI" parentTypeName="GET6AbsContainerSvAI"
+       typeClassName="GET9ZnlLvlSvAI" description="SaveAsInput object for &quot;GET9ZnlLvl&quot; business object"
+       isAbstract="false" artifactName="GET9ZnlLvlSvAI"/>
+   <TcForm typeName="GET9FnctLvlMaster" parentTypeName="GET6AbsContainerMaster" typeClassName="Form"
+       description="MasterForm object for &quot;GET9FnctLvl&quot; business object"
+       isAbstract="false" artifactName="GET9FnctLvlMaster" functionality="GET9service"
+       formStorageClassName="GET9FnctLvlMasterS"/>
+   <TcForm typeName="GET9FnctLvlRevisionMaster" parentTypeName="GET6AbsContainerRevisionMaster"
+       typeClassName="Form" description="MasterForm object for &quot;GET9FnctLvlRevision&quot; business object"
+       isAbstract="false" artifactName="GET9FnctLvlRevisionMaster" functionality="GET9service"
+       formStorageClassName="GET9FnctLvlRevMasterS"/>
+   <TcForm typeName="GET9SCNMaster" parentTypeName="GET6ECNMaster" typeClassName="Form"
+       description="MasterForm object for &quot;GET9SCN&quot; business object" isAbstract="false"
+       artifactName="GET9SCNMaster" functionality="GET9service" formStorageClassName="GET9SCNMasterS"/>
+   <TcForm typeName="GET9SCNRevisionMaster" parentTypeName="GET6ECNRevisionMaster"
+       typeClassName="Form" description="MasterForm object for &quot;GET9SCNRevision&quot; business object"
+       isAbstract="false" artifactName="GET9SCNRevisionMaster" functionality="GET9service"
+       formStorageClassName="GET9SCNRevMasterS"/>
+   <TcForm typeName="GET9SerAttrForm" parentTypeName="Form" typeClassName="Form" description=""
+       isAbstract="false" artifactName="GET9SerAttrForm" functionality="GET9service"
+       formStorageClassName="GET9SerAttrFormStorage"/>
+   <TcForm typeName="GET9SrvPartMaster" parentTypeName="GET6AbsUniPartMaster" typeClassName="Form"
+       description="MasterForm object for &quot;GET9SrvPart&quot; business object"
+       isAbstract="false" artifactName="GET9SrvPartMaster" functionality="GET9service"
+       formStorageClassName="GET9SrvPartMasterS"/>
+   <TcForm typeName="GET9SrvPartRevisionMaster" parentTypeName="GET6AbsUniPartRevisionMaster"
+       typeClassName="Form" description="MasterForm object for &quot;GET9SrvPartRevision&quot; business object"
+       isAbstract="false" artifactName="GET9SrvPartRevisionMaster" functionality="GET9service"
+       formStorageClassName="GET9SrvPartRevMasterS"/>
+   <TcForm typeName="GET9ZnlLvlMaster" parentTypeName="GET6AbsContainerMaster" typeClassName="Form"
+       description="MasterForm object for &quot;GET9ZnlLvl&quot; business object"
+       isAbstract="false" artifactName="GET9ZnlLvlMaster" functionality="GET9service"
+       formStorageClassName="GET9ZnlLvlMasterS"/>
+   <TcForm typeName="GET9ZnlLvlRevisionMaster" parentTypeName="GET6AbsContainerRevisionMaster"
+       typeClassName="Form" description="MasterForm object for &quot;GET9ZnlLvlRevision&quot; business object"
+       isAbstract="false" artifactName="GET9ZnlLvlRevisionMaster" functionality="GET9service"
+       formStorageClassName="GET9ZnlLvlRevMasterS"/>
+   <TcStandardType typeName="GET9FnctLvl" parentTypeName="GET6AbsContainer" typeClassName="GET9FnctLvl"
+       description="" isAbstract="false" artifactName="GET9FnctLvl" functionality="GET9service"/>
+   <TcStandardType typeName="GET9FnctLvlMasterS" parentTypeName="GET6AbsContainerMasterS"
+       typeClassName="GET9FnctLvlMasterS" description="Form Storage object for &quot;GET9FnctLvlMaster&quot; business object"
+       isAbstract="false" artifactName="GET9FnctLvlMasterS" functionality="GET9service"/>
+   <TcStandardType typeName="GET9FnctLvlRevMasterS" parentTypeName="GET6AbsContainerRevMasterS"
+       typeClassName="GET9FnctLvlRevMasterS" description="Form Storage object for &quot;GET9FnctLvlRevMaster&quot; business object"
+       isAbstract="false" artifactName="GET9FnctLvlRevMasterS" functionality="GET9service"/>
+   <TcStandardType typeName="GET9FnctLvlRevision" parentTypeName="GET6AbsContainerRevision"
+       typeClassName="GET9FnctLvlRevision" description="ItemRevision object for &quot;GET9FnctLvl&quot;  business object"
+       isAbstract="false" artifactName="GET9FnctLvlRevision" functionality="GET9service"/>
+   <TcStandardType typeName="GET9SCN" parentTypeName="GET6ECN" typeClassName="GET9SCN"
+       description="" isAbstract="false" artifactName="GET9SCN" functionality="GET9service"/>
+   <TcStandardType typeName="GET9SCNMasterS" parentTypeName="GET6ECNMasterS" typeClassName="GET9SCNMasterS"
+       description="Form Storage object for &quot;GET9SCNMaster&quot; business object"
+       isAbstract="false" artifactName="GET9SCNMasterS" functionality="GET9service"/>
+   <TcStandardType typeName="GET9SCNRevMasterS" parentTypeName="GET6ECNRevMasterS"
+       typeClassName="GET9SCNRevMasterS" description="Form Storage object for &quot;GET9SCNRevMaster&quot; business object"
+       isAbstract="false" artifactName="GET9SCNRevMasterS" functionality="GET9service"/>
+   <TcStandardType typeName="GET9SCNRevision" parentTypeName="GET6ECNRevision" typeClassName="GET9SCNRevision"
+       description="ItemRevision object for &quot;GET9SCN&quot;  business object"
+       isAbstract="false" artifactName="GET9SCNRevision" functionality="GET9service"/>
+   <TcStandardType typeName="GET9SerAttrFormStorage" parentTypeName="POM_object" typeClassName="GET9SerAttrFormStorage"
+       description="Form Storage object for &quot;GET9SerAttrForm&quot; business object"
+       isAbstract="false" artifactName="GET9SerAttrFormStorage" functionality="GET9service"/>
+   <TcStandardType typeName="GET9ServFormAtt" parentTypeName="ImanRelation" typeClassName="GET9ServFormAtt"
+       description="" isAbstract="false" artifactName="GET9ServFormAtt" functionality="GET9service"/>
+   <TcStandardType typeName="GET9SrvPart" parentTypeName="GET6AbsUniPart" typeClassName="GET9SrvPart"
+       description="" isAbstract="false" artifactName="GET9SrvPart" functionality="GET9service"/>
+   <TcStandardType typeName="GET9SrvPartMasterS" parentTypeName="GET6AbsUniPartMasterS"
+       typeClassName="GET9SrvPartMasterS" description="Form Storage object for &quot;GET9SrvPartMaster&quot; business object"
+       isAbstract="false" artifactName="GET9SrvPartMasterS" functionality="GET9service"/>
+   <TcStandardType typeName="GET9SrvPartRevMasterS" parentTypeName="GET6AbsUniPartRevMasterS"
+       typeClassName="GET9SrvPartRevMasterS" description="Form Storage object for &quot;GET9SrvPartRevMaster&quot; business object"
+       isAbstract="false" artifactName="GET9SrvPartRevMasterS" functionality="GET9service"/>
+   <TcStandardType typeName="GET9SrvPartRevision" parentTypeName="GET6AbsUniPartRevision"
+       typeClassName="GET9SrvPartRevision" description="ItemRevision object for &quot;GET9SrvPart&quot;  business object"
+       isAbstract="false" artifactName="GET9SrvPartRevision" functionality="GET9service"/>
+   <TcStandardType typeName="GET9ZnlLvl" parentTypeName="GET6AbsContainer" typeClassName="GET9ZnlLvl"
+       description="" isAbstract="false" artifactName="GET9ZnlLvl" functionality="GET9service"/>
+   <TcStandardType typeName="GET9ZnlLvlMasterS" parentTypeName="GET6AbsContainerMasterS"
+       typeClassName="GET9ZnlLvlMasterS" description="Form Storage object for &quot;GET9ZnlLvlMaster&quot; business object"
+       isAbstract="false" artifactName="GET9ZnlLvlMasterS" functionality="GET9service"/>
+   <TcStandardType typeName="GET9ZnlLvlRevMasterS" parentTypeName="GET6AbsContainerRevMasterS"
+       typeClassName="GET9ZnlLvlRevMasterS" description="Form Storage object for &quot;GET9ZnlLvlRevMaster&quot; business object"
+       isAbstract="false" artifactName="GET9ZnlLvlRevMasterS" functionality="GET9service"/>
+   <TcStandardType typeName="GET9ZnlLvlRevision" parentTypeName="GET6AbsContainerRevision"
+       typeClassName="GET9ZnlLvlRevision" description="ItemRevision object for &quot;GET9ZnlLvl&quot;  business object"
+       isAbstract="false" artifactName="GET9ZnlLvlRevision" functionality="GET9service"/>
+   <TcPropertyAttach typeName="GET6AbsPartRevision">
+     <TcProperty propName="GET9ServFormAtt" propTypeName="Relation" propValueType="PROP_untyped_relation"
+         propMaxStringLength="0" isArray="true" arrayLength="-1" description="" referencedTypeConstant=""
+         referencedType=""/>
+   </TcPropertyAttach>
+   <Condition name="GET9FnctLvlDispCond" expression="u.role_name!=&quot;Services Engineer&quot; AND u.role_name!=&quot;Services Engineering Manager&quot;"
+       secured="false" description="">
+     <ConditionParameter name="u" parameterTypeName="UserSession"/>
+   </Condition>
+   <Condition name="GET9SCNDispCond" expression="u.role_name!=&quot;Services Engineer&quot; AND u.role_name!=&quot;Services Engineering Manager&quot; AND u.role_name!=&quot;DBA&quot;"
+       secured="false" description="">
+     <ConditionParameter name="u" parameterTypeName="UserSession"/>
+   </Condition>
+   <Condition name="GET9ZnlLvlDispCond" expression="u.role_name!=&quot;Services Engineer&quot; AND u.role_name!=&quot;Services Engineering Manager&quot;"
+       secured="false" description="">
+     <ConditionParameter name="u" parameterTypeName="UserSession"/>
+   </Condition>
+   <Condition name="GET9_ValidateServiceFormCr" expression="u.role_name!=&quot;Services Engineer&quot; AND u.role_name!=&quot;Services Engineering Manager&quot; AND u.role_name!=&quot;DBA&quot;"
+       secured="false" description="">
+     <ConditionParameter name="u" parameterTypeName="UserSession"/>
+   </Condition>
+   <Condition name="GET9isCMHasProblemItemCreatable" expression="Condition::isCMHasProblemItemCreatable(p,s,u) AND u.role_name=&quot;Services Engineer&quot; OR u.role_name=&quot;Services Engineering Manager&quot; AND s.last_release_status!=NULL AND ( (Condition::GET6isClassificationInternalForPrimary(p,u) AND Condition::GET6isClassificationInternalForSecondary(s,u)) OR (Condition::GET6isClassificationConfidentialForPrimary(p,u) AND (Condition::GET6isClassificationConfidentialForSecondary(s,u) OR Condition::GET6isClassificationInternalForSecondary(s,u))) OR (Condition::GET6isClassificationRestrictedForPrimary(p,u) AND (Condition::GET6isClassificationRestrictedForSecondary(s,u) OR Condition::GET6isClassificationConfidentialForSecondary(s,u) OR Condition::GET6isClassificationInternalForSecondary(s,u))))"
+       secured="false" description="">
+     <ConditionParameter name="p" parameterTypeName="ChangeItemRevision"/>
+     <ConditionParameter name="s" parameterTypeName="ItemRevision"/>
+     <ConditionParameter name="u" parameterTypeName="UserSession"/>
+   </Condition>
+   <Condition name="GET9isCMHasSolutionItemCreatable" expression="Condition::isCMHasSolutionItemCreatable(p,s,u) AND (u.role_name=&quot;Services Engineer&quot; OR u.role_name=&quot;Services Engineering Manager&quot;) AND s.last_release_status=NULL AND((Condition::GET6isClassificationInternalForPrimary(p,u) AND Condition::GET6isClassificationInternalForSecondary(s,u)) OR (Condition::GET6isClassificationConfidentialForPrimary(p,u) AND (Condition::GET6isClassificationConfidentialForSecondary(s,u) OR Condition::GET6isClassificationInternalForSecondary(s,u))) OR (Condition::GET6isClassificationRestrictedForPrimary(p,u) AND (Condition::GET6isClassificationRestrictedForSecondary(s,u) OR Condition::GET6isClassificationConfidentialForSecondary(s,u) OR Condition::GET6isClassificationInternalForSecondary(s,u))))"
+       secured="false" description="">
+     <ConditionParameter name="p" parameterTypeName="ChangeItemRevision"/>
+     <ConditionParameter name="s" parameterTypeName="ItemRevision"/>
+     <ConditionParameter name="u" parameterTypeName="UserSession"/>
+   </Condition>
+   <Condition name="GET9isCMImplementsCreatable" expression="Condition::isActiveSequence(p) AND Condition::isCMImplementsCreatableForPrimary(p, u) AND Condition::isCMImplementsCreatableForSecondary(s, u) AND Condition::isAuthor(u)"
+       secured="false" description="">
+     <ConditionParameter name="p" parameterTypeName="ChangeItemRevision"/>
+     <ConditionParameter name="s" parameterTypeName="ChangeItemRevision"/>
+     <ConditionParameter name="u" parameterTypeName="UserSession"/>
+   </Condition>
+   <Condition name="GET9isCMImplementsCreatableForPrimary" expression="(Condition::isRequestor(o, u)  AND o.CMClosure = &quot;Open&quot; AND o.CMDisposition = &quot;None&quot; AND o.CMMaturity = &quot;Elaborating&quot;)  OR (Condition::isChangeSpecialist1(o, u) AND ((o.CMClosure = &quot;Open&quot; AND o.CMDisposition = &quot;None&quot; AND o.CMMaturity = &quot;Elaborating&quot;)  OR (o.CMClosure = &quot;Open&quot; AND o.CMDisposition = &quot;Investigate&quot; AND o.CMMaturity = &quot;Reviewing&quot;)))"
+       secured="false" description="">
+     <ConditionParameter name="o" parameterTypeName="ChangeItemRevision"/>
+     <ConditionParameter name="u" parameterTypeName="UserSession"/>
+   </Condition>
+   <Condition name="GET9isCMImplementsCreatableForSecondary" expression="o.CMClosure = &quot;Open&quot; AND o.CMDisposition = &quot;Approved&quot; AND o.CMMaturity = &quot;Reviewing&quot;"
+       secured="false" description="">
+     <ConditionParameter name="o" parameterTypeName="ChangeItemRevision"/>
+     <ConditionParameter name="u" parameterTypeName="UserSession"/>
+   </Condition>
+   <Condition name="GET9isCMhasImpactedItemCreatable" expression="Condition::isCMHasImpactedItemCreatable(p,s,u)  AND u.role_name=&quot;Services Engineer&quot; OR u.role_name=&quot;Services Engineering Manager&quot; AND s.last_release_status!=NULL AND ( (Condition::GET6isClassificationInternalForPrimary(p,u) AND Condition::GET6isClassificationInternalForSecondary(s,u)) OR (Condition::GET6isClassificationConfidentialForPrimary(p,u) AND (Condition::GET6isClassificationConfidentialForSecondary(s,u) OR Condition::GET6isClassificationInternalForSecondary(s,u))) OR (Condition::GET6isClassificationRestrictedForPrimary(p,u) AND (Condition::GET6isClassificationRestrictedForSecondary(s,u) OR Condition::GET6isClassificationConfidentialForSecondary(s,u) OR Condition::GET6isClassificationInternalForSecondary(s,u))))"
+       secured="false" description="">
+     <ConditionParameter name="p" parameterTypeName="ChangeItemRevision"/>
+     <ConditionParameter name="s" parameterTypeName="ItemRevision"/>
+     <ConditionParameter name="u" parameterTypeName="UserSession"/>
+   </Condition>
+   <Condition name="GET9isGET9SCNCreatable" expression="u.role_name=&quot;Services Engineer&quot; OR u.role_name=&quot;Services Engineering Manager&quot; OR u.role_name=&quot;DBA&quot;"
+       secured="false" description="">
+     <ConditionParameter name="u" parameterTypeName="UserSession"/>
+   </Condition>
+   <Condition name="GET9isGET9SCNCreatableCond" expression="Condition::GET9isGET9SCNCreatable(u)"
+       secured="false" description="">
+     <ConditionParameter name="o" parameterTypeName="WorkspaceObject"/>
+     <ConditionParameter name="u" parameterTypeName="UserSession"/>
+   </Condition>
+   <Condition name="GET9isSCNImpactedItemCreatableForPrimary" expression="(o.CMClosure = &quot;Open&quot; AND o.CMDisposition = &quot;None&quot; AND o.CMMaturity = &quot;Elaborating&quot;) AND (o.object_type = &quot;GET9SCNRevision&quot;)"
+       secured="false" description="">
+     <ConditionParameter name="o" parameterTypeName="ChangeItemRevision"/>
+     <ConditionParameter name="u" parameterTypeName="UserSession"/>
+   </Condition>
+   <Condition name="GET9isSCNImpactedItemCreatableForSecondary" expression="Condition::isTrue()"
+       secured="false" description="">
+     <ConditionParameter name="o" parameterTypeName="ItemRevision"/>
+     <ConditionParameter name="u" parameterTypeName="UserSession"/>
+   </Condition>
+   <Condition name="GET9isSCNProblemItemCreatableForPrimary" expression="(o.CMClosure = &quot;Open&quot; AND o.CMDisposition = &quot;None&quot; AND o.CMMaturity = &quot;Elaborating&quot;) AND (o.object_type = &quot;GET9SCNRevision&quot;)"
+       secured="false" description="">
+     <ConditionParameter name="o" parameterTypeName="ChangeItemRevision"/>
+     <ConditionParameter name="u" parameterTypeName="UserSession"/>
+   </Condition>
+   <Condition name="GET9isSCNProblemItemCreatableForSecondary" expression="Condition::isTrue()"
+       secured="false" description="">
+     <ConditionParameter name="o" parameterTypeName="ItemRevision"/>
+     <ConditionParameter name="u" parameterTypeName="UserSession"/>
+   </Condition>
+   <Condition name="GET9isSCNSolutionItemCreatableForPrimary" expression="(o.CMClosure = &quot;Open&quot; AND o.CMDisposition = &quot;None&quot; AND o.CMMaturity = &quot;Elaborating&quot;) AND (o.object_type = &quot;GET9SCNRevision&quot;)"
+       secured="false" description="">
+     <ConditionParameter name="o" parameterTypeName="ChangeItemRevision"/>
+     <ConditionParameter name="u" parameterTypeName="UserSession"/>
+   </Condition>
+   <Condition name="GET9isSCNSolutionItemCreatableForSecondary" expression="Condition::isTrue()"
+       secured="false" description="">
+     <ConditionParameter name="o" parameterTypeName="ItemRevision"/>
+     <ConditionParameter name="u" parameterTypeName="UserSession"/>
+   </Condition>
+   <TcGlobalConstantAttach constantName="Fnd0SelectedLocales" value="en_US"/>
+   <TcTypeConstantAttach constantName="Cm0ChangeItemCreCondition" typeName="GET9SCN"
+       value="GET9isGET9SCNCreatableCond"/>
+   <TcTypeConstantAttach constantName="CMHasImpactedItemCreCondition" typeName="GET9SCNRevision"
+       value="GET9isCMHasImpactedItemCreatable"/>
+   <TcTypeConstantAttach constantName="CMHasProblemItemCreCondition" typeName="GET9SCNRevision"
+       value="GET9isCMHasProblemItemCreatable"/>
+   <TcTypeConstantAttach constantName="CMHasSolutionItemCreCondition" typeName="GET9SCNRevision"
+       value="GET9isCMHasSolutionItemCreatable"/>
+   <TcTypeConstantAttach constantName="CMImplementsCreCondition" typeName="GET9SCNRevision"
+       value="GET9isCMImplementsCreatable"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9FnctLvl" value="GET9FnctLvlCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9FnctLvlMaster" value="GET9FnctLvlMasterCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9FnctLvlMasterS"
+       value="GET9FnctLvlMasterSCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9FnctLvlRevision"
+       value="GET9FnctLvlRevisionCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9FnctLvlRevisionMaster"
+       value="GET9FnctLvlRevisionMasterCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9FnctLvlRevMasterS"
+       value="GET9FnctLvlRevMasterSCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9SCN" value="GET9SCNCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9SCNMaster" value="GET9SCNMasterCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9SCNMasterS" value="GET9SCNMasterSCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9SCNRevision" value="GET9SCNRevisionCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9SCNRevisionMaster"
+       value="GET9SCNRevisionMasterCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9SCNRevMasterS" value="GET9SCNRevMasterSCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9SerAttrForm" value="GET9SerAttrFormCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9SerAttrFormStorage"
+       value="GET9SerAttrFormStorageCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9ServFormAtt" value="GET9ServFormAttCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9SrvPart" value="GET9SrvPartCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9SrvPartMaster" value="GET9SrvPartMasterCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9SrvPartMasterS"
+       value="GET9SrvPartMasterSCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9SrvPartRevision"
+       value="GET9SrvPartRevisionCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9SrvPartRevisionMaster"
+       value="GET9SrvPartRevisionMasterCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9SrvPartRevMasterS"
+       value="GET9SrvPartRevMasterSCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9ZnlLvl" value="GET9ZnlLvlCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9ZnlLvlMaster" value="GET9ZnlLvlMasterCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9ZnlLvlMasterS" value="GET9ZnlLvlMasterSCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9ZnlLvlRevision"
+       value="GET9ZnlLvlRevisionCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9ZnlLvlRevisionMaster"
+       value="GET9ZnlLvlRevisionMasterCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET9ZnlLvlRevMasterS"
+       value="GET9ZnlLvlRevMasterSCreI"/>
+   <TcTypeConstantAttach constantName="DisplayName" typeName="GET6SupersedureForm"
+       value="$get6SupersededItem+&quot;-Supersedure/Obsolescence Form&quot;"/>
+   <TcTypeConstantAttach constantName="DisplayName" typeName="GET9SerAttrForm" value="$get9ParentID+&quot; -Service Form&quot;"/>
+   <TcTypeConstantAttach constantName="Fnd0Icon" typeName="GET9FnctLvl" value="GET9functional.png"/>
+   <TcTypeConstantAttach constantName="Fnd0Icon" typeName="GET9FnctLvlRevision" value="GET9functionalRevision.png"/>
+   <TcTypeConstantAttach constantName="Fnd0Icon" typeName="GET9SCN" value="GET9GET6SCN_16.png"/>
+   <TcTypeConstantAttach constantName="Fnd0Icon" typeName="GET9SCNRevision" value="GET9GET6SCNRev_16.png"/>
+   <TcTypeConstantAttach constantName="Fnd0Icon" typeName="GET9SrvPart" value="GET9GET6ServicePart_16.png"/>
+   <TcTypeConstantAttach constantName="Fnd0Icon" typeName="GET9SrvPartRevision" value="GET9GET6ServicePartRev_16.png"/>
+   <TcTypeConstantAttach constantName="Fnd0Icon" typeName="GET9ZnlLvl" value="GET9Orange .png"/>
+   <TcTypeConstantAttach constantName="Fnd0Icon" typeName="GET9ZnlLvlRevision" value="GET9Oranve Rev_16.png"/>
+   <TcTypeConstantAttach constantName="GET6GET6EngrApprovalAssignableCondition" typeName="GET9SCNRevision"
+       value=""/>
+   <TcTypeConstantAttach constantName="GET6GET6ProducibilityAssignableCondition" typeName="GET9SCNRevision"
+       value=""/>
+   <TcTypeConstantAttach constantName="ItemRevision" typeName="GET9FnctLvl" value="GET9FnctLvlRevision"/>
+   <TcTypeConstantAttach constantName="ItemRevision" typeName="GET9SCN" value="GET9SCNRevision"/>
+   <TcTypeConstantAttach constantName="ItemRevision" typeName="GET9SrvPart" value="GET9SrvPartRevision"/>
+   <TcTypeConstantAttach constantName="ItemRevision" typeName="GET9ZnlLvl" value="GET9ZnlLvlRevision"/>
+   <TcTypeConstantAttach constantName="MasterForm" typeName="GET9FnctLvl" value="GET9FnctLvlMaster"/>
+   <TcTypeConstantAttach constantName="MasterForm" typeName="GET9FnctLvlRevision"
+       value="GET9FnctLvlRevisionMaster"/>
+   <TcTypeConstantAttach constantName="MasterForm" typeName="GET9SCN" value="GET9SCNMaster"/>
+   <TcTypeConstantAttach constantName="MasterForm" typeName="GET9SCNRevision" value="GET9SCNRevisionMaster"/>
+   <TcTypeConstantAttach constantName="MasterForm" typeName="GET9SrvPart" value="GET9SrvPartMaster"/>
+   <TcTypeConstantAttach constantName="MasterForm" typeName="GET9SrvPartRevision"
+       value="GET9SrvPartRevisionMaster"/>
+   <TcTypeConstantAttach constantName="MasterForm" typeName="GET9ZnlLvl" value="GET9ZnlLvlMaster"/>
+   <TcTypeConstantAttach constantName="MasterForm" typeName="GET9ZnlLvlRevision" value="GET9ZnlLvlRevisionMaster"/>
+   <TcTypeConstantAttach constantName="ReviseInput" typeName="GET9FnctLvlRevision"
+       value="GET9FnctLvlRevisionRevI"/>
+   <TcTypeConstantAttach constantName="ReviseInput" typeName="GET9SCNRevision" value="GET9SCNRevisionRevI"/>
+   <TcTypeConstantAttach constantName="ReviseInput" typeName="GET9SrvPartRevision"
+       value="GET9SrvPartRevisionRevI"/>
+   <TcTypeConstantAttach constantName="ReviseInput" typeName="GET9ZnlLvlRevision"
+       value="GET9ZnlLvlRevisionRevI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9FnctLvl" value="GET9FnctLvlSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9FnctLvlMaster" value="GET9FnctLvlMasterSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9FnctLvlMasterS"
+       value="GET9FnctLvlMasterSSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9FnctLvlRevision"
+       value="GET9FnctLvlRevisionSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9FnctLvlRevisionMaster"
+       value="GET9FnctLvlRevisionMasterSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9FnctLvlRevMasterS"
+       value="GET9FnctLvlRevMasterSSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9SCN" value="GET9SCNSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9SCNMaster" value="GET9SCNMasterSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9SCNMasterS" value="GET9SCNMasterSSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9SCNRevision" value="GET9SCNRevisionSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9SCNRevisionMaster"
+       value="GET9SCNRevisionMasterSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9SCNRevMasterS" value="GET9SCNRevMasterSSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9SerAttrForm" value="GET9SerAttrFormSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9SerAttrFormStorage"
+       value="GET9SerAttrFormStorageSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9ServFormAtt" value="GET9ServFormAttSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9SrvPart" value="GET9SrvPartSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9SrvPartMaster" value="GET9SrvPartMasterSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9SrvPartMasterS"
+       value="GET9SrvPartMasterSSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9SrvPartRevision"
+       value="GET9SrvPartRevisionSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9SrvPartRevisionMaster"
+       value="GET9SrvPartRevisionMasterSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9SrvPartRevMasterS"
+       value="GET9SrvPartRevMasterSSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9ZnlLvl" value="GET9ZnlLvlSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9ZnlLvlMaster" value="GET9ZnlLvlMasterSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9ZnlLvlMasterS" value="GET9ZnlLvlMasterSSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9ZnlLvlRevision"
+       value="GET9ZnlLvlRevisionSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9ZnlLvlRevisionMaster"
+       value="GET9ZnlLvlRevisionMasterSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET9ZnlLvlRevMasterS"
+       value="GET9ZnlLvlRevMasterSSvAI"/>
+   <TcPropertyConstantAttach constantName="CopyFromOriginal" typeName="GET9SrvPartSvAI"
+       propertyName="ip_classification" value="false"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="BOMLine" propertyName="get9CatalogNo"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="BOMLine" propertyName="get9ComponentID"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="BOMLine" propertyName="get9HasServiceForm"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET6AbsPartRevision"
+       propertyName="GET9ServFormAtt" value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET9SCNRevision" propertyName="get9SCNCustomers"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET9SCNRevision" propertyName="get9SCNFleet"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET9SCNRevision" propertyName="get9SCNFMI"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET9SCNRevision" propertyName="get9SCNReliability"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET9SCNRevision" propertyName="get9SCNSafety"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET9SerAttrForm" propertyName="get9CatalogNo"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET9SerAttrForm" propertyName="get9ComponentID"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET9SerAttrForm" propertyName="get9EngineFamily"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET9SerAttrForm" propertyName="get9HasServiceForm"
+       value="false"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET9SerAttrForm" propertyName="get9ParentID"
+       value="false"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET9SerAttrForm" propertyName="get9PositionTracked"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET9SerAttrForm" propertyName="get9Repairable"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET9SerAttrForm" propertyName="get9Serialized"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET9SerAttrForm" propertyName="get9Serviceable"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET9SerAttrForm" propertyName="get9ServiceItemType"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET9SerAttrForm" propertyName="get9TierType"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="BOMLine" propertyName="get9CatalogNo"
+       value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="BOMLine" propertyName="get9ComponentID"
+       value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="BOMLine" propertyName="get9HasServiceForm"
+       value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6AbsPartRevision"
+       propertyName="GET9ServFormAtt" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET9SCNRevision"
+       propertyName="get9SCNCustomers" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET9SCNRevision"
+       propertyName="get9SCNFleet" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET9SCNRevision"
+       propertyName="get9SCNFMI" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET9SCNRevision"
+       propertyName="get9SCNReliability" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET9SCNRevision"
+       propertyName="get9SCNSafety" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET9SerAttrForm"
+       propertyName="get9CatalogNo" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET9SerAttrForm"
+       propertyName="get9ComponentID" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET9SerAttrForm"
+       propertyName="get9EngineFamily" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET9SerAttrForm"
+       propertyName="get9HasServiceForm" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET9SerAttrForm"
+       propertyName="get9ParentID" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET9SerAttrForm"
+       propertyName="get9PositionTracked" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET9SerAttrForm"
+       propertyName="get9Repairable" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET9SerAttrForm"
+       propertyName="get9Serialized" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET9SerAttrForm"
+       propertyName="get9Serviceable" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET9SerAttrForm"
+       propertyName="get9ServiceItemType" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET9SerAttrForm"
+       propertyName="get9TierType" value="Write"/>
+   <TcPropertyConstantAttach constantName="Required" typeName="GET9SerAttrFormCreI"
+       propertyName="get9PositionTracked" value="false"/>
+   <TcPropertyConstantAttach constantName="Required" typeName="GET9SerAttrFormCreI"
+       propertyName="get9Repairable" value="false"/>
+   <TcPropertyConstantAttach constantName="Required" typeName="GET9SerAttrFormCreI"
+       propertyName="get9Serialized" value="false"/>
+   <TcPropertyConstantAttach constantName="Required" typeName="GET9SerAttrFormCreI"
+       propertyName="get9Serviceable" value="false"/>
+   <TcPropertyConstantAttach constantName="Required" typeName="GET9SerAttrFormCreI"
+       propertyName="get9ServiceItemType" value="false"/>
+   <TcPropertyConstantAttach constantName="Required" typeName="GET9SrvPartCreI" propertyName="ip_classification"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Required" typeName="GET9SrvPartSvAI" propertyName="ip_classification"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Visible" typeName="GET9SerAttrForm" propertyName="get9HasServiceForm"
+       value="false"/>
+   <TcPropertyConstantAttach constantName="Visible" typeName="GET9SerAttrForm" propertyName="get9ParentID"
+       value="false"/>
+   <TcCompoundPropertyRule destTypeName="BOMLine" destPropertyName="get9CatalogNo"
+       sourceTypeName="GET9SerAttrForm" sourcePropertyName="get9CatalogNo" isReadOnly="false"
+       pathToSource="REF(bl_revision,GET6AbsPartRevision).GRM(GET9ServFormAtt,GET9SerAttrForm).get9CatalogNo"
+       description=""/>
+   <TcCompoundPropertyRule destTypeName="BOMLine" destPropertyName="get9ComponentID"
+       sourceTypeName="GET9SerAttrForm" sourcePropertyName="get9ComponentID" isReadOnly="true"
+       pathToSource="REF(bl_revision,GET6AbsPartRevision).GRM(GET9ServFormAtt,GET9SerAttrForm).get9ComponentID"
+       description=""/>
+   <TcCompoundPropertyRule destTypeName="BOMLine" destPropertyName="get9HasServiceForm"
+       sourceTypeName="GET9SerAttrForm" sourcePropertyName="get9HasServiceForm" isReadOnly="false"
+       pathToSource="REF(bl_revision,GET6AbsPartRevision).GRM(GET9ServFormAtt,GET9SerAttrForm).get9HasServiceForm"
+       description=""/>
+   <TcCompoundPropertyRule destTypeName="GET9SerAttrForm" destPropertyName="get9ParentID"
+       sourceTypeName="GET6AbsPartRevision" sourcePropertyName="item_id" isReadOnly="false"
+       pathToSource="REF(item_revision,GET6AbsPartRevision).item_id" description=""/>
+   <TcDeepCopyRule typeName="GET6AbsPartRevision" relRefPropName="GET9ServFormAtt"
+       propertyType="Relation" objectTypeName="GET9SerAttrForm" conditionName="isTrue"
+       operationName="ITEM_copy_rev" copyType="CopyAsObject" isTargetPrimary="true"
+       secured="true" copyRelationAttributes="true" isRequired="false" description=""/>
+   <TcDeepCopyRule typeName="GET6AbsPartRevision" relRefPropName="GET9ServFormAtt"
+       propertyType="Relation" objectTypeName="GET9SerAttrForm" conditionName="isTrue"
+       operationName="ITEM_create_from_rev" copyType="CopyAsObject" isTargetPrimary="true"
+       secured="true" copyRelationAttributes="true" isRequired="false" description=""/>
+   <TcGRMRule primaryTypeName="Design Revision" secondaryTypeName="POM_object" relationTypeName="GET9ServFormAtt"
+       primaryCardinality="0" secondaryCardinality="0" secured="false" attachability="Unrestricted"
+       changeability="Changeable" detachability="Unrestricted" description=""/>
+   <TcGRMRule primaryTypeName="GET6AbsPart" secondaryTypeName="GET9SerAttrForm" relationTypeName="*"
+       primaryCardinality="0" secondaryCardinality="0" secured="false" attachability="WriteAccessReq"
+       changeability="AddOnly" detachability="WriteAccessReq" description=""/>
+   <TcGRMRule primaryTypeName="GET6AbsPartRevision" secondaryTypeName="GET9SerAttrForm"
+       relationTypeName="GET9ServFormAtt" primaryCardinality="1" secondaryCardinality="1"
+       secured="false" attachability="Unrestricted" changeability="AddOnly" detachability="Unrestricted"
+       description=""/>
+   <TcGRMRule primaryTypeName="GET9SCNRevision" secondaryTypeName="GET6ECNRevision"
+       relationTypeName="CMImplements" primaryCardinality="-1" secondaryCardinality="-1"
+       secured="false" attachability="Unrestricted" changeability="Changeable" detachability="Unrestricted"
+       description=""/>
+   <TcGRMRule primaryTypeName="GET9SrvPartRevision" secondaryTypeName="GET6MechPartRevision"
+       relationTypeName="IMAN_specification" primaryCardinality="0" secondaryCardinality="0"
+       secured="false" attachability="Unrestricted" changeability="Changeable" detachability="Unrestricted"
+       description=""/>
+   <TcTypeDisplayRule hiddenTypeName="GET9FnctLvl" accessorName="Organization" accessorType="Organization"
+       conditionName="GET9FnctLvlDispCond" description=""/>
+   <TcTypeDisplayRule hiddenTypeName="GET9SCN" accessorName="Organization" accessorType="Organization"
+       conditionName="GET9SCNDispCond" description=""/>
+   <TcTypeDisplayRule hiddenTypeName="GET9SerAttrForm" accessorName="Organization"
+       accessorType="Organization" conditionName="GET9_ValidateServiceFormCr" description=""/>
+   <TcTypeDisplayRule hiddenTypeName="GET9SrvPart" accessorName="SERVICES.TRANSPORTATION.GE TRANSPORTATION"
+       accessorType="Group" conditionName="isFalse" description=""/>
+   <TcTypeDisplayRule hiddenTypeName="GET9SrvPart" accessorName="Organization" accessorType="Organization"
+       conditionName="isTrue" description=""/>
+   <TcTypeDisplayRule hiddenTypeName="GET9ZnlLvl" accessorName="Organization" accessorType="Organization"
+       conditionName="GET9ZnlLvlDispCond" description=""/>
+   <TcExtensionAttach extensionName="createObjects" operationName="ITEM_create_rev"
+       isActive="true" extendableElementName="GET9SrvPartRevision" extendableElementType="Type"
+       extensionPointType="PostAction" conditionName="isTrue" description="">
+     <TcExtensionArguments parameter="GET9SerAttrForm::GET9ServFormAtt"/>
+   </TcExtensionAttach>
+   <TcExtensionAttach extensionName="GET6_revisePreCondition" operationName="ITEM_copy_rev"
+       isActive="true" extendableElementName="GET9SrvPartRevision" extendableElementType="Type"
+       extensionPointType="PreCondition" conditionName="isTrue" description=""/>
+   <TcExtensionAttach extensionName="GET6_revisePreCondition" operationName="ITEM_create_rev"
+       isActive="true" extendableElementName="GET9SrvPartRevision" extendableElementType="Type"
+       extensionPointType="PreCondition" conditionName="isTrue" description=""/>
+   <TcNamingRule name="GET9SCNIDRule">
+     <TcPattern generateCounters="true" patternString="&quot;SCN-&quot;nnnnnn&quot;-&quot;nn">
+       <TcCounter initialValue="SCN-000001-01" maximumValue="SCN-999999-99"/>
+     </TcPattern>
+   </TcNamingRule>
+   <TcRevNamingRule name="GET9SrvRevID" excludeSkipLetters="true">
+     <TcInitRevDetails revisionType="Numeric" revisionStart="0" revisionDescription=""/>
+     <TcSecondaryRevDetails revisionType="Alphabetic" revisionStart="A" revisionDescription=""/>
+   </TcRevNamingRule>
+   <TcNamingRuleAttach ruleName="GET6EngNameRule" typeName="GET9SrvPart" propertyName="object_name"
+       case="Mix" conditionName="isTrue" override="false" ruleType="NamingRule" description=""/>
+   <TcNamingRuleAttach ruleName="GET6EngRevIDRule" typeName="GET9SrvPart" propertyName="item_revision_id"
+       case="Mix" conditionName="isTrue" override="false" ruleType="NamingRule" description=""/>
+   <TcNamingRuleAttach ruleName="GET9SCNIDRule" typeName="GET9SCN" propertyName="item_id"
+       case="Mix" conditionName="isTrue" override="false" ruleType="NamingRule" description=""/>
+   <TcLOV name="GET9AuxCab" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOV name="GET9BlowerCab" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOV name="GET9ComponentID" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOV name="GET9EngineCab" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOV name="GET9EngineFamily" lovType="ListOfValuesString" usage="Exhaustive"
+       description="" isManagedExternally="true"/>
+   <TcLOV name="GET9GENERAL" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOV name="GET9HGETG0958T4" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOV name="GET9HGETK0668T0" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOV name="GET9HGETK0668T1" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOV name="GET9HGETK0958T1" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOV name="GET9HGETK0958T2" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOV name="GET9HGETK0958T3" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOV name="GET9LocomotiveLocation2" lovType="ListOfValuesString" usage="Exhaustive"
+       description="" isManagedExternally="true"/>
+   <TcLOV name="GET9MainCab" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOV name="GET9PartsBulletin" lovType="ListOfValuesString" usage="Exhaustive"
+       description="" isManagedExternally="true"/>
+   <TcLOV name="GET9Platform" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOV name="GET9RadiatorCab" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOV name="GET9SCNCustomers" lovType="ListOfValuesString" usage="Exhaustive"
+       description="" isManagedExternally="true"/>
+   <TcLOV name="GET9SCNFleet" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOV name="GET9SCNImpact" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOV name="GET9ServiceItemType" lovType="ListOfValuesString" usage="Exhaustive"
+       description="" isManagedExternally="true"/>
+   <TcLOV name="GET9Software" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOV name="GET9TierType" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOV name="GET9Truck" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOV name="GET9WireHarness" lovType="ListOfValuesString" usage="Exhaustive" description=""
+       isManagedExternally="true"/>
+   <TcLOVAttach lovName="GET9ComponentID" typeName="GET9SerAttrForm">
+     <TcLOVAttachPropertyInfo valuePropertyName="get9ComponentID" conditionName="isTrue"
+         override="false" level="0"/>
+   </TcLOVAttach>
+   <TcLOVAttach lovName="GET9EngineFamily" typeName="GET9SerAttrForm">
+     <TcLOVAttachPropertyInfo valuePropertyName="get9EngineFamily" conditionName="isTrue"
+         override="false" level="0"/>
+   </TcLOVAttach>
+   <TcLOVAttach lovName="GET9SCNCustomers" typeName="GET9SCNRevision">
+     <TcLOVAttachPropertyInfo valuePropertyName="get9SCNCustomers" conditionName="isTrue"
+         override="false" level="0"/>
+   </TcLOVAttach>
+   <TcLOVAttach lovName="GET9SCNFleet" typeName="GET9SCNRevision">
+     <TcLOVAttachPropertyInfo valuePropertyName="get9SCNFleet" conditionName="isTrue"
+         override="false" level="0"/>
+   </TcLOVAttach>
+   <TcLOVAttach lovName="GET9ServiceItemType" typeName="GET9SerAttrForm">
+     <TcLOVAttachPropertyInfo valuePropertyName="get9ServiceItemType" conditionName="isTrue"
+         override="false" level="0"/>
+   </TcLOVAttach>
+   <TcLOVAttach lovName="GET9TierType" typeName="GET9SerAttrForm">
+     <TcLOVAttachPropertyInfo valuePropertyName="get9TierType" conditionName="isTrue"
+         override="false" level="0"/>
+   </TcLOVAttach>
+   <Functionality name="GET9service" displayName="service bom" enabledForVerificationRules="false"
+       description="Component for the template - get9service"/>
+   <PropertyFormatterAttach formatterName="Fnd0BooleanFormatter_YesNo" typeName="GET9SerAttrForm"
+       propertyName="get9PositionTracked" conditionName="isTrue"/>
+   <PropertyFormatterAttach formatterName="Fnd0BooleanFormatter_YesNo" typeName="GET9SerAttrForm"
+       propertyName="get9Repairable" conditionName="isTrue"/>
+   <PropertyFormatterAttach formatterName="Fnd0BooleanFormatter_YesNo" typeName="GET9SerAttrForm"
+       propertyName="get9Serialized" conditionName="isTrue"/>
+   <PropertyFormatterAttach formatterName="Fnd0BooleanFormatter_YesNo" typeName="GET9SerAttrForm"
+       propertyName="get9Serviceable" conditionName="isTrue"/>
+</Add>
+<Change>
+   <TcLOV name="GET6ENGPRODLINE" lovType="ListOfValuesString" usage="Exhaustive" description="">
+      <TcLOVValue value="Locomotive" description="" conditionName="isTrue"/>
+      <TcLOVValue value="Engine" description="" conditionName="isTrue"/>
+      <TcLOVValue value="Control" description="" conditionName="isTrue"/>
+      <TcLOVValue value="Propulsion" description="" conditionName="isTrue"/>
+      <TcLOVValue value="OHV" description="" conditionName="isTrue"/>
+      <TcLOVValue value="MnS" description="" conditionName="isTrue"/>
+      <TcLOVValue value="UndergroundMining" description="" conditionName="isTrue"/>
+      <TcLOVValue value="Services" description="" conditionName="isTrue"/>
+   </TcLOV>
+</Change>
+<Delete/>
+</TcBusinessData>

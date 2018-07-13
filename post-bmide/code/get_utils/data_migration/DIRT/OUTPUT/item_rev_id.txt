@@ -1,0 +1,11 @@
+SQL> @"/package/ugiman/ug/utilities/DIRT/SQL/item_rev_id.sql"
+
+PITEM_ID                      PITEM_REVISION_ID   POBJECT_TYPE
+--------------------------------------------------------------------------------
+41A213226P1                   6                   GET6MechPart
+41A214662P6                   3                   GET6MechPart
+41A214662-FAM                 3                   GET6MechPart
+84C602579P1                   B                   GET6MfgPart
+84A226144P1                   0                   GET6MfgPart
+41B541600ATP32                aa                  GET6MechPart
+SQL> spool off;

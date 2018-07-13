@@ -1,0 +1,242 @@
+<project name="get_tc_common_common">
+	
+	<property environment="env" />
+	<property name="src.dir" location="${basedir}/../.."/>
+	<property name="cpptest_home.dir" location="${src.dir}/cpptest"/>
+	<property name="deploy_include.dir" location="${src.dir}/include"/>
+	<property name="deploy_bin.dir" location="${src.dir}/bin"/>
+	<property name="deploy_lib.dir" location="${src.dir}/lib"/>
+	<property name="cpptest.lib.dir" value="${cpptest_home.dir}/lib"/>
+	<property name="get_common.lib.dir" value="${src.dir}/get_common/lib"/>
+	<property name="get_sysapi.lib.dir" value="${src.dir}/get_sysapi/lib"/>
+	<property name="XERCES_HOME" value="${XERCES_HOME}"/>
+    <property name="GTEST_HOME" value="${src.dir}/googletest-release-1.5.0"/>
+	<!-- Import supplemental tasks -->
+	<taskdef resource="cpptasks.tasks">
+   	<classpath> 
+		<pathelement location="${ANT_HOME}/lib/cpptasks.jar" /> 
+   	</classpath> 
+   	</taskdef>
+	<typedef resource="cpptasks.types">
+	 <classpath> 
+		<pathelement location="${ANT_HOME}/lib/cpptasks.jar" /> 
+   	</classpath> 
+   	</typedef>
+	
+	<!-- Define platform -->
+	<condition property="ge.win">
+		<os family="windows"/>
+	</condition>
+	<condition property="ge.sol">
+		<os name="SunOS"/>
+	</condition>
+	<condition property="ge.linux">
+		<os name="linux"/>
+	</condition>
+	
+	<!-- Define the include path -->
+	<path id="include.path">
+		<pathelement path=".;..;${env.TC_INCLUDE};${env.TC_ROOT}/include_cpp"/>
+	</path>
+	<path id="include.cpptest.path">
+        <pathelement path="${cpptest_home.dir}/include"/>
+    </path>
+	<path id="include.get_sysapi.path">
+        <pathelement path="${src.dir}/get_sysapi"/>
+    </path>
+	<path id="include.get_common.path">
+        <pathelement path="${src.dir}/get_common"/>
+    </path>
+	<!-- Define the target files -->
+	<fileset id="source" dir=".">
+		<include name="*.c"/>
+		<include name="*.cpp"/>
+		<include name="*.cxx"/>
+	</fileset>
+	<!-- Initialize target -->
+	<target name="init" description="initialize">
+		<tstamp/>
+	</target>
+	
+	<target name="logging" description="Provides logging for build targets">
+		<tstamp>
+			<format property="timestamp" pattern="yyyy-MM-dd_HH-mm-ss"/>
+		</tstamp>
+		
+		<property name="build.log.dir" location="${basedir}/buildlogs"/>
+		<mkdir dir="${build.log.dir}"/>
+		<property name="build.log.filename" value="build_${timestamp}.log"/>
+		<record name="${build.log.dir}/${build.log.filename}" loglevel="verbose"
+			append="false"/>
+		<echo message="Build logged to ${build.log.filename}"/>
+		
+	</target>
+	
+	<!-- 32 bit compilation -->
+	<target name="compile32" depends="init" description="32 bit compilation">
+		<mkdir dir="${obj.dir}"/>
+		<cc objdir="${obj.dir}">
+			<compiler name="msvc" if="ge.win" debug="${cc.debug}">				
+				<compilerarg value="/c" />
+                <compilerarg value="/nologo" />
+                <compilerarg value="/EHsc" />
+                <compilerarg value="/W1" />
+                <compilerarg value="/Ox" />
+                <compilerarg value="/Oy-" />
+                <compilerarg value="/Zi" />
+                <compilerarg value="/Zc:wchar_t-"/>
+                <compilerarg value="/MD" />
+                <compilerarg value="/TP" />
+                <compilerarg value="-DNT40" />
+                <compilerarg value="-DPOMDLL" />
+                <compilerarg value="-DCRTAPI1=_cdecl" />
+                <compilerarg value="-DCRTAPI2=cdecl" />
+                <compilerarg value="-D_WIN32" />
+                <compilerarg value="-DWIN32" />
+                <compilerarg value="-DWIN32_LEAN_AND_MEAN" />
+                <compilerarg value="-DWNT" />
+				<compilerarg value="-D${export.lib}" />
+                <compilerarg value="-DBYPASS_FLEX" />
+                <compilerarg value="-D_INTEL=1" />              
+                <compilerarg value="-DIPLIB=none" />
+                <compilerarg value="-D_CRT_SECURE_NO_DEPRECATE"/>
+                <compilerarg value="-D_CRT_NONSTDC_NO_DEPRECATE"/>                
+				<includepath>
+					<path refid="include.path"/>
+					<path refid="include.cpptest.path"/>
+					<path refid="include.get_sysapi.path"/>
+					<path refid="include.get_common.path"/>
+				</includepath>
+			    <includepath path="${XERCES_HOME}/include/" />
+				<fileset refid="source"/>
+			</compiler>
+			<compiler name="CC" if="ge.sol">
+				<compilerarg value="-KPIC"/>
+				<compilerarg value="-mt"/>
+				<compilerarg value="-DSUN"/>
+				<compilerarg value="-D_SUN"/>
+				<compilerarg value="-DUNX"/>
+				<compilerarg value="-D_SOLARIS_SOURCE"/>
+				<compilerarg value="-DPOSIX"/>
+				<includepath>
+					<path refid="include.path"/>
+					<path refid="include.cpptest.path"/>
+					<path refid="include.get_sysapi.path"/>
+					<path refid="include.get_common.path"/>
+				</includepath>
+			    <includepath path="${XERCES_HOME}/include/" />
+				<fileset refid="source"/>
+			</compiler>
+		</cc>
+	</target>
+		
+	<!-- 64 bit compilation -->
+	<target name="compile64" depends="init" description="64 bit compilation">
+		<mkdir dir="${obj.dir}"/>
+		<cc objdir="${obj.dir}">
+			<compiler name="msvc" if="ge.win" debug="${cc.debug}">
+				<compilerarg value="/c" />
+                <compilerarg value="/nologo" />
+                <compilerarg value="/EHsc" />
+                <compilerarg value="/W1" />
+                <compilerarg value="/Ox" />
+                <compilerarg value="/Oy-" />
+                <compilerarg value="/Zi" />
+                <compilerarg value="/Zc:wchar_t-"/>
+                <compilerarg value="/MD" />
+                <compilerarg value="/TP" />
+                <compilerarg value="-DSTEP" />
+                <compilerarg value="-DAP203" />
+                <compilerarg value="-DAP214" />
+                <compilerarg value="-DWIN32_LEAN_AND_MEAN" />
+                <compilerarg value="-D_CRT_SECURE_NO_DEPRECATE" />
+                <compilerarg value="-D_CRT_NONSTDC_NO_DEPRECATE" />
+                <compilerarg value="-D_SECURE_SCL=0" />
+                <compilerarg value="-DWNT" />
+                <compilerarg value="-D_WIN32" />  
+                <compilerarg value="-DWIN32" /> 
+				<compilerarg value="-D${export.lib}" />
+                <compilerarg value="-D_WIN64" /> 
+                <compilerarg value="-D_INTEL=1" /> 
+                <compilerarg value="-DCRTAPI1=_cdecl" />
+                <compilerarg value="-DCRTAPI2=cdecl" />
+                <compilerarg value="-DIMAN_TAO" />
+                <compilerarg value="-DBYPASS_FLEX" />
+                <compilerarg value="-DPOMDLL" />
+                <compilerarg value="-DIPLIB=none" />
+				<includepath>
+					<path refid="include.path"/>
+					<path refid="include.cpptest.path"/>
+                    <path refid="include.get_sysapi.path"/>
+                    <path refid="include.get_common.path"/>
+				</includepath>
+				<includepath path="${XERCES_HOME}/include/" />
+				<fileset refid="source"/>
+			</compiler>
+			<compiler name="CC" if="ge.sol">
+			    <compilerarg value="-std=c++0x" />
+				<compilerarg value="-KPIC"/>
+				<compilerarg value="-m64"/>
+				<compilerarg value="-mt"/>
+				<compilerarg value="-DSUN"/>
+				<compilerarg value="-D_SUN"/>
+				<compilerarg value="-DUNX"/>
+				<compilerarg value="-D_SOLARIS_SOURCE"/>
+				<compilerarg value="-DPOSIX"/>
+				<includepath>
+					<path refid="include.path"/>
+					<path refid="include.cpptest.path"/>
+					<path refid="include.get_sysapi.path"/>
+					<path refid="include.get_common.path"/>
+				</includepath>
+				<includepath path="${XERCES_HOME}/include/" />
+				<fileset refid="source"/>
+			</compiler>
+			<compiler name="g++" if="ge.linux">
+				<compilerarg value="-std=c++0x" />
+		  <compilerarg value="-Wno-deprecated" />
+                <compilerarg value="-c" />
+                <compilerarg value="-fPIC" />
+                <compilerarg value="-m64" />
+                <compilerarg value="-DPOSIX" />
+                <compilerarg value="-DIPLIB=none" />
+                <includepath>
+					<path refid="include.path"/>
+					<path refid="include.cpptest.path"/>
+                    <path refid="include.get_sysapi.path"/>
+                    <path refid="include.get_common.path"/>
+				</includepath>
+				<includepath path="${XERCES_HOME}/include/" />
+				<fileset refid="source"/>
+            </compiler>    
+		</cc>
+	</target>
+	
+	<!-- Clean object files only -->
+	<target name="clean-objs" description="clean object files only">
+		<delete>
+			<fileset dir=".">
+				<include name="**/*.obj"/>
+				<include name="**/*.o"/>
+			</fileset>
+		</delete>
+	</target>
+	
+	<!-- Clean everything -->
+	<target name="clean" depends="clean-objs" description="clean everything">
+		<delete>
+			<fileset dir=".">
+				<include name="**/*.pdb"/>
+				<include name="**/*.exe"/>
+				<include name="**/*.manifest"/>
+				<include name="**/history.xml"/>
+				<include name="**/dependencies.xml"/>
+			</fileset>
+		</delete>
+		<delete dir="obj"/>
+		<delete dir="lib"/>
+		<delete dir="doc"/>
+		<delete dir="buildlogs"/>
+	</target>
+	
+</project>

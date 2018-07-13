@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rendering> 
+   <page title="General Information" titleKey="tc_xrt_cm_general_information" initialstate="collapsed">
+         <section titleKey="tc_xrt_properties">
+            <property name="object_name" renderingHint="textfield" />
+			<property name="revision:item_revision_id"  modifiable="false"/> 
+            <property name="ip_classification" />
+            <customPanel java="com.teamcenter.rac.cm.wizards.ui.PropsPageRelationshipPanel" js="displayCMCustomePanel"/> 
+         </section>
+</page>
+ </rendering>

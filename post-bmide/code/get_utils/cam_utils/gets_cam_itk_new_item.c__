@@ -1,0 +1,51 @@
+/* "C" header files */
+#include <stdio.h>
+
+/* iMAN  header files */
+
+#include <tc/tc.h>
+#include <tccore/item.h>
+#include <tccore/tctype.h>
+#include <sa/tcfile.h>
+#include <ae/ae_types.h>
+#include <ae/dataset.h>
+#include <tccore/aom.h>
+#include <tccore/workspaceobject.h>
+#include <pom/pom/pom.h>
+#include <sa/sa.h>
+#include <tc/emh.h>
+#include <ss/ss_const.h>
+#include <ae/ae.h>
+/* GETS Decryption Header Files */
+//#include <gets_tc_common.h>
+/* Function to report error messages in detail */
+
+int main( int argc, char *argv[] )
+{
+	int	ret_code = ITK_ok;
+
+	tag_t item_tag;
+	tag_t rev_tag;
+	tag_t view_tag;
+	tag_t bom_tag;
+	tag_t bvr_tag;
+
+	char item_id[ITEM_id_size_c+1];
+	char rev_id[ITEM_id_size_c+1];
+
+    /* Srikanth - 09-May-2013 : Added to Login TC using ITK_init_module */
+    //ret_code = GETS_HPA_secured_login();
+    if (ret_code != ITK_ok)
+	 {
+			//GETS_info_log ("ERROR NOT ABLE TO CONNECT TO IMAN\n" );
+			return ( !ITK_ok );
+	 }
+
+
+	strcpy( item_id, argv[3] );
+	strcpy( rev_id, argv[4] );
+
+	
+	ret_code = ITK_exit_module( true );
+	return ITK_ok;
+}

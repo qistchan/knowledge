@@ -1,0 +1,1 @@
+/usr/bin/c++     -fPIC CMakeFiles/gtest_unittest.dir/test/gtest_unittest.cc.o  -o gtest_unittest -rdynamic -L/data/app/get/googletest-release-1.5.0/src libgtest_main.a libgtest.a -lpthread -Wl,-rpath,/data/app/get/googletest-release-1.5.0/src 

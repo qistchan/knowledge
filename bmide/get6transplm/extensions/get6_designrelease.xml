@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TcBusinessData xmlns="http://teamcenter.com/BusinessModel/TcBusinessData" Date="">
+<Add>
+   <TcClass className="GET6AbsDR" parentClassName="ProblemReport" isExportable="false"
+       isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET6AbsDRMasterS" parentClassName="ProblemReportMaster" isExportable="false"
+       isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET6AbsDRRevMasterS" parentClassName="ProblemReportVerMaster"
+       isExportable="false" isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET6AbsDRRevision" parentClassName="ProblemReportRevision"
+       isExportable="false" isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET6DsgnRelPlan" parentClassName="GET6AbsContainer" isExportable="false"
+       isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET6DsgnRelPlanMasterS" parentClassName="GET6AbsContainerMasterS"
+       isExportable="false" isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET6DsgnRelPlanRevMasterS" parentClassName="GET6AbsContainerRevMasterS"
+       isExportable="false" isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET6DsgnRelPlanRevision" parentClassName="GET6AbsContainerRevision"
+       isExportable="false" isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET6DsgnRelease" parentClassName="GET6AbsDR" isExportable="false"
+       isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET6DsgnReleaseMasterS" parentClassName="GET6AbsDRMasterS"
+       isExportable="false" isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET6DsgnReleasePlanRelation" parentClassName="ImanRelation"
+       isExportable="false" isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET6DsgnReleaseRelation" parentClassName="ImanRelation" isExportable="false"
+       isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET6DsgnReleaseRevMasterS" parentClassName="GET6AbsDRRevMasterS"
+       isExportable="false" isUninstantiable="false" isUninheritable="false" description=""/>
+   <TcClass className="GET6DsgnReleaseRevision" parentClassName="GET6AbsDRRevision"
+       isExportable="false" isUninstantiable="false" isUninheritable="false" description="">
+     <TcAttribute attributeName="get6IsAutoCloseRqd" description="Is auto close required at the end of ECP process?"
+         attributeType="POM_logical" maxStringLength="0" isArray="false" followOnExport="false"
+         isNullsAllowed="true" isUnique="false" isPublicRead="true" isPublicWrite="true"
+         isCandidateKey="false" isTransient="false" exportAsString="false" noBackpointer="false"
+         initialValue="false"/>
+     <TcAttribute attributeName="get6SourceTemplate" description="Name of Source Template"
+         attributeType="POM_string" maxStringLength="128" isArray="false" followOnExport="false"
+         isNullsAllowed="true" isUnique="false" isPublicRead="true" isPublicWrite="true"
+         isCandidateKey="false" isTransient="false" exportAsString="false" noBackpointer="false"
+         initialValue="NULL" lowerBoundValue="" upperBoundValue=""/>
+     <TcAttribute attributeName="get6EngrStartDate" description="Engr Start Date"
+         attributeType="POM_date" maxStringLength="0" isArray="false" followOnExport="false"
+         isNullsAllowed="true" isUnique="false" isPublicRead="true" isPublicWrite="true"
+         isCandidateKey="false" isTransient="false" exportAsString="false" noBackpointer="false"
+         initialValue="NULL" lowerBoundValue="" upperBoundValue=""/>
+     <TcAttribute attributeName="get6EngrRequiredDate" description="Engr Required Date"
+         attributeType="POM_date" maxStringLength="0" isArray="false" followOnExport="false"
+         isNullsAllowed="true" isUnique="false" isPublicRead="true" isPublicWrite="true"
+         isCandidateKey="false" isTransient="false" exportAsString="false" noBackpointer="false"
+         initialValue="NULL" lowerBoundValue="" upperBoundValue=""/>
+     <TcAttribute attributeName="get6EngrRqdDateChangeReason" description="Engr Required Date Change Reason"
+         attributeType="POM_string" maxStringLength="128" isArray="false" followOnExport="false"
+         isNullsAllowed="true" isUnique="false" isPublicRead="true" isPublicWrite="true"
+         isCandidateKey="false" isTransient="false" exportAsString="false" noBackpointer="false"
+         initialValue="NULL" lowerBoundValue="" upperBoundValue=""/>
+     <TcAttribute attributeName="get6EngrPromiseDate" description="Engr Promise Date"
+         attributeType="POM_date" maxStringLength="0" isArray="false" followOnExport="false"
+         isNullsAllowed="true" isUnique="false" isPublicRead="true" isPublicWrite="true"
+         isCandidateKey="false" isTransient="false" exportAsString="false" noBackpointer="false"
+         initialValue="NULL" lowerBoundValue="" upperBoundValue=""/>
+     <TcAttribute attributeName="get6EngrComments" description="Engr Comments" attributeType="POM_string"
+         maxStringLength="240" isArray="true" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         arrayLength="-1" isTransient="false" exportAsString="false" noBackpointer="false"/>
+     <TcAttribute attributeName="get6DesignRequiredDate" description="Design Required Date"
+         attributeType="POM_date" maxStringLength="0" isArray="false" followOnExport="false"
+         isNullsAllowed="true" isUnique="false" isPublicRead="true" isPublicWrite="true"
+         isCandidateKey="false" isTransient="false" exportAsString="false" noBackpointer="false"
+         initialValue="NULL" lowerBoundValue="" upperBoundValue=""/>
+     <TcAttribute attributeName="get6DsgnRqdDateChangeReason" description="Design Required Date Change Reason"
+         attributeType="POM_string" maxStringLength="128" isArray="false" followOnExport="false"
+         isNullsAllowed="true" isUnique="false" isPublicRead="true" isPublicWrite="true"
+         isCandidateKey="false" isTransient="false" exportAsString="false" noBackpointer="false"
+         initialValue="NULL" lowerBoundValue="" upperBoundValue=""/>
+     <TcAttribute attributeName="get6DesignPromiseDate" description="Design Promise Date"
+         attributeType="POM_date" maxStringLength="0" isArray="false" followOnExport="false"
+         isNullsAllowed="true" isUnique="false" isPublicRead="true" isPublicWrite="true"
+         isCandidateKey="false" isTransient="false" exportAsString="false" noBackpointer="false"
+         initialValue="NULL" lowerBoundValue="" upperBoundValue=""/>
+     <TcAttribute attributeName="get6DesignComments" description="Design Comments"
+         attributeType="POM_string" maxStringLength="240" isArray="true" followOnExport="false"
+         isNullsAllowed="true" isUnique="false" isPublicRead="true" isPublicWrite="true"
+         isCandidateKey="false" arrayLength="-1" isTransient="false" exportAsString="false"
+         noBackpointer="false"/>
+     <TcAttribute attributeName="get6EngrDuration" description="Engr Duration" attributeType="POM_int"
+         maxStringLength="0" isArray="false" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         isTransient="false" exportAsString="false" noBackpointer="false" initialValue="0"
+         lowerBoundValue="" upperBoundValue=""/>
+     <TcAttribute attributeName="get6DesignDuration" description="Design Duration"
+         attributeType="POM_int" maxStringLength="0" isArray="false" followOnExport="false"
+         isNullsAllowed="true" isUnique="false" isPublicRead="true" isPublicWrite="true"
+         isCandidateKey="false" isTransient="false" exportAsString="false" noBackpointer="false"
+         initialValue="0" lowerBoundValue="" upperBoundValue=""/>
+     <TcAttribute attributeName="get6EngrBackOff" description="Back Off" attributeType="POM_int"
+         maxStringLength="0" isArray="false" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         isTransient="false" exportAsString="false" noBackpointer="false" initialValue="0"
+         lowerBoundValue="" upperBoundValue=""/>
+     <TcAttribute attributeName="get6ActivityId" description="" attributeType="POM_string"
+         maxStringLength="128" isArray="false" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         isTransient="false" exportAsString="false" noBackpointer="false" lowerBoundValue=""
+         upperBoundValue=""/>
+     <TcAttribute attributeName="get6ActivityDescription" description="" attributeType="POM_string"
+         maxStringLength="240" isArray="false" followOnExport="false" isNullsAllowed="true"
+         isUnique="false" isPublicRead="true" isPublicWrite="true" isCandidateKey="false"
+         isTransient="false" exportAsString="false" noBackpointer="false" lowerBoundValue=""
+         upperBoundValue=""/>
+   </TcClass>
+   <TcClass className="GET6DsgnReleaseTargetsRel" parentClassName="ImanRelation" isExportable="false"
+       isUninstantiable="false" isUninheritable="false" description=""/>
+   <OperationInputType typeName="GET6AbsDRCreI" parentTypeName="ProblemReportCreI"
+       typeClassName="GET6AbsDRCreI" description="CreateInput object for &quot;GET6AbsDR&quot; business object"
+       isAbstract="true" artifactName="GET6AbsDRCreI"/>
+   <OperationInputType typeName="GET6AbsDRMasterCreI" parentTypeName="ProblemReport MasterCreI"
+       typeClassName="GET6AbsDRMasterCreI" description="CreateInput object for &quot;GET6AbsDRMaster&quot; business object"
+       isAbstract="false" artifactName="GET6AbsDRMasterCreI"/>
+   <OperationInputType typeName="GET6AbsDRMasterSCreI" parentTypeName="ProblemReportMasterCreI"
+       typeClassName="GET6AbsDRMasterSCreI" description="CreateInput object for &quot;GET6AbsDRMasterS&quot; business object"
+       isAbstract="false" artifactName="GET6AbsDRMasterSCreI"/>
+   <OperationInputType typeName="GET6AbsDRMasterSSvAI" parentTypeName="ProblemReportMasterSvAI"
+       typeClassName="GET6AbsDRMasterSSvAI" description="SaveAsInput object for &quot;GET6AbsDRMasterS&quot; business object"
+       isAbstract="false" artifactName="GET6AbsDRMasterSSvAI"/>
+   <OperationInputType typeName="GET6AbsDRMasterSvAI" parentTypeName="ProblemReport MasterSvAI"
+       typeClassName="GET6AbsDRMasterSvAI" description="SaveAsInput object for &quot;GET6AbsDRMaster&quot; business object"
+       isAbstract="false" artifactName="GET6AbsDRMasterSvAI"/>
+   <OperationInputType typeName="GET6AbsDRRevMasterSCreI" parentTypeName="ProblemReportVerMasterCreI"
+       typeClassName="GET6AbsDRRevMasterSCreI" description="CreateInput object for &quot;GET6AbsDRRevMasterS&quot; business object"
+       isAbstract="false" artifactName="GET6AbsDRRevMasterSCreI"/>
+   <OperationInputType typeName="GET6AbsDRRevMasterSSvAI" parentTypeName="ProblemReportVerMasterSvAI"
+       typeClassName="GET6AbsDRRevMasterSSvAI" description="SaveAsInput object for &quot;GET6AbsDRRevMasterS&quot; business object"
+       isAbstract="false" artifactName="GET6AbsDRRevMasterSSvAI"/>
+   <OperationInputType typeName="GET6AbsDRRevisionCreI" parentTypeName="ProblemReportRevisionCreI"
+       typeClassName="GET6AbsDRRevisionCreI" description="CreateInput object for &quot;GET6AbsDRRevision&quot; business object"
+       isAbstract="true" artifactName="GET6AbsDRRevisionCreI"/>
+   <OperationInputType typeName="GET6AbsDRRevisionMasterCreI" parentTypeName="ProblemReportRevision MasterCreI"
+       typeClassName="GET6AbsDRRevisionMasterCreI" description="CreateInput object for &quot;GET6AbsDRRevisionMaster&quot; business object"
+       isAbstract="false" artifactName="GET6AbsDRRevisionMasterCreI"/>
+   <OperationInputType typeName="GET6AbsDRRevisionMasterSvAI" parentTypeName="ProblemReportRevision MasterSvAI"
+       typeClassName="GET6AbsDRRevisionMasterSvAI" description="SaveAsInput object for &quot;GET6AbsDRRevisionMaster&quot; business object"
+       isAbstract="false" artifactName="GET6AbsDRRevisionMasterSvAI"/>
+   <OperationInputType typeName="GET6AbsDRRevisionRevI" parentTypeName="ProblemReportRevisionRevI"
+       typeClassName="GET6AbsDRRevisionRevI" description="ReviseInput object for &quot;GET6AbsDRRevision&quot; business object"
+       isAbstract="true" artifactName="GET6AbsDRRevisionRevI"/>
+   <OperationInputType typeName="GET6AbsDRRevisionSvAI" parentTypeName="ProblemReportRevisionSvAI"
+       typeClassName="GET6AbsDRRevisionSvAI" description="SaveAsInput object for &quot;GET6AbsDRRevision&quot; business object"
+       isAbstract="true" artifactName="GET6AbsDRRevisionSvAI"/>
+   <OperationInputType typeName="GET6AbsDRSvAI" parentTypeName="ProblemReportSvAI"
+       typeClassName="GET6AbsDRSvAI" description="SaveAsInput object for &quot;GET6AbsDR&quot; business object"
+       isAbstract="true" artifactName="GET6AbsDRSvAI"/>
+   <OperationInputType typeName="GET6DsgnRelPlanCreI" parentTypeName="GET6AbsContainerCreI"
+       typeClassName="GET6DsgnRelPlanCreI" description="CreateInput object for &quot;GET6DsgnRelPlan&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnRelPlanCreI">
+     <OperationInputProperty propName="get6GET6DsgnReleaseRelation" compoundObjectConstant=""
+         srcPropName="GET6DsgnReleaseRelation" compoundObjectType="" fieldType="SimpleProperty"
+         description=""/>
+   </OperationInputType>
+   <OperationInputType typeName="GET6DsgnRelPlanMasterCreI" parentTypeName="GET6AbsContainerMasterCreI"
+       typeClassName="GET6DsgnRelPlanMasterCreI" description="CreateInput object for &quot;GET6DsgnRelPlanMaster&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnRelPlanMasterCreI"/>
+   <OperationInputType typeName="GET6DsgnRelPlanMasterSCreI" parentTypeName="GET6AbsContainerMasterSCreI"
+       typeClassName="GET6DsgnRelPlanMasterSCreI" description="CreateInput object for &quot;GET6DsgnRelPlanMasterS&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnRelPlanMasterSCreI"/>
+   <OperationInputType typeName="GET6DsgnRelPlanMasterSSvAI" parentTypeName="GET6AbsContainerMasterSSvAI"
+       typeClassName="GET6DsgnRelPlanMasterSSvAI" description="SaveAsInput object for &quot;GET6DsgnRelPlanMasterS&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnRelPlanMasterSSvAI"/>
+   <OperationInputType typeName="GET6DsgnRelPlanMasterSvAI" parentTypeName="GET6AbsContainerMasterSvAI"
+       typeClassName="GET6DsgnRelPlanMasterSvAI" description="SaveAsInput object for &quot;GET6DsgnRelPlanMaster&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnRelPlanMasterSvAI"/>
+   <OperationInputType typeName="GET6DsgnRelPlanRevMasterSCreI" parentTypeName="GET6AbsContainerRevMasterSCreI"
+       typeClassName="GET6DsgnRelPlanRevMasterSCreI" description="CreateInput object for &quot;GET6DsgnRelPlanRevMasterS&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnRelPlanRevMasterSCreI"/>
+   <OperationInputType typeName="GET6DsgnRelPlanRevMasterSSvAI" parentTypeName="GET6AbsContainerRevMasterSSvAI"
+       typeClassName="GET6DsgnRelPlanRevMasterSSvAI" description="SaveAsInput object for &quot;GET6DsgnRelPlanRevMasterS&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnRelPlanRevMasterSSvAI"/>
+   <OperationInputType typeName="GET6DsgnRelPlanRevisio_alt0CreI" parentTypeName="GET6AbsContainerRevisi_alt0CreI"
+       typeClassName="GET6DsgnRelPlanRevisio_alt0CreI" description="CreateInput object for &quot;GET6DsgnRelPlanRevisionMaster&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnRelPlanRevisio_alt0CreI"/>
+   <OperationInputType typeName="GET6DsgnRelPlanRevisio_alt0SvAI" parentTypeName="GET6AbsContainerRevisi_alt0SvAI"
+       typeClassName="GET6DsgnRelPlanRevisio_alt0SvAI" description="SaveAsInput object for &quot;GET6DsgnRelPlanRevisionMaster&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnRelPlanRevisio_alt0SvAI"/>
+   <OperationInputType typeName="GET6DsgnRelPlanRevisionCreI" parentTypeName="GET6AbsContainerRevisionCreI"
+       typeClassName="GET6DsgnRelPlanRevisionCreI" description="CreateInput object for &quot;GET6DsgnRelPlanRevision&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnRelPlanRevisionCreI"/>
+   <OperationInputType typeName="GET6DsgnRelPlanRevisionRevI" parentTypeName="GET6AbsContainerRevisionRevI"
+       typeClassName="GET6DsgnRelPlanRevisionRevI" description="ReviseInput object for &quot;GET6DsgnRelPlanRevision&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnRelPlanRevisionRevI"/>
+   <OperationInputType typeName="GET6DsgnRelPlanRevisionSvAI" parentTypeName="GET6AbsContainerRevisionSvAI"
+       typeClassName="GET6DsgnRelPlanRevisionSvAI" description="SaveAsInput object for &quot;GET6DsgnRelPlanRevision&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnRelPlanRevisionSvAI"/>
+   <OperationInputType typeName="GET6DsgnRelPlanSvAI" parentTypeName="GET6AbsContainerSvAI"
+       typeClassName="GET6DsgnRelPlanSvAI" description="SaveAsInput object for &quot;GET6DsgnRelPlan&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnRelPlanSvAI"/>
+   <OperationInputType typeName="GET6DsgnReleaseCreI" parentTypeName="GET6AbsDRCreI"
+       typeClassName="GET6DsgnReleaseCreI" description="CreateInput object for &quot;GET6DsgnRelease&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnReleaseCreI"/>
+   <OperationInputType typeName="GET6DsgnReleaseMasterCreI" parentTypeName="GET6AbsDRMasterCreI"
+       typeClassName="GET6DsgnReleaseMasterCreI" description="CreateInput object for &quot;GET6DsgnReleaseMaster&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnReleaseMasterCreI"/>
+   <OperationInputType typeName="GET6DsgnReleaseMasterSCreI" parentTypeName="GET6AbsDRMasterSCreI"
+       typeClassName="GET6DsgnReleaseMasterSCreI" description="CreateInput object for &quot;GET6DsgnReleaseMasterS&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnReleaseMasterSCreI"/>
+   <OperationInputType typeName="GET6DsgnReleaseMasterSSvAI" parentTypeName="GET6AbsDRMasterSSvAI"
+       typeClassName="GET6DsgnReleaseMasterSSvAI" description="SaveAsInput object for &quot;GET6DsgnReleaseMasterS&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnReleaseMasterSSvAI"/>
+   <OperationInputType typeName="GET6DsgnReleaseMasterSvAI" parentTypeName="GET6AbsDRMasterSvAI"
+       typeClassName="GET6DsgnReleaseMasterSvAI" description="SaveAsInput object for &quot;GET6DsgnReleaseMaster&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnReleaseMasterSvAI"/>
+   <OperationInputType typeName="GET6DsgnReleasePlanRel_alt0CreI" parentTypeName="ImanRelationCreI"
+       typeClassName="GET6DsgnReleasePlanRel_alt0CreI" description="CreateInput object for &quot;GET6DsgnReleasePlanRelation&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnReleasePlanRel_alt0CreI"/>
+   <OperationInputType typeName="GET6DsgnReleasePlanRel_alt0SvAI" parentTypeName="ImanRelationSvAI"
+       typeClassName="GET6DsgnReleasePlanRel_alt0SvAI" description="SaveAsInput object for &quot;GET6DsgnReleasePlanRelation&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnReleasePlanRel_alt0SvAI"/>
+   <OperationInputType typeName="GET6DsgnReleaseRelationCreI" parentTypeName="ImanRelationCreI"
+       typeClassName="GET6DsgnReleaseRelationCreI" description="CreateInput object for &quot;GET6DsgnReleaseRelation&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnReleaseRelationCreI"/>
+   <OperationInputType typeName="GET6DsgnReleaseRelationSvAI" parentTypeName="ImanRelationSvAI"
+       typeClassName="GET6DsgnReleaseRelationSvAI" description="SaveAsInput object for &quot;GET6DsgnReleaseRelation&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnReleaseRelationSvAI"/>
+   <OperationInputType typeName="GET6DsgnReleaseRevMasterSCreI" parentTypeName="GET6AbsDRRevMasterSCreI"
+       typeClassName="GET6DsgnReleaseRevMasterSCreI" description="CreateInput object for &quot;GET6DsgnReleaseRevMasterS&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnReleaseRevMasterSCreI"/>
+   <OperationInputType typeName="GET6DsgnReleaseRevMasterSSvAI" parentTypeName="GET6AbsDRRevMasterSSvAI"
+       typeClassName="GET6DsgnReleaseRevMasterSSvAI" description="SaveAsInput object for &quot;GET6DsgnReleaseRevMasterS&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnReleaseRevMasterSSvAI"/>
+   <OperationInputType typeName="GET6DsgnReleaseRevisio_alt0CreI" parentTypeName="GET6AbsDRRevisionMasterCreI"
+       typeClassName="GET6DsgnReleaseRevisio_alt0CreI" description="CreateInput object for &quot;GET6DsgnReleaseRevisionMaster&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnReleaseRevisio_alt0CreI"/>
+   <OperationInputType typeName="GET6DsgnReleaseRevisio_alt0SvAI" parentTypeName="GET6AbsDRRevisionMasterSvAI"
+       typeClassName="GET6DsgnReleaseRevisio_alt0SvAI" description="SaveAsInput object for &quot;GET6DsgnReleaseRevisionMaster&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnReleaseRevisio_alt0SvAI"/>
+   <OperationInputType typeName="GET6DsgnReleaseRevisionCreI" parentTypeName="GET6AbsDRRevisionCreI"
+       typeClassName="GET6DsgnReleaseRevisionCreI" description="CreateInput object for &quot;GET6DsgnReleaseRevision&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnReleaseRevisionCreI">
+     <OperationInputProperty propName="get6IsAutoCloseRqd" compoundObjectConstant=""
+         srcPropName="get6IsAutoCloseRqd" compoundObjectType="" fieldType="SimpleProperty"
+         description="Is auto close required at the end of ECP process?"/>
+     <OperationInputProperty propName="get6SourceTemplate" compoundObjectConstant=""
+         srcPropName="get6SourceTemplate" compoundObjectType="" fieldType="SimpleProperty"
+         description="Name of Source Template"/>
+     <OperationInputProperty propName="get6EngrStartDate" compoundObjectConstant=""
+         srcPropName="get6EngrStartDate" compoundObjectType="" fieldType="SimpleProperty"
+         description="Engr Start Date"/>
+     <OperationInputProperty propName="get6EngrRequiredDate" compoundObjectConstant=""
+         srcPropName="get6EngrRequiredDate" compoundObjectType="" fieldType="SimpleProperty"
+         description="Engr Required Date"/>
+     <OperationInputProperty propName="get6EngrRqdDateChangeReason" compoundObjectConstant=""
+         srcPropName="get6EngrRqdDateChangeReason" compoundObjectType="" fieldType="SimpleProperty"
+         description="Engr Required Date Change Reason"/>
+     <OperationInputProperty propName="get6EngrPromiseDate" compoundObjectConstant=""
+         srcPropName="get6EngrPromiseDate" compoundObjectType="" fieldType="SimpleProperty"
+         description="Engr Promise Date"/>
+     <OperationInputProperty propName="get6EngrComments" compoundObjectConstant=""
+         srcPropName="get6EngrComments" compoundObjectType="" fieldType="SimpleProperty"
+         description="Engr Comments"/>
+     <OperationInputProperty propName="get6DesignRequiredDate" compoundObjectConstant=""
+         srcPropName="get6DesignRequiredDate" compoundObjectType="" fieldType="SimpleProperty"
+         description="Design Required Date"/>
+     <OperationInputProperty propName="get6DsgnRqdDateChangeReason" compoundObjectConstant=""
+         srcPropName="get6DsgnRqdDateChangeReason" compoundObjectType="" fieldType="SimpleProperty"
+         description="Design Required Date Change Reason"/>
+     <OperationInputProperty propName="get6DesignPromiseDate" compoundObjectConstant=""
+         srcPropName="get6DesignPromiseDate" compoundObjectType="" fieldType="SimpleProperty"
+         description="Design Promise Date"/>
+     <OperationInputProperty propName="get6DesignComments" compoundObjectConstant=""
+         srcPropName="get6DesignComments" compoundObjectType="" fieldType="SimpleProperty"
+         description="Design Comments"/>
+     <OperationInputProperty propName="get6EngrDuration" compoundObjectConstant=""
+         srcPropName="get6EngrDuration" compoundObjectType="" fieldType="SimpleProperty"
+         description="Engr Duration"/>
+     <OperationInputProperty propName="get6DesignDuration" compoundObjectConstant=""
+         srcPropName="get6DesignDuration" compoundObjectType="" fieldType="SimpleProperty"
+         description="Design Duration"/>
+     <OperationInputProperty propName="get6EngrBackOff" compoundObjectConstant=""
+         srcPropName="get6EngrBackOff" compoundObjectType="" fieldType="SimpleProperty"
+         description="Back Off"/>
+     <OperationInputProperty propName="get6ActivityId" compoundObjectConstant="" srcPropName="get6ActivityId"
+         compoundObjectType="" fieldType="SimpleProperty" description=""/>
+     <OperationInputProperty propName="get6ActivityDescription" compoundObjectConstant=""
+         srcPropName="get6ActivityDescription" compoundObjectType="" fieldType="SimpleProperty"
+         description=""/>
+   </OperationInputType>
+   <OperationInputType typeName="GET6DsgnReleaseRevisionRevI" parentTypeName="GET6AbsDRRevisionRevI"
+       typeClassName="GET6DsgnReleaseRevisionRevI" description="ReviseInput object for &quot;GET6DsgnReleaseRevision&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnReleaseRevisionRevI"/>
+   <OperationInputType typeName="GET6DsgnReleaseRevisionSvAI" parentTypeName="GET6AbsDRRevisionSvAI"
+       typeClassName="GET6DsgnReleaseRevisionSvAI" description="SaveAsInput object for &quot;GET6DsgnReleaseRevision&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnReleaseRevisionSvAI">
+     <OperationInputProperty propName="get6ActivityId" compoundObjectConstant="" srcPropName=""
+         compoundObjectType="" fieldType="SimpleProperty" description=""/>
+     <OperationInputProperty propName="get6ActivityDescription" compoundObjectConstant=""
+         srcPropName="" compoundObjectType="" fieldType="SimpleProperty" description=""/>
+   </OperationInputType>
+   <OperationInputType typeName="GET6DsgnReleaseSvAI" parentTypeName="GET6AbsDRSvAI"
+       typeClassName="GET6DsgnReleaseSvAI" description="SaveAsInput object for &quot;GET6DsgnRelease&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnReleaseSvAI"/>
+   <OperationInputType typeName="GET6DsgnReleaseTargetsRelCreI" parentTypeName="ImanRelationCreI"
+       typeClassName="GET6DsgnReleaseTargetsRelCreI" description="CreateInput object for &quot;GET6DsgnReleaseTargetsRel&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnReleaseTargetsRelCreI"/>
+   <OperationInputType typeName="GET6DsgnReleaseTargetsRelSvAI" parentTypeName="ImanRelationSvAI"
+       typeClassName="GET6DsgnReleaseTargetsRelSvAI" description="SaveAsInput object for &quot;GET6DsgnReleaseTargetsRel&quot; business object"
+       isAbstract="false" artifactName="GET6DsgnReleaseTargetsRelSvAI"/>
+   <TcForm typeName="GET6AbsDRMaster" parentTypeName="ProblemReport Master" typeClassName="Form"
+       description="GET Abstract DR" isAbstract="false" artifactName="GET6AbsDRMaster"
+       formStorageClassName="GET6AbsDRMasterS"/>
+   <TcForm typeName="GET6AbsDRRevisionMaster" parentTypeName="ProblemReportRevision Master"
+       typeClassName="Form" description="GET Abstract DR Revision" isAbstract="false"
+       artifactName="GET6AbsDRRevisionMaster" formStorageClassName="GET6AbsDRRevMasterS"/>
+   <TcForm typeName="GET6DsgnRelPlanMaster" parentTypeName="GET6AbsContainerMaster"
+       typeClassName="Form" description="Design Release Plan container for Design Release Objects"
+       isAbstract="false" artifactName="GET6DsgnRelPlanMaster" formStorageClassName="GET6DsgnRelPlanMasterS"/>
+   <TcForm typeName="GET6DsgnRelPlanRevisionMaster" parentTypeName="GET6AbsContainerRevisionMaster"
+       typeClassName="Form" description="Design Release Plan Revision container for Design Release Objects"
+       isAbstract="false" artifactName="GET6DsgnRelPlanRevisionMaster" formStorageClassName="GET6DsgnRelPlanRevMasterS"/>
+   <TcForm typeName="GET6DsgnReleaseMaster" parentTypeName="GET6AbsDRMaster" typeClassName="Form"
+       description="GET Design Release" isAbstract="false" artifactName="GET6DsgnReleaseMaster"
+       formStorageClassName="GET6DsgnReleaseMasterS"/>
+   <TcForm typeName="GET6DsgnReleaseRevisionMaster" parentTypeName="GET6AbsDRRevisionMaster"
+       typeClassName="Form" description="GET Design Release Revision" isAbstract="false"
+       artifactName="GET6DsgnReleaseRevisionMaster" formStorageClassName="GET6DsgnReleaseRevMasterS"/>
+   <TcStandardType typeName="GET6AbsDR" parentTypeName="ProblemReport" typeClassName="GET6AbsDR"
+       description="GET Abstract DR" isAbstract="true" artifactName="GET6AbsDR"/>
+   <TcStandardType typeName="GET6AbsDRMasterS" parentTypeName="ProblemReportMaster"
+       typeClassName="GET6AbsDRMasterS" description="GET Abstract DR" isAbstract="false"
+       artifactName="GET6AbsDRMasterS"/>
+   <TcStandardType typeName="GET6AbsDRRevMasterS" parentTypeName="ProblemReportVerMaster"
+       typeClassName="GET6AbsDRRevMasterS" description="GET Abstract DR Revision"
+       isAbstract="false" artifactName="GET6AbsDRRevMasterS"/>
+   <TcStandardType typeName="GET6AbsDRRevision" parentTypeName="ProblemReportRevision"
+       typeClassName="GET6AbsDRRevision" description="GET Abstract DR Revision" isAbstract="true"
+       artifactName="GET6AbsDRRevision"/>
+   <TcStandardType typeName="GET6DsgnRelPlan" parentTypeName="GET6AbsContainer" typeClassName="GET6DsgnRelPlan"
+       description="Design Release Plan container for Design Release Objects" isAbstract="false"
+       artifactName="GET6DsgnRelPlan">
+     <TcProperty propName="GET6DsgnReleaseRelation" propTypeName="Relation" propValueType="PROP_untyped_relation"
+         propMaxStringLength="0" isArray="true" arrayLength="-1" description="" referencedTypeConstant=""
+         referencedType=""/>
+   </TcStandardType>
+   <TcStandardType typeName="GET6DsgnRelPlanMasterS" parentTypeName="GET6AbsContainerMasterS"
+       typeClassName="GET6DsgnRelPlanMasterS" description="Design Release Plan container for Design Release Objects"
+       isAbstract="false" artifactName="GET6DsgnRelPlanMasterS"/>
+   <TcStandardType typeName="GET6DsgnRelPlanRevMasterS" parentTypeName="GET6AbsContainerRevMasterS"
+       typeClassName="GET6DsgnRelPlanRevMasterS" description="Design Release Plan Revision container for Design Release Objects"
+       isAbstract="false" artifactName="GET6DsgnRelPlanRevMasterS"/>
+   <TcStandardType typeName="GET6DsgnRelPlanRevision" parentTypeName="GET6AbsContainerRevision"
+       typeClassName="GET6DsgnRelPlanRevision" description="Design Release Plan Revision container for Design Release Objects"
+       isAbstract="false" artifactName="GET6DsgnRelPlanRevision"/>
+   <TcStandardType typeName="GET6DsgnRelease" parentTypeName="GET6AbsDR" typeClassName="GET6DsgnRelease"
+       description="GET Design Release" isAbstract="false" artifactName="GET6DsgnRelease"/>
+   <TcStandardType typeName="GET6DsgnReleaseMasterS" parentTypeName="GET6AbsDRMasterS"
+       typeClassName="GET6DsgnReleaseMasterS" description="GET Design Release" isAbstract="false"
+       artifactName="GET6DsgnReleaseMasterS"/>
+   <TcStandardType typeName="GET6DsgnReleasePlanRelation" parentTypeName="ImanRelation"
+       typeClassName="GET6DsgnReleasePlanRelation" description="Design Release Plan Relation to associate GET Project and Design Release Plan Object"
+       isAbstract="false" artifactName="GET6DsgnReleasePlanRelation"/>
+   <TcStandardType typeName="GET6DsgnReleaseRelation" parentTypeName="ImanRelation"
+       typeClassName="GET6DsgnReleaseRelation" description="Design Release Relation to attach Design Release Revisions to Design Release Plan Item"
+       isAbstract="false" artifactName="GET6DsgnReleaseRelation"/>
+   <TcStandardType typeName="GET6DsgnReleaseRevMasterS" parentTypeName="GET6AbsDRRevMasterS"
+       typeClassName="GET6DsgnReleaseRevMasterS" description="GET Design Release Revision"
+       isAbstract="false" artifactName="GET6DsgnReleaseRevMasterS"/>
+   <TcStandardType typeName="GET6DsgnReleaseRevision" parentTypeName="GET6AbsDRRevision"
+       typeClassName="GET6DsgnReleaseRevision" description="GET Design Release Revision"
+       isAbstract="false" artifactName="GET6DsgnReleaseRevision">
+     <TcProperty propName="GET6DsgnReleaseTargetsRel" propTypeName="Relation" propValueType="PROP_untyped_relation"
+         propMaxStringLength="0" isArray="true" arrayLength="-1" description="" referencedTypeConstant=""
+         referencedType=""/>
+   </TcStandardType>
+   <TcStandardType typeName="GET6DsgnReleaseTargetsRel" parentTypeName="ImanRelation"
+       typeClassName="GET6DsgnReleaseTargetsRel" description="" isAbstract="false"
+       artifactName="GET6DsgnReleaseTargetsRel"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6AbsDR" value="GET6AbsDRCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6AbsDRMaster" value="GET6AbsDRMasterCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6AbsDRMasterS" value="GET6AbsDRMasterSCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6AbsDRRevision" value="GET6AbsDRRevisionCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6AbsDRRevisionMaster"
+       value="GET6AbsDRRevisionMasterCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6AbsDRRevMasterS"
+       value="GET6AbsDRRevMasterSCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6DsgnRelease" value="GET6DsgnReleaseCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6DsgnReleaseMaster"
+       value="GET6DsgnReleaseMasterCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6DsgnReleaseMasterS"
+       value="GET6DsgnReleaseMasterSCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6DsgnReleasePlanRelation"
+       value="GET6DsgnReleasePlanRel_alt0CreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6DsgnReleaseRelation"
+       value="GET6DsgnReleaseRelationCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6DsgnReleaseRevision"
+       value="GET6DsgnReleaseRevisionCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6DsgnReleaseRevisionMaster"
+       value="GET6DsgnReleaseRevisio_alt0CreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6DsgnReleaseRevMasterS"
+       value="GET6DsgnReleaseRevMasterSCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6DsgnReleaseTargetsRel"
+       value="GET6DsgnReleaseTargetsRelCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6DsgnRelPlan" value="GET6DsgnRelPlanCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6DsgnRelPlanMaster"
+       value="GET6DsgnRelPlanMasterCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6DsgnRelPlanMasterS"
+       value="GET6DsgnRelPlanMasterSCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6DsgnRelPlanRevision"
+       value="GET6DsgnRelPlanRevisionCreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6DsgnRelPlanRevisionMaster"
+       value="GET6DsgnRelPlanRevisio_alt0CreI"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET6DsgnRelPlanRevMasterS"
+       value="GET6DsgnRelPlanRevMasterSCreI"/>
+   <TcTypeConstantAttach constantName="Fnd0Icon" typeName="GET6DsgnRelPlan" value="GET6DsgnReleasePlan_16.png"/>
+   <TcTypeConstantAttach constantName="Fnd0Icon" typeName="GET6DsgnRelPlanRevision"
+       value="GET6DsgnReleasePlanRevision_16.png"/>
+   <TcTypeConstantAttach constantName="ItemRevision" typeName="GET6AbsDR" value="GET6AbsDRRevision"/>
+   <TcTypeConstantAttach constantName="ItemRevision" typeName="GET6DsgnRelease" value="GET6DsgnReleaseRevision"/>
+   <TcTypeConstantAttach constantName="ItemRevision" typeName="GET6DsgnRelPlan" value="GET6DsgnRelPlanRevision"/>
+   <TcTypeConstantAttach constantName="MasterForm" typeName="GET6AbsDR" value="GET6AbsDRMaster"/>
+   <TcTypeConstantAttach constantName="MasterForm" typeName="GET6AbsDRRevision" value="GET6AbsDRRevisionMaster"/>
+   <TcTypeConstantAttach constantName="MasterForm" typeName="GET6DsgnRelease" value="GET6DsgnReleaseMaster"/>
+   <TcTypeConstantAttach constantName="MasterForm" typeName="GET6DsgnReleaseRevision"
+       value="GET6DsgnReleaseRevisionMaster"/>
+   <TcTypeConstantAttach constantName="MasterForm" typeName="GET6DsgnRelPlan" value="GET6DsgnRelPlanMaster"/>
+   <TcTypeConstantAttach constantName="MasterForm" typeName="GET6DsgnRelPlanRevision"
+       value="GET6DsgnRelPlanRevisionMaster"/>
+   <TcTypeConstantAttach constantName="ReviseInput" typeName="GET6AbsDRRevision" value="GET6AbsDRRevisionRevI"/>
+   <TcTypeConstantAttach constantName="ReviseInput" typeName="GET6DsgnReleaseRevision"
+       value="GET6DsgnReleaseRevisionRevI"/>
+   <TcTypeConstantAttach constantName="ReviseInput" typeName="GET6DsgnRelPlanRevision"
+       value="GET6DsgnRelPlanRevisionRevI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6AbsDR" value="GET6AbsDRSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6AbsDRMaster" value="GET6AbsDRMasterSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6AbsDRMasterS" value="GET6AbsDRMasterSSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6AbsDRRevision" value="GET6AbsDRRevisionSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6AbsDRRevisionMaster"
+       value="GET6AbsDRRevisionMasterSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6AbsDRRevMasterS"
+       value="GET6AbsDRRevMasterSSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6DsgnRelease" value="GET6DsgnReleaseSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6DsgnReleaseMaster"
+       value="GET6DsgnReleaseMasterSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6DsgnReleaseMasterS"
+       value="GET6DsgnReleaseMasterSSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6DsgnReleasePlanRelation"
+       value="GET6DsgnReleasePlanRel_alt0SvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6DsgnReleaseRelation"
+       value="GET6DsgnReleaseRelationSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6DsgnReleaseRevision"
+       value="GET6DsgnReleaseRevisionSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6DsgnReleaseRevisionMaster"
+       value="GET6DsgnReleaseRevisio_alt0SvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6DsgnReleaseRevMasterS"
+       value="GET6DsgnReleaseRevMasterSSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6DsgnReleaseTargetsRel"
+       value="GET6DsgnReleaseTargetsRelSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6DsgnRelPlan" value="GET6DsgnRelPlanSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6DsgnRelPlanMaster"
+       value="GET6DsgnRelPlanMasterSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6DsgnRelPlanMasterS"
+       value="GET6DsgnRelPlanMasterSSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6DsgnRelPlanRevision"
+       value="GET6DsgnRelPlanRevisionSvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6DsgnRelPlanRevisionMaster"
+       value="GET6DsgnRelPlanRevisio_alt0SvAI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET6DsgnRelPlanRevMasterS"
+       value="GET6DsgnRelPlanRevMasterSSvAI"/>
+   <TcPropertyConstantAttach constantName="CopyFromOriginal" typeName="GET6DsgnReleaseRevisionSvAI"
+       propertyName="get6ActivityDescription" value="false"/>
+   <TcPropertyConstantAttach constantName="CopyFromOriginal" typeName="GET6DsgnReleaseRevisionSvAI"
+       propertyName="get6ActivityId" value="false"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET6DsgnRelPlan" propertyName="GET6DsgnReleaseRelation"
+       value="true"/>
+   <TcPropertyConstantAttach constantName="Enabled" typeName="GET6ECN" propertyName="get6IsNew"
+       value="false"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6DsgnReleaseRevision"
+       propertyName="get6DesignComments" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6DsgnReleaseRevision"
+       propertyName="get6DesignDuration" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6DsgnReleaseRevision"
+       propertyName="get6DesignPromiseDate" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6DsgnReleaseRevision"
+       propertyName="get6DesignRequiredDate" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6DsgnReleaseRevision"
+       propertyName="GET6DsgnReleaseTargetsRel" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6DsgnReleaseRevision"
+       propertyName="get6DsgnRqdDateChangeReason" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6DsgnReleaseRevision"
+       propertyName="get6EngrBackOff" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6DsgnReleaseRevision"
+       propertyName="get6EngrComments" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6DsgnReleaseRevision"
+       propertyName="get6EngrDuration" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6DsgnReleaseRevision"
+       propertyName="get6EngrPromiseDate" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6DsgnReleaseRevision"
+       propertyName="get6EngrRequiredDate" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6DsgnReleaseRevision"
+       propertyName="get6EngrRqdDateChangeReason" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6DsgnReleaseRevision"
+       propertyName="get6EngrStartDate" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6DsgnReleaseRevision"
+       propertyName="get6IsAutoCloseRqd" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6DsgnReleaseRevision"
+       propertyName="get6SourceTemplate" value="Write"/>
+   <TcPropertyConstantAttach constantName="Modifiable" typeName="GET6DsgnRelPlan"
+       propertyName="GET6DsgnReleaseRelation" value="Write"/>
+   <TcPropertyConstantAttach constantName="Required" typeName="GET6DsgnReleaseRevision"
+       propertyName="get6ActivityDescription" value="true"/>
+   <TcPropertyConstantAttach constantName="Required" typeName="GET6DsgnReleaseRevision"
+       propertyName="get6ActivityId" value="true"/>
+   <TcPropertyConstantAttach constantName="Required" typeName="GET6DsgnReleaseRevisionCreI"
+       propertyName="get6DesignRequiredDate" value="false"/>
+   <TcPropertyConstantAttach constantName="Required" typeName="GET6DsgnReleaseRevisionCreI"
+       propertyName="get6EngrRequiredDate" value="false"/>
+   <TcPropertyConstantAttach constantName="Required" typeName="GET6DsgnReleaseRevisionCreI"
+       propertyName="get6EngrStartDate" value="false"/>
+   <TcPropertyConstantAttach constantName="Required" typeName="GET6DsgnReleaseRevisionCreI"
+       propertyName="get6SourceTemplate" value="false"/>
+   <TcGRMRule primaryTypeName="GET6DsgnReleaseRevision" secondaryTypeName="GET6AbsSecDesignRevision"
+       relationTypeName="GET6DsgnReleaseTargetsRel" primaryCardinality="1" secondaryCardinality="-1"
+       secured="false" attachability="WriteAccessReq" changeability="Changeable" detachability="WriteAccessReq"
+       description=""/>
+   <TcGRMRule primaryTypeName="GET6DsgnReleaseRevision" secondaryTypeName="GET6AbsUniPartRevision"
+       relationTypeName="GET6DsgnReleaseTargetsRel" primaryCardinality="1" secondaryCardinality="-1"
+       secured="false" attachability="WriteAccessReq" changeability="Changeable" detachability="WriteAccessReq"
+       description=""/>
+   <TcGRMRule primaryTypeName="GET6DsgnReleaseRevision" secondaryTypeName="GET6DrawingRevision"
+       relationTypeName="GET6DsgnReleaseTargetsRel" primaryCardinality="1" secondaryCardinality="-1"
+       secured="false" attachability="WriteAccessReq" changeability="Changeable" detachability="WriteAccessReq"
+       description=""/>
+   <TcGRMRule primaryTypeName="GET6DsgnReleaseRevision" secondaryTypeName="GET6SpecsRevision"
+       relationTypeName="GET6DsgnReleaseTargetsRel" primaryCardinality="1" secondaryCardinality="-1"
+       secured="false" attachability="WriteAccessReq" changeability="Changeable" detachability="WriteAccessReq"
+       description=""/>
+   <TcGRMRule primaryTypeName="GET6DsgnRelPlan" secondaryTypeName="GET6DsgnReleaseRevision"
+       relationTypeName="GET6DsgnReleaseRelation" primaryCardinality="1" secondaryCardinality="-1"
+       secured="false" attachability="WriteAccessReq" changeability="Changeable" detachability="WriteAccessReq"
+       description=""/>
+   <TcGRMRule primaryTypeName="GET6ECRRevision" secondaryTypeName="GET6DsgnReleaseRevision"
+       relationTypeName="CMImplements" primaryCardinality="1" secondaryCardinality="-1"
+       secured="false" attachability="WriteAccessReq" changeability="Changeable" detachability="WriteAccessReq"
+       description=""/>
+   <TcGRMRule primaryTypeName="POM_object" secondaryTypeName="POM_object" relationTypeName="GET6DsgnReleasePlanRelation"
+       primaryCardinality="0" secondaryCardinality="0" secured="false" attachability="Unrestricted"
+       changeability="Changeable" detachability="Unrestricted" description=""/>
+   <TcGRMRule primaryTypeName="POM_object" secondaryTypeName="POM_object" relationTypeName="GET6DsgnReleaseRelation"
+       primaryCardinality="0" secondaryCardinality="0" secured="false" attachability="Unrestricted"
+       changeability="Changeable" detachability="Unrestricted" description=""/>
+   <TcGRMRule primaryTypeName="POM_object" secondaryTypeName="POM_object" relationTypeName="GET6DsgnReleaseTargetsRel"
+       primaryCardinality="0" secondaryCardinality="0" secured="false" attachability="Unrestricted"
+       changeability="Changeable" detachability="Unrestricted" description=""/>
+   <TcTypeDisplayRule hiddenTypeName="GET6DsgnRelPlan" accessorName="GE TRANSPORTATION"
+       accessorType="Group" conditionName="isTrue" description=""/>
+   <TcNamingRule name="GET6DsgnReleaseIDRule">
+     <TcPattern generateCounters="true" patternString="&quot;EDOT-&quot;NNNNNN" description="Naming rule defining GET6DsgnRelease Item ID">
+       <TcCounter initialValue="EDOT-000001" maximumValue="EDOT-999999"/>
+     </TcPattern>
+   </TcNamingRule>
+   <TcNamingRuleAttach ruleName="GET6DsgnReleaseIDRule" typeName="GET6DsgnRelease"
+       propertyName="item_id" case="Upper" conditionName="isTrue" override="false"
+       ruleType="NamingRule" description=""/>
+   <TcStatus statusName="GET6Closed" description=""/>
+</Add>
+</TcBusinessData>

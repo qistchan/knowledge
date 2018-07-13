@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TC Encapsulation : Mapping X-File  -->
+
+<ReportDefinition>
+	<Id value="GET_ECR_Detail_Report"/>
+	<name value="ECR - Print Summary">
+		<Text primary="en_US">
+			<Item language="en_US" value="ECR - Print Summary"/>
+		</Text>
+	</name>
+	<Description value="">
+		<Text primary="en_US">
+			<Item language="en_US" value=""/>
+		</Text>
+	</Description>
+	<Class value="GET6ECRRevision"/>
+	<Type value="1"/>
+	<Source value="Teamcenter"/>
+	<ShowForPrint value="true"/>
+	<QuerySource>
+		<TransferMode>
+			<Name value="GET_ECR_TransferMode_Export"/>
+			<Description value="GET ECR Data Export"/>
+			<ContextString value="DEFAULT_PIE_CONTEXT_STRING"/>
+			<Direction value="0"/>
+			<SchemaFormat value="0"/>
+			<ClosureRule>
+				<Name value="GET_ECR_ClosureRule"/>
+				<Description value=""/>
+				<Scope value="0"/>
+				<SchemaFormat value="0"/>
+				<NoOfClauses value="16"/>
+				<Clauses>
+					<clause_0 value="CLASS.ChangeRequestRevision:CLASS.*:RELATIONP2S.CMReferences:PROCESS+TRAVERSE:"/>
+					<clause_1 value="CLASS.ChangeRequestRevision:CLASS.ItemRevision:RELATIONP2S.CMHasWorkBreakdown:PROCESS+TRAVERSE:"/>
+					<clause_2 value="CLASS.ChangeRequestRevision:CLASS.ItemRevision:RELATIONP2S.CMHasProblemItem:PROCESS+TRAVERSE:"/>
+					<clause_3 value="CLASS.ChangeRequestRevision:CLASS.ItemRevision:RELATIONP2S.CMHasImpactedItem:PROCESS+TRAVERSE:"/>
+					<clause_4 value="CLASS.ChangeRequestRevision:CLASS.ItemRevision:RELATIONP2S.CMImplements:PROCESS+TRAVERSE:"/>
+					<clause_5 value="CLASS.ChangeRequestRevision:CLASS.*:ATTRIBUTE.CMImplementedBy:PROCESS+TRAVERSE:"/>
+					<clause_6 value="CLASS.ChangeRequestRevision:CLASS.*:RELATIONP2S.HasParticipant:PROCESS+TRAVERSE:"/>
+					<clause_7 value="CLASS.ItemRevision:CLASS.*:ATTRIBUTE.*:PROCESS+TRAVERSE:"/>
+					<clause_8 value="CLASS.Participant:CLASS.GroupMember:ATTRIBUTE.Assignee:PROCESS+TRAVERSE:"/>
+					<clause_9 value="CLASS.Participant:CLASS.ResourcePool:ATTRIBUTE.Assignee:PROCESS+TRAVERSE:"/>
+					<clause_10 value="CLASS.ResourcePool:CLASS.Group:ATTRIBUTE.group:PROCESS+TRAVERSE:"/>
+					<clause_11 value="CLASS.ResourcePool:CLASS.Role:ATTRIBUTE.role:PROCESS+TRAVERSE:"/>
+					<clause_12 value="CLASS.EPMJob:CLASS.EPMTask:PROPERTY.root_task:PROCESS+TRAVERSE:"/>
+					<clause_13 value="CLASS.EPMTask:CLASS.*:RELATIONP2S.*:PROCESS+TRAVERSE:"/>
+					<clause_14 value="CLASS.EPMTask:CLASS.*:PROPERTY.*:PROCESS+TRAVERSE:"/>
+					<clause_15 value="CLASS.ReleaseStatus:CLASS.*:ATTRIBUTE.*:PROCESS+TRAVERSE:"/>
+				</Clauses>
+			</ClosureRule>
+			<PropertySet>
+				<Name value="GET_ECR_Export_PS"/>
+				<Description value="GET ECR Revision Properies"/>
+				<Scope value="0"/>
+				<NoOfClauses value="119"/>
+				<Clauses>
+					<clause_0 value="CLASS.Item:ATTRIBUTE.item_id:DO"/>
+					<clause_1 value="CLASS.Item:ATTRIBUTE.object_name:DO"/>
+					<clause_2 value="CLASS.Item:ATTRIBUTE.object_desc:DO"/>
+					<clause_3 value="CLASS.Item:ATTRIBUTE.revision_number:DO"/>
+					<clause_4 value="CLASS.Item:ATTRIBUTE.creation_date:DO"/>
+					<clause_5 value="CLASS.Item:ATTRIBUTE.release_status_list:DO"/>
+					<clause_6 value="CLASS.Item:ATTRIBUTE.last_mod_user:DO"/>
+					<clause_7 value="CLASS.ItemRevision:ATTRIBUTE.item_id:DO"/>
+					<clause_8 value="CLASS.ItemRevision:ATTRIBUTE.item_revision_id:DO"/>
+					<clause_9 value="CLASS.ItemRevision:ATTRIBUTE.object_string:DO"/>
+					<clause_10 value="CLASS.ItemRevision:ATTRIBUTE.object_name:DO"/>
+					<clause_11 value="CLASS.ItemRevision:ATTRIBUTE.object_desc:DO"/>
+					<clause_12 value="CLASS.ItemRevision:ATTRIBUTE.object_type:DO"/>
+					<clause_13 value="CLASS.ItemRevision:ATTRIBUTE.process_stage:DO"/>
+					<clause_14 value="CLASS.ItemRevision:ATTRIBUTE.creation_date:DO"/>
+					<clause_15 value="CLASS.ItemRevision:ATTRIBUTE.last_mod_date:DO"/>
+					<clause_16 value="CLASS.ItemRevision:ATTRIBUTE.date_released:DO"/>
+					<clause_17 value="CLASS.ItemRevision:ATTRIBUTE.owning_user:DO"/>
+					<clause_18 value="CLASS.ItemRevision:ATTRIBUTE.owning_group:DO"/>
+					<clause_19 value="CLASS.ItemRevision:ATTRIBUTE.release_status_list:DO"/>
+					<clause_20 value="CLASS.ItemRevision:ATTRIBUTE.last_mod_user:DO"/>
+					<clause_21 value="CLASS.ItemRevision:ATTRIBUTE.ip_classification:DO"/>
+					<clause_22 value="CLASS.ReleaseStatus:ATTRIBUTE.name:DO"/>
+					<clause_23 value="CLASS.Group:ATTRIBUTE.name:DO"/>
+					<clause_24 value="CLASS.Role:ATTRIBUTE.role_name:DO"/>
+					<clause_25 value="CLASS.User:ATTRIBUTE.user_id:DO"/>
+					<clause_26 value="CLASS.User:ATTRIBUTE.user_name:DO"/>
+					<clause_27 value="CLASS.ChangeRequestRevision:ATTRIBUTE.CMClosure:DO"/>
+					<clause_28 value="CLASS.ChangeRequestRevision:ATTRIBUTE.CMDisposition:DO"/>
+					<clause_29 value="CLASS.ChangeRequestRevision:ATTRIBUTE.CMMaturity:DO"/>
+					<clause_30 value="CLASS.ChangeRequestRevision:ATTRIBUTE.cm0Analyst:DO"/>
+					<clause_31 value="CLASS.ChangeRequestRevision:ATTRIBUTE.cm0Requestor:DO"/>
+					<clause_32 value="CLASS.ChangeRequestRevision:ATTRIBUTE.CMImplements:DO"/>
+					<clause_33 value="CLASS.ChangeRequestRevision:ATTRIBUTE.CMImplementedBy:DO"/>
+					<clause_34 value="CLASS.ChangeRequestRevision:ATTRIBUTE.CMSolutionItems:DO"/>
+					<clause_35 value="CLASS.ChangeRequestRevision:ATTRIBUTE.CMReferences:DO"/>
+					<clause_36 value="CLASS.ChangeRequestRevision:ATTRIBUTE.CMImpactedItems:DO"/>
+					<clause_37 value="CLASS.ChangeRequestRevision:ATTRIBUTE.HasParticipant:DO"/>
+					<clause_38 value="CLASS.ChangeRequestRevision:ATTRIBUTE.ChangeImplementationBoard:DO"/>
+					<clause_39 value="CLASS.Participant:ATTRIBUTE.assignee:DO"/>
+					<clause_40 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6AddlCompComments:DO"/>
+					<clause_41 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6AppliedPractice:DO"/>
+					<clause_42 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ApplAppPractice:DO"/>
+					<clause_43 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6CCC:DO"/>
+					<clause_44 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6CCUEA:DO"/>
+					<clause_45 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ChangeReason:DO"/>
+					<clause_46 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6Customers:DO"/>
+					<clause_47 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ChgDesc:DO"/>
+					<clause_48 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6Copies:DO"/>
+					<clause_49 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6CriticalPart:DO"/>
+					<clause_50 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6DateReqd:DO"/>
+					<clause_51 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6DefTolIden:DO"/>
+					<clause_52 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ECC:DO"/>
+					<clause_53 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ECCNSource:DO"/>
+					<clause_54 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6EngrDisp:DO"/>
+					<clause_55 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6EngrInUSA:DO"/>
+					<clause_56 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6EngrProdLine:DO"/>
+					<clause_57 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6EstHours:DO"/>
+					<clause_58 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ExpControl:DO"/>
+					<clause_59 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6FastTrack:DO"/>
+					<clause_60 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6Homologation:DO"/>
+					<clause_61 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ObjEvidence:DO"/>
+					<clause_62 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6OrderNo:DO"/>
+					<clause_63 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6OnTrackItems:DO"/>
+					<clause_64 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6PriPrjNo:DO"/>
+					<clause_65 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ReasonCode:DO"/>
+					<clause_66 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ReasonForChg:DO"/>
+					<clause_67 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6RedMarkDesign:DO"/>
+					<clause_68 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6SecPrjNo:DO"/>
+					<clause_69 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ServiceImpact:DO"/>
+					<clause_70 value="CLASS.GET6ECRRevision:ATTRIBUTE.fnd0AllWorkflows:DO"/>
+					<clause_71 value="CLASS.GET6ECRRevision:ATTRIBUTE.fnd0InProcess:DO"/>
+					<clause_72 value="CLASS.EPMJob:ATTRIBUTE.root_task:DO"/>
+					<clause_73 value="CLASS.EPMJob:ATTRIBUTE.object_name:DO"/>
+					<clause_74 value="CLASS.EPMJob:ATTRIBUTE.object_desc:DO"/>
+					<clause_75 value="CLASS.EPMSignoffProfile:ATTRIBUTE.number_of_signoffs:DO"/>
+					<clause_76 value="CLASS.EPMSignoffProfile:ATTRIBUTE.group:DO"/>
+					<clause_77 value="CLASS.EPMSignoffProfile:ATTRIBUTE.role:DO"/>
+					<clause_78 value="CLASS.EPMSignoffProfile:ATTRIBUTE.signoff_quorum:DO"/>
+					<clause_79 value="CLASS.EPMTask:ATTRIBUTE.attachment_types:DO"/>
+					<clause_80 value="CLASS.EPMTask:ATTRIBUTE.comments:DO"/>
+					<clause_81 value="CLASS.EPMTask:ATTRIBUTE.attachments:DO"/>
+					<clause_82 value="CLASS.EPMTask:ATTRIBUTE.due_date:DO"/>
+					<clause_83 value="CLASS.EPMTask:ATTRIBUTE.fnd0StartDate:DO"/>
+					<clause_84 value="CLASS.EPMTask:ATTRIBUTE.fnd0EndDate:DO"/>
+					<clause_85 value="CLASS.EPMTask:ATTRIBUTE.parent_process:DO"/>
+					<clause_86 value="CLASS.EPMTask:ATTRIBUTE.responsible_party:DO"/>
+					<clause_87 value="CLASS.EPMTask:ATTRIBUTE.parent_task:DO"/>
+					<clause_88 value="CLASS.EPMTask:ATTRIBUTE.recipients:DO"/>
+					<clause_89 value="CLASS.EPMTask:ATTRIBUTE.task_name:DO"/>
+					<clause_90 value="CLASS.EPMTask:ATTRIBUTE.task_result:DO"/>
+					<clause_91 value="CLASS.EPMTask:ATTRIBUTE.viewed_by:DO"/>
+					<clause_92 value="CLASS.EPMTask:ATTRIBUTE.task_duration:DO"/>
+					<clause_93 value="CLASS.EPMTask:ATTRIBUTE.priority:DO"/>
+					<clause_94 value="CLASS.EPMTask:ATTRIBUTE.task_state:DO"/>
+					<clause_95 value="CLASS.EPMTask:ATTRIBUTE.real_state:DO"/>
+					<clause_96 value="CLASS.EPMTask:ATTRIBUTE.task_type:DO"/>
+					<clause_97 value="CLASS.EPMTask:ATTRIBUTE.fnd0AliasTaskName:DO"/>
+					<clause_98 value="CLASS.EPMTask:ATTRIBUTE.fnd0Assigner:DO"/>
+					<clause_99 value="CLASS.EPMTask:ATTRIBUTE.fnd0Performer:DO"/>
+					<clause_100 value="CLASS.EPMTask:ATTRIBUTE.last_mod_user:DO"/>
+					<clause_101 value="CLASS.EPMTask:ATTRIBUTE.object_name:DO"/>
+					<clause_102 value="CLASS.EPMTask:ATTRIBUTE.object_desc:DO"/>
+					<clause_103 value="CLASS.EPMTask:ATTRIBUTE.creation_date:DO"/>
+					<clause_104 value="CLASS.ResourcePool:ATTRIBUTE.all_members:DO"/>
+					<clause_105 value="CLASS.ResourcePool:ATTRIBUTE.group:DO"/>
+					<clause_106 value="CLASS.ResourcePool:ATTRIBUTE.role:DO"/>
+					<clause_107 value="CLASS.Signoff:ATTRIBUTE.group_member:DO"/>
+					<clause_108 value="CLASS.Signoff:ATTRIBUTE.comments:DO"/>
+					<clause_109 value="CLASS.Signoff:ATTRIBUTE.decision:DO"/>
+					<clause_110 value="CLASS.Signoff:ATTRIBUTE.signoff_member:DO"/>
+					<clause_111 value="CLASS.Signoff:ATTRIBUTE.fnd0Performer:DO"/>
+					<clause_112 value="CLASS.Participant:ATTRIBUTE.assignee:DO"/>
+					<clause_113 value="TYPE.Dataset:PROPERTY.object_name:DO"/>
+					<clause_114 value="TYPE.Dataset:PROPERTY.object_string:DO"/>
+					<clause_115 value="TYPE.Dataset:PROPERTY.release_status_list:DO"/>
+					<clause_116 value="TYPE.Dataset:PROPERTY.date_released:DO"/>
+					<clause_117 value="TYPE.Dataset:PROPERTY.owning_user:DO"/>
+					<clause_118 value="TYPE.Dataset:PROPERTY.object_type:DO"/>
+				</Clauses>
+			</PropertySet>
+		</TransferMode>
+	</QuerySource>
+	<PropertySet>
+		<Name value="GET_ECR_Export_PS"/>
+		<Description value="GET ECR Revision Properies"/>
+		<Scope value="0"/>
+		<NoOfClauses value="119"/>
+		<Clauses>
+			<clause_0 value="CLASS.Item:ATTRIBUTE.item_id:DO"/>
+			<clause_1 value="CLASS.Item:ATTRIBUTE.object_name:DO"/>
+			<clause_2 value="CLASS.Item:ATTRIBUTE.object_desc:DO"/>
+			<clause_3 value="CLASS.Item:ATTRIBUTE.revision_number:DO"/>
+			<clause_4 value="CLASS.Item:ATTRIBUTE.creation_date:DO"/>
+			<clause_5 value="CLASS.Item:ATTRIBUTE.release_status_list:DO"/>
+			<clause_6 value="CLASS.Item:ATTRIBUTE.last_mod_user:DO"/>
+			<clause_7 value="CLASS.ItemRevision:ATTRIBUTE.item_id:DO"/>
+			<clause_8 value="CLASS.ItemRevision:ATTRIBUTE.item_revision_id:DO"/>
+			<clause_9 value="CLASS.ItemRevision:ATTRIBUTE.object_string:DO"/>
+			<clause_10 value="CLASS.ItemRevision:ATTRIBUTE.object_name:DO"/>
+			<clause_11 value="CLASS.ItemRevision:ATTRIBUTE.object_desc:DO"/>
+			<clause_12 value="CLASS.ItemRevision:ATTRIBUTE.object_type:DO"/>
+			<clause_13 value="CLASS.ItemRevision:ATTRIBUTE.process_stage:DO"/>
+			<clause_14 value="CLASS.ItemRevision:ATTRIBUTE.creation_date:DO"/>
+			<clause_15 value="CLASS.ItemRevision:ATTRIBUTE.last_mod_date:DO"/>
+			<clause_16 value="CLASS.ItemRevision:ATTRIBUTE.date_released:DO"/>
+			<clause_17 value="CLASS.ItemRevision:ATTRIBUTE.owning_user:DO"/>
+			<clause_18 value="CLASS.ItemRevision:ATTRIBUTE.owning_group:DO"/>
+			<clause_19 value="CLASS.ItemRevision:ATTRIBUTE.release_status_list:DO"/>
+			<clause_20 value="CLASS.ItemRevision:ATTRIBUTE.last_mod_user:DO"/>
+			<clause_21 value="CLASS.ItemRevision:ATTRIBUTE.ip_classification:DO"/>
+			<clause_22 value="CLASS.ReleaseStatus:ATTRIBUTE.name:DO"/>
+			<clause_23 value="CLASS.Group:ATTRIBUTE.name:DO"/>
+			<clause_24 value="CLASS.Role:ATTRIBUTE.role_name:DO"/>
+			<clause_25 value="CLASS.User:ATTRIBUTE.user_id:DO"/>
+			<clause_26 value="CLASS.User:ATTRIBUTE.user_name:DO"/>
+			<clause_27 value="CLASS.ChangeRequestRevision:ATTRIBUTE.CMClosure:DO"/>
+			<clause_28 value="CLASS.ChangeRequestRevision:ATTRIBUTE.CMDisposition:DO"/>
+			<clause_29 value="CLASS.ChangeRequestRevision:ATTRIBUTE.CMMaturity:DO"/>
+			<clause_30 value="CLASS.ChangeRequestRevision:ATTRIBUTE.cm0Analyst:DO"/>
+			<clause_31 value="CLASS.ChangeRequestRevision:ATTRIBUTE.cm0Requestor:DO"/>
+			<clause_32 value="CLASS.ChangeRequestRevision:ATTRIBUTE.CMImplements:DO"/>
+			<clause_33 value="CLASS.ChangeRequestRevision:ATTRIBUTE.CMImplementedBy:DO"/>
+			<clause_34 value="CLASS.ChangeRequestRevision:ATTRIBUTE.CMSolutionItems:DO"/>
+			<clause_35 value="CLASS.ChangeRequestRevision:ATTRIBUTE.CMReferences:DO"/>
+			<clause_36 value="CLASS.ChangeRequestRevision:ATTRIBUTE.CMImpactedItems:DO"/>
+			<clause_37 value="CLASS.ChangeRequestRevision:ATTRIBUTE.HasParticipant:DO"/>
+			<clause_38 value="CLASS.ChangeRequestRevision:ATTRIBUTE.ChangeImplementationBoard:DO"/>
+			<clause_39 value="CLASS.Participant:ATTRIBUTE.assignee:DO"/>
+			<clause_40 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6AddlCompComments:DO"/>
+			<clause_41 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6AppliedPractice:DO"/>
+			<clause_42 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ApplAppPractice:DO"/>
+			<clause_43 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6CCC:DO"/>
+			<clause_44 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6CCUEA:DO"/>
+			<clause_45 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ChangeReason:DO"/>
+			<clause_46 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6Customers:DO"/>
+			<clause_47 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ChgDesc:DO"/>
+			<clause_48 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6Copies:DO"/>
+			<clause_49 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6CriticalPart:DO"/>
+			<clause_50 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6DateReqd:DO"/>
+			<clause_51 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6DefTolIden:DO"/>
+			<clause_52 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ECC:DO"/>
+			<clause_53 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ECCNSource:DO"/>
+			<clause_54 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6EngrDisp:DO"/>
+			<clause_55 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6EngrInUSA:DO"/>
+			<clause_56 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6EngrProdLine:DO"/>
+			<clause_57 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6EstHours:DO"/>
+			<clause_58 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ExpControl:DO"/>
+			<clause_59 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6FastTrack:DO"/>
+			<clause_60 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6Homologation:DO"/>
+			<clause_61 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ObjEvidence:DO"/>
+			<clause_62 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6OrderNo:DO"/>
+			<clause_63 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6OnTrackItems:DO"/>
+			<clause_64 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6PriPrjNo:DO"/>
+			<clause_65 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ReasonCode:DO"/>
+			<clause_66 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ReasonForChg:DO"/>
+			<clause_67 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6RedMarkDesign:DO"/>
+			<clause_68 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6SecPrjNo:DO"/>
+			<clause_69 value="CLASS.GET6ECRRevision:ATTRIBUTE.get6ServiceImpact:DO"/>
+			<clause_70 value="CLASS.GET6ECRRevision:ATTRIBUTE.fnd0AllWorkflows:DO"/>
+			<clause_71 value="CLASS.GET6ECRRevision:ATTRIBUTE.fnd0InProcess:DO"/>
+			<clause_72 value="CLASS.EPMJob:ATTRIBUTE.root_task:DO"/>
+			<clause_73 value="CLASS.EPMJob:ATTRIBUTE.object_name:DO"/>
+			<clause_74 value="CLASS.EPMJob:ATTRIBUTE.object_desc:DO"/>
+			<clause_75 value="CLASS.EPMSignoffProfile:ATTRIBUTE.number_of_signoffs:DO"/>
+			<clause_76 value="CLASS.EPMSignoffProfile:ATTRIBUTE.group:DO"/>
+			<clause_77 value="CLASS.EPMSignoffProfile:ATTRIBUTE.role:DO"/>
+			<clause_78 value="CLASS.EPMSignoffProfile:ATTRIBUTE.signoff_quorum:DO"/>
+			<clause_79 value="CLASS.EPMTask:ATTRIBUTE.attachment_types:DO"/>
+			<clause_80 value="CLASS.EPMTask:ATTRIBUTE.comments:DO"/>
+			<clause_81 value="CLASS.EPMTask:ATTRIBUTE.attachments:DO"/>
+			<clause_82 value="CLASS.EPMTask:ATTRIBUTE.due_date:DO"/>
+			<clause_83 value="CLASS.EPMTask:ATTRIBUTE.fnd0StartDate:DO"/>
+			<clause_84 value="CLASS.EPMTask:ATTRIBUTE.fnd0EndDate:DO"/>
+			<clause_85 value="CLASS.EPMTask:ATTRIBUTE.parent_process:DO"/>
+			<clause_86 value="CLASS.EPMTask:ATTRIBUTE.responsible_party:DO"/>
+			<clause_87 value="CLASS.EPMTask:ATTRIBUTE.parent_task:DO"/>
+			<clause_88 value="CLASS.EPMTask:ATTRIBUTE.recipients:DO"/>
+			<clause_89 value="CLASS.EPMTask:ATTRIBUTE.task_name:DO"/>
+			<clause_90 value="CLASS.EPMTask:ATTRIBUTE.task_result:DO"/>
+			<clause_91 value="CLASS.EPMTask:ATTRIBUTE.viewed_by:DO"/>
+			<clause_92 value="CLASS.EPMTask:ATTRIBUTE.task_duration:DO"/>
+			<clause_93 value="CLASS.EPMTask:ATTRIBUTE.priority:DO"/>
+			<clause_94 value="CLASS.EPMTask:ATTRIBUTE.task_state:DO"/>
+			<clause_95 value="CLASS.EPMTask:ATTRIBUTE.real_state:DO"/>
+			<clause_96 value="CLASS.EPMTask:ATTRIBUTE.task_type:DO"/>
+			<clause_97 value="CLASS.EPMTask:ATTRIBUTE.fnd0AliasTaskName:DO"/>
+			<clause_98 value="CLASS.EPMTask:ATTRIBUTE.fnd0Assigner:DO"/>
+			<clause_99 value="CLASS.EPMTask:ATTRIBUTE.fnd0Performer:DO"/>
+			<clause_100 value="CLASS.EPMTask:ATTRIBUTE.last_mod_user:DO"/>
+			<clause_101 value="CLASS.EPMTask:ATTRIBUTE.object_name:DO"/>
+			<clause_102 value="CLASS.EPMTask:ATTRIBUTE.object_desc:DO"/>
+			<clause_103 value="CLASS.EPMTask:ATTRIBUTE.creation_date:DO"/>
+			<clause_104 value="CLASS.ResourcePool:ATTRIBUTE.all_members:DO"/>
+			<clause_105 value="CLASS.ResourcePool:ATTRIBUTE.group:DO"/>
+			<clause_106 value="CLASS.ResourcePool:ATTRIBUTE.role:DO"/>
+			<clause_107 value="CLASS.Signoff:ATTRIBUTE.group_member:DO"/>
+			<clause_108 value="CLASS.Signoff:ATTRIBUTE.comments:DO"/>
+			<clause_109 value="CLASS.Signoff:ATTRIBUTE.decision:DO"/>
+			<clause_110 value="CLASS.Signoff:ATTRIBUTE.signoff_member:DO"/>
+			<clause_111 value="CLASS.Signoff:ATTRIBUTE.fnd0Performer:DO"/>
+			<clause_112 value="CLASS.Participant:ATTRIBUTE.assignee:DO"/>
+			<clause_113 value="TYPE.Dataset:PROPERTY.object_name:DO"/>
+			<clause_114 value="TYPE.Dataset:PROPERTY.object_string:DO"/>
+			<clause_115 value="TYPE.Dataset:PROPERTY.release_status_list:DO"/>
+			<clause_116 value="TYPE.Dataset:PROPERTY.date_released:DO"/>
+			<clause_117 value="TYPE.Dataset:PROPERTY.owning_user:DO"/>
+			<clause_118 value="TYPE.Dataset:PROPERTY.object_type:DO"/>
+		</Clauses>
+	</PropertySet>
+	<Stylesheets>
+		<Stylesheet>
+			<StylesheetType value="CrfHtmlStylesheet"/>
+			<StylesheetName value="GET_ECR_Details_html.xsl"/>
+		</Stylesheet>
+	</Stylesheets>
+	<NoOfParameters value="1"/>
+	<Params>
+		<param_0 value="FORMAT"/>
+	</Params>
+	<Values>
+		<param_0 value="PLMXML"/>
+	</Values>
+</ReportDefinition>

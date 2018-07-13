@@ -1,0 +1,16 @@
+<project name="common_logging">
+	<!-- Use ant-contrib tasks - Comment -->
+	<taskdef resource="net/sf/antcontrib/antlib.xml"/>
+	
+	<!-- Create log file for ant targets with additional info. Depend on this target to enable logging -->
+	<target name="antlog" description="Provides logging for build targets">
+		<tstamp>
+			<format property="timestamp" pattern="yyyy-MM-dd_HH-mm-ss"/>
+		</tstamp>
+		<property name="ant.log.dir" location="${basedir}/antlogs"/>
+	    <mkdir dir="${ant.log.dir}"/>
+	    <property name="ant.log.filename" value="antbuild_${timestamp}.log"/>
+	    <record name="${ant.log.dir}/${ant.log.filename}" loglevel="verbose" append="false"/>
+        <echo message="Ant Build logged to ${ant.log.filename}"/>
+	</target>
+</project>

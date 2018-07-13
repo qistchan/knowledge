@@ -1,0 +1,117 @@
+<project name="itk_util">
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+    <classpath> 
+		<pathelement location="${ANT_HOME}/lib/ant-contrib-0.6.jar" />
+    </classpath> 
+    </taskdef>
+    <!-- Define properties -->
+    <property environment="env"/>
+	<property name="src.dir" location="${basedir}/../.."/>
+	<property name="deploy_bin.dir" location="${src.dir}/get_utils_bin/itk_utils"/>
+    
+    <property name="link.type" value="executable"/>
+	<property name="link.dir" value="./bin"/>
+	<property name="obj.dir" value="./obj"/>
+	
+	<property name="get_tc_common.lib.dir" value="../../get_custom_exits/lib"/>
+	<path id="include.get_tc_common.path">
+	        <pathelement path="../."/>
+	</path>
+	
+	<fileset id="source" dir=".">
+		<include name="*.c"/>
+		<include name="*.cpp"/>
+		<include name="*.cxx"/>
+	</fileset>
+	
+	<!-- Import common targets -->
+    <import file="./common.xml"/>
+	
+	<condition property="link.prefix" value="lib">
+	        <equals arg1="${ge.win}" arg2="true"/>
+	</condition>
+	<condition property="link.prefix" value="">
+		<equals arg1="${ge.linux}" arg2="true"/>
+	</condition>
+	
+	<if>
+		<equals arg1="${ge.win}" arg2="true"/>
+		<then>
+			<property name="platform.dir" value="get_win32"/>
+			<property name="obj.set" value="*.obj"/>
+			<property name="obj.ext" value=".obj"/>
+			<property name="exe.ext" value="exe"/>
+		</then>
+		<else>
+			<property name="platform.dir" value="get_unx"/>
+			<property name="obj.set" value="*.o"/>
+			<property name="obj.ext" value=".o"/>
+			<property name="exe.ext" value=""/>
+		</else>
+	</if>
+	
+	<fileset id="targetcheckfs" dir="${basedir}" casesensitive="yes">
+		<include name="**/${obj.set}"/>
+		<exclude name="**/.target*"/>
+	</fileset>
+    
+	<target name="init" description="initialize">
+		<tstamp/>
+	</target>
+	
+	<target name="logging" description="Provides logging for build targets">
+		<tstamp>
+			<format property="timestamp" pattern="yyyy-MM-dd_HH-mm-ss"/>
+		</tstamp>
+		
+		<property name="build.log.dir" location="${basedir}/buildlogs"/>
+		<mkdir dir="${build.log.dir}"/>
+		<property name="build.log.filename" value="build_${timestamp}.log"/>
+		<record name="${build.log.dir}/${build.log.filename}" loglevel="verbose"
+			append="false"/>
+		<echo message="Build logged to ${build.log.filename}"/>
+	</target>
+	
+	<target name="linkDeploy" depends="deploy_loop">
+        <deploy_loop filesetref="targetcheckfs" info="Link each obj file for creating exe" src.dir="${src.dir}/obj" file.ext="${obj.ext}"/>
+    </target>
+
+   <!-- 64 bit build -->
+    <target name="build64" description="64 bit build">
+    	<subant target="compile64">
+    	  <filelist dir="." files="build.xml"/>
+    	</subant>
+		<subant target="linkDeploy">
+    	    <filelist dir="." files="build.xml"/>
+    	</subant>
+    </target>
+	
+	   <!-- 64 bit build -->
+	<target name="deploy" depends="build64" description="Deploy">
+	<mkdir dir="${deploy_bin.dir}"/>
+		<sequential>
+		<echo message="Deploy Test Executables" />
+		<copy todir="${deploy_bin.dir}" verbose="true" failonerror="false">
+		  <fileset dir="${link.dir}">
+		  	<exclude name="*.dll" />
+		  	<exclude name="*.so" />
+			<exclude name="*.lib" />
+			<exclude name="*.xml" />
+			<exclude name="*.exp" />
+		  	<exclude name="*.target" />
+			<include name="*" />
+		  </fileset>
+		</copy>
+		</sequential><mkdir dir="${env.GET_UTILS_ROOT}/itk_util"/>
+		<copy todir="${env.GET_UTILS_ROOT}/itk_util" verbose="true" failonerror="false">  
+			<fileset dir="${link.dir}">
+				<exclude name="*.dll" />
+				<exclude name="*.so" />
+				<exclude name="*.lib" />
+				<exclude name="*.xml" />
+				<exclude name="*.exp" />
+				<include name="*" />
+			</fileset>			  
+		</copy>
+		<chmod file="${env.GET_UTILS_ROOT}/*" perm="755"/></target>
+</project>

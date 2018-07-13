@@ -1,0 +1,1856 @@
+<?xml version="1.0" ?>
+
+<!DOCTYPE Translators[
+<!ENTITY  MODULEBASE "E:/app/tc11/dsroot/Module">
+<!ENTITY  JAVABIN "E:\app\Java7\jdk1.7.0_55\jre\bin">
+<!ENTITY  IDEAS "C:/UGS/IDEAS12">
+<!ENTITY  ORBIX "C:/ORBIX/Iona/asp/6.1/lib/">
+<!ENTITY  PROJTRANS "d:/ProjTrans">
+<!ENTITY  PT_JFV "_10000.1.0">
+<!ENTITY  UGSPKG "com.teamcenter.translator.ugs.">
+<!ENTITY  WRAPPER "com.teamcenter.tstk.server.translator.ugs.">
+<!ENTITY  EAIWRAPPER "&WRAPPER;EaiTranslator">
+]>
+
+<Translators>
+  <!-- Configuration of the asyncservice -->
+  <AsyncService provider="SIEMENS" service="asyncservice" isactive="false">
+    <TransExecutable name="asyncservice.bat" dir="&MODULEBASE;/Translators/asyncservice"/>
+    <Options>
+      <Option name="inputpath" string=""
+              description="Full path to the input file or directory ."/>
+      <Option name="outputdir" string=""
+              description="Full path to the output file."/>
+      <Option name="OutputFileName" string="" value="output.txt"
+              description="Name of the output file."/>
+    </Options>
+    <TransErrorStrings>
+      <TransInputStream string="AsyncInvoker Report"/>
+      <TransErrorStream string="AsyncInvoker Report"/>
+    </TransErrorStrings>
+  </AsyncService>
+
+  <!-- Configuration of the Catia V4 to JT translator developed by THEOREM -->
+  <Catiav4ToJt provider="SIEMENS" service="catiav4tojt" isactive="false"
+               wrapperclass="&EAIWRAPPER;">
+    <TransExecutable dir="&MODULEBASE;/Translators/catiatojt/v4/Theorem" name="catiav4tojt.bat" />
+    <Options>
+      <Option name="inputdir" string="-input_dir"
+              description="Full path to the input directory."/>
+      <Option name="outputdir" string="-output_dir"
+              description="Full path to the output directory."/>
+    </Options>
+    <FileExtensions>
+      <InputExtensions nitem="1">
+        <InputExtension extension=".model"/>
+      </InputExtensions>
+      <OutputExtensions nitem="1">
+        <OutputExtension extension=".jt"/>
+      </OutputExtensions>
+    </FileExtensions>
+    <!-- Postprocess provider="SIEMENS" service="previewservice"/ -->
+  </Catiav4ToJt>
+
+  <!-- Configuration of the Catia V5 to JT translator developed by SIEMENS -->
+  <Catiav5ToJt provider="SIEMENS" service="catiav5tojt" isactive="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/catiatojt/v5/UGS" name="catiav5tojt.bat" />
+    <Options>
+      <Option name="inputdir" string="-dir"
+              description="Full path to the input directory."/>
+      <Option name="outputdir" string="-outputDirectory"
+              description="Full path to the output directory."/>
+    </Options>
+    <FileExtensions>
+      <InputExtensions nitem="3">
+        <InputExtension extension=".CATPart"/>
+        <InputExtension extension=".CATProduct"/>
+        <InputExtension extension=".CATDrawing"/>
+      </InputExtensions>
+      <OutputExtensions nitem="2">
+        <OutputExtension extension=".jt"/>
+        <OutputExtension extension=".cgm"/>
+      </OutputExtensions>
+    </FileExtensions>
+    <!-- Postprocess provider="SIEMENS" service="previewservice"/ -->
+  </Catiav5ToJt>
+
+  <!-- Configuration of the JT to BBox and TSO translator developed by UGS -->
+  <JtToBBoxAndTso provider="SIEMENS" service="jttobboxandtso" isactive="false" OutputNeeded="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/jttobboxandtso" name="jttobboxandtso.bat" />
+    <Options>
+      <Option name="mode" string="-mode="
+              value="process" description="Utility will always run in process mode"/>
+      <Option name="clientoption" optionkey="TRANSLATION_MODE" string="-translation_mode="
+              value="JTTOBBOX+JTTOTSO"
+              description="Translator mode options."/>
+      <Option name="inputpath" string="-dataset_list="
+              description="Full path to the input file."/>
+    </Options>
+    <TransErrorStrings>
+           <TransInputStream string="User is not privileged to run this utility."/>
+    </TransErrorStrings>
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="0 errors"/>
+    </TransErrorExclStrings>
+    <FileExtensions>
+      <InputExtensions nitem="1">
+        <InputExtension extension=".txt"/>
+      </InputExtensions>
+    </FileExtensions>
+  </JtToBBoxAndTso>
+
+  <!-- Configuration of the JT to Catia V5 translator developed by SIEMENS -->
+  <JtToCatiaV5 provider="SIEMENS" service="jttocatiav5" isactive="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/jttocatia/v5" name="jttocatiav5.bat" />
+    <Options>
+      <Option name="inputdir" string="-i"
+              description="Full path to the input directory."/>
+      <Option name="outputdir" string="-o"
+              description="Full path to the output directory."/>
+    </Options>
+    <FileExtensions>
+      <InputExtensions nitem="1">
+        <InputExtension extension=".jt"/>
+      </InputExtensions>
+      <OutputExtensions nitem="2">
+        <OutputExtension extension=".CATPart"/>
+        <OutputExtension extension=".CATProduct"/>
+      </OutputExtensions>
+    </FileExtensions>
+  </JtToCatiaV5>
+
+  <!-- Configuration of the Pro Engineer to JT translator -->
+  <ProEToJt provider="SIEMENS" service="proetojt" isactive="false"
+            wrapperclass="&EAIWRAPPER;">
+    <!-- Start the NameService daemon -->
+    <Daemon exec="C:/UGS/Proe/i486_nt/nms/nmsd.exe" args="-noservice"/>
+    <SysExecutable name="&JAVABIN;\java"/>
+    <Options>
+      <Option name="classpath" string="-cp" system="java.class.path"
+              description="Classpath to the java virtual machine." />
+      <Option name="classname" string=""
+              value="&UGSPKG;proetojt.ProeToJtLauncher"
+                   description="ProE-To-Jt Generation class."/>
+      <Option name="cadlaunchscript" string=""
+              value="D:/UGS/ProE_Translator/proetojt.bat"
+              description="Path to ProE translator bat file."/>
+      <Option name="structureOption" string=""
+              value="MONOLITHIC"
+              description="Structure option in the TessProE.config file."/>
+      <Option name="inputpath" string=""
+              description="Full path to the input file."/>
+      <Option name="outputdir" string=""
+              description="Full path to the output directory."/>
+      <Option name="configfile" string=""  value="D:/UGS/ProE_Translator/etc/tessPRO.config"
+              description="tessPRO.config file path."/>
+      <Option name="clientoption" optionkey="INST_NAME" string="" value="GENERIC"
+              description="Translator client options."/>
+    </Options>
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="ERROR: couldn't start the Name Server using port"/>
+    </TransErrorExclStrings>
+    <FileExtensions>
+      <OutputExtensions nitem="1">
+        <OutputExtension extension=".jt"/>
+      </OutputExtensions>
+    </FileExtensions>
+    <!--Postprocess provider="SIEMENS" service="previewservice"/-->
+  </ProEToJt>
+
+  <!-- Configuration of the Simulation Process - batchmesh -->
+  <BatchMesher provider="SIEMENS" service="batchmesh" isactive="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/batchmesh" name="tc_batch_mesh_ets_pl.bat"/>
+    <Options>
+      <Option name="inputpath" string=""
+              description="Full path to the input file."/>
+      <Option name="outputdir" string=""
+          description="Full path to the output directory."/>
+    </Options>
+    <FileExtensions>
+      <InputExtensions nitem="1">
+        <InputExtension extension=".xml"/>
+      </InputExtensions>
+    </FileExtensions>
+  </BatchMesher>
+
+  <!-- Configuration of the Simulation Process - simprocess -->
+  <SimProcess provider="SIEMENS" service="simprocess" isactive="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/simprocess" name="tc_launch_sim_process_ts_pl.bat"/>
+    <Options>
+      <Option name="inputpath" string=""
+              description="Full path to the input file."/>
+      <Option name="outputdir" string=""
+          description="Full path to the output directory."/>
+    </Options>
+    <FileExtensions>
+      <InputExtensions nitem="1">
+        <InputExtension extension=".xml"/>
+      </InputExtensions>
+    </FileExtensions>
+  </SimProcess>
+
+  <!-- Configuration of the Simulation Process - nxnastran -->
+  <NxNastran provider="SIEMENS" service="nxnastran" isactive="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/simprocess" name="tc_launch_sim_process_ts_pl.bat"/>
+    <Options>
+      <Option name="inputpath" string=""
+              description="Full path to the input file."/>
+      <Option name="outputdir" string=""
+          description="Full path to the output directory."/>
+    </Options>
+    <FileExtensions>
+      <InputExtensions nitem="1">
+        <InputExtension extension=".xml"/>
+      </InputExtensions>
+    </FileExtensions>
+  </NxNastran>
+
+  <!-- Configuration of the Solid Works to JT translator -->
+  <SolidWorksToJt provider="SIEMENS" service="swtojt" isactive="false"
+                  wrapperclass="&EAIWRAPPER;">
+    <TransExecutable dir="C:/progra~1/EAI/Translators/SolidWorks" name="Swtojt.exe"/>
+    <Options>
+      <Option name="configfile" string="-z" value="D:/apps/Translators/SWtoJt/SwtoJt.config"
+              description="Path to the config file"/>
+      <Option name="outputdir" string="-o"
+              description="Full path to the output directory."/>
+      <Option name="inputpath" string=""
+              description="Full path to the input file."/>
+    </Options>
+    <FileExtensions>
+      <InputExtensions nitem="2">
+        <InputExtension extension=".SLDASM"/>
+        <InputExtension extension=".SLDPRT"/>
+      </InputExtensions>
+      <OutputExtensions nitem="1">
+        <OutputExtension extension=".jt"/>
+      </OutputExtensions>
+    </FileExtensions>
+    <Postprocess provider="SIEMENS" service="previewservice"/>
+  </SolidWorksToJt>
+
+  <!-- Configuration of the Solid Edge to JT translator -->
+  <SolidEdgeToJt provider="SIEMENS" service="setojt" isactive="false">
+    <TransExecutable name="setranslations.bat" dir="&MODULEBASE;/Translators/setranslations"/>
+    <Options>
+      <Option name="inputpath" string="-i" description="Full path to the input file." />
+      <Option name="vis" string="-v" value="false" description="visualization"/>
+      <Option name="clientoption" optionkey="TARGET" string="-t" value="" description="target extension"/>
+      <Option name="outputdir" string="-o" description="Full path to the output directory."/>
+      <Option name="clientoption" optionkey="TARGET_FILE" string="" value="" description="Target file name"/>
+    </Options>
+    <FileExtensions>
+      <InputExtensions nitem="5">
+        <InputExtension extension=".par"/>
+        <InputExtension extension=".asm"/>
+        <InputExtension extension=".psm"/>
+        <InputExtension extension=".pwd"/>
+        <InputExtension extension=".dft"/>
+      </InputExtensions>
+      <OutputExtensions nitem="15">
+        <OutputExtension extension=".jpg"/>
+        <OutputExtension extension=".jt"/>
+        <OutputExtension extension=".dwg"/>
+        <OutputExtension extension=".dxf"/>
+        <OutputExtension extension=".X_T"/>
+        <OutputExtension extension=".stp"/>
+        <OutputExtension extension=".igs"/>
+        <OutputExtension extension=".stl"/>
+        <OutputExtension extension=".emf"/>
+        <OutputExtension extension=".xgl"/>
+        <OutputExtension extension=".sat"/>
+        <OutputExtension extension=".plmxml"/>
+        <OutputExtension extension=".tif"/>
+        <OutputExtension extension=".bmp"/>
+        <OutputExtension extension=".pdf"/>
+      </OutputExtensions>
+    </FileExtensions>
+  </SolidEdgeToJt>
+
+  <!-- Configuration for queryscos translator -->
+  <QueryScos provider="SIEMENS" service="queryscos" isactive="false">
+     <TransExecutable name="queryscos.bat" dir="&MODULEBASE;/Translators/queryscos"/>
+     <Options>
+      <Option name="inputpath" string=""
+              description="Full path to the input file which will contain user input for complete dispatcher service."/>
+      <Option name="outputdir" string=""
+         description="Full path to the output directory."/>
+      <Option name="outputfile" string="queryscos_results.txt"
+         description="Name of the output file containing results."/>
+     </Options>
+     <TransErrorStrings>
+      <TransInputStream string="ERROR"/>
+      <TransInputStream string="error"/>
+      <TransErrorStream string="ERROR"/>
+      <TransErrorStream string="error"/>
+     </TransErrorStrings>
+     <TransErrorExclStrings>
+      <TransErrorStreamExcl string="0 errors"/>
+     </TransErrorExclStrings>
+      <FileExtensions>
+      <OutputExtensions nitem="1">
+        <OutputExtension extension=".txt"/>
+      </OutputExtensions>
+     </FileExtensions>
+  </QueryScos>
+
+  <!-- Configuration for RdvContextDBDownload translator -->
+  <RdvContextDBDownload provider="SIEMENS" service="rdvcontextdbdownload" isactive="false">
+    <TransExecutable name="rdvcontextdbdownload.bat" dir="&MODULEBASE;/Translators/rdvcontextdbdownload"/>
+     <Options>
+      <Option name="inputpath" string=""
+              description="Full path to the input file which will contain user input for complete dispatcher service."/>
+      <Option name="outputdir" string=""
+         description="Full path to the output directory."/>
+      <Option name="outputfile" string="sco_results"
+              description="Name of the output file containing results."/>
+    </Options>
+    <TransErrorStrings>
+      <TransInputStream string="ERROR"/>
+      <TransInputStream string="error"/>
+      <TransErrorStream string="ERROR"/>
+      <TransErrorStream string="error"/>
+     </TransErrorStrings>
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="0 errors"/>
+    </TransErrorExclStrings>
+     <FileExtensions>
+      <OutputExtensions nitem="1">
+        <OutputExtension extension=".plmxml"/>
+      </OutputExtensions>
+    </FileExtensions>
+  </RdvContextDBDownload>
+
+  <!-- Configuration for RdvContextDBDownload translator -->
+  <RdvContextNONDBDownload provider="SIEMENS" service="rdvcontextnondbdownload" isactive="false">
+    <TransExecutable name="rdvcontextnondbdownload.bat" dir="&MODULEBASE;/Translators/rdvcontextnondbdownload"/>
+    <Options>
+     <Option name="inputpath" string=""
+              description="Full path to the input file which will contain user input for complete dispatcher service."/>
+     <Option name="outputdir" string=""
+         description="Full path to the output directory."/>
+     <Option name="outputfile" string="sco_results"
+        description="Name of the output file containing results."/>
+    </Options>
+    <TransErrorStrings>
+      <TransInputStream string="ERROR"/>
+      <TransInputStream string="error"/>
+      <TransErrorStream string="ERROR"/>
+      <TransErrorStream string="error"/>
+    </TransErrorStrings>
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="0 errors"/>
+    </TransErrorExclStrings>
+     <FileExtensions>
+      <OutputExtensions nitem="1">
+        <OutputExtension extension=".plmxml"/>
+      </OutputExtensions>
+    </FileExtensions>
+   <!--Invoke populatefsc Translator after generation of PLMXML file"-->
+   <Postprocess provider="SIEMENS" service="populatefsc"/>
+  </RdvContextNONDBDownload>
+
+  <!-- Configuration of the NX to PV Direct translator -->
+  <NxToPvDirect provider="SIEMENS" service="nxtopvdirect" isactive="true" OutputNeeded="false"
+       wrapperclass="&WRAPPER;ugtopvdirect.UgToPvDirect">
+     <TransExecutable name="nxtopvdirect.bat" dir="&MODULEBASE;/Translators/nxtopvdirect"/>
+     <Options>
+       <!-- Option name="" string="" value="-single_part"/ -->
+       <Option name="ConfigMapFile" string="-configmap"
+               value="&MODULEBASE;/Translators/nxtopvdirect/ConfigMap.properties"
+               description="Property file which has the Map between Client passed in
+                            Criteria and the location of config file to be used"/>
+       <Option name="inputpath" string=""
+               description="Full path to the input file."/>
+       <Option name="clientoption" optionkey="changeOwnerToCad" string="-changeOwnerToCad="
+                                              value="true"
+              description="Specifies whether to change the translated data to the same owner as source."/>
+     </Options>
+     <TransErrorStrings>
+       <TransInputStream string="Cannot"/>
+       <TransInputStream string="Error"/>
+       <TransInputStream string="exception"/>
+       <TransInputStream string="ERROR"/>
+       <TransErrorStream string="Errored"/>
+       <TransErrorStream string="failed"/>
+     </TransErrorStrings>
+     <Postprocess provider="SIEMENS" service="copyugrelstatus"/>
+   </NxToPvDirect>
+
+   <NxTransDirect provider="SIEMENS" service="nxtransdirect" isactive="false" OutputNeeded="false">
+      <TransExecutable name="nxtransdirect.bat" dir="&MODULEBASE;/Translators/nxtransdirect"/>
+      <Options>
+        <Option name="inputpath" string="-inputFile="
+                    description="Full path to the input file."/>
+        <Option name="clientoption" optionkey="user" string="-u="
+                               value=""
+                               description="Specifies username for NX Translator login to Teamcenter."/>
+        <Option name="clientoption" optionkey="password" string="-p="
+               value=""
+               description="Specifies password for NX Translator login to Teamcenter."/>
+        <Option name="clientoption" optionkey="group" string="-g="
+               value=""
+               description="Specifies group for NX Translator login to Teamcenter."/>
+        <Option name="clientoption" optionkey="encrypted_password" string="-encrypt="
+               value="true"
+               description="Specifies whether or not password is encrypted for NX Translator login to Teamcenter."/>
+        <Option name="clientoption" optionkey="use_module_user" string="-autologin="
+               value="true"
+               description="Specifies whether  to auto login as module user."/>
+        <Option name="clientoption" optionkey="storeInSourceVolume" string="-storeInSourceVolume="
+                               value="false"
+               description="Specifies whether to store the translated data in the same volume as source."/>
+        <Option name="clientoption" optionkey="updateExistingVisData" string="-updateExistingVisData="
+                                       value="false"
+               description="Specifies whether to update existing translated data."/>
+        <Option name="clientoption" optionkey="changeOwnerToCad" string="-changeOwnerToCad="
+                                               value="false"
+               description="Specifies whether to change the translated data to the same owner as source."/>
+      </Options>
+      <TransErrorStrings>
+        <TransInputStream string="Cannot"/>
+        <TransInputStream string="Error"/>
+        <TransInputStream string="exception"/>
+        <TransInputStream string="ERROR"/>
+        <TransErrorStream string="Errored"/>
+        <TransErrorStream string="failed"/>
+      </TransErrorStrings>
+
+   </NxTransDirect>
+
+   <!-- Configuration of the Copy Ug Release Status service -->
+   <CopyUgRelStatus provider="SIEMENS" service="copyugrelstatus" isactive="true" OutputNeeded="false"
+       wrapperclass="&WRAPPER;copyugrelstatus.CopyUgRelStatus">
+     <TransExecutable name="nxtopvdirect.bat" dir="&MODULEBASE;/Translators/nxtopvdirect"/>
+     <Options>
+        <Option name="" string="" value="copyugrelstatus"
+               description=""/>
+       <Option name="inputpath" string="-i" value="copy_ug_rel_status.txt"
+               description="Full path to the input file."/>
+     </Options>
+     <TransErrorStrings>
+       <TransInputStream string="Error"/>
+       <TransInputStream string="ERROR"/>
+       <TransErrorStream string="Errored"/>
+       <TransErrorStream string="failed"/>
+     </TransErrorStrings>
+  </CopyUgRelStatus>
+
+  <!-- Configuration of the UG Nx to PV translator -->
+  <NxToPv provider="SIEMENS" service="nxtopv" isactive="false">
+    <TransExecutable name="nxtopv.bat" dir="&MODULEBASE;/Translators/nxtopv"/>
+    <Options>
+      <Option name="inputpath" string=""
+              description="Full path to the input file."/>
+      <Option name="StructOption" string="-honour_structure" value=""
+              description=""/>
+      <Option name="Output_dir" string="-force_output_dir" value=""
+              description=""/>
+      <Option name="outputdir" string=""
+              description="Full path to the output directory."/>
+      <Option name="BOM_Indicator" string="-bom" value=""
+              description=""/>
+      <Option name="BOM_FileName" string="nxtopv.bom" value=""
+              description=""/>
+    </Options>
+    <FileExtensions>
+      <OutputExtensions nitem="1">
+        <OutputExtension extension=".jt"/>
+      </OutputExtensions>
+    </FileExtensions>
+    <Postprocess provider="SIEMENS" service="previewservice"/>
+  </NxToPv>
+
+  <!-- Configuration of the Visprint translator -->
+  <Visprint provider="SIEMENS" service="visprint" isactive="false" OutputNeeded="false">
+    <TransExecutable name="visprint.bat" dir="&MODULEBASE;/Translators/visprint"/>
+    <Options>
+      <Option name="inputpath" string="" description="Full path to the input file."/>
+      <Option name="clientoption" optionkey="PRINTER_NAME" string="" value="" description="Name of the Printer"/>
+      <Option name="clientoption" optionkey="STAMP" string="" value="" description="Watermerk to be printed"/>
+    </Options>
+    <FileExtensions>
+      <InputExtensions nitem="10">
+        <!-- List of file extensions -->
+        <InputExtension extension=".doc"/>
+        <InputExtension extension=".xls"/>
+        <InputExtension extension=".ppt"/>
+        <InputExtension extension=".docx"/>
+        <InputExtension extension=".xlsx"/>
+        <InputExtension extension=".pptx"/>
+        <InputExtension extension=".dft"/>
+        <InputExtension extension=".prt"/>
+        <InputExtension extension=".dwg"/>
+        <InputExtension extension=".pdf"/>
+      </InputExtensions>
+    </FileExtensions>
+  </Visprint>
+
+  <!-- Configuration of the NX to Cgm Direct translator -->
+  <NxToCgmDirect provider="SIEMENS" service="nxtocgmdirect" isactive="false" OutputNeeded="false"
+       wrapperclass="&WRAPPER;ugtocgmdirect.UgToCgmDirect">
+    <TransExecutable name="nxtocgmdirect.bat" dir="&MODULEBASE;/Translators/nxtocgmdirect"/>
+    <Options>
+      <Option name="inputpath" string="-i"
+              description="Full path to the input file."/>
+     </Options>
+    <TransErrorStrings>
+      <TransInputStream string="Cannot"/>
+      <TransInputStream string="ERROR"/>
+      <TransInputStream string="exception"/>
+      <TransInputStream string="ERRORS"/>
+      <TransErrorStream string="Errored"/>
+      <TransErrorStream string="failed"/>
+    </TransErrorStrings>
+  </NxToCgmDirect>
+
+  <!-- Configuration for NX refile module -->
+  <NxRefile provider="SIEMENS" service="nxrefile" isactive="false" OutputNeeded="false">
+    <TransExecutable name="nxrefile.bat" dir="&MODULEBASE;/Translators/nxrefile"/>
+    <Options>
+      <Option name="inputpath" string=""
+              description="Full path to the input file."/>
+      <Option name="outputdir" string=""
+              description="Full path to the output directory."/>
+      <Option name="modulePath" string=""
+               value="&MODULEBASE;/Translators/nxrefile"
+               description="Dir where refile command is located"/>
+      <Option name="clientoption" optionkey="commandName" string=""
+               value="refilenx"
+               description="Refile command to launch. Do not include extension (.bat/.sh)"/>
+      <Option name="clientoption" optionkey="commandArgs" string=""
+               description="arguments for refile command"/>
+    </Options>
+    <FileExtensions>
+      <InputExtensions nitem="2">
+        <InputExtension extension=".bat"/>
+        <InputExtension extension=".txt"/>
+      </InputExtensions>
+      <OutputExtensions nitem="2">
+        <OutputExtension extension=".log"/>
+        <OutputExtension extension=".syslog"/>
+      </OutputExtensions>
+    </FileExtensions>
+  </NxRefile>
+
+  <!-- Configuration for NX Clone module -->
+  <NxClone provider="SIEMENS" service="nxclone" isactive="false" OutputNeeded="false">
+    <TransExecutable name="nxclone.bat" dir="&MODULEBASE;/Translators/nxclone"/>
+    <Options>
+      <Option name="modulePath" string=""
+               value="&MODULEBASE;/Translators/nxclone"
+               description="Dir where clone command is located"/>
+      <Option name="inputpath" string=""
+              description="Full path to the input file."/>
+      <Option name="outputdir" string=""
+              description="Full path to the output directory."/>
+      <Option name="clientoption" optionkey="single_part" string=""
+               value="no"
+               description="Whether to use -part or -assembly option"/>
+      <Option name="clientoption" optionkey="user" string="-user="
+               value=""
+               description="Specifies username for NX Clone login to Teamcenter."/>
+      <Option name="clientoption" optionkey="password" string="-password="
+               value=""
+               description="Specifies password for NX Clone login to Teamcenter."/>
+      <Option name="clientoption" optionkey="group" string="-group="
+               value=""
+               description="Specifies group for NX Clone login to Teamcenter."/>
+      <Option name="clientoption" optionkey="encrypted_password" string="-encrypt="
+               value="true"
+               description="Specifies whether or not password is encrypted for NX Clone login to Teamcenter."/>
+      <Option name="clientoption" optionkey="operation" string="-operation="
+               value="export"
+               description="Default is export. Other modes are not currently supported"/>
+      <Option name="clientoption" optionkey="default_naming" string="-default_naming="
+               value="autotranslate"
+               description="Default naming"/>
+      <Option name="clientoption" optionkey="default_checkout" string="-default_checkout="
+               value="no"
+               description="Checkout parts"/>
+      <Option name="clientoption" optionkey="copy_associated_files" string="-copy_associated_files="
+               value="no"
+               description="Copy Teamcenter Associated files"/>
+      <Option name="clientoption" optionkey="copy_n_s" string="-copy_n="
+               value="specification:yes"
+               description="Copy non-master datasets of ItemRevision"/>
+      <Option name="clientoption" optionkey="copy_n_m" string="-copy_n="
+               value="manifestation:yes"
+               description="Copy non-master datasets in ItemRevision"/>
+      <Option name="clientoption" optionkey="copy_n_a" string="-copy_n="
+               value="altrep:yes"
+               description="Copy non-master datasets in ItemRevision"/>
+      <Option name="clientoption" optionkey="copy_n_c" string="-copy_n="
+               value="scenario:yes"
+               description="Copy non-master datasets in ItemRevision"/>
+      <Option name="clientoption" optionkey="copy_n_e" string="-copy_n="
+               value="simulation:yes"
+               description="Copy non-master datasets in ItemRevision"/>
+      <Option name="clientoption" optionkey="copy_n_l" string="-copy_n="
+               value="motion:yes"
+               description="Copy non-master datasets in ItemRevision"/>
+      <Option name="clientoption" optionkey="copy_n_r" string="-copy_n="
+               value="cae_solution:yes"
+               description="Copy non-master datasets in ItemRevision"/>
+      <Option name="clientoption" optionkey="copy_n_n" string="-copy_n="
+               value="cae_mesh:yes"
+               description="Copy non-master datasets in ItemRevision"/>
+      <Option name="clientoption" optionkey="copy_n_g" string="-copy_n="
+               value="cae_geometry:yes"
+               description="Copy non-master datasets in ItemRevision"/>
+    </Options>
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="0 errors"/>
+    </TransErrorExclStrings>
+  </NxClone>
+
+  <!-- Configuration for get6NXPDF module -->
+  <get6NXPDF provider="GE" service="get6NXPDF" isactive="true" OutputNeeded="false">
+    <TransExecutable name="get6NXPDF.bat" dir="&MODULEBASE;/Translators/get6NXPDF"/>
+    <Options>
+      <Option name="modulePath" string=""
+               value="&MODULEBASE;/Translators/get6NXPDF"
+               description="Dir where clone command is located"/>
+      <Option name="inputpath" string=""
+              description="Full path to the input file."/>
+      <Option name="outputdir" string=""
+              description="Full path to the output directory."/>
+      <Option name="clientoption" optionkey="single_part" string=""
+               value="no"
+               description="Whether to use -part or -assembly option"/>
+      <Option name="clientoption" optionkey="operation" string="-operation="
+               value="export"
+               description="Default is export. Other modes are not currently supported"/>
+      <Option name="clientoption" optionkey="default_naming" string="-default_naming="
+               value="autotranslate"
+               description="Default naming"/>
+      <Option name="clientoption" optionkey="default_checkout" string="-default_checkout="
+               value="no"
+               description="Checkout parts"/>
+      <Option name="clientoption" optionkey="copy_associated_files" string="-copy_associated_files="
+               value="no"
+               description="Copy Teamcenter Associated files"/>
+      <Option name="clientoption" optionkey="copy_n_s" string="-copy_n="
+               value="specification:yes"
+               description="Copy non-master datasets of ItemRevision"/>
+      <Option name="clientoption" optionkey="copy_n_m" string="-copy_n="
+               value="manifestation:yes"
+               description="Copy non-master datasets in ItemRevision"/>
+      <Option name="clientoption" optionkey="copy_n_a" string="-copy_n="
+               value="altrep:yes"
+               description="Copy non-master datasets in ItemRevision"/>
+      <Option name="clientoption" optionkey="copy_n_c" string="-copy_n="
+               value="scenario:yes"
+               description="Copy non-master datasets in ItemRevision"/>
+      <Option name="clientoption" optionkey="copy_n_e" string="-copy_n="
+               value="simulation:yes"
+               description="Copy non-master datasets in ItemRevision"/>
+      <Option name="clientoption" optionkey="copy_n_l" string="-copy_n="
+               value="motion:yes"
+               description="Copy non-master datasets in ItemRevision"/>
+      <Option name="clientoption" optionkey="copy_n_r" string="-copy_n="
+               value="cae_solution:yes"
+               description="Copy non-master datasets in ItemRevision"/>
+      <Option name="clientoption" optionkey="copy_n_n" string="-copy_n="
+               value="cae_mesh:yes"
+               description="Copy non-master datasets in ItemRevision"/>
+      <Option name="clientoption" optionkey="copy_n_g" string="-copy_n="
+               value="cae_geometry:yes"
+               description="Copy non-master datasets in ItemRevision"/>
+    </Options>
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="0 errors"/>
+    </TransErrorExclStrings>
+  </get6NXPDF>
+  
+  <!-- Configuration for get6UGEXPDF module -->
+  <get6UGEXPDF provider="GE" service="get6UGEXPDF" isactive="true" OutputNeeded="false">
+    <TransExecutable name="get6UGEXPDF.bat" dir="&MODULEBASE;/Translators/get6UGEXPDF"/>
+    <Options>
+      <Option name="modulePath" string=""
+               value="&MODULEBASE;/Translators/get6UGEXPDF"
+               description="Dir where clone command is located"/>
+      <Option name="inputpath" string=""
+              description="Full path to the input file."/>
+      <Option name="outputdir" string=""
+              description="Full path to the output directory."/>
+	</Options>
+    <TransErrorExclStrings>
+    <TransErrorStreamExcl string="0 errors"/>
+    </TransErrorExclStrings>
+  </get6UGEXPDF>
+  
+  
+  <!-- Configuration for FMS Transfer -->
+  <FMSTransfer provider="SIEMENS" service="fmstransfer" isactive="false">
+    <TransExecutable name="fmstransfer.bat" dir="&MODULEBASE;/Translators/fmstransfer"/>
+    <Options>
+      <Option name="inputpath" string="-Dcom.teamcenter.fms.ts.task="
+              description="Full path to the input file."/>
+      <Option name="outputpath" string="-Dcom.teamcenter.fms.ts.output="
+              description="Full path to the output file."/>
+    </Options>
+    <FileExtensions>
+      <InputExtensions nitem="1">
+        <InputExtension extension=".fmst"/>
+      </InputExtensions>
+      <OutputExtensions nitem="1">
+        <OutputExtension extension=".fmstransferred"/>
+      </OutputExtensions>
+    </FileExtensions>
+    <TransErrorStrings>
+      <TransInputStream string="IgnoreErrorStrings"/>
+      <TransErrorStream string="IgnoreErrorStrings"/>
+    </TransErrorStrings>
+  </FMSTransfer>
+
+     <!-- Configuration for Populate FSC -->
+  <PopulateFSC provider="SIEMENS" service="populatefsc" isactive="false">
+    <TransExecutable name="populatefsc.bat" dir="&MODULEBASE;/Translators/populatefsc"/>
+    <Options>
+      <Option name="outputpath" string="-output_file="
+              description="Full path to the output file."/>
+      <Option name="clientoption" optionkey="Username" string="-user="
+                      value="" description="Username of the translation task"/>
+      <Option name="clientoption" optionkey="Group" string="-group="
+                      value="" description="Group of the translation task"/>
+      <Option name="clientoption" optionkey="FSC_TARGETS" string="-targets="
+               value=""
+               description="Target FSC Server URI that has to be loaded"/>
+      <Option name="clientoption" optionkey="SCO_UID" string="-uid="
+               value=""
+          description="UID of the Structured Context Object(SCO)"/>
+      <Option name="clientoption" optionkey="RDV_plmxml_file" string="-RDV_plmxml_file="
+               value=""
+               description="To check if it is RDV generated plmxml or simply Bomwriter PLMXML file"/>
+    </Options>
+  </PopulateFSC>
+
+  <!-- Configuration for Store and Forward -->
+  <StoreAndForward  provider="SIEMENS" service="store_and_forward" isactive="false">
+    <TransExecutable name="store_and_forward.bat" dir="&MODULEBASE;/Translators/store_and_forward"/>
+    <Options>
+      <Option name="clientoption" optionkey="Username" string="-user="
+                      value="" description="Username of the translation task"/>
+      <Option name="clientoption" optionkey="Group" string="-group="
+                      value="" description="Group of the translation task"/>
+     <Option name="clientoption" optionkey="CleanupTicketsFile" string="-cleanup_tickets_file="
+               value=""
+               description="File listing cleanup fms tickets"/>
+    </Options>
+  </StoreAndForward>
+
+  <!-- Configuration of the Pro Engineer to DXF translator -->
+  <ProEToDxf provider="SIEMENS" service="proetodxf" isactive="false"
+       wrapperclass="&WRAPPER;proetodxf.ProEToDxf">
+    <!-- Start the NameService daemon -->
+    <Daemon exec="C:/UGS/Proe/i486_nt/nms/nmsd.exe" args="-noservice"/>
+    <TransExecutable name="ProEWildfireDXFExe.exe" dir="&MODULEBASE;/Translators/proetodxf/"/>
+    <Options>
+      <Option name="inputpath" string="-i"
+              description="Full path to the input file"/>
+      <Option name="outputpath" string="-o"
+              description="Full path to the output file."/>
+    </Options>
+    <FileExtensions>
+      <OutputExtensions nitem="1">
+        <OutputExtension extension=".dxf"/>
+      </OutputExtensions>
+    </FileExtensions>
+    <!--Postprocess provider="SIEMENS" service="previewservice"/-->
+  </ProEToDxf>
+
+  <!-- Configuration of the Teamcenter Project Schedule translator -->
+  <ProjectTrans provider="SIEMENS" service="projecttrans" NoOfTries="5" WaitTimeForReTries="15" isactive="false">
+    <SysExecutable name="&JAVABIN;\java"/>
+    <Options>
+      <Option name="classpath" string="-cp" system="java.class.path" append=";&PROJTRANS;/lib/scheduling_tstk&PT_JFV;.jar;&PROJTRANS;/lib/scheduling_strong_interface&PT_JFV;.jar;&PROJTRANS;/lib/scheduling&PT_JFV;.jar;&PROJTRANS;/lib/TcSoaClient&PT_JFV;.jar;&PROJTRANS;/lib/TcSoaCommon&PT_JFV;.jar;&PROJTRANS;/lib/TcSoaCoreStrong&PT_JFV;.jar;&PROJTRANS;/lib/TcSoaCoreTypes&PT_JFV;.jar;&PROJTRANS;/lib/TcSoaProjectManagementStrong&PT_JFV;.jar;&PROJTRANS;/lib/TcSoaProjectManagementTypes&PT_JFV;.jar;&PROJTRANS;/lib/TcSoaStrongModel&PT_JFV;.jar;&PROJTRANS;/lib/commons-logging.jar;&PROJTRANS;/lib/commons-codec.jar;&PROJTRANS;/lib/commons-httpclient.jar;&PROJTRANS;/lib/xercesImpl.jar;&PROJTRANS;/lib/xerces.jar;&PROJTRANS;/lib/resolver.jar;&PROJTRANS;/lib/xml-apis.jar"
+              description="Classpath to the java virtual machine." />
+      <Option name="classname" string=""
+              value="com.teamcenter.project.tstk.SchedulingTranslator"
+              description="Teamcenter Project Schedule Translator class."/>
+      <Option name="inputpath" string="-i"
+              description="Full path to the input file."/>
+      <Option name="outputdir" string="-d"
+              description="Full path to the output directory."/>
+      <Option name="configfile" string="-conf"
+              value="&PROJTRANS;/conf.properties"
+              description="Full path to config file."/>
+    </Options>
+  </ProjectTrans>
+
+    <!-- Configuration of the Teamcenter Schedule Manager translator -->
+    <SchMgrTrans provider="SIEMENS" service="schmgrtrans" isactive="false">
+        <TransExecutable dir="d:/SchMgrTrans" name="schmgrtrans.bat"/>
+        <Options>
+            <Option name="jarversionextension" string="" value="&PT_JFV;" description="Version extension for jar."/>
+            <Option description="" name="clientoption" optionkey="readFromInputTicket" string="readFromInputTicket" value=""/>
+            <Option description="" name="clientoption" optionkey="readFromOutputTicket" string="readFromOutputTicket" value=""/>
+            <Option description="" name="clientoption" optionkey="writeToOutputTicket" string="writeToOutputTicket" value=""/>
+        </Options>
+    </SchMgrTrans >
+
+  <!-- Configuration of the PreviewService translator -->
+  <PreviewService provider="SIEMENS" service="previewservice" isactive="true">
+    <TransExecutable dir="&MODULEBASE;/Translators/previewservice" name="previewservice.bat"/>
+    <Options>
+      <Option name="inputdir" string="" description="Full path to the input directory."/>
+      <Option name="outputdir" string="" description="Full path to the output directory."/>
+      <Option name="clientoption" optionkey="OUTPUT_TYPE" string="" value="JPG_AND_PDF"
+              description="The output file type. Values can be CGM, TIF, HPG, PDF, JPG, CGM_AND_JPG, CGM_AND_PDF or JPG_AND_PDF."/>
+      <Option name="clientoption" optionkey="SIZE" string="" value="500x500px"
+              description="Translator client options. The option define the size of the image." />
+      <Option name="clientoption" optionkey="COMBINE_OUTPUT" string="" value=""
+              description="Translator client options. The option to combine the output in single file. Values can be blank or -combine." />
+    </Options>
+    <FileExtensions>
+       <InputExtensions nitem="21">
+         <InputExtension extension=".jt"/>
+         <InputExtension extension=".cgm"/>
+         <InputExtension extension=".dxf"/>
+         <InputExtension extension=".dwg"/>
+         <InputExtension extension=".igs"/>
+         <InputExtension extension=".prt"/>
+         <InputExtension extension=".dft"/>
+         <InputExtension extension=".doc"/>
+         <InputExtension extension=".docx"/>
+         <InputExtension extension=".xls"/>
+         <InputExtension extension=".xlsx"/>
+         <InputExtension extension=".ppt"/>
+         <InputExtension extension=".pptx"/>
+         <InputExtension extension=".hpg"/>
+         <InputExtension extension=".hpgl"/>
+         <InputExtension extension=".calcomp"/>
+         <InputExtension extension=".txt"/>
+         <InputExtension extension=".ps"/>
+         <InputExtension extension=".pdf"/>
+         <InputExtension extension=".gif"/>
+         <InputExtension extension=".bmp"/>
+       </InputExtensions>
+      <OutputExtensions nitem="6">
+        <OutputExtension extension=".pdf"/>
+        <OutputExtension extension=".tif"/>
+        <OutputExtension extension=".hpg"/>
+        <OutputExtension extension=".cgm"/>
+        <OutputExtension extension=".jpg"/>
+        <OutputExtension extension=".ps"/>
+      </OutputExtensions>
+    </FileExtensions>
+  </PreviewService>
+
+  <!-- Configuration of the Office files To HTML translator -->
+    <Wordtohtmltranslator provider="SIEMENS" service="reqmgmtwordtohtml" isactive="false">
+        <TransExecutable dir="&MODULEBASE;/Translators/reqmgmtwordtohtml" name="reqmgmthtmlconverter.bat"/>
+        <Options>                           
+            <Option name="inputpath" string="" description="Full path to the input file which will contain user input for complete dispatcher service."/>
+            <Option name="outputdir" string="" description="Full path to the output directory."/>
+            <Option name="outputfile" string="reqmgmtwordtohtml_results.txt" description="Name of the output file containing results."/>     
+        </Options>
+    </Wordtohtmltranslator>
+
+  <!-- Configuration of the Content Management Publish service  -->
+  <ContMgmtPublish provider="SIEMENS" service="contmgmtpublish" isactive="false" >
+    <SysExecutable name="&JAVABIN;\java"/>
+    <Options>
+      <Option name="classpath" string="-cp" system="java.class.path" append=";&MODULEBASE;/Translators/contmgmtpublish/lib/com.teamcenter.contmgmtpublish.jar;&MODULEBASE;/Translators/contmgmtpublish/lib/*"
+              description="Classpath to the java virtual machine." />
+      <Option name="classname" string=""
+              value="com.teamcenter.contmgmtpublish.translator.ContMgmtPublish"
+              description="Teamcenter Content Management Publish Translator class."/>
+      <Option name="configFile" string="-configFile" value="&MODULEBASE;/Translators/contmgmtpublish/config/contmgmtpublish_config.properties"
+              description="Path to ContMgmtPublish configuration file"/>
+      <Option name="inputpath" string="-inputFile" description="Full path to the publish task xml input file." />
+      <Option name="inputdir" string="-inputDir" description="Full path to the input directory."/>
+      <Option name="outputdir" string="-outputDir" description="Full path to the output directory."/>
+      <Option name="ditaOTBaseDir" string="-ditaOTBaseDir" value="&MODULEBASE;/Translators/contmgmtpublish/lib/dita-ot"
+              description="The DITA Open Tool kit base directory."/>
+      <Option name="s1000dBaseDir" string="-s1000dBaseDir" value="&MODULEBASE;/Translators/contmgmtpublish/lib/s1000dpublish"
+              description="The S1000D stylesheets base directory."/>
+      </Options>
+    <TransErrorExclStrings>
+      <TransInputStreamExcl string="composeErrorLog"/>
+      <TransInputStreamExcl string="INFO:"/>
+      <TransInputStreamExcl string="WARNING:"/>
+    </TransErrorExclStrings>
+    <FileExtensions>
+      <InputExtensions nitem="1">
+        <!-- List of Input file extensions -->
+        <InputExtension extension=".xml"/>
+      </InputExtensions>
+      <OutputExtensions nitem="7">
+        <OutputExtension extension=".pdf"/>
+        <OutputExtension extension=".rtf"/>
+        <OutputExtension extension=".txt"/>
+        <OutputExtension extension=".xml"/>
+        <OutputExtension extension=".html"/>
+        <OutputExtension extension=".zhtml"/>
+        <OutputExtension extension=".zip"/>
+      </OutputExtensions>
+    </FileExtensions>
+  </ContMgmtPublish>
+
+    <!-- Configuration of compare word contents translator -->
+    <CompareContentstranslator provider="SIEMENS" service="reqmgmtcomparecontents" isactive="false">
+      <TransExecutable dir="&MODULEBASE;/Translators/reqmgmtcomparecontents" name="reqmgmtcomparecontents.bat"/>
+      <Options>
+        <Option name="inputpath" string="" description="Full path to the input file which will contain user input for complete dispatcher service."/>
+        <Option name="outputdir" string="" description="Full path to the output directory."/>
+        <Option name="outputfile" string="reqmgmtcomparecontents_results.txt" description="Name of the output file containing results."/>
+      </Options>
+    </CompareContentstranslator>
+
+  <!-- ************************************************************************************ -->
+  <!-- PDF Generation  Services                                                             -->
+  <!--      Translate Microsoft Office/Drawings files types to PDF                          -->
+  <!--      Required Adobe LiveCycle PdfGenerator ES for translations (WatchedFolder)       -->
+  <!-- ************************************************************************************ -->
+  <!-- Configuration of the PdfGenerator translator -->
+  <PdfGenerator isactive="true" provider="SIEMENS" service="pdfgenerator">
+      <SysExecutable name="&JAVABIN;\java"/>
+      <Options>
+          <Option name="classpath" string="-cp" system="java.class.path" append=";&MODULEBASE;/Translators/docmgt_translators/lib/docmgt_pdfgenerator.jar;&MODULEBASE;/Translators/docmgt_translators/lib/log4j-1.2.13.jar"
+                  description="Classpath to the java virtual machine." />
+          <Option name="classname" string=""
+                  value="com.teamcenter.docmgt.translator.pdfgenerator.PdfGenerator"
+                  description="Teamcenter Document Management PdfGenerator Translator class."/>
+          <Option name="configfFile" string="-configFile" value="&MODULEBASE;/Translators/docmgt_translators/config/pdfgenerator_config.properties"
+                  description="Path to pdfgenerator configuration file"/>
+          <Option name="inputpath" string="-inputFile" description="Full path to the input file." />
+          <Option name="inputdir" string="-inputDir" description="Full path to the input directory."/>
+          <Option name="outputdir" string="-outputDir" description="Full path to the output directory."/>
+          <Option name="clientoption" optionkey="OUTPUT_TYPE" string="-outputFormat" value="PDF"
+                  description="The output file type. Values can be PDF." />
+          <Option name="clientoption" optionkey="serverSettingFile" string="-serverSetting" value="CHANGE_ME"
+                  description="Server setting file. Contains watermarks, stamps, and etc" />
+      </Options>
+      <FileExtensions>
+          <InputExtensions nitem="19">
+              <!-- List of Drawing file extensions -->
+              <InputExtension extension=".bmp"/>
+              <InputExtension extension=".gif"/>
+              <InputExtension extension=".jpg"/>
+              <InputExtension extension=".jpeg"/>
+              <InputExtension extension=".tif"/>
+              <InputExtension extension=".dft"/>
+              <!-- List of MS office file extensions -->
+              <InputExtension extension=".doc"/>
+              <InputExtension extension=".docx"/>
+              <InputExtension extension=".xls"/>
+              <InputExtension extension=".xlsx"/>
+              <InputExtension extension=".ppt"/>
+              <InputExtension extension=".pptx"/>
+              <InputExtension extension=".mpp"/>
+              <!-- List of Other file extensions -->
+              <InputExtension extension=".ascii"/>
+              <InputExtension extension=".txt"/>
+              <InputExtension extension=".rtf"/>
+              <InputExtension extension=".ps"/>
+              <InputExtension extension=".eps"/>
+              <InputExtension extension=".psd"/>
+          </InputExtensions>
+          <OutputExtensions nitem="1">
+              <OutputExtension extension=".pdf"/>
+          </OutputExtensions>
+      </FileExtensions>
+  </PdfGenerator>
+
+  <!-- Configuration of the RenderMgtTranslator translator -->
+  <RenderMgtTranslator isactive="true" provider="SIEMENS" service="rendermgttranslator">
+      <SysExecutable name="&JAVABIN;\java"/>
+      <Options>
+          <Option name="classpath" string="-cp" system="java.class.path" append=";&MODULEBASE;/Translators/docmgt_translators/lib/docmgt_rendermgttranslator.jar;&MODULEBASE;/Translators/docmgt_translators/lib/log4j-1.2.13.jar;&MODULEBASE;/Translators/docmgt_translators/lib/jdom.jar"
+                  description="Classpath to the java virtual machine." />
+          <Option name="classname" string=""
+                  value="com.teamcenter.docmgt.translator.rendermgttranslator.RenderMgtTranslator"
+                  description="Teamcenter Document Management RenderMgtTranslator Translator class."/>
+          <Option name="configFile" string="-configFile" value="&MODULEBASE;/Translators/docmgt_translators/config/rendermgttrans_config.properties"
+                  description="Path to RenderMgtTranslator configuration file"/>
+          <Option name="inputpath" string="-inputFile" description="Full path to the task xml input file." />
+          <Option name="inputdir" string="-inputDir" description="Full path to the input directory."/>
+          <Option name="outputdir" string="-outputDir" description="Full path to the output directory."/>
+          <Option name="ServiceToExeMap_1" string="-serviceToExeMap" value="previewservice=&MODULEBASE;/Translators/previewservice/rendermgt_previewservice.bat"
+                  description="The translator executable of previewservice translation service. See the previewservice translation service definition defined in this file."/>
+          <Option name="ServiceToExeMap_2" string="-serviceToExeMap" value="pdfgenerator=&MODULEBASE;/Translators/docmgt_translators/pdfgenerator/pdfgenerator.bat"
+                  description="The translator executable of pdfgenerator translation service. See the pdfgenerator translation service definition defined in this file."/>
+          <!-- For Microsoft Office update document properties -->
+          <Option name="UpdateDocPropExe" string="-UpdateDocPropExe" value="&MODULEBASE;/Translators/docmgt_translators/updatedocprop/TcOfficeUpdateProp.exe"
+                  description="The executable used for updating Office documents properties."/>
+      </Options>
+      <FileExtensions>
+          <InputExtensions nitem="1">
+              <!-- List of Input file extensions -->
+              <InputExtension extension=".xml"/>
+          </InputExtensions>
+          <OutputExtensions nitem="9">
+              <OutputExtension extension=".bmp"/>
+              <OutputExtension extension=".cgm"/>
+              <OutputExtension extension=".hpg"/>
+              <OutputExtension extension=".ps"/>
+              <OutputExtension extension=".pdf"/>
+              <OutputExtension extension=".png"/>
+              <OutputExtension extension=".tif"/>
+              <OutputExtension extension=".jpg"/>
+              <OutputExtension extension=".xml"/>
+          </OutputExtensions>
+      </FileExtensions>
+  </RenderMgtTranslator>
+
+  <!-- ************************************************************************************ -->
+  <!-- Batch Print                                                                          -->
+  <!--      Batch printing via Vis Print                                                    -->
+  <!-- ************************************************************************************ -->
+
+  <!-- Configuration of Batch Print -->
+  <BatchPrint provider="SIEMENS" service="batchprint" isactive="true">
+    <SysExecutable name="&JAVABIN;\java"/>
+    <Options>
+      <Option name="classpath" string="-cp" system="java.class.path" append=";&MODULEBASE;/Translators/batchprint/lib/docmgt_batchprint.jar;&MODULEBASE;/Translators/batchprint/lib/log4j-1.2.13.jar;&MODULEBASE;/Translators/batchprint/lib/jdom.jar"
+              description="Classpath to the java virtual machine." />
+      <Option name="classname" string=""
+              value="com.teamcenter.docmgt.batchprint.BatchPrint"
+              description="Teamcenter Document Management BatchPrint class."/>
+      <Option name="inputpath" string="-inputPath" description="The task input XML file." />
+      <Option name="configFile" string="-configFile" value="&MODULEBASE;/Translators/batchprint/config/batchprint_config.properties"
+              description="The BatchPrint configuration file."/>
+      <Option name="exefile" string="-exeFile" value="&MODULEBASE;/Translators/batchprint/script/batchprint.bat"
+              description="The executable used for batch printing."/>
+    </Options>
+    <FileExtensions>
+      <InputExtensions nitem="1">
+        <!-- List of Input file extensions -->
+        <InputExtension extension=".xml"/>
+      </InputExtensions>
+    </FileExtensions>
+  </BatchPrint>
+ 
+  <get6BomIndex provider="GE" service="get6BomIndex" isactive="true">
+  <TransExecutable dir="&MODULEBASE;/Translators/get6BomIndex" name="get6BomIndex.bat"/>
+  <Options>
+      <Option name="inputdir" string="" description="Full path to the input directory."/>
+      <Option name="outputdir" string="" description="Full path to the output directory."/>
+      <Option name="clientoption" optionkey="ItemID" string="" value="" description="ItemID"/>
+      <Option name="clientoption" optionkey="Revision" string="" value="" description="Revision"/>
+    </Options>
+    <FileExtensions>
+       <InputExtensions nitem="1">
+         <InputExtension extension=".txt"/>
+       </InputExtensions>
+      <OutputExtensions nitem="1">
+        <OutputExtension extension=".txt"/>
+      </OutputExtensions>
+    </FileExtensions>
+  </get6BomIndex>
+  
+   <!--Configuration for getMCNProcess translator -->
+  <getMCNProcess provider="GE" service="getMCNProcess" isactive="false">
+  <TransExecutable dir="&MODULEBASE;/Translators/getMCNProcess" name="getMCNProcess.bat"/>
+  <Options>
+      <Option name="inputdir" string="" description="Full path to the input directory."/>
+      <Option name="outputdir" string="" description="Full path to the output directory."/>
+    </Options>
+    <FileExtensions>
+	<InputExtensions nitem="1">
+         <InputExtension extension=".txt"/>
+       </InputExtensions>
+      <OutputExtensions nitem="1">
+	  <OutputExtension extension=".txt"/>
+      </OutputExtensions>
+    </FileExtensions>
+  </getMCNProcess>
+  
+  <!-- Configuration of the custom GET NX to PV Direct translator -->
+  <GETNxToPvDirect provider="GE" service="nxtopvdirect" isactive="true" OutputNeeded="false"
+       wrapperclass="&WRAPPER;ugtopvdirect.UgToPvDirect">
+    <TransExecutable name="getnxtopvdirect.bat" dir="&MODULEBASE;/Translators/getnxtopvdirect"/>
+    <Options>
+      <!-- Option name="" string="" value="-single_part"/ -->
+      <Option name="ConfigMapFile" string="-configmap"
+              value="&MODULEBASE;/Translators/getnxtopvdirect/ConfigMap.properties"
+              description="Property file which has the Map between Client passed in
+                           Criteria and the location of config file to be used"/>
+      <Option name="inputpath" string=""
+              description="Full path to the input file."/>
+      <Option name="clientoption" optionkey="changeOwnerToCad" string="-changeOwnerToCad=" value="true"
+              description="Specifies whether to change the translated data to the same owner as source."/>
+    </Options>
+    <TransErrorStrings>
+      <TransInputStream string="Cannot"/>
+      <TransInputStream string="Error"/>
+      <TransInputStream string="exception"/>
+      <TransInputStream string="ERROR"/>
+      <TransErrorStream string="Errored"/>
+      <TransErrorStream string="failed"/>
+    </TransErrorStrings>
+  </GETNxToPvDirect>
+
+  <!-- Configuration of the custom GET Preview Service translator -->
+  <GETPreviewService provider="GE" service="getpreviewservice" isactive="true">
+    <TransExecutable dir="&MODULEBASE;/Translators/getpreviewservice" name="getpreviewservice.bat"/>
+    <Options>
+      <Option name="inputdir" string="" description="Full path to the input directory."/>
+      <Option name="outputdir" string="" description="Full path to the output directory."/>
+      <Option name="clientoption" optionkey="OUTPUT_TYPE" string="" value="JPG_AND_PDF"
+              description="The output file type. Values can be CGM, TIF, HPG, PDF, JPG, CGM_AND_JPG, CGM_AND_PDF or JPG_AND_PDF."/>
+      <Option name="clientoption" optionkey="SIZE" string="" value="500x500px"
+              description="Translator client options. The option define the size of the image." />
+      <Option name="clientoption" optionkey="COMBINE_OUTPUT" string="" value=""
+              description="Translator client options. The option to combine the output in single file. Values can be blank or -combine." />
+    </Options>
+    <FileExtensions>
+       <InputExtensions nitem="21">
+         <InputExtension extension=".jt"/>
+         <InputExtension extension=".cgm"/>
+         <InputExtension extension=".dxf"/>
+         <InputExtension extension=".dwg"/>
+         <InputExtension extension=".igs"/>
+         <InputExtension extension=".prt"/>
+         <InputExtension extension=".dft"/>
+         <InputExtension extension=".doc"/>
+         <InputExtension extension=".docx"/>
+         <InputExtension extension=".xls"/>
+         <InputExtension extension=".xlsx"/>
+         <InputExtension extension=".ppt"/>
+         <InputExtension extension=".pptx"/>
+         <InputExtension extension=".hpg"/>
+         <InputExtension extension=".hpgl"/>
+         <InputExtension extension=".calcomp"/>
+         <InputExtension extension=".txt"/>
+         <InputExtension extension=".ps"/>
+         <InputExtension extension=".pdf"/>
+         <InputExtension extension=".gif"/>
+         <InputExtension extension=".bmp"/>
+       </InputExtensions>
+      <OutputExtensions nitem="6">
+        <OutputExtension extension=".pdf"/>
+        <OutputExtension extension=".tif"/>
+        <OutputExtension extension=".hpg"/>
+        <OutputExtension extension=".cgm"/>
+        <OutputExtension extension=".jpg"/>
+        <OutputExtension extension=".ps"/>
+      </OutputExtensions>
+    </FileExtensions>
+  </GETPreviewService>
+
+  <!-- Configuration of the Simplification Generation translator -->
+  <Simpgen provider="SIEMENS" service="simpgen" isactive="false" maxlimit="1" NoOfTries="1" OutputNeeded="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/simpgen" name="simpgen.bat"/>
+    <Options>
+      <Option name="outputpath" string="-output_file="
+              description="Full path to the output file."/>
+      <Option name="clientoption" optionkey="Username" string="-user="
+                      value="" description="Username of the translation task"/>
+      <Option name="clientoption" optionkey="Group" string="-group="
+                      value="" description="Group of the translation task"/>
+      <Option name="clientoption" optionkey="RevisionRule" string="-revision_rule="
+                      value="" description="Revision rule name"/>
+      <Option name="clientoption" optionkey="ItemUID" string="-ItemUID="
+                      value="" description="UID of the Item to be translated"/>
+      <Option name="clientoption" optionkey="Revision" string="-rev="
+
+                      value="" description="Item Revision of the translated dataset"/>
+
+    </Options>
+
+    <TransErrorStrings>
+      <TransErrorStream string="Can't"/>
+      <TransErrorStream string="failed"/>
+      <TransErrorStream string="incorrect"/>
+    </TransErrorStrings>
+
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="0 errors"/>
+    </TransErrorExclStrings>
+
+    <FileExtensions>
+      <OutputExtensions nitem="1">
+        <OutputExtension extension=".plmxml"/>
+      </OutputExtensions>
+    </FileExtensions>
+  </Simpgen>
+
+  <!-- Configuration of the MMV index Generation translator -->
+  <MmvIndexGen provider="SIEMENS" service="mmvindexgen" isactive="false" maxlimit="1" NoOfTries="1" OutputNeeded="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/mmvindexgen" name="mmvindexgen.bat"/>
+    <Options>
+      <Option name="outputpath" string="-output_file="
+              description="Full path to the output file."/>
+      <Option name="clientoption" optionkey="itemuid" string="-itemuid="
+                      value="" description="UID of the Item to be translated"/>
+      <Option name="clientoption" optionkey="Revision" string="-rev="
+                      value="" description="Item Revision to be translated"/>
+    </Options>
+    <TransErrorStrings>
+      <TransErrorStream string="Can't"/>
+      <TransErrorStream string="failed"/>
+      <TransErrorStream string="incorrect"/>
+    </TransErrorStrings>
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="0 errors"/>
+    </TransErrorExclStrings>
+  </MmvIndexGen>
+
+  <PcbToFatf provider="SIEMENS" service="pcbtofatf" isactive="false">
+    <TransExecutable dir="C:/Tc2007SR1/emps/Translation" name="ECADTSMgr.bat"/>
+    <Options>
+      <Option description="Translator Name." name="clientoption" optionkey="TRANS_NAME" string="" value="cadence"/>
+      <Option description="Translator Type." name="clientoption" optionkey="TRANS_TYPE" string="" value="PCB"/>
+      <Option name="inputpath" string="" description="Full path to the input file."/>
+      <Option name="outputdir" string="" description="Full path to the output directory."/>
+    </Options>
+    <FileExtensions>
+      <OutputExtensions nitem="2">
+        <OutputExtension extension=".xfatf"/>
+        <OutputExtension extension=".xsch"/>
+      </OutputExtensions>
+    </FileExtensions>
+  </PcbToFatf>
+
+  <TcToJt provider="SIEMENS" service="tctojt" isactive="false">
+    <TransExecutable dir="D:/UGS/Teamcenter2007/bin" name="assy_jt_creator.exe"/>
+    <Options>
+      <Option name="inputpath" string="-input_path"
+              description="Full path to the input file."/>
+      <Option name="outputdir" string="-output_dir"
+              description="Full path to the output directory."/>
+    </Options>
+    <FileExtensions>
+      <InputExtensions nitem="1">
+        <InputExtension extension=".xml"/>
+      </InputExtensions>
+      <OutputExtensions nitem="1">
+        <OutputExtension extension=".txt"/>
+      </OutputExtensions>
+    </FileExtensions>
+  </TcToJt>
+
+  <!-- ************************************************************************************ -->
+  <!-- Translation Service   qlcreate translator  Generation Services                        -->
+  <!-- ************************************************************************************ -->
+
+  <!-- Configuration of the QuickLaunch Creator translator -->
+  <QLCreate provider="SIEMENS" service="qlcreate" isactive="false" maxlimit="2" NoOfTries="1" OutputNeeded="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/qlcreate" name="qlcreate.bat"/>
+    <Options>
+      <Option name="inputpath" string="-inputpath="
+              description="Full path to the input file or directory."/>
+      <Option name="outputpath" string="-outputpath="
+              description="Full path to the output file."/>
+      <Option name="clientoption" optionkey="ArgumentFilename" string="-argfile="
+                      value="" description="This is a file that has all the arguments to the translator"/>
+      <Option name="clientoption" optionkey="VariantListFilename" string="-variantlist="
+                      value="" description="Filename contaning the associated variants"/>
+      <Option name="clientoption" optionkey="Username" string="-user="
+                      value="" description="Username of the translation task"/>
+      <Option name="clientoption" optionkey="Group" string="-group="
+                      value="" description="Group of the translation task"/>
+      <Option name="clientoption" optionkey="RevisionRule" string="-revrule="
+                      value="" description="Revision rule name"/>
+      <Option name="clientoption" optionkey="VariantRule" string="-svrule="
+                      value="" description="Saved variant rule"/>
+      <Option name="clientoption" optionkey="ItemID" string="-item="
+                      value="" description="Item ID of the translated dataset"/>
+      <Option name="clientoption" optionkey="ItemName" string="-itemname="
+                      value="" description="Item name of the translated dataset"/>
+      <Option name="clientoption" optionkey="Revision" string="-rev="
+                      value="" description="Item Revision of the translated dataset"/>
+      <Option name="clientoption" optionkey="DatasetName" string="-dsname="
+                      value="" description="Dataset name"/>
+      <Option name="clientoption" optionkey="DatasetRelation" string="-dsrel="
+                      value="" description="Dataset Relation to the item revision"/>
+      <Option name="clientoption" optionkey="DatasetType" string="-dstype="
+                      value="" description="Dataset type name"/>
+      <Option name="clientoption" optionkey="DatasetNamedRef" string="-dsnamedref="
+                      value="" description="Dataset named reference name"/>
+      <Option name="clientoption" optionkey="DatasetFilename" string="-dsfilename="
+                      value="" description="Dataset filename"/>
+      <Option name="clientoption" optionkey="DatasetVersion" string="-dsver="
+                      value="" description="Dataset version"/>
+      <Option name="clientoption" optionkey="DatasetReleaseStatus" string="-dsrelstatus="
+                      value="" description="Dataset release status"/>
+    </Options>
+
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="0 errors during this run"/>
+    </TransErrorExclStrings>
+
+    <FileExtensions>
+      <OutputExtensions nitem="1">
+        <OutputExtension extension=".plmxml"/>
+      </OutputExtensions>
+    </FileExtensions>
+  </QLCreate>
+
+  <!-- ************************************************************************************ -->
+  <!-- Translation Service   plmxml translator  Generation Services                         -->
+  <!-- ************************************************************************************ -->
+  <PlmXmlImportExport provider="SIEMENS" service="plmxml_import_export" isactive="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/plmxml_import_export" name="plmxml_import_export.bat"/>
+    <Options>
+      <Option name="clientoption" optionkey="user" string="-u=" value=""
+              description="Specifies user name to login to Teamcenter."/>
+      <Option name="clientoption" optionkey="password" string="-p=" value=""
+              description="Specifies password to login to Teamcenter."/>
+      <Option name="clientoption" optionkey="group" string="-g=" value=""
+              description="Specifies group to login to Teamcenter."/>
+      <Option name="clientoption" optionkey="encrypted_password" string="-encrypt=" value="true"
+               description="Specifies whether or not password is encrypted to login to Teamcenter."/>
+      <Option name="clientoption" optionkey="mode" string="-mode=" value=""
+              description="Mode of operation Import or Export"/>
+      <Option name="inputpath" string=""
+              description="Full path to the input file."/>
+      <Option name="outputdir" string=""
+              description="Full path to the output directory."/>
+      <Option name="clientoption" optionkey="file" string="" value=""
+              description="Specifies output filename."/>
+      <Option name="clientoption" optionkey="logfilename" string="" value=""
+              description="Specifies log filename."/>
+    </Options>
+    <FileExtensions>
+      <InputExtensions nitem="1">
+        <InputExtension extension=".xml"/>
+      </InputExtensions>
+      <OutputExtensions nitem="1">
+        <OutputExtension extension=".log"/>
+      </OutputExtensions>
+    </FileExtensions>
+  </PlmXmlImportExport>
+
+  <!-- ************************************************************************************ -->
+  <!-- Translation Service   plmxmltojt translator  Generation Services                        -->
+  <!-- ************************************************************************************ -->
+  <!-- Configuration of the plmxmltojt translator -->
+  <plmxmltojt provider="SIEMENS" service="plmxmltojt" isactive="false"  maxlimit="3" NoOfTries="1" OutputNeeded="true">
+    <TransExecutable dir="&MODULEBASE;/Translators/plmxmltojt" name="plmxmltojt.bat"/>
+    <Options>
+      <Option name="inputpath" string="-inputpath="
+              description="Full path to the input file or directory."/>
+      <Option name="outputpath" string="-outputpath="
+              description="Full path to the output file."/>
+      <Option name="clientoption" optionkey="ArgumentFilename" string="-argfile="
+                      value="" description="This is a file that has all the arguments to the translator"/>
+      <Option name="clientoption" optionkey="Username" string="-user="
+                      value="" description="Username of the translation task"/>
+      <Option name="clientoption" optionkey="Group" string="-group="
+                      value="" description="Group of the translation task"/>
+      <Option name="clientoption" optionkey="ItemID" string="-item="
+                      value="" description="Item ID of the translated dataset"/>
+      <Option name="clientoption" optionkey="ItemName" string="-itemname="
+                      value="" description="Item name of the translated dataset"/>
+      <Option name="clientoption" optionkey="Revision" string="-rev="
+                      value="" description="Item Revision of the translated dataset"/>
+    </Options>
+
+    <FileExtensions>
+      <OutputExtensions nitem="1">
+        <OutputExtension extension=".jt"/>
+      </OutputExtensions>
+    </FileExtensions>
+  </plmxmltojt>
+
+   <TcPublishBatch provider="SIEMENS" service="publishbatch" isactive="false">
+      <TransExecutable dir="d:/tcpublishbatch/tcpublishbatch/" name="startPublishBatch.bat" />
+      <Options>
+       <Option name="inputpath" string=""
+                description="Full path to the input file or directory."/>
+      </Options>
+      <FileExtensions>
+        <InputExtensions nitem="1">
+          <InputExtension extension=".xml"/>
+        </InputExtensions>
+      </FileExtensions>
+      <TransErrorExclStrings>
+        <TransInputStreamExcl string="isNull"/>
+      </TransErrorExclStrings>
+  </TcPublishBatch>
+
+  <Tc3DPDFTrans provider="SIEMENS" service="tc3dpdftrans" isactive="false">
+      <TransExecutable dir="&MODULEBASE;/Translators/tc3dpdftrans" name="start3DPDFTrans.bat" />
+      <Options>
+       <Option name="inputpath" string=""
+                description="Full path to the input file or directory."/>
+      </Options>
+      <FileExtensions>
+        <InputExtensions nitem="1">
+          <InputExtension extension=".xml"/>
+        </InputExtensions>
+      </FileExtensions>
+      <TransErrorExclStrings>
+        <TransInputStreamExcl string="isNull"/>
+      </TransErrorExclStrings>
+  </Tc3DPDFTrans>
+
+<GenerateMesWIRepFiles provider="SIEMENS" service="generatemeswirepfiles" isactive="false">
+      <TransExecutable dir="&MODULEBASE;/Translators/generatemeswirepfiles" name="startGenerateMesWIRepFiles.bat" />
+      <Options>
+       <Option name="inputpath" string=""
+                description="Full path to the input file or directory."/>
+      </Options>
+      <FileExtensions>
+        <InputExtensions nitem="1">
+          <InputExtension extension=".xml"/>
+        </InputExtensions>
+      </FileExtensions>
+      <TransErrorExclStrings>
+        <TransInputStreamExcl string="isNull"/>
+      </TransErrorExclStrings>
+  </GenerateMesWIRepFiles>
+
+  <TcUpdateProductViews provider="SIEMENS" service="tcmfg_update_productviews" isactive="false">
+      <TransExecutable dir="&MODULEBASE;/Translators/tcmfg_update_productviews" name="startUpdateProductViews.bat" />
+      <Options>
+       <Option name="inputpath" string=""
+                description="Full path to the input file or directory."/>
+       <Option name="outputdir" string="" description="Full path to the output directory." />
+      </Options>
+      <FileExtensions>
+        <InputExtensions nitem="1">
+          <InputExtension extension=".xml"/>
+        </InputExtensions>
+      </FileExtensions>
+  </TcUpdateProductViews>
+
+  <!-- Configuration of QSEARCH_process_queue -->
+  <QSEARCH_process_queue provider="SIEMENS" service="qsearchprocessqueue" isactive="false" OutputNeeded="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/qsearch" name="qsearch_process_queue.bat" />
+    <Options>
+      <Option name="mode" string="-mode=" value="process" description="mode flag"/>
+      <Option name="clientoption" optionkey="QSearchTranslation" string="-qsmode="
+              value="not_used_here"
+              description="Translator mode options."/>
+      <Option name="inputpath" string="-input_uid_list="
+              description="Full path to the input file."/>
+    </Options>
+  </QSEARCH_process_queue>
+
+  <!-- Configuration of the multisite ImportObjects dispatcher task  -->
+  <ImportObjects provider="SIEMENS" service="importobjects" isactive="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/importobjects" name="importobjects.bat" />
+    <Options>
+      <Option name="inputpath" string="-filename=" description="Full path to the input file containing items list." />
+      <Option name="outputdir" string="-report_dir=" description="Full path to the output directory."/>
+      <Option name="clientoption" optionkey="SITE_ID" string="-site="
+              value=""
+              description="Site to import from."/>
+      <Option name="clientoption" optionkey="CLASSOFFILE" string="-classoffile="
+              value="ItemRevision"
+              description="class of objects in the file."/>
+      <Option name="clientoption" optionkey="SELECTED_REV" string=""
+              value=""
+              description="Option to import selected revision only."/>
+      <Option name="clientoption" optionkey="REPORTFILE" string="-report="
+              value=""
+              description="File containing replication report"/>
+    </Options>
+    <TransErrorStrings>
+      <TransInputStream string="not currently available"/>
+      <TransErrorStream string="No site available for processing"/>
+    </TransErrorStrings>
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="0 errors"/>
+      <TransErrorStreamExcl string="no error"/>
+    </TransErrorExclStrings>
+  </ImportObjects>
+
+  <!-- Configuration of the multisite ReplicatePLMXML dispatcher task  -->
+  <ReplicatePLMXML provider="SIEMENS" service="replicateplmxml" isactive="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/replicateplmxml" name="replicateplmxml.bat" />
+    <Options>
+      <Option name="inputpath" string="-filename=" description="Full path to the input file containing items list." />
+      <Option name="outputdir" string="-report_dir=" description="Full path to the output directory."/>
+      <Option name="clientoption" optionkey="SITE_ID" string="-site="
+              value=""
+              description="Site(s) to send to."/>
+      <Option name="clientoption" optionkey="CLASSOFFILE" string="-classoffile="
+              value=""
+              description="class of objects in the file."/>
+      <Option name="clientoption" optionkey="SELECTED_REV" string=""
+              value=""
+              description="Option to import selected revision only"/>
+      <Option name="clientoption" optionkey="INCLUDE" string="-include="
+              value="IMAN_specification"
+              description="relations to include in export."/>
+      <Option name="clientoption" optionkey="SYNC_PLMXML_CONTENTS" string=""
+              value=""
+              description="Option to start the PLM XML based synchronization mechanism"/>
+      <Option name="clientoption" optionkey="REPORTFILE" string="-report="
+              value=""
+              description="File containing replication report"/>
+    </Options>
+    <TransErrorStrings>
+      <TransInputStream string="not currently available"/>
+      <TransErrorStream string="No site available for processing"/>
+    </TransErrorStrings>
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="no error"/>
+      <TransErrorStreamExcl string="0 errors"/>
+    </TransErrorExclStrings>
+  </ReplicatePLMXML>
+
+  <!-- Configuration of the multisite CreateAssemblyPLMXML dispatcher task  -->
+  <CreateAssemblyPLMXML provider="SIEMENS" service="createassemblyplmxml" isactive="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/createassemblyplmxml" name="createassemblyplmxml.bat" />
+    <Options>
+      <Option name="outputdir" string="-outfile_dir=" description="Full path to the output directory."/>
+      <Option name="clientoption" optionkey="REPORTFILE" string="-outfile_name="
+              value=""
+              description="File containing replication report"/>
+      <Option name="clientoption" optionkey="KEY_ID" string="-key="
+              value=""
+              description="MFK key for identifying item revision."/>
+      <Option name="clientoption" optionkey="REVISION_RULE" string="-revision_rule="
+              value="Latest Working"
+              description="Revision rule to use for configuring assembly"/>
+      <Option name="clientoption" optionkey="VARIANT_RULE" string="-svrule="
+              value=""
+              description="Variant rule to use for configuring assembly"/>
+      <Option name="clientoption" optionkey="EMAIL" string="-notify_email="
+              value=""
+              description="mail id to send error"/>
+      <Option name="clientoption" optionkey="CHECK_PRECISE" string=""
+              value=""
+              description="do precise check on assembly"/>
+      <Option name="clientoption" optionkey="CHECK_NOSTUBS" string=""
+              value=""
+              description="do no-stubs check on assembly"/>
+      <Option name="clientoption" optionkey="CHECK_ALL_RELEASED" string=""
+              value=""
+              description="do all released check on assembly"/>
+      <Option name="clientoption" optionkey="FAILURE_STATUS" string="-failure_status="
+              value=""
+              description="status to apply in deeper level failure case"/>
+      <Option name="clientoption" optionkey="INVALID_STATUSES" string="-invalid_statuses="
+              value=""
+              description="unacceptable statuses to be considered as failures"/>
+      <Option name="clientoption" optionkey="CREATE_JTFILE" string=""
+              value=""
+              description="invoke the nxtopvdirect translator for assembly root item revision"/>
+      <Option name="clientoption" optionkey="CONTINUE_ON_ERROR_OPT" string=""
+              value=""
+              description="continue even if some invalid assembly condition is detected"/>
+      <Option name="clientoption" optionkey="START_SYNC" string="-start_sync"
+              value=""
+              description="Invoke replication for the PLM XML"/>
+      <Option name="clientoption" optionkey="DEST_SITES_PER_SYNC" string="-num_sites="
+              value="0"
+              description="separate data_share will we invoked to replicate to num_sites.  0 (or negative) corresponds to all destination sites in single data_share"/>
+      <Option name="clientoption" optionkey="TESSELATION_WAIT_TIME" string="-tesselation_wait_time="
+              value="600"
+              description="Used only with create JT.  Creation of assembly PLM XML, will wait for the the time (in seconds) for the tesselation task to complete, before continuing with other operations"/>
+    </Options>
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="0 errors"/>
+    </TransErrorExclStrings>
+  </CreateAssemblyPLMXML>
+
+  <!-- Configuration of the SubsCmplValidationService -->
+  <SubsCmplValidationService provider="SIEMENS" service="subscmplvalidationservice" isactive="false">
+    <TransExecutable name="subscmplvalidationservice.bat" dir="&MODULEBASE;/Translators/subscmplvalidationservice"/>
+  </SubsCmplValidationService>
+
+  <!-- Configuration of the SubsCmplMSDImportService -->
+  <SubsCmplMSDImportService provider="SIEMENS" service="subscmplmsdimport" isactive="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/subscmplmsdimport" name="subscmplmsdimport.bat" />
+    <Options>
+      <Option name="clientoption" optionkey="user" string="-u="
+              value=""
+              description="username"/>
+      <Option name="clientoption" optionkey="password" string="-p="
+              value=""
+              description="Specifies encrypted password token to login to Teamcenter."/>
+      <Option name="clientoption" optionkey="group" string="-g="
+              value=""
+              description="current group"/>
+      <Option name="clientoption" optionkey="encrypted_password" string="-encrypt=" value="true"
+               description="Specifies whether or not password is encrypted to login to Teamcenter."/>
+      <Option name="clientoption" optionkey="mode" string="-mode="
+              value=""
+              description="mode"/>
+      <Option name="clientoption" optionkey="type" string="-type="
+              value=""
+              description="Specifies the type of supplier declaration"/>
+    </Options>
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="0 errors"/>
+    </TransErrorExclStrings>
+  </SubsCmplMSDImportService>
+
+   <!-- Configuration of the SubsCmplSDValidationService -->
+  <SubsCmplSDValidationService provider="SIEMENS" service="subscmplsdvalidation" isactive="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/subscmplsdvalidation" name="subscmplsdvalidation.bat" />
+    <Options>
+      <Option name="clientoption" optionkey="user" string="-u="
+              value=""
+              description="username"/>
+      <Option name="clientoption" optionkey="password" string="-p="
+              value=""
+              description="Specifies encrypted password token to login to Teamcenter."/>
+      <Option name="clientoption" optionkey="group" string="-g="
+              value=""
+              description="current group"/>
+      <Option name="clientoption" optionkey="encrypted_password" string="-encrypt=" value="true"
+               description="Specifies whether or not password is encrypted to login to Teamcenter."/>
+      <Option name="clientoption" optionkey="mode" string="-mode="
+              value=""
+              description="mode"/>
+      <Option name="clientoption" optionkey="declType" string="-type="
+              value=""
+              description="Specifies the type of Supplier declaration"/>
+    </Options>
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="0 errors"/>
+    </TransErrorExclStrings>
+  </SubsCmplSDValidationService>
+
+   <!-- Configuration of the SubsCmplMSDRerequestService -->
+  <SubsCmplMSDRerequestService provider="SIEMENS" service="subscmplmsdrerequest" isactive="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/subscmplmsdrerequest" name="subscmplmsdrerequest.bat" />
+    <Options>
+      <Option name="clientoption" optionkey="user" string="-u="
+              value=""
+              description="username"/>
+      <Option name="clientoption" optionkey="password" string="-p="
+              value=""
+              description="Specifies encrypted password token to login to Teamcenter."/>
+      <Option name="clientoption" optionkey="group" string="-g="
+              value=""
+              description="current group"/>
+      <Option name="clientoption" optionkey="encrypted_password" string="-encrypt=" value="true"
+               description="Specifies whether or not password is encrypted to login to Teamcenter."/>
+      <Option name="clientoption" optionkey="type" string="-type="
+              value=""
+              description="Specifies supplier declaration type"/>
+    </Options>
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="0 errors"/>
+    </TransErrorExclStrings>
+  </SubsCmplMSDRerequestService>
+
+    <!-- Configuration of the EmailPollingService -->
+  <EmailPollingService provider="SIEMENS" service="emailpolling" isactive="false">
+    <TransExecutable name="emailpolling.bat" dir="&MODULEBASE;/Translators/emailpolling"/>
+    <Options>
+      <Option name="clientoption" optionkey="user" string="-u="
+              value=""
+              description="username"/>
+      <Option name="clientoption" optionkey="password" string="-p="
+              value=""
+              description="Specifies encrypted password token to login to Teamcenter."/>
+      <Option name="clientoption" optionkey="group" string="-g="
+              value=""
+              description="current group"/>
+      <Option name="clientoption" optionkey="encrypted_password" string="-encrypt=" value="true"
+               description="Specifies whether or not password is encrypted to login to Teamcenter."/>
+      <Option name="clientoption" optionkey="ruleID" string="-rule_id="
+              value=""
+              description="Rule ID for EmailPoll Rule Object"/>
+    </Options>
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="0 errors"/>
+    </TransErrorExclStrings>
+  </EmailPollingService>
+
+  <!-- Configuration of the GenerateDeclarationService -->  
+  <SubscmplGenerateDeclarationService provider="SIEMENS" service="subscmplgeneratedeclaration" isactive="false">
+    <TransExecutable name="subscmplgeneratedeclaration.bat" dir="&MODULEBASE;/Translators/subscmplgeneratedeclaration"/>
+    <Options>
+      <Option name="clientoption" optionkey="argumentsFilename" string="-af="
+              value=""
+              description="current group"/>
+    </Options>
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="0 errors"/>
+    </TransErrorExclStrings>
+  </SubscmplGenerateDeclarationService>
+  
+    <!-- Configuration of the DeclarationRemindersService -->  
+  <SubscmplDeclarationRemindersService provider="SIEMENS" service="subscmpldeclarationreminders" isactive="false">
+    <TransExecutable name="subscmpldeclarationreminders.bat" dir="&MODULEBASE;/Translators/subscmpldeclarationreminders"/>
+    <Options>
+      <Option name="clientoption" optionkey="type" string="-type="
+              value=""
+              description="Specifies supplier declaration type"/>
+    </Options>
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="0 errors"/>
+    </TransErrorExclStrings>
+  </SubscmplDeclarationRemindersService>
+  
+  <!-- Configuration of the multisite PLMXMLBasedSync dispatcher task  -->
+  <PLMXMLBasedSync provider="SIEMENS" service="plmxmlbasedsync" isactive="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/plmxmlbasedsync" name="plmxmlbasedsync.bat" />
+    <Options>
+      <Option name="outputdir" string="-outfile_dir=" description="Full path to the output directory."/>
+      <Option name="clientoption" optionkey="REPORTFILE" string="-outfile_name="
+              value=""
+              description="File containing replication report"/>
+      <Option name="clientoption" optionkey="OBJECT_UID" string="-wso_uid="
+              value=""
+              description="Object, whose attached PLM XML needs to be parsed."/>
+      <Option name="clientoption" optionkey="TIMEOFFSET" string="-timeoffset="
+              value=""
+              description="Time offset with GMT at owning site."/>
+      <Option name="clientoption" optionkey="START_IMPORT" string="-start_sync"
+              value=""
+              description="start import based on parsing result"/>
+      <Option name="clientoption" optionkey="IMPORT_ITEMS_PER_SITE" string="-num_items="
+              value="0"
+              description="separate data_share will we invoked to replicate to num_itemss.  0 (or negative) corresponds to all items owned at one site in single data_share"/>
+    </Options>
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="0 errors"/>
+    </TransErrorExclStrings>
+  </PLMXMLBasedSync>
+
+  <!-- Configuration of the SendDXDataToSupplierService -->
+  <SendDXDataToSupplierService provider="SIEMENS" service="senddxdatatosupplierservice" isactive="false">
+    <TransExecutable name="senddxdatatosupplierservice.bat" dir="&MODULEBASE;/Translators/senddxdatatosupplierservice"/>
+    <Options>
+      <Option name="clientoption" optionkey="user" string="-u="
+              value=""
+              description="username"/>
+      <Option name="clientoption" optionkey="password" string="-p="
+              value=""
+              description="Specifies encrypted password token to login to Teamcenter."/>
+      <Option name="clientoption" optionkey="group" string="-g="
+              value=""
+              description="current group"/>
+      <Option name="clientoption" optionkey="encrypted_password" string="-encrypt=" value="true"
+               description="Specifies whether or not password is encrypted to login to Teamcenter."/>
+      <Option name="clientoption" optionkey="objUID" string="-uid="
+              value=""
+              description="Vm0DesignXChangeRevision object uid"/>
+    </Options>
+    <TransErrorExclStrings>
+      <TransErrorStreamExcl string="0 errors"/>
+    </TransErrorExclStrings>
+  </SendDXDataToSupplierService>
+
+   <!-- Configuration for DispatcherClient extractor -->    
+  <Extractor provider="SIEMENS" service="extractor" isactive="false" maxlimit="1"
+             wrapperclass="&WRAPPER;extractor.ExtractorWrapper">
+    <TransExecutable dir="&MODULEBASE;/Translators/DispatcherClient/bin" name="runDispatcherClient.bat" />
+    <Options>
+      <Option name="Extraction" string="-translate" value="extract"
+              description="This triggers an extractor process."/>
+      <Option name="clientoption" optionkey="TASK_ID" string="-task"
+              description="Task Id for a given task."/>
+    </Options>
+    <FileExtensions>
+      <OutputExtensions nitem="1">
+        <OutputExtension extension=".xml"/>
+      </OutputExtensions>
+    </FileExtensions>
+  </Extractor>
+
+   <!-- Configuration for DispatcherClient loader -->
+    <Loader provider="SIEMENS" service="loader" isactive="false" maxlimit="1" OutputNeeded="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/DispatcherClient/bin" name="runDispatcherClient.bat" />
+    <Options>
+      <Option name="Load" string="-translate" value="load"
+              description="This triggers an load process."/>
+      <Option name="clientoption" optionkey="TASK_ID" string="-task"
+              description="Task Id for a given task."/>
+    </Options>
+  </Loader>
+  <!-- Configuration of the ImageCompression translator -->
+  <ImageCompressionService provider="SIEMENS" service="imagecompression" isactive="false">
+    <TransExecutable dir="&MODULEBASE;/Translators/imagecompression" name="imagecompression.bat"/>
+      <Options>
+        <Option name="clientoption" optionkey="SRCFILEPATH" string="" value="" description="The source file."/>
+        <Option name="clientoption" optionkey="DSTDIRPATH" string="" value="" description="The destination folder path." />
+        <Option name="clientoption" optionkey="SIZES" string="" value="" description="The different sizes of the derived files." />
+        <Option name="clientoption" optionkey="SIZESTYPES" string="" value="" description="The derived files types." />
+        <Option name="clientoption" optionkey="FILENAMEWITHOUTEXT" string="" value="" description="The source file name without extension." />
+      </Options>
+  </ImageCompressionService>
+  <!-- Configuration of the To Zip translator -->
+  <!-- maxlimit - This property defines maximium number of translation which can run simultaneously. Default is 1. -->
+  <!-- NoOfTries - This property defines Number of Tries to make in case Translation fails. Default is 1 i.e. no retry. -->
+  <!-- OutputNeeded - This property defines whether result file is expected from this Translation. Default is true. -->
+  <!-- MaximumProgress - This property controls the translation life time. If the process is not progressing after the defined number of attempts, the module will stop the process. If not defined, value is taken from transmodule.properties file. -->
+  <!-- WaitTimeBetTrans - This property defines the time the translator has to wait in seconds, before starting another translation. Default is 0 second. -->
+  <!-- WaitTimeForReTries - This property defines a wait time in seconds, before the translation is retried. Default is 0 second. -->
+  <!-- ExclExitVal - Module uses exit condition to figure out if a translation failed. It has been found that some third party translators give a non-zero exit value even if they are successful. In these cases we could exclude the defined exit values to evaluate the status of a translation based on this configuration. Default is to use exit value '0' for evaluation. Use '*' to exclude any value. -->
+  <!-- logfile - Log file with translator stream messages. If not specified a log file with "Provider"_"ServiceName".log name is created. If set to "none" no log file will be created. -->
+  <ToZipfile provider="SIEMENS" service="tozipfile" maxlimit="1" isactive="true"
+             NoOfTries="1" OutputNeeded="true" MaximumProgress="100"
+             WaitTimeBetTrans="0" WaitTimeForReTries="0" ExclExitVal="1"
+             wrapperclass="com.teamcenter.tstk.translator.DefaultTranslator">
+    <SysExecutable name="&JAVABIN;\java"/>
+    <Options>
+      <Option name="classpath" string="-cp" system="java.class.path"
+              description="Classpath to the java virtual machine." />
+      <Option name="classname" string=""
+              value="com.teamcenter.tstk.translator.ZipUtility"
+              description="Zip Utility class."/>
+      <Option name="clientoption" optionkey="SLEEP" string="-sleep"
+                    value="0"
+              description="Add sleep time to replicate a long translation."/>
+      <Option name="clientoption" optionkey="EXIT" string="-exit"
+                    value="0"
+              description="Add exit value to replicate an error translation."/>
+      <Option name="clientoption" optionkey="NOOFSTREAMS" string="-noofstreams"
+                    value="1"
+              description="Add input and error streams to replicate large output."/>
+      <Option name="zip" string="-zip"
+              value=""/>
+      <Option name="inputpath" string=""
+              description="Full path to the input file or directory."/>
+      <Option name="outputpath" string=""
+              description="Full path to the output zip file."/>
+    </Options>
+    <TransErrorStrings>
+      <TransInputStream string="Error"/>
+      <TransErrorStream string="Null"/>
+    </TransErrorStrings>
+    <TransErrorExclStrings>
+      <TransInputStreamExcl string="Not a Failure"/>
+      <TransErrorStreamExcl string="Translator did not fail."/>
+    </TransErrorExclStrings>
+    <FileExtensions>
+      <OutputExtensions nitem="1">
+        <OutputExtension extension=".zip"/>
+      </OutputExtensions>
+    </FileExtensions>
+  </ToZipfile>
+
+  <!-- *********************************************************************** -->
+  <!-- Key Word Error or Exclusion strings configurations                      -->
+  <!-- *********************************************************************** -->
+
+  <!-- Translator input and error stream keywords to monitor error conditions. -->
+  <!-- These are common to all translators. Translator specific keywords must  -->
+  <!-- be provided in the configuration of the specific translator.            -->
+  <ErrorStrings>
+    <InputStream string="Error"/>
+    <InputStream string="error"/>
+    <InputStream string="Null"/>
+    <InputStream string="Exception"/>
+    <InputStream string="ERROR"/>
+    <ErrorStream string="Error"/>
+    <ErrorStream string="error"/>
+    <ErrorStream string="Exception"/>
+    <ErrorStream string="termination"/>
+    <ErrorStream string="Bad"/>
+    <ErrorStream string="Null"/>
+    <ErrorStream string="ERROR"/>
+  </ErrorStrings>
+
+  <!-- Translator input and error stream keywords to exclude as an error conditions. -->
+  <!-- These are common to all translators. Translator specific keywords must be     -->
+  <!-- provided in the configuration of the specific translator.                     -->
+  <ErrorExclStrings>
+    <InputStreamExcl string="Error Reporting mechanism"/>
+    <InputStreamExcl string="Translator Error Log File created"/>
+    <ErrorStreamExcl string="This is not an error"/>
+  </ErrorExclStrings>
+
+  <EaiTranslatorCommon>
+    <EaiFileNameChg nitem="3" char="_">
+       <ChangeFrom char="-"/>
+       <ChangeFrom char="."/>
+       <ChangeFrom char=" "/>
+    </EaiFileNameChg>
+  </EaiTranslatorCommon>
+
+</Translators>

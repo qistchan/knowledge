@@ -1,0 +1,96 @@
+# Attribute Synchronisation mapping file for site "IMC--1941544577" (id -1941544577)
+# TC_ROOT = D:\Siemens\tc11Mig
+# TC_DATA = D:\Siemens\tcdata_tc11Mig
+# TC_DB_CONNECT = tcMig11:XFWGm/qrpsENfn24tf9JJnNaalYadw4eUgavitgX+cI@orcl
+# Exported by infodba (infodba) at 2016/07/10 17:06:12
+#
+# Syntax:
+#    <title> : <mapping> [ <qualifiers> ]
+#    where <mapping> is one of:
+#        IM
+#        IRM
+#        CONST( <value> )
+#        PREF( [ <scope> : ] <value> )
+#        <step>.<step>...<property>
+#        where <step> is one of:
+#            <property>
+#            GRM( <relationship-type> [ , <object-type> ] )
+#            NR( <named-reference-type> [ , <form-type> ] )
+#            SIGNOFF( [ <release-level> , ] <role> )
+#            ItemRevision
+#            Item
+#            Job
+#    and <qualifiers> are:
+#        /write_once
+#        /description=<description>
+#        /master=both|cad|iman|none
+#        /freezable
+#
+# Real mappings:
+#
+# NOTE: for item master form the qualifier master=nnn is reassigned to master=iman
+#       where nnn can be cad, both, or none.
+#
+
+# (hard-wired) DB_PART_NO : "Part Number"
+# (hard-wired) DB_PART_REV : "Part Revision"
+# (hard-wired) DB_PART_TYPE : "Part Type"
+# (hard-wired) DB_UNITS : "Part Unit of Measure"
+#"DB_PART_NAME" : Item.object_name /master=iman /description="Part Name"
+#"DB_PART_DESC" : Item.object_desc /master=iman /description="Part Description"
+
+{ Dataset type="UGPART"
+    # (hard-wired) DB_DATASET_ID : "Part File ID"
+    # (hard-wired) DB_DATASET_REV : "Part File Rev"
+
+}
+
+{ Dataset type="CAEMesh"
+    "DB_PART_NAME" : Item.object_name /write_once /description="Part Name"
+    "DB_PART_DESC" : Item.object_desc /write_once /description="Part Description"
+
+}
+
+{ Dataset type="CAEGeom"
+    "DB_PART_NAME" : Item.object_name /write_once /description="Part Name"
+    "DB_PART_DESC" : Item.object_desc /write_once /description="Part Description"
+
+}
+
+{ Dataset type="CAESolution"
+    "DB_PART_NAME" : Item.object_name /write_once /description="Part Name"
+    "DB_PART_DESC" : Item.object_desc /write_once /description="Part Description"
+
+}
+
+{ Dataset type="UGMASTER"
+    # "DB_PART_NAME" : Item.object_name /write_once /description="Part Name"
+    # "DB_PART_DESC" : Item.object_desc /write_once /description="Part Description"
+	
+	{ Item type="GET6MechPart"
+        IP_CLASSIFICATION : Item.ip_classification	/master=both /description="IP Classification"
+        ITEM_NAME : Item.object_name	/master=both /description="MechPart Name"	
+		OBJECT_WEIGHT 	: 	ItemRevision.get6ObjWt /master=both /description="Object Weight"
+		OBJECT_WEIGHT_UOM 	: 	ItemRevision.get6ObjWtUOM /master=both /description="Object Weight UOM"
+		OVERALL_LENGTH 	: 	ItemRevision.get6OverallLength /master=both /description="Overall Length"
+		OVERALL_WIDTH 	: 	ItemRevision.get6OverallWidth /master=both /description="Overall Width"
+		OVERALL_HEIGHT 	: 	ItemRevision.get6OverallHeight /master=both /description="Overall Height"
+		OVERALL_UOM 	: 	ItemRevision.get6OverallUOM /master=both /description="Overall UOM"
+    }
+	
+	{ Item type="GET6FlatPattern"
+        IP_CLASSIFICATION : Item.ip_classification	/master=cad /description="IP Classification"
+        ITEM_NAME 	:	Item.object_name	/master=cad /description="Flat Pattern Name"	
+		LENGTH		:	ItemRevision.get6Length /master=cad /description="Length"
+		LENGTH_UOM 	: 	ItemRevision.get6LengthUOM /master=cad /description="Length UOM"	
+		OBJECT_WEIGHT 	: 	ItemRevision.get6ObjWt /master=cad /description="Object Weight"
+		OBJECT_WEIGHT_UOM 	: 	ItemRevision.get6ObjWtUOM /master=cad /description="Object Weight UOM"
+		SURFACE_AREA 	: 	ItemRevision.get6SurfaceArea /master=cad /description="Surface Area"
+		SURFACE_AREA_UOM 	: 	ItemRevision.get6SurfaceAreaUOM /master=cad /description="Surface Area UOM"
+		THICKNESS 	: 	ItemRevision.get6Thickness /master=cad /description="Thickness"
+		THICKNESS_UOM 	: 	ItemRevision.get6ThkUOM /master=cad /description="Thickness UOM"
+		WIDTH 	: 	ItemRevision.get6Width /master=cad /description="Width"
+		WIDTH_UOM 	: 	ItemRevision.get6WidthUOM /master=cad /description="Width UOM"
+	}
+
+}

@@ -1,0 +1,3 @@
+!|ItemID|CreateDate|ModifyDate|R:last_mod_date.POM|R:creation_date.POM|Status
+ 41A113460DLG12-MDENV | 12-Apr-2016 04:58 | 28-Jul-2016 05:49 | 28-Jul-2016 05:49 | 12-Apr-2016 04:58|GET6_Released
+ 41A113460DLG12-DLIN | 12-Apr-2016 05:00 | 26-Jul-2016 07:27 | 26-Jul-2016 07:27 | 12-Apr-2016 05:00|GET6_Released

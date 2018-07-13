@@ -1,0 +1,114 @@
+# upgrade_get8t4o_v20091.default:
+#
+# 
+#
+#______________________________________________________________________________
+#  Steps for upgrading get8t4o from Teamcenter v20091 to latest Teamcenter release
+#______________________________________________________________________________ 
+
+
+#..............................................................................
+# SECTION: Pre Schema Additions
+#..............................................................................
+#    Use this section to add any commands that should migrate data before 
+#    the BMIDE tools have added the new classes and attributes.
+#..............................................................................
+<pre-schema-add>
+
+</pre-schema-add>
+
+
+
+
+#..............................................................................
+# SECTION: Post Schema Additions
+#..............................................................................
+#    Use this section to add any commands that should migrate data after 
+#    the BMIDE tools have added the new classes and attributes, but before
+#    the BMIDE tools modify or delete any existing classes and attributes.
+#..............................................................................
+<post-schema-add>
+
+</post-schema-add>
+
+
+
+
+#..............................................................................
+# SECTION: Post Schema Changes
+#..............................................................................
+#    Use this section to add any commands that should migrate data after 
+#    the BMIDE tools have changed any existing classes and attributes,
+#    but before the BMIDE tools deletes any existing classes and attributes
+#    and before the BMIDE adds, changes, or deletes non-schema objects.
+#    The creation of types for pre-tc2007 releases should be added in this section.
+#..............................................................................
+<post-schema-change>
+
+</post-schema-change>
+
+#..............................................................................
+# SECTION: Pre Non-Schema Additions
+#..............................................................................
+#    Use this section to add any commands that should migrate data after 
+#    the BMIDE tools have added the Primary Business Objects and BMF Rules
+#
+#    Use this section if your solution needs to install any Workflow templates,
+#    Transfer Modes, or any other data that must be installed before the BMIDE tools install 
+#    Business Objects (Items, Datasets, Forms, Item Element, App Interface, IntDataCapture),
+#    Business Rules, LOVs, Change Objects, Validation Data, Tools.
+#..............................................................................
+<pre-non-schema-add>
+
+</pre-non-schema-add>
+
+#..............................................................................
+# SECTION: Post Non-Schema Additions
+#..............................................................................
+#    Use this section to add any commands that should migrate data after 
+#    the BMIDE tools have added the Business Objects, Business Rules, LOVs,
+#    Change objects, Validation Data, Tools, etc.
+#..............................................................................
+<post-non-schema-add>
+
+</post-non-schema-add>
+
+
+
+
+#..............................................................................
+# SECTION: Post Non-Schema Changes
+#..............................................................................
+#    Use this section to add any commands that should migrate data after 
+#    the BMIDE tools have changed any existing Business Objects, Business Rules, LOVs,
+#    Change objects, Validation Data, Tools, etc.
+#..............................................................................
+<post-non-schema-change>
+
+</post-non-schema-change>
+
+
+#..............................................................................
+# SECTION: Post Non-Schema Deletions
+#..............................................................................
+#    Use this section to add any commands that should migrate data after 
+#    the BMIDE tools have deleted any existing Business Objects, Business Rules, LOVs,
+#    Change objects, Validation Data, Tools, etc.
+#..............................................................................
+<post-non-schema-delete>
+
+</post-non-schema-delete>
+
+
+
+
+#..............................................................................
+# SECTION: Post Schema Deletions
+#..............................................................................
+#    Use this section to add any commands that should migrate data after 
+#    the BMIDE tools have added/changed/deleted Business Objects, Business Rules, LOVs,
+#    Change objects, Validation Data, Tools, etc.
+#..............................................................................
+<post-schema-delete>
+
+</post-schema-delete>

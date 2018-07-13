@@ -1,0 +1,279 @@
+<project name="custom_exits_common">
+	
+	<property environment="env" />
+	<property name="src.dir" location="${basedir}/.."/>
+	<property name="cpptest_home.dir" location="${src.dir}/cpptest"/>
+	<property name="deploy_include.dir" location="${src.dir}/include"/>
+	<property name="deploy_bin.dir" location="${src.dir}/bin"/>
+	<property name="deploy_lib.dir" location="${src.dir}/lib"/>
+	<property name="cpptest.lib.dir" value="${cpptest_home.dir}/lib"/>
+	<property name="get_common.lib.dir" value="${src.dir}/get_common/lib"/>
+	<property name="get_sysapi.lib.dir" value="${src.dir}/get_sysapi/lib"/>
+	<property name="get_occi.lib.dir" value="${src.dir}/get_occi/lib"/>
+	<property name="occi.wntx64.lib.dir" value="${src.dir}/get_occi/wntx64"/>
+	<property name="occi.lnx64.lib.dir" value="${src.dir}/get_occi/lnx64"/>
+	<property name="XERCES_HOME" value="${XERCES_HOME}"/>
+    <property name="GTEST_HOME" value="${src.dir}/googletest-release-1.5.0"/>
+	<!-- Import supplemental tasks -->
+	<taskdef resource="cpptasks.tasks">
+   	<classpath>
+		<pathelement location="${ANT_HOME}/lib/cpptasks.jar" /> 
+   	</classpath> 
+   	</taskdef>
+	<typedef resource="cpptasks.types">
+	 <classpath> 
+		<pathelement location="${ANT_HOME}/lib/cpptasks.jar" /> 
+   	</classpath> 
+   	</typedef>
+	
+	<!-- Define platform -->
+	<condition property="ge.win">
+		<os family="windows"/>
+	</condition>
+	<condition property="ge.sol">
+		<os name="SunOS"/>
+	</condition>
+	<condition property="ge.linux">
+		<os name="linux"/>
+	</condition>
+	
+	<property name="cpptest.lib.dir" value="${cpptest_home.dir}/lib"/>
+	<!-- Define the include path -->
+	<path id="include.path">
+		<pathelement path=".;.."/>
+	</path>
+	<path id="include.cpptest.path">
+        <pathelement path="${cpptest_home.dir}/include"/>
+    </path>
+	<!-- Define the target files -->
+	<fileset id="source" dir=".">
+		<include name="*.c"/>
+		<include name="*.cpp"/>
+		<include name="*.cxx"/>
+	</fileset>
+	
+	<!-- Initialize target -->
+	<target name="init" description="initialize">
+		<tstamp/>
+	</target>
+	
+	<target name="logging" description="Provides logging for build targets">
+		<tstamp>
+			<format property="timestamp" pattern="yyyy-MM-dd_HH-mm-ss"/>
+		</tstamp>
+		
+		<property name="build.log.dir" location="${basedir}/buildlogs"/>
+		<mkdir dir="${build.log.dir}"/>
+		<property name="build.log.filename" value="build_${timestamp}.log"/>
+		<record name="${build.log.dir}/${build.log.filename}" loglevel="verbose"
+			append="false"/>
+		<echo message="Build logged to ${build.log.filename}"/>
+		
+	</target>
+	
+	<!-- 32 bit linkage -->
+	<target name="link32" description="32 bit linkage" depends="logging">
+		<mkdir dir="${link.dir}"/>
+		<cc outtype="${link.type}" subsystem="console"
+			outfile="${link.dir}/${link.name}">
+			<linker name="msvc" if="ge.win" >
+				<linkerarg value="/debug" />
+                <linkerarg value="/nodefaultlib" />
+                <linkerarg value="/nologo" />
+                <linkerarg value="/machine:IX86" />
+                <linkerarg value="/subsystem:console" />                                
+                <linkerarg value="-libpath:${env.TC_ROOT}/lib"/>
+                <syslibset libs="wsock32,advapi32,msvcrt,msvcprt,oldnames,kernel32,winmm" />
+                <libset dir="${env.TC_ROOT}/lib" libs="libae,libaie,libappr,libarchive,libbackup,libbase_utils,libbom,libcfm,libcollabctx,libcxpom,libdmi,libecm,libeint,libepm,libfclasses,libform,libgrm,libics,libict,libinternal_exits,libitk,liblov,libme,libmechatronics,libmgc,libobjio,libpie,libpom,libproperty,libps,libpublication,libqry,libres,librdv,libsa,libsml,libss,libtcsso,libstep,libsub_mgr,libsyss,libtc,libtccore,libtccoreext,libtcinit, libtcsso,libtextsrv,libuser_exits,xerces270,InitiatorHandler,libmld,libce" />				
+				<fileset dir="${obj.dir}">
+					<include name="${obj.set}"/>
+				</fileset>
+				<libset dir="${lib.dir}" libs="${lib.set}" if="lib.required"/>
+				<libset dir="${cpptest.lib.dir}" libs="libcpptest32" if="cpptest"/>	
+				<libset dir="${get_common.lib.dir}" libs="libGET_common"/> 
+				<libset dir="${get_sysapi.lib.dir}" libs="libGET_sysapi"/> 
+				<libset dir="${get_occi.lib.dir}" libs="libGET_occi"/> 
+			</linker>
+			<linker name="CC" if="ge.sol">
+				<fileset dir="${obj.dir}">
+					<include name="${obj.set}"/>
+				</fileset>
+				<libset dir="${lib.dir}" libs="${lib.set}" if="lib.required"/>
+				<syslibset libs="socket"/>
+			</linker>
+		</cc>
+	</target>
+	
+	<!-- 64 bit linkage -->
+	<target name="link64" description="64 bit linkage" depends="logging">
+		<mkdir dir="${link.dir}"/>
+		<cc outtype="${link.type}" subsystem="console" outfile="${link.dir}/${link.name}">
+			<linker name="msvc" if="ge.win">
+				 <linkerarg value="/debug" />
+                <linkerarg value="/nodefaultlib" />
+                <linkerarg value="/nologo" />
+                <linkerarg value="/machine:x64" />
+                <linkerarg value="/subsystem:console" />                
+                <linkerarg value="/FORCE:MULTIPLE" if="cpptest"/>
+                <linkerarg value="-libpath:${env.TC_ROOT}/lib"/>
+                <syslibset libs="wsock32,advapi32,msvcrt,msvcprt,oldnames,kernel32,winmm" />
+                <libset dir="${env.TC_ROOT}/lib" libs="libae,libaie,libappr,libarchive,libbackup,libbase_utils,libbom,libce,libmld,libmetaframework,libcfm,libcollabctx,libcxpom,libdispatcher,libdmi,libecm,libeint,libepm,libfclasses,libform,libgrm,libics,libict,libinternal_exits,libitk,liblov,libme,libmechatronics,libmgc,libobjio,libpie,libpom,libproperty,libps,libpublication,libqry,libres,librdv,libsa,libsml,libss,libtcsso,libstep,libsub_mgr,libsyss,libtc,libtccore,libtccoreext,libtcinit, libtcsso,libtextsrv,libuser_exits,xerces270" />
+				<fileset dir="${obj.dir}">
+					<include name="${obj.set}"/>
+				</fileset>
+				<libset dir="${lib.dir}" libs="${lib.set}" if="lib.required"/>
+				<libset dir="${cpptest.lib.dir}" libs="libcpptest64" if="cpptest"/>	
+                <libset dir="${get_common.lib.dir}" libs="libGET_common"/>
+                <libset dir="${get_sysapi.lib.dir}" libs="libGET_sysapi"/>
+				<libset dir="${occi.wntx64.lib.dir}" libs="oraocci12,oci"/>
+				<libset dir="${get_occi.lib.dir}" libs="libGET_occi"/>
+			</linker>
+			<linker name="CC" if="ge.sol">
+				<linkerarg value="-mt"/>
+				<linkerarg value="-m64"/>
+				<linkerarg value="-t"/>
+				<fileset dir="${obj.dir}">
+					<include name="${obj.set}"/>
+				</fileset>
+				<libset dir="${lib.dir}" libs="${lib.set}" if="lib.required"/>
+                <libset dir="${get_sysapi.lib.dir}" libs="GET_sysapi"/>
+                <libset dir="${get_common.lib.dir}" libs="GET_common"/>
+				<libset dir="${get_occi.lib.dir}" libs="GET_occi"/>
+				<libset dir="${occi.lnx64.lib.dir}" libs="occi"/>
+                <libset dir="${env.TC_ROOT}/lib" libs="ae,aie,appr,archive,backup,base_utils,bom,ce,mld,metaframework,cfm,collabctx,cxpom,dispatcher,dmi,ecm,eint,epm,fclasses,form,grm,ics,ict,internal_exits,itk,lov,me,mechatronics,mgc,objio,pie,pom,property,ps,publication,qry,res,rdv,sa,sml,ss,tcsso,sub_mgr,syss,tc,tccore,tccoreext,tcinit, tcsso,textsrv,user_exits,xerces270" />
+				<syslibset
+					libs="socket,elf,resolv,Cstd,m,nsl,Crun,pthread,clntsh"/>
+			</linker>
+			<linker name="g++" if="ge.linux">
+				<fileset dir="${obj.dir}">
+					<include name="${obj.set}"/>
+				</fileset>
+				<libset dir="${lib.dir}" libs="${lib.set}" if="lib.required"/>
+                <libset dir="${cpptest.lib.dir}" libs="cpptest64" if="cpptest"/>
+				<libset dir="${get_common.lib.dir}" libs="GET_common"/> 
+                <libset dir="${get_sysapi.lib.dir}" libs="GET_sysapi"/>
+				<libset dir="${occi.lnx64.lib.dir}" libs="occi"/>
+				<libset dir="${get_occi.lib.dir}" libs="GET_occi"/>
+				<libset dir="${env.TC_ROOT}/lib" libs="ae,aie,appr,archive,backup,base_utils,bom,ce,mld,metaframework,cfm,collabctx,cxpom,dispatcher,dmi,ecm,eint,epm,fclasses,form,grm,ics,ict,internal_exits,itk,lov,me,mechatronics,mgc,objio,pie,pom,property,ps,publication,qry,res,rdv,sa,sml,ss,tcsso,sub_mgr,syss,tc,tccore,tccoreext,tcinit, tcsso,textsrv,user_exits,xerces270" />
+			</linker>
+		</cc>
+	</target>
+	
+	<!-- Clean object files only -->
+	<target name="clean-objs" description="clean object files only">
+		<delete>
+			<fileset dir=".">
+				<include name="**/*.obj"/>
+				<include name="**/*.o"/>
+			</fileset>
+		</delete>
+	</target>
+	
+	<!-- Clean everything -->
+	<target name="clean" depends="clean-objs" description="clean everything">
+		<subant target="clean">
+		   <filelist dir="get_tc_common" files="build.xml"/>
+		   <filelist dir="handler" files="build.xml"/>
+		   <filelist dir="service" files="build.xml"/>
+		   <filelist dir="extension" files="build.xml"/>
+    	   <filelist dir="get_tc_common/test" files="build.xml"/>
+		 </subant>
+		<delete>
+			<fileset dir=".">
+				<include name="**/*.pdb"/>
+				<include name="**/*.lib"/>
+				<include name="**/*.exp"/>
+				<include name="**/*.exe"/>
+				<include name="**/*.manifest"/>
+				<include name="**/history.xml"/>
+				<include name="**/dependencies.xml"/>
+			</fileset>
+		</delete>
+		<delete dir="obj"/>
+		<delete dir="lib"/>
+		<delete dir="doc"/>
+		<delete dir="buildlogs"/>
+	</target>
+	
+	 <target name="deploy" depends="" description="Deploy">
+		 <mkdir dir="${deploy_bin.dir}"/>
+		 <mkdir dir="${deploy_lib.dir}"/>
+		 <mkdir dir="${deploy_include.dir}"/>
+		 <subant target="deploy">
+    	   <filelist dir="get_tc_common/test" files="build.xml"/>
+		 </subant>
+	 
+        <sequential>
+          <!--  -->
+            <echo message="Deploy Common Libraries" />
+            <copy todir="${deploy_bin.dir}" verbose="true" failonerror="false">
+              <fileset dir="${link.dir}">
+                  <include name="*.dll" />
+                  <include name="*.pdb" />
+              </fileset>
+            </copy>
+          
+        	<copy todir="${env.TC_ROOT}/lib" verbose="true" failonerror="false">
+        			
+               <fileset dir="${link.dir}">
+                   <include name="*.lib" />
+			<include name="*.so*" />
+               </fileset>
+		<fileset dir="lnx64">
+                   <include name="*.lib" />
+			<include name="*.so*" />
+               </fileset>
+             </copy>
+        	<copy todir="${env.TC_ROOT}/bin" verbose="true" failonerror="false">
+        			
+           <fileset dir="${link.dir}">
+               <include name="*.dll" />
+		    </fileset>
+	       </copy>
+            <copy todir="${deploy_lib.dir}" verbose="true" failonerror="false">
+               <fileset dir="${link.dir}">
+                   <include name="*.lib" />
+				   <include name="*.so" />
+               </fileset>
+             </copy>
+
+			<mkdir dir="${deploy_include.dir}/ge/get_custom_exits/extension"/>
+			<copy todir="${deploy_include.dir}/ge/get_custom_exits/extension" verbose="true" failonerror="false">
+               <fileset dir="extension">
+                  <include name="*.h" />
+				   <include name="*.hpp" />
+				   <include name="*.hxx" />
+               </fileset>
+             </copy>
+			
+			<mkdir dir="${deploy_include.dir}/ge/get_custom_exits/get_tc_common"/>
+			<copy todir="${deploy_include.dir}/ge/get_custom_exits/get_tc_common" verbose="true" failonerror="false">
+               <fileset dir="get_tc_common">
+                   <include name="*.h" />
+				   <include name="*.hpp" />
+				   <include name="*.hxx" />
+               </fileset>
+             </copy>
+			 
+			 <mkdir dir="${deploy_include.dir}/ge/get_custom_exits/handler"/>
+			 <copy todir="${deploy_include.dir}/ge/get_custom_exits/handler" verbose="true" failonerror="false">
+               <fileset dir="handler">
+                   <include name="*.h" />
+				   <include name="*.hpp" />
+				   <include name="*.hxx" />
+               </fileset>
+             </copy>
+			
+			<mkdir dir="${deploy_include.dir}/ge/get_custom_exits/service"/>
+			<copy todir="${deploy_include.dir}/ge/get_custom_exits/service" verbose="true" failonerror="false">
+               <fileset dir="service">
+                   <include name="*.h" />
+				   <include name="*.hpp" />
+				   <include name="*.hxx" />
+               </fileset>
+             </copy>
+
+        </sequential>
+    </target>
+	
+</project>

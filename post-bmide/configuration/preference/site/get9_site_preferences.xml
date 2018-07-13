@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences version="10.0"> 
+   <category name="Active Workspace">
+    <category_description></category_description>
+	<preference name="AW_FullTextSearch_TypeCategories" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Contains the list of indexed object properties.</preference_description>
+      <context name="Teamcenter">
+        <value>Parts:Design Revision,GET6AbsContainerRevision,GET6DesignMiscRevision,GET6MockRevision,GET6ModuleRevision,GET6PLISTRevision,GET6ProjectRevision,GET6WorkareaRevision,GET6DsgnRelPlanRevision,GET9FnctLvlRevision,GET9ZnlLvlRevision,GET6AbsPartRevision,GET6AbsUniPartRevision,GET6ElectPartRevision,GET6LegacyPartRevision,GET6MechPartRevision,GET6SoftwarePartRevision,GET9SrvPartRevision,GET6MfgPartRevision,GET6StockMtrlRevision,GET6AbsSecDesignRevision,GET6FlatPatternRevision,Part Revision</value>
+        <value>Files:MSExcelX,MSPowerPointX,MSWordX,PDF,Text,JPEG</value>
+        <value>Documents:DocumentRevision,Specification Revision,RequirementSpec Revision,CPBriefRevision,CPMarketingBriefRevision,EmailRevision,CPProductRoughRevision,CPThemeBoardRevision,NX0RoutingSpecRevision,GET6AbsDocumentRevision,GET6DocumentRevision,GET6SpecsRevision</value>
+      </context>
+    </preference>
+	  </category>
+    <category name="GET">
+	 <category_description></category_description>
+	 <preference name="AWC_DisplayableChangeTypes" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="true">
+	 <preference_description>Defines the list of &quot;ChangeItemRevision&quot; types that are presented in the &quot;Change Management&quot; application in the Active Workspace Client (AWC). Valid values are types internal names.</preference_description>
+	 <context name="Teamcenter">
+		<value>GET6ECRRevision</value>
+		<value>GET6ECNRevision</value>
+		<value>GET6MCNRevision</value>
+		<value>GET9SCNRevision</value>
+	  </context>
+	</preference>
+	<preference name="CM_change_derivations" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>Defines the type of change to create from a given source type during the Derive Change process.
+			The format for valid values is &quot;source_type/derived_type&quot;, where:
+			source_type is the type of change from which to derive change, and
+			derived_type is the type of change which will be created. This is a site preference only.</preference_description>
+	  <context name="Teamcenter">
+		<value>IssueReport/ChangeRequest</value>
+		<value>PnM0Penetration/ChangeRequest</value>
+		<value>ProblemReport/ChangeRequest</value>
+		<value>ProblemReport/Cm0DevRqst</value>
+		<value>ChangeRequest/ChangeNotice</value>
+		<value>Cm0DevRqst/ChangeNotice</value>
+		<value>Cm0ActionItem/ChangeRequest</value>
+		<value>Cm0ActionItem/Cm0DevRqst</value>
+		<value>GET6DsgnRelease/GET6ECR</value>
+		<value>GET6ECR/GET6ECN</value>
+		<value>GET6ECN/GET6MCN</value>
+		<value>GET6ECN/GET9SCN</value>
+	  </context>
+	</preference>
+	<preference name="AWC_GET9SCN.CREATERENDERING" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>SCN Create Sylesheet</preference_description>
+	  <context name="Teamcenter">
+		<value>AWC_GET9SCNCreate</value>
+	  </context>
+	</preference>
+	<preference name="AWC_GET9SCN.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Group" envEnabled="false">
+	  <preference_description>SCN Summary Stylesheet</preference_description>
+	  <context name="Teamcenter">
+		<value>AWC_GET9SCNSummary</value>
+	  </context>
+	</preference>
+	<preference name="AWC_GET9SCNRevision.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Group" envEnabled="false">
+	  <preference_description>SCN Revision Summary Stylesheet</preference_description>
+	  <context name="Teamcenter">
+		<value>AWC_GET9SCNRevisionSummary</value>
+	  </context>
+	</preference>
+	<preference name="AWC_GET9SrvPart.CREATERENDERING" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>This is an internal preference.</preference_description>
+      <context name="Teamcenter">
+        <value>AWC_GET9SrvPartCreate</value>
+      </context>
+    </preference>
+	<preference name="AWC_GET9SrvPart.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>This is an internal preference.</preference_description>
+      <context name="Teamcenter">
+        <value>AWC_GET9SrvPartSummary</value>
+      </context>
+    </preference>
+	<preference name="AWC_GET9SrvPartRevision.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>This is an internal preference.</preference_description>
+      <context name="Teamcenter">
+        <value>AWC_GET9SrvPartRevisionSummary</value>
+      </context>
+    </preference>
+	<preference name="GET9SCN.CREATERENDERING" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SCNCreate</value>
+	  </context>
+	</preference>
+	<preference name="GET9SCN.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Group" envEnabled="false">
+	  <preference_description>SCN Summary Stylesheet</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SCNSummary</value>
+	  </context>
+	</preference>
+	<preference name="GET9SCNCreate.CREATE_REGISTEREDTO" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SCN</value>
+	  </context>
+	</preference>
+	<preference name="GET9SCNRevision.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Group" envEnabled="false">
+	  <preference_description>SCN Revision Summary Stylesheet</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SCNRevisionSummary</value>
+	  </context>
+	</preference>
+	<preference name="GET9SCNRevisionSummary.SUMMARY_REGISTEREDTO" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SCNRevision</value>
+	  </context>
+	</preference>
+	<preference name="GET9SCNSummary.SUMMARY_REGISTEREDTO" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SCN</value>
+	  </context>
+	</preference>
+	<preference name="ECP.PropPropagation.GET6ECNRevision.GET9SCNRevision" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>Properties to be propagated from ECN to SCN</preference_description>
+	  <context name="Teamcenter">
+		<value>get6CHGReason|get6CHGReason</value>
+		<value>get6IPClassification|get6IPClassification</value>
+		<value>get6Copies|get6Copies</value>
+		<value>get6Reasonforchg|get6Reasonforchg</value>
+	  </context>
+	</preference>
+	<preference name="GET9SerAttrForm.CREATERENDERING" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SerAttrFormCreate</value>
+	  </context>
+	</preference>
+	<preference name="GET9SerAttrForm.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SerAttrFormSummary</value>
+	  </context>
+	</preference>
+	<preference name="GET9ServAttrForm.SUMMARY_REGISTEREDTO" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SerAttrForm</value>
+	  </context>
+	</preference>
+	<preference name="GET9ServAttrFormCreate.CREATE_REGISTEREDTO" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SerAttrForm</value>
+	  </context>
+	</preference>
+	<preference name="GET9ServAttrFormSummary.SUMMARY_REGISTEREDTO" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SerAttrForm</value>
+	  </context>
+	</preference>
+	<preference name="GET9SrvPart.CREATERENDERING" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SrvPartCreate</value>
+	  </context>
+	</preference>
+	<preference name="GET9SrvPart.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SrvPartSummary</value>
+	  </context>
+	</preference>
+	<preference name="GET9SrvPartCreate.CREATE_REGISTEREDTO" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SrvPart</value>
+	  </context>
+	</preference>
+	<preference name="GET9SrvPartRevision.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SrvPartRevisionSummary</value>
+	  </context>
+	</preference>
+	<preference name="GET9SrvPartRevisionSummary.SUMMARY_REGISTEREDTO" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SrvPartRevision</value>
+	  </context>
+	</preference>
+	<preference name="GET9SrvPartRevision_DefaultChildProperties" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+	    <value>view</value>
+		<value>GET6DocumentRel</value>
+		<value>GET6DrawingRel</value>
+		<value>GET6SpecRel</value>
+		<value>GET9ServFormAtt</value>
+		<value>GET6SupersededBy</value>
+		<value>structure_revisions</value>
+		</context>
+	</preference>
+	<preference name="GET9SrvPartRevision_PseudoFolder" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+	    <value>view</value>
+		<value>GET6DocumentRel</value>
+		<value>GET6DrawingRel</value>
+		<value>GET6SpecRel</value>
+		<value>GET9ServFormAtt</value>
+		<value>GET6SupersededBy</value>
+		<value>representation_for</value>
+		</context>
+	</preference>
+	<preference name="GET9SrvPartSummary.SUMMARY_REGISTEREDTO" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SrvPart</value>
+	  </context>
+	</preference>
+	<preference name="GET9SrvPart_DefaultChildProperties" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET6MadeFromPart</value>
+		<value>GET6MadeFromMatl</value>
+		<value>revision_list</value>
+		<value>release_status_list</value>
+		<value>bom_view_tags</value>
+	  </context>
+	</preference>
+	<preference name="GET9SrvPart_PseudoFolder" type="String" array="true" disabled="false" protectionScope="User" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET6MadeFromMatl</value>
+		<value>GET6MadeFromPart</value>
+		<value>view</value>
+	  </context>
+	</preference>
+		<preference name="GET9SrvPartCreate.CREATE_REGISTEREDTO" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SrvPart</value>
+	  </context>
+	</preference>
+		<preference name="TC_GET9FnctLvlRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+	  <preference_description>Preference for template filters</preference_description>
+	  <context name="Teamcenter">
+		<value></value>
+	  </context>
+	</preference>
+	<preference name="TC_GET9SrvPartRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+	  <preference_description>Preference for template filters</preference_description>
+	  <context name="Teamcenter">
+		<value></value>
+	  </context>
+	</preference>
+	<preference name="TC_GET9ZnlLvlRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+	  <preference_description>Preference for template filters</preference_description>
+	  <context name="Teamcenter">
+		<value></value>
+	  </context>
+	</preference>
+	<preference name="GET9SrvPartRevisionSummary.SUMMARY_REGISTEREDTO" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SrvPartRevision</value>
+	  </context>
+	</preference>
+	<preference name="GET9SerAttrForm.CREATERENDERING" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SerAttrFormCreate</value>
+	  </context>
+	</preference>
+	<preference name="GET9SrvPartSummary.SUMMARY_REGISTEREDTO" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SrvPart</value>
+	  </context>
+	</preference>
+	<preference name="GET9SerAttrFormCreate.CREATE_REGISTEREDTO" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SerAttrForm</value>
+	  </context>
+	</preference>
+	<preference name="GET9SerAttrForm.CREATERENDERING" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+	  <preference_description>This is an internal preference.</preference_description>
+	  <context name="Teamcenter">
+		<value>GET9SerAttrFormCreate</value>
+	  </context>
+	</preference>
+	 <preference name="GET9FnctLvl.CREATERENDERING" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>This is an internal preference.</preference_description>
+      <context name="Teamcenter">
+        <value>GET9FnctLvlCreate</value>
+      </context>
+    </preference>
+	<preference name="GET9FnctLvlCreate.CREATE_REGISTEREDTO" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>This is an internal preference.</preference_description>
+      <context name="Teamcenter">
+        <value>GET9FnctLvl</value>
+      </context>
+    </preference>
+		<preference name="GET9ZnlLvl.CREATERENDERING" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>This is an internal preference.</preference_description>
+      <context name="Teamcenter">
+        <value>GET9ZnlLvlCreate</value>
+      </context>
+    </preference>
+	<preference name="GET9ZnlLvlCreate.CREATE_REGISTEREDTO" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>This is an internal preference.</preference_description>
+      <context name="Teamcenter">
+        <value>GET9ZnlLvl</value>
+      </context>
+    </preference>
+   </category>
+</preferences>

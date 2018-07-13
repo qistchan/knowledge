@@ -1,0 +1,90 @@
+#
+# \file          t4o_ebs_config_patch.sd
+#
+# \brief         EBS connector settings.
+#
+# \details       This file contains all relevant EBS connector settings for the Patch R12.2.3 EBS system.
+#
+# \author        ljj, 20140808
+#
+#
+
+set strSystemId                                            "CHANGE_ME_ORACLE_SYSTEM_ID"
+
+#***************************************************************************************************
+#   Here you can define the type of connector used by T4O to connect to the EBS (JDBC or ISG)
+#***************************************************************************************************
+
+set ::T4O_Ctrl(Connector:$strSystemId)                     "JDBC" ; # Possible values -> ISG or JDBC
+
+#***************************************************************************************************
+#   Here you can define the number of parameters for PL/SQL functions used for the JDBC Connector
+#   if they do not match a standard 12.1.1 (or above) installation
+#***************************************************************************************************
+
+#set ::T4O_Ctrl(JDBC:TP_PROCESS_ITEM:$strSystemId)          "374"
+#set ::T4O_Ctrl(JDBC:TP_PROCESS_ITEM_REVISION:$strSystemId) "35"
+
+#***************************************************************************************************
+#   Here you can define all system dependend customer specific default values for the T4O gateway
+#***************************************************************************************************
+
+#
+# EBS connect string (IP and Port)
+#
+# JDBC - thin: driverFlavour (possible values thin, oci (needs oracle client libraries))
+
+set ::T4O_Defaults(JDBC:EBS_AccessString:$strSystemId)   "CHANGE_ME_JDBC_URL"
+
+# User (schema) credentials for JDBC connector
+set ::T4O_Defaults(JDBC:SCHEMA_NAME:$strSystemId)          "CHANGE_ME_JDBC_SCHEMA_NAME"
+set ::T4O_Defaults(JDBC:CHECK_USER:$strSystemId)           "CHANGE_ME_JDBC_CHECK_USER"
+set ::T4O_Defaults(JDBC:CHECK_PASS:$strSystemId)           "CHANGE_ME_JDBC_CHECK_PASS"
+set ::T4O_Defaults(JDBC:CHECK_ENCRYPTED:$strSystemId)      "TRUE"
+
+set ::T4O_Defaults(JDBC:LOG_LEVEL:$strSystemId)            "INFO" ; # Possible values: INFO, ALL, FINE, FINER and FINEST
+
+# If TP_SESSION_INITIALIZE is used, SQL_TRACE can be switched on
+set ::T4O_Defaults(JDBC:ACTIVATE_SQL_TRACE:$strSystemId)   "FALSE"
+
+set ::T4O_Defaults(JDBC:METAFILE:PACKAGES:$strSystemId)    [::TPEBS::PROCEDURE::getPackageList4MetaFile]
+set ::T4O_Defaults(JDBC:METAFILE:FILEPATH:$strSystemId)    "[rcwd]/var/conf/meta_${strSystemId}_$::T4O_Defaults(JDBC:SCHEMA_NAME:$strSystemId)$::T4O_Defaults(PackageVersion).ntl"
+
+#
+# TimeZone where the EBS system is located
+# Will be retrieved from the EBS system automatically, but can be adjusted manually in case of any customization.
+# Important: If this option is used, it may be necessary to maintain it manually according to summer-/wintertime settings.
+#
+#set ::T4O_Defaults(TimeZone:$strSystemId)                  "+01:00" ; # German winter time (summer time would be +02:00)
+
+#
+# List of installed languages to speed up T4O login dialog (Format: [list "OK" "lang 1" "lang 2" ... "lang n"])
+#
+set ::T4O_Defaults(LANGUAGES:$strSystemId)                 [list "OK" "AMERICAN"]
+
+#
+# If TRUE, T4O will perform 2 ECO transfers for each ECO transfer in order to remove ALL revised item components in the first step.
+# If this is not activated, an ECO object cannot be used for more than one (BOM-) transfer.
+#
+set ::T4O_Defaults(CleanECO:$strSystemId)                  "TRUE"
+
+#
+# Definition of Key Flexfield Segments for System Items
+#
+# Due to a bug in the Oracle API call PROCESS_ITEM, this option can only be used for
+# EBS 12.1.2 and above combined with the patch 14739246_R12.EGO.C_R12_GENERIC
+#
+# For EBS 11i and 12.1.1, KeyFF:Item:Active cannot be TRUE. P_ITEM_NUMBER has to be used and therefor
+# the database index INV.MTL_SYSTEM_ITEMS_INTERFACE_UC1 has to be non unique (if it exists).
+# (For more information, please visit http://download.oracle.com/appsnet/115mfgapi.pdf - Page 439)
+#
+set ::T4O_Defaults(KeyFF:Item:Active:$strSystemId)         "FALSE"            ; # TRUE if Key Flexfields are used for EBS Items (must be TRUE if more than one SEGMENT is configured as Key Flexfield segment for SYSTEM_ITEMS and unique index MTL_SYSTEM_ITEMS_INTERFACE_UC1 is used)
+set ::T4O_Defaults(KeyFF:Item:Delimiter:$strSystemId)      "-"                ; # Segment Separator as specified in the EBS
+set ::T4O_Defaults(KeyFF:Item:SegmentColumns:$strSystemId) [list "1" "2" "4"] ; # Numbers of configured segment columns as specified in the EBS (e. g. 1,2 and 4 if SEGMENT1, SEGMENT2 and SEGMENT4 is configured and enabled)
+
+
+#**************************************************
+#   EBS Logon Info
+#**************************************************
+
+::T4O::CONNECTION2EBS::setConnectionInfo $strSystemId CHANGE_ME_ENCRYPTED_USERNAME CHANGE_ME_ENCRYPTED_PASSWORD T4O_USER AMERICAN

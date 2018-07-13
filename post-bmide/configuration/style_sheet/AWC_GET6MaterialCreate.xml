@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Copyright 2015.
+Siemens Product Lifecycle Management Software Inc.
+All Rights Reserved.
+==================================================
+    Filename: GET6MaterialCreate.xml
+
+    Style sheet rendering for Material creation. 
+==================================================
+-->
+<rendering>
+    <page>
+        <section titleKey="tc_xrt_properties">
+            <property name="item_id"/>
+            <property name="revision:item_revision_id" modifiable="false"/>
+            <property name="object_name"/>
+            <property name="object_desc"/>
+			<property name="ip_classification" />
+        </section>
+    </page>
+</rendering>

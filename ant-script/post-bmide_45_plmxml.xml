@@ -1,0 +1,88 @@
+<project name="PLM XML" default="deploy" >
+
+    <!--
+     ==============================================================================================================================
+     ===== Use ant contrib
+     ==============================================================================================================================
+     -->
+    <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+
+    <!--
+     ==============================================================================================================================
+     ===== Set the property for the directory you desire to process and the Info display string
+     ==============================================================================================================================
+     -->
+
+    <property environment="env"/>
+	<property name="base.dir" location="${user.dir}/post-bmide/configuration"/>
+
+	<property name="plmxml.dir.name" value="plmxml"/>
+    <property name="info" value="PLMXML import/overwrite"/>
+    <property name="plmxml.src.dir" location="${base.dir}/${plmxml.dir.name}"/>
+
+	<property name="nx_seed_parts.dir.name" value="nx_seed_parts"/>
+    <property name="info" value="NX seed parts import/overwrite"/>
+    <property name="nx_seed_parts.src.dir" location="${base.dir}/${nx_seed_parts.dir.name}"/>
+
+	<property name="templates.dir.name" value="templates"/>
+    <property name="info" value="Templates import/overwrite"/>
+    <property name="templates.src.dir" location="${base.dir}/${templates.dir.name}"/>
+	
+	<property name="product_configurator.dir.name" value="product_configurator"/>
+	<property name="info" value="Product Configurator import/overwrite"/>
+	<property name="product_configurator.src.dir" location="${base.dir}/${product_configurator.dir.name}"/>
+
+    <!--
+     ==============================================================================================================================
+     ===== NOTE you must define {src.dir} BEFORE including "common_task.xml"
+     ==============================================================================================================================
+     -->
+
+	<target name="deploy" description="Deploy PLM XML">
+		<echo message="Build and deploy code"/>
+		<subant target="deploy" >
+			<fileset dir="${plmxml.src.dir}" includes="build.xml"/>
+		</subant>
+		<subant target="deploy" >
+			<fileset dir="${nx_seed_parts.src.dir}" includes="build.xml"/>
+		</subant>
+		<subant target="deploy" >
+			<fileset dir="${templates.src.dir}" includes="build.xml"/>
+		</subant>
+		<subant target="deploy" >
+			<fileset dir="${product_configurator.src.dir}" includes="build.xml"/>
+		</subant>
+	</target>
+
+    <import file="../common_task.xml" />
+
+    <!--
+     ==============================================================================================================================
+     ===== Initialize ant properties not set elsewhere
+     ==============================================================================================================================
+     -->
+
+    <target name="init-properties">
+    </target>
+
+<!--
+ ==============================================================================================================================
+ ===== clean up after yourself
+ ==============================================================================================================================
+ -->
+    <target name="clean" depends="common_task">
+    	<subant target="clean" >
+			<fileset dir="${plmxml.src.dir}" includes="build.xml"/>
+		</subant>
+    	<subant target="clean" >
+			<fileset dir="${nx_seed_parts.src.dir}" includes="build.xml"/>
+		</subant>
+    	<subant target="clean" >
+			<fileset dir="${templates.src.dir}" includes="build.xml"/>
+		</subant>
+    	<subant target="clean" >
+			<fileset dir="${product_configurator.src.dir}" includes="build.xml"/>
+		</subant>
+    </target>
+
+</project>

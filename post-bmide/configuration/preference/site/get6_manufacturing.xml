@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<preferences version="10.0">
+	<category name="General">
+		<category_description></category_description>
+		<preference name="TagExtentLOVDescriptionProperty" type="String"
+			array="true" disabled="false" protectionScope="Site" envEnabled="false">
+			<preference_description>Preference to display LOV Values along with
+				Real Names</preference_description>
+			<context name="Teamcenter">
+				<value>Unit of Measures:unit</value>
+			</context>
+		</preference>
+		<preference name="GET6ProcessRevision.SUMMARYRENDERING"
+			type="String" array="false" disabled="false" protectionScope="Site"
+			envEnabled="false">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6ProcessRevisionSummary</value>
+			</context>
+		</preference>
+		<preference name="GET6ProcessRevisionSummary.SUMMARY_REGISTEREDTO"
+			type="String" array="false" disabled="false" protectionScope="Site"
+			envEnabled="false">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6ProcessRevision</value>
+			</context>
+		</preference>
+		<preference name="GET6Process.CREATERENDERING" type="String"
+			array="false" disabled="false" protectionScope="Site" envEnabled="false">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6ProcessCreate</value>
+			</context>
+		</preference>
+		<preference name="GETProcessCreate.CREATE_REGISTEREDTO"
+			type="String" array="false" disabled="false" protectionScope="Site"
+			envEnabled="false">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6Process</value>
+			</context>
+		</preference>
+		<preference name="GET6MfgPart.CREATERENDERING" type="String"
+			array="true" disabled="false" protectionScope="Site" envEnabled="true">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6MfgPartCreate</value>
+			</context>
+		</preference>
+		<preference name="GET6MfgPartCreate.CREATE_REGISTEREDTO"
+			type="String" array="true" disabled="false" protectionScope="Site"
+			envEnabled="true">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6MfgPart</value>
+			</context>
+		</preference>
+		<preference name="GET6MCN.CREATERENDERING" type="String"
+			array="true" disabled="false" protectionScope="Site" envEnabled="true">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6MCNCreate</value>
+			</context>
+		</preference>
+		<preference name="GET6MCNCreate.CREATE_REGISTEREDTO" type="String"
+			array="true" disabled="false" protectionScope="Site" envEnabled="true">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6MCN</value>
+			</context>
+		</preference>
+		<preference name="GET6StockMtrl.CREATERENDERING" type="String"
+			array="true" disabled="false" protectionScope="Site" envEnabled="true">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6StockMtrlCreate</value>
+			</context>
+		</preference>
+		<preference name="GET6StockMtrlCreate.CREATE_REGISTEREDTO"
+			type="String" array="true" disabled="false" protectionScope="Site"
+			envEnabled="true">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6StockMtrl</value>
+			</context>
+		</preference>
+		<preference name="GET6Machine.CREATERENDERING" type="String"
+			array="true" disabled="false" protectionScope="Site" envEnabled="true">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6MachineCreate</value>
+			</context>
+		</preference>
+		<preference name="GET6MachineCreate.CREATE_REGISTEREDTO"
+			type="String" array="true" disabled="false" protectionScope="Site"
+			envEnabled="true">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6Machine</value>
+			</context>
+		</preference>
+		<preference name="GET6Operator.CREATERENDERING" type="String"
+			array="true" disabled="false" protectionScope="Site" envEnabled="true">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6OperatorCreate</value>
+			</context>
+		</preference>
+		<preference name="GET6OperatorCreate.CREATE_REGISTEREDTO"
+			type="String" array="true" disabled="false" protectionScope="Site"
+			envEnabled="true">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6Operator</value>
+			</context>
+		</preference>
+		<preference name="GET6GenResource.CREATERENDERING" type="String"
+			array="true" disabled="false" protectionScope="Site" envEnabled="true">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6GenResourceCreate</value>
+			</context>
+		</preference>
+		<preference name="GET6GenResourceCreate.CREATE_REGISTEREDTO"
+			type="String" array="true" disabled="false" protectionScope="Site"
+			envEnabled="true">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6GenResource</value>
+			</context>
+		</preference>
+		<preference name="GET6MCNRevision.SUMMARYRENDERING" type="String"
+			array="false" disabled="false" protectionScope="Site" envEnabled="false">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6MCNRevisionSummary</value>
+			</context>
+		</preference>
+		<preference name="GET6MCNRevisionSummary.SUMMARY_REGISTEREDTO"
+			type="String" array="false" disabled="false" protectionScope="Site"
+			envEnabled="false">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6MCNRevision</value>
+			</context>
+		</preference>
+		<preference name="GET6MfgPartRevision_Dataset_default_relation"
+			type="String" array="false" disabled="false" protectionScope="Site"
+			envEnabled="false">
+			<preference_description>Preference for setting default relation to
+				&apos;Specification&apos; on GET Manufacturing Part Revision
+			</preference_description>
+			<context name="Teamcenter">
+				<value>IMAN_specification</value>
+			</context>
+		</preference>
+		<preference name="GET6MfgPartRevision_default_relation"
+			type="String" array="false" disabled="false" protectionScope="Site"
+			envEnabled="false">
+			<preference_description>Preference for setting default relation to
+				&apos;Specification&apos; on GET Manufacturing Part Revision
+			</preference_description>
+			<context name="Teamcenter">
+				<value>IMAN_specification</value>
+			</context>
+		</preference>
+		<preference name="GET6MfgPart_DefaultChildProperties" type="String"
+			array="true" disabled="false" protectionScope="Site" envEnabled="false">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>IMAN_MEView</value>
+				<value>bom_view_tags</value>
+				<value>Fnd0ListsCustomNotes</value>
+				<value>IMAN_external_object_link</value>
+				<value>IMAN_specification</value>
+				<value>IMAN_manifestation</value>
+				<value>Fnd0ListsParamReqments</value>
+				<value>IMAN_reference</value>
+				<value>IMAN_Rendering</value>
+				<value>IMAN_requirement</value>
+				<value>revision_list</value>
+				<value>Seg0BudgetRelation</value>
+				<value>TC_AuditLog</value>
+				<value>TC_DrawingOf</value>
+				<value>TC_DrawingUsing</value>
+				<value>TC_Is_Represented_By</value>
+				<value>TC_sst_record</value>
+				<value>IMAN_vi_sos</value>
+				<value>TC_WorkContext_Relation</value>
+			</context>
+		</preference>
+		<preference name="GET6MfgPartRevision_DefaultChildProperties"
+			type="String" array="true" disabled="false" protectionScope="Site"
+			envEnabled="false">
+			<preference_description>Specifies the list of properties that can be
+				displayed as children of G3T Part Revision node
+			</preference_description>
+			<context name="Teamcenter">
+				<value>bom_view_tags</value>
+				<value>IMAN_requirement</value>
+				<value>IMAN_specification</value>
+				<value>IMAN_manifestation</value>
+				<value>IMAN_reference</value>
+				<value>IMAN_MEView</value>
+				<value>IMAN_vi_sos</value>
+				<value>IMAN_external_object_link</value>
+				<value>TC_WorkContext_Relation</value>
+				<value>TC_AuditLog</value>
+				<value>TC_sst_record</value>
+				<value>Fnd0ListsCustomNotes</value>
+				<value>Fnd0ListsParamReqments</value>
+				<value>IMAN_Rendering</value>
+				<value>IMAN_specification</value>
+				<value>TC_Is_Represented_By</value>
+				<value>TC_DrawingOf</value>
+				<value>TC_DrawingUsing</value>
+				<value>Seg0BudgetRelation</value>
+				<value>structure_revisions</value>
+				<value>view</value>
+				<value>release_status_list</value>
+			</context>
+		</preference>
+		<preference name="GET6StockMtrl_DefaultChildProperties"
+			type="String" array="true" disabled="false" protectionScope="Site"
+			envEnabled="false">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>IMAN_MEView</value>
+				<value>bom_view_tags</value>
+				<value>Fnd0ListsCustomNotes</value>
+				<value>IMAN_external_object_link</value>
+				<value>IMAN_specification</value>
+				<value>IMAN_manifestation</value>
+				<value>Fnd0ListsParamReqments</value>
+				<value>IMAN_reference</value>
+				<value>IMAN_Rendering</value>
+				<value>IMAN_requirement</value>
+				<value>revision_list</value>
+				<value>Seg0BudgetRelation</value>
+				<value>TC_AuditLog</value>
+				<value>TC_DrawingOf</value>
+				<value>TC_DrawingUsing</value>
+				<value>TC_Is_Represented_By</value>
+				<value>TC_sst_record</value>
+				<value>IMAN_vi_sos</value>
+				<value>TC_WorkContext_Relation</value>
+			</context>
+		</preference>
+		<preference name="GET6StockMtrlRevision_DefaultChildProperties"
+			type="String" array="true" disabled="false" protectionScope="Site"
+			envEnabled="false">
+			<preference_description>Specifies the list of properties that can be
+				displayed as children of G3T Part Revision node
+			</preference_description>
+			<context name="Teamcenter">
+				<value>bom_view_tags</value>
+				<value>IMAN_requirement</value>
+				<value>IMAN_specification</value>
+				<value>IMAN_manifestation</value>
+				<value>IMAN_reference</value>
+				<value>IMAN_MEView</value>
+				<value>IMAN_vi_sos</value>
+				<value>IMAN_external_object_link</value>
+				<value>TC_WorkContext_Relation</value>
+				<value>TC_AuditLog</value>
+				<value>TC_sst_record</value>
+				<value>Fnd0ListsCustomNotes</value>
+				<value>Fnd0ListsParamReqments</value>
+				<value>IMAN_Rendering</value>
+				<value>IMAN_specification</value>
+				<value>TC_Is_Represented_By</value>
+				<value>TC_DrawingOf</value>
+				<value>TC_DrawingUsing</value>
+				<value>Seg0BudgetRelation</value>
+				<value>structure_revisions</value>
+				<value>view</value>
+				<value>release_status_list</value>
+			</context>
+		</preference>
+		<preference name="GET6MCN_DefaultChildProperties" type="String"
+			array="true" disabled="false" protectionScope="User" envEnabled="false">
+			<preference_description>Specifies the list of properties that can be
+				displayed as children of a ChangeNoticeRevision node.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>revision_list</value>
+			</context>
+		</preference>
+		<preference name="GET6MCNRevision_DefaultChildProperties"
+			type="String" array="true" disabled="false" protectionScope="User"
+			envEnabled="false">
+			<preference_description>Specifies the list of properties that can be
+				displayed as children of a ChangeNoticeRevision node.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>CMHasImpactedItem</value>
+				<value>CMHasSolutionItem</value>
+				<value>CMReferences</value>
+				<value>CMImplements</value>
+				<value>IMAN_reference</value>
+				<value>release_status_list</value>
+				<value>TC_Attaches</value>
+			</context>
+		</preference>
+		<preference name="GET6ProcessRevision_Dataset_default_relation"
+			type="String" array="false" disabled="false" protectionScope="Site"
+			envEnabled="false">
+			<preference_description>Preference for setting default relation to
+				&apos;Specification&apos; on GET Process Revision
+			</preference_description>
+			<context name="Teamcenter">
+				<value>IMAN_specification</value>
+			</context>
+		</preference>
+		<preference name="GET6Process_DefaultChildProperties" type="String"
+			array="true" disabled="false" protectionScope="User" envEnabled="false">
+			<preference_description>Specifies the list of properties that can be
+				displayed as children of a ChangeNoticeRevision node.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>revision_list</value>
+			</context>
+		</preference>
+		<preference name="GET6ProcessRevision_DefaultChildProperties"
+			type="String" array="true" disabled="false" protectionScope="Site"
+			envEnabled="false">
+			<preference_description>Preference for setting default relation to
+				&apos;Specification&apos; on GET Process Revision
+			</preference_description>
+			<context name="Teamcenter">
+				<value>structure_revisions</value>
+				<value>IMAN_specification</value>
+				<value>view</value>
+				<value>release_status_list</value>
+			</context>
+		</preference>
+		<preference name="GET6ProcessRevision_PseudoFolder" type="String"
+			array="true" disabled="false" protectionScope="Site" envEnabled="false">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>IMAN_specification</value>
+				<value>view</value>
+			</context>
+		</preference>
+		<preference name="GET6ProcessRevision_default_relation"
+			type="String" array="false" disabled="false" protectionScope="Site"
+			envEnabled="false">
+			<preference_description>Preference for setting default relation to
+				&apos;Specification&apos; on GET Manufacturing Part Revision
+			</preference_description>
+			<context name="Teamcenter">
+				<value>IMAN_specification</value>
+			</context>
+		</preference>
+		<preference name="ClosureRulesForBomExpansion" type="String"
+			array="true" disabled="false" protectionScope="Site" envEnabled="false">
+			<preference_description>Holds name of Closure Rules authored for BOM
+				Expansion.</preference_description>
+			<context name="Teamcenter">
+				<value>BOMExpandSkipByProjAssignment</value>
+				<value>BOMExpandProcessByProjectAssign</value>
+				<value>BOMExpandSkipByItemType</value>
+				<value>BOMExpandProcessByItemType</value>
+				<value>BOMExpandSkipByVariableItemType</value>
+				<value>BOMExpProcessVariableItemType</value>
+				<value>BOMExpandSkipByPartSource</value>
+				<value>BOMExpandProcessByPartSource</value>
+				<value>GET BOMExpand By GRR</value>
+				<value>GET BOMExpand By GRV</value>
+				<value>GET_FilterByServiceFormAttached</value>
+				<value>GET_BOM_Export_CR</value>
+			</context>
+		</preference>
+		<preference name="GET6StockMtrl_DefaultChildProperties"
+			type="String" array="true" disabled="false" protectionScope="User"
+			envEnabled="false">
+			<preference_description>This is an internal preference.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>revision_list</value>
+			</context>
+		</preference>
+		<preference name="PS_new_seqno_mode" type="String" array="false"
+			disabled="false" protectionScope="Site" envEnabled="false">
+			<preference_description>Controls how the find number is generated for
+				new occurrences.
+				Valid values are:
+				* &quot;new&quot;: new numbers are allocated to each of the
+				occurrences.
+				* &quot;existing&quot;: new numbers are only allocated for
+				occurrences of unique items.
+				* &quot;none&quot;: no numbers are generated.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>existing</value>
+			</context>
+		</preference>
+	</category>
+	<category name="Interface.Thin Client.Manufacturing">
+		<category_description></category_description>
+		<preference name="MEIdGenerationAllowDuplicates" type="Logical"
+			array="false" disabled="false" protectionScope="Site" envEnabled="false">
+			<preference_description>Allows duplicate values for IDs generated for
+				BOM Line properties based on the
+				&quot;MEIdGenerationPropertySetting&quot; preference.
+				The default value is false.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>true</value>
+			</context>
+		</preference>
+		<preference name="MEIdGenerationInSharedAssembly" type="Logical"
+			array="false" disabled="false" protectionScope="Site" envEnabled="false">
+			<preference_description>Some engineering bills of material (EBOMs)
+				contain shared assemblies. The same assembly is used multiple times
+				in the EBOM but only one is configured in and assigned to the
+				manufacturing BOM (MBOM). If you set the
+				MEIDGenerationInSharedAssembly preference to true, at the time of
+				assignment, Teamcenter searches the EBOM for all other visible
+				(configured in by revision rule or any of the Show Unconfigured...
+				buttons) instances of the same assembly and stamps them with the
+				same IDIC.</preference_description>
+			<context name="Teamcenter">
+				<value>true</value>
+			</context>
+		</preference>
+		<preference name="MEIdGenerationOnAssignEnabled" type="Logical"
+			array="false" disabled="false" protectionScope="Site" envEnabled="false">
+			<preference_description>Controls whether the preference
+				&quot;MEIdGenerationPropertySetting&quot; will be used to generate
+				absolute occurrence values during assignment action.
+				The default value is false.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>true</value>
+			</context>
+		</preference>
+		<preference name="MEIdGenerationPropertySetting" type="String"
+			array="true" disabled="false" protectionScope="Site" envEnabled="false">
+			<preference_description>Defines the list of BOM Line properties, for
+				which the values are to be formulated using the specified property
+				values of constituent BOM Lines.
+				This is customizable based on Item type.
+				If the Item type is not found by exact match, the closest parent type
+				will be used.
+				The format is: [type:ItemType,key:KeyEntry(,prop:PropEntry)+]
+				E.g.
+				&quot;type:Item,key:bl_usage_address,prop:bl_item_item_id,prop:bl_item_object_type&quot;
+				means that the values for the property &quot;bl_usage_address&quot;
+				on BOM Lines of type &quot;Item&quot; will be formulated using the
+				values for the properties &quot;bl_item_item_id&quot; and
+				&quot;bl_item_object_type&quot;.
+				&quot;type:Item,key:bl_abs_occ_id,prop:bl_item_item_id,prop:bl_plmxml_abs_xform&quot;
+				means that the values for the property &quot;bl_abs_occ_id&quot; on
+				BOM Lines of type &quot;Item&quot; will be formulated using the
+				values for the properties &quot;bl_item_item_id&quot; and
+				&quot;bl_plmxml_abs_xform&quot;.</preference_description>
+			<context name="Teamcenter">
+				<value>type:Item,key:bl_abs_occ_id,prop:bl_item_item_id,prop:bl_occ_fnd0objectId,prop:bl_plmxml_abs_xform
+				</value>
+			</context>
+		</preference>
+	</category>
+	<category name="GET">
+		<category_description></category_description>
+		<preference name="GET6_GRR_MFG_Attr_Form_Type" type="String"
+			array="false" disabled="false" protectionScope="Site" envEnabled="false">
+			<preference_description>GET6_GRR_MFG_Attr_Form_Type
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6MfgAttrForm1</value>
+			</context>
+		</preference>
+		<preference name="GET6_GRV_MFG_Attr_Form_Type" type="String"
+			array="false" disabled="false" protectionScope="Site" envEnabled="false">
+			<preference_description>GET6_GRV_MFG_Attr_Form_Type
+			</preference_description>
+			<context name="Teamcenter">
+				<value>GET6MfgAttrForm2</value>
+			</context>
+		</preference>
+		<preference name="CM_GET6ECNRevision_Relations_To_Propagate"
+			type="String" array="true" disabled="false" protectionScope="Group"
+			envEnabled="false">
+			<preference_description>Specifies the list of relations to be
+				propagated when deriving from a GET6ECNRevision
+			</preference_description>
+			<context name="Teamcenter">
+				<value>CMHasImpactedItem</value>
+				<value>CMHasSolutionItem</value>
+				<value>CMReferences</value>
+				<value>IMAN_reference</value>
+				<value>Cm0HasProposal</value>
+			</context>
+		</preference>
+		<preference
+			name="GnChangeNoticeRevision_GnChangeNoticeRevision_default_relation"
+			type="String" array="false" disabled="false" protectionScope="Site"
+			envEnabled="false">
+			<preference_description>GnChangeNoticeRevision_GnChangeNoticeRevision_default_relation
+			</preference_description>
+			<context name="Teamcenter">
+				<value>CMImplements</value>
+			</context>
+		</preference>
+		<preference name="GET6_Derive_MCN_For_Projects" type="String"
+			array="true" disabled="false" protectionScope="Site" envEnabled="false">
+			<preference_description>GET6_Derive_MCN_For_Projects for deriving MCN
+				for specific project</preference_description>
+			<context name="Teamcenter">
+				<value>GRR</value>
+				<value>GRV</value>
+			</context>
+		</preference>
+		<preference name="GET6BOPObjectRevisionTypes" type="String"
+			array="true" disabled="false" protectionScope="Site" envEnabled="false">
+			<preference_description>This preference contains list of all BOP
+				object revision types</preference_description>
+			<context name="Teamcenter">
+				<value>GET6ProcessRevision</value>
+				<value>GET6MachineRevision</value>
+				<value>GET6OperationRevision</value>
+				<value>GET6OperatorRevision</value>
+				<value>GET6StationRevision</value>
+				<value>GET6MEDepartmentRevision</value>
+				<value>GET6GenResourceRevision</value>
+			</context>
+		</preference>
+		<preference name="GET6_Valid_MCN_Solution_Items" type="String"
+			array="true" disabled="false" protectionScope="Site" envEnabled="false">
+			<preference_description>Valid Objects picked up by MCN Validation
+				handler</preference_description>
+			<context name="Teamcenter">
+				<value>GET6ElectPartRevision</value>
+				<value>GET6MechPartRevision</value>
+				<value>GET6SoftwarePartRevision</value>
+				<value>GET6MfgPartRevision</value>
+			</context>
+		</preference>
+	</category>
+	<category name="Interface.Rich Client">
+		<category_description></category_description>
+		<preference name="HiddenPerspectives" type="String" array="true"
+			disabled="false" protectionScope="Site" envEnabled="false">
+			<preference_description>Lists the Teamcenter perspectives to hide
+				from the end-users.
+				Valid values are the activity names as defined in the
+				com.teamcenter.rac.activity&apos;s plugin.xml file.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>ReportDesigner</value>
+				<value>LaunchPad</value>
+				<value>AuditManager</value>
+				<value>PlatformDesigner</value>
+				<value>ResourceManager</value>
+			</context>
+		</preference>
+	</category>
+	<category name="Manufacturing">
+		<category_description></category_description>
+		<preference name="MEAccountabilityCheckAllowableReturnedLines"
+			type="Integer" array="false" disabled="false" protectionScope="Site"
+			envEnabled="false">
+			<preference_description>Specifies the maximum number of lines that
+				can be returned by accountability check.
+				This includes all the source and target lines to be colored, as well as
+				their parent lines.
+				The default value is 10000.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>80000</value>
+			</context>
+		</preference>
+		<preference name="MECreateIdInContextforAssignedchildlines"
+			type="Integer" array="false" disabled="false" protectionScope="Site"
+			envEnabled="false">
+			<preference_description>Defines in-context IDs (IDICs) for child lines up to the specified level. When structure
+lines with children are copied from an engineering BOM (EBOM) to a manufacturing
+BOM (MBOM), the IDIC is created for the parent line only. If the parent line is deleted
+in the MBOM, all its children move up one level in the hierarchy but do not have any
+IDIC assigned to them. When you run an accountability check, these child lines are
+mistakenly displayed as missing in target. To rectify this problem, set this preference
+to a meaningful number of levels.
+			</preference_description>
+			<context name="Teamcenter">
+				<value>40</value>
+			</context>
+		</preference>
+	</category>
+</preferences>

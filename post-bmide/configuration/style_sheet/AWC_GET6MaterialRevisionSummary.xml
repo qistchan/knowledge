@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+================================================================================
+Copyright 2015.
+Siemens Product Lifecycle Management Software Inc.
+All Rights Reserved.
+================================================================================
+Filename: Mtw0Mat1MaterialRevisionSummary.xml
+Default activeworkspace style sheet for displaying Material Revision.
+ -->
+<rendering>
+    <header>
+        <image source="type"/>
+        <property name="owning_user"/>
+        <property name="last_mod_date"/>
+        <property name="release_status_list"/>
+        <property name="object_type"/>
+    </header>
+    <page titleKey="tc_xrt_Overview" title="Overview">
+        <column>
+            <section titleKey="tc_xrt_properties" title="Properties">
+                <property name="item_id"/>
+				<property name="items_tag" renderingHint="objectlink" modifiable="false" />
+                <property name="object_name"/>
+                <property name="object_type"/>
+				<property name="ip_classification" modifiable="false"/>
+            </section>
+            <section titleKey="k_materialmgmt_substances" title="Substances">
+                <objectSet source="Mat1UsesSubstance.Mat1Substance" defaultdisplay="tableDisplay" sortby="object_name" sortdirection="ascending">
+                    <tableDisplay>
+                        <property name="object_name"/>
+                        <property name="mat1cas_number"/>
+                        <property name="Mat1UsesSubstance.mat1composition"/>
+                    </tableDisplay>
+                    <listDisplay/>
+                    <command actionKey="newBusinessObjectContextualAction" commandId="Mtw0ShowAddObject" renderingHint="commandbutton"/>
+                </objectSet>
+            </section>
+        </column>
+    </page>
+    <page title="Attachments" titleKey="tc_xrt_attachments">
+        <section titleKey="tc_xrt_Files" title="Files">
+            <objectSet source="IMAN_specification.Dataset,IMAN_reference.Dataset,IMAN_manifestation.Dataset,IMAN_Rendering.Dataset,TC_Attaches.Dataset" defaultdisplay="tableDisplay" sortby="last_mod_date" sortdirection="ascending">
+                <tableDisplay>
+                    <property name="relation" modifiable="true"/>
+                    <property name="object_name"/>
+                    <property name="object_desc"/>
+                    <property name="object_type"/>
+                    <property name="last_mod_date"/>
+                </tableDisplay>
+                <treeDisplay>
+                    <property name="object_name"/>
+                    <property name="object_desc"/>
+                    <property name="object_type"/>
+                    <property name="last_mod_date"/>
+                </treeDisplay>
+                <thumbnailDisplay/>
+                <listDisplay/>
+                <command actionKey="newBusinessObjectContextualAction" commandId="com.teamcenter.rac.common.AddNew" renderingHint="commandbutton"/>
+                <command actionKey="pasteAction" commandId="com.teamcenter.rac.viewer.pastewithContext" renderingHint="commandbutton"/>
+                <command actionKey="cutAction" commandId="org.eclipse.ui.edit.cut" renderingHint="commandbutton">
+                    <parameter name="localSelection" value="true"/>
+                </command>
+            </objectSet>
+        </section>
+        <section titleKey="tc_xrt_Documents" title="Documents">
+            <objectSet source="IMAN_specification.Scp0MaterialDocRevision,IMAN_specification.DocumentRevision" sortdirection="ascending" sortby="last_mod_date" defaultdisplay="tableDisplay">
+                <tableDisplay>
+                    <property name="object_name"/>
+                    <property name="object_desc"/>
+                    <property name="object_type"/>
+                    <property name="last_mod_date"/>
+                </tableDisplay>
+                <treeDisplay>
+                    <property name="object_name"/>
+                    <property name="object_desc"/>
+                    <property name="object_type"/>
+                    <property name="last_mod_date"/>
+                </treeDisplay>
+                <thumbnailDisplay/>
+                <listDisplay/>
+                <command actionKey="newBusinessObjectContextualAction" commandId="com.teamcenter.rac.common.AddNew" renderingHint="commandbutton"/>
+                <command actionKey="pasteAction" commandId="com.teamcenter.rac.viewer.pastewithContext" renderingHint="commandbutton"/>
+                <command actionKey="cutAction" commandId="org.eclipse.ui.edit.cut" renderingHint="commandbutton">
+                    <parameter name="localSelection" value="true"/>
+                </command>
+            </objectSet>
+        </section>
+    </page>
+    <page titleKey="web_whereused">
+        <column>
+        <section titleKey="tc_xrt_ParentAssemblies">
+            <objectSet source="ps_parents.ItemRevision" sortdirection="ascending" sortby="object_string" defaultdisplay="listDisplay">
+                <command commandId="com.teamcenter.rac.pse.sendto" titleKey="tc_xrt_OpenSelectedInStructureManager" renderingHint="commandbutton">
+                    <parameter value="true" name="localSelection"/>
+                  </command>
+                <thumbnailDisplay/>
+                <treeDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </treeDisplay>
+                <listDisplay/>
+            </objectSet>
+        </section>
+        </column>
+        <column>
+            <section titleKey="tc_xrt_References">
+                <objectSet source="awb0References.WorkspaceObject" sortdirection="ascending" sortby="object_string" defaultdisplay="listDisplay">
+                    <thumbnailDisplay/>
+                    <treeDisplay>
+                        <property name="object_string"/>
+                        <property name="object_type"/>
+                        <property name="release_status_list"/>
+                        <property name="date_released"/>
+                        <property name="owning_user"/>
+                    </treeDisplay>
+                    <listDisplay/>
+                </objectSet>
+            </section>
+        </column>
+    </page>
+    <inject type="dataset" src="WorkflowSummary" /> 
+    <inject type="dataset" src="RelationsSummary" />
+</rendering>

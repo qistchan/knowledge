@@ -1,0 +1,139 @@
+<project name="BMIDE_03" default="deploy" >
+    
+    <!--
+     ==============================================================================================================================
+     ===== Use ant contrib
+     ==============================================================================================================================
+     -->
+    <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+    
+    
+    <!--
+     ==============================================================================================================================
+     ===== Set the property for the directory you desire to process and the Info display string
+     ==============================================================================================================================
+     -->
+    
+    <property environment="env"/>
+    
+    <property name="base.dir" location="${user.dir}/bmide"/>
+    <property name="template.name" value="get9service"/>
+    <property name="info" value="GET9 SBOM"/>
+    <property name="target.file" value="${base.dir}/.target_${template.name}"/>
+
+	<!-- Define platform -->
+	<condition property="ge.win">
+		<os family="windows"/>
+	</condition>
+	<condition property="ge.sol">
+		<os name="SunOS"/>
+	</condition>
+	<condition property="ge.linux">
+		<os name="linux"/>
+	</condition>
+    <if>
+        <equals arg1="${ge.win}" arg2="true"/>
+        <then>
+            <property name="platform.extn" value=""/>
+        	<property name="osexecutable" value="cmd"/>
+        	<property name="osarg" value="/c"/>
+        	<property name="datamodel.dir" value="${base.dir}\get9sbom\output\wntx64\packaging\full_update"/>
+        </then>
+        <else>
+            <property name="platform.extn" value=".sh"/>
+        	<property name="osexecutable" value="/bin/ksh"/>
+        	<property name="osarg" value=""/>
+        	<property name="datamodel.dir" value="${base.dir}/get9sbom/output/lnx64/packaging/full_update"/>
+        </else>
+    </if>
+
+	<if>
+	  <available file="${env.TC_ROOT}/install/${template.name}" type="dir" />
+	  <then>
+	  	<property name="feature.exists" value="TRUE"/>
+	  </then>
+	  <else>
+	  	<property name="feature.exists" value=""/>
+	  </else>
+	</if>
+    <!--
+     ==============================================================================================================================
+     ===== NOTE you must define {src.dir} BEFORE including "common_task.xml"
+     ==============================================================================================================================
+     -->
+
+    <import file="../common_task.xml" />
+
+    <fileset id="targetcheckfs" dir="${datamodel.dir}" casesensitive="yes">
+        <include name="**/*.properties"/>
+        <exclude name="**/.target*"/>
+    </fileset>
+
+    <!--
+     ==============================================================================================================================
+     ===== Initialize ant properties not set elsewhere
+     ==============================================================================================================================
+     -->
+
+    <target name="init-properties">
+    </target>
+
+    <target name="check">
+        <property name="target.file" value="${target.file}"/>
+        <echo message="Target ${target.file}"/>
+        <echo message="Dir ${datamodel.dir}"/>
+        <uptodate property="isUpToDate"
+            targetfile="${target.file}">
+            <srcfiles dir="${datamodel.dir}">
+                <include name="*.properties"/>
+                <include name="*.xml"/>
+            </srcfiles>
+        </uptodate>
+        <property name="already.processed" value="${isUpToDate}"/>
+    </target>
+
+    <target name="deploy" depends="common_task , check">
+    	<property name="exe.extn" value="${platform.extn}"/>
+        <if>
+            <equals arg1="${already.processed}" arg2="true" />
+            <then>
+                <echo message="${template.name} has already been processed"/>
+            </then>
+            <else>
+                <trycatch>
+                    <try>
+                    	<if>
+    	            	<equals arg1="${feature.exists}" arg2="TRUE" />
+        	            <then>
+        	            	<tem_update featureName="${template.name}" osarg="${osarg}" osexecutable="${osexecutable}" exe.extn="${exe.extn}" filePath="${datamodel.dir}"/>
+    	            	 </then>
+        	            <else>
+	                        <tem_install featureName="${template.name}" osarg="${osarg}" osexecutable="${osexecutable}"  exe.extn="${exe.extn}" filePath="${datamodel.dir}"/>
+    	            	</else>
+            	        </if>
+                    	<touch file="${target.file}"/>
+                    </try>
+                    <catch>
+                        <fail message="${info} failed."/>
+                    </catch>
+                </trycatch>
+            </else>
+        </if>
+    </target>
+
+    <target name="process_target" depends="common_task">
+        <property name="file" value="${file}"/>
+        <property name="exe.extn" value="${platform.extn}"/>
+        <bmide_manage_batch_lovs file="${file}" exe.extn="${exe.extn}"/>
+    </target>
+    <!--
+     ==============================================================================================================================
+     ===== clean up after yourself
+     ==============================================================================================================================
+     -->
+
+    <target name="clean" depends="common_task">
+        <remove_targets dir="${base.dir}"/>
+    </target>
+
+</project>

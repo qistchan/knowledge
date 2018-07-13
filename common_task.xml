@@ -1,0 +1,399 @@
+
+<project name="common">
+
+	<!-- Use ant-contrib tasks -->
+	<taskdef resource="net/sf/antcontrib/antlib.xml"/>
+
+	<property environment="env"/>
+    <!-- Get infodba password -->
+    <target name="init" unless="infodba.password">
+		<tstamp>
+			<format property="timestamp" pattern="yyyy-MM-dd_HH-mm-ss"/>
+		</tstamp>
+
+        <input message="infodba passwd:" addproperty="infodba.password"/>
+    </target>
+
+    <target name="common_task">
+
+    <!-- Macro for executing the BMIDE template update -->
+    <macrodef name="update_template">
+        <attribute name="datamodel.dir"/>
+        <attribute name="template.name"/>
+        <sequential>
+            <echo message="DMDIR= @{datamodel.dir}"/>
+            <exec dir="${user.dir}/ant-script/" executable="@{os.executable}" failonerror="true">
+                <arg value="update_template.sh"/>
+                <env key="DMDIR" value="@{datamodel.dir}"/>
+                <env key="TEMPLATE" value="@{template.name}"/>
+                <env key="TC_USER_PASSWD" value="${infodba.password}"/>
+            </exec>
+        </sequential>
+    </macrodef>
+
+    <!-- Macro for executing the preferences_manager import command -->
+    <macrodef name="tem_install">
+        <attribute name="featureName"/>
+    	<attribute name="filePath"/>
+    	<attribute name="exe.extn"/>
+    	<attribute name="osarg"/>
+    	<attribute name="osexecutable"/>
+        <sequential>
+            <exec dir="${env.TC_ROOT}/install/" executable="@{osexecutable}" failonerror="true">
+            	<arg line="@{osarg} tem@{exe.extn}"/>
+            	<arg line="-install"/>
+                <arg line="-features=@{featureName}"/>
+                <arg line="-path=@{filePath}"/>
+                <arg line="-pass=${infodba.password}"/>
+            </exec>
+        </sequential>
+    </macrodef>
+
+	<macrodef name="tem_update">
+        <attribute name="featureName"/>
+    	<attribute name="filePath"/>
+		<attribute name="exe.extn"/>
+		<attribute name="osarg"/>
+    	<attribute name="osexecutable"/>
+        <sequential>
+            <exec dir="${env.TC_ROOT}/install/" executable="@{osexecutable}" failonerror="true">
+            	<arg line="@{osarg} tem@{exe.extn}"/>
+            	<arg line="-update"/>
+            	<arg line="-full"/>
+                <arg line="-templates=@{featureName}"/>
+                <arg line="-path=@{filePath}"/>
+                <arg line="-pass=${infodba.password}"/>
+            </exec>
+        </sequential>
+    </macrodef>
+
+    <!-- Macro for executing the preferences_manager import command -->
+    <macrodef name="preferences_manager">
+        <attribute name="scope"/>
+    	<attribute name="file"/>
+        <sequential>
+            <exec executable="preferences_manager" failonerror="false">
+                <arg line="-u=infodba"/>
+                <arg line="-p=${infodba.password}"/>
+                <arg line="-g=dba"/>
+                <arg line="-mode=import"/>
+                <arg line="-scope=@{scope}"/>
+                <arg line="-file=@{file}"/>
+                <arg line="-action=OVERRIDE"/>
+            </exec>
+        </sequential>
+    </macrodef>
+
+    <!-- Macro for executing the preferences_manager group import command -->
+    <macrodef name="preferences_manager_group">
+	<attribute name="scope"/>
+	<attribute name="group"/>
+	<attribute name="file"/>
+	<sequential>
+		<exec executable="preferences_manager" failonerror="false">
+			<arg line="-u=infodba"/>
+			<arg line="-p=${infodba.password}"/>
+			<arg line="-g=dba"/>
+			<arg line="-mode=import"/>
+			<arg line="-scope=@{scope}"/>
+			<arg line="-file=@{file}"/>
+			<arg line="-target=&quot;@{group}&quot;"/>
+			<arg line="-action=OVERRIDE"/>
+		</exec>
+	</sequential>
+    </macrodef>
+
+    <!-- Macro for executing the preferences_manager delete command -->
+    <macrodef name="preferences_manager_delete">
+    	<attribute name="file"/>
+        <sequential>
+            <exec executable="preferences_manager" failonerror="false">
+                <arg line="-u=infodba"/>
+                <arg line="-p=${infodba.password}"/>
+                <arg line="-g=dba"/>
+                <arg line="-mode=delete"/>
+                <arg line="-file=@{file}"/>
+            </exec>
+        </sequential>
+    </macrodef>  
+
+  <!-- Macro for executing the preferences_manager cleanup command -->
+    <macrodef name="preferences_manager_clean">
+        <sequential>
+            <exec executable="preferences_manager" failonerror="false">
+                <arg line="-u=infodba"/>
+                <arg line="-p=${infodba.password}"/>
+                <arg line="-g=dba"/>
+                <arg line="-mode=cleanup"/>
+            </exec>
+        </sequential>
+    </macrodef>  
+
+	<!-- Macro for executing the preferences_manager_export command -->
+	    <macrodef name="preferences_manager_export">
+	        <attribute name="scope"/>
+	    	<attribute name="file"/>
+	        <sequential>
+	            <exec executable="preferences_manager" failonerror="true">
+	                <arg line="-u=infodba"/>
+	                <arg line="-p=${infodba.password}"/>
+	                <arg line="-g=dba"/>
+	                <arg line="-mode=export"/>
+	                <arg line="-scope=@{scope}"/>
+	                <arg line="-out_file=@{file}"/>
+	            </exec> 
+	        </sequential>
+	    </macrodef>
+
+        <!-- Macro for executing the install_xml_stylesheet_datasets command -->
+	    <macrodef name="install_stylesheets">
+	        <attribute name="action"/>
+	    	<attribute name="input"/>
+            <attribute name="filepath"/>
+            <sequential>
+                <exec executable="install_xml_stylesheet_datasets" failonerror="true">
+                    <arg line="-u=infodba"/>
+                    <arg line="-p=${infodba.password}"/>
+                    <arg line="-g=dba"/>
+                	<arg line="-replace"/>
+                    <arg line="-input=@{input}"/>
+                    <arg line="-filepath=@{filepath}"/>
+                </exec>
+            </sequential>
+	    </macrodef>
+
+    	<!-- Macro for executing the import_export_reports command -->
+    		    <macrodef name="import_reports">
+    		        <attribute name="stageDir"/>
+    		    	<attribute name="reportId"/>    	           
+    	            <sequential>
+    	                <exec executable="import_export_reports" failonerror="true">
+    	                    <arg line="-u=infodba"/>
+    	                    <arg line="-p=${infodba.password}"/>
+    	                    <arg line="-g=dba"/>
+    	                	<arg line="-import"/>
+    	                	<arg line="-overwrite"/>
+    	                    <arg line="-stageDir=@{stageDir}"/>
+    	                    <arg line="-reportId=@{reportId}"/>
+    	                </exec>
+    	            </sequential>
+    		    </macrodef>
+    	
+        <!-- Macro for executing the plmxml_import to import and overwrite workflow definitions -->
+	    <macrodef name="workflow_overwrite">
+            <attribute name="file"/>
+            <sequential>
+                <echo message="@{file}"/>
+                <exec executable="plmxml_import" failonerror="true">
+                    <arg line="-u=infodba"/>
+                    <arg line="-p=${infodba.password}"/>
+                    <arg line="-g=dba"/>
+                    <arg line="-import_mode"/>
+                    <arg line="-report_plmxml_error"/>
+                    <arg line="-ignore_originid"/>
+                    <arg line="-transfermode=workflow_template_overwrite"/>
+                    <arg line="-xml_file=@{file}"/>
+                </exec>
+            </sequential>
+	    </macrodef>
+
+        <!-- Macro for executing the plmxml import -->
+	    <macrodef name="plmxml_import_data_import_mode">
+            <attribute name="file"/>
+            <sequential>
+                <echo message="@{file}"/>
+                <exec executable="plmxml_import" failonerror="false">
+                    <arg line="-u=infodba"/>
+                    <arg line="-p=${infodba.password}"/>
+                    <arg line="-g=dba"/>
+                    <arg line="-import_mode=overwrite"/>
+                	<arg line="-transfermode=ConfiguredDataImportDefault"/>
+                    <arg line="-report_plmxml_error"/>
+                    <arg line="-xml_file=@{file}"/>
+                </exec>
+            </sequential>
+	    </macrodef>
+
+    	<macrodef name="plmxml_import">
+            <attribute name="file"/>
+            <sequential>
+                <echo message="@{file}"/>
+                <exec executable="plmxml_import" failonerror="true">
+                    <arg line="-u=infodba"/>
+                    <arg line="-p=${infodba.password}"/>
+                    <arg line="-g=dba"/>
+                    <arg line="-import_mode=overwrite"/>
+                    <arg line="-report_plmxml_error"/>
+                    <arg line="-xml_file=@{file}"/>
+                </exec>
+            </sequential>
+	    </macrodef>
+    	
+        <!-- Macro for executing the tcxml import -->
+	    <macrodef name="tcxml_import">
+            <attribute name="file"/>
+            <sequential>
+                <echo message="@{file}"/>
+                <exec executable="tcxml_import" failonerror="true">
+                    <arg line="-u=infodba"/>
+                    <arg line="-p=${infodba.password}"/>
+                    <arg line="-g=dba"/>
+                    <arg line="-file=@{file}"/>
+                </exec>
+            </sequential>
+	    </macrodef>
+
+        <!-- Macro for executing the tcxml import with scope rules -->
+	    <macrodef name="tcxml_import_with_scope">
+            <attribute name="file"/>
+            <sequential>
+                <echo message="@{file}"/>
+                <exec executable="tcxml_import" failonerror="true">
+                    <arg line="-u=infodba"/>
+                    <arg line="-p=${infodba.password}"/>
+                    <arg line="-g=dba"/>
+                    <arg line="-scope_rules"/>
+                    <arg line="-scope_rules_mode=overwrite"/>
+                    <arg line="-file=@{file}"/>
+                </exec>
+            </sequential>
+	    </macrodef>
+
+        <!-- Macro for executing the am_install_tree to import and overwrite workflow definitions -->
+	    <macrodef name="am_overwrite">
+            <attribute name="file"/>
+            <sequential>
+                <echo message="@{file}"/>
+                <exec executable="am_install_tree" failonerror="true">
+                    <arg line="-u=infodba"/>
+                    <arg line="-p=${infodba.password}"/>
+                    <arg line="-g=dba"/>
+                    <arg line="-operation=import"/>
+                    <arg line="-mode=replace_all"/>
+                    <arg line="-format=xml"/>
+                    <arg line="-path=@{file}"/>
+                </exec>
+            </sequential>
+	    </macrodef>
+
+        <!-- Macro for executing the make_user to import organization -->
+	    <macrodef name="make_user">
+            <attribute name="file"/>
+            <sequential>
+                <echo message="@{file}"/>
+                <exec executable="make_user" failonerror="true">
+                    <arg line="-u=infodba"/>
+                    <arg line="-p=${infodba.password}"/>
+                    <arg line="-g=dba"/>
+                    <arg line="-file=@{file}"/>
+                </exec>
+            </sequential>
+	    </macrodef>
+
+		<!-- Macro for executing the make_user to import organization -->
+	    <macrodef name="create_project">
+            <attribute name="file"/>
+            <sequential>
+                <echo message="@{file}"/>
+                <exec executable="create_project" failonerror="true">
+                    <arg line="-u=infodba"/>
+                    <arg line="-p=${infodba.password}"/>
+                    <arg line="-g=dba"/>
+                    <arg line="-input=@{file}"/>
+                </exec>
+            </sequential>
+	    </macrodef>
+
+		<macrodef name="import_attr_mappings">
+            <attribute name="file"/>
+            <sequential>
+                <echo message="@{file}"/>
+                <exec executable="import_attr_mappings" failonerror="true">
+                    <arg line="-u=infodba"/>
+                    <arg line="-p=${infodba.password}"/>
+                    <arg line="-g=dba"/>
+                    <arg line="-file=@{file}"/>
+                </exec>
+            </sequential>
+	    </macrodef>
+
+	<!-- Macro for executing the aws2_install_tilecollections to import aws tiles -->
+	    <macrodef name="aws2_install_tilecollections">
+            <attribute name="mode"/>
+			<attribute name="file"/>
+            <sequential>
+                <echo message="@{file}"/>
+                <exec executable="aws2_install_tilecollections" failonerror="true">
+                    <arg line="-u=infodba"/>
+                    <arg line="-p=${infodba.password}"/>
+                    <arg line="-g=dba"/>
+					<arg line="-mode=@{mode}"/>
+                    <arg line="-file=@{file}"/>
+                </exec>
+            </sequential>
+	    </macrodef>
+
+    	<!-- Macro for executing the make_user to import organization -->
+	    <macrodef name="import_classification">
+            <attribute name="file"/>
+            <sequential>
+                <echo message="@{file}"/>
+                <exec executable="icsxml" failonerror="true">
+                    <arg line="-u=infodba"/>
+                    <arg line="-p=${infodba.password}"/>
+                    <arg line="-g=dba"/>
+                	<arg line="-import"/>
+                	<arg line="-update"/>
+                	<arg line="-filter=AKCV"/>
+                    <arg line="-file=@{file}"/>
+                </exec>
+            </sequential>
+	    </macrodef>
+
+    	<!-- Macro for executing the make_user to import organization -->
+	    <macrodef name="bmide_manage_batch_lovs">
+            <attribute name="file"/>
+	    	<attribute name="exe.extn"/>
+			<attribute name="osarg"/>
+	    	<attribute name="osexecutable"/>
+            <sequential>
+                <exec executable="@{osexecutable}" failonerror="true">
+            		<arg line="@{osarg} bmide_manage_batch_lovs@{exe.extn}"/>
+            	    <arg line="-u=infodba"/>
+                    <arg line="-p=${infodba.password}"/>
+                    <arg line="-g=dba"/>
+                	<arg line="-option=update"/>
+                    <arg line="-file=@{file}"/>
+                </exec>
+            	<exec executable="generate_client_meta_cache" failonerror="true">
+                    <arg line="-u=infodba"/>
+                    <arg line="-p=${infodba.password}"/>
+                    <arg line="-g=dba"/>
+                	<arg line="generate"/>
+                	<arg line="lovs"/>
+                </exec>
+            </sequential>
+	    </macrodef>
+    	
+    	<!-- Macro for executing the mmap to import sd files-->
+	    <macrodef name="mmap">
+            <attribute name="locn"/>
+            <sequential>
+                <echo message="@{locn}"/>
+             <exec executable="@{locn}/mmap" failonerror="true">
+                </exec>
+            </sequential>
+	    </macrodef>
+
+        <!-- Clean the targets -->
+        <macrodef name="remove_targets">
+            <attribute name="dir"/>
+            <sequential>
+                <echo message="Cleaning @{dir}"/>
+                <delete>
+                    <fileset dir="@{dir}" includes="**/.target_*"/>
+                </delete>
+            </sequential>
+        </macrodef>
+        </target>
+</project>   

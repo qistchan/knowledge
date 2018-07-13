@@ -1,0 +1,315 @@
+#===================================================
+##
+#
+# \brief         T4O / Generic Object Mapping
+#
+# \file          t4o_genobj_mapping_template_genericobj.sd
+#
+# \note          For the data exchange between Teamcenter and T4O the internal TCL dictionary \c ::TcData is used.
+#                It contains specific attributes of the Teamcenter object to be transferred
+#                and additional DEBUGrmation about the current transaction.
+#                For the data exchange between T4O and EBS the internal TCL array \c ::EBSDat is used.\n
+#                Teamcenter attributes can be read from \c ::TcData with function \c ::T4X::TC::MAPPING::FieldMapping.\n
+#                Teamcenter attributes can be written to \c ::TcData with function \c ::T4X::TC::MAPPING::storeReverseMappingAttribute.\n
+#
+# \pre           For the "Generic Object" transfer the following preferences are used:
+#                \li \c T4O_<GenObj>TypeList : list of allowed Teamcenter object types
+#                \li \c T4O_<GenObj>Mapping4<ObjectType> : list of Teamcenter data types to read attributes from
+#                \li \c T4O_<GenObj>Mapping2<ObjectType> : list of Teamcenter data types to write back during reverse mapping
+#                \li \c T4O_<GenObj>FieldMapping2<DataType> : list of Teamcenter attributes to write back during reverse mapping (optional)
+#
+#                <GenObj> stands for the specified workflow argument "-TargetTypeName" value used in the generic transfer handler
+#
+# \author        kh, 20131022
+#
+# \copyright     2014
+#                Siemens Product Lifecycle Management Software Inc.
+#                All Rights Reserved.
+#
+namespace eval ::T4O::GENOBJ::CUSTOM::MAPPING::GENERICOBJ {
+  namespace export TC_Object2EBS_Object
+  namespace export EBS_Object2TC_Object
+  namespace export getObjectInfo
+  namespace export performTransfer
+  #
+  variable MCNName
+  variable NewOrg
+  variable ReverseMappingStatus
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::GENOBJ::CUSTOM::MAPPING::GENERICOBJ::TC_Object2EBS_Object
+  # \brief          Customer specific object mapping function template
+  #
+  # \author         kh, 20120613
+  # \return
+  #
+  #
+  #
+  proc TC_Object2EBS_Object { TransactionId ItemType ItemRevisionType args } {
+    variable MCNName
+    variable NewOrg
+    #
+    set Status "OK"
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with ItemType >$ItemType< and ItemRevisionType >$ItemRevisionType<"
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN [concat $FunctionName {$Id: GET_t4o_genobj_mapping.sd,v 1.10 2018/03/02 03:59:00 scjones Exp $}]
+    #
+    # In this example case we are performing a "simple" Item transfer
+    #
+    set Item          "$ItemRevisionType:items_tag:$ItemType"
+    set ItemRev       "$ItemRevisionType"
+    set MCNPath       "RootTask:EPM_target_attachment:GET6MCNRevision"
+    set mfgFormPath   "$Item:GET6PartOrgRelation:*"
+    set madeFromPath  "$Item:GET6MadeFromPart:*"
+    set OrgmfgForm    "$Item:GET6PartOrgRelation:GET6MfgAttrForm"
+
+    set Mode        [dict get [::T4X::TC::MAPPING::getWorkflowArgumentValue2 "-Mode"] ArgumentValue]
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: Mode is $Mode"
+
+    set MCNName [::T4X::TC::MAPPING::RootTaskFieldMapping $MCNPath "item_id"]
+    tpco_setLogIndex -logchannel $TransactionId -key mcn_name -value $MCNName
+
+    #Get the item id of make part
+    set ItemId [::T4X::TC::MAPPING::FieldMapping $Item "item_id"]
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: ItemId is $ItemId"
+
+    #Check if it has child components and throw error
+
+    set childrenList [::T4X::TC::MAPPING::FieldMapping $ItemRev "ps_children"]
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: childrenList is $childrenList"
+    if {$childrenList ne ""} {
+      ::T4X::CORE::storeMessage2 MAPPING "ERROR:Found BVR components under the parent item $ItemId hence Generic BOM push will not proceed" ERROR
+      set Status "ERROR"
+    } else {
+      #Getting MCN org value, if item belongs to multiple orgs say GRR, GRV and MCN belongs to GRV..then transfer only to GRV
+      set MCNOrgValues [::T4X::TC::MAPPING::RootTaskFieldMapping   $MCNPath "project_ids"]
+      ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG " Org list $MCNOrgValues"
+
+      # Multi Org Change : Tokenizing the List of Org from MCN
+      set MCNOrgList [split $MCNOrgValues ","]
+      ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Multi Org : Org list After Token - $MCNOrgList"
+
+      #As MCN always belongs to one org, get the first element of the list
+      set MCNOrgValue [lindex $MCNOrgList 0]
+      ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: MCNOrgValue is $MCNOrgValue"
+
+      #Get the Mfg form list from the part
+      set mfgFormList [::T4X::TC::MAPPING::findObjectId4Value $mfgFormPath "project_ids" $MCNOrgValue]
+      if { [lindex $mfgFormList 0] ne "OK" } {
+        ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId ERROR  "ERROR: MCN does not belong to the item org"
+        set Status "ERROR"
+      } else {
+        set NewOrg      $MCNOrgValue
+        set OrgMfgForm  [lindex $mfgFormList 1]
+        ::T4O::BOM::CUSTOM::MAPPING::setOrgMfgForm $OrgMfgForm
+
+        set componentId ""
+        set quantity "1"
+        switch  $Mode {
+          "StockMaterial" {
+            #If mode is stockMaterial then traverse to stock material and get the stock material item id
+            set stockmtl_tag [lindex [::T4X::TC::MAPPING::getObjectAttributeValue $OrgMfgForm   $mfgFormPath "get6StockMaterial"] 1]
+            set quantity     [lindex [::T4X::TC::MAPPING::getObjectAttributeValue $OrgMfgForm   $mfgFormPath "get6StockMtrlConsumedQty"] 1]
+            set componentId  [lindex [::T4X::TC::MAPPING::getObjectAttributeValue $stockmtl_tag $mfgFormPath "item_id"] 1]
+            ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: componentId is $componentId, quantity is $quantity"
+          }
+          "MadeFromPart" {
+            #If mode is MadeFromPart then traverse to made from part relation and get the MadeFromPart item id
+            ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: madeFromPath is $madeFromPath"
+            # Since made from is bidirectional, need extra logic to make sure we're going the right way
+            set ItemTag      [::T4X::TC::MAPPING::FieldMapping $Item "object_tag"]
+            set rel_tag      [lindex [::T4X::TC::MAPPING::findObjectId4Value      $madeFromPath "RelationProperty:primary_object" $ItemTag] 1]
+            set madefrom_tag [lindex [::T4X::TC::MAPPING::getObjectAttributeValue $rel_tag      $madeFromPath "RelationProperty:secondary_object"] 1]
+            set componentId  [lindex [::T4X::TC::MAPPING::getObjectAttributeValue $madefrom_tag $madeFromPath "item_id"] 1]
+            ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: componentId is $componentId"
+          }
+          default {
+            ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId ERROR "ERROR: Unknown Mode specified: $Mode"
+            set Status "Error"
+          }
+        }
+        #Create a BOM header with engineering part item id as assembly item name
+        ::TPEBS::BOM::initBomStructure
+        set ::EBSDat(Bom:CtrlParam:AllowOpSeqNumDefaultToOne)  "TRUE"
+        set ::EBSDat(Bom:CtrlParam:DocumentAttachmentTransfer) "FALSE"
+        set ::EBSDat(Bom:CtrlParam:allowEmptyBomTransfer)      "TRUE"
+        set ::EBSDat(Bom:CtrlParam:EFFECTIVITY_DATE)           [::T4O::getTimeString4Now2] ; # Important: only for BOM Read call, can be empty -> default is Now(); But: Can also be used for BOM Line start effectivity date or for an ECO, if the BOM is maintained through an ECO.
+        set ::EBSDat(Bom:CtrlParam:EFFECTIVITY_DISPLAY_TYPE)   "CURRENT" ; # Important: only for BOM Read call, can be empty -> default is "CURRENT"; possible values: ALL, FUTURE AND CURRENT, CURRENT
+        set ::EBSDat(Bom:CtrlParam:useEco4BomTransfer)         "FALSE"
+        set ::EBSDat(Bom:CtrlParam:OPERATION_SEQUENCE_NUMBER)  "1"
+        #
+        set ::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ASSEMBLY_ITEM_NAME:1) $ItemId
+        set ::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ORGANIZATION_CODE:1)  $NewOrg
+        set ::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ASSEMBLY_TYPE:1)      $::T4O_Defaults(ASSEMBLY_TYPE_MANUFACTURING)
+
+        #Create a BOM component with engineering part item id as assembly item name, stock material/Made from part id as bom component
+        set rc [::T4O::GENOBJ::CUSTOM::MAPPING::GENERICOBJ::TC_Object2EBS_ObjectPosition $TransactionId $componentId $quantity $args]
+        set Status $rc
+      }
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished with >$Status<"
+    return $Status
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::GENOBJ::CUSTOM::MAPPING::GENERICOBJ::TC_Object2EBS_ObjectPosition
+  # \brief          Customer specific object mapping function template
+  #
+  # \author         Padma, 20170301
+  # \return
+  #
+  #
+  #
+  proc TC_Object2EBS_ObjectPosition { TransactionId ChildId Quantity args } {
+    variable MCNName
+    #
+    set Status "OK"
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with ChildId >$ChildId< and Quantity >$Quantity<"
+    #
+    set defaultSeqNumber [lindex [::T4X::TC::MAPPING::getPreferenceValue "site" "string" $::T4O_Defaults(DEFAULTSEQNO)] 1 0]
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: defaultSeqNumber new is $defaultSeqNumber"
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: Quantity is $Quantity"
+
+    ::TPEBS::BOM::initBomStructure_P_BOM_COMPONENT_TBL 1
+    set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ORGANIZATION_CODE:1)         $::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ORGANIZATION_CODE:1)
+    set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ASSEMBLY_ITEM_NAME:1)        $::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ASSEMBLY_ITEM_NAME:1)
+    set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:1)      $::EBSDat(Bom:CtrlParam:EFFECTIVITY_DATE)
+    set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:1) $::EBSDat(Bom:CtrlParam:OPERATION_SEQUENCE_NUMBER)
+    set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:1)       $ChildId
+    set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ITEM_SEQUENCE_NUMBER:1)      $defaultSeqNumber
+    set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:COMMENTS:1)                  $MCNName
+    set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:QUANTITY_PER_ASSEMBLY:1)     $Quantity
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished with >$Status<"
+    return $Status
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::GENOBJ::CUSTOM::MAPPING::GENERICOBJ::EBS_Object2TC_Object
+  # \brief          Customer specific object reverse mapping function template
+  # \author         kh, 20120613
+  # \return
+  #
+  #
+  #
+  proc EBS_Object2TC_Object { TransactionId Status ObjectKey args } {
+    variable ReverseMappingStatus
+    #
+    set MappingStatus "OK"
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with TransferStatus >$Status< and ObjectKey >$ObjectKey<"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished with >$ReverseMappingStatus<"
+    return $ReverseMappingStatus
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::GENOBJ::CUSTOM::MAPPING::GENERICOBJ::getObjectInfo
+  # \brief          Customer specific Mapping function to retrieve the object information from EBS
+  #
+  # \author         kh, 20120613
+  # \return
+  #
+  #
+  #
+  proc getObjectInfo { TransactionId ObjectKey args } {
+    #
+    set Status "OK"
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with ObjectKey >$ObjectKey<"
+    #
+    lassign $ObjectKey ItemNumber OrgCode
+    #
+    set Status [::TPEBS::ITEM::getItemInfo $ItemNumber $OrgCode]
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished with >$Status<"
+    #
+    return $Status
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::GENOBJ::CUSTOM::MAPPING::GENERICOBJ::performTransfer
+  # \brief          Customer specific function to call EBS
+  #
+  # \author         kh, 20120613
+  # \return
+  #
+  #
+  #
+  proc performTransfer { TransactionId args } {
+    variable NewOrg
+    variable ReverseMappingStatus
+    #
+    set Status "OK"
+    set FunctionName "[lindex [info level 0] 0]"
+    set ObjectKey ""
+
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts..."
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: NewOrg is $NewOrg"
+
+    if {$NewOrg ne ""} {
+      #
+      # Write BOM info to transaction log
+      #
+      set TranslogIndex 10
+      set blnIsMultiTransfer "FALSE"
+      set intNumberOfMultiTransferCacheEntries [::T4O::getNumberOfMultiTransferCacheEntries "BOM"]
+      if { $intNumberOfMultiTransferCacheEntries > 0 } {
+        tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - Found $intNumberOfMultiTransferCacheEntries entries in MultiTransferCache..."
+        set blnIsMultiTransfer "TRUE"
+      } else {
+        ::T4O::storeEBSDat2MultiTransferCache "BOM"
+      }
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - blnIsMultiTransfer = >$blnIsMultiTransfer<"
+      set CacheIndex "1"
+      foreach lstEBSDat [::T4O::getMultiTransferCacheEntries "BOM"] {
+        if { $blnIsMultiTransfer eq "TRUE" } {
+          ::T4X::TRANSLOG::writeMultiTransferMappingLog $TransactionId "$::T4X::TRANSLOG::StructId(Mapping).$TranslogIndex.0.0.0.0" $CacheIndex
+          array unset ::EBSDat
+          array set ::EBSDat $lstEBSDat
+        }
+        if { $::EBSDat(Bom:CtrlParam:useEco4BomTransfer) eq "FALSE" } {
+          set TranslogIndex [::TPEBS::printInterfaceTableInfo4ObjectType $TransactionId "$::T4X::TRANSLOG::StructId(Mapping)" $TranslogIndex "true" "0" "false" "Bom"]
+          set TranslogIndex [::TPEBS::printInterfaceTableInfo4ObjectType $TransactionId "$::T4X::TRANSLOG::StructId(Mapping)" $TranslogIndex "true" "0" "false" "BomModel"]
+        } else {
+          set TranslogIndex [::TPEBS::printInterfaceTableInfo4ObjectType $TransactionId "$::T4X::TRANSLOG::StructId(Mapping)" $TranslogIndex "true" "0" "false" "ChangeOrder"]
+          set TranslogIndex [::TPEBS::printInterfaceTableInfo4ObjectType $TransactionId "$::T4X::TRANSLOG::StructId(Mapping)" $TranslogIndex "true" "0" "false" "EcoRequest"]
+        }
+        set TranslogIndex [::TPEBS::printInterfaceTableInfo4ObjectType $TransactionId "$::T4X::TRANSLOG::StructId(Mapping)" $TranslogIndex "true" "0" "false" "Attachment"]
+        incr CacheIndex
+      }
+      if { $blnIsMultiTransfer ne "TRUE" } {
+        ::T4O::clearMultiTransferCache "BOM"
+      }
+      #
+      # Do the BOM update
+      #
+      set Status [::T4O::BOM::DirectUpdate "$TransactionId"]
+      set ObjectKey $::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ASSEMBLY_ITEM_NAME:1)
+      lappend ObjectKey $::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ORGANIZATION_CODE:1)
+
+      # Save reverse mapping status
+      if { [info exists ::StatusInfo(ReverseMappingStatus)] } {
+        set ReverseMappingStatus $::StatusInfo(ReverseMappingStatus)
+      } else {
+        set ReverseMappingStatus "UNKNOWN"
+      }
+    }
+    #
+    lappend Status $ObjectKey
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished with >$Status<"
+    return $Status
+  }
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+=======================================================================
+Copyright 2009.
+Siemens Product Lifecycle Management Software Inc.
+All Rights Reserved.
+=======================================================================
+     Filename: GET6MfgPartCreate.xml
+
+    Style sheet rendering for Item creation.
+=======================================================================
+-->
+
+<rendering>
+    <page title="General" titleKey="tc_xrt_General">      
+        <section title="Item Information" titleKey="tc_xrt_ItemInformation">
+            <property name="item_id" />
+            <property name="revision:item_revision_id" /> 
+            <property name="object_name" />
+            <property name="object_desc" />
+            <property name ="ip_classification"/>
+            <separator/>
+            <property name="uom_tag" /> 
+            <customPanel java="com.ge.transportation.plm.mfg.custompanel.GETManufacturingPartIDPanel" />
+            <!-- OOTB configuration item check box is not visibile, you can remove the comment once is_configuration_item in createInput is turned on in BMIDE -->
+            <!--
+            <property name="is_configuration_item" renderingHint="checkbox" />
+            -->
+        </section>
+    </page>
+
+</rendering>

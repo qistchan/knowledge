@@ -1,0 +1,3 @@
+QUERY.HEADER=OBJECT_NAME~OBJECT_TYPE
+QUERY.OUTPUTTYPES=string,string
+QUERY.SQL=select  distinct wso.pobject_name, wso.pobject_type from pworkspaceobject wso, ppom_application_object aom where wso.puid=aom.puid and wso.pdate_released is not null and to_date(wso.pdate_released,'DD-MM-YYYY') <  to_date(aom.plast_mod_date,'DD-MM-YYYY')

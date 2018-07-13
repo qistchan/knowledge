@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<TcBusinessDataIncludes currentTemplateVersion="11.2_4" displayName="get9service" enableOpsDataDeploy="true" guid="B0388AF78D6EEDCD283F51A433F8DA0F" isDescriptionMandatory="false" name="get9service" optional="true" prefixes="GET9" teamcenterTemplate="false">
+    <include file="foundation_template.xml"/>
+    <include file="aws2_template.xml"/>
+    <include file="cm_template.xml"/>
+    <include file="materialmgmt_template.xml"/>
+    <include file="nx0tcin_template.xml"/>
+    <include file="Cm1cmaws_template.xml"/>
+    <include file="activeworkspacebom_template.xml"/>
+    <include file="get6transplm_template.xml"/>
+</TcBusinessDataIncludes>

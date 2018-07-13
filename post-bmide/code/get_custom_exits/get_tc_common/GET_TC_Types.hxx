@@ -1,0 +1,218 @@
+
+/* STARTFILEDOC ***
+//   ===========================================================================
+//   Filename:   GET_TC_Types.hxx
+//
+//    Purpose:   Header file for Teamcenter Types
+//
+//    History:
+//      Who                   Date                 Description
+//  TCS Development Team     10 May, 2016         Initial creation
+//  TCS Development Team     15 May, 2017         Added type definition for UGMASTER dataset
+//  TCS Development Team     17 May, 2017         Added Dataset Reference Type Names
+//  TCS Development Team     23 May, 2017         Added type definition for Text dataset
+//  TCS Development Team     23 May, 2017         Added text reference name for dataset type
+//  TCS Development Team     29 May, 2017         Added Query definition DISPATCHER_QUERY
+//  TCS Development Team     31 May, 2017         Created a new Preference Definition for GET_ECR_ECN_CLOSE_INTERVAL and Workflow definition for SUBMIT_TO_CLOSE_CHANGE_WORKFLOW
+//  TCS Development Team     31 May, 2017         Added relation type TC_IMPLEMENTED_BY, CMIMPLEMENTS
+//  TechM Development Team   29 Aug, 2017         Added MFG CutIn Group and Role definitions
+//  Ganesh Ubale             01 Nov, 2017         Added Service Participant and Group definitions
+//
+//   ============================================================================
+// ENDFILEDOC   ***/
+
+// Dataset Types
+#define DATASET "Dataset"
+#define UGMASTER "UGMASTER"
+#define TEXT_DATASET "Text"
+#define HTML_DATASET "HTML"
+
+// BOMViewRevision Types
+#define BOMVIEWREVISION "BOMView Revision"
+#define PSBOMVIEWREVISION "PSBOMViewRevision"
+
+// Form Types
+#define IMANMASTERFORM "IMAN_master_form"
+#define ECNMASTERFORM "GET6ECNMaster"
+#define ECNMASTERREVISIONFORM "GET6ECNRevisionMaster"
+
+// Change Types
+#define ECRITEM_TYPE "GET6ECR"
+#define ECRREVISION_TYPE "GET6ECRRevision"
+#define ECNITEM_TYPE "GET6ECN"
+#define ECNREVISION_TYPE "GET6ECNRevision"
+#define MCNREVISION_TYPE "GET6MCNRevision"
+
+// Item Types
+#define DRAWINGREV_TYPE "GET6DrawingRevision"
+#define DOCUMENTREV_TYPE "GET6DocumentRevision"
+#define SPECREV_TYPE "GET6SpecsRevision"
+#define ELECREV_TYPE "GET6ElectPartRevision"
+#define MECHREV_TYPE "GET6MechPartRevision"
+#define SOFTREV_TYPE "GET6SoftwarePartRevision"
+#define STOCKMTRL_TYPE "GET6StockMtrl"
+
+// Pom Object Types
+#define PROJECTOBJECTRELATION_TYPE "ProjectObjectRelation"
+
+// Item Revision Types
+#define MFGREV_TYPE "GET6MfgPartRevision"
+#define PROCESSREV_TYPE "GET6ProcessRevision"
+#define DEPARTMENTREV_TYPE "GET6MEDepartmentRevision"
+
+// Collaboration Context
+#define MEPRODUCTCONTEXT_TYPE "MEProductContext"
+#define MEPROCESSCONTEXT_TYPE "MEProcessContext"
+#define MEPLANTCONTEXT_TYPE "MEPlantContext"
+#define MECC_TYPE "MECollaborationContext"
+
+// Participant Types
+#define REQUESTOR_PARTICIPANT "Requestor"
+#define GET6COMPLIANCE_PARTICIPANT "GET6Compliance"
+#define GET6DESIGNER_PARTICIPANT "GET6DESIGNER"
+#define GET6ENGRAPPROVAL_PARTICIPANT "GET6EngrApproval"
+#define GET6OPTIONALREVIEWER_PARTICIPANT "GET6OptionalReviewer"
+#define GET6PRODUCIBILITY_PARTICIPANT "GET6Producibility"
+#define GET6PRODUCTDEFINITION_PARTICIPANT "GET6ProductDefinition"
+#define GET6PRODUCTMGMT_PARTICIPANT "GET6ProductMgmt"
+#define GET6PROGRAMMGMT_PARTICIPANT "GET6ProgramMgmt"
+#define GET6SUBGROUPMGR_PARTICIPANT "GET6SubgroupMgr"
+#define GET6SYSTEMSENGR_PARTICIPANT "GET6SystemsEngr"
+#define GET6PRINCIPALENGR_PARTICIPANT "GET6PrincipalEngr"
+#define GET6WORKASSIGNCO_PARTICIPANT "GET6WorkAssignCo"
+#define GET6CCBCO_PARTICIPANT "GET6CCBCo"
+#define GET6MFGCUTIN_PARTICIPANT "GET6MfgCutIn"
+#define GET6SERVICE_PARTICIPANT "GET6ServiceApproval"
+
+// Teamcenter Groups
+#define GETRANSPORTATION_GROUP "GE TRANSPORTATION"
+#define TRANSPORTATION_GROUP "TRANSPORTATION"
+#define TRANSPORTATION_GROUP_FULL_NAME "TRANSPORTATION.GE TRANSPORTATION"
+#define UNDERGROUND_MINING_GROUP "Underground Mining.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION"
+#define SERVICE_GROUP_FULL_NAME "SERVICES.TRANSPORTATION.GE TRANSPORTATION"
+
+// Product & Program Management Groups
+#define PRODUCTMANAGEMENT_GROUP "PRODUCT MANAGEMENT MAIN"
+#define PRODUCTMANAGEMENT_GROUP_FULL_NAME "PRODUCT MANAGEMENT MAIN.TRANSPORTATION.GE TRANSPORTATION"
+#define PROGRAMMANAGEMENT_GROUP "PROGRAM MANAGEMENT MAIN"
+#define PROGRAMMANAGEMENT_GROUP_FULL_NAME "PROGRAM MANAGEMENT MAIN.TRANSPORTATION.GE TRANSPORTATION"
+#define PRODUCTMANAGEMENT_SUBGROUP_FULL_NAME "Product Management.PRODUCT MANAGEMENT MAIN.TRANSPORTATION.GE TRANSPORTATION"
+#define PROGRAMMANAGEMENT_SUBGROUP_FULL_NAME "Program Management.PROGRAM MANAGEMENT MAIN.TRANSPORTATION.GE TRANSPORTATION"
+/*#define LOCOMOTIVE_PRDMGMT_GROUP_FULL_NAME "Locomotive.PRODUCT MANAGEMENT.TRANSPORTATION.GE TRANSPORTATION"
+#define LOCOMOTIVE_PROGMGMT_GROUP_FULL_NAME "Locomotive.PROGRAM MANAGEMENT.TRANSPORTATION.GE TRANSPORTATION"
+#define PROPULSION_PRDMGMT_GROUP_FULL_NAME "Propulsion.PRODUCT MANAGEMENT.TRANSPORTATION.GE TRANSPORTATION"
+#define PROPULSION_PROGMGMT_GROUP_FULL_NAME "Propulsion.PROGRAM MANAGEMENT.TRANSPORTATION.GE TRANSPORTATION"
+#define ENIGNE_PRDMGMT_GROUP_FULL_NAME "Engine.PRODUCT MANAGEMENT.TRANSPORTATION.GE TRANSPORTATION"
+#define ENGINE_PROGMGMT_GROUP_FULL_NAME "Engine.PROGRAM MANAGEMENT.TRANSPORTATION.GE TRANSPORTATION"
+#define UGMINING_PRDMGMT_GROUP_FULL_NAME "Underground Mining.PRODUCT MANAGEMENT.TRANSPORTATION.GE TRANSPORTATION"
+#define UGMINING_PROGMGMT_GROUP_FULL_NAME "Underground Mining.PROGRAM MANAGEMENT.TRANSPORTATION.GE TRANSPORTATION"
+#define CONTROL_PRDMGMT_GROUP_FULL_NAME "Control.PRODUCT MANAGEMENT.TRANSPORTATION.GE TRANSPORTATION"
+#define CONTROL_PROGMGMT_GROUP_FULL_NAME "Control.PROGRAM MANAGEMENT.TRANSPORTATION.GE TRANSPORTATION"
+#define M_S_PRDMGMT_GROUP_FULL_NAME "Marine & Stationary.PRODUCT MANAGEMENT.TRANSPORTATION.GE TRANSPORTATION"
+#define M_S_PROGMGMT_GROUP_FULL_NAME "Marine & Stationary.PROGRAM MANAGEMENT.TRANSPORTATION.GE TRANSPORTATION"
+#define OHV_PRDMGMT_GROUP_FULL_NAME "Off Highway Vehicle (OHV).PRODUCT MANAGEMENT.TRANSPORTATION.GE TRANSPORTATION"
+#define OHV_PROGMGMT_GROUP_FULL_NAME "Off Highway Vehicle (OHV).PROGRAM MANAGEMENT.TRANSPORTATION.GE TRANSPORTATION"*/
+
+/* Old Engineering Groups
+//#define ENGINEERING_GROUP "ENGINEERING"
+//#define ENGINEERING_GROUP_FULL_NAME "ENGINEERING.TRANSPORTATION.GE TRANSPORTATION"
+#define SYSTEMSINTEGRATION_GROUP "Systems Integration"
+#define SYSTEMSINTEGRATION_GROUP_FULL_NAME "Systems Integration.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION"
+//#define PRODUCTDEFINITION_GROUP "Product Definition"
+//#define PRODUCTDEFINITION_GROUP_FULL_NAME "Product Definition.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION"
+#define PRODDEFNADMIN_GROUP "38510 (Product Definition Admin)"
+#define PRODDEFNADMIN_GROUP_FULL_NAME "38510 (Product Definition Admin).Product Definition.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION"
+#define MECHANICALCOEADMIN_GROUP "Mechanical COE Admin"
+#define MECHANICALCOEADMIN_GROUP_FULL_NAME "Mechanical COE Admin.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION"
+#define MECHENGGTECHADIMN_GROUP "38301 (Mechanical Engineering Technology Admin)"
+#define MECHENGGTECHADIMN_GROUP_FULL_NAME "38301 (Mechanical Engineering Technology Admin).Mechanical COE Admin.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION"
+#define PRINCIPANENGINEERING_GROUP "38400 (Principal Engineering)"
+#define PRINCIPANENGINEERING_GROUP_FULL_NAME "38400 (Principal Engineering).Engineering Admin.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION"
+*/
+
+// New Engineering Groups
+#define ENGINEERING_GROUP "ENGINEERING"
+#define ENGINEERING_GROUP_FULL_NAME "ENGINEERING.TRANSPORTATION.GE TRANSPORTATION"
+#define PRODUCTDEFINITION_GROUP "Product Definition"
+#define PRODUCTDEFINITION_GROUP_FULL_NAME "Product Definition.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION"
+#define COMPLIANCE_GROUP "Compliance"
+#define COMPLIANCE_GROUP_FULL_NAME "Compliance.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION"
+#define PRINCIPALENGINEERING_GROUP "Principal Engineering, Safety, and Cyber Security"
+#define PRINCIPALENGINEERING_GROUP_FULL_NAME "Principal Engineering, Safety, and Cyber Security.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION"
+#define TRANSPORTATIONSYSTEMS_GROUP "Transportation Systems"
+#define TRANSPORTATIONSYSTEMS_GROUP_FULL_NAME "Transportation Systems.ENGINEERING.TRANSPORTATION.GE TRANSPORTATION"
+
+// Supply Chain Groups
+#define SUPPLYCHAIN_GROUP "SUPPLY CHAIN"
+#define SUPPLYCHAIN_GROUP_FULL_NAME "SUPPLY CHAIN.TRANSPORTATION.GE TRANSPORTATION"
+#define ADVANCEMFG_GROUP "Advance Manufacturing"
+#define ADVANCEMFG_GROUP_FULL_NAME "Advance Manufacturing.SUPPLY CHAIN.TRANSPORTATION.GE TRANSPORTATION"
+#define GLOBALPRODUCIBILITY_GROUP "Global Producibility"
+#define GLOBALPRODUCIBILITY_GROUP_FULL_NAME "Global Producibility.Advance Manufacturing.SUPPLY CHAIN.TRANSPORTATION.GE TRANSPORTATION"
+#define OPERATIONS_GROUP_FULL_NAME "Operations.SUPPLY CHAIN.TRANSPORTATION.GE TRANSPORTATION"
+// System Administrator Group
+#define DBA_GROUP "dba"
+
+// Teamcenter Roles
+#define CRITICALPART_ROLE "Critical Part"
+#define DESIGNER_ROLE "Designer"
+#define DESIGNCOORDINATOR_ROLE "Design Coordinator"
+#define EMISSIONSCONTROLCOMPLIANCE_ROLE "Emissions Control Compliance"
+#define ENGINEERINGMANAGER_ROLE "Engineering Manager"
+#define ENGINEER_ROLE "Engineer"
+#define EXPORTCOMPLIANCE_ROLE "Export Compliance"
+#define HOMOLOGATION_ROLE "Homologation"
+#define MFGENGINEER_ROLE "Approver"
+#define PRINCIPALENGINEER_ROLE "Principal Engineer"
+#define PRODUCTMANAGER_ROLE "Product Management"
+#define PROGRAMMANAGER_ROLE "Program Management"
+#define SAFETYCOMPLIANCE_ROLE "Safety Compliance"
+#define DBA_ROLE "DBA"
+#define EXPLOSIVEATMOSPHERE_ROLE "Explosive Atmosphere Compliance"
+#define MFG_CHANGE_CONTROL_ROLE "Mfg Change Control"
+#define SERVICE_ROLE "Services Engineering Manager"
+
+// Relation types
+#define CMIMPLEMENTS "CMImplements"
+#define IMAN_SPECIFICATION "IMAN_specification"
+#define TC_ATTACHES "TC_Attaches"
+#define MADEFROMMATL "GET6MadeFromMatl"
+#define MADEFROMPART "GET6MadeFromPart"
+#define STOCKMATRL "GET6HasStockMatl"
+#define CONTENTS "contents"
+#define TC_IMPLEMENTED_BY "TC_Implemented_By"
+#define CMIMPLEMENTS "CMImplements"
+#define CMREFERENCES "CMReferences"
+#define REFERENCES_ITEM "EC_reference_item_rel"
+
+// Preference Names
+#define CM_GENERATE_ECNID_PREF "CM_ECRtoECN_generateECNID"
+#define CM_ECRTOECN_PROPOGATE_PROP_PREF "ECP.PropPropagation.GET6ECRRevision.GET6ECNRevision"
+#define GET_ECR_ECN_CLOSE_INTERVAL "GET_ECR_ECN_CLOSE_INTERVAL"
+#define GET_CAS_DATA_DOWNLOADER_URL "GET_CAS_DATA_DOWNLOADER_URL"
+
+// Workflow Template Names
+#define SUBMIT_TO_CLOSE_CHANGE_WORKFLOW "Submit to Close Change"
+
+// Release Status Types
+#define GET6RELEASED "GET6Released"
+#define APPROVED "Approved"
+#define GET6PRELIMINARY "GET6Preliminary"
+#define GET6CANCELED "GET6Canceled"
+
+// Folder Type
+#define FOLDERTYPE "Folder"
+
+// Dataset Reference Names
+#define UGPART_ATTR_REFNAME "UGPART-ATTR"
+#define UGPART_ATTRIBUTES_REFNAME "UGPART-ATTRIBUTES"
+#define TEXT_REFNAME "Text"
+#define HTML_REFNAME "HTML"
+
+// Task Types
+#define PERFORM_SIGNOFF_TASK_TYPE "EPMPerformSignoffTask"
+#define EPM_CONDITION_TASK "EPMConditionTask"
+
+// Dataset Tool Types
+#define TEXTEDITOR_TOOL "TextEditor"
+#define HTMLEDITOR_TOOL "IExplore"

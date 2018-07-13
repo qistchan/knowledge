@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<TCXML xmlns="http://www.tcxml.org/Schemas/TCXMLSchema" format="high_level">
+<ClosureRule clauses="CLASS.BOMWindow:CLASS.BOMLine:PROPERTY.top_line:PROCESS+TRAVERSE:,CLASS.BOMLine:CLASS.BOMLine:PROPERTY.bl_child_lines:PROCESS+TRAVERSE:SECONDARY.bl_window_is_BOPWin==&quot;false&quot; &amp;&amp; PRIMARY.bl_window_is_BOPWin==&quot;false&quot;,CLASS.BOMLine:CLASS.Item:PROPERTY.bl_item:PROCESS+TRAVERSE:,CLASS.BOMLine:CLASS.ItemRevision:PROPERTY.bl_revision:PROCESS+TRAVERSE:PRIMARY.bl_window_is_BOPWin==&quot;false&quot;,CLASS.WorkspaceObject:CLASS.ReleaseStatus:ATTRIBUTE.*:TRAVERSE+PROCESS:,CLASS.ItemRevision:CLASS.Item:PROPERTY.items_tag:TRAVERSE+PROCESS:,CLASS.ItemRevision:CLASS.itemRevision:RELATIONP2S.*:TRAVERSE+PROCESS:,TYPE.GET6MechPart:TYPE.GET6MechPart:RELATIONP2S.GET6MadeFromPart:PROCESS+TRAVERSE:,TYPE.GET6MechPart:TYPE.GET6Material:RELATIONP2S.GET6MadeFromMatl:PROCESS+TRAVERSE:,TYPE.GET6ElectPart:TYPE.GET6ElectPart:RELATIONP2S.GET6MadeFromPart:PROCESS+TRAVERSE:,TYPE.GET6ElectPart:TYPE.GET6Material:RELATIONP2S.GET6MadeFromMatl:PROCESS+TRAVERSE:,TYPE.GET6MechPartRevision:TYPE.GET9SerAttrForm:RELATIONP2S.GET9ServFormAtt:PROCESS:,TYPE.GET9SrvPartRevision:TYPE.GET9SerAttrForm:RELATIONP2S.GET9ServFormAtt:PROCESS:" description="GET Closure rule for exporting BOM from TC" elemId="id7" name="GET_sBOM_Export_CR" owning_site="#id2" schema_format="0" scope="0" transient_island_id="1">
+
+  <GSIdentity elemId="id5" label="QFVpX81nozvqGB"/>
+
+</ClosureRule>
+<Group elemId="id11" list_of_role="#id8 #id9 #id10" name="dba" owning_site="#id2" transient_island_id="1">
+
+  <GSIdentity elemId="id4" label="AYdpgyFpozvqGB"/>
+
+</Group>
+<POM_imc elemId="id12" name="LocalPrimary" owning_site="#id2" site_id="-1898993052" transient_island_id="0">
+
+  <GSIdentity elemId="id2" label="AKWpgyUeozvqGB"/>
+
+</POM_imc>
+<PropertySet clauses="CLASS.Role:PROPERTY.role_name:DO,CLASS.Group:PROPERTY.name:DO,CLASS.Item:PROPERTY.item_id:DO,CLASS.Item:PROPERTY.object_name:DO,CLASS.Item:PROPERTY.object_desc:DO,CLASS.Item:ATTRIBUTE.revision_number:DO,CLASS.Item:PROPERTY.creation_date:DO,CLASS.Item:PROPERTY.release_status_list:DO,CLASS.Item:ATTRIBUTE.last_mod_user:DO,CLASS.ItemRevision:PROPERTY.item_revision_id:DO,CLASS.ItemRevision:PROPERTY.object_string:DO,CLASS.ItemRevision:PROPERTY.object_name:DO,CLASS.ItemRevision:PROPERTY.object_desc:DO,CLASS.ItemRevision:PROPERTY.object_type:DO,CLASS.ItemRevision:PROPERTY.process_stage:DO,CLASS.ItemRevision:PROPERTY.creation_date:DO,CLASS.ItemRevision:PROPERTY.last_mod_date:DO,CLASS.ItemRevision:PROPERTY.date_released:DO,CLASS.ItemRevision:PROPERTY.owning_user:DO,CLASS.ItemRevision:PROPERTY.owning_group:DO,CLASS.ItemRevision:PROPERTY.release_status_list:DO,CLASS.ItemRevision:PROPERTY.last_mod_user:DO,CLASS.User:PROPERTY.user_id:DO,CLASS.User:PROPERTY.user_name:DO,TYPE.ItemRevision:PROPERTY.item_id:DO,CLASS.ReleaseStatus:PROPERTY.name:DO,TYPE.GET6MechPartRevision:PROPERTY.get6EngMB:DO,TYPE.GET6MechPart:PROPERTY.GET6MadeFromPart:DO,TYPE.GET6MechPart:PROPERTY.GET6MadeFromMatl:DO,TYPE.GET6MechPart:PROPERTY.item_id:DO,TYPE.GET6MechPart:PROPERTY.object_name:DO,TYPE.GET6MechPartRevision:PROPERTY.item_revision_id:DO,TYPE.GET6MechPartRevision:PROPERTY.item_id:DO,TYPE.GET6ElectPartRevision:PROPERTY.get6EngMB:DO,TYPE.GET6ElectPart:PROPERTY.GET6MadeFromPart:DO,TYPE.GET6ElectPart:PROPERTY.GET6MadeFromMatl:DO,TYPE.GET6ElectPart:PROPERTY.item_id:DO,TYPE.GET6ElectPart:PROPERTY.object_name:DO,TYPE.GET6ElectPartRevision:PROPERTY.item_revision_id:DO,TYPE.GET6ElectPartRevision:PROPERTY.item_id:DO,TYPE.BOMLine:PROPERTY.bl_level_starting_0:DO,TYPE.GET6MechPartRevision:PROPERTY.get6ObjWtUOM:DO,TYPE.GET6MechPartRevision:PROPERTY.ip_classification:DO,TYPE.GET6MechPartRevision:PROPERTY.get6DataModel:DO,TYPE.GET6MechPartRevision:PROPERTY.get6CTQ:DO,TYPE.GET6ElectPartRevision:PROPERTY.get6ObjWtUOM:DO,TYPE.GET6ElectPartRevision:PROPERTY.ip_classification:DO,TYPE.GET6ElectPartRevision:PROPERTY.get6DataModel:DO,TYPE.GET6ElectPartRevision:PROPERTY.get6CTQ:DO,TYPE.GET6MechPart:PROPERTY.get6ECCN:DO,TYPE.GET6MechPart:PROPERTY.get6ECCNSource:DO,TYPE.GET6MechPart:PROPERTY.get6ObjEvidence:DO,TYPE.GET6MechPart:PROPERTY.get6CCC:DO,TYPE.GET6MechPart:PROPERTY.get6ECC:DO,TYPE.GET6MechPart:PROPERTY.get6Homologation:DO,TYPE.GET6MechPart:PROPERTY.get6CriticalPart:DO,TYPE.GET6MechPart:PROPERTY.get6ObjWt:DO,TYPE.GET6ElectPart:PROPERTY.get6ECCN:DO,TYPE.GET6ElectPart:PROPERTY.get6ECCNSource:DO,TYPE.GET6ElectPart:PROPERTY.get6ObjEvidence:DO,TYPE.GET6ElectPart:PROPERTY.get6CCC:DO,TYPE.GET6ElectPart:PROPERTY.get6ECC:DO,TYPE.GET6ElectPart:PROPERTY.get6Homologation:DO,TYPE.GET6ElectPart:PROPERTY.get6CriticalPart:DO,TYPE.GET6ElectPart:PROPERTY.get6ObjWt:DO,TYPE.GET6MechPart:PROPERTY.ip_classification:DO,TYPE.GET6ElectPart:PROPERTY.ip_classification:DO,TYPE.GET6ElectPartRevision:PROPERTY.get6ObjWt:DO,TYPE.GET6MechPartRevision:PROPERTY.get6ObjWt:DO,TYPE.GET6ElectPart:PROPERTY.get6EngrProdLine:DO,TYPE.GET6MechPart:PROPERTY.get6EngrProdLine:DO,TYPE.GET9SerAttrForm:PROPERTY.get9EngineFamily:DO,TYPE.BOMLine:PROPERTY.bl_item_global_alt_list:DO,TYPE.BOMLine:PROPERTY.bl_item_preferred_global_alt:DO,TYPE.BOMLine:PROPERTY.bl_occ_date_range:DO,TYPE.BOMLine:PROPERTY.bl_rev_last_release_status:DO" description="GET Property Sey for exporting BOM from TC" elemId="id13" name="GET_SBOM_Export_PS" owning_site="#id2" scope="0" transient_island_id="1">
+
+  <GSIdentity elemId="id6" label="QFXp1joXozvqGB"/>
+
+</PropertySet>
+<TransferMode action_list="" closure_rules="#id5" config_objs="" context_string="DEFAULT_PIE_CONTEXT_STRING" direction="0" elemId="id14" filters="" fnd0RevisionId="" gov_classification="" incremental="N" ip_classification="" license_list="" multi_site="N" object_desc="GET Transfermode created for exporting BOM from TC" object_name="GET_SBOM_Export_TM" owning_site="#id2" project_list="" prop_sets="#id6" schema_format="0" transient_island_id="1">
+
+  <GSIdentity elemId="id1" label="QFapX81nozvqGB"/>
+
+</TransferMode>
+<User elemId="id15" owning_site="#id2" transient_island_id="1" user_id="infodba">
+
+  <GSIdentity elemId="id3" label="AgZpgyFpozvqGB"/>
+
+</User>
+<Role elemId="id16" owning_site="#id2" role_name="Designer" transient_island_id="0">
+
+  <GSIdentity elemId="id9" label="gYXpgyFpozvqGB"/>
+
+</Role>
+<Role elemId="id17" owning_site="#id2" role_name="Material Analyst" transient_island_id="0">
+
+  <GSIdentity elemId="id10" label="gsWpg_CmozvqGB"/>
+
+</Role>
+<Role elemId="id18" owning_site="#id2" role_name="DBA" transient_island_id="0">
+
+  <GSIdentity elemId="id8" label="AUepgyFpozvqGB"/>
+
+</Role>
+<Header author="infodba" date="2018-01-31" elemId="id19" originatingSite="-1898993052" targetSite="" time="17:17:27" version="Teamcenter V11000.2.2.21_20170330.00">
+
+  <TransferFormula elemId="id20">
+    <SessionOptions elemId="id21">
+      <Option elemId="id22" name="is_scope_rules_export" value="yes"/>
+      <Option elemId="id23" name="tcxmlArrayDataDelimiter" value=","/>
+    </SessionOptions>
+    <TransferMode elemId="id24" fnd0RevisionId="" gov_classification="" ip_classification="" license_list="" object_name="PLMXMLAdminDataExport" owning_site="id2" project_list=""/>
+    <Reason elemId="id25"></Reason>
+  </TransferFormula>
+
+  <TraverseRootRefs>#id1</TraverseRootRefs>
+
+</Header></TCXML>

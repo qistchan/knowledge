@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TcBusinessDataLocalization xmlns="http://teamcenter.com/BusinessModel/TcBusinessDataLocalization"
+    Date="">
+<Add>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsContainerMasterS" status="Approved">Abs Container Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsContainerMaster" status="Approved">GET Abstract Container Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsContainerRevMasterS" status="Approved">Abs Container Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsContainerRevisionMaster" status="Approved">GET Abstract Container Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsContainerRevision" status="Approved">GET Abstract Container Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsContainer" status="Approved">GET Abstract Container</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsDocumentMasterS" status="Approved">Abs Document Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsDocumentMaster" status="Approved">GET Abstract Document Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsDocumentRevMasterS" status="Approved">Abs Document Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsDocumentRevisionMaster" status="Approved">GET Abstract Document Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsDocumentRevision" status="Approved">GET Abstract Document Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsDocument" status="Approved">GET Abstract Document</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsECNRevision" status="Approved">GET Abs ECN Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsECN" status="Approved">GET6 Abstract ECN</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsECRMasterS" status="Approved">Abs ECR Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsECRMaster" status="Approved">Abs ECR Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsECRRevMasterS" status="Approved">Abs ECR Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsECRRevisionMaster" status="Approved">Abs ECR Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsECRRevision" status="Approved">GET Abstract ECR Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsECR" status="Approved">GET Abstract ECR</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsPartMasterS" status="Approved">Abs Part Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsPartMaster" status="Approved">GET Abstract Part Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsPartRevMasterS" status="Approved">Abs Part Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsPartRevisionMaster" status="Approved">GET Abstract Part Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsPartRevision" status="Approved">GET Abstract Part Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsPart" status="Approved">GET Abstract Part</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsSecDesignMasterS" status="Approved">Abs Sec Design Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsSecDesignMaster" status="Approved">Abs Sec Design Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsSecDesignRevMasterS" status="Approved">Abs Sec Design Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsSecDesignRevisionMaster" status="Approved">Abs Sec Design Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsSecDesignRevision" status="Approved">GET Abs Sec Design Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsSecDesign" status="Approved">GET Abs Sec Design</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsUniPartMasterS" status="Approved">Abs Uni Part Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsUniPartMaster" status="Approved">GET Abstract Unified Part Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsUniPartRevMasterS" status="Approved">Abs Uni Part Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsUniPartRevisionMaster" status="Approved">GET Abstract Unified Part Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsUniPartRevision" status="Approved">GET Abstract Unified Part Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsUniPart" status="Approved">GET Abstract Unified Part</key>
+   <key locale="en_US" id="BusinessObject{::}GET6BctInspector" status="Approved">BctInspector</key>
+   <key locale="en_US" id="BusinessObject{::}GET6CCBCo" status="Approved">CCB Coordinator</key>
+   <key locale="en_US" id="BusinessObject{::}GET6Compliance" status="Approved">Compliance Review</key>
+   <key locale="en_US" id="BusinessObject{::}GET6CompressedFormat" status="Approved">GET Compressed Format</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DesignMiscMasterS" status="Approved">Design Misc Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DesignMiscMaster" status="Approved">Design Misc Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DesignMiscRevMasterS" status="Approved">Design Misc Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DesignMiscRevisionMaster" status="Approved">Design Misc Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DesignMiscRevision" status="Approved">Design Misc Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DesignMisc" status="Approved">GET Design Misc</key>
+   <key locale="en_US" id="BusinessObject{::}GET6Designer" status="Approved">Design Team</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DocumentMasterS" status="Approved">Document Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DocumentMaster" status="Approved">GET Document Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DocumentRel" status="Approved">Document</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DocumentRevMasterS" status="Approved">Document Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DocumentRevisionMaster" status="Approved">GET Document Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DocumentRevision" status="Approved">GET Document Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6Document" status="Approved">GET Document</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DrawingMasterS" status="Approved">Drawing Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DrawingMaster" status="Approved">GET Drawing Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DrawingRel" status="Approved">Drawing</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DrawingRevMasterS" status="Approved">Drawing Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DrawingRevisionMaster" status="Approved">GET Drawing Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DrawingRevision" status="Approved">GET Drawing Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6Drawing" status="Approved">GET Drawing</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ECNPartDisposition" status="Approved">Part Disposition</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ECNRevision" status="Approved">Engr Change Notice Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ECN" status="Approved">Engr Change Notice</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ECRMasterS" status="Approved">ECR Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ECRMaster" status="Approved">ECR Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ECRRevMasterS" status="Approved">ECR Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ECRRevisionMaster" status="Approved">ECR Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ECRRevision" status="Approved">Engr Change Request Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ECR" status="Approved">Engr Change Request</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ElectPartMasterS" status="Approved">Elect Part Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ElectPartMaster" status="Approved">GET Electrical Part Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ElectPartRevMasterS" status="Approved">Elect Part Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ElectPartRevisionMaster" status="Approved">GET Electrical Part Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ElectPartRevision" status="Approved">GET Electrical Part Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ElectPart" status="Approved">GET Electrical Part</key>
+   <key locale="en_US" id="BusinessObject{::}GET6EngrApproval" status="Approved">Engineer Approval</key>
+   <key locale="en_US" id="BusinessObject{::}GET6FlatPatternMasterS" status="Approved">Flat Pattern Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6FlatPatternMaster" status="Approved">Flat Pattern Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6FlatPatternRel" status="Approved">Flat Pattern</key>
+   <key locale="en_US" id="BusinessObject{::}GET6FlatPatternRevMasterS" status="Approved">Flat Pattern Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6FlatPatternRevisionMaster" status="Approved">Flat Pattern Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6FlatPatternRevision" status="Approved">GET Flat Pattern Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6FlatPattern" status="Approved">GET Flat Pattern</key>
+   <key locale="en_US" id="BusinessObject{::}GET6HasStockMatl" status="Approved">Stock Material</key>
+   <key locale="en_US" id="BusinessObject{::}GET6Interleaf" status="Approved">GET Interleaf</key>
+   <key locale="en_US" id="BusinessObject{::}GET6LegacyPartMasterS" status="Approved">Legacy Part Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6LegacyPartMaster" status="Approved">Legacy Part Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6LegacyPartRevMasterS" status="Approved">Legacy Part Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6LegacyPartRevisionMaster" status="Approved">Legacy Part Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6LegacyPartRevision" status="Approved">Legacy Part Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6LegacyPart" status="Approved">Legacy Part</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MadeFromMatl" status="Approved">Material</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MadeFromPart" status="Approved">Made From Part</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MaterialMasterS" status="Approved">Material Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MaterialMaster" status="Approved">GET Material Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MaterialRevMasterS" status="Approved">Material Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MaterialRevisionMaster" status="Approved">GET Material Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MaterialRevision" status="Approved">GET Material Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6Material" status="Approved">GET Material</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MatlDoc" status="Approved">Document</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MechPartMasterS" status="Approved">Mech Part Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MechPartMaster" status="Approved">GET Mechanical Part Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MechPartRevMasterS" status="Approved">Mech Part Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MechPartRevisionMaster" status="Approved">GET Mechanical Part Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MechPartRevision" status="Approved">GET Engineering Part Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MechPart" status="Approved">GET Engineering Part</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MfgCutIn" status="Approved">Mfg Change Control</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MfgPartMasterS" status="Approved">Mfg Part Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MfgPartMaster" status="Approved">GET Manufacturing Part Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MfgPartRevMasterS" status="Approved">Mfg Part Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MfgPartRevisionMaster" status="Approved">GET Manufacturing Part Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MfgPartRevision" status="Approved">GET Manufacturing Part Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MfgPart" status="Approved">GET Manufacturing Part</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MockMasterS" status="Approved">Mock Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MockMaster" status="Approved">GET Mock Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MockRevMasterS" status="Approved">Mock Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MockRevisionMaster" status="Approved">GET Mock Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MockRevision" status="Approved">GET Mock Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6Mock" status="Approved">GET Mock</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ModuleMasterS" status="Approved">Module Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ModuleMaster" status="Approved">GET Module Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ModuleRevMasterS" status="Approved">Module Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ModuleRevisionMaster" status="Approved">GET Module Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ModuleRevision" status="Approved">GET Module Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6Module" status="Approved">GET Module</key>
+   <key locale="en_US" id="BusinessObject{::}GET6OptionalReviewer" status="Approved">Optional Reviewer(s)</key>
+   <key locale="en_US" id="BusinessObject{::}GET6PLISTMasterS" status="Approved">PLIST Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6PLISTMaster" status="Approved">GET PLIST Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6PLISTRevMasterS" status="Approved">PLIST Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6PLISTRevisionMaster" status="Approved">GET PLIST Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6PLISTRevision" status="Approved">GET PLIST Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6PLIST" status="Approved">GET PLIST</key>
+   <key locale="en_US" id="BusinessObject{::}GET6PartDisposition" status="Approved">Part Disposition</key>
+   <key locale="en_US" id="BusinessObject{::}GET6PrincipalEngr" status="Approved">Principal Engineer</key>
+   <key locale="en_US" id="BusinessObject{::}GET6Producibility" status="Approved">Producibility</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ProductMgmt" status="Approved">Product Management</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ProgramMgmt" status="Approved">Program Management</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ProjectMasterS" status="Approved">Project Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ProjectMaster" status="Approved">GET Project Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ProjectRevMasterS" status="Approved">Project Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ProjectRevisionMaster" status="Approved">GET Project Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ProjectRevision" status="Approved">GET Project Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6Project" status="Approved">GET Project</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ServiceApproval" status="Approved">Service Approval</key>
+   <key locale="en_US" id="BusinessObject{::}GET6SoftwarePartMasterS" status="Approved">Software Part Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6SoftwarePartMaster" status="Approved">GET Software Part Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6SoftwarePartRevMasterS" status="Approved">Software Part Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6SoftwarePartRevisionMaster" status="Approved">GET Software Part Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6SoftwarePartRevision" status="Approved">GET Software Part Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6SoftwarePart" status="Approved">GET Software Part</key>
+   <key locale="en_US" id="BusinessObject{::}GET6SpecRel" status="Approved">Purchase Specification</key>
+   <key locale="en_US" id="BusinessObject{::}GET6SpecsMasterS" status="Approved">Specs Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6SpecsMaster" status="Approved">GET Purchase Specification Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6SpecsRevMasterS" status="Approved">Specs Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6SpecsRevisionMaster" status="Approved">GET Purchase Specification Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6SpecsRevision" status="Approved">GET Purchase Specification Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6Specs" status="Approved">GET Purchase Specification</key>
+   <key locale="en_US" id="BusinessObject{::}GET6StockMtrlMasterS" status="Approved">Stock Mtrl Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6StockMtrlMaster" status="Approved">GET Stock Material Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6StockMtrlRevMasterS" status="Approved">Stock Mtrl Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6StockMtrlRevisionMaster" status="Approved">GET Stock Material Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6StockMtrlRevision" status="Approved">GET Stock Material Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6StockMtrl" status="Approved">GET Stock Material</key>
+   <key locale="en_US" id="BusinessObject{::}GET6SubgroupMgr" status="Approved">Engineering Manager</key>
+   <key locale="en_US" id="BusinessObject{::}GET6SupersededBy" status="Approved">Superseded By</key>
+   <key locale="en_US" id="BusinessObject{::}GET6SupersedureFormStorage" status="Approved">GET6SupersedureFormStorage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6SupersedureForm" status="Approved">GET Supersedure/Obsolescence Form</key>
+   <key locale="en_US" id="BusinessObject{::}GET6SystemsEngr" status="Approved">Transportation Systems Engineer</key>
+   <key locale="en_US" id="BusinessObject{::}GET6WorkAssignCo" status="Approved">Design Coordinator</key>
+   <key locale="en_US" id="BusinessObject{::}GET6WorkareaMasterS" status="Approved">Workarea Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6WorkareaMaster" status="Approved">GET Workarea Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6WorkareaRevMasterS" status="Approved">Workarea Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6WorkareaRevisionMaster" status="Approved">GET Workarea Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6WorkareaRevision" status="Approved">GET Workarea Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6Workarea" status="Approved">GET Workarea</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6isCMHasImpactedItemCreatable"
+       status="Approved">1. Owner of Change object can only add Impacted Items.&#x0A;2. Disposition, Closure and Maturity of the Change Object should have the values (Open, None and Elaborating)   respectively.&#x0A;3. Impacted Items should have a valid Release Status &#x0A;4. IP Classification of Impacted Items should be less than or equal to the IP Classification of the Change Object</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6isCMHasProblemItemCreatable"
+       status="Approved">1. Owner of Change object can only add Problem Items.&#x0A;2. Disposition, Closure and Maturity of the Change Object should have the values Open, None and Elaborating respectively.&#x0A;3. Problem Items should have a valid Release Status &#x0A;4. IP Classification of Problem Items should be less than or equal to the IP Classification of the Change Object</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6isCMHasSolutionItemCreatable"
+       status="Approved">1. Owner of Change object can only add Solution Items.&#x0A;2. Disposition, Closure and Maturity of the Change Object should have the values Open, None and Elaborating respectively.&#x0A;3. Solution Items should be in working status &#x0A;4. IP Classification of Solution Items should be less than or equal to the IP Classification of the Change Object</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6isGET6ECNCreatableCond" status="Approved">GET6ECN creatable condition for GET6ECN</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6isGET6ServiceApprovalAssignable"
+       status="Approved">Service Approval Assignable condition</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6STRCODE{::}0" status="Approved">Reference</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6STRCODE{::}4" status="Approved">Stock Material</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6STRCODE{::}5" status="Approved">Buy</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6STRCODE{::}6" status="Approved">Assembly</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6STRCODE{::}7" status="Approved">Part made from Material</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6STRCODE{::}8" status="Approved">Part made from another Part</key>
+   <key locale="en_US" id="LOVValue{::}GET6APPLPRAC{::}Existing" status="Approved">Existing</key>
+   <key locale="en_US" id="LOVValue{::}GET6APPLPRAC{::}Multiple" status="Approved">Multiple</key>
+   <key locale="en_US" id="LOVValue{::}GET6APPLPRAC{::}Specific" status="Approved">Specific</key>
+   <key locale="en_US" id="LOVValue{::}GET6BYPASSCOMMENTSLOV{::}2D Curve/LOA Drawings"
+       status="Approved">2D Curve/LOA Drawings</key>
+   <key locale="en_US" id="LOVValue{::}GET6BYPASSCOMMENTSLOV{::}Existing Error in Prior Revision"
+       status="Approved">Existing Error in Prior Revision</key>
+   <key locale="en_US" id="LOVValue{::}GET6BYPASSCOMMENTSLOV{::}Insufficient Time for Error Correction"
+       status="Approved">Insufficient Time for Error Correction</key>
+   <key locale="en_US" id="LOVValue{::}GET6BYPASSCOMMENTSLOV{::}Non Associative Dimension"
+       status="Approved">Non Associative Dimension</key>
+   <key locale="en_US" id="LOVValue{::}GET6BYPASSCOMMENTSLOV{::}Other" status="Approved">Other</key>
+   <key locale="en_US" id="LOVValue{::}GET6BYPASSCOMMENTSLOV{::}Unfixable UG Error/Bug"
+       status="Approved">Unfixable UG Error/Bug</key>
+   <key locale="en_US" id="LOVValue{::}GET6CCUEA{::}EX - MSHA" status="Approved">EX - MSHA</key>
+   <key locale="en_US" id="LOVValue{::}GET6CCUEA{::}EX - NO" status="Approved">EX - NO</key>
+   <key locale="en_US" id="LOVValue{::}GET6CHGREASON{::}CR-ModToExisting" status="Approved">Customer Requirement - Modification to exisiting/upgradation</key>
+   <key locale="en_US" id="LOVValue{::}GET6CHGREASON{::}CR-NewReq" status="Approved">Customer Requirement - New Requirement</key>
+   <key locale="en_US" id="LOVValue{::}GET6CHGREASON{::}CostOut" status="Approved">Cost Out</key>
+   <key locale="en_US" id="LOVValue{::}GET6CHGREASON{::}FI-CurrentReliability" status="Approved">Field Issues - Current Reliability Issue</key>
+   <key locale="en_US" id="LOVValue{::}GET6CHGREASON{::}NewDev-CompDev" status="Approved">New Development - Component Development</key>
+   <key locale="en_US" id="LOVValue{::}GET6CHGREASON{::}NewDev-NPI" status="Approved">New Development - NPI</key>
+   <key locale="en_US" id="LOVValue{::}GET6CHGREASON{::}PCR-FAI" status="Approved">PCR Requirement - FAI</key>
+   <key locale="en_US" id="LOVValue{::}GET6CHGREASON{::}PR-DI" status="Approved">Production Requirement - Design Improvement</key>
+   <key locale="en_US" id="LOVValue{::}GET6CHGREASON{::}PR-EaseOfAssembly" status="Approved">Production Requirement - Ease of Assembly</key>
+   <key locale="en_US" id="LOVValue{::}GET6CHGREASON{::}PR-Interference" status="Approved">Production Requirement - Interference found, correction required</key>
+   <key locale="en_US" id="LOVValue{::}GET6CHGREASON{::}PR-MfgLim" status="Approved">Production Requirement - Manufacturing Limitation</key>
+   <key locale="en_US" id="LOVValue{::}GET6CHGREASON{::}SR-AltVendorSuitability" status="Approved">Sourcing Requirement - Alternate Vendor Suitability</key>
+   <key locale="en_US" id="LOVValue{::}GET6CHGREASON{::}SR-VendorCapabilities" status="Approved">Sourcing Requirement - Vendor Capabilities</key>
+   <key locale="en_US" id="LOVValue{::}GET6CHGREASON{::}StdDesign" status="Approved">Standardization - Design Standardization</key>
+   <key locale="en_US" id="LOVValue{::}GET6CRASHCC{::}AAR" status="Approved">CCC-AAR S580-2005</key>
+   <key locale="en_US" id="LOVValue{::}GET6CRASHCC{::}No" status="Approved">CCC-No</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEFTOL{::}84A226035-c" status="Approved">84A226035-c</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEFTOL{::}84A226035-f" status="Approved">84A226035-f</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEFTOL{::}84A226035-vc" status="Approved">84A226035-vc</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEFTOL{::}84A226035" status="Approved">84A226035</key>
+   <key locale="en_US" id="LOVValue{::}GET6DESIGNTYPE{::}MB" status="Approved">Model Based (PMI)</key>
+   <key locale="en_US" id="LOVValue{::}GET6DESIGNTYPE{::}MC" status="Approved">Model Centric (Model + Drawing)</key>
+   <key locale="en_US" id="LOVValue{::}GET6DIMENSION{::}IN" status="Approved">INCH</key>
+   <key locale="en_US" id="LOVValue{::}GET6DIMENSION{::}MM" status="Approved">Millimeter</key>
+   <key locale="en_US" id="LOVValue{::}GET6DIMUOM{::}Inch" status="Approved">Inch</key>
+   <key locale="en_US" id="LOVValue{::}GET6DIMUOM{::}MM" status="Approved">MM</key>
+   <key locale="en_US" id="LOVValue{::}GET6ECCNSRC{::}ECDoc" status="Approved">EC 1.1 - EC Guidance Document</key>
+   <key locale="en_US" id="LOVValue{::}GET6ECCNSRC{::}ECTagger" status="Approved">EC Tagger</key>
+   <key locale="en_US" id="LOVValue{::}GET6ECCN{::}ECCN-2E001-LRC" status="Approved">ECCN-2E001-LRC</key>
+   <key locale="en_US" id="LOVValue{::}GET6ECCN{::}ECCN-2E002-LRC" status="Approved">ECCN-2E002-LRC</key>
+   <key locale="en_US" id="LOVValue{::}GET6ECCN{::}ECCN-2E101-LRC" status="Approved">ECCN-2E101-LRC</key>
+   <key locale="en_US" id="LOVValue{::}GET6ECCN{::}ECCN-3E991-NLR" status="Approved">ECCN-3E991-NLR</key>
+   <key locale="en_US" id="LOVValue{::}GET6ECCN{::}ECCN-4E992-NLR" status="Approved">ECCN-4E992-NLR</key>
+   <key locale="en_US" id="LOVValue{::}GET6ECCN{::}ECCN-5E991-NLR" status="Approved">ECCN-5E991-NLR</key>
+   <key locale="en_US" id="LOVValue{::}GET6ECCN{::}ECCN-7E994-NLR" status="Approved">ECCN-7E994-NLR</key>
+   <key locale="en_US" id="LOVValue{::}GET6ECCN{::}ECCN-8E992-NLR" status="Approved">ECCN-8E992-NLR</key>
+   <key locale="en_US" id="LOVValue{::}GET6ECCN{::}ECCN-EAR99-NLR" status="Approved">ECCN-EAR99-NLR</key>
+   <key locale="en_US" id="LOVValue{::}GET6EC{::}LR" status="Approved">LR</key>
+   <key locale="en_US" id="LOVValue{::}GET6EC{::}NLR" status="Approved">NLR</key>
+   <key locale="en_US" id="LOVValue{::}GET6EMISCC{::}EUL" status="Approved">ECC-EU Loco</key>
+   <key locale="en_US" id="LOVValue{::}GET6EMISCC{::}No" status="Approved">ECC-No</key>
+   <key locale="en_US" id="LOVValue{::}GET6EMISCC{::}USL" status="Approved">ECC-US EPA Loco</key>
+   <key locale="en_US" id="LOVValue{::}GET6EMISCC{::}USMM" status="Approved">ECC-US Marpol Marine</key>
+   <key locale="en_US" id="LOVValue{::}GET6EMISCC{::}USM" status="Approved">ECC-US Marine</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGPRODLINE{::}Control" status="Approved">Control</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGPRODLINE{::}Engine" status="Approved">Engine</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGPRODLINE{::}Locomotive" status="Approved">Locomotive</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGPRODLINE{::}MnS" status="Approved">Marine &amp; Stationary (M&amp;S)</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGPRODLINE{::}OHV" status="Approved">Off Highway Vehicle (OHV)</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGPRODLINE{::}Propulsion" status="Approved">Propulsion</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGPRODLINE{::}Services" status="Approved">Services</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGPRODLINE{::}UndergroundMining" status="Approved">Underground Mining</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGREC{::}Cutin" status="Approved">Cutin</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGREC{::}DocOnly" status="Approved">Documentation Only</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGREC{::}MfgComplies" status="Approved">Mfg. Complies</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGREC{::}Order" status="Approved">Order</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGREC{::}Other" status="Approved">Other</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGREC{::}Rework" status="Approved">Rework</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGREC{::}Scrap" status="Approved">Scrap</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGREC{::}UseAsIs" status="Approved">Use as is</key>
+   <key locale="en_US" id="LOVValue{::}GET6IPCLASSIFICATION{::}GE - Confidential"
+       status="Approved">GE - Confidential</key>
+   <key locale="en_US" id="LOVValue{::}GET6IPCLASSIFICATION{::}GE - Internal" status="Approved">GE - Internal</key>
+   <key locale="en_US" id="LOVValue{::}GET6IPCLASSIFICATION{::}GE - Restricted" status="Approved">GE - Restricted</key>
+   <key locale="en_US" id="LOVValue{::}GET6NOCHARDATA{::}Engineering Requirements"
+       status="Approved">Engineering Requirements</key>
+   <key locale="en_US" id="LOVValue{::}GET6NOCHARDATA{::}Maintenance Instructions"
+       status="Approved">Maintenance Instructions</key>
+   <key locale="en_US" id="LOVValue{::}GET6NOCHARDATA{::}No CTQ" status="Approved">No CTQ</key>
+   <key locale="en_US" id="LOVValue{::}GET6NOCHARDATA{::}Other" status="Approved">Other</key>
+   <key locale="en_US" id="LOVValue{::}GET6NOCHARDATA{::}Parts List" status="Approved">Parts List</key>
+   <key locale="en_US" id="LOVValue{::}GET6NOCHARDATA{::}Schematic" status="Approved">Schematic</key>
+   <key locale="en_US" id="LOVValue{::}GET6NOCHARDATA{::}Select Rationale" status="Approved">Select Rationale</key>
+   <key locale="en_US" id="LOVValue{::}GET6NOCHARDATA{::}Wiring Documentation" status="Approved">Wiring Documentation</key>
+   <key locale="en_US" id="LOVValue{::}GET6OBJVOLUOM{::}FO - Fluid Ounce" status="Approved">FO - Fluid Ounce</key>
+   <key locale="en_US" id="LOVValue{::}GET6OBJVOLUOM{::}GA - Gallon" status="Approved">GA - Gallon</key>
+   <key locale="en_US" id="LOVValue{::}GET6OBJVOLUOM{::}L - Liter" status="Approved">L - Liter</key>
+   <key locale="en_US" id="LOVValue{::}GET6OBJVOLUOM{::}ML - Milliliter" status="Approved">ML - Milliliter</key>
+   <key locale="en_US" id="LOVValue{::}GET6OBJVOLUOM{::}PT - Pint" status="Approved">PT - Pint</key>
+   <key locale="en_US" id="LOVValue{::}GET6OBJVOLUOM{::}QT - Quart" status="Approved">QT - Quart</key>
+   <key locale="en_US" id="LOVValue{::}GET6OBJWTUOM{::}GR - Gram" status="Approved">GR - Gram</key>
+   <key locale="en_US" id="LOVValue{::}GET6OBJWTUOM{::}KG - Kilogram" status="Approved">KG - Kilogram</key>
+   <key locale="en_US" id="LOVValue{::}GET6OBJWTUOM{::}LB - Pound" status="Approved">LB - Pound</key>
+   <key locale="en_US" id="LOVValue{::}GET6OBJWTUOM{::}OZ - Solid Ounce" status="Approved">OZ - Solid Ounce</key>
+   <key locale="en_US" id="LOVValue{::}GET6OBJWTUOM{::}OZT - Troy Ounce" status="Approved">OZT - Troy Ounce</key>
+   <key locale="en_US" id="LOVValue{::}GET6OVERALLUOM{::}CM - Centimeter" status="Approved">CM - Centimeter</key>
+   <key locale="en_US" id="LOVValue{::}GET6OVERALLUOM{::}FT - Foot" status="Approved">FT - Foot</key>
+   <key locale="en_US" id="LOVValue{::}GET6OVERALLUOM{::}IN - Inch" status="Approved">IN - Inch</key>
+   <key locale="en_US" id="LOVValue{::}GET6OVERALLUOM{::}M - Meter" status="Approved">M - Meter</key>
+   <key locale="en_US" id="LOVValue{::}GET6OVERALLUOM{::}MM - Millimeter" status="Approved">MM - Millimeter</key>
+   <key locale="en_US" id="LOVValue{::}GET6OVRLWHUOM{::}CM - Centimeter" status="Approved">CM - Centimeter</key>
+   <key locale="en_US" id="LOVValue{::}GET6OVRLWHUOM{::}FT - Foot" status="Approved">FT - Foot</key>
+   <key locale="en_US" id="LOVValue{::}GET6OVRLWHUOM{::}IN - Inch" status="Approved">IN - Inch</key>
+   <key locale="en_US" id="LOVValue{::}GET6OVRLWHUOM{::}M - Meter" status="Approved">M - Meter</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}1A" status="Approved">1A Prior to Unit 1 - Customer Driven INTP</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}1B" status="Approved">1B Prior to Unit 1 - Customer Driven IS</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}1C" status="Approved">1C Prior to Unit 1 - Engineering Specification Correction</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}1D" status="Approved">1D Prior to Unit 1 - Product Definition (Drafting) Drawing Correction</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}1E" status="Approved">1E Prior to Unit 1 - Dwg Correction due to Engr Design Change or Cannot Manufacture</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}1F" status="Approved">1F Prior to Unit 1 - Productivity</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}1G" status="Approved">1G Prior to Unit 1 - Manufacturability Improvement</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}1H" status="Approved">1H Prior to Unit 1 - Reliability</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}1J" status="Approved">1J Prior to Unit 1 - Safety</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}1K" status="Approved">1K DO NOT USE</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}1L" status="Approved">1L Prior to Unit 1 - Assembly List Only</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}2A" status="Approved">2A During Unit 1 - Customer Driven INTP</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}2B" status="Approved">2B During Unit 1 - Customer Driven IS</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}2C" status="Approved">2C During Unit 1 - Engineering Specification Correction</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}2D" status="Approved">2D During Unit 1 - Product Definition (Drafting) Drawing Correction</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}2E" status="Approved">2E During Unit 1 - Dwg Correction due to Engr Design Change or Cannot Manufacture</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}2F" status="Approved">2F During Unit 1 - Productivity</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}2G" status="Approved">2G During Unit 1 - Manufacturability Improvement</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}2H" status="Approved">2H During Unit 1 - Reliability</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}2J" status="Approved">2J During Unit 1 - Safety</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}2K" status="Approved">2K DO NOT USE</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}2L" status="Approved">2L During Unit 1 - Assembly List Only</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}3A" status="Approved">3A After Unit 1 - Customer Driven INTP</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}3B" status="Approved">3B After Unit 1 - Customer Driven IS</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}3C" status="Approved">3C After Unit 1 - Engineering Specification Correction</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}3D" status="Approved">3D After Unit 1 - Product Definition (Drafting) Drawing Correction</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}3E" status="Approved">3E After Unit 1 - Dwg Correction due to Engr Design Change or Cannot Manufacture</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}3F" status="Approved">3F After Unit 1 - Productivity</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}3G" status="Approved">3G After Unit 1 - Manufacturability Improvement</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}3H" status="Approved">3H After Unit 1 - Reliability</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}3J" status="Approved">3J After Unit 1 - Safety</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}3K" status="Approved">3K DO NOT USE</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}3L" status="Approved">3L After Unit 1 - Assembly List Only</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}4A" status="Approved">4A Development - Customer Driven INTP</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}4B" status="Approved">4B Development - Customer Driven IS</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}4C" status="Approved">4C Development - Engineering Specification Correction</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}4D" status="Approved">4D Development - Product Definition (Drafting) Drawing Correction</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}4E" status="Approved">4E Development - Dwg Correction due to Engr Design Change or Cannot Manufacture</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}4F" status="Approved">4F Development - Productivity</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}4G" status="Approved">4G Development - Manufacturability Improvement</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}4H" status="Approved">4H Development - Reliability</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}4J" status="Approved">4J Development - Safety</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}4K" status="Approved">4K FMI</key>
+   <key locale="en_US" id="LOVValue{::}GET6REASONCODE{::}4L" status="Approved">4L Development - Assembly List Only</key>
+   <key locale="en_US" id="LOVValue{::}GET6SAUOM{::}SF" status="Approved">SF</key>
+   <key locale="en_US" id="LOVValue{::}GET6SAUOM{::}SM" status="Approved">SM</key>
+   <key locale="en_US" id="LOVValue{::}GET6STDPROD{::}NEBO" status="Approved">NA EVO BASE OPT</key>
+   <key locale="en_US" id="LOVValue{::}GET6STDPROD{::}NEB" status="Approved">NA EVO BASE</key>
+   <key locale="en_US" id="PropertyFormatString{::}GET6_DoubleFormatter_4DecimalPlaces_ZeroUnitPlace"
+       status="Approved">0.####</key>
+   <key locale="en_US" id="Property{::}BOMLine{::}get6VerifiedPart" status="Approved">Verified Part</key>
+   <key locale="en_US" id="Property{::}GET6AbsContainer{::}get6EngrProdLine" status="Approved">Engineering Product Line</key>
+   <key locale="en_US" id="Property{::}GET6AbsDocument{::}get6ECCNSource" status="Approved">ECCN Source</key>
+   <key locale="en_US" id="Property{::}GET6AbsDocument{::}get6ECCN" status="Approved">ECCN</key>
+   <key locale="en_US" id="Property{::}GET6AbsDocument{::}get6EngrProdLine" status="Approved">Engineering Product Line</key>
+   <key locale="en_US" id="Property{::}GET6AbsDocument{::}get6ObjEvidence" status="Approved">Objective Evidence</key>
+   <key locale="en_US" id="Property{::}GET6AbsECNRevision{::}get6ECNCtrl" status="Approved">ECN Control</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrForm{::}get6StockMtrlUOM" status="Approved">Stock Material UOM</key>
+   <key locale="en_US" id="Property{::}GET6AbsPartRevision{::}get6CTQ" status="Approved">CTQ</key>
+   <key locale="en_US" id="Property{::}GET6AbsPartRevision{::}get6ObjWtUOM" status="Approved">Object Weight UOM</key>
+   <key locale="en_US" id="Property{::}GET6AbsPartRevision{::}get6ObjWt" status="Approved">Object Weight</key>
+   <key locale="en_US" id="Property{::}GET6AbsPartRevision{::}get6OverallHeight" status="Approved">Overall Height</key>
+   <key locale="en_US" id="Property{::}GET6AbsPartRevision{::}get6OverallLength" status="Approved">Overall Length</key>
+   <key locale="en_US" id="Property{::}GET6AbsPartRevision{::}get6OverallUOM" status="Approved">Overall UOM</key>
+   <key locale="en_US" id="Property{::}GET6AbsPartRevision{::}get6OverallWidth" status="Approved">Overall Width</key>
+   <key locale="en_US" id="Property{::}GET6AbsPart{::}get6CCC" status="Approved">Crashworthiness Critical Component</key>
+   <key locale="en_US" id="Property{::}GET6AbsPart{::}get6CCUEA" status="Approved">Certified for Explosive Atmosphere</key>
+   <key locale="en_US" id="Property{::}GET6AbsPart{::}get6CriticalPart" status="Approved">Critical Part</key>
+   <key locale="en_US" id="Property{::}GET6AbsPart{::}get6ECCNSource" status="Approved">ECCN Source</key>
+   <key locale="en_US" id="Property{::}GET6AbsPart{::}get6ECCN" status="Approved">ECCN</key>
+   <key locale="en_US" id="Property{::}GET6AbsPart{::}get6ECC" status="Approved">Emissions Critical Component</key>
+   <key locale="en_US" id="Property{::}GET6AbsPart{::}get6EngrProdLine" status="Approved">Engineering Product Line</key>
+   <key locale="en_US" id="Property{::}GET6AbsPart{::}get6Homologation" status="Approved">Homologation</key>
+   <key locale="en_US" id="Property{::}GET6AbsUniPartRevision{::}get6DataModel" status="Approved">Data Model</key>
+   <key locale="en_US" id="Property{::}GET6AbsUniPartRevision{::}get6EngMB" status="Approved">Engineering Make / Buy</key>
+   <key locale="en_US" id="Property{::}GET6AbsUniPart{::}get6ObjEvidence" status="Approved">Objective Evidence</key>
+   <key locale="en_US" id="Property{::}GET6Drawing{::}get6CCC" status="Approved">Crashworthiness Critical Component</key>
+   <key locale="en_US" id="Property{::}GET6Drawing{::}get6CriticalPart" status="Approved">Critical Part</key>
+   <key locale="en_US" id="Property{::}GET6Drawing{::}get6ECCNSource" status="Approved">ECCN Source</key>
+   <key locale="en_US" id="Property{::}GET6Drawing{::}get6ECCN" status="Approved">ECCN</key>
+   <key locale="en_US" id="Property{::}GET6Drawing{::}get6ECC" status="Approved">Emission Critical Component</key>
+   <key locale="en_US" id="Property{::}GET6Drawing{::}get6EngrProdLine" status="Approved">Engineering Product Line</key>
+   <key locale="en_US" id="Property{::}GET6Drawing{::}get6Homologation" status="Approved">Homologation</key>
+   <key locale="en_US" id="Property{::}GET6Drawing{::}get6ObjEvidence" status="Approved">Objective Evidence</key>
+   <key locale="en_US" id="Property{::}GET6ECNPartDisposition{::}get6ChangeDesc" status="Approved">Detailed description of design change</key>
+   <key locale="en_US" id="Property{::}GET6ECNPartDisposition{::}get6Disposition"
+       status="Approved">Material Disposition</key>
+   <key locale="en_US" id="Property{::}GET6ECNPartDisposition{::}get6PartNo" status="Approved">Part Number</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6BypassCheckmate" status="Approved">Bypass Checkmate Validation?</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6BypassComments" status="Approved">Bypass Checkmate Comments</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6BypassReason" status="Approved">Bypass Checkmate Reason</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6CASDownloderURL" status="Approved">Link to Download CAS Data</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6CASECNNumber" status="Approved">CAS ECN Number</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6ChangeReason" status="Approved">Reason For Change</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6Copies" status="Approved">Copies</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6Customers" status="Approved">Customers Affected</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6ECNEngrDisp" status="Approved">Engineering Recommended Material Disposition</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6EngrProdLine" status="Approved">Engineering Product Line</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6IsMatlAtMfgLocn" status="Approved">Material at any Manufacturing Location</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6IsMatlAtServiceLocn"
+       status="Approved">Material at any Service Location</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6ItemOrgFrmProp" status="Approved">Item Org Frm Prop</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6ModDesignCutIn" status="Approved">Change to an existing design?</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6OrderNo" status="Approved">Order Numbers (PO)</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6PartsCatalogs" status="Approved">Parts Catalogs</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6PatToolsNC" status="Approved">CAM/CMM</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6PlannerCode" status="Approved">Planner Code</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6ReasonCode" status="Approved">Reason Code</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6ReasonForChg" status="Approved">Background</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}get6WtImpactNo" status="Approved">Weight Impact Number</key>
+   <key locale="en_US" id="Property{::}GET6ECNRevision{::}object_name" status="Approved">Title</key>
+   <key locale="en_US" id="Property{::}GET6ECN{::}get6IsNew" status="Approved">Is New</key>
+   <key locale="en_US" id="Property{::}GET6ECN{::}object_name" status="Approved">Title</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6AddlCompComments" status="Approved">Additional Compliance Comments</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6ApplAppPractice" status="Approved">Applicable Applied Practice</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6AppliedPractice" status="Approved">Applied Practice</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6CCC" status="Approved">Crashworthiness Critical Component (CCC)</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6CCUEA" status="Approved">Does the ECR affect or possibly affect components certified for use in explosive atmospheres?</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6ChangeReason" status="Approved">Reason For Change</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6ChgDesc" status="Approved">Change Description</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6Copies" status="Approved">Copies</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6CriticalPart" status="Approved">Critical Part (CP)</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6Customers" status="Approved">Customers Affected</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6DateReqd" status="Approved">Date Required</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6DefTolIden" status="Approved">Default Tolerance Identifier</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6ECCNSource" status="Approved">Select the Source of ECCN Selection You Have Made</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6ECC" status="Approved">Emissions Critical Component (ECC)</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6EngrDisp" status="Approved">Engineering Disposition Recommendation</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6EngrInUSA" status="Approved">Was the Engineering activity started and done completely outside the USA with no Input or Technical information from USA?</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6EngrProdLine" status="Approved">Engineering Product Line</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6EstHours" status="Approved">Estimated Completion Hours</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6ExpControl" status="Approved">ECR Export Control</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6FastTrack" status="Approved">Fast Track ECR</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6Homologation" status="Approved">Homologation Component (HML)</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6ObjEvidence" status="Approved">Objective Evidence</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6OnTrackItems" status="Approved">OnTrack Item(s)</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6OrderNo" status="Approved">Order Numbers (PO)</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6PriPrjNo" status="Approved">Primary Project Number</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6ReasonCode" status="Approved">Reason Code</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6ReasonForChg" status="Approved">Reason For Change</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6RedMarkDesign" status="Approved">Red Mark Design ECR</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6SecPrjNo" status="Approved">Secondary Project Number</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6ServiceImpact" status="Approved">Will the design associated with this change impact material or servicing a product or impact the services organization?</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}get6WorkAssignCo_user_id"
+       status="Approved">Work Assign Co User ID</key>
+   <key locale="en_US" id="Property{::}GET6ECRRevision{::}object_name" status="Approved">Title</key>
+   <key locale="en_US" id="Property{::}GET6ECR{::}object_name" status="Approved">Title</key>
+   <key locale="en_US" id="Property{::}GET6FlatPatternRevision{::}get6LengthUOM" status="Approved">Length UOM</key>
+   <key locale="en_US" id="Property{::}GET6FlatPatternRevision{::}get6Length" status="Approved">Length</key>
+   <key locale="en_US" id="Property{::}GET6FlatPatternRevision{::}get6ObjWtUOM" status="Approved">Object Weight UOM</key>
+   <key locale="en_US" id="Property{::}GET6FlatPatternRevision{::}get6ObjWt" status="Approved">Object Weight</key>
+   <key locale="en_US" id="Property{::}GET6FlatPatternRevision{::}get6SurfaceAreaUOM"
+       status="Approved">Surface Area UOM</key>
+   <key locale="en_US" id="Property{::}GET6FlatPatternRevision{::}get6SurfaceArea"
+       status="Approved">Surface Area</key>
+   <key locale="en_US" id="Property{::}GET6FlatPatternRevision{::}get6Thickness" status="Approved">Thickness</key>
+   <key locale="en_US" id="Property{::}GET6FlatPatternRevision{::}get6ThkUOM" status="Approved">Thickness UOM</key>
+   <key locale="en_US" id="Property{::}GET6FlatPatternRevision{::}get6WidthUOM" status="Approved">Width UOM</key>
+   <key locale="en_US" id="Property{::}GET6FlatPatternRevision{::}get6Width" status="Approved">Width</key>
+   <key locale="en_US" id="Property{::}GET6MechPartRevision{::}get6VerifiedPart" status="Approved">Verified Part</key>
+   <key locale="en_US" id="Property{::}GET6MechPart{::}get6VerifiedPart" status="Approved">Verified Part</key>
+   <key locale="en_US" id="Property{::}GET6Specs{::}get6CCC" status="Approved">Crashworthiness Critical Component</key>
+   <key locale="en_US" id="Property{::}GET6Specs{::}get6CriticalPart" status="Approved">Critical Part</key>
+   <key locale="en_US" id="Property{::}GET6Specs{::}get6ECC" status="Approved">Emission Critical Component</key>
+   <key locale="en_US" id="Property{::}GET6Specs{::}get6Homologation" status="Approved">Homologation</key>
+   <key locale="en_US" id="Property{::}GET6SupersedureFormStorage{::}get6Disposition"
+       status="Approved">Disposition</key>
+   <key locale="en_US" id="Property{::}GET6SupersedureFormStorage{::}get6ExistingInventory"
+       status="Approved">Existing Inventory</key>
+   <key locale="en_US" id="Property{::}GET6SupersedureFormStorage{::}get6PrimaryReason"
+       status="Approved">Primary Reason</key>
+   <key locale="en_US" id="Property{::}GET6SupersedureFormStorage{::}get6SupComments"
+       status="Approved">Supersedure Comments</key>
+   <key locale="en_US" id="Property{::}GET6SupersedureForm{::}get6Disposition" status="Approved">Disposition</key>
+   <key locale="en_US" id="Property{::}GET6SupersedureForm{::}get6ExistingInventory"
+       status="Approved">Existing Inventory</key>
+   <key locale="en_US" id="Property{::}GET6SupersedureForm{::}get6PrimaryReason" status="Approved">Primary Reason</key>
+   <key locale="en_US" id="Property{::}GET6SupersedureForm{::}get6SupComments" status="Approved">Supersedure Comments</key>
+   <key locale="en_US" id="Property{::}GET6SupersedureForm{::}get6SupersededItem"
+       status="Approved">Superseded Item</key>
+   <key locale="en_US" id="Property{::}PSOccurrence{::}get6PLCallout" status="Approved">PL Callout</key>
+   <key locale="en_US" id="ReleaseStatus{::}GET6Baselined" status="Approved">Baselined</key>
+   <key locale="en_US" id="ReleaseStatus{::}GET6Canceled" status="Approved">Canceled</key>
+   <key locale="en_US" id="ReleaseStatus{::}GET6Preliminary" status="Approved">Preliminary</key>
+   <key locale="en_US" id="ReleaseStatus{::}GET6Released" status="Approved">Released</key>
+</Add>
+</TcBusinessDataLocalization>

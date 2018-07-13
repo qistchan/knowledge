@@ -1,0 +1,103 @@
+#!/app/tc11/tcroot/perl/bin/perl
+#
+#******************************************************************************
+# Filename         :   tc_mail_smtp.pl
+# ENVIRONMENT      :   Perl
+#
+# Description      :   Capture all Teamcenter mail and log it.
+#                      This script expects the COTS tc_mail_smtp executable
+#                      to renamed to $TC_BIN/tc_mail_smtp.REAL
+#
+# Arguments:           Standard arguments used by tc_mail_smtp will be passed
+#                      through this script
+#
+# History
+#------------------------------------------------------------------------------
+# Date       Name          Description of Change
+# Apr 2018   D Geladin     Initial script creation.
+# -----------------------------------------------------------------------------
+#
+#******************************************************************************
+
+$LOG_DIR="/log";
+$ENV="DevInt";
+chomp($timestamp = `date '+%Y%m%d-%H%M%S'`);
+chomp($log_timestamp = `date '+%Y%m'`);
+my @exts = qw(.htm .txt);
+
+for (@ARGV) { 
+  if ( /-user/ ) { 
+    $address=$_;
+    $address=~ s/-user=//g;
+    ($username, $domain) = ($address =~ /(.*)@([^@]*)$/);
+  } elsif ( /-subject/) {
+    $_ =~ s/-subject=/-subject=\"/g;
+    $_ = $_ . "\"";
+    push(@NEW_ARG, $_);
+  } elsif ( /-body=/) {
+    $bodyfile=$_;
+    $bodyfile =~ s/-body=//g;
+    push(@BODYFILES, $bodyfile);
+    push(@NEW_ARG, $_);
+  } else {
+    push(@NEW_ARG, $_);
+  }
+}
+
+#$htmlHeader = "<div style=\"font-weight:bold; color:#FF6347;\">Notice: You have new $ENV Teamcenter mail from ($username / $address)</div><br>\n\n";
+#$textHeader = "Notice: You have new $ENV Teamcenter mail from ($username / $address)\n\n";
+
+#foreach $bf (@BODYFILES) {
+#  &insert_header($bf);
+#}
+
+# Add proxy user to the argument list for the sending user.
+push(@NEW_ARG, '-user=infodba@plm.trans.ge.com');
+
+# Add log for email 
+open (FH, ">>$LOG_DIR/tc_mail_smtp.$log_timestamp.log");
+  print FH "$timestamp:/app/tc11/tcroot/bin/tc_mail_smtp.REAL @NEW_ARG \n";
+close (FH);
+
+# Call real tc_mail_smtp executable with new arguemnts.
+`/app/tc11/tcroot/bin/tc_mail_smtp.REAL @NEW_ARG`;
+
+sub insert_header {
+
+  my ($file) = @_;
+  my @lines;
+  my ($ext) = $file =~ /((\.[^.\s]+)+)$/;
+  $insertHeader = 1;
+
+  open IF, $file or die "Can't read input file: $!";
+    while(<IF>){
+      chomp;
+      if ( $_ =~ m/You have new Teamcenter mail/ ) {
+        $insertHeader = 0;
+      }
+      push(@lines, $_);
+    }
+  close IF;
+
+  if ($ext eq ".htm") {
+     open OF, ">$file";
+        foreach $line (@lines){
+          print OF "$line\n";
+          if ( $line =~ m/^<body/i ) {
+            print OF $htmlHeader if $insertHeader;
+          } elsif ( $line =~ m/^<html><BODY/i ) {
+            print OF $htmlHeader if $insertHeader;
+          }
+        }
+    close OF;
+ } else {
+   open OF, ">$file";
+      print OF $textHeader if $insertHeader;
+      foreach $line (@lines){
+         print OF "$line\n";
+      }
+    close OF;
+ }
+
+}
+

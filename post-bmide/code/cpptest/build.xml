@@ -1,0 +1,52 @@
+<project name="cpptest" default="help">
+    
+    <!-- Define properties -->
+    <property name="cc.debug" value="false"/>
+    
+    <!-- Import common targets -->
+    <import file="common.xml"/>
+    
+    <!-- Help -->
+    <target name="help" description="print usage">
+        <echo message="Please specify target as build32 or build64"/>
+        <echo message="or docs to generate HTML documentation."/>
+    </target>
+	
+    <!-- 32 bit build with debug enabled -->
+    <target name="build32_debug" description="32 bit build (debug)">
+        <subant target="build32">
+            <property name="cc.debug" value="true"/>
+            <filelist dir="." files="build.xml"/>
+        </subant>
+    </target>
+    
+    <!-- 32 bit build -->
+    <target name="build32" description="32 bit build">
+        <subant target="build32">
+            <filelist dir="src" files="build.xml"/>
+        </subant>
+    </target>
+    
+    <!-- 64 bit build with debug enabled -->
+    <target name="build64_debug" description="64 bit build (debug)">
+        <subant target="build64">
+            <property name="cc.debug" value="true"/>
+            <filelist dir="." files="build.xml"/>
+        </subant>
+    </target>
+    
+    <!-- 64 bit build -->
+    <target name="build64" description="64 bit build">
+		
+        <subant target="build64">
+            <filelist dir="src" files="build.xml"/>
+        </subant>
+    </target>
+	
+	 <target name="deploy" description="Deploy">
+        <subant target="deploy">
+            <filelist dir="src" files="build.xml"/>
+        </subant>
+    </target>
+    
+</project>

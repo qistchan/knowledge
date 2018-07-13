@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TcBusinessDataLocalization xmlns="http://teamcenter.com/BusinessModel/TcBusinessDataLocalization"
+    Date="">
+<Add>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsGenResourMasterS" status="Approved">Abs Gen Resour Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsGenResourMaster" status="Approved">Abs Gen Resour Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsGenResourRevMasterS" status="Approved">Abs Gen Resour Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsGenResourRevisionMaster" status="Approved">Abs Gen Resour Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsGenResourRevision" status="Approved">Abs Gen Resour Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsGenResour" status="Approved">GET Abs Gen Resource</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsMCNMasterS" status="Approved">Abs MCN Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsMCNMaster" status="Approved">Abs MCN Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsMCNRevMasterS" status="Approved">Abs MCN Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsMCNRevisionMaster" status="Approved">Abs MCN Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsMCNRevision" status="Approved">GET Abs MCN Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsMCN" status="Approved">GET Abs MCN</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsMachiningMasterS" status="Approved">Abs Machining Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsMachiningMaster" status="Approved">Abs Machining Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsMachiningRevMasterS" status="Approved">Abs Machining Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsMachiningRevisionMaster" status="Approved">Abs Machining Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsMachiningRevision" status="Approved">Abs Machining Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsMachining" status="Approved">Abs Machining</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsMfgAttrFormStorage" status="Approved">GET6AbsMfgAttrFormStorage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsMfgAttrForm" status="Approved">Abstract Manufacturing Attribute Form</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsOperationMasterS" status="Approved">Abs Operation Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsOperationMaster" status="Approved">Abs Operation Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsOperationRevMasterS" status="Approved">Abs Operation Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsOperationRevisionMaster" status="Approved">Abs Operation Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsOperationRevision" status="Approved">GET Abs Operation Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsOperation" status="Approved">GET Abs Operation</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsProcessMasterS" status="Approved">Abs Process Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsProcessMaster" status="Approved">Abs Process Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsProcessRevMasterS" status="Approved">Abs Process Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsProcessRevisionMaster" status="Approved">Abs Process Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsProcessRevision" status="Approved">GET Abs Process Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsProcess" status="Approved">GET Abs Process</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsResourceMasterS" status="Approved">Abs Resource Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsResourceMaster" status="Approved">Abs Resource Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsResourceRevMasterS" status="Approved">Abs Resource Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsResourceRevisionMaster" status="Approved">Abs Resource Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsResourceRevision" status="Approved">GET Abs Resource Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsResource" status="Approved">GET Abs Resource</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsStationMasterS" status="Approved">Abs Station Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsStationMaster" status="Approved">Abs Station Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsStationRevMasterS" status="Approved">Abs Station Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsStationRevisionMaster" status="Approved">Abs Station Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsStationRevision" status="Approved">GET Abs Station Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsStation" status="Approved">GET Abs Station</key>
+   <key locale="en_US" id="BusinessObject{::}GET6GenResIDGenerator" status="Approved">Gen Res ID Generator</key>
+   <key locale="en_US" id="BusinessObject{::}GET6GenResourceMasterS" status="Approved">Gen Resource Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6GenResourceMaster" status="Approved">Gen Resource Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6GenResourceRevMasterS" status="Approved">Gen Resource Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6GenResourceRevisionMaster" status="Approved">Gen Resource Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6GenResourceRevision" status="Approved">GET Generic Resource Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6GenResource" status="Approved">GET Generic Resource</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ItemOrgValues" status="Approved">Item Org Values</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MCNMasterS" status="Approved">MCN Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MCNMaster" status="Approved">MCN Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MCNRevMasterS" status="Approved">MCN Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MCNRevisionMaster" status="Approved">MCN Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MCNRevision" status="Approved">Manufacturing Change Notice Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MCN" status="Approved">Manufacturing Change Notice</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MEDepartmentMasterS" status="Approved">ME Department Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MEDepartmentMaster" status="Approved">GET Department Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MEDepartmentRevMasterS" status="Approved">ME Department Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MEDepartmentRevisionMaster" status="Approved">GET Department Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MEDepartmentRevision" status="Approved">GET Department Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MEDepartment" status="Approved">GET Department</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MachineMasterS" status="Approved">Machine Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MachineMaster" status="Approved">GET Machine Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MachineRevMasterS" status="Approved">Machine Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MachineRevisionMaster" status="Approved">GET Machine Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MachineRevision" status="Approved">GET Machine Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6Machine" status="Approved">GET Machine</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MfgAttrForm10" status="Approved">Manufacturing Attributes</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MfgAttrForm1" status="Approved">GRR Manufacturing Attributes</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MfgAttrForm2" status="Approved">GRV Manufacturing Attributes</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MfgAttrForm3" status="Approved">Manufacturing Attributes</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MfgAttrForm4" status="Approved">Manufacturing Attributes</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MfgAttrForm5" status="Approved">Manufacturing Attributes</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MfgAttrForm6" status="Approved">Manufacturing Attributes</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MfgAttrForm7" status="Approved">Manufacturing Attributes</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MfgAttrForm8" status="Approved">Manufacturing Attributes</key>
+   <key locale="en_US" id="BusinessObject{::}GET6MfgAttrForm9" status="Approved">Manufacturing Attributes</key>
+   <key locale="en_US" id="BusinessObject{::}GET6NCMachiningMasterS" status="Approved">NC Machining Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6NCMachiningMaster" status="Approved">NC Machining Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6NCMachiningRevMasterS" status="Approved">NC Machining Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6NCMachiningRevisionMaster" status="Approved">NC Machining Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6NCMachiningRevision" status="Approved">GET NC Machining Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6NCMachining" status="Approved">GET NC Machining</key>
+   <key locale="en_US" id="BusinessObject{::}GET6OperationMasterS" status="Approved">Operation Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6OperationMaster" status="Approved">GET Operation Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6OperationRevMasterS" status="Approved">Operation Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6OperationRevisionMaster" status="Approved">GET Operation Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6OperationRevision" status="Approved">GET Operation Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6Operation" status="Approved">GET Operation</key>
+   <key locale="en_US" id="BusinessObject{::}GET6OperatorMasterS" status="Approved">Operator Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6OperatorMaster" status="Approved">GET Operator Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6OperatorRevMasterS" status="Approved">Operator Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6OperatorRevisionMaster" status="Approved">GET Operator Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6OperatorRevision" status="Approved">GET Operator Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6Operator" status="Approved">GET Operator</key>
+   <key locale="en_US" id="BusinessObject{::}GET6PartOrgRelation" status="Approved">GET Part To Org Relation</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ProcessMasterS" status="Approved">Process Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ProcessMaster" status="Approved">GET Process Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ProcessRevMasterS" status="Approved">Process Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ProcessRevisionMaster" status="Approved">GET Process Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6ProcessRevision" status="Approved">GET Process Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6Process" status="Approved">GET Process</key>
+   <key locale="en_US" id="BusinessObject{::}GET6StationMasterS" status="Approved">Station Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6StationMaster" status="Approved">Station Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6StationRevMasterS" status="Approved">Station Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6StationRevisionMaster" status="Approved">Station Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6StationRevision" status="Approved">GET Station Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6Station" status="Approved">GET Station</key>
+   <key locale="en_US" id="BusinessObject{::}GET6StockHasOrgPropsAttri" status="Approved">GET Stock Org Properties</key>
+   <key locale="en_US" id="BusinessObject{::}GET6StockOrgPropsFrmStorage" status="Approved">GET6StockOrgPropsFrmStorage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6StockOrgPropsFrm" status="Approved">GET Stock Org Props Frm</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6DepartmentDispCond" status="Approved">Default  Display rule for creating Department Item</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6GenResourceDispCond" status="Approved">Display Rule for GET6GenResource Item</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6MCNDispCond" status="Approved">Display Condition for MCN</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6MfgPartDispCond" status="Approved">Default display condition for creating Manufacturing Part</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6NCMachiningDispCond" status="Approved">Display condition for creating GET6NCMachining Item</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6OperationDispCond" status="Approved">Default Display Rule for creating Operation</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6ProcessDispCond" status="Approved">Default Display rule for creating Process</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6StockMtrlDispCond" status="Approved">Default Display Rule for creating Stock Materials</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6isApproverRole" status="Approved">Checks if the Role is Approver</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6isGET6OwningProjGRRDept" status="Approved">Condition for loading departments based on owning project</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6isGET6OwningProjGRVDept" status="Approved">Condition for loading the department lov based on GRV as owning project</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6isGRRProject" status="Approved">Checks if the Current Project is GRR</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6isGRVProject" status="Approved">Checks if the Current Project is GRV</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6isMCNCMHasImpactedItemCreatable"
+       status="Approved">User&apos;s current project should be owning project of MCN&#x0A;User&apos;s current role should be Mfg Process Engineer or Mfg Process Planner&#x0A;User&apos;s cannot Add/Cut the ItemRevision from Impacted item folder for MCN whose Disposition and Maturity State are not None and Elaborating.</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6isMCNCMHasProblemItemCreatable"
+       status="Approved">User&apos;s current project should be owning project of MCN&#x0A;User&apos;s current role should be Mfg Process Engineer or Mfg Process Planner&#x0A;User&apos;s cannot Add/Cut the ItemRevision from Problem Item folder for MCN whose Disposition and Maturity State are not None and Elaborating</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6isMCNCMHasSolutionItemCreatable"
+       status="Approved">User&apos;s current project should be owning project of MCN.&#x0A;User&apos;s current role should be Mfg Process Engineer or Mfg Process Planner.&#x0A;User&apos;s cannot Add/Cut the ItemRevision from Solutions folder for MCN whose Disposition and Maturity State are not None and Elaborating.</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6isMCNImpactedItemCreatableForPrimary"
+       status="Approved">This condition determines if relations of type CMHasImpactedItem are creatable for the given primary object.</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6isMCNImpactedItemCreatableForSecondary"
+       status="Approved">This condition determines if relations of type CMHasImpactedItem are creatable for the given secondary object</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6isMCNProblemItemCreatableForPrimary"
+       status="Approved">This condition determines if relations of type CMHasProblemItem are cratable for the given primary object.</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6isMCNProblemItemCreatableForSecondary"
+       status="Approved">This condition determines if relations of type CMHasProblemItem are creatable for the given secondary object.</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6isMCNSolutionItemCreatableForPrimary"
+       status="Approved">This condition determines if relations of type CMHasSolutionItem are creatable for the given primary object.</key>
+   <key locale="en_US" id="ConditionDescription{::}GET6isMCNSolutionItemCreatableForSecondary"
+       status="Approved">This condition determines if relations of type CMHasSolutionItem are creatable for the given secondary object.</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6PLANNINGCODE{::}Bin" status="Approved">Stocked Lineside (Operator Accumulate)</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6PLANNINGCODE{::}Chemical" status="Approved">Chemicals that are managed through the EHS process</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6PLANNINGCODE{::}Kit" status="Approved">Kit parts from a separate warehouse (TXD, KT63)</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6PLANNINGCODE{::}Laydown" status="Approved">Large parts stored in a laydown area off line and delivered by fork truck/crane</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6PLANNINGCODE{::}Stockroom" status="Approved">Parts accumulated by a stock keeper/water spider and delivered to the line as a kit</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6PLANNINGCODE{::}VMI" status="Approved">Vendor Managed, Stocked Lineside</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6SCHEDULEDFLAG{::}1" status="Approved">Yes</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6SCHEDULEDFLAG{::}2" status="Approved">No</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6SCHEDULEDFLAG{::}3" status="Approved">Prior</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6SCHEDULEDFLAG{::}4" status="Approved">Next</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}ARTRODS" status="Approved">ARTRODS</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}CAMLINE" status="Approved">CAMLINE</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}EVOPAASM" status="Approved">EVOPAASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}EVOPAMACH" status="Approved">EVOPAMACH</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}FDLCYLSUB" status="Approved">FDLCYLSUB</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}FDLHEADS" status="Approved">FDLHEADS</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}GAGECAL" status="Approved">GAGECAL</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}JACKETS" status="Approved">JACKETS</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}LAYDOWN" status="Approved">LAYDOWN</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}LINERS" status="Approved">LINERS</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}MAINASM" status="Approved">MAINASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}MATLKITTG" status="Approved">MATLKITTG</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}MNTCE" status="Approved">MNTCE</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}MOONSHINE" status="Approved">MOONSHINE</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}NEWMFG" status="Approved">NEWMFG</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}PISTONS" status="Approved">PISTONS</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}REBUILD" status="Approved">REBUILD</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}SHIPREC" status="Approved">SHIPREC</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}TOOLCRIB" status="Approved">TOOLCRIB</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}TOOLGRIND" status="Approved">TOOLGRIND</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}TURBOASM" status="Approved">TURBOASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6DEPARTMENT{::}TURBOMACH" status="Approved">TURBOMACH</key>
+   <key locale="en_US" id="LOVValue{::}GET6FCAX100GRV{::}FAIRCHILD" status="Approved">FAIRCHILD</key>
+   <key locale="en_US" id="LOVValue{::}GET6FCAX500GRV{::}FAIRCHILD" status="Approved">FAIRCHILD</key>
+   <key locale="en_US" id="LOVValue{::}GET6FCCR100GRV{::}FAIRCHILD" status="Approved">FAIRCHILD</key>
+   <key locale="en_US" id="LOVValue{::}GET6FCCR500GRV{::}FAIRCHILD" status="Approved">FAIRCHILD</key>
+   <key locale="en_US" id="LOVValue{::}GET6FCRD100GRV{::}FAIRCHILD" status="Approved">FAIRCHILD</key>
+   <key locale="en_US" id="LOVValue{::}GET6FCRD500GRV{::}FAIRCHILD" status="Approved">FAIRCHILD</key>
+   <key locale="en_US" id="LOVValue{::}GET6FCWB100GRV{::}FAIRCHILD" status="Approved">FAIRCHILD</key>
+   <key locale="en_US" id="LOVValue{::}GET6FCWB500GRV{::}FAIRCHILD" status="Approved">FAIRCHILD</key>
+   <key locale="en_US" id="LOVValue{::}GET6FEA520GRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRRGenericLOV{::}GRR-FM-" status="Approved">GRR-FM-</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRRGenericLOV{::}GRR-LT-" status="Approved">GRR-LT-</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRRGenericLOV{::}GRR-OV-" status="Approved">GRR-OV-</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRV-REV0GRV{::}GRV-REV0" status="Approved">GRV-REV0</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA500EGRV{::}ENGASMBLND" status="Approved">ENGASMBLND</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA500EGRV{::}ENG_TD_L" status="Approved">ENG_TD_L</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA500EGRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA500EGRV{::}EVOFRBLEND" status="Approved">EVOFRBLEND</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA500EGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA500EGRV{::}MISC_RE_L" status="Approved">MISC_RE_L</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA500FGRV{::}ENG_TD_L" status="Approved">ENG_TD_L</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA500FGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA500FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA500FGRV{::}MISC_RE_L" status="Approved">MISC_RE_L</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA500FGRV{::}MISC_TD_L" status="Approved">MISC_TD_L</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA505EGRV{::}ENGASMBLND" status="Approved">ENGASMBLND</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA505EGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA505FGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA505FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA510EGRV{::}ENGASMBLND" status="Approved">ENGASMBLND</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA510EGRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA510EGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA510FGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA510FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA510FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA515EGRV{::}ENGASMBLND" status="Approved">ENGASMBLND</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA515EGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA515EGRV{::}GRRBLEND" status="Approved">GRRBLEND</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA515FGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA515FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA516EGRV{::}ENGASMBLND" status="Approved">ENGASMBLND</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA516EGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA520EGRV{::}ENGASMBLND" status="Approved">ENGASMBLND</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA520EGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA520FGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA520FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA525FGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA525FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA526FGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA530EGRV{::}ENGASMBLND" status="Approved">ENGASMBLND</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA530EGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA530FGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA530FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA535EGRV{::}ENGASMBLND" status="Approved">ENGASMBLND</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA535EGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA535FGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA535FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA536EGRV{::}ENGASMBLND" status="Approved">ENGASMBLND</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA536EGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA540FGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA540FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA545EGRV{::}ENGASMBLND" status="Approved">ENGASMBLND</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA545EGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA545FGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA545FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA550EGRV{::}ENGASMBLND" status="Approved">ENGASMBLND</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA550EGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA550FGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA550FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA555FGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA555FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA560FGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA560FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA565EGRV{::}ENGASMBLND" status="Approved">ENGASMBLND</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA565EGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA565FGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA565FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA570FGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA570FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA575FGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVA575FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVER300EGRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVER300FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVER300FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVER310EGRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVER310FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVER310FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVER320EGRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVER320FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVER320FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVER325FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVER325FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVER330FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVER330FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVER340FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVER340FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFA500GRV{::}ENGASMBLND" status="Approved">ENGASMBLND</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFA500GRV{::}ENG_TD_L" status="Approved">ENG_TD_L</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFA500GRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFA510GRV{::}ENG_TD_L" status="Approved">ENG_TD_L</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFA510GRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR300EGRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR300FGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR300FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR300FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR305FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR310EGRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR310FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR310FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR315FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR315FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR320EGRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR320FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR325FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR325FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR330EGRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR330FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR335FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR340EGRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR340FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR340FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR345FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR345FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR350EGRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR350FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR350FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR351EGRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR355FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR355FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR360EGRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR360FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR360FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR365FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR365FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR370EGRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR370FGRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR370FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR370FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR375FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR380EGRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR380FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR385FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR390EGRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVFR391FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVGenericLOV{::}GRV-FM-" status="Approved">GRV-FM-</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVGenericLOV{::}GRV-LT-" status="Approved">GRV-LT-</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVGenericLOV{::}GRV-OV-" status="Approved">GRV-OV-</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVPR300EGRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVPR300FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVPR300FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVPR310FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVPR320FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVPR330EGRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVPR330FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVPR330FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVPR340FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVPR340FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVPR350EGRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVPR350FGRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVPR350FGRV{::}LABOR_GRV" status="Approved">LABOR_GRV</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVSP300GRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVSP310GRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6GRVSP320GRV{::}EVOFRAMES" status="Approved">EVOFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6KITGRV500GRV{::}FDLENGASM" status="Approved">FDLENGASM</key>
+   <key locale="en_US" id="LOVValue{::}GET6MAIN ASMGRV{::}CL150" status="Approved">CL150</key>
+   <key locale="en_US" id="LOVValue{::}GET6MAIN ASMGRV{::}CL151" status="Approved">CL151</key>
+   <key locale="en_US" id="LOVValue{::}GET6MAIN ASMGRV{::}TE155" status="Approved">TE155</key>
+   <key locale="en_US" id="LOVValue{::}GET6MAIN ASMGRV{::}TL169" status="Approved">TL169</key>
+   <key locale="en_US" id="LOVValue{::}GET6MAIN ASMGRV{::}TL231" status="Approved">TL231</key>
+   <key locale="en_US" id="LOVValue{::}GET6MAIN ASMGRV{::}TL255" status="Approved">TL255</key>
+   <key locale="en_US" id="LOVValue{::}GET6MAIN ASMGRV{::}TL256" status="Approved">TL256</key>
+   <key locale="en_US" id="LOVValue{::}GET6MAIN ASMGRV{::}TL259" status="Approved">TL259</key>
+   <key locale="en_US" id="LOVValue{::}GET6MAIN ASMGRV{::}TL262" status="Approved">TL262</key>
+   <key locale="en_US" id="LOVValue{::}GET6MAIN ASMGRV{::}TL270" status="Approved">TL270</key>
+   <key locale="en_US" id="LOVValue{::}GET6MAIN ASMGRV{::}TL271" status="Approved">TL271</key>
+   <key locale="en_US" id="LOVValue{::}GET6PLANNINGCODE{::}Bin" status="Approved">Bin</key>
+   <key locale="en_US" id="LOVValue{::}GET6PLANNINGCODE{::}Chemical" status="Approved">Chemical</key>
+   <key locale="en_US" id="LOVValue{::}GET6PLANNINGCODE{::}Kit" status="Approved">Kit</key>
+   <key locale="en_US" id="LOVValue{::}GET6PLANNINGCODE{::}Laydown" status="Approved">Laydown</key>
+   <key locale="en_US" id="LOVValue{::}GET6PLANNINGCODE{::}Stockroom" status="Approved">Stockroom</key>
+   <key locale="en_US" id="LOVValue{::}GET6PLANNINGCODE{::}VMI" status="Approved">VMI</key>
+   <key locale="en_US" id="LOVValue{::}GET6SHEHC300GRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6SHGEN300GRV{::}FDLFRAMES" status="Approved">FDLFRAMES</key>
+   <key locale="en_US" id="LOVValue{::}GET6T4BRG100GRV{::}GRV_Turbo" status="Approved">GRV_Turbo</key>
+   <key locale="en_US" id="LOVValue{::}GET6TrueFalseLOV{::}False" status="Approved">False</key>
+   <key locale="en_US" id="LOVValue{::}GET6TrueFalseLOV{::}True" status="Approved">True</key>
+   <key locale="en_US" id="Property{::}BOMLine{::}bl_GET6MEDepartmentRevision_get6Department"
+       status="Approved">Oracle Department</key>
+   <key locale="en_US" id="Property{::}BOMLine{::}bl_GET6ProcessRevision_get6Alternate"
+       status="Approved">Oracle Alternate</key>
+   <key locale="en_US" id="Property{::}BOMLine{::}get6GRRMakeBuy" status="Approved">GRR Make/Buy</key>
+   <key locale="en_US" id="Property{::}BOMLine{::}get6GRVMakeBuy" status="Approved">GRV Make/Buy</key>
+   <key locale="en_US" id="Property{::}GET6AbsGenResourRevision{::}get6OracleResourceName"
+       status="Approved">Oracle Resource Name</key>
+   <key locale="en_US" id="Property{::}GET6AbsGenResourRevision{::}get6ResourceUnits"
+       status="Approved">Oracle Resource Units</key>
+   <key locale="en_US" id="Property{::}GET6AbsMCNRevision{::}get6AffectsBOP" status="Approved">Affects BOP</key>
+   <key locale="en_US" id="Property{::}GET6AbsMCNRevision{::}get6BOPEffEndDate" status="Approved">BOP Effectivity End Date</key>
+   <key locale="en_US" id="Property{::}GET6AbsMCNRevision{::}get6BOPEffStartDate"
+       status="Approved">BOP Effectivity Start Date</key>
+   <key locale="en_US" id="Property{::}GET6AbsMCNRevision{::}get6EffectivityDecision"
+       status="Approved">GET Effectivity Decision</key>
+   <key locale="en_US" id="Property{::}GET6AbsMCNRevision{::}get6MBOMEffEndDate" status="Approved">MBOM Effectivity End Date</key>
+   <key locale="en_US" id="Property{::}GET6AbsMCNRevision{::}get6MBOMEffStartDate"
+       status="Approved">MBOM Effectivity Start Date</key>
+   <key locale="en_US" id="Property{::}GET6AbsMCNRevision{::}get6MCNFlipToBuy" status="Approved">GET MCN Flip To Buy</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrFormStorage{::}get6BOMPublishDate"
+       status="Approved">BOM Publish Date</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrFormStorage{::}get6ItemPublishDate"
+       status="Approved">Item Publish Date</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrFormStorage{::}get6MakeBuy" status="Approved">Manufacturing Make Buy Value</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrFormStorage{::}get6OrgTemplate"
+       status="Approved">Org Template Value</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrFormStorage{::}get6PlanningCode"
+       status="Approved">Planning Code</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrFormStorage{::}get6StockMaterial"
+       status="Approved">Stock Material</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrFormStorage{::}get6StockMtrlConsumedQty"
+       status="Approved">Stock Material Consumed Quantity</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrFormStorage{::}get6StructureCode"
+       status="Approved">Structure Code</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrFormStorage{::}get6WIPSupplyType"
+       status="Approved">WIP Supply Type</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrFormStorage{::}get6isMfgAttrModT4OXfer"
+       status="Approved">GET is Mfg Attr Mod T4 Oxfer</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrForm{::}get6BOMPublishDate" status="Approved">BOM Publish Date</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrForm{::}get6ItemPublishDate"
+       status="Approved">Item Publish Date</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrForm{::}get6MakeBuy" status="Approved">Manufacturing Make Buy Value</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrForm{::}get6OrgTemplate" status="Approved">Org Template Value</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrForm{::}get6PlanningCode" status="Approved">Planning Code</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrForm{::}get6StockMaterial" status="Approved">Stock Material</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrForm{::}get6StockMtrlConsumedQty"
+       status="Approved">Stock Material Consumed Quantity</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrForm{::}get6StructureCode" status="Approved">Structure Code</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrForm{::}get6WIPSupplyType" status="Approved">WIP Supply Type</key>
+   <key locale="en_US" id="Property{::}GET6AbsMfgAttrForm{::}get6isMfgAttrModT4OXfer"
+       status="Approved">GET is Mfg Attr Mod T4 Oxfer</key>
+   <key locale="en_US" id="Property{::}GET6AbsResourceRevision{::}get6OracleResourceName"
+       status="Approved">Oracle Resource Name</key>
+   <key locale="en_US" id="Property{::}GET6AbsResourceRevision{::}get6ResourceUnits"
+       status="Approved">Oracle Resource Units</key>
+   <key locale="en_US" id="Property{::}GET6GenResIDGenerator{::}get6ResourceType"
+       status="Approved">GET Resource Type</key>
+   <key locale="en_US" id="Property{::}GET6ItemOrgValues{::}get6EnggItemsID" status="Approved">Engg Items ID</key>
+   <key locale="en_US" id="Property{::}GET6ItemOrgValues{::}get6GRR" status="Approved">GRR</key>
+   <key locale="en_US" id="Property{::}GET6ItemOrgValues{::}get6GRV" status="Approved">GRV</key>
+   <key locale="en_US" id="Property{::}GET6MCN{::}item_id" status="Approved">MCN Number</key>
+   <key locale="en_US" id="Property{::}GET6MEDepartmentRevision{::}get6Department"
+       status="Approved">Oracle Department</key>
+   <key locale="en_US" id="Property{::}GET6ProcessRevision{::}get6Alternate" status="Approved">Oracle Alternate</key>
+   <key locale="en_US" id="Property{::}GET6ProcessRevision{::}get6Autocharge" status="Approved">Oracle Autocharge</key>
+   <key locale="en_US" id="Property{::}GET6ProcessRevision{::}get6Checkpoint" status="Approved">Oracle Checkpoint</key>
+   <key locale="en_US" id="Property{::}GET6ProcessRevision{::}get6MaterialConsQuantity"
+       status="Approved">Material Consumption Quantity</key>
+   <key locale="en_US" id="Property{::}GET6ProcessRevision{::}get6ScheduledFlag" status="Approved">Oracle Scheduled Flag</key>
+   <key locale="en_US" id="Property{::}GET6StockOrgPropsFrmStorage{::}get6OrgPreferredStock"
+       status="Approved">GET Org Preferred Stock</key>
+   <key locale="en_US" id="Property{::}GET6StockOrgPropsFrmStorage{::}get6StructureCode"
+       status="Approved">Structure Code</key>
+   <key locale="en_US" id="Property{::}GET6StockOrgPropsFrm{::}get6OrgPreferredStock"
+       status="Approved">Preferred Stock Material</key>
+   <key locale="en_US" id="Property{::}GET6StockOrgPropsFrm{::}get6StructureCode"
+       status="Approved">Structure Code</key>
+   <key locale="en_US" id="ReleaseStatus{::}GET6GRRReleased" status="Approved">GRR</key>
+   <key locale="en_US" id="ReleaseStatus{::}GET6GRVReleased" status="Approved">GRV</key>
+   <key locale="en_US" id="ReleaseStatus{::}GET6NonConfirming" status="Approved">NC</key>
+</Add>
+</TcBusinessDataLocalization>

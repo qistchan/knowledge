@@ -1,0 +1,293 @@
+<project name="get_sysapi_common">
+
+	<property environment="env" />
+	<property name="src.dir" location="${basedir}/.."/>
+	<property name="cpptest_home.dir" location="${src.dir}/cpptest"/>
+	<property name="deploy_include.dir" location="${src.dir}/include"/>
+	<property name="deploy_bin.dir" location="${src.dir}/bin"/>
+	<property name="deploy_lib.dir" location="${src.dir}/lib"/>
+	<!-- Import supplemental tasks -->
+	<taskdef resource="cpptasks.tasks">
+   	<classpath>
+		<pathelement location="${ANT_HOME}/lib/cpptasks.jar" /> 
+   	</classpath> 
+   	</taskdef>
+	<typedef resource="cpptasks.types">
+	 <classpath> 
+		<pathelement location="${ANT_HOME}/lib/cpptasks.jar" /> 
+   	</classpath> 
+   	</typedef>
+	
+	<!-- Define platform -->
+	<condition property="ge.win">
+		<os family="windows"/>
+	</condition>
+	<condition property="ge.sol">
+		<os name="SunOS"/>
+	</condition>
+	<condition property="ge.linux">
+		<os name="linux"/>
+	</condition>
+	
+	<property name="cpptest.lib.dir" value="${cpptest_home.dir}/lib"/>
+	<!-- Define the include path -->
+	<path id="include.path">
+		<pathelement path=".;.."/>
+	</path>
+	<path id="include.cpptest.path">
+        <pathelement path="${cpptest_home.dir}/include"/>
+    </path>
+	<!-- Define the target files -->
+	<fileset id="source" dir=".">
+		<include name="*.c"/>
+		<include name="*.cpp"/>
+		<include name="*.cxx"/>
+	</fileset>
+	
+	<!-- Initialize target -->
+	<target name="init" description="initialize">
+		<tstamp/>
+	</target>
+	
+	<target name="logging" description="Provides logging for build targets">
+		<tstamp>
+			<format property="timestamp" pattern="yyyy-MM-dd_HH-mm-ss"/>
+		</tstamp>
+		
+		<property name="build.log.dir" location="${basedir}/buildlogs"/>
+		<mkdir dir="${build.log.dir}"/>
+		<property name="build.log.filename" value="build_${timestamp}.log"/>
+		<record name="${build.log.dir}/${build.log.filename}" loglevel="verbose"
+			append="false"/>
+		<echo message="Build logged to ${build.log.filename}"/>
+		
+	</target>
+	
+	<!-- 32 bit compilation -->
+	<target name="compile32" depends="init" description="32 bit compilation">
+		<mkdir dir="${obj.dir}"/>
+		<cc objdir="${obj.dir}">
+			<compiler name="msvc" if="ge.win" debug="${cc.debug}">
+				<compilerarg value="/EHsc"/>
+				<compilerarg value="/W3"/>
+				<compilerarg value="/Zi"/>
+				<compilerarg value="/RTC1"/>
+			    <compilerarg value="/TP"/>
+				<compilerarg value="-DCRTAPI1=_cdecl"/>
+				<compilerarg value="-DCRTAPI2=cdecl"/>
+				<compilerarg value="-D_WIN32"/>
+				<compilerarg value="-DWIN32"/>
+				<compilerarg value="-D_CRT_SECURE_NO_DEPRECATE"/>
+				<includepath>
+					<path refid="include.path"/>
+					<path refid="include.cpptest.path"/>
+				</includepath>
+				<fileset refid="source"/>
+			</compiler>
+			<compiler name="CC" if="ge.sol">
+				<compilerarg value="-KPIC"/>
+				<compilerarg value="-mt"/>
+				<compilerarg value="-DSUN"/>
+				<compilerarg value="-D_SUN"/>
+				<compilerarg value="-DUNX"/>
+				<compilerarg value="-D_SOLARIS_SOURCE"/>
+				<compilerarg value="-DPOSIX"/>
+				<includepath>
+					<path refid="include.path"/>
+				</includepath>
+				<fileset refid="source"/>
+			</compiler>
+		</cc>
+	</target>
+	
+	<!-- 32 bit linkage -->
+	<target name="link32" description="32 bit linkage" depends="logging">
+		<mkdir dir="${link.dir}"/>
+		<cc outtype="${link.type}" subsystem="console"
+			outfile="${link.dir}/${link.name}">
+			<linker name="msvc" if="ge.win" >
+				<linkerarg value="/nodefaultlib"/>
+				<linkerarg value="/nologo"/>
+				<linkerarg value="/machine:IX86"/>				
+				<fileset dir="${obj.dir}">
+					<include name="${obj.set}"/>
+				</fileset>
+				<libset dir="${lib.dir}" libs="${lib.set}" if="lib.required"/>
+				<libset dir="${cpptest.lib.dir}" libs="libcpptest32" if="cpptest"/>
+				<syslibset libs="wsock32,advapi32,msvcrt,msvcprt,oldnames,kernel32,winmm"/>				
+			</linker>
+			<linker name="CC" if="ge.sol">
+				<fileset dir="${obj.dir}">
+					<include name="${obj.set}"/>
+				</fileset>
+				<libset dir="${lib.dir}" libs="${lib.set}" if="lib.required"/>
+				<syslibset libs="socket"/>
+			</linker>
+		</cc>
+	</target>
+	
+	<!-- 64 bit compilation -->
+	<target name="compile64" depends="init" description="64 bit compilation">
+		<mkdir dir="${obj.dir}"/>
+		<cc objdir="${obj.dir}">
+			<compiler name="msvc" if="ge.win" debug="${cc.debug}">
+				<compilerarg value="/W3"/>
+				<compilerarg value="/Od"/>
+				<compilerarg value="/MD"/>
+				<compilerarg value="/LD"/>
+				<compilerarg value="/EHsc"/>
+				<compilerarg value="/RTC1"/>
+				<compilerarg value="/Zi"/>
+				<compilerarg value="/TP"/>
+				<compilerarg value="/D_CRT_SECURE_NO_DEPRECATE"/>
+				<compilerarg value="/D_VC80_UPGRADE=0x0710"/>
+				<compilerarg value="/DWIN64"/>
+				<compilerarg value="/D_WIN64"/>
+				<includepath>
+					<path refid="include.path"/>
+					<path refid="include.cpptest.path"/>
+				</includepath>
+				<fileset refid="source"/>
+			</compiler>
+			<compiler name="CC" if="ge.sol">
+			    <compilerarg value="-std=c++0x"/>
+				<compilerarg value="-KPIC"/>
+				<compilerarg value="-m64"/>
+				<compilerarg value="-mt"/>
+				<compilerarg value="-DSUN"/>
+				<compilerarg value="-D_SUN"/>
+				<compilerarg value="-DUNX"/>
+				<compilerarg value="-D_SOLARIS_SOURCE"/>
+				<compilerarg value="-DPOSIX"/>
+				<includepath>
+					<path refid="include.path"/>
+				</includepath>
+				<fileset refid="source"/>
+			</compiler>
+			<compiler name="g++" if="ge.linux">
+		  <compilerarg value="-Wno-deprecated" />
+				<compilerarg value="-std=c++0x" />
+                <compilerarg value="-c" />
+                <compilerarg value="-fPIC" />
+                <compilerarg value="-DUNX" />
+                <compilerarg value="-m64" />
+                <compilerarg value="-DPOSIX" />
+                <includepath>
+					<path refid="include.path"/>
+					<path refid="include.cpptest.path"/>
+				</includepath>
+				<fileset refid="source"/>
+            </compiler>    
+		</cc>
+	</target>
+	
+	<!-- 64 bit linkage -->
+	<target name="link64" description="64 bit linkage" depends="logging">
+		<mkdir dir="${link.dir}"/>
+		<cc outtype="${link.type}" subsystem="console" outfile="${link.dir}/${link.name}">
+			<linker name="msvc" if="ge.win">
+				<linkerarg value="/nodefaultlib"/>
+				<linkerarg value="/nologo"/>
+				<linkerarg value="/machine:x64"/>
+				<linkerarg value="/FORCE:MULTIPLE"/>
+				<fileset dir="${obj.dir}">
+					<include name="${obj.set}"/>
+				</fileset>
+				<libset dir="${lib.dir}" libs="${lib.set}" if="lib.required"/>
+				<libset dir="${cpptest.lib.dir}" libs="libcpptest64" if="cpptest"/>
+				<syslibset
+					libs="wsock32,advapi32,msvcrt,msvcprt,oldnames,kernel32,winmm"/>
+			</linker>
+			<linker name="CC" if="ge.sol">
+				<linkerarg value="-mt"/>
+				<linkerarg value="-m64"/>
+				<linkerarg value="-t"/>
+				<fileset dir="${obj.dir}">
+					<include name="${obj.set}"/>
+				</fileset>
+				<libset dir="${lib.dir}" libs="${lib.set}" if="lib.required"/>
+				<libset dir="${cpptest.lib.dir}" libs="libcpptest64"/>
+				<syslibset
+					libs="socket,elf,resolv,Cstd,m,nsl,Crun,pthread,clntsh"/>
+			</linker>
+			<linker name="g++" if="ge.linux">
+				<fileset dir="${obj.dir}">
+					<include name="${obj.set}"/>
+				</fileset>
+				<libset dir="${lib.dir}" libs="${lib.set}" if="lib.required"/>
+                <libset dir="${cpptest.lib.dir}" libs="cpptest64" if="cpptest"/>
+			</linker>
+		</cc>
+	</target>
+	
+	<!-- Clean object files only -->
+	<target name="clean-objs" description="clean object files only">
+		<delete>
+			<fileset dir=".">
+				<include name="**/*.obj"/>
+				<include name="**/*.o"/>
+			</fileset>
+		</delete>
+	</target>
+	
+	<!-- Clean everything -->
+	<target name="clean" depends="clean-objs" description="clean everything">
+		<delete>
+			<fileset dir=".">
+				<include name="**/*.pdb"/>
+				<include name="**/*.exe"/>
+				<include name="**/*.manifest"/>
+				<include name="**/history.xml"/>
+				<include name="**/dependencies.xml"/>
+			</fileset>
+		</delete>
+		<delete dir="obj"/>
+		<delete dir="lib"/>
+		<delete dir="doc"/>
+		<delete dir="buildlogs"/>
+	</target>
+	
+	 <target name="deploy" depends="" description="Deploy">
+        <sequential>
+          <!--  -->
+            <echo message="Deploy Common Libraries" />
+			<mkdir dir="${deploy_bin.dir}"/>
+            <copy todir="${deploy_bin.dir}" verbose="true" failonerror="false">
+              <fileset dir="${link.dir}">
+                  <include name="*.dll" />
+                  <include name="*.pdb" />
+              </fileset>
+            </copy>
+          
+			<mkdir dir="${deploy_lib.dir}"/>
+            <copy todir="${deploy_lib.dir}" verbose="true" failonerror="false">
+			
+               <fileset dir="${link.dir}">
+                   <include name="*.lib" />
+				   <include name="*.so" />
+               </fileset>
+             </copy>
+
+			<mkdir dir="${deploy_include.dir}"/>
+            <copy todir="${deploy_include.dir}/ge/get_sysapi" verbose="true" failonerror="false">
+               <fileset dir=".">
+                   <include name="*.h*" />
+               </fileset>
+             </copy>
+
+			<copy todir="${deploy_include.dir}/ge/get_sysapi/ge_unix" verbose="true" failonerror="false">
+               <fileset dir="get_unx">
+                   <include name="*.h*" />
+               </fileset>
+             </copy>
+			
+			<copy todir="${deploy_include.dir}/ge/get_sysapi/ge_windows" verbose="true" failonerror="false">
+               <fileset dir="get_win32">
+                   <include name="*.h*" />
+               </fileset>
+             </copy>
+
+        </sequential>
+    </target>
+	
+</project>

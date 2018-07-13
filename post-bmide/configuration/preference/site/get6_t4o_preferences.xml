@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<preferences version="10.0">
+  <category name="EBS Gateway">
+    <category_description></category_description>
+    <preference name="T4O_EBSLogonSystemList" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+       <preference_description>EBS systems available for manual logon</preference_description>
+          <context name="Teamcenter">
+          </context>
+    </preference>
+    <preference name="T4O_BillOfMaterialAddObject4Mapping" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Additional Objects available to EBS BOM mapping</preference_description>
+      <context name="Teamcenter">
+        <value>EPM_target_attachment:GET6MCNRevision:#__getAllProperties__#:Properties</value>
+        <value>EPM_target_attachment:GET6MCNRevision:CMHasSolutionItem:GET6MfgPartRevision</value>
+        <value>EPM_target_attachment:GET6MCNRevision:CMHasSolutionItem:GET6MechPartRevision</value>
+        <value>EPM_target_attachment:GET6MCNRevision:CMHasSolutionItem:GET6ElectPartRevision</value>
+		<value>EPM_target_attachment:GET6ECNRevision:#__getAllProperties__#:Properties</value>
+		<value>EPM_target_attachment:GET6ECNRevision:CMHasSolutionItem:GET6MechPartRevision</value>
+        <value>EPM_target_attachment:GET6ECNRevision:CMHasSolutionItem:GET6ElectPartRevision</value>
+      </context>
+    </preference>
+    <preference name="T4O_BillOfMaterialMapping4Preferences" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Default revision rules for EBS BOM mapping</preference_description>
+      <context name="Teamcenter">
+        <value>site:string:GET_T4O_DisAllowed_Child_types</value>
+      </context>
+    </preference>
+    <preference name="T4O_BillOfMaterialTypeList" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>View types available for EBS BOM mapping</preference_description>
+      <context name="Teamcenter">
+        <value>view</value>
+      </context>
+    </preference>
+    <preference name="T4O_BillOfMaterialMapping4view" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Default revision rules for EBS BOM mapping</preference_description>
+      <context name="Teamcenter">
+        <value>Any Status; Working</value>
+      </context>
+    </preference>
+    <preference name="T4O_BillOfMaterialDisplayableTypeList" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Displayable View types available for EBS BOM mapping</preference_description>
+      <context name="Teamcenter">
+        <value>view</value>
+      </context>
+    </preference>
+    <preference name="T4O_BillOfMaterialLineGetNextLevelTypeList" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>No description available for this preference</preference_description>
+      <context name="Teamcenter">
+      </context>
+    </preference>
+    <preference name="T4O_BillOfMaterialMapping2view" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Objects available to EBS BOM reverse mapping</preference_description>
+      <context name="Teamcenter">
+      </context>
+    </preference>
+    <preference name="T4O_ItemMapping2GET6ElectPartRevision" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Objects available to EBS Item reverse mapping</preference_description>
+      <context name="Teamcenter">
+      </context>
+    </preference>
+    <preference name="T4O_ItemMapping2GET6MechPartRevision" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Objects available to EBS Item reverse mapping</preference_description>
+      <context name="Teamcenter">
+      </context>
+    </preference>
+    <preference name="T4O_ItemMapping2GET6MfgPartRevision" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Objects available to EBS Item reverse mapping</preference_description>
+      <context name="Teamcenter">
+      </context>
+    </preference>
+    <preference name="T4O_ItemMapping4GET6ElectPartRevision" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Objects available to EBS Item mapping</preference_description>
+      <context name="Teamcenter">
+        <value>#__getAllProperties__#:Properties</value>
+        <value>items_tag:GET6ElectPart</value>
+        <value>items_tag:GET6ElectPart:#__getAllProperties__#:Properties</value>
+        <value>items_tag:GET6ElectPart:GET6PartOrgRelation:GET6MfgAttrForm1</value>
+        <value>items_tag:GET6ElectPart:GET6PartOrgRelation:GET6MfgAttrForm2</value>
+        <value>items_tag:GET6ElectPart:GET6PartOrgRelation:GET6MfgAttrForm3</value>
+      </context>
+    </preference>
+    <preference name="T4O_ItemMapping4GET6MechPartRevision" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Objects available to EBS Item mapping</preference_description>
+      <context name="Teamcenter">
+        <value>#__getAllProperties__#:Properties</value>
+        <value>items_tag:GET6MechPart</value>
+        <value>items_tag:GET6MechPart:#__getAllProperties__#:Properties</value>
+        <value>items_tag:GET6MechPart:GET6PartOrgRelation:GET6MfgAttrForm1</value>
+        <value>items_tag:GET6MechPart:GET6PartOrgRelation:GET6MfgAttrForm2</value>
+        <value>items_tag:GET6MechPart:GET6PartOrgRelation:GET6MfgAttrForm3</value>
+      </context>
+    </preference>
+    <preference name="T4O_ItemMapping4GET6MfgPartRevision" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Objects available to EBS Item mapping</preference_description>
+      <context name="Teamcenter">
+        <value>#__getAllProperties__#:Properties</value>
+        <value>items_tag:GET6MfgPart</value>
+        <value>items_tag:GET6MfgPart:#__getAllProperties__#:Properties</value>
+        <value>items_tag:GET6MfgPart:GET6PartOrgRelation:GET6MfgAttrForm1</value>
+        <value>items_tag:GET6MfgPart:GET6PartOrgRelation:GET6MfgAttrForm2</value>
+        <value>items_tag:GET6MfgPart:GET6PartOrgRelation:GET6MfgAttrForm3</value>
+      </context>
+    </preference>
+    <preference name="T4O_ItemMapping2GET6StockMtrlRevision" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Objects available to EBS Item reverse mapping</preference_description>
+      <context name="Teamcenter">
+      </context>
+    </preference>
+    <preference name="T4O_ItemMapping4GET6StockMtrlRevision" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Objects available to EBS Item mapping</preference_description>
+      <context name="Teamcenter">
+        <value>#__getAllProperties__#:Properties</value>
+        <value>items_tag:GET6StockMtrl</value>
+        <value>items_tag:GET6StockMtrl:#__getAllProperties__#:Properties</value>
+      </context>
+    </preference>
+    <preference name="T4O_ItemMapping4Preferences" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Default revision rules for EBS BOM mapping</preference_description>
+      <context name="Teamcenter">
+        <value>site:string:GET_T4O_Item_Templates</value>
+      </context>
+    </preference>
+    <preference name="T4O_ItemTypeList" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Item Revision Types available for EBS Item mapping</preference_description>
+      <context name="Teamcenter">
+        <value>GET6MfgPartRevision</value>
+        <value>GET6MechPartRevision</value>
+        <value>GET6ElectPartRevision</value>
+        <value>GET6StockMtrlRevision</value>
+      </context>
+    </preference>
+    <preference name="T4O_BillOfMaterialFieldMapping2GET6MfgAttrForm" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Attributes available to EBS BOM reverse mapping</preference_description>
+      <context name="Teamcenter">
+        <value>get6BOMPublishDate</value>
+      </context>
+    </preference>
+    <preference name="T4O_ItemFieldMapping2GET6MfgAttrForm" type="String" array="false" disabled="false" protectionScope="User" envEnabled="false">
+      <preference_description>Attributes available to EBS Item reverse mapping</preference_description>
+      <context name="Teamcenter">
+        <value>get6ItemPublishDate</value>
+      </context>
+    </preference>
+    <preference name="T4O_BillOfMaterialOccurrenceNotes4view" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>BOMLINE attributes available to EBS BOM mapping</preference_description>
+      <context name="Teamcenter">
+        <value>bl_formula</value>
+        <value>bl_item_uom_tag</value>
+        <value>bl_quantity</value>
+        <value>bl_sequence_no</value>
+        <value>bl_substitute</value>
+        <value>bl_variant_condition</value>
+      </context>
+    </preference>
+    <preference name="GET_T4O_Item_Templates" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Preference to define templates for new org items</preference_description>
+      <context name="Teamcenter">
+        <value>GRR:Buy:Teamcenter-GRR-Buy</value>
+        <value>GRR:Make:Teamcenter-GRR-Make</value>
+        <value>GRV:Buy:Teamcenter-GRV-Buy</value>
+        <value>GRV:Make:Teamcenter-GRV-Make</value>
+      </context>
+    </preference>
+    <preference name="GET_T4O_DisAllowed_Child_types" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Preference to define list of disallowed child types for T4O BOM transfer</preference_description>
+      <context name="Teamcenter">
+        <value>GET6DocumentRevision</value>
+        <value>GET6SpecsRevision</value>
+      </context>
+    </preference>
+    <preference name="T4O_GenericObjMapping2GET6ElectPartRevision" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Objects available to EBS Generic Object reverse mapping</preference_description>
+      <context name="Teamcenter">
+      </context>
+    </preference>
+    <preference name="T4O_GenericObjMapping2GET6MechPartRevision" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Objects available to EBS Generic Object reverse mapping</preference_description>
+      <context name="Teamcenter">
+      </context>
+    </preference>
+    <preference name="T4O_GenericObjMapping4GET6ElectPartRevision" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Objects available to EBS Generic Object mapping</preference_description>
+      <context name="Teamcenter">
+        <value>#__getAllProperties__#:Properties</value>
+        <value>items_tag:GET6ElectPart</value>
+        <value>items_tag:GET6ElectPart:#__getAllProperties__#:Properties</value>
+        <value>items_tag:GET6ElectPart:GET6PartOrgRelation:GET6MfgAttrForm1</value>
+        <value>items_tag:GET6ElectPart:GET6PartOrgRelation:GET6MfgAttrForm2</value>
+        <value>items_tag:GET6ElectPart:GET6PartOrgRelation:GET6MfgAttrForm3</value>
+        <value>items_tag:GET6ElectPart:GET6PartOrgRelation:GET6MfgAttrForm1:get6StockMaterial:GET6StockMtrl</value>
+        <value>items_tag:GET6ElectPart:GET6PartOrgRelation:GET6MfgAttrForm2:get6StockMaterial:GET6StockMtrl</value>
+        <value>items_tag:GET6ElectPart:GET6PartOrgRelation:GET6MfgAttrForm3:get6StockMaterial:GET6StockMtrl</value>
+        <value>items_tag:GET6ElectPart:GET6MadeFromPart:GET6MechPart</value>
+        <value>items_tag:GET6ElectPart:GET6MadeFromPart:GET6ElectPart</value>
+      </context>
+    </preference>
+    <preference name="T4O_GenericObjMapping4GET6MechPartRevision" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Objects available to EBS Generic Object mapping</preference_description>
+      <context name="Teamcenter">
+        <value>#__getAllProperties__#:Properties</value>
+        <value>items_tag:GET6MechPart</value>
+        <value>items_tag:GET6MechPart:#__getAllProperties__#:Properties</value>
+        <value>items_tag:GET6MechPart:GET6PartOrgRelation:GET6MfgAttrForm1</value>
+        <value>items_tag:GET6MechPart:GET6PartOrgRelation:GET6MfgAttrForm2</value>
+        <value>items_tag:GET6MechPart:GET6PartOrgRelation:GET6MfgAttrForm3</value>
+        <value>items_tag:GET6MechPart:GET6PartOrgRelation:GET6MfgAttrForm1:get6StockMaterial:GET6StockMtrl</value>
+        <value>items_tag:GET6MechPart:GET6PartOrgRelation:GET6MfgAttrForm2:get6StockMaterial:GET6StockMtrl</value>
+        <value>items_tag:GET6MechPart:GET6PartOrgRelation:GET6MfgAttrForm3:get6StockMaterial:GET6StockMtrl</value>
+        <value>items_tag:GET6MechPart:GET6MadeFromPart:GET6MechPart</value>
+        <value>items_tag:GET6MechPart:GET6MadeFromPart:GET6ElectPart</value>
+      </context>
+    </preference>
+    <preference name="T4O_GenericObjMapping4Preferences" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Objects available to EBS Generic Object mapping</preference_description>
+      <context name="Teamcenter">
+        <value>site:string:GET_T4O_Default_Seq_number</value>
+      </context>
+    </preference>
+    <preference name="T4O_GenericObjTypeList" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Item Revision Types available for EBS Generic Object mapping</preference_description>
+      <context name="Teamcenter">
+        <value>GET6ElectPartRevision</value>
+        <value>GET6MechPartRevision</value>
+      </context>
+    </preference>
+    <preference name="GET_T4O_Default_Seq_number" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+    <preference_description>Default sequence number for EBS child</preference_description>
+      <context name="Teamcenter">
+        <value>10</value>
+      </context>
+    </preference>
+  </category>
+</preferences>

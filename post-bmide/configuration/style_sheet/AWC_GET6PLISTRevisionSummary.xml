@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2015.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+-->
+<!-- Default style sheet for displaying item rev summary. -->
+<rendering>
+    <header>
+        <image source="type"/>
+        <property name="owning_user"/>
+        <property name="last_mod_date"/>
+        <property name="release_status_list" renderingHint="label"/>
+        <property name="object_type"/>
+    </header>
+    <page titleKey="tc_xrt_Overview" visibleWhen="ActiveWorkspace:SubLocation != com.siemens.splm.client.occmgmt:OccurrenceManagementSubLocation">
+        <column>
+            <section titleKey="tc_xrt_properties">
+                <property name="item_id" renderingHint="label"/>
+				<property name="items_tag" renderingHint="objectlink" modifiable="false" />
+                <property name="item_revision_id" renderingHint="label"/>
+                <property name="object_name"/>
+				<property name="ip_classification" modifiable="false"/>
+                <property name="object_type"/>
+                <property name="release_status_list" renderingHint="label"/>
+                <property name="date_released" renderingHint="label"/>
+                <property name="effectivity_text" renderingHint="label"/>
+                <break/>
+                <property name="owning_user" renderingHint="objectlink" modifiable="false"/>
+                <property name="owning_group" renderingHint="objectlink" modifiable="false"/>
+                <property name="last_mod_user"/>
+                <property name="checked_out" renderingHint="label"/>
+                <property name="checked_out_user"/>
+                <property name="fnd0CurrentLocationCode"/>
+                <command commandId="com.teamcenter.rac.properties" titleKey="tc_xrt_moreProperties"/>
+            </section>
+                      
+        </column>
+        <column>
+            <view name="actions">
+                <command actionKey="copyAction" commandId="com.teamcenter.rac.copy"/>
+                <command actionKey="reviseAction" commandId="com.teamcenter.rac.revise"/>
+                <command actionKey="saveAsAction" commandId="org.eclipse.ui.file.saveAs"/>
+            </view>
+        </column>
+    </page>
+   
+    <page titleKey="tc_xrt_viewer" visibleWhen="IMAN_Rendering!=null and ActiveWorkspace:SubLocation != com.siemens.splm.client.occmgmt:OccurrenceManagementSubLocation">
+        <section title=" ">
+            <image source="preview"/>
+        </section>
+    </page>
+    <page titleKey="attachments">
+        <section titleKey="tc_xrt_Files">
+            <objectSet source="IMAN_specification.Dataset,IMAN_reference.Dataset,IMAN_manifestation.Dataset,IMAN_Rendering.Dataset" defaultdisplay="listDisplay" sortby="object_string" sortdirection="ascending">
+                <tableDisplay>
+                    <property name="relation" modifiable="true"/>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </tableDisplay>
+                <thumbnailDisplay/>
+                <treeDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </treeDisplay>
+                <listDisplay/>
+                <command actionKey="newBusinessObjectContextualAction" commandId="com.teamcenter.rac.common.AddNew" renderingHint="commandbutton"/>
+                <command actionKey="pasteAction" commandId="com.teamcenter.rac.viewer.pastewithContext" renderingHint="commandbutton"/>
+                <command actionKey="cutAction" commandId="org.eclipse.ui.edit.cut" renderingHint="commandbutton">
+                    <parameter name="localSelection" value="true"/>
+                </command>
+            </objectSet>
+        </section>
+        <section titleKey="tc_xrt_Documents">
+            <objectSet source="IMAN_specification.DocumentRevision" sortdirection="ascending" sortby="object_string" defaultdisplay="listDisplay">
+                <tableDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </tableDisplay>
+                <thumbnailDisplay/>
+                <treeDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </treeDisplay>
+                <listDisplay/>
+                <command actionKey="newBusinessObjectContextualAction" commandId="com.teamcenter.rac.common.AddNew" renderingHint="commandbutton"/>
+                <command actionKey="pasteAction" commandId="com.teamcenter.rac.viewer.pastewithContext" renderingHint="commandbutton"/>
+                <command actionKey="cutAction" commandId="org.eclipse.ui.edit.cut" renderingHint="commandbutton">
+                    <parameter name="localSelection" value="true"/>
+                </command>
+            </objectSet>
+        </section>
+    </page>
+    <page titleKey="tc_xrt_History">
+        <section title=" ">
+            <objectSet source="revision_list.ItemRevision" sortdirection="descending" sortby="object_string" defaultdisplay="tableDisplay">
+                <tableDisplay>
+                    <property name="object_string"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </tableDisplay>
+                <thumbnailDisplay/>
+                <treeDisplay>
+                    <property name="object_string"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </treeDisplay>
+                <listDisplay/>
+            </objectSet>
+        </section>
+    </page>
+    <page titleKey="web_whereused">
+        <column>
+        <section titleKey="tc_xrt_ParentAssemblies">
+            <objectSet source="ps_parents.ItemRevision" sortdirection="ascending" sortby="object_string" defaultdisplay="listDisplay">
+                <command commandId="com.teamcenter.rac.pse.sendto" titleKey="tc_xrt_OpenSelectedInStructureManager" renderingHint="commandbutton">
+                    <parameter value="true" name="localSelection"/>
+                  </command>
+                <thumbnailDisplay/>
+                <treeDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </treeDisplay>
+                <listDisplay/>
+            </objectSet>
+        </section>
+        </column>
+        <column>
+            <section titleKey="tc_xrt_References">
+                <objectSet source="awb0References.WorkspaceObject" sortdirection="ascending" sortby="object_string" defaultdisplay="listDisplay">
+                    <thumbnailDisplay/>
+                    <treeDisplay>
+                        <property name="object_string"/>
+                        <property name="object_type"/>
+                        <property name="release_status_list"/>
+                        <property name="date_released"/>
+                        <property name="owning_user"/>
+                    </treeDisplay>
+                    <listDisplay/>
+                </objectSet>
+            </section>
+        </column>
+    </page>
+    <inject type="dataset" src="WorkflowSummary" />
+    <inject type="dataset" src="RelationsSummary" />
+</rendering>

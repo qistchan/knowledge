@@ -1,0 +1,713 @@
+#===================================================
+##
+#
+# \file          t4o_bom_mapping_template.sd
+#
+# \brief         Mapping file for T4O bill of material transfer
+#
+# \details       The file contains the custom specific part of a T4O bill of material transfer:
+#                \li Procedure \b TC_Object2EBS_BillOfMaterial maps Teamcenter attributes of BOM header to EBS attributes (so called \c mapping).
+#                \li Procedure \b TC_Object2EBS_BillOfMaterialPostAction is called after the general mapping in order to perform additional steps.
+#                \li Procedure \b TC_Object2EBS_BillOfMaterialPosition maps Teamcenter attributes of BOM line to EBS attributes (so called \c mapping).
+#                \li Procedure \b EBS_BillOfMaterial2TC_Object maps EBS attributes back to Teamcenter attributes (so called \c reverse \c mapping).
+#
+# \note          For the data exchange between Teamcenter and T4O the internal TCL dictionary \c ::TcData is used.
+#                It contains specific attributes of the Teamcenter object to be transferred
+#                and additional information about the current transaction.
+#                For the data exchange between T4O and EBS the internal TCL array \c ::EBSDat is used.\n
+#                Teamcenter attributes can be read from \c ::TcData with function \c ::T4X::TC::MAPPING::FieldMapping.\n
+#                Teamcenter attributes can be written to \c ::TcData with function \c ::T4X::TC::MAPPING::storeReverseMappingAttribute.\n
+#                EBS attributes can be read from \c ::EBSDat using function \c ::T4O::TC::MAPPING::EBSFieldMapping.\n
+#                EBS attributes can be written to \c ::EBSDat with \c set \c ::EBSDat(<key>) \c value.\n
+#
+# \pre           For the bill of material transfer the following preferences are used:
+#                \li \c T4O_BillOfMaterialTypeList : list of allowed Teamcenter object types
+#                \li \c T4O_BillOfMaterialMapping4<ViewType> : list of Teamcenter view types to read attributes from
+#                \li \c T4O_BillOfMaterialHeaderTypeList : list of allowed Teamcenter object types for BOM header. Otherwise \c T4O_MaterialMasterTypeList is used
+#                \li \c T4O_BillOfMaterialHeaderMapping4<ObjectType> : list of Teamcenter data types for BOM header to read attributes from. Otherwise \c T4O_MaterialMasterMapping4<ObjectType> is used
+#                \li \c T4O_BillOfMaterialLineMapping4<ObjectType> : list of Teamcenter data types for BOM lines to read attributes from. Otherwise \c T4O_MaterialMasterMapping4<ObjectType> is used
+#                \li \c T4O_BillOfMaterialOccurrenceNotes4<ViewType> : list of Teamcenter occurrence notes for BOM lines to read attributes from.
+#                \li \c T4O_BillOfMaterialMapping2<ViewType> : list of Teamcenter view types to write back during reverse mapping
+#                \li \c T4O_BillOfMaterialFieldMapping2<DataType> : list of Teamcenter attributes to write back during reverse mapping (optional)
+#
+# \author        kh, 20131022
+#
+# \copyright     2014
+#                Siemens Product Lifecycle Management Software Inc.
+#                All Rights Reserved.
+#
+
+# TODO: Need to send BOM to GLO for ECN
+
+namespace eval ::T4O::BOM::CUSTOM::MAPPING {
+  namespace export TC_Object2EBS_BillOfMaterial
+  namespace export TC_Object2EBS_BillOfMaterialPosition
+  namespace export EBS_BillOfMaterial2TC_Object
+  namespace export check4AttributeChanges_Components
+  namespace export check4AttributeChanges_Substitutes
+  namespace export check4AttributeChanges_RefDes
+  namespace export isAllowedType
+  namespace export setOrgMfgForm
+  #
+  variable MCNName         ; # string
+  variable MCNOrgValue     ; # string
+  variable OrgMfgForm      ; # obj
+  variable BOMEffDate      ; # TimeString
+  variable BOMDisDate      ; # TimeString
+  variable MaxPosition     ; # int
+  variable ChildInfo       ; # dict: [list: ChildName OpSeqNo] LineIndexEBS
+  variable RefDesInfo      ; # dict: [list: ChildName OpSeqNo] [list: LineIndexEBS]
+  variable disAllowedTypes ; # list: TypeName
+  variable ProcessedLines  ; # list: LineIndexEBS
+  variable SolutionItems   ; # list: RevTag
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::BOM::CUSTOM::MAPPING::TC_Object2EBS_BillOfMaterial
+  # \brief          Customer specific BOM header mapping function template.
+  #                 This function will split into a "standard" and "ECO" related function
+  #                 based on the transfer type (should it be a simple BOM transfer or
+  #                 a BOM over ECO transfer).
+  #
+  # \param          TransactionId - Unique ID for the transfer transaction
+  # \param          ItemType
+  # \param          ItemRevisionType
+  # \param          args - Not used
+  #
+  # \author         kh, 20101109
+  # \return         MappingStatus used by the following transfer function.
+  #                 The following values are valid:
+  #                   - OK                    -> T4O will continue with the next transfer step
+  #                   - REVERSEMAPPINGONLY    -> T4O will skip the transfer to EBS and will just do the reverse mapping
+  #                   - ADDITIONALUPDATESONLY -> T4O will skip the main transfer but will excecute all additional
+  #                                              transfers like ECO implement (if activated in the mapping)
+  #                   - SKIPPED               -> T4O will skip the transfer to EBS
+  #                   - ERROR                 -> T4O will stop transfer and raise an error
+  #
+  #
+  # NOTE: This should match with the logic in ::T4O::PLMXML::ROUTING::CUSTOM::MAPPING::PLMXML_Data2EBS_BOMHeader!
+  #
+  proc TC_Object2EBS_BillOfMaterial { TransactionId ItemType ItemRevisionType args } {
+    variable MCNName        ""
+    variable MCNOrgValue    ""
+    variable OrgMfgForm     {}
+    variable BOMEffDate     [::T4O::getTimeString4Now2]
+    variable BOMDisDate     ""
+    variable MaxPosition    0
+    variable ChildInfo      [dict create]
+    variable RefDesInfo     [dict create]
+    variable ProcessedLines [list]
+    variable SolutionItems  [list]
+
+    set Status      "OK"
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts..."
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN [concat $FunctionName {$Id: GET_t4o_bom_mapping.sd,v 1.18 2018/04/05 18:08:06 scjones Exp $}]
+    #
+    set ItemRev     "$ItemRevisionType"
+    set Item        "$ItemRev:items_tag:$ItemType"
+    set mfgFormPath "$Item:GET6PartOrgRelation:*"
+    set MCNPath     "RootTask:EPM_target_attachment:GET6MCNRevision"
+    set SolItemPath "$MCNPath:CMHasSolutionItem:*"
+
+    set ItemId    [::T4X::TC::MAPPING::IndexedFieldMapping "0" $Item    "item_id"]
+    set ItemRevId [::T4X::TC::MAPPING::IndexedFieldMapping "0" $ItemRev "item_revision_id"]
+
+    set MCNName [::T4X::TC::MAPPING::RootTaskFieldMapping $MCNPath "item_id"]
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId INFO "Processing MCN $MCNName"
+    tpco_setLogIndex -logchannel $TransactionId -key mcn_name -value $MCNName
+
+    set SolutionItems [::T4X::TC::MAPPING::getRootTaskFieldMappingValueList $SolItemPath "object_tag"]
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "Solution Items: $SolutionItems"
+
+    # Get effectivity from new MCN fields rather than RSO
+    set EffDateStr [::T4X::TC::MAPPING::RootTaskFieldMapping $MCNPath "get6MBOMEffStartDate"]
+    set DisDateStr [::T4X::TC::MAPPING::RootTaskFieldMapping $MCNPath "get6MBOMEffEndDate"]
+    # Ignore the time of day
+    set EffDateStr [lindex [split $EffDateStr] 0]
+    set DisDateStr [lindex [split $DisDateStr] 0]
+    #
+    if { $EffDateStr ne "0.01.00" } {
+      set EffDateInSec      [clock scan $EffDateStr -format {%Y.%m.%d}]
+      set currentTimeInSecs [::T4O::time2CTime $BOMEffDate]
+      if { $EffDateInSec > $currentTimeInSecs } {
+        set BOMEffDate [::T4O::CTime2time $EffDateInSec]
+      }
+    }
+    if { $DisDateStr ne "0.01.00" } {
+      set BOMDisDate [::T4O::CTime2time [clock scan $DisDateStr -format {%Y.%m.%d}]]
+    }
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId INFO " Effectivity Start >$BOMEffDate<   End >$BOMDisDate<"
+
+    #
+    # set some control parameters for the transfer
+    #
+    set ::EBSDat(Bom:CtrlParam:allowEmptyBomTransfer)              $::T4O_Defaults(FALSE)
+    set ::EBSDat(Bom:CtrlParam:skipEmptyBomTransfer)               $::T4O_Defaults(TRUE)
+    set ::EBSDat(Bom:CtrlParam:useEco4BomTransfer)                 $::T4O_Defaults(FALSE)
+    set ::EBSDat(Bom:CtrlParam:Check4AttributeChanges_Components)  $::T4O_Defaults(TRUE)
+    set ::EBSDat(Bom:CtrlParam:Check4AttributeChanges_Substitutes) $::T4O_Defaults(FALSE)
+    set ::EBSDat(Bom:CtrlParam:Check4AttributeChanges_RefDes)      $::T4O_Defaults(FALSE)
+    set ::EBSDat(Bom:CtrlParam:EFFECTIVITY_DATE)                   $BOMEffDate ; # For BOM read call, can be empty -> default is Now(); But: Can also be used for BOM line start effectivity date or for an ECO, if the BOM is maintained through an ECO.
+    set ::EBSDat(Bom:CtrlParam:EFFECTIVITY_DISPLAY_TYPE)           "FUTURE AND CURRENT" ; # Only for BOM read call, can be empty -> default is "CURRENT"; possible values: ALL, FUTURE AND CURRENT, CURRENT
+
+    set MCNOrgValue [::T4X::TC::MAPPING::RootTaskFieldMapping   $MCNPath "project_ids"]
+    set mfgFormList [::T4X::TC::MAPPING::findIndexedObjectId4Value "0" $mfgFormPath "project_ids" $MCNOrgValue]
+    if { [lindex $mfgFormList 0] ne "OK" } {
+      ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId ERROR "ERROR: No Manufacturing Attribute form found for MCN org $MCNOrgValue"
+      set Status "ERROR"
+    }
+    set OrgMfgForm  [lindex $mfgFormList 1]
+
+    set ::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ASSEMBLY_ITEM_NAME:1)       $ItemId
+    set ::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ORGANIZATION_CODE:1)        $MCNOrgValue
+    set ::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ALTERNATE_BOM_CODE:1)       ""
+    set ::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ASSEMBLY_TYPE:1)            $::T4O_Defaults(ASSEMBLY_TYPE_MANUFACTURING)
+
+#    ::TPEBS::BOM::initBomStructure_P_BOM_REVISION_TBL 1
+#    set ::EBSDat(Bom:P_BOM_REVISION_TBL:P_BOM_REVISION_TBL_ITEM:ASSEMBLY_ITEM_NAME:1)   $ItemId
+#    set ::EBSDat(Bom:P_BOM_REVISION_TBL:P_BOM_REVISION_TBL_ITEM:ORGANIZATION_CODE:1)    $MCNOrgValue
+#    set ::EBSDat(Bom:P_BOM_REVISION_TBL:P_BOM_REVISION_TBL_ITEM:ALTERNATE_BOM_CODE:1)   ""
+#    set ::EBSDat(Bom:P_BOM_REVISION_TBL:P_BOM_REVISION_TBL_ITEM:REVISION:1)             $ItemRevId
+
+    #Read existing components from EBS
+    set OrgCode        $::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ORGANIZATION_CODE:1)
+    set BomAlternative $::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ALTERNATE_BOM_CODE:1)
+    set AssemblyId     ""
+    set OrgId          ""
+    set BomId          ""
+    set BomEffType     $::EBSDat(Bom:CtrlParam:EFFECTIVITY_DISPLAY_TYPE)
+    set OpSeqNo        ""
+    set rc_func [::TPEBS::BOM::getBomInfoAll $ItemId $OrgCode $BomAlternative $AssemblyId $OrgId $BomId $BOMEffDate $BomEffType $OpSeqNo]
+    if { $rc_func eq "OK" } {
+      foreach elem [array names ::BomResultDat X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:*] {
+        set LineIndexEBS [lindex [split $elem :] end]
+        set ChildName  $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:$LineIndexEBS)
+        set OpSeqNo    $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndexEBS)
+        if { $ChildName eq "" } continue
+
+        if { [dict exists $ChildInfo $ChildName] } {
+          set LineIndexOld [dict get $ChildInfo $ChildName]
+          set OldOpSeqNo   $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndexOld)
+          ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: Duplicate components on positions $LineIndexEBS (OpSeqNo $OpSeqNo) and $LineIndexOld (OpSeqNo $OldOpSeqNo)."
+        }
+
+        dict set ChildInfo $ChildName $LineIndexEBS
+      }
+      foreach elem [array names ::BomResultDat X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:REFERENCE_DESIGNATOR_NAME:*] {
+        set LineIndexEBS [lindex [split $elem :] end]
+        set ChildName  $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:COMPONENT_ITEM_NAME:$LineIndexEBS)
+        set OpSeqNo    $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndexEBS)
+        if { $ChildName eq "" } continue
+
+        dict lappend RefDesInfo $ChildName $LineIndexEBS
+      }
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype [::T4X::CORE::getLogLineMessageType4rc $Status] "$FunctionName finished with >$Status<"
+
+    return $Status
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::BOM::CUSTOM::MAPPING::TC_Object2EBS_BillOfMaterialPostAction
+  # \brief          This function is called AFTER the general mapping and can be used
+  #                 to perform additional steps after the header and position mapping.
+  #
+  # \param          TransactionId - Unique ID for the transfer transaction
+  # \param          PositionIndex - Tc BOMLine index
+  # \param          ItemType
+  # \param          ItemRevisionType
+  # \param          MappingStatus
+  # \param          args - Not used
+  #
+  # \author         kh, 20131014
+  #
+  # \return         OK
+  #
+  #
+  proc TC_Object2EBS_BillOfMaterialPostAction { TransactionId ItemType ItemRevisionType MappingStatus args } {
+    variable BOMEffDate
+    variable MaxPosition
+    variable ChildInfo
+    variable ProcessedLines
+    #
+    set ::errorCode "NONE"
+    set ::errorInfo ""
+    set rc "OK"
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with TransactionId >$TransactionId<, ItemType >$ItemType<, ItemRevisionType >$ItemRevisionType< and MappingStatus >$MappingStatus<"
+    #
+    set PositionIndex $MaxPosition
+
+    # T4O doesn't handle deleting components that aren't effective yet, so do it explicitly
+
+    set NowC [::T4O::time2CTime $BOMEffDate]
+
+    dict for { ChildName LineIndexEBS } $ChildInfo {
+      if { [lsearch -exact $ProcessedLines $LineIndexEBS] < 0 } {
+        tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "Checking deleted component index $LineIndexEBS - $ChildName"
+
+        set OldEffDate $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndexEBS)
+        set OldEffDateC [::T4O::time2CTime $OldEffDate]
+        tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "Now >$BOMEffDate<   OldEffDate >$OldEffDate<"
+        tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype DEBUG "NowC >$NowC<   OldEffDateC >$OldEffDateC<"
+
+        if { $OldEffDateC > $NowC } {
+          # Component is not yet effective so disable it on its effective date
+          ::TPEBS::BOM::initBomStructure_P_BOM_COMPONENT_TBL [incr PositionIndex]
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ASSEMBLY_ITEM_NAME:$PositionIndex)        $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:ASSEMBLY_ITEM_NAME:$LineIndexEBS)
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ORGANIZATION_CODE:$PositionIndex)         $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:ORGANIZATION_CODE:$LineIndexEBS)
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ALTERNATE_BOM_CODE:$PositionIndex)        $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:ALTERNATE_BOM_CODE:$LineIndexEBS)
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:$PositionIndex)       $ChildName
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ITEM_SEQUENCE_NUMBER:$PositionIndex)      $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:ITEM_SEQUENCE_NUMBER:$LineIndexEBS)
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$PositionIndex) $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndexEBS)
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$PositionIndex)      $OldEffDate
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:DISABLE_DATE:$PositionIndex)              $OldEffDate
+        }
+      }
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype [::T4X::CORE::getLogLineMessageType4rc $rc] "$FunctionName finished with >$rc<"
+    #
+    return $rc
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::BOM::CUSTOM::MAPPING::TC_Object2EBS_BillOfMaterialPosition
+  # \brief          Customer specific BOM position mapping function template.
+  #                 This function will be used if a simple BOM transfer is executed.
+  #
+  # \param          TransactionId - Unique ID for the transfer transaction
+  # \param          PositionIndex - Tc BOMLine index
+  # \param          ItemType
+  # \param          ItemRevisionType
+  # \param          args - Not used
+  #
+  # \author         kh, 20110203
+  #
+  # \return         MappingStatus used by the following transfer function.
+  #                 The following values are valid:
+  #                   - OK                    -> T4O will continue with the next transfer step
+  #                   - REVERSEMAPPINGONLY    -> T4O will skip the transfer to EBS and will just do the reverse mapping
+  #                   - ADDITIONALUPDATESONLY -> T4O will skip the main transfer but will excecute all additional
+  #                                              transfers like ECO implement (if activated in the mapping)
+  #                   - SKIPPED               -> T4O will skip the transfer to EBS
+  #                   - ERROR                 -> T4O will stop transfer and raise an error
+  #
+  #
+  # NOTE: This should match with the logic in ::T4O::PLMXML::ROUTING::CUSTOM::MAPPING::PLMXML_Data2EBS_BOMHeader!
+  #
+  proc TC_Object2EBS_BillOfMaterialPosition { TransactionId PositionIndex ItemType ItemRevisionType args } {
+    variable MCNName
+    variable MCNOrgValue
+    variable BOMEffDate
+    variable BOMDisDate
+    variable MaxPosition
+    variable ChildInfo
+    variable RefDesInfo
+    variable ProcessedLines
+    variable SolutionItems
+    #
+    set ::errorCode "NONE"
+    set ::errorInfo ""
+    set Status "OK"
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with $TransactionId $PositionIndex $ItemType $ItemRevisionType"
+    #
+    set ItemRev  "$ItemRevisionType"
+    set Item     "$ItemRev:items_tag:$ItemType"
+    #
+    set ItemId       [::T4X::TC::MAPPING::IndexedFieldMapping $PositionIndex $Item     "item_id"]
+    set RevTag       [::T4X::TC::MAPPING::IndexedFieldMapping $PositionIndex $ItemRev  "object_tag"]
+    set bomlineUOM   [::T4X::TC::MAPPING::IndexedFieldMapping $PositionIndex "BOMLine" "bl_item_uom_tag"]
+    set bomlineSeq   [::T4X::TC::MAPPING::IndexedFieldMapping $PositionIndex "BOMLine" "bl_sequence_no"]
+    set bomlineSubst [::T4X::TC::MAPPING::IndexedFieldMapping $PositionIndex "BOMLine" "bl_substitute"]
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: bomlineUOM: $bomlineUOM"
+    set Quantity     [::T4X::TC::MAPPING::IndexedFieldMapping $PositionIndex "BOMLine" "bl_quantity"]
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: Quantity: $Quantity"
+    if { [::T4X::TC::MAPPING::IndexedFieldMapping "0" $ItemRev "has_module"] ne "True" } {
+      # Classic
+      set TcCondString [::T4X::TC::MAPPING::IndexedFieldMapping $PositionIndex "BOMLine" "bl_formula"]
+    } else {
+      # Modular
+      set TcCondString [::T4X::TC::MAPPING::IndexedFieldMapping $PositionIndex "BOMLine" "bl_variant_condition"]
+    }
+
+    if { [isAllowedType $ItemRevisionType] ne "OK" } {
+      ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId INFO "Skipping component $ItemId with disallowed ItemRevisionType $ItemRevisionType on line $PositionIndex"
+      set Status "SKIPPED"
+    } elseif { $bomlineUOM eq $::T4O_Defaults(UOM) } {
+      ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId INFO "Skipping component $ItemId with Default UOM ($::T4O_Defaults(UOM)) on line $PositionIndex"
+      set Status "SKIPPED"
+    } elseif { $bomlineSubst eq "Substitute" } {
+      ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId INFO "Skipping substitute component $ItemId on line $PositionIndex"
+      set Status "SKIPPED"
+    } elseif { ![string is integer $bomlineSeq] } {
+      ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId ERROR "ERROR: Invalid Find Number ($bomlineSeq) for component $ItemId on line $PositionIndex - Packed Find Numbers?"
+      set Status "ERROR"
+    } else {
+      set MaxPosition $PositionIndex
+
+      if {[string trim $Quantity] eq "" || [string trim $Quantity] == 0} {
+        set Quantity       "1"
+      } elseif { $Quantity eq "A/R" } {
+        set Quantity       "0"
+      } elseif { $Quantity < 0 } {
+        ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId ERROR "ERROR: Negative quantity for item $ItemId on line $PositionIndex."
+        set Status "ERROR"
+      }
+
+      if { $TcCondString ne "" } {
+        set Optional $::T4O_Defaults(SYS_YES_NO_YES) ; # Component is optional
+      } else {
+        set Optional $::T4O_Defaults(SYS_YES_NO_NO) ; # Component is NOT optional
+      }
+
+      set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ASSEMBLY_ITEM_NAME:$PositionIndex)        $::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ASSEMBLY_ITEM_NAME:1)
+      set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ORGANIZATION_CODE:$PositionIndex)         $::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ORGANIZATION_CODE:1)
+      set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ALTERNATE_BOM_CODE:$PositionIndex)        $::EBSDat(Bom:P_BOM_HEADER_TBL:P_BOM_HEADER_TBL_ITEM:ALTERNATE_BOM_CODE:1)
+      set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:COMPONENT_ITEM_NAME:$PositionIndex)       $ItemId
+      set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:ITEM_SEQUENCE_NUMBER:$PositionIndex)      $bomlineSeq
+      set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:COMMENTS:$PositionIndex)                  $MCNName
+      set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:QUANTITY_PER_ASSEMBLY:$PositionIndex)     $Quantity
+      set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:OPTIONAL:$PositionIndex)                  $Optional
+
+      if { [dict exists $ChildInfo $ItemId] } {
+        set LineIndexEBS [dict get $ChildInfo $ItemId]
+        set OpSeqNo    $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndexEBS)
+        set OldEffDate $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndexEBS)
+        set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$PositionIndex) $OpSeqNo
+        set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$PositionIndex)      $OldEffDate
+        if { [lsearch -exact $SolutionItems $RevTag] >= 0 } {
+          if { $BOMEffDate ne $OldEffDate } {
+            set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:NEW_EFFECTIVITY_DATE:$PositionIndex)  $BOMEffDate
+          }
+          set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:DISABLE_DATE:$PositionIndex) $BOMDisDate
+        }
+        # Copy any existing reference designators for this component
+        if { [dict exists $RefDesInfo $ItemId] } {
+          foreach LineIndexEBS [dict get $RefDesInfo $ItemId] {
+            ::TPEBS::BOM::initBomStructure_P_BOM_REF_DESIGNATOR_TBL [incr RefDesIndex]
+
+            set ::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:ASSEMBLY_ITEM_NAME:$RefDesIndex)        $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:ASSEMBLY_ITEM_NAME:$LineIndexEBS)
+            set ::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:ORGANIZATION_CODE:$RefDesIndex)         $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:ORGANIZATION_CODE:$LineIndexEBS)
+            set ::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:ALTERNATE_BOM_CODE:$RefDesIndex)        $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:ALTERNATE_BOM_CODE:$LineIndexEBS)
+            set ::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:START_EFFECTIVE_DATE:$RefDesIndex)      $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndexEBS)
+            set ::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$RefDesIndex) $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndexEBS)
+            set ::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:COMPONENT_ITEM_NAME:$RefDesIndex)       $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:COMPONENT_ITEM_NAME:$LineIndexEBS)
+            set ::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:ALTERNATE_BOM_CODE:$RefDesIndex)        $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:ALTERNATE_BOM_CODE:$LineIndexEBS)
+            set ::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:REFERENCE_DESIGNATOR_NAME:$RefDesIndex) $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:REFERENCE_DESIGNATOR_NAME:$LineIndexEBS)
+            set ::EBSDat(Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM:REF_DESIGNATOR_COMMENT:$RefDesIndex)    $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:REF_DESIGNATOR_COMMENT:$LineIndexEBS)
+          }
+        }
+        lappend ProcessedLines $LineIndexEBS
+      } else {
+        set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$PositionIndex) "1"
+        set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:START_EFFECTIVE_DATE:$PositionIndex)      $BOMEffDate
+        set ::EBSDat(Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM:DISABLE_DATE:$PositionIndex)              $BOMDisDate
+      }
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished for PositionIndex >$PositionIndex< with >$Status<"
+    return $Status
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::BOM::CUSTOM::MAPPING::EBS_BillOfMaterial2TC_Object
+  # \brief          Customer specific BOM reverse mapping function template.
+  #                 This function will be used if a simple BOM transfer is executed.
+  #
+  # \param          TransactionId - Unique ID for the transfer transaction
+  # \param          Status - EBS transfer status
+  #                 The following values are valid:
+  #                   - SKIPPED the transfer was skipped
+  #                   - ERROR the transfer was stopped by an error
+  #                   - UNKNOWN the transfer was stopped by an unknown error
+  #                   - UPDATED_WITH_ERROR the main transfer was successful but one of the additional transfers failed (like ECO implement)
+  #                   - CREATED, CHANGED, UPDATED and some other values are used for a successful transfer
+  # \param          args - Not used
+  #
+  # \author         kh, 20110203
+  #
+  # \return         MappingStatus used by the following Tc object update function
+  #                 The following values are valid:
+  #                   - OK      -> T4O will update the Tc object based on the reverse mapping
+  #                                preferences and the reverse mapping buffer
+  #                   - SKIPPED -> T4O will skip the TcData object
+  #                   - ERROR   -> T4O will stop transfer and raise an error
+  #
+  #
+  proc EBS_BillOfMaterial2TC_Object { TransactionId Status args } {
+    variable OrgMfgForm
+    #
+    set MappingStatus "OK"
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with $TransactionId $Status"
+    #
+    if { $Status eq "CREATED" || $Status eq "CHANGED" || $Status eq "UPDATED" } {
+      # BOM Published Date
+      set strTransferDate [clock format [clock seconds] -format "%Y.%m.%d %T"]
+      ::T4X::TC::MAPPING::storeReverseMappingObjectAttribute $OrgMfgForm "GET6MfgAttrForm" "get6BOMPublishDate" $strTransferDate
+    } else {
+      set MappingStatus "SKIPPED"
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype [::T4X::CORE::getLogLineMessageType4rc $MappingStatus] "$FunctionName finished with >$MappingStatus<"
+    return $MappingStatus
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::BOM::CUSTOM::MAPPING::check4AttributeChanges_Components
+  # \brief          Customer specific Mapping function in order to check
+  #                 if a BOM line attribute has been changed. If so and
+  #                 OK is returned, the component will be send as
+  #                 revised item component with ACD_TYPE CHANGE. If
+  #                 SKIPPED is returned, the component will not be send
+  #                 to the EBS at all and the ECO will not be attached to it.
+  #                 This function has to be activated by setting the switch
+  #                 ::EBSDat(ChangeOrder:CtrlParam:Check4AttributeChanges_Components)
+  #                 and/or ::EBSDat(Bom:CtrlParam:Check4AttributeChanges_Components)
+  #                 to TRUE in the BOM header mapping function.
+  #                 Important: If activated and an attribute is not checked,
+  #                            changes might be missed.
+  #
+  #
+  # \param          LineIndexTC  - TCL array index of the actual processed TC BOM Line
+  # \param          LineIndexEBS - TCL array index of the actual processed EBS BOM Line
+  #
+  # \author         kh, 20131219
+  #
+  # \return         OK or SKIPPED
+  #
+  #
+  proc check4AttributeChanges_Components { LineIndexTC LineIndexEBS args } {
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with LineIndexTC >$LineIndexTC< and LineIndexEBS >$LineIndexEBS<"
+    #
+    if { $::EBSDat(Bom:CtrlParam:useEco4BomTransfer) eq "FALSE" } {
+      set ComponentTable "Bom:P_BOM_COMPONENT_TBL:P_BOM_COMPONENT_TBL_ITEM"
+    } else {
+      set ComponentTable "ChangeOrder:P_REV_COMPONENT_TBL:P_REV_COMPONENT_TBL_ITEM"
+    }
+    #
+    # Define all the attributes which indicate changes if non-blank...
+    #
+    set lstAttributes [list "NEW_EFFECTIVITY_DATE" "NEW_OPERATION_SEQUENCE_NUMBER"]
+    foreach strAttribute $lstAttributes {
+      set TcValue  $::EBSDat($ComponentTable:$strAttribute:$LineIndexTC)
+      if { $TcValue ne "" } {
+        tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - Attribute >$strAttribute< is set in TC ($TcValue) -> Send component as changed!"
+        return "OK"
+      }
+    }
+    #
+    # Define all the attributes which should be checked for changes...
+    #
+    set lstAttributes [list "QUANTITY_PER_ASSEMBLY" "ITEM_SEQUENCE_NUMBER" "DISABLE_DATE"]
+    #
+    foreach strAttribute $lstAttributes {
+      set TcValue  $::EBSDat($ComponentTable:$strAttribute:$LineIndexTC)
+      set EbsValue $::BomResultDat(X_BOM_COMPONENT_TBL:X_BOM_COMPONENT_TBL_ITEM:$strAttribute:$LineIndexEBS)
+      if { $TcValue ne $EbsValue } {
+        tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - Attribute >$strAttribute< is different in EBS ($EbsValue) than in TC ($TcValue) -> Send component as changed!"
+        return "OK"
+      }
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype [::T4X::CORE::getLogLineMessageType4rc "SKIPPED"] "$FunctionName - No changes detected -> Skip component"
+    return "SKIPPED"
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::BOM::CUSTOM::MAPPING::check4AttributeChanges_Substitutes
+  # \brief          Customer specific Mapping function in order to check
+  #                 if a substitute attribute has been changed. If so and
+  #                 OK is returned, the substitute will be send as with
+  #                 ACD_TYPE CHANGE.
+  #                 If SKIPPED is returned, the component will not be send
+  #                 to the EBS at all and the ECO will not be attached to it.
+  #                 This function has to be activated by setting the switch
+  #                 ::EBSDat(ChangeOrder:CtrlParam:Check4AttributeChanges_Substitutes)
+  #                 to TRUE in the BOM header mapping function.
+  #                 Important: If activated and an attribute is not checked,
+  #                            changes might be missed.
+  #
+  #
+  # \param          LineIndexTC  - TCL array index of the actual processed TC substitute
+  # \param          LineIndexEBS - TCL array index of the actual processed EBS substitute
+  #
+  # \author         kh, 20131219
+  #
+  # \return         OK or SKIPPED
+  #
+  #
+  proc check4AttributeChanges_Substitutes { LineIndexTC LineIndexEBS args } {
+    #
+    set rc "SKIPPED"
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with LineIndexTC >$LineIndexTC< and LineIndexEBS >$LineIndexEBS<"
+    #
+    if { $::EBSDat(Bom:CtrlParam:useEco4BomTransfer) eq "FALSE" } {
+      set SubstituteTable "Bom:P_BOM_SUB_COMPONENT_TBL:P_BOM_SUB_COMPONENT_TBL_ITEM"
+    } else {
+      set SubstituteTable "ChangeOrder:P_SUB_COMPONENT_TBL:P_SUB_COMPONENT_TBL_ITEM"
+    }
+    #
+    # Define all the attributes which indicate changes...
+    #
+    set lstAttributes [list "NEW_SUBSTITUTE_COMPONENT_NAME"]
+    foreach strAttribute $lstAttributes {
+      set TcValue  $::EBSDat($SubstituteTable:$strAttribute:$LineIndexTC)
+      if { $TcValue ne "" } {
+        tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - Attribute >$strAttribute< is set in TC ($TcValue) -> Send substitute as changed!"
+        return "OK"
+      }
+    }
+    #
+    # Define all the attributes which should be checked for changes...
+    #
+    set lstAttributes [list "SUBSTITUTE_ITEM_QUANTITY"]
+    #
+    foreach strAttribute $lstAttributes {
+      set TcValue  $::EBSDat($SubstituteTable:$strAttribute:$LineIndexTC)
+      set EbsValue $::BomResultDat(X_BOM_SUB_COMPONENT_TBL:X_BOM_SUB_COMPONENT_TBL_ITEM:$strAttribute:$LineIndexEBS)
+      if { $TcValue ne $EbsValue } {
+        tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - Attribute >$strAttribute< is different in EBS ($EbsValue) than in TC ($TcValue) -> Send substitute as changed!"
+        return "OK"
+      }
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype [::T4X::CORE::getLogLineMessageType4rc $rc] "$FunctionName finished with >$rc<"
+    #
+    return $rc
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::BOM::CUSTOM::MAPPING::check4AttributeChanges_RefDes
+  # \brief          Customer specific Mapping function in order to check
+  #                 if a reference designator attribute has been changed. If so and
+  #                 OK is returned, the reference designator will be send as with
+  #                 ACD_TYPE CHANGE.
+  #                 If SKIPPED is returned, the reference designator will not be send
+  #                 to the EBS at all and the ECO will not be attached to it.
+  #                 This function has to be activated by setting the switch
+  #                 ::EBSDat(ChangeOrder:CtrlParam:Check4AttributeChanges_RefDes)
+  #                 to TRUE in the BOM header mapping function.
+  #                 Important: If activated and an attribute is not checked,
+  #                            changes might be missed.
+  #
+  #
+  # \param          LineIndexTC  - TCL array index of the actual processed TC reference designator
+  # \param          LineIndexEBS - TCL array index of the actual processed EBS reference designator
+  #
+  # \author         kh, 20131219
+  #
+  # \return         OK or SKIPPED
+  #
+  #
+  proc check4AttributeChanges_RefDes { LineIndexTC LineIndexEBS args } {
+    #
+    set rc "SKIPPED"
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with LineIndexTC >$LineIndexTC< and LineIndexEBS >$LineIndexEBS<"
+    #
+    if { $::EBSDat(Bom:CtrlParam:useEco4BomTransfer) eq "FALSE" } {
+      set RefDesTable "Bom:P_BOM_REF_DESIGNATOR_TBL:P_BOM_REF_DESIGNATOR_TBL_ITEM"
+    } else {
+      set RefDesTable "ChangeOrder:P_REF_DESIGNATOR_TBL:P_REF_DESIGNATOR_TBL_ITEM"
+    }
+    #
+    # Define all the attributes which indicate changes...
+    #
+    set lstAttributes [list "NEW_REFERENCE_DESIGNATOR"]
+    foreach strAttribute $lstAttributes {
+      set TcValue  $::EBSDat($RefDesTable:$strAttribute:$LineIndexTC)
+      if { $TcValue ne "" } {
+        tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - Attribute >$strAttribute< is set in TC ($TcValue) -> Send reference designator as changed!"
+        return "OK"
+      }
+    }
+    #
+    # Define all the attributes which should be checked for changes...
+    #
+    set lstAttributes [list "REF_DESIGNATOR_COMMENT"]
+    #
+    foreach strAttribute $lstAttributes {
+      set TcValue  $::EBSDat($RefDesTable:$strAttribute:$LineIndexTC)
+      set EbsValue $::BomResultDat(X_BOM_REF_DESIGNATOR_TBL:X_BOM_REF_DESIGNATOR_TBL_ITEM:$strAttribute:$LineIndexEBS)
+      if { $TcValue ne $EbsValue } {
+        tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - Attribute >$strAttribute< is different in EBS ($EbsValue) than in TC ($TcValue) -> Send reference designator as changed!"
+        return "OK"
+      }
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype [::T4X::CORE::getLogLineMessageType4rc $rc] "$FunctionName finished with >$rc<"
+    #
+    return $rc
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::BOM::CUSTOM::MAPPING::isAllowedType
+  # \brief          Check to see if an Item Revision Type is allowed in a BOM.
+  #
+  # \param          ItemRevisionType - type to check
+  # \return         OK or SKIPPED
+  #
+  proc isAllowedType { ItemRevisionType } {
+    variable disAllowedTypes
+    #
+    set rc "SKIPPED"
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with >$ItemRevisionType<"
+
+    if { ![info exists disAllowedTypes] } {
+      #Get the disallowed child types from TC preference and store in a global variable.
+      #Global variable value will retain till the end of TC session.
+      set disAllowedTypes [lindex [::T4X::TC::MAPPING::getPreferenceValue "site" "string" $::T4O_Defaults(DISALLOWEDTYPEPREF)] 1]
+    }
+
+    if { [lsearch -exact $disAllowedTypes $ItemRevisionType] < 0 } {
+      set rc "OK"
+    }
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished with >$rc<"
+    return $rc
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::BOM::CUSTOM::MAPPING::setOrgMfgForm
+  # \brief          Set the org Manufacturing Attributes form object for the reverse mapping.
+  #
+  # \param          objTag - Mfg Attr form tag
+  #
+  proc setOrgMfgForm { objTag } {
+    variable OrgMfgForm
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with >$objTag<"
+
+    set OrgMfgForm $objTag
+
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished"
+  }
+}

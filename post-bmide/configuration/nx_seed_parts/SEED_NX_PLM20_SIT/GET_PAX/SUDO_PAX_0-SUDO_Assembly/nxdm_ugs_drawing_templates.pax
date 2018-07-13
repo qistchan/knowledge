@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Palette xmlns="http://www.ugsolutions.com/Schemas/2001/UGPalettes" schemaVersion="1.0">
+
+  <Presentation name="Drawing Templates (Inch)" bitmap="drawing_new.bmp" FileNewTab="Drawing" application="All" UsesMasterModel="Yes" Environment="Managed"/>
+
+    <PaletteEntry id="d1">
+            <References/>
+            <Presentation name="GET Inch Drawing Master" description="Inch Drawing Master Seed Part">
+                <PreviewImage type="UGPart" location="${GETS_LOC_DIR}\win\ug\Config\SeedPartsPreview\GETDrawingMaster_Inch.jpg"/>
+            </Presentation>
+            <ObjectData class="DrawingTemplate">
+                <TemplateFileType>none</TemplateFileType>
+                <Filename>@DB/GETDRAWING_IN_MASTER/A</Filename>
+                <Units>English</Units>
+                <UsesMasterModel>No</UsesMasterModel>
+                <ItemType>GET6Drawing</ItemType>
+                <RelationType>master</RelationType>
+            </ObjectData>
+        </PaletteEntry>
+	
+	<PaletteEntry id="d2">
+        <References/>
+        <Presentation name="GET Metric Drawing Master" description="Inch Drawing Master Seed Part">
+            <PreviewImage type="UGPart" location="${GETS_LOC_DIR}\win\ug\Config\SeedPartsPreview\GETDrawingMaster_Metric.jpg"/>
+        </Presentation>
+        <ObjectData class="DrawingTemplate">
+            <TemplateFileType>none</TemplateFileType>
+            <Filename>@DB/GETDRAWING_MM_MASTER/A</Filename>
+            <Units>Metric</Units>
+            <UsesMasterModel>No</UsesMasterModel>
+            <ItemType>GET6Drawing</ItemType>
+            <RelationType>master</RelationType>
+        </ObjectData>
+    </PaletteEntry>
+	
+   <PaletteEntry id="d3">
+        <References/>
+        <Presentation name="GET Inch Drawing" description="Inch Drawing Seed Part">
+            <PreviewImage type="UGPart" location="${GETS_LOC_DIR}\win\ug\Config\SeedPartsPreview\GETDrawing_Inch.jpg"/>
+        </Presentation>
+        <ObjectData class="DrawingTemplate">
+            <TemplateFileType>none</TemplateFileType>
+            <Filename>@DB/GETDRAWING_IN_DWG/A</Filename>
+            <Units>English</Units>
+            <UsesMasterModel>Yes</UsesMasterModel>
+            <ItemType>GET6Drawing</ItemType>
+            <RelationType>specification</RelationType>
+        </ObjectData>
+    </PaletteEntry>
+	
+	<PaletteEntry id="d4">
+        <References/>
+        <Presentation name="GET Metric Drawing" description="Metric Drawing Seed Part">
+            <PreviewImage type="UGPart" location="${GETS_LOC_DIR}\win\ug\Config\SeedPartsPreview\GETDrawing_Metric.jpg"/>
+        </Presentation>
+        <ObjectData class="DrawingTemplate">
+            <TemplateFileType>none</TemplateFileType>
+            <Filename>@DB/GETDRAWING_MM_DWG/A</Filename>
+            <Units>Metric</Units>
+            <UsesMasterModel>Yes</UsesMasterModel>
+            <ItemType>GET6Drawing</ItemType>
+            <RelationType>specification</RelationType>
+        </ObjectData>
+    </PaletteEntry>
+	
+       <PaletteEntry id="d5">
+ <References/>
+        <Presentation name="3D Wiring Inch Formboard" description="Inch Formboard Drawing Seed Part">
+            <PreviewImage type="UGPart" location="${GETS_LOC_DIR}\win\ug\Config\SeedPartsPreview\3DWiringFormboard_Inch.jpg"/>
+        </Presentation>
+        <ObjectData class="DrawingTemplate">
+            <TemplateFileType>none</TemplateFileType>
+            <Filename>@DB/GETFORMBOARD_IN_DWG/A</Filename>
+            <Units>English</Units>
+            <UsesMasterModel>Yes</UsesMasterModel>
+            <ItemType>GET6MechPart</ItemType>
+            <RelationType>master</RelationType>
+        </ObjectData>
+    </PaletteEntry>
+	
+	<PaletteEntry id="d6">
+               <References/>
+        <Presentation name="3D Wiring Metric Formboard" description="Inch Formboard Drawing Seed Part">
+            <PreviewImage type="UGPart" location="${GETS_LOC_DIR}\win\ug\Config\SeedPartsPreview\3DWiringFormboard_Metric.jpg"/>
+        </Presentation>
+        <ObjectData class="DrawingTemplate">
+            <TemplateFileType>none</TemplateFileType>
+            <Filename>@DB/GETFORMBOARD_MM_DWG/A</Filename>
+            <Units>Metric</Units>
+            <UsesMasterModel>Yes</UsesMasterModel>
+            <ItemType>GET6MechPart</ItemType>
+            <RelationType>master</RelationType>
+        </ObjectData>
+    </PaletteEntry>  
+	
+    <PaletteEntry id="d7">
+    <References/>
+    <Presentation name="GET CAM Metric Master" description="GET CAM Master">
+        <PreviewImage type="UGPart" location="@DB/GETCAMPART_MM_MASTER/000"/>
+    </Presentation>
+    <ObjectData class="DrawingTemplate">
+        <Filename>@DB/GETCAMPART_MM_MASTER/000</Filename>
+	<Units>Metric</Units>
+	<UsesMasterModel>No</UsesMasterModel>
+        <ItemType>GET6Process</ItemType>
+        <RelationType>master</RelationType>
+    </ObjectData>
+  </PaletteEntry>
+  
+  <PaletteEntry id="d8">
+      <References/>
+      <Presentation name="GET CAM Inch Master" description="GET CAM Master">
+          <PreviewImage type="UGPart" location="@DB/GETCAMPART_IN_MASTER/000"/>
+      </Presentation>
+      <ObjectData class="DrawingTemplate">
+          <TemplateFileType>none</TemplateFileType>
+          <Filename>@DB/GETCAMPART_IN_MASTER/000</Filename>
+  	  <Units>English</Units>
+  	  <UsesMasterModel>No</UsesMasterModel>
+          <ItemType>GET6Process</ItemType>
+          <RelationType>master</RelationType>
+      </ObjectData>
+  </PaletteEntry>
+  
+      <PaletteEntry id="d9">
+      <References/>
+      <Presentation name="GET CAM Parts Metric" description="GET CAM Part">
+          <PreviewImage type="UGPart" location="@DB/GETCAMPART_METRIC/000"/>
+      </Presentation>
+      <ObjectData class="DrawingTemplate">
+          <Filename>@DB/GETCAMPART_METRIC/000</Filename>
+  	<Units>Metric</Units>
+  	<UsesMasterModel>Yes</UsesMasterModel>
+          <ItemType>GET6Process</ItemType>
+          <RelationType>specification</RelationType>
+      </ObjectData>
+    </PaletteEntry>
+    
+    <PaletteEntry id="d10">
+        <References/>
+        <Presentation name="GET CAM Parts Inch" description="GET CAM Part">
+            <PreviewImage type="UGPart" location="@DB/GETCAMPART_INCH/000"/>
+        </Presentation>
+        <ObjectData class="DrawingTemplate">
+            <TemplateFileType>none</TemplateFileType>
+            <Filename>@DB/GETCAMPART_INCH/000</Filename>
+    	  <Units>English</Units>
+    	  <UsesMasterModel>Yes</UsesMasterModel>
+            <ItemType>GET6Process</ItemType>
+            <RelationType>specification</RelationType>
+        </ObjectData>
+  </PaletteEntry>
+  
+</Palette>
+

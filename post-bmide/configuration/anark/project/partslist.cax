@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<CaxFileFormat xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Version>4.5.4.13011</Version>
+  <FingerprintCatalog>
+    <E I="0">empty</E>
+  </FingerprintCatalog>
+  <CommandList>
+    <CoreCommand CommandSetName="Anark Cad">
+      <CommandName>ImportCmd</CommandName>
+      <CommandArgsList>
+        <ID>$(projectroot)\PMI-84C606876G5_0.prt</ID>
+        <Description>PMI-84C606876G5_0.prt</Description>
+        <SpecifiedFormatId>971dd00d-75de-460b-b746-2da91474655c (NXAdvancedFileFormat)</SpecifiedFormatId>
+        <Options>
+          <Option Key="Anark.Core.CadAdapter.Import.ImportVisualizationOnly" Type="B">True</Option>
+          <Option Key="Anark.Core.CadAdapter.Import.CrossSectionCapColor" Type="C">LightSkyBlue</Option>
+          <Option Key="Anark.Core.CadAdapter.Import.CompressClippingPlaneCaps" Type="B">True</Option>
+          <Option Key="Anark.Core.CadAdapter.Import.IncorporateClippingPlanes" Type="B">False</Option>
+          <Option Key="Anark.Core.CadAdapter.Import.MeshChordHeight" Type="D">0.001</Option>
+          <Option Key="Anark.Core.CadAdapter.Import.MeshFacetAngle" Type="D">15</Option>
+          <Option Key="Anark.Core.CadAdapter.Import.HeavyWeightMeshSections" Type="B">True</Option>
+          <Option Key="Anark.Core.CadAdapter.Import.PmiScope" Type="S">TopLevel</Option>
+          <Option Key="Anark.Core.CadAdapter.Import.AttributesScope" Type="S">All</Option>
+          <Option Key="Anark.Core.CadAdapter.Import.SupplementalGeometryScope" Type="S">TopLevel</Option>
+          <Option Key="Anark.Core.CadAdapter.Import.IgnoreSuppressedEntities" Type="B">True</Option>
+          <Option Key="Anark.Core.CadAdapter.Import.LayerCategoryFilter" Type="S" />
+          <Option Key="Anark.Core.CadAdapter.Import.ImportReferenceSetsOrder" Type="S">As Saved;Entire Part;Empty;Use Model</Option>
+          <Option Key="Anark.Core.CadAdapter.Import.ApplyReferenceSetsToAllAssemblyLevels" Type="B">False</Option>
+          <Option Key="Anark.Core.CadAdapter.Import.MergeBodies" Type="B">False</Option>
+          <Option Key="Anark.Core.CadAdapter.Import.ImportCutViews" Type="B">False</Option>
+          <Option Key="Anark.Core.CadAdapter.Import.WindowXYRatio" Type="D">0</Option>
+        </Options>
+        <SuppressedAttributes />
+        <ActionId>512</ActionId>
+      </CommandArgsList>
+    </CoreCommand>
+    <CoreCommand CommandSetName="Anark Cad">
+      <CommandName>AddAttributesCmd</CommandName>
+      <CommandArgsList>
+        <DataConnectorId>3ea54a23-d783-423d-84d5-e86348d57bc7 (StandardDataConnector)</DataConnectorId>
+        <Attributes Version="1">
+          <Attribute AttributeId="b90e70a5-bc1c-451a-9da5-eb707e768352 (PublishedName)" DataType="S">
+            <ApplyTo>737baeb9-dbc1-4a43-9475-31c817166708 (component)</ApplyTo>
+            <ApplyTo>eb7f11ae-387c-4bba-9a8b-f9c2c46ca7e3 (instance)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="d0ef5b6a-c244-437b-a046-3b070e7c7098 (OccurrenceName)" DataType="S">
+            <ApplyTo>0c61f06c-bc93-4c15-84b7-76797efdac66 (occurrence)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="171e84fc-951e-4e9f-9873-7e702bdc22cf (OccurrenceDepth)" DataType="I">
+            <ApplyTo>0c61f06c-bc93-4c15-84b7-76797efdac66 (occurrence)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="4963f247-254d-4727-a1b4-9c00f10952de (TypeOfEntity)" DataType="S">
+            <ApplyTo>0c61f06c-bc93-4c15-84b7-76797efdac66 (occurrence)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="8e8674be-8f04-433d-b007-9ed58d31fad6 (NumberOfChildren)" DataType="I">
+            <ApplyTo>0c61f06c-bc93-4c15-84b7-76797efdac66 (occurrence)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="630f1846-ddbf-4437-99f9-2783ba16567e (IsDeleted)" DataType="B">
+            <ApplyTo>0c61f06c-bc93-4c15-84b7-76797efdac66 (occurrence)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="bfa62211-9c6c-4f6e-9ad1-44a5bf24d9e0 (IsShownInAnImportedView)" DataType="B">
+            <ApplyTo>0c61f06c-bc93-4c15-84b7-76797efdac66 (occurrence)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="1eaf4d09-18e5-43b0-85b0-2c86a6f6648f (VisibleInImportedViews)" DataType="S">
+            <ApplyTo>0c61f06c-bc93-4c15-84b7-76797efdac66 (occurrence)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="2d4eed95-e208-4040-a12b-287e2e53be5a (Color)" DataType="C">
+            <ApplyTo>737baeb9-dbc1-4a43-9475-31c817166708 (component)</ApplyTo>
+            <ApplyTo>445ecf14-f21e-4416-ae6d-3feccdf3939b (gd&amp;t)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="9676355b-c3bc-41bc-b4bc-f3b15ca348bb (Layer)" DataType="S">
+            <ApplyTo>737baeb9-dbc1-4a43-9475-31c817166708 (component)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="074b7b8e-ae27-4228-b537-5850ceb8dca4 (UseCount)" DataType="I">
+            <ApplyTo>737baeb9-dbc1-4a43-9475-31c817166708 (component)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="2c5226c1-cd95-4698-b540-e437619d2823 (PolygonCount)" DataType="I">
+            <ApplyTo>737baeb9-dbc1-4a43-9475-31c817166708 (component)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="3a9c9b43-cafd-493e-9acb-ee1c349ce0c9 (GeometrySize)" DataType="D">
+            <ApplyTo>737baeb9-dbc1-4a43-9475-31c817166708 (component)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="757675e8-d09f-47f7-a537-e22a2d705b3f (SourceFileName)" DataType="S">
+            <ApplyTo>737baeb9-dbc1-4a43-9475-31c817166708 (component)</ApplyTo>
+            <ApplyTo>eb7f11ae-387c-4bba-9a8b-f9c2c46ca7e3 (instance)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="b7beda57-6873-4ec5-ae0c-afeedac2d35a (CurrentDateTime)" DataType="T">
+            <ApplyTo>adc9b16c-9e2f-416f-a3f9-3a8ea71bc39f (workspace)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="6d73996f-d2ff-427d-8446-b46c0892b7f1 (LocalTime)" DataType="S">
+            <ApplyTo>adc9b16c-9e2f-416f-a3f9-3a8ea71bc39f (workspace)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="4646a2c2-729f-4fe5-a301-28b926b98cd2 (AnarkCoreVersion)" DataType="S">
+            <ApplyTo>adc9b16c-9e2f-416f-a3f9-3a8ea71bc39f (workspace)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="3bb6c108-1fc4-43c1-bcf8-0a7926fff754 (ProjectDescription)" DataType="S">
+            <ApplyTo>adc9b16c-9e2f-416f-a3f9-3a8ea71bc39f (workspace)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="0a2b44a0-f97f-4046-b329-70f81833ea01 (SupplementalName)" DataType="S">
+            <ApplyTo>445ecf14-f21e-4416-ae6d-3feccdf3939b (gd&amp;t)</ApplyTo>
+            <ApplyTo>0b4e2f50-7b50-4bda-9687-91ee4daa24c0 (supplementalgeometry)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="c2be820a-e7f4-4a0f-9cfd-451f0fc67562 (SupplementalType)" DataType="S">
+            <ApplyTo>0b4e2f50-7b50-4bda-9687-91ee4daa24c0 (supplementalgeometry)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="22170464-efe7-4a73-8186-afb2addfe607 (GdtType)" DataType="S">
+            <ApplyTo>445ecf14-f21e-4416-ae6d-3feccdf3939b (gd&amp;t)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="fa07c617-072f-4648-9097-591056470fa9 (ViewName)" DataType="S">
+            <ApplyTo>11450947-c778-430b-ab3f-adabea5960b0 (view)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="56261ae8-f582-4f67-8be2-cc28c6f9ede1 (ViewPartBodyCount)" DataType="I">
+            <ApplyTo>11450947-c778-430b-ab3f-adabea5960b0 (view)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="a0fae098-e84a-4bc2-bd8a-2f7976413d49 (ViewAnnotationCount)" DataType="I">
+            <ApplyTo>11450947-c778-430b-ab3f-adabea5960b0 (view)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="61124b89-4c55-4a4c-8d86-52ef8b32d501 (ViewSupplementalCount)" DataType="I">
+            <ApplyTo>11450947-c778-430b-ab3f-adabea5960b0 (view)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="14659d10-c00f-4e7a-aedf-eda43254687d (ViewClippingPlaneCount)" DataType="I">
+            <ApplyTo>11450947-c778-430b-ab3f-adabea5960b0 (view)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="46748288-41e3-450f-b220-3886b9fb3dd6 (IsNew)" DataType="B">
+            <ApplyTo>737baeb9-dbc1-4a43-9475-31c817166708 (component)</ApplyTo>
+            <ApplyTo>eb7f11ae-387c-4bba-9a8b-f9c2c46ca7e3 (instance)</ApplyTo>
+            <ApplyTo>445ecf14-f21e-4416-ae6d-3feccdf3939b (gd&amp;t)</ApplyTo>
+            <ApplyTo>11450947-c778-430b-ab3f-adabea5960b0 (view)</ApplyTo>
+            <ApplyTo>0b4e2f50-7b50-4bda-9687-91ee4daa24c0 (supplementalgeometry)</ApplyTo>
+          </Attribute>
+          <Attribute AttributeId="5fa1cfdc-f50b-441f-a8dd-1ba4e6c47ef3 (SourceCadId)" DataType="UI">
+            <ApplyTo>eb7f11ae-387c-4bba-9a8b-f9c2c46ca7e3 (instance)</ApplyTo>
+          </Attribute>
+        </Attributes>
+        <Options />
+        <ActionId>501</ActionId>
+      </CommandArgsList>
+      <CommandArgsList>
+        <DataConnectorId>799ed783-1114-48fa-8b69-880c257f577f (ExcelDataConnector)</DataConnectorId>
+        <Attributes Version="1">
+          <Attribute AttributeId="74251dc1-7469-44ce-97ba-1e00c94350aa (Excel (PartsList; Sheet1))" DataType="System.Data.DataTable, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+            <ApplyTo>adc9b16c-9e2f-416f-a3f9-3a8ea71bc39f (workspace)</ApplyTo>
+          </Attribute>
+        </Attributes>
+        <Options>
+          <Option Key="Anark.Core.AttributeDataConnectors.ExcelDataConnector.Filename" Type="S">$(projectroot)\PartsList.xlsx</Option>
+          <Option Key="Anark.Core.AttributeDataConnectors.ExcelDataConnector.Worksheet" Type="S">Sheet1</Option>
+          <Option Key="Anark.Core.AttributeDataConnectors.ExcelDataConnector.NumberOfRowsToSkip" Type="UI">0</Option>
+          <Option Key="Anark.Core.AttributeDataConnectors.ExcelDataConnector.DataFormatSimple" Type="S">Table</Option>
+          <Option Key="Anark.Core.AttributeDataConnectors.ExcelDataConnector.KeyAttribute" Type="S">Name</Option>
+          <Option Key="Anark.Core.AttributeDataConnectors.ExcelDataConnector.Key" Type="S">PartName</Option>
+          <Option Key="Anark.Core.AttributeDataConnectors.ExcelDataConnector.DefaultValueMarker" Type="S" />
+        </Options>
+        <ActionId>548</ActionId>
+      </CommandArgsList>
+    </CoreCommand>
+    <CoreCommand CommandSetName="Anark Cad">
+      <CommandName>QueryCmd</CommandName>
+      <CommandArgsList>
+        <Name LogNumberOfResults="False">Query 01</Name>
+        <Query>
+          <OR>
+            <TEST ObjectTypeId="11450947-c778-430b-ab3f-adabea5960b0 (view)" Lbaid="fa07c617-072f-4648-9097-591056470fa9 (ViewName),," Not="True" Operator="Contains">mbd</TEST>
+          </OR>
+        </Query>
+        <Actions>
+          <Action CommandName="DeleteCmd">
+            <ID v="1">#0</ID>
+            <DeleteAction>DELETE</DeleteAction>
+            <ActionId>571</ActionId>
+          </Action>
+        </Actions>
+        <ActionId>570</ActionId>
+      </CommandArgsList>
+      <CommandArgsList>
+        <Name LogNumberOfResults="False">Query 02</Name>
+        <Query>
+          <OR>
+            <TEST ObjectTypeId="0c61f06c-bc93-4c15-84b7-76797efdac66 (occurrence)" Lbaid="4963f247-254d-4727-a1b4-9c00f10952de (TypeOfEntity),," Operator="Equals">GD&amp;T</TEST>
+          </OR>
+        </Query>
+        <Actions>
+          <Action CommandName="ChangeAttributesCmd">
+            <ID ApplicableObjectTypeId="445ecf14-f21e-4416-ae6d-3feccdf3939b (gd&amp;t)">#0</ID>
+            <ModifiedAttributeValues V="1">
+              <ModifiedAttributeValue AttributeId="2d4eed95-e208-4040-a12b-287e2e53be5a (Color)" AttributeType="C">
+                <AttributeValue>0, 0, 0</AttributeValue>
+              </ModifiedAttributeValue>
+            </ModifiedAttributeValues>
+            <DeletedAttributes Mode="DeleteSpecified" />
+            <ActionId>574</ActionId>
+          </Action>
+        </Actions>
+        <ActionId>573</ActionId>
+      </CommandArgsList>
+    </CoreCommand>
+    <CoreCommand CommandSetName="Anark Cad">
+      <CommandName>ExportCmd</CommandName>
+      <CommandArgsList>
+        <ID>$(projectroot)\PMI-84C606876G5_0.pdf</ID>
+        <Description>PMI-84C606876G5_0.pdf</Description>
+        <SpecifiedFormatId>cde4b88c-b23e-4ccf-932c-0856f398ccf8 (PdfFileFormat)</SpecifiedFormatId>
+        <Options>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.TemplateSettings" Type="S">&lt;OptionValue AssemblyQualifiedName="Anark.Core.Component.Cad.Implementation.Formats.PdfTemplateSettings, PdfFormat, Version=4.5.1.12638, Culture=neutral, PublicKeyToken=null"&gt;&lt;TemplateFile&gt;C:\Anark\Customer Specific Projects\GE Transportation\SowAug2016\Template\GE Transportation Template.pdf&lt;/TemplateFile&gt;&lt;JavaScriptFile /&gt;&lt;Bindings EmbedXml="False" EmbedViewImages="False" ViewImageHeight="400" ViewImageWidth="400" ViewImageBackgroundColor="-1" AttachedFiles="" EmbeddedFiles="PDF Template Placeholder|?|" /&gt;&lt;/OptionValue&gt;</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.FpsForAnimation" Type="I">30</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.CreateJsFileForAnimation" Type="B">True</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.SceneBackgroundColor" Type="C">224, 224, 224</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.ToolbarVisible" Type="B">True</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.IncludeGdtToFaceAssociation" Type="B">True</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.OptimizeForReader11" Type="B">True</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.GdtAssociationColor" Type="C">Lime</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.ShowGdtInFront" Type="B">True</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.GdtFillStyle" Type="S">FillAndOutline</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.CreateAttributeXmlFile" Type="B">False</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.SoftwareStippling" Type="B">False</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.LengthUnit" Type="S">Millimeter</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.DesiredPointFontOnExport" Type="S">Point</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.CompressMesh" Type="B">False</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.CompressBrep" Type="B">True</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.IncludeBrepWithUserDefinedMesh" Type="B">False</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.GenerateCrossSectionCaps" Type="B">True</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.NudgeClipPlane" Type="B">False</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.CrossSectionCapColor" Type="C">LightSkyBlue</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.CompressClippingPlaneCaps" Type="B">True</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.PmiColor" Type="C">0, 1, 138, 146</Option>
+          <Option Key="Anark.Core.CadAdapter.Export.Pdf.EnablePmiColor" Type="B">False</Option>
+        </Options>
+        <SuppressedAttributes />
+        <ActionId>532</ActionId>
+      </CommandArgsList>
+    </CoreCommand>
+  </CommandList>
+</CaxFileFormat>

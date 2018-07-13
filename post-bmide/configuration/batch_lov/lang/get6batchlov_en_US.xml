@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TcBusinessDataLocalization xmlns="http://teamcenter.com/BusinessModel/TcBusinessDataLocalization" batchXSDVersion="1.0" Date="Wed Oct 12 10:33:06 AM 2016">
+<Add>
+   <key locale="en_US" id="LOVValueDescription{::}GET6DIGITALTECH_PROJECTS_SUBLOV{::}TSEAFE"
+       status="Approved">Digital Applications and Tools -38183</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6DIGITALTECH_PROJECTS_SUBLOV{::}TSEAFF"
+       status="Approved">Digital Transformation -38184</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6DIGITALTECH_PROJECTS_SUBLOV{::}TSEAFG"
+       status="Approved">Digital Consumption -38186</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6DIGITALTECH_PROJECTS_SUBLOV{::}TSEAFH"
+       status="Approved">Digital Technology Administration -38189</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEADA"
+       status="Approved">Electrical COE Admin US -38800</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEADB"
+       status="Approved">Electrical COE Admin India -38860</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEADF"
+       status="Approved">Train Control -38790</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEADG"
+       status="Approved">Drives Control -38831</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEADH"
+       status="Approved">Train Control-EDDC-38863</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEADI"
+       status="Approved">Drives Control-EDDC-38864</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEADT"
+       status="Approved">Electrical Packaging -38825</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEADX"
+       status="Approved">Controls Simulation Modeling -38835</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEADY"
+       status="Approved">Control Systems Admin -38850</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEAEA"
+       status="Approved">Control Systems TR AUX-38851</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEAEB"
+       status="Approved">Loco Engine Control -38852</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEAEC"
+       status="Approved">Control Systems Infrastructure-38853</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEAED"
+       status="Approved">Control Systems TR, AUX EDDC-38861</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEAEE"
+       status="Approved">Control Systems M and S, VCEDDC-38862</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEAEF"
+       status="Approved">Control Simulation Modeling EDDC-38865</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEAEH"
+       status="Approved">Electronics CTC -38840</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEAEI"
+       status="Approved">Hardware and Devices -38880</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ENGGADMIN_PROJECTS_SUBLOV{::}TSEAAA"
+       status="Approved">Administration -38000</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ENGGADMIN_PROJECTS_SUBLOV{::}TSEAAB"
+       status="Approved">Engineering Operation Management -38032</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ENGGADMIN_PROJECTS_SUBLOV{::}TSEAAC"
+       status="Approved">Product Cost Innovation -38310</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ENGGADMIN_PROJECTS_SUBLOV{::}TSEAAG"
+       status="Approved">India Core -48000</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ENGGADMIN_PROJECTS_SUBLOV{::}TSEAAI"
+       status="Approved">China Engineering -48400</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ENGGADMIN_PROJECTS_SUBLOV{::}TSEAAJ"
+       status="Approved">Russia ETEC -48600</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ENGGADMIN_PROJECTS_SUBLOV{::}TSEAAK"
+       status="Approved">Loco Reliability -38666</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACM"
+       status="Approved">Engine Section Mgr and System Leaders -38780</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACN"
+       status="Approved">M and S -38010</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACO"
+       status="Approved">Analysis -38110</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACP"
+       status="Approved">Engine Mechanical System -38781</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACQ"
+       status="Approved">Engine Factory Support and Cost -38782</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACR"
+       status="Approved">Engine Components -India-38783</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACS"
+       status="Approved">Mechanical Design and Reliability -38786</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACT"
+       status="Approved">Turbocharger -38789</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACV"
+       status="Approved">Fuel Systems -38012</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACW"
+       status="Approved">Quality and Validation -38784</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACX"
+       status="Approved">Engine Performance-Emissions -38785</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACY"
+       status="Approved">Engine Cooling and Lubrication -38787</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6GETSA_PROJECTS_SUBLOV{::}TSEAFI"
+       status="Approved">GETSA - Engineering Project Structure (40403)</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6GETSA_PROJECTS_SUBLOV{::}TSEAFJ"
+       status="Approved">GETSA - General Engineering RTS (40505)</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6GETSA_PROJECTS_SUBLOV{::}TSEAFK"
+       status="Approved">GETSA-Dual Fuel Engineering (03670)</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6MECHANICAL_PROJECTS_SUBLOV{::}TSEABR"
+       status="Approved">Mechanical Engineering Technology Admin -38301</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6MECHANICAL_PROJECTS_SUBLOV{::}TSEABS"
+       status="Approved">Mechanical Systems Admin -38180</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6MECHANICAL_PROJECTS_SUBLOV{::}TSEABU"
+       status="Approved">Truck Design -38640</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6MECHANICAL_PROJECTS_SUBLOV{::}TSEABV"
+       status="Approved">Cabs and Structures Eng -38610</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6MECHANICAL_PROJECTS_SUBLOV{::}TSEABW"
+       status="Approved">Platform Engineering -38910</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6MECHANICAL_PROJECTS_SUBLOV{::}TSEADS"
+       status="Approved">Comp Air and Ventilation -38182</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6OHV_PROJECTS_SUBLOV{::}TSEABE"
+       status="Approved">OHV Systems -38980</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6OHV_PROJECTS_SUBLOV{::}TSEABF"
+       status="Approved">OHV Advanced Tech -38984</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6PRINCIPALENG_PROJECTS_SUBLOV{::}TSEAAD"
+       status="Approved">Safety and Compliance - 38130</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6PRINCIPALENG_PROJECTS_SUBLOV{::}TSEAAE"
+       status="Approved">Principal Engineers - 38400</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6PRINCIPALENG_PROJECTS_SUBLOV{::}TSEAAF"
+       status="Approved">Cyber Product Security -38401</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6PROPULSION_PROJECTS_SUBLOV{::}TSEABQ"
+       status="Approved">Mechanical Drives Admin -38031</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6PROPULSION_PROJECTS_SUBLOV{::}TSEABT"
+       status="Approved">Drive Train -38033</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6PROPULSION_PROJECTS_SUBLOV{::}TSEADR"
+       status="Approved">Mechanical Propulsion -38032</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6PROPULSION_PROJECTS_SUBLOV{::}TSEADU"
+       status="Approved">Electrical Propulsion -38830</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6SERVICES_PROJECTS_SUBLOV{::}TSEACK"
+       status="Approved">Services Technology Engineering -38754</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6SERVICES_PROJECTS_SUBLOV{::}TSEACL"
+       status="Approved">Services Reliability -38758</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6SOFTWARE_PROJECTS_SUBLOV{::}TSEADO"
+       status="Approved">Heavy Haul Control Software -38821</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6SOFTWARE_PROJECTS_SUBLOV{::}TSEADP"
+       status="Approved">Trip Optimizer Software -38822</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6SOFTWARE_PROJECTS_SUBLOV{::}TSEADQ"
+       status="Approved">VSPD and Panel Software -38823</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6TECHNICAL_PROJECTS_SUBLOV{::}TSEABY"
+       status="Approved">Technical Publications -38530</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAM"
+       status="Approved">Transportation Systems Admin -38100</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAN"
+       status="Approved">Services NPI Solutions -38185</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAO"
+       status="Approved">Loco Mods and Kits -38105</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAP"
+       status="Approved">Global Loco Systems -38170</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAQ"
+       status="Approved">Global Loco Systems and Electrical Integration -38171</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAR"
+       status="Approved">Mods, PH, and CIS Systems Engineering -38175</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAS"
+       status="Approved">Systems Engineering -38985</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAT"
+       status="Approved">NA Legacy Loco Systems -38060</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAU"
+       status="Approved">Aftermarket Technology -38085</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAV"
+       status="Approved">Loco Systems North America -38120</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAW"
+       status="Approved">Loco Systems Electrical Integration -38331</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAX"
+       status="Approved">Loco DFMA Factory Support -38150</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAY"
+       status="Approved">Configuration Control -38520</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEABA"
+       status="Approved">Tier 4 Execution Systems -38125</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEABB"
+       status="Approved">Loco Systems Technology Admin -38755</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEABC"
+       status="Approved">Loco Systems Modeling -38756</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEABD"
+       status="Approved">Proposals -38759</key>
+   <key locale="en_US" id="LOVValue{::}GET6DIGITALTECH_PROJECTS_SUBLOV{::}TSEAFE"
+       status="Approved">TSEAFE - Digital Applications and Tools</key>
+   <key locale="en_US" id="LOVValue{::}GET6DIGITALTECH_PROJECTS_SUBLOV{::}TSEAFF"
+       status="Approved">TSEAFF - Digital Transformation</key>
+   <key locale="en_US" id="LOVValue{::}GET6DIGITALTECH_PROJECTS_SUBLOV{::}TSEAFG"
+       status="Approved">TSEAFG - Digital Consumption</key>
+   <key locale="en_US" id="LOVValue{::}GET6DIGITALTECH_PROJECTS_SUBLOV{::}TSEAFH"
+       status="Approved">TSEAFH - Digital Technology Admin</key>
+   <key locale="en_US" id="LOVValue{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEADA" status="Approved">TSEADA - Electrical COE Admin US</key>
+   <key locale="en_US" id="LOVValue{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEADB" status="Approved">TSEADB - Electrical COE Admin India</key>
+   <key locale="en_US" id="LOVValue{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEADF" status="Approved">TSEADF - Train Control</key>
+   <key locale="en_US" id="LOVValue{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEADG" status="Approved">TSEADG - Drives Control</key>
+   <key locale="en_US" id="LOVValue{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEADH" status="Approved">TSEADH - Train Control-EDDC</key>
+   <key locale="en_US" id="LOVValue{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEADI" status="Approved">TSEADI - Drives Control-EDDC</key>
+   <key locale="en_US" id="LOVValue{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEADT" status="Approved">TSEADT - Electrical Packaging</key>
+   <key locale="en_US" id="LOVValue{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEADX" status="Approved">TSEADX - Controls Simulation Modeling</key>
+   <key locale="en_US" id="LOVValue{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEADY" status="Approved">TSEADY - Control Systems Admin</key>
+   <key locale="en_US" id="LOVValue{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEAEA" status="Approved">TSEAEA - Control Systems TR AUX</key>
+   <key locale="en_US" id="LOVValue{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEAEB" status="Approved">TSEAEB - Loco Engine Control</key>
+   <key locale="en_US" id="LOVValue{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEAEC" status="Approved">TSEAEC - Control Systems Infrastructure</key>
+   <key locale="en_US" id="LOVValue{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEAED" status="Approved">TSEAED - Control Systems TR, AUX EDDC</key>
+   <key locale="en_US" id="LOVValue{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEAEE" status="Approved">TSEAEE - Control Systems M and S, VC-EDDC</key>
+   <key locale="en_US" id="LOVValue{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEAEF" status="Approved">TSEAEF - Control Simulation Modeling EDDC</key>
+   <key locale="en_US" id="LOVValue{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEAEH" status="Approved">TSEAEH - Electronics CTC</key>
+   <key locale="en_US" id="LOVValue{::}GET6ELECTRICAL_PROJECTS_SUBLOV{::}TSEAEI" status="Approved">TSEAEI - Hardware and Devices</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGGADMIN_PROJECTS_SUBLOV{::}TSEAAA" status="Approved">TSEAAA - Administration</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGGADMIN_PROJECTS_SUBLOV{::}TSEAAB" status="Approved">TSEAAB - Engineering OPR Management</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGGADMIN_PROJECTS_SUBLOV{::}TSEAAC" status="Approved">TSEAAC -  Product Cost Innovation</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGGADMIN_PROJECTS_SUBLOV{::}TSEAAG" status="Approved">TSEAAG - India Core</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGGADMIN_PROJECTS_SUBLOV{::}TSEAAI" status="Approved">TSEAAI - China Engineering</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGGADMIN_PROJECTS_SUBLOV{::}TSEAAJ" status="Approved">TSEAAJ - Russia ETEC</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGGADMIN_PROJECTS_SUBLOV{::}TSEAAK" status="Approved">TSEAAK - Loco Reliability</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACM" status="Approved">TSEACM - Engine Sec Mgr and Sys Leaders</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACN" status="Approved">TSEACN - M and S</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACO" status="Approved">TSEACO - Analysis</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACP" status="Approved">TSEACP -  Engine Mechanical System</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACQ" status="Approved">TSEACQ - Engine Factory Support and Cost</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACR" status="Approved">TSEACR - Engine Components -India</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACS" status="Approved">TSEACS - Mech Design and Reliability</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACT" status="Approved">TSEACT  - Turbocharger</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACV" status="Approved">TSEACV - Fuel Systems</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACW" status="Approved">TSEACW - Quality and Validation</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACX" status="Approved">TSEACX - Engine Performance-Emissions</key>
+   <key locale="en_US" id="LOVValue{::}GET6ENGINE_PROJECTS_SUBLOV{::}TSEACY" status="Approved">TSEACY - Engine Cooling and Lubrication</key>
+   <key locale="en_US" id="LOVValue{::}GET6GETSA_PROJECTS_SUBLOV{::}TSEAFI" status="Approved">TSEAFI -GETSA-Engineering Proj Struct</key>
+   <key locale="en_US" id="LOVValue{::}GET6GETSA_PROJECTS_SUBLOV{::}TSEAFJ" status="Approved">TSEAFJ - GETSA-General Engineering RTS</key>
+   <key locale="en_US" id="LOVValue{::}GET6GETSA_PROJECTS_SUBLOV{::}TSEAFK" status="Approved">TSEAFK - GETSA-Dual Fuel Engineering</key>
+   <key locale="en_US" id="LOVValue{::}GET6GROUP_PROJECT_LOV{::}Digital Engineering"
+       status="Approved">Digital Engineering</key>
+   <key locale="en_US" id="LOVValue{::}GET6GROUP_PROJECT_LOV{::}Electrical COE" status="Approved">Electrical COE</key>
+   <key locale="en_US" id="LOVValue{::}GET6GROUP_PROJECT_LOV{::}Engineering Admin"
+       status="Approved">Engineering Admin</key>
+   <key locale="en_US" id="LOVValue{::}GET6GROUP_PROJECT_LOV{::}Engine" status="Approved">Engine</key>
+   <key locale="en_US" id="LOVValue{::}GET6GROUP_PROJECT_LOV{::}GETSA Engineering"
+       status="Approved">GETSA Engineering</key>
+   <key locale="en_US" id="LOVValue{::}GET6GROUP_PROJECT_LOV{::}Mechanical COE" status="Approved">Mechanical COE</key>
+   <key locale="en_US" id="LOVValue{::}GET6GROUP_PROJECT_LOV{::}Off Highway Vehicle (OHV)"
+       status="Approved">Off Highway Vehicle (OHV)</key>
+   <key locale="en_US" id="LOVValue{::}GET6GROUP_PROJECT_LOV{::}Principal Engineering"
+       status="Approved">Principal Engineering</key>
+   <key locale="en_US" id="LOVValue{::}GET6GROUP_PROJECT_LOV{::}Propulsion" status="Approved">Propulsion</key>
+   <key locale="en_US" id="LOVValue{::}GET6GROUP_PROJECT_LOV{::}Services Technologies"
+       status="Approved">Services Technologies</key>
+   <key locale="en_US" id="LOVValue{::}GET6GROUP_PROJECT_LOV{::}Software" status="Approved">Software</key>
+   <key locale="en_US" id="LOVValue{::}GET6GROUP_PROJECT_LOV{::}Technical Publications"
+       status="Approved">Technical Publications</key>
+   <key locale="en_US" id="LOVValue{::}GET6GROUP_PROJECT_LOV{::}Transportation Systems"
+       status="Approved">Transportation Systems</key>
+   <key locale="en_US" id="LOVValue{::}GET6GROUP_PROJECT_LOV{::}Underground Mining"
+       status="Approved">Underground Mining</key>
+   <key locale="en_US" id="LOVValue{::}GET6MECHANICAL_PROJECTS_SUBLOV{::}TSEABR" status="Approved">TSEABR - Mechanical Engr Tech Admin</key>
+   <key locale="en_US" id="LOVValue{::}GET6MECHANICAL_PROJECTS_SUBLOV{::}TSEABS" status="Approved">TSEABS - Mechanical Systems Admin</key>
+   <key locale="en_US" id="LOVValue{::}GET6MECHANICAL_PROJECTS_SUBLOV{::}TSEABU" status="Approved">TSEABU - Truck Design</key>
+   <key locale="en_US" id="LOVValue{::}GET6MECHANICAL_PROJECTS_SUBLOV{::}TSEABV" status="Approved">TSEABV - Cabs and Structures Eng</key>
+   <key locale="en_US" id="LOVValue{::}GET6MECHANICAL_PROJECTS_SUBLOV{::}TSEABW" status="Approved">TSEABW  Platform Engineering</key>
+   <key locale="en_US" id="LOVValue{::}GET6MECHANICAL_PROJECTS_SUBLOV{::}TSEADS" status="Approved">TSEADS - Comp Air and Ventilation</key>
+   <key locale="en_US" id="LOVValue{::}GET6OHV_PROJECTS_SUBLOV{::}TSEABE" status="Approved">TSEABE - OHV Systems</key>
+   <key locale="en_US" id="LOVValue{::}GET6OHV_PROJECTS_SUBLOV{::}TSEABF" status="Approved">TSEABF - OHV Advanced Tech</key>
+   <key locale="en_US" id="LOVValue{::}GET6PRINCIPALENG_PROJECTS_SUBLOV{::}TSEAAD"
+       status="Approved">TSEAAD-Safety and Compliance</key>
+   <key locale="en_US" id="LOVValue{::}GET6PRINCIPALENG_PROJECTS_SUBLOV{::}TSEAAE"
+       status="Approved">TSEAAE-Principal Engineers</key>
+   <key locale="en_US" id="LOVValue{::}GET6PRINCIPALENG_PROJECTS_SUBLOV{::}TSEAAF"
+       status="Approved">TSEAAF - Cyber Product Security</key>
+   <key locale="en_US" id="LOVValue{::}GET6PROPULSION_PROJECTS_SUBLOV{::}TSEABQ" status="Approved">TSEABQ - Mechanical Drives Admin</key>
+   <key locale="en_US" id="LOVValue{::}GET6PROPULSION_PROJECTS_SUBLOV{::}TSEABT" status="Approved">TSEABT - Drive Train</key>
+   <key locale="en_US" id="LOVValue{::}GET6PROPULSION_PROJECTS_SUBLOV{::}TSEADR" status="Approved">TSEADR - Mechanical Propulsion</key>
+   <key locale="en_US" id="LOVValue{::}GET6PROPULSION_PROJECTS_SUBLOV{::}TSEADU" status="Approved">TSEADU - Electrical Propulsion</key>
+   <key locale="en_US" id="LOVValue{::}GET6SERVICES_PROJECTS_SUBLOV{::}TSEACK" status="Approved">TSEACK -  Services Technology Engineering</key>
+   <key locale="en_US" id="LOVValue{::}GET6SERVICES_PROJECTS_SUBLOV{::}TSEACL" status="Approved">TSEACL - Services Reliability</key>
+   <key locale="en_US" id="LOVValue{::}GET6SOFTWARE_PROJECTS_SUBLOV{::}TSEADO" status="Approved">TSEADO -  Heavy Haul Control Software</key>
+   <key locale="en_US" id="LOVValue{::}GET6SOFTWARE_PROJECTS_SUBLOV{::}TSEADP" status="Approved">TSEADP -  Trip Optimizer Software</key>
+   <key locale="en_US" id="LOVValue{::}GET6SOFTWARE_PROJECTS_SUBLOV{::}TSEADQ" status="Approved">TSEADQ - VSPD and Panel Software</key>
+   <key locale="en_US" id="LOVValue{::}GET6TECHNICAL_PROJECTS_SUBLOV{::}TSEABY" status="Approved">TSEABY -  Technical Publications</key>
+   <key locale="en_US" id="LOVValue{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAM"
+       status="Approved">TSEAAM - Transportation Systems Admin</key>
+   <key locale="en_US" id="LOVValue{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAN"
+       status="Approved">TSEAAN - Services NPI Solutions</key>
+   <key locale="en_US" id="LOVValue{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAO"
+       status="Approved">TSEAAO - Loco Mods and Kits</key>
+   <key locale="en_US" id="LOVValue{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAP"
+       status="Approved">TSEAAP - Global Loco Systems</key>
+   <key locale="en_US" id="LOVValue{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAQ"
+       status="Approved">TSEAAQ - Global Loco Sys- Elect Integrn</key>
+   <key locale="en_US" id="LOVValue{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAR"
+       status="Approved">TSEAAR - Mods, PH, and CIS Sys Engr</key>
+   <key locale="en_US" id="LOVValue{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAS"
+       status="Approved">TSEAAS - Systems Engineering</key>
+   <key locale="en_US" id="LOVValue{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAT"
+       status="Approved">TSEAAT - NA Legacy Loco Systems</key>
+   <key locale="en_US" id="LOVValue{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAU"
+       status="Approved">TSEAAU - Aftermarket Technology</key>
+   <key locale="en_US" id="LOVValue{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAV"
+       status="Approved">TSEAAV - Loco Systems North America</key>
+   <key locale="en_US" id="LOVValue{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAW"
+       status="Approved">TSEAAW -  Loco Sys Electrical Integration</key>
+   <key locale="en_US" id="LOVValue{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAX"
+       status="Approved">TSEAAX - Loco DFMA Factory Support</key>
+   <key locale="en_US" id="LOVValue{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEAAY"
+       status="Approved">TSEAAY - Configuration Control</key>
+   <key locale="en_US" id="LOVValue{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEABA"
+       status="Approved">TSEABA - Tier 4 Execution Systems</key>
+   <key locale="en_US" id="LOVValue{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEABB"
+       status="Approved">TSEABB -  Loco Systems Technology Admin</key>
+   <key locale="en_US" id="LOVValue{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEABC"
+       status="Approved">TSEABC - Loco Systems Modeling</key>
+   <key locale="en_US" id="LOVValue{::}GET6TRANSSYSTEMS_PROJECTS_SUBLOV{::}TSEABD"
+       status="Approved">TSEABD - Proposals</key>
+   <key locale="en_US" id="LOVValue{::}GET6MINING_PROJECTS_SUBLOV{::}TSEABG" status="Approved">TSEABG - EDDC Mining Systems</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6MINING_PROJECTS_SUBLOV{::}TSEABG"
+        status="Approved">EDDC Mining Systems -38988</key>
+   <key locale="en_US" id="LOVValue{::}GET6MINING_PROJECTS_SUBLOV{::}TSEABH" status="Approved">TSEABH - Fairchild Technical Design</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6MINING_PROJECTS_SUBLOV{::}TSEABH"
+        status="Approved">Fairchild Technical Design -38992</key>
+   <key locale="en_US" id="LOVValue{::}GET6MINING_PROJECTS_SUBLOV{::}TSEABI" status="Approved">TSEABI - IME Technical Design</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6MINING_PROJECTS_SUBLOV{::}TSEABI"
+        status="Approved">IME Technical Design -38993</key>
+   <key locale="en_US" id="LOVValue{::}GET6MINING_PROJECTS_SUBLOV{::}TSEABJ" status="Approved">TSEABJ - IMT Technical Design</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6MINING_PROJECTS_SUBLOV{::}TSEABJ"
+        status="Approved">IMT Technical Design -38994</key>
+   <key locale="en_US" id="LOVValue{::}GET6MINING_PROJECTS_SUBLOV{::}TSEABK" status="Approved">TSEABK - Underground Mining Sys Engr</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6MINING_PROJECTS_SUBLOV{::}TSEABK"
+        status="Approved">Underground Mining Systems Engineering -38995</key>
+   <key locale="en_US" id="LOVValue{::}GET6MINING_PROJECTS_SUBLOV{::}TSEABL" status="Approved">TSEABL - Fairchild Equipment Engineering</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6MINING_PROJECTS_SUBLOV{::}TSEABL"
+        status="Approved">Fairchild Equipment Engineering -38996</key>
+   <key locale="en_US" id="LOVValue{::}GET6MINING_PROJECTS_SUBLOV{::}TSEABM" status="Approved">TSEABM - IME Engineering</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6MINING_PROJECTS_SUBLOV{::}TSEABM"
+        status="Approved">IME Engineering -38997</key>
+   <key locale="en_US" id="LOVValue{::}GET6MINING_PROJECTS_SUBLOV{::}TSEABN" status="Approved">TSEABN - IMT Engineering</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6MINING_PROJECTS_SUBLOV{::}TSEABN"
+        status="Approved">IMT Engineering -38998</key>
+   <key locale="en_US" id="LOVValue{::}GET6MINING_PROJECTS_SUBLOV{::}TSEABP" status="Approved">TSEABP - Underground Propulsion Systems</key>
+   <key locale="en_US" id="LOVValueDescription{::}GET6MINING_PROJECTS_SUBLOV{::}TSEABP"
+        status="Approved">Underground Propulsion Systems -38999</key>
+   	<key locale="en_US" id="LOVValue{::}GET6DISPOSITION_LOV{::}Use Existing Inventory"
+        status="Approved">Use Existing Inventory</key>
+    <key locale="en_US" id="LOVValue{::}GET6DISPOSITION_LOV{::}Scrap Existing Inventory"
+        status="Approved">Scrap Existing Inventory</key>
+		<key locale="en_US" id="LOVValue{::}GET6PRIMARY_REASON_LOV{::}Part Obsolescence" status="Approved">Part Obsolescence</key>
+    <key locale="en_US" id="LOVValue{::}GET6PRIMARY_REASON_LOV{::}Reliability" status="Approved">Reliability</key>
+    <key locale="en_US" id="LOVValue{::}GET6PRIMARY_REASON_LOV{::}Productivity" status="Approved">Productivity</key>
+    <key locale="en_US" id="LOVValue{::}GET6PRIMARY_REASON_LOV{::}Safety/Compliance" status="Approved">Safety/Compliance</key>
+    <key locale="en_US" id="LOVValue{::}GET6PRIMARY_REASON_LOV{::}Material" status="Approved">Material</key>
+    <key locale="en_US" id="LOVValue{::}GET6PRIMARY_REASON_LOV{::}Tooling" status="Approved">Tooling</key>
+    <key locale="en_US" id="LOVValue{::}GET6PRIMARY_REASON_LOV{::}Other" status="Approved">Other</key>
+    <key locale="en_US" id="LOVValue{::}GET6PRIMARY_REASON_LOV{::}NA" status="Approved">NA</key>		
+</Add>
+</TcBusinessDataLocalization>

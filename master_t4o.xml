@@ -1,0 +1,24 @@
+<project name="MasterTesis" default="deploy">
+	<import file="common_logging.xml" />
+
+	<property environment="env"/>
+	<condition property="t4o.build" value="TRUE">
+	   <isset property="env.TP_T4XINSTL"/>
+	</condition>
+	<target name="deploy" depends="antlog" description="Master Build of all Tesis Sub-Projects">
+		<!--    build the deploy target for all files in the ant-script directory
+		 The pattern you see in the fileset is the set of files that will get processed
+		 In this case we will execute all xml files starting with "t4o_"
+		 -->
+		<subant target="deploy">
+		<fileset dir="." >
+			<include name="ant-script/*t4o*.xml" if="t4o.build"/>
+		</fileset>
+		</subant>
+	</target>
+	<target name="clean">
+		<subant target="clean">
+			<fileset dir="." includes="ant-script/t4o_*.xml"/>
+		</subant>
+	</target>
+</project>

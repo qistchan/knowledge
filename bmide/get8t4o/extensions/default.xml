@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TcBusinessData xmlns="http://teamcenter.com/BusinessModel/TcBusinessData" Date="">
+<Add>
+   <TcClass className="GET8OracleRouting" parentClassName="AppInterface" isExportable="false"
+       isUninstantiable="false" isUninheritable="false" description=""/>
+   <OperationInputType typeName="GET8OracleRoutingCreI" parentTypeName="AppInterfaceCreI"
+       typeClassName="GET8OracleRoutingCreI" description="CreateInput object for &quot;GET8OracleRouting&quot; business object"
+       isAbstract="false" artifactName="GET8OracleRoutingCreI"/>
+   <OperationInputType typeName="GET8OracleRoutingSvAI" parentTypeName="AppInterfaceSvAI"
+       typeClassName="GET8OracleRoutingSvAI" description="SaveAsInput object for &quot;GET8OracleRouting&quot; business object"
+       isAbstract="false" artifactName="GET8OracleRoutingSvAI"/>
+   <TcAppInterface typeName="GET8OracleRouting" parentTypeName="AppInterface" typeClassName="GET8OracleRouting"
+       description="AI object for Routing Transfers" isAbstract="false" artifactName="GET8OracleRouting"
+       functionality="GET8t4o" exportTransferMode="GET_EBS2TransferMode_Export_EBS"
+       importTransferMode="GET_EBS2TransferMode_Import_EBS" isICRequired="true"/>
+   <TcGlobalConstantAttach constantName="Fnd0SelectedLocales" value="en_US"/>
+   <TcTypeConstantAttach constantName="CreateInput" typeName="GET8OracleRouting" value="GET8OracleRoutingCreI"/>
+   <TcTypeConstantAttach constantName="SaveAsInput" typeName="GET8OracleRouting" value="GET8OracleRoutingSvAI"/>
+   <Functionality name="GET8t4o" displayName="GET TEAMCENTER TO ORACLE" enabledForVerificationRules="false"
+       description="Component for the template - get8t4o"/>
+</Add>
+</TcBusinessData>

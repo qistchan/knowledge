@@ -1,0 +1,1 @@
+select distinct wso.pobject_name, wso.puid from infodba.pworkspaceobject wso, infodba.pdataset ds, infodba.pref_list_0 rl where wso.puid=ds.puid and wso.pobject_type='UGMASTER' and wso.RWSO_THREADC is null and ds.puid not in (select distinct rl.puid from infodba.pref_list_0 rl );

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+=====================================================================================
+                Copyright (c) 2014 Siemens Product Lifecycle Management Software Inc.
+                   Unpublished - All Rights Reserved
+=====================================================================================
+
+    Filename: Awp0ItemRevSaveAs.xml
+
+    This is the SaveAs stylesheet for ItemRevision data types.
+ -->
+
+<rendering>
+    <page>
+         <section>
+            <property name="object_name" />
+            <property name="object_desc" />
+			<property name="items_tag:ip_classification" />
+         </section>
+    </page>
+</rendering>

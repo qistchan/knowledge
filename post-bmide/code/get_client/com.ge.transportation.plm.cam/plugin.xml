@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Manufacturing Category"
+            id="com.ge.transportation.plm.cam.commands.category">
+      </category>
+      <command
+            name="Create Manufacturing Item"
+            categoryId="com.ge.transportation.plm.cam.commands.category"
+            id="com.ge.transportation.plm.cam.commands.camUtils">
+      </command>
+      </extension>
+      
+      <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="com.ge.transportation.plm.cam.commands.camUtils"
+            class="com.ge.transportation.plm.cam.handlers.CamUtilsHandler">
+      </handler>
+       </extension>
+      
+	<extension point="org.eclipse.ui.menus">
+		<menuContribution
+            locationURI="menu:com.ge.transportation.plm.mfg.menus.ManufacturingMenu?after=com.ge.transportation.plm.mfg.menus.ManufacturingMenuNew">
+          
+           
+				 <menu
+                     id="com.ge.transportation.plm.cam.menus.ManufacturingMenuNew"
+                     label="CAM Utilities"
+                     mnemonic="N">
+                     <command
+                    commandId="com.ge.transportation.plm.cam.commands.camUtils"
+                    id="com.ge.transportation.plm.cam.menus.manufacturingCommand"
+                    label="New CAM Item"
+                    mnemonic="M"
+                    tooltip="New CAM Item">
+                    <visibleWhen>
+             			<with variable="rac_command_suppression">
+               				  <not>
+                    			 <iterate operator="or">
+                       			 <equals value="com.ge.transportation.plm.cam.commands.camUtils"/>
+                    			 </iterate>
+                			 </not>
+             			</with>
+         			</visibleWhen>
+		            </command>		            
+                 </menu>
+            
+        </menuContribution>
+	</extension>
+</plugin>

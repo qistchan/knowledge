@@ -1,0 +1,52 @@
+<project name="cpptest">
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+    <classpath> 
+		<pathelement location="${ANT_HOME}/lib/ant-contrib-0.6.jar" />
+    </classpath> 
+    </taskdef>
+    <import file="../common.xml"/>
+    
+    <property name="link.type" value="static"/>
+	<property name="link.dir" value="../lib"/>
+	<property name="obj.dir" value="../obj"/>
+	
+    <condition property="link.prefix" value="lib">
+		<equals arg1="${ge.win}" arg2="true"/>
+    </condition>
+	<condition property="link.prefix" value="">
+        <equals arg1="${ge.linux}" arg2="true"/>
+    </condition>
+    
+	<if>
+        <equals arg1="${ge.win}" arg2="true"/>
+        <then>
+            <property name="platform.dir" value="ge_windows"/>
+			<property name="obj.set" value="*.obj"/>
+        </then>
+        <else>
+            <property name="platform.dir" value="ge_unix"/>
+			<property name="obj.set" value="*.o"/>
+        </else>
+    </if>
+    
+    <target name="build32">
+        <subant target="compile32">
+            <filelist dir="." files="build.xml"/>
+        </subant>
+        <subant target="link32">
+	        <property name="link.name" value="${link.prefix}cpptest32"/>
+            <filelist dir="." files="build.xml"/>
+        </subant>
+    </target>
+    
+    <target name="build64">
+        <subant target="compile64">
+            <filelist dir="." files="build.xml"/>
+        </subant>
+        <subant target="link64">
+            <property name="link.name" value="${link.prefix}cpptest64"/>			
+            <filelist dir="." files="build.xml"/>
+        </subant>
+    </target>
+    
+</project>

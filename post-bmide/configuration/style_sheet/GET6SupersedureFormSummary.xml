@@ -1,0 +1,26 @@
+<!--
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2015.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+-->
+<!--
+ Default style sheet for displaying Form properties. 
+ type=form displays only properties that are available directly on the form
+ type=property displays all properties
+-->
+<rendering xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XMLRenderingStylesheet_Schema.xsd">
+    <page titleKey="tc_xrt_Summary">
+<label text=" " />
+<label text="Is there existing inventory of the Original Item ID across the enterprise (Manufacturing and/or Services)? " />
+<label text=" " />
+    <property name="get6ExistingInventory" />
+      <property name="get6SuperseededItem" /> 
+    <property name="get6PrimaryReason" />
+    <property name="get6SupComments" />
+	<property name="get6Disposition" />
+    </page>
+</rendering>

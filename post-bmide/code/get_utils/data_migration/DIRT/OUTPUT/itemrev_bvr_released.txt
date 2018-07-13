@@ -1,0 +1,8 @@
+SQL> @"/package/ugiman/ug/utilities/DIRT/SQL/itemrev_bvr_released.sql"
+
+PITEM_ID                      PITEM_REVISION_ID
+--------------------------------------------------
+84E905131P2                   L
+84E905131P2                   K
+84D733630G4                   H
+SQL> spool off;

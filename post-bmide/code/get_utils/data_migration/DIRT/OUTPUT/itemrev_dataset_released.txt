@@ -1,0 +1,30 @@
+SQL> @"/package/ugiman/ug/utilities/DIRT/SQL/itemrev_dataset_released.sql"
+
+PITEM_ID                      PITEM_REVISION_ID
+--------------------------------------------------
+84E903875P7                   M
+84D716618G2                   G
+41C615050P1                   K
+84D715318H2                   K
+41B520360P1                   G
+41C642388G1                   G
+84E902921P3                   N
+41C642389P1                   M
+84E903874H1                   B
+84E905131P2                   L
+41B514220ABP1                 J
+41C642390P1                   L
+41C642388G1                   J
+41A219574P3                   0
+N509P2524B13                  0
+84E905131P2                   K
+41B520369P2                   B
+41E902512P2                   AJ
+41A222771P1                   C
+84D733630G4                   H
+41B514795P6                   G
+84C606830P2                   F
+N533P3112                     0
+84C608759G4                   M
+41E914578P1                   K
+SQL> spool off;

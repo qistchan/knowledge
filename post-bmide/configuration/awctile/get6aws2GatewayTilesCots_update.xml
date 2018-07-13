@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE ActiveWorkspaceGateway SYSTEM "Awp0aws2ActiveWorkspaceGateway.dtd" >
+<ActiveWorkspaceGateway version="1.0">
+    <!-- Tile Template definitions begins here -->
+   	<TileTemplate templateId="Awp0InboxTemplate">
+        <ThemeIndex index="2" />
+        <Icon>inbox</Icon>
+        <Action>myTasks</Action>
+        <ActionType type="0" />
+        <ContentNames>
+            <Value>New</Value>
+            <Value>Total</Value>
+            <Value>Past Due</Value>
+        </ContentNames>
+        <ContentNamesCallback library="libawp0aws2" method="AWP0AWS2_awp0inboxtile_get_content_values">  </ContentNamesCallback>
+    </TileTemplate>
+	<TileTemplate templateId="Awp0HomeFolderTemplate">
+        <ThemeIndex index="2"/>
+        <Icon>homefolder</Icon>
+        <Action>Awp0ShowHomeFolder</Action>
+        <ActionType type="3" />
+    </TileTemplate>
+    <TileTemplate templateId="Awp0FavoritesTemplate">
+        <ThemeIndex index="2" />
+        <Icon>favorites</Icon>
+        <Action>myFavorites</Action>
+        <ActionType type="0" />
+    </TileTemplate>
+    <TileTemplate templateId="Awp0MyStuffTemplate">
+        <ThemeIndex index="2"/>
+        <Icon>search</Icon>
+        <Action>teamcenter.search.search;searchCriteria=*;refresh=true;filter=POM_application_object.owning_user%5C2%24ME~</Action>
+        <ActionType type="0" />
+    </TileTemplate>
+	<TileTemplate templateId="get6SearchTemplate">
+        <ThemeIndex index="2"/>
+        <Icon>search</Icon>
+        <Action>teamcenter.search.recentSearch</Action>
+        <ActionType type="0" />
+    </TileTemplate>
+    <TileTemplate templateId="get6CreateDesignTemplate">
+        <ThemeIndex index="1"/>
+        <Icon>part</Icon>
+        <Action>Awp0ShowHomeFolder;cmdId=Awp0ShowCreateObject;</Action>
+        <ActionType type="3" />
+    </TileTemplate>
+	<TileTemplate templateId="get6CreateDocumentTemplate">
+        <ThemeIndex index="1"/>
+        <Icon>document</Icon>
+        <Action>Awp0ShowHomeFolder;cmdId=Awp0ShowCreateObject;</Action>
+        <ActionType type="3" />
+    </TileTemplate>
+	<TileTemplate templateId="get6CreateChangeTemplate">
+        <ThemeIndex index="1"/>
+        <Icon>changes</Icon>
+        <Action>showChanges;commandID=Cm1ShowCreateChange;cmdArg=GET6ECR</Action>
+        <ActionType type="0"/>
+    </TileTemplate>
+	<TileTemplate templateId="Cm1ChangesTemplate">
+        <ThemeIndex index="2" />
+        <Icon>changes</Icon>
+        <Action>showChanges</Action>
+        <ActionType type="0" />
+    </TileTemplate>
+    <TileTemplate templateId="get6DCPTemplate">
+        <ThemeIndex index="0"/>
+        <Icon>dcp</Icon>
+        <Action>http://devssogets.trans.ge.com/DCP/DCPAdmin/DCPAdminMain.jsp</Action>
+        <ActionType type="1" />
+    </TileTemplate>
+	<TileTemplate templateId="get6EDOTTemplate">
+        <ThemeIndex index="0"/>
+        <Icon>eDOT</Icon>
+        <Action>http://hostname:8081/GETDesignReleasePLM/</Action>
+        <ActionType type="1" />
+    </TileTemplate>
+	<TileTemplate templateId="get6EUSTemplate">
+        <ThemeIndex index="0"/>
+        <Icon>eUS</Icon>
+        <Action>https://eus.trans.ge.com/</Action>
+        <ActionType type="1" />
+    </TileTemplate>
+	<TileTemplate templateId="get6IDTemplate">
+        <ThemeIndex index="0"/>
+        <Icon>id</Icon>
+        <Action>http://supportcentral.ge.com/ProcessMaps/form_new_request.asp?prod_id=381658&amp;form_id=998931&amp;node_id=2764210&amp;map_id=&amp;reference_id=&amp;reference_type</Action>
+        <ActionType type="1" />
+    </TileTemplate>
+	<TileTemplate templateId="get6MyTechTemplate">
+        <ThemeIndex index="0"/>
+        <Icon>mytech</Icon>
+        <Action>https://mytech.ge.com/help-and-support/business-application-support?q=trans-plm-prod</Action>
+        <ActionType type="1" />
+    </TileTemplate>
+	<TileTemplate templateId="get6HelpTemplate">
+        <ThemeIndex index="0" />
+        <Icon>help</Icon>
+        <Action>http://sc.ge.com/@getplm</Action>
+        <ActionType type="1" />
+    </TileTemplate>
+	<TileTemplate templateId="Awp0GatewayViewerAdministration">
+        <ThemeIndex index="2"/>
+        <Icon>admin</Icon>
+        <Action>com.siemens.splm.client.vieweradmin.showViewerAdmin</Action>
+        <ActionType type="0" />
+    </TileTemplate>
+    <TileTemplate templateId="Awp0ReportsTemplate">
+        <ThemeIndex index="2" />
+        <Icon>homeTileReport</Icon>
+        <Action>showReportBuilderReports</Action>
+        <ActionType type="0" />      
+    </TileTemplate>
+    <TileTemplate templateId="Awp0SubscriptionTemplate">
+        <ThemeIndex index="1" />
+    	<Icon>subscription</Icon>
+    	<Action>com.siemens.splm.client.subscription.follow.NewsFeedSubscriptions</Action>
+    	<ActionType type="0" />
+  	</TileTemplate>
+    <!-- Tile definitions begins here -->
+
+	<Tile tileId="Awp0InboxTile" templateId="Awp0InboxTemplate">
+        <Name>Inbox</Name>
+    </Tile>
+    <Tile tileId="Awp0HomeFolderTile" templateId="Awp0HomeFolderTemplate">
+        <Name>Home Folder</Name>
+    </Tile>
+    <Tile tileId="Awp0FavoritesTile" templateId="Awp0FavoritesTemplate">
+        <Name>Favorites</Name>
+    </Tile>
+    <Tile tileId="Awp0MyStuffTile" templateId="Awp0MyStuffTemplate">
+        <Name>My Stuff</Name>
+    </Tile>
+    <Tile tileId="get6SearchTile" templateId="get6SearchTemplate">
+        <Name>Recent Searches</Name>
+    </Tile>
+	<Tile tileId="get6CreateDesignTile" templateId="get6CreateDesignTemplate">
+        <Name>NEW DESIGN</Name>
+        <Parameter>cmdArg=GET6MechPart &amp; GET6ElectPart &amp; GET6SoftwarePart</Parameter>
+    </Tile>
+	<Tile tileId="get6CreateDocumentTile" templateId="get6CreateDocumentTemplate">
+        <Name>NEW DOC/SPEC</Name>
+        <Parameter>cmdArg=GET6Document &amp; GET6Specs </Parameter>
+    </Tile>
+	<Tile tileId="get6CreateChangeTile" templateId="get6CreateChangeTemplate">
+        <Name>NEW ECR</Name>
+    </Tile>
+	<Tile tileId="Cm1ChangesTile" templateId="Cm1ChangesTemplate">
+        <Name>Change Home</Name>
+    </Tile>
+	<Tile tileId="get6DCPTile" templateId="get6DCPTemplate">
+        <Name>DCP Admin</Name>
+    </Tile>
+	<Tile tileId="get6EDOTTile" templateId="get6EDOTTemplate">
+        <Name>EDOT TOOL</Name>
+    </Tile>
+	<Tile tileId="get6EUSTile" templateId="get6EUSTemplate">
+        <Name>EUS</Name>
+    </Tile>
+	<Tile tileId="get6IDTile" templateId="get6IDTemplate">
+        <Name>NEW ITEM ID</Name>
+    </Tile>
+	<Tile tileId="get6MyTechTile" templateId="get6MyTechTemplate">
+        <Name>PLM TICKET</Name>
+    </Tile>
+	<Tile tileId="get6HelpTile" templateId="get6HelpTemplate">
+        <Name>Help</Name>
+    </Tile>
+	<Tile tileId="Awp0GatewayViewerAdministrationTile" templateId="Awp0GatewayViewerAdministration">
+        <Name>Viewer Administration</Name>
+    </Tile>
+    <Tile tileId="Awp0ReportsTile" templateId="Awp0ReportsTemplate">
+        <Name>Reports</Name>
+    </Tile>
+    <Tile tileId="Awp0SubscriptionTile" templateId="Awp0SubscriptionTemplate">
+    	<Name>Subscription</Name>
+  	</Tile>
+    <!-- Tile collection(Site) definitions begins here -->
+    <TileCollection>
+        <SiteScope/>
+            <CollectionTiles tileId="Awp0InboxTile"              groupName="main"       size="1"       protected="1" ></CollectionTiles>
+			<CollectionTiles tileId="Awp0HomeFolderTile"         groupName="main"       size="0"       protected="1" ></CollectionTiles>
+			<CollectionTiles tileId="Awp0FavoritesTile"          groupName="main"  		size="0"       protected="1" ></CollectionTiles>
+			<CollectionTiles tileId="Awp0MyStuffTile"            groupName="main"  		size="0"       protected="1" ></CollectionTiles>
+			<CollectionTiles tileId="get6SearchTile"         	 groupName="main" 		size="0"	   protected="1" ></CollectionTiles>
+			<CollectionTiles tileId="Awp0ReportsTile"            groupName="main"       size="0"       protected="1" ></CollectionTiles>
+			<CollectionTiles tileId="Awp0SubscriptionTile" 		 groupName="main" 		size="0"	   protected="1" ></CollectionTiles> 
+			<CollectionTiles tileId="get6CreateDesignTile"       groupName="GET" 		size="0"	   protected="1" ></CollectionTiles>
+			<CollectionTiles tileId="get6CreateDocumentTile"     groupName="GET" 		size="0"	   protected="1" ></CollectionTiles>
+			<CollectionTiles tileId="get6CreateChangeTile"       groupName="GET" 		size="0"	   protected="1" ></CollectionTiles>
+			<CollectionTiles tileId="Cm1ChangesTile"             groupName="GET"        size="0"	   protected="1" ></CollectionTiles>
+			<CollectionTiles tileId="get6DCPTile"         		 groupName="GET" 		size="0"	   protected="1" ></CollectionTiles>
+			<CollectionTiles tileId="get6EDOTTile"         		 groupName="GET" 		size="0" 	   protected="1" ></CollectionTiles>
+			<CollectionTiles tileId="get6EUSTile"         		 groupName="GET" 		size="0" 	   protected="1" ></CollectionTiles>
+			<CollectionTiles tileId="get6IDTile"         		 groupName="GET" 		size="0" 	   protected="1" ></CollectionTiles>
+			<CollectionTiles tileId="get6MyTechTile"         	 groupName="GET" 		size="0" 	   protected="1" ></CollectionTiles>
+			<CollectionTiles tileId="get6HelpTile"         		 groupName="GET" 		size="0" 	   protected="1" ></CollectionTiles>
+			
+	</TileCollection>
+	<!-- Tile collection(Group=dba) definitions begins here -->
+    <TileCollection>
+        <GroupScope group="dba" />
+        <CollectionTiles tileId="Awp0GatewayViewerAdministrationTile" groupName="favorites" size="0" ></CollectionTiles>
+    </TileCollection>
+</ActiveWorkspaceGateway>

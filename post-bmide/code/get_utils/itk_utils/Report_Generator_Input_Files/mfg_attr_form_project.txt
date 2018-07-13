@@ -1,0 +1,3 @@
+QUERY.HEADER=FORM.PUID~FORM.NAME~COUNT
+QUERY.OUTPUTTYPES=string,string,int
+QUERY.SQL=SELECT distinct wso.puid, wso.pobject_name, COUNT(*) count FROM pworkspaceobject wso, pproject_list pl where wso.puid=pl.puid and wso.pobject_type like'GET6MfgAttrForm%' GROUP BY wso.puid, wso.pobject_name Having COUNT(*) > 1

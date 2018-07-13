@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+@<COPYRIGHT>@
+==================================================
+Copyright 2014.
+Siemens Product Lifecycle Management Software Inc.
+All Rights Reserved.
+==================================================
+@<COPYRIGHT>@
+--><TcBusinessDataIncludes currentTemplateVersion="11.2_4" displayName="get6transplm" enableOpsDataDeploy="true" guid="AAE13BEE5B077A63D0ADB2348A144232" isDescriptionMandatory="false" name="get6transplm" optional="true" prefixes="GET6" teamcenterTemplate="false">
+    <include file="foundation_template.xml"/>
+    <include file="aws2_template.xml"/>
+    <include file="cm_template.xml"/>
+    <include file="materialmgmt_template.xml"/>
+    <include file="nx0tcin_template.xml"/>
+    <include file="Cm1cmaws_template.xml"/>
+    <include file="activeworkspacebom_template.xml"/>
+</TcBusinessDataIncludes>

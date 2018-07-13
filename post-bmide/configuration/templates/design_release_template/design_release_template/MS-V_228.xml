@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TaskData>
+		<ActivityId>AL0110</ActivityId>
+		<Description>FLANGE ADAPTER</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>10</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0120</ActivityId>
+		<Description>FLANGE ADAPTER</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>10</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0130</ActivityId>
+		<Description>FLANGE ADAPTER</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>10</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0210</ActivityId>
+		<Description>VALVE FPE WATER THMST</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0311</ActivityId>
+		<Description>FUEL FILTER</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>13</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0312</ActivityId>
+		<Description>O-RING</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>20</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0320</ActivityId>
+		<Description>PRIME PUMP-FUEL</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>10</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0410</ActivityId>
+		<Description>LUBE OIL FILTER</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0411</ActivityId>
+		<Description>OIL FILTER ASM CENTRIFUGAL</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>13</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0415</ActivityId>
+		<Description>CENTRIFUGE ASM</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>23</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0420</ActivityId>
+		<Description>OIL COOLER HT</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>27</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0425</ActivityId>
+		<Description>OIL COOLER INSTALL KIT - DIN</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>42</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0510</ActivityId>
+		<Description>AIR CLEANER INERTIAL</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>14</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0510</ActivityId>
+		<Description>SILENCER INSTALLATION</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>20</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0511</ActivityId>
+		<Description>FILTER BAGGIE 184 DAY</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>11</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0520</ActivityId>
+		<Description>FLEX DUCT</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>23</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0525</ActivityId>
+		<Description>CLAMP TURBO BOOT</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>13</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0610</ActivityId>
+		<Description>EXHAUST STACK INSTALLATION</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>43</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0750</ActivityId>
+		<Description>REGULATOR VALV AIR STARTR</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>11</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0760</ActivityId>
+		<Description>STRAINER Y AIR START MOT</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>12</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL0910</ActivityId>
+		<Description>ENG MOUNT ASM</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>30</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL1110</ActivityId>
+		<Description>ACCESSORY RACK</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>22</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL1115</ActivityId>
+		<Description>ACCESSORY RACK PIPING</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>15</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL1210</ActivityId>
+		<Description>ACCES LIST, ENG STATIONARY EC2</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>35</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL1215</ActivityId>
+		<Description>ACCES LIST, ENG MARINE EC2</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>17</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL1220</ActivityId>
+		<Description>DISPLAY RPM GAUGE</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>13</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL1240</ActivityId>
+		<Description>ECU - A HARNESS</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>19</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL1240</ActivityId>
+		<Description>ECU - B HARNESS</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>19</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL1241</ActivityId>
+		<Description>HPFS - HARNESS</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>19</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL1242</ActivityId>
+		<Description>MBT - HARNESS</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>17</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL1243</ActivityId>
+		<Description>EGT - HARNESS</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>17</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL1244</ActivityId>
+		<Description>STATIONARY HARNESS</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>19</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL1245</ActivityId>
+		<Description>MARINE HARNESS</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>19</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL1247</ActivityId>
+		<Description>OMD HARNESS</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>17</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL1249</ActivityId>
+		<Description>EAFP HARNESS</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>18</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL1250</ActivityId>
+		<Description>LOL HARNESS</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>18</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL1251</ActivityId>
+		<Description>SWITCH LOL</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>17</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL1254</ActivityId>
+		<Description>INDICATOR FLTR SERVICE</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>9</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AL1258</ActivityId>
+		<Description>TEMP SENSOR</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>17</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>CL0001</ActivityId>
+		<Description>EC2+ CONTROLLER</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>36</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0002</ActivityId>
+		<Description>ENGRG NOTICE</Description>
+		<EngrComponentNo>38520</EngrComponentNo>
+		<DesignComponentNo></DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0003</ActivityId>
+		<Description>REFERENCE ITEM</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38520</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0060</ActivityId>
+		<Description>FRAME</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>40</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0100</ActivityId>
+		<Description>CRANKSHAFT</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>57</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0120</ActivityId>
+		<Description>COVER ASM PT VALVE</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>26</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0130</ActivityId>
+		<Description>CAM SHAFT</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>37</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0140</ActivityId>
+		<Description>END ASM GEN 12/16V228MS</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>29</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0160</ActivityId>
+		<Description>GEAR BOX ASM</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>26</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0165</ActivityId>
+		<Description>GEAR BOX INSTALLATION</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>19</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0170</ActivityId>
+		<Description>GEAR, ENG INSTALLATION</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>20</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0180</ActivityId>
+		<Description>FORWARD END ASM </Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>36</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0230</ActivityId>
+		<Description>COUPLING INSTALL ASM</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>24</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0240</ActivityId>
+		<Description>WATER HDR ASM</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>27</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0250</ActivityId>
+		<Description>COALESCER ASM</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>41</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0260</ActivityId>
+		<Description>AIR INTAKE ASM</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>35</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0280</ActivityId>
+		<Description>DIPSTICK</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0290</ActivityId>
+		<Description>PISTON &amp;ROD ASM</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>34</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0300</ActivityId>
+		<Description>CYLINDER ASM</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>31</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0310</ActivityId>
+		<Description>CYLINDER INSTL</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>31</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0320</ActivityId>
+		<Description>TURBOCHARGER</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>41</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0340</ActivityId>
+		<Description>TURBOCHARGER INSTALLATION</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>26</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0360</ActivityId>
+		<Description>EXHAUST MANIFOLD</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>28</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0370</ActivityId>
+		<Description>FUEL LINE ASM</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>33</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0380</ActivityId>
+		<Description>FUEL FILTER ASM</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>20</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0390</ActivityId>
+		<Description>WIREWAY ASM</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>17</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0400</ActivityId>
+		<Description>SENSOR ASM</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>19</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0410</ActivityId>
+		<Description>NAMEPLATE MOUNTING</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>14</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0420</ActivityId>
+		<Description>NAMEPLATE MOUNTING</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>13</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0430</ActivityId>
+		<Description>STARTER ASM</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>25</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0470</ActivityId>
+		<Description>SHIPPING INST INSTRUCTIONS</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>21</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0480</ActivityId>
+		<Description>SHIELD, HEAT</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>12</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0490</ActivityId>
+		<Description>FLYWHEEL ASSEMBLY</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>31</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>RL0050</ActivityId>
+		<Description>DOCUMENT SUBMITTAL LIST</Description>
+		<EngrComponentNo>33377</EngrComponentNo>
+		<DesignComponentNo></DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>RL0070</ActivityId>
+		<Description>PART CATALOGUE</Description>
+		<EngrComponentNo></EngrComponentNo>
+		<DesignComponentNo>38530</DesignComponentNo>
+		<BackOff>4</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>RL0080</ActivityId>
+		<Description>MAINTENANCE MANUAL</Description>
+		<EngrComponentNo></EngrComponentNo>
+		<DesignComponentNo>38530</DesignComponentNo>
+		<BackOff>4</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>RL0090</ActivityId>
+		<Description>PROJECT GUIDE</Description>
+		<EngrComponentNo></EngrComponentNo>
+		<DesignComponentNo>38530</DesignComponentNo>
+		<BackOff>4</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>RL0095</ActivityId>
+		<Description>A&amp;I GUIDE</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38530</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>RL0100</ActivityId>
+		<Description>OPERATORS MANUAL</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38530</DesignComponentNo>
+		<BackOff>4</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>RL0110</ActivityId>
+		<Description>TROUBLESHOOT GUIDE</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38530</DesignComponentNo>
+		<BackOff>4</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>RL0120</ActivityId>
+		<Description>TORQUE/FUEL CURVE</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo></DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>RL0130</ActivityId>
+		<Description>ENGINE OUTLINE</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>RL0140</ActivityId>
+		<Description>ENGINE 3D MODEL</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>RL0150</ActivityId>
+		<Description>SCHEMATIC</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo>38500</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>2</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>RL0160</ActivityId>
+		<Description>WIRELIST</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo></DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>RL0170</ActivityId>
+		<Description>P&amp;ID</Description>
+		<EngrComponentNo>33377</EngrComponentNo>
+		<DesignComponentNo></DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>RL0180</ActivityId>
+		<Description>INSTRUMENT LIST</Description>
+		<EngrComponentNo>33377</EngrComponentNo>
+		<DesignComponentNo></DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>RL0190</ActivityId>
+		<Description>SPECIFICATION SFS</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo></DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>RL0200</ActivityId>
+		<Description>LOAD CONSUMPTION</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo></DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>RL0210</ActivityId>
+		<Description>ENGINE DATA SHEET</Description>
+		<EngrComponentNo>38010</EngrComponentNo>
+		<DesignComponentNo></DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>RL0220</ActivityId>
+		<Description>MODBUS ADDRESS LIST</Description>
+		<EngrComponentNo>38985</EngrComponentNo>
+		<DesignComponentNo></DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+</template-data>

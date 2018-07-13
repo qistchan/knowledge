@@ -1,0 +1,167 @@
+#===================================================
+##
+#
+# \file          t4o_mapping_config.sd
+#
+# \brief         Central configuration file for all needed defaults and connector settings of the T4O gateway
+#
+# \details       The file contains all relevant EBS connector settings, some defaults and determines which other mapping files are active.
+#                \n The Name of the file t4o_mapping_config.sd is fixed and the file must be present in var/mmap directory. \n
+#
+# \author        kh, 20131022
+#
+# \copyright     2016
+#                Siemens Product Lifecycle Management Software Inc.
+#                All Rights Reserved.
+#
+
+set ::errorInfo ""
+
+tpwrite -mtype INTERN "t4o_mapping_config.sd :: START INIT"
+
+
+# set the EBS package version
+set ::T4O_Defaults(PackageVersion)                         "_1123"
+
+#
+# Set the default timeout for the JDBC and SOAP (ISG) pipe server
+#
+::TPEBS::BASE::JDBC::setTimeout [::TPEBS::BASE::getProxyTimeout]
+::T4X::SOA::setTimeout          [::TPEBS::BASE::getProxyTimeout]
+
+####################################################################################################
+#                  From this point on we define all system independent settings                    #
+####################################################################################################
+
+#
+# T4O data defaults
+set ::T4O_Defaults(MASTER_ORG_ID)                "103"
+set ::T4O_Defaults(MASTER_ORG)                   "GLO"
+#
+#
+set ::T4O_Defaults(MAKE_VALUE)                   "Make"
+set ::T4O_Defaults(BUY_VALUE)                    "Buy"
+set ::T4O_Defaults(TEAMCENTER_GLO)               "Teamcenter-GLO"
+set ::T4O_Defaults(ATTRIBUTE_CATEGORY)           "GETS Global"
+set ::T4O_Defaults(YES)                          "Y"
+set ::T4O_Defaults(NO)                           "N"
+set ::T4O_Defaults(TRUE)                         "TRUE"
+set ::T4O_Defaults(FALSE)                        "FALSE"
+set ::T4O_Defaults(ALL)                          "ALL"
+set ::T4O_Defaults(DISALLOWEDTYPEPREF)           "GET_T4O_DisAllowed_Child_types"
+set ::T4O_Defaults(DEFAULTSEQNO)                 "GET_T4O_Default_Seq_number"
+set ::T4O_Defaults(ITEMTEMPLATES)                "GET_T4O_Item_Templates"
+set ::T4O_Defaults(STOCKMATERIAL)                "GET6StockMtrlRevision"
+set ::T4O_Defaults(PRELIMSTATUS)                 "GET6Preliminary"
+set ::T4O_Defaults(PRELIM)                       "Prelim"
+set ::T4O_Defaults(NewPart)                      "New-Part"
+#
+set ::T4O_Defaults(ASSEMBLY_TYPE_MANUFACTURING)  "1"
+set ::T4O_Defaults(ASSEMBLY_TYPE_ENGINEERING)    "2"
+#
+set ::T4O_Defaults(BOM_ITEM_TYPE_MODEL)          "1"
+set ::T4O_Defaults(BOM_ITEM_TYPE_OPTION_CLASS)   "2"
+set ::T4O_Defaults(BOM_ITEM_TYPE_PLANNING)       "3"
+set ::T4O_Defaults(BOM_ITEM_TYPE_STANDARD)       "4"
+set ::T4O_Defaults(BOM_ITEM_TYPE_PRODUCT_FAMILY) "5"
+#
+set ::T4O_Defaults(BOM_COUNT_POINT_TYPE_YES_AUTO)  "1"
+set ::T4O_Defaults(BOM_COUNT_POINT_TYPE_NO_AUTO)   "2"
+set ::T4O_Defaults(BOM_COUNT_POINT_TYPE_NO_DIRECT) "3"
+#
+set ::T4O_Defaults(SYS_YES_NO_YES)               "1"
+set ::T4O_Defaults(SYS_YES_NO_NO)                "2"
+
+#ProductLine
+set ::T4O_Defaults(Engine)                       "Engine"
+set ::T4O_Defaults(Control)                      "Control"
+set ::T4O_Defaults(Propulsion)                   "Propulsion"
+set ::T4O_Defaults(OHV)                          "OHV"
+set ::T4O_Defaults(Locomotive)                   "Locomotive"
+set ::T4O_Defaults(MECHANICAL)                   "MECHANICAL"
+set ::T4O_Defaults(UndergroundMining)            "UndergroundMining"
+set ::T4O_Defaults(MINING_OHV)                   "MINING OHV"
+set ::T4O_Defaults(MnS)                          "MnS"
+set ::T4O_Defaults(M_S)                          "M&S"
+
+#RF UOM
+set ::T4O_Defaults(UOM)                          "RF"
+
+#**************************************************
+#   Batch configuration settings
+#**************************************************
+set ::T4X::WORKFLOW::BATCHJOB::BatchjobDefaults(DefaultRetryTime) "1800"
+set ::T4X::WORKFLOW::BATCHJOB::BatchjobDefaults(T4X_WF_BATCH_DebugSwitch) "ON"
+
+#**************************************************
+#    EBS system definitions
+#**************************************************
+source -relax GET_t4o_ebs_config_env.sd
+
+#***************************************************************************************************
+#   Source the customer specific mapping functions and all other customer specific
+#   function modules of the configuration (all *.sd files in the var/mmap directory):
+#***************************************************************************************************
+
+#
+# GET specific mappings
+#
+source -relax GET_t4o_item_mapping.sd
+source -relax GET_t4o_bom_mapping.sd
+source -relax GET_t4o_plmxml_routing_mapping.sd
+source -relax GET_t4o_prop_mapping.sd
+source -relax GET_t4o_genobj_mapping.sd
+
+source -relax t4o_custom_mapping_toolbox.sd
+
+#
+# Patches
+#
+source -relax t4o_bom_attribute_check_patch.sd
+source -relax t4o_alt_bom_patch.sd
+source -relax t4o_alt_routing_patch.sd
+
+#***************************************************************************************************
+#   Source TCL language files
+#***************************************************************************************************
+foreach f [glob -nocomplain -types "f" -path "[rcwd]/var/lang/T4O/" "*.msg"] { source $f }
+#
+unset -nocomplain f
+#
+# Now we can activate the language we want
+#
+set strLanguageCode "en_US" ; # default language (check /var/lang/T4O/ for more language codes)
+#
+if { [info exists ::env(TP_LANGUAGE_CODE)] } {
+  set strLanguageCode $::env(TP_LANGUAGE_CODE)
+}
+#
+::msgcat::mclocale $strLanguageCode
+#
+unset -nocomplain strLanguageCode
+
+#***************************************************************************************************
+#   AutoLogin examples
+#***************************************************************************************************
+#
+# EBS4 auto connect example with Responsibility "Teamcenter Gateway User" (credentials can be encrypted if required)
+#
+# RespKey for ISG  -> MANUFACTURING_SUPER_USER_ASCP
+# RespKey for JDBC -> T4O_USER
+#
+#                                              System User  Password  RespKey    Language   Mode (All = All TC actions including Test Scripts)
+::T4O::CONNECTION2EBS::selectActiveConnection2EBS "*" "CHANGE_ME_ORACLE_SYSTEM_ID"
+
+#
+# ITK auto connect example for infodba/infodba/dba (credentials can be encrypted if required)
+#                              User      Password  Group
+#set Status [::ITK::setConnectionParameters "username" "password" "group"]
+
+::ITK::setConnectionParameters "CHANGE_ME_ENCRYPTED_USERNAME" "CHANGE_ME_ENCRYPTED_PASSWORD" "CHANGE_ME_ENCRYPTED_GROUP" FALSE
+
+
+#***************************************************************************************************
+#   Mapping config finished...
+#***************************************************************************************************
+tpwrite -mtype INTERN "t4o_mapping_config.sd :: STOP INIT"
+if {$::errorInfo ne ""} {tpwrite -mtype ERROR "t4o_mapping_config.sd :: ERROR -> $::errorInfo"}

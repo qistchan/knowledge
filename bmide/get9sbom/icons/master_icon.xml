@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<TcBusinessDataIncludes>
+    <include iconfile="GET9GET6ServicePart_16.png"/>
+    <include iconfile="GET9GET6ServicePartRev_16.png"/>
+    <include iconfile="GET9functional.png"/>
+    <include iconfile="GET9functionalRevision.png"/>
+    <include iconfile="GET9zonal.png"/>
+    <include iconfile="GET9zonalRevision.png"/>
+    <include iconfile="GET9Orange .png"/>
+    <include iconfile="GET9Oranve Rev_16.png"/>
+    <include iconfile="GET9GET6SCN_16.png"/>
+    <include iconfile="GET9GET6SCNRev_16.png"/>
+</TcBusinessDataIncludes>

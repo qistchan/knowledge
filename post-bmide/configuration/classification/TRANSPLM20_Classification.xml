@@ -1,0 +1,1505 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--Generated through ICS XML Export Utility; Qadeer; Wed Nov  9 08:49:26 2016-->
+<InClassAdminPackage xmlns="http://www.ugs.com/in-CLASS/1.0" xmlns:plm="http://www.plmxml.org/Schemas/PLMXMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ugs.com/in-CLASS/1.0 /app/tc11/tcroot/reference_files/PLMXML/schemas/EDS/in-class.xsd">
+	<ICSDictionaryAttribute attributeId="1000">
+		<Name>Thickness</Name>
+		<ShortName>Thk</ShortName>
+		<Format>
+			<ICSFormatFloat scale="9" precission="4"/>
+			<Unit>Length_mm</Unit>
+		</Format>
+		<AltFormat>
+			<ICSFormatFloat scale="9" precission="4"/>
+			<Unit>Length_in</Unit>
+		</AltFormat>
+		<Description></Description>
+		<Comment></Comment>
+	</ICSDictionaryAttribute>
+	<ICSDictionaryAttribute attributeId="1001">
+		<Name>Diameter</Name>
+		<ShortName>DIA</ShortName>
+		<Format>
+			<ICSFormatFloat scale="9" precission="4"/>
+			<Unit>Length_mm</Unit>
+		</Format>
+		<AltFormat>
+			<ICSFormatFloat scale="9" precission="4"/>
+			<Unit>Length_in</Unit>
+		</AltFormat>
+		<Description>Diameter</Description>
+		<Comment></Comment>
+	</ICSDictionaryAttribute>
+	<ICSDictionaryAttribute attributeId="1002">
+		<Name>Outer Diamater</Name>
+		<ShortName>DIAO</ShortName>
+		<Format>
+			<ICSFormatFloat scale="9" precission="4"/>
+			<Unit>Length_mm</Unit>
+		</Format>
+		<AltFormat>
+			<ICSFormatFloat scale="9" precission="4"/>
+			<Unit>Length_in</Unit>
+		</AltFormat>
+		<Description>Outer Diameter</Description>
+		<Comment></Comment>
+	</ICSDictionaryAttribute>
+	<ICSDictionaryAttribute attributeId="1003">
+		<Name>Width</Name>
+		<ShortName>WD</ShortName>
+		<Format>
+			<ICSFormatFloat scale="9" precission="4"/>
+			<Unit>Length_mm</Unit>
+		</Format>
+		<AltFormat>
+			<ICSFormatFloat scale="9" precission="4"/>
+			<Unit>Length_in</Unit>
+		</AltFormat>
+		<Description>Width</Description>
+		<Comment></Comment>
+	</ICSDictionaryAttribute>
+	<ICSDictionaryAttribute attributeId="1008">
+		<Name>Large Width</Name>
+		<ShortName>LW</ShortName>
+		<Format>
+			<ICSFormatFloat scale="9" precission="4"/>
+			<Unit>Length_mm</Unit>
+		</Format>
+		<AltFormat>
+			<ICSFormatFloat scale="9" precission="4"/>
+			<Unit>Length_in</Unit>
+		</AltFormat>
+		<Description>large Width Dimension</Description>
+		<Comment></Comment>
+	</ICSDictionaryAttribute>
+	<ICSDictionaryAttribute attributeId="1009">
+		<Name>Wall Thickness</Name>
+		<ShortName>WT</ShortName>
+		<Format>
+			<ICSFormatFloat scale="9" precission="4"/>
+			<Unit>Length_mm</Unit>
+		</Format>
+		<AltFormat>
+			<ICSFormatFloat scale="9" precission="4"/>
+			<Unit>Length_in</Unit>
+		</AltFormat>
+		<Description>Wall Thickness</Description>
+		<Comment></Comment>
+	</ICSDictionaryAttribute>
+	<ICSDictionaryAttribute attributeId="1007">
+		<Name>Small Width</Name>
+		<ShortName>SW</ShortName>
+		<Format>
+			<ICSFormatFloat scale="9" precission="4"/>
+			<Unit>Length_mm</Unit>
+		</Format>
+		<AltFormat>
+			<ICSFormatFloat scale="9" precission="4"/>
+			<Unit>Length_in</Unit>
+		</AltFormat>
+		<Description>Small Width Dimension</Description>
+		<Comment></Comment>
+	</ICSDictionaryAttribute>
+	<ICSDictionaryAttribute attributeId="1004">
+		<Name>Lbs/Ft</Name>
+		<Format>
+			<ICSFormatFloat scale="9" precission="4"/>
+		</Format>
+		<AltFormat>
+			<ICSFormatFloat scale="9" precission="4"/>
+		</AltFormat>
+		<Description></Description>
+		<Comment></Comment>
+	</ICSDictionaryAttribute>
+	<ICSDictionaryAttribute attributeId="1005">
+		<Name>AF-Dim</Name>
+		<ShortName>AF-Dim</ShortName>
+		<Format>
+			<ICSFormatFloat scale="9" precission="4"/>
+			<Unit>Length_mm</Unit>
+		</Format>
+		<AltFormat>
+			<ICSFormatFloat scale="9" precission="4"/>
+			<Unit>Length_in</Unit>
+		</AltFormat>
+		<Description>AF-Dim</Description>
+		<Comment></Comment>
+	</ICSDictionaryAttribute>
+	<ICSDictionaryAttribute attributeId="1006">
+		<Name>Nominal Diameter</Name>
+		<ShortName>DIAN</ShortName>
+		<Format>
+			<ICSFormatFloat scale="9" precission="4"/>
+			<Unit>Length_mm</Unit>
+		</Format>
+		<AltFormat>
+			<ICSFormatFloat scale="9" precission="4"/>
+			<Unit>Length_in</Unit>
+		</AltFormat>
+		<Description>Nominal Diameter</Description>
+		<Comment></Comment>
+	</ICSDictionaryAttribute>
+	<ClassPackage classId="ICM">
+		<ICSClass isGroup="true" abstract="true" unitSystem="both">
+			<Parent>SAM</Parent>
+			<Name>Classification Root</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM01">
+		<ICSClass isGroup="true" abstract="true" unitSystem="both">
+			<Parent>ICM</Parent>
+			<Name>Non-Metallic(A)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0101">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM01</Parent>
+			<Name>Paper(A1)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010101">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0101</Parent>
+			<Name>Flat Bar(A1F)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010102">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0101</Parent>
+			<Name>Insulation(A1Q)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010103">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0101</Parent>
+			<Name>Round Bar(A1R)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010104">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0101</Parent>
+			<Name>Sheet(A1S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010105">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0101</Parent>
+			<Name>Round Tube(A1T)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1002"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0102">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM01</Parent>
+			<Name>Untreated Cloth / Tape / Yarn(A2)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010201">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0102</Parent>
+			<Name>Square Bar(A2B)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1008"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010202">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0102</Parent>
+			<Name>Flat Bar(A2F)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010203">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0102</Parent>
+			<Name>Insulation(A2Q)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010204">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0102</Parent>
+			<Name>Round Tube(A2T)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1002"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0103">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM01</Parent>
+			<Name>Animal or Vegetable based Material(A9)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010301">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0103</Parent>
+			<Name>Insulation, Cork(A9Q)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0104">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM01</Parent>
+			<Name>Fluxes(A10)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010401">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0104</Parent>
+			<Name>Fluxes(A10NGC)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0105">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM01</Parent>
+			<Name>Rubber and Substitutes, Molded or Formed(A12)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010501">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0105</Parent>
+			<Name>Flat Bar(A12F)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010502">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0105</Parent>
+			<Name>GE Drawing No.(A12N)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010503">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0105</Parent>
+			<Name>Insulation(A12Q)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010504">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0105</Parent>
+			<Name>Sheet(A12S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0106">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM01</Parent>
+			<Name>Mica(A14)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010601">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0106</Parent>
+			<Name>Flat Bar(A14F)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010602">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0106</Parent>
+			<Name>Insulation(A14Q)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010603">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0106</Parent>
+			<Name>Sheet(A14S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010604">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0106</Parent>
+			<Name>Round Tube(A14T)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1002"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0107">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM01</Parent>
+			<Name>Treating, Filling, Bonding Material(A15)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010701">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0107</Parent>
+			<Name>Bonding Material(A15NGC)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0108">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM01</Parent>
+			<Name>Compound, molded or formed(A16)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010801">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0108</Parent>
+			<Name>Flat Bar(A16F)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010802">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0108</Parent>
+			<Name>Insulation(A16Q)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010803">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0108</Parent>
+			<Name>Round Bar(A16R)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010804">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0108</Parent>
+			<Name>Sheet(A16S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010805">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0108</Parent>
+			<Name>Pipe(A16)(U)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1006"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0109">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM01</Parent>
+			<Name>Treated Cloth / Tape / Yarn (A22)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010901">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0109</Parent>
+			<Name>Flat Bar(A22F)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010902">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0109</Parent>
+			<Name>GE Drawing No.(A22N)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010903">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0109</Parent>
+			<Name>Round Tube(A22T)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1002"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM010904">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0109</Parent>
+			<Name>Insulation(A22)(Q)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0110">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM01</Parent>
+			<Name>Coated Materials (A23)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM011001">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0110</Parent>
+			<Name>Square Bar(A23B)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1008"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM011002">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0110</Parent>
+			<Name>Flat Bar(A23F)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM011003">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0110</Parent>
+			<Name>GE Drawing No.(A23N)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM011004">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0110</Parent>
+			<Name>Insulation(A23Q)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM011005">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0110</Parent>
+			<Name>Round Bar(A23)(R)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0111">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM01</Parent>
+			<Name>Local Series of Parts(A50)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM011101">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0111</Parent>
+			<Name>Various(A50N)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM011102">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0111</Parent>
+			<Name>Insulation(A50Q)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM011103">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0111</Parent>
+			<Name>Sheet, Insulation(A50S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM011104">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0111</Parent>
+			<Name>Round Tube(A50)(T)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1002"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0112">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM01</Parent>
+			<Name>Non Metallic Minerals/Glass,Forms &amp; parts (A7)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM011201">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0112</Parent>
+			<Name>Insulation(Q)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0113">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM01</Parent>
+			<Name>Laminated Compounds (A19)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM011301">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0113</Parent>
+			<Name>Insulation(A19)(Q)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM011302">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0113</Parent>
+			<Name>Round bar(A19)(R)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM011303">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0113</Parent>
+			<Name>Sheet(A19)(S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM011304">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0113</Parent>
+			<Name>Round Tube(A19)(T)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1002"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0114">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM01</Parent>
+			<Name>Do Not Use</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM011401">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0114</Parent>
+			<Name>Do Not Use</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM02">
+		<ICSClass isGroup="true" abstract="true" unitSystem="both">
+			<Parent>ICM</Parent>
+			<Name>Metallic Material(B)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0203">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM02</Parent>
+			<Name>Carbon Steel For Structural Purposes( except cast )(B4)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020301">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0203</Parent>
+			<Name>Angle, Structural(B4)(A)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020302">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0203</Parent>
+			<Name>Square Bar, Structural(B4)(B)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1008"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020303">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0203</Parent>
+			<Name>Channel, Structural(B4)(C)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1008"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020304">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0203</Parent>
+			<Name>Rectangular Tubing, Structural(B4)(D)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1009"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020305">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0203</Parent>
+			<Name>Expanded Metal, Structural(B4)(E)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020306">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0203</Parent>
+			<Name>Flat Bar, Structural(B4)(F)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020307">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0203</Parent>
+			<Name>Wide Flange Beam, Structural(B4)(H)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1008"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020308">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0203</Parent>
+			<Name>Square Tubing, Structural(B4)(K)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1009"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020309">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0203</Parent>
+			<Name>Wide Flange Tee, Structural(B4)(L)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1008"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020310">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0203</Parent>
+			<Name>Hex Bar, Structural(B4)(M)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1005"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020311">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0203</Parent>
+			<Name>Plate, Structural(B4)(P)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020312">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0203</Parent>
+			<Name>Round Bar, Structural(B4)(R)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020313">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0203</Parent>
+			<Name>Sheet, Structural(B4)(S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020314">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0203</Parent>
+			<Name>Round Tube, Structural(B4)(T)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1002"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020315">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0203</Parent>
+			<Name>Pipe, Structural(B4)(U)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1006"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020316">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0203</Parent>
+			<Name>Round Wire, Structural(B4)(W)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020317">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0203</Parent>
+			<Name>Square Wire, Structural(B4)(Y)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020318">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0203</Parent>
+			<Name>Structural Steel(B4)(N)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0204">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM02</Parent>
+			<Name>Alloy Steel For Structural Purposes(except cast)(B5)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020401">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0204</Parent>
+			<Name>Angle, Structural(B5)(A)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020402">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0204</Parent>
+			<Name>Square Bar, Structural(B5)(B)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1008"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020403">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0204</Parent>
+			<Name>Channel, Structural(B5)(C)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1008"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020404">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0204</Parent>
+			<Name>Flat Bar,Structural(B5)(F)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020405">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0204</Parent>
+			<Name>Wide Flange Beam, Structural(B5)(H)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1008"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020406">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0204</Parent>
+			<Name>Hex Bar, Structural(B5)(M)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1005"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020407">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0204</Parent>
+			<Name>Plate, Structural(B5)(P)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020408">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0204</Parent>
+			<Name>Round Bar, Structural(B5)(R)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020409">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0204</Parent>
+			<Name>Sheet, Structural(B5)(S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020410">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0204</Parent>
+			<Name>Round Tube, Structural(B5)(T)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1002"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020411">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0204</Parent>
+			<Name>Structural Sheet(B5)(N)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020412">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0204</Parent>
+			<Name>Pipe,Structural(B5)(U)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1006"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020413">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0204</Parent>
+			<Name>Square Tubing,Structural(B5)(K)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1009"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020414">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0204</Parent>
+			<Name>Rectangular Tubing,Structural(B5)(D)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1009"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0206">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM02</Parent>
+			<Name>Stainless Steel &amp; Other Related Alloys(B7)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020601">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0206</Parent>
+			<Name>Angle, Stainless Steel(B7)(A)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020602">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0206</Parent>
+			<Name>Square Bar, Stainless Steel(B7)(B)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1008"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020603">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0206</Parent>
+			<Name>Expanded Metal, Stainless Steel(B7)(E)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020604">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0206</Parent>
+			<Name>Flat Bar, Stainless Steel(B7)(F)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020605">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0206</Parent>
+			<Name>Hex Bar, Stainless Steel(B7)(M)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1005"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020606">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0206</Parent>
+			<Name>Plate, Stainless Steel(B7)(P)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020607">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0206</Parent>
+			<Name>Round Bar, Stainless Steel(B7)(R)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020608">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0206</Parent>
+			<Name>Sheet, Stainless Steel(B7)(S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020609">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0206</Parent>
+			<Name>Round Tube, Stainless Steel(B7)(T)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1002"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020610">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0206</Parent>
+			<Name>Pipe, Stainless Steel(B7)(U)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1006"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020611">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0206</Parent>
+			<Name>Stainless Steel(B7)(N)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0207">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM02</Parent>
+			<Name>Mechanical Sheet &amp; Strip Steel(B8)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020701">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0207</Parent>
+			<Name>Expanded Metal, Steel Sheet(B8)(E)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020704">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0207</Parent>
+			<Name>Sheet, Steel(B8)(S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020705">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0207</Parent>
+			<Name>Steel Sheet(B8)(N)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020706">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0207</Parent>
+			<Name>Flat Bar,Steel (B8)(F)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM020707">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0207</Parent>
+			<Name>Plate,Steel(B8)(P)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0213">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM02</Parent>
+			<Name>Nickel &amp; Nickel Alloys(B14)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021301">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0213</Parent>
+			<Name>Flat Bar, Nickel(B14)(F)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021302">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0213</Parent>
+			<Name>Hex Bar, Nickel(B14)(M)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1005"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021303">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0213</Parent>
+			<Name>Round Bar, Nickel(B14)(R)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021304">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0213</Parent>
+			<Name>Sheet, Nickel(B14)(S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021305">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0213</Parent>
+			<Name>Round Tube, Nickel(B14)(T)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1002"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0217">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM02</Parent>
+			<Name>Transportation / Drive Motor / Generator Department Metallic Materials (B50)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021701">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0217</Parent>
+			<Name>Angle(B50)(A)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021702">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0217</Parent>
+			<Name>Square Bar(B50)(B)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1008"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021703">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0217</Parent>
+			<Name>Channel(B50)(C)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1008"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021704">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0217</Parent>
+			<Name>Rectangular Tubing(B50)(D)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1009"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021705">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0217</Parent>
+			<Name>Expanded Metal(B50)(E)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021706">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0217</Parent>
+			<Name>Flat Bar(B50)(F)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021707">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0217</Parent>
+			<Name>Wide Flange Beam(B50)(H)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1008"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021708">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0217</Parent>
+			<Name>Std. I Beam(B50)(I)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1008"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021709">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0217</Parent>
+			<Name>Wide Flange Tee(B50)(L)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1008"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021710">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0217</Parent>
+			<Name>Hex Bar(B50)(M)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1005"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021711">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0217</Parent>
+			<Name>GE Drawing No.(B50)(N)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021712">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0217</Parent>
+			<Name>Plate(B50)(P)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021713">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0217</Parent>
+			<Name>Round Bar(B50)(R)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021714">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0217</Parent>
+			<Name>Sheet(B50)(S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021715">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0217</Parent>
+			<Name>Round Tube(B50)(T)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1002"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021716">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0217</Parent>
+			<Name>Pipe(B50)(U)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1006"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021717">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0217</Parent>
+			<Name>Round Wire(B50)(W)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021718">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0217</Parent>
+			<Name>Square Wire(B50)(Y)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0218">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM02</Parent>
+			<Name>Ferrous Raw Materials (B1)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021801">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0218</Parent>
+			<Name>Sheet,Ferrous Raw Materials(B1)(S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0219">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM02</Parent>
+			<Name>Nonferrous Raw Materials ( Pure Or Alloyed) - (B10)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM021901">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0219</Parent>
+			<Name>Round Bar,Nonferrous Alloy(B10)(R)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0220">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM02</Parent>
+			<Name>Copper &amp; Copper Alloys (B11)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022001">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0220</Parent>
+			<Name>Square Bar,Copper(B11)(B)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1008"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022002">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0220</Parent>
+			<Name>Flat Bar,Copper(B11)(F)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022003">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0220</Parent>
+			<Name>Square Tubing,Copper(B11)(K)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1009"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022004">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0220</Parent>
+			<Name>Hex Bar,Copper(B11)(M)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1005"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022005">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0220</Parent>
+			<Name>Round Bar,Copper(B11)(R)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022006">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0220</Parent>
+			<Name>Sheet,Copper(B11)(S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022007">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0220</Parent>
+			<Name>Round Tube,Copper(B11)(T)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1002"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022008">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0220</Parent>
+			<Name>Pipe,Copper(B11)(U)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1006"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022009">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0220</Parent>
+			<Name>Round Wire,Copper(B11)(W)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022010">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0220</Parent>
+			<Name>Rect wire,Copper(B11)(Y)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0221">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM02</Parent>
+			<Name>Aluminum &amp; Aluminum Alloys (B12)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022101">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0221</Parent>
+			<Name>Angle,Aluminum(B12)(A)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022102">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0221</Parent>
+			<Name>Square Bar,Aluminum(B12)(B)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1008"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022103">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0221</Parent>
+			<Name>Channel,Aluminum(B12)(C)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1008"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022104">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0221</Parent>
+			<Name>Flat Bar,Aluminum(B12)(F)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022105">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0221</Parent>
+			<Name>Hex Bar,Aluminum(B12)(M)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1005"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022106">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0221</Parent>
+			<Name>Aluminum(B12)(N)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022107">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0221</Parent>
+			<Name>Round Bar,Aluminum(B12)(R)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022108">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0221</Parent>
+			<Name>Sheet,Aluminum(B12)(S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022109">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0221</Parent>
+			<Name>Round Tube,Aluminum(B12)(T)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1002"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022110">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0221</Parent>
+			<Name>Pipe,Aluminum(B12)(U)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1006"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022111">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0221</Parent>
+			<Name>Plate,Aluminum(B12)(P)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022112">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0221</Parent>
+			<Name>Round Bar,Aluminum(B12)(R)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0222">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM02</Parent>
+			<Name>Zinc &amp; Zinc Alloys (B13)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022201">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0222</Parent>
+			<Name>Sheet, Zinc(B13)(S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022202">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0222</Parent>
+			<Name>Round Tube,Brass(B13)(T)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1002"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0223">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM02</Parent>
+			<Name>Cast Iron And Steel (B2)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022301">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0223</Parent>
+			<Name>Round Tube,Structural(B2)(T)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1002"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0224">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM02</Parent>
+			<Name>Fusible Alloys (Brazing, Soldering, Fuse, Etc.) - (B20)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022401">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0224</Parent>
+			<Name>Flat Bar,Fusible(B20)(F)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022402">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0224</Parent>
+			<Name>Round Bar,Fusible(B20)(R)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022403">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0224</Parent>
+			<Name>Sheet,Fusible(B20)(S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022404">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0224</Parent>
+			<Name>Round Wire,Fusible(B20)(W)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022405">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0224</Parent>
+			<Name>Square Wire,Fusible(B20)(Y)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0225">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM02</Parent>
+			<Name>Alloys For Specific Purposes (B21)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022501">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0225</Parent>
+			<Name>Flat Bar,Alloy(B21)(F)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022502">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0225</Parent>
+			<Name>Alloys(B21)(N)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022503">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0225</Parent>
+			<Name>Round Bar,Alloy(B21)(R)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022504">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0225</Parent>
+			<Name>Sheet,Lead Alloy(B21)(S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022505">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0225</Parent>
+			<Name>Round Wire,Welding Alloy(B21)(W)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022506">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0225</Parent>
+			<Name>Round Wire,Copper Magnet(B22)(W)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022507">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0225</Parent>
+			<Name>Square Wire,Copper magnet(B22)(Y)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0226">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM02</Parent>
+			<Name>Magnetic Materials ( Except Cast) - (B3)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022601">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0226</Parent>
+			<Name>Flat Bar,Magnetic Materials(B3)(F)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022602">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0226</Parent>
+			<Name>Round Bar,Magnetic Materials(B3)(R)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022603">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0226</Parent>
+			<Name>Sheet,Magentic Materials(B3)(S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022604">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0226</Parent>
+			<Name>GE Drawing No.(B3)(N)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0227">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM02</Parent>
+			<Name>Reserved - Miscellaneous For Specific Shapes (B30)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022701">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0227</Parent>
+			<Name>Round Tube(B30)(T)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1002"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022702">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0227</Parent>
+			<Name>Pipe(B30)(U)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1006"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0228">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM02</Parent>
+			<Name>Tool Materials (B6)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022801">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0228</Parent>
+			<Name>Square Bar,Tool Steel(B6)(B)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1008"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022802">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0228</Parent>
+			<Name>Flat Bar,Tool Steel(B6)(F)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1007"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022803">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0228</Parent>
+			<Name>Round Bar,Tool Steel(B6)(R)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1001"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022804">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0228</Parent>
+			<Name>Sheet,Tool Steel(B6)(S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0229">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM02</Parent>
+			<Name>Reserved-Magnetic Raw Materials (B9)</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM022901">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0229</Parent>
+			<Name>Sheet,Magnetic Steel(B9)(S)</Name>
+			<Attribute dbIndex="1" arraySize="1" attributeId="1000"/>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM0230">
+		<ICSClass abstract="true" unitSystem="both">
+			<Parent>ICM02</Parent>
+			<Name>Do Not Use</Name>
+		</ICSClass>
+	</ClassPackage>
+	<ClassPackage classId="ICM023001">
+		<ICSClass unitSystem="both">
+			<Parent>ICM0230</Parent>
+			<Name>Do Not Use</Name>
+		</ICSClass>
+	</ClassPackage>
+</InClassAdminPackage>

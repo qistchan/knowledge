@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<TCXML xmlns="http://www.tcxml.org/Schemas/TCXMLSchema" format="high_level">
+<ClosureRule clauses="CLASS.BOMLine:CLASS.Item:PROPERTY.bl_item:SKIP:PRIMARY.get9HasServiceForm!=$var" description="If the Bomline item has a service form the BOM will expand and show the children underneath that have service forms attached also. If none have a service form then there will be no expansion of the item" elemId="id6" name="GET_FilterByServiceFormAttached" owning_site="#id2" schema_format="0" scope="0" transient_island_id="1">
+
+  <GSIdentity elemId="id4" label="TBelHwIGqH1hVB"/>
+
+</ClosureRule>
+<Group elemId="id9" list_of_role="#id7 #id8" name="dba" owning_site="#id2" transient_island_id="1">
+
+  <GSIdentity atomic="Y" class="Group" context="" elemId="id3" factor_id="" label="dba|" object_uid="AYdlF054qH1hVB" split_token="" sublabel="" suggestedIdSeed="AYdlF054qH1hVB" system=""/>
+
+</Group>
+<POM_imc elemId="id10" name="IMC--1374324651" owning_site="#id2" site_id="-1374324651" transient_island_id="0">
+
+  <GSIdentity elemId="id2" label="AKWlF0YbqH1hVB"/>
+
+</POM_imc>
+<TransferMode action_list="" closure_rules="#id4" config_objs="" context_string="" direction="0" elemId="id11" filters="" fnd0RevisionId="" gov_classification="" incremental="N" ip_classification="" license_list="" multi_site="N" object_desc="" object_name="GET_FilterByServiceFormAttached" owning_site="#id2" project_list="" prop_sets="" schema_format="0" transient_island_id="1">
+
+  <GSIdentity elemId="id1" label="StaleIcpqH1hVB"/>
+
+</TransferMode>
+<User elemId="id12" owning_site="#id2" transient_island_id="1" user_id="cpedoe">
+
+  <GSIdentity atomic="Y" class="User" context="" elemId="id5" factor_id="" label="cpedoe" object_uid="hdWllF8kqH1hVB" split_token="" sublabel="" suggestedIdSeed="hdWllF8kqH1hVB" system=""/>
+
+</User>
+<Role elemId="id13" owning_site="#id2" role_name="DBA" transient_island_id="0">
+
+  <GSIdentity atomic="Y" class="Role" context="" elemId="id7" factor_id="" label="DBA" object_uid="AUelF054qH1hVB" split_token="" sublabel="" suggestedIdSeed="AUelF054qH1hVB" system=""/>
+
+</Role>
+<Role elemId="id14" owning_site="#id2" role_name="Designer" transient_island_id="0">
+
+  <GSIdentity atomic="Y" class="Role" context="" elemId="id8" factor_id="" label="Designer" object_uid="gYXlF054qH1hVB" split_token="" sublabel="" suggestedIdSeed="gYXlF054qH1hVB" system=""/>
+
+</Role>
+<Header author="infodba" date="2017-10-13" elemId="id15" originatingSite="-1374324651" targetSite="" time="21:44:49" version="Teamcenter V11000.2.2.21_20170215.00">
+
+  <TransferFormula elemId="id16">
+    <SessionOptions elemId="id17">
+      <Option elemId="id18" name="is_scope_rules_export" value="yes"/>
+      <Option elemId="id19" name="tcxmlArrayDataDelimiter" value=","/>
+    </SessionOptions>
+    <TransferMode elemId="id20" fnd0RevisionId="" gov_classification="" ip_classification="" license_list="" object_name="PLMXMLAdminDataExport" owning_site="id2" project_list=""/>
+    <Reason elemId="id21"></Reason>
+  </TransferFormula>
+
+  <TraverseRootRefs>#id1</TraverseRootRefs>
+
+</Header></TCXML>

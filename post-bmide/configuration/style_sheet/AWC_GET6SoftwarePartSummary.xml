@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2014.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+-->
+<rendering xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XMLRenderingStylesheet_Schema.xsd">
+    <header>
+        <image source="thumbnail"/>
+        <classificationTrace/>
+        <property name="owning_user"/>
+        <property name="last_mod_date"/>
+        <property name="release_status_list"/>
+        <property name="object_type"/>
+    </header>
+    <page titleKey="tc_xrt_Overview">
+        <column>
+            <section titleKey="tc_xrt_properties">
+                <property name="item_id" renderingHint="label"/>
+                <property name="object_name"/>
+                <property name="object_type"/>
+                <property name="uom_tag"/>
+                <property name="release_status_list" renderingHint="label"/>
+                <property name="date_released" renderingHint="label"/>
+                <property name="effectivity_text" renderingHint="label"/>
+                <break/>
+                <property name="owning_user" renderingHint="objectlink" modifiable="false"/>
+                <property name="owning_group" renderingHint="objectlink" modifiable="false"/>
+                <property name="last_mod_user"/>
+                <property name="checked_out" renderingHint="label"/>
+                <property name="checked_out_user"/>
+                <command commandId="com.teamcenter.rac.properties" titleKey="tc_xrt_moreProperties"/>
+            </section>
+            <section titleKey="revision_list">
+                <objectSet source="revision_list.ItemRevision" defaultdisplay="tableDisplay" sortdirection="descending" sortby="item_revision_id">
+                    <tableDisplay>
+                        <property name="object_string"/>
+                        <property name="item_revision_id"/>
+                        <property name="release_status_list"/>
+                        <property name="last_mod_date"/>
+                        <property name="last_mod_user"/>
+                        <property name = "checked_out_user"/>
+                    </tableDisplay>
+                    <thumbnailDisplay/>
+                    <treeDisplay>
+                        <property name="object_string"/>
+                        <property name="item_revision_id"/>
+                        <property name="release_status_list"/>
+                        <property name="last_mod_date"/>
+                        <property name="last_mod_user"/>
+                        <property name="checked_out_user"/>
+                    </treeDisplay>
+                    <listDisplay/>
+                </objectSet>
+            </section>
+        </column>
+        <column>
+            <view name="actions">
+                <command actionKey="copyAction" commandId="com.teamcenter.rac.copy"/>
+            </view>
+        </column>
+    </page>
+	<page title="GET Attributes" titlekey="tc_xrt_GET">
+	    <column>
+				<property name="get6CharData"/>
+				<property name="get6EngrProdLine"/>
+				<break/>
+				<property name="get6EngMB"/>
+				<property name="get6ECCN"/>
+				<property name="get6ECCNSource"/> 
+				<property name="get6ObjEvidence"/> 
+				<property name="ip_classification"/> 
+				<break/>
+				<property name="get6ECC"/>
+				<property name="get6CCC"/>
+				<property name="get6CriticalPart" renderingHint="radiobutton"/>
+				<property name="get6Homologation" renderingHint="radiobutton"/>
+        </column>
+        <column>
+           
+        </column>
+		<column>
+           
+        </column>
+    </page>
+    <page titleKey="attachments">
+     <section titleKey="tc_xrt_Files">
+        <objectSet source="IMAN_reference.Dataset,IMAN_manifestation.Dataset,IMAN_Rendering.Dataset" defaultdisplay="tableDisplay" sortby="object_string" sortdirection="ascending">
+            <tableDisplay>
+                <property name="object_string"/>
+                <property name="release_status_list"/>
+                <property name="relation"/>
+                <property name="last_mod_date"/>
+                <property name="last_mod_user"/>
+                <property name="checked_out_user"/>
+            </tableDisplay>
+            <thumbnailDisplay/>
+            <treeDisplay>
+                <property name="object_string"/>
+                <property name="release_status_list"/>
+                <property name="relation"/>
+                <property name="last_mod_date"/>
+                <property name="last_mod_user"/>
+                <property name="checked_out_user"/>
+            </treeDisplay>
+            <listDisplay/>
+            <command actionKey="newBusinessObjectContextualAction" commandId="com.teamcenter.rac.common.AddNew" renderingHint="commandbutton"/>
+            <command actionKey="pasteAction" commandId="com.teamcenter.rac.viewer.pastewithContext" renderingHint="commandbutton"/>
+            <command actionKey="cutAction" commandId="org.eclipse.ui.edit.cut" renderingHint="commandbutton">
+                <parameter name="localSelection" value="true"/>
+            </command>
+        </objectSet>
+      </section>
+	  <section titleKey="tc_xrt_MadeFromMatl" title = "Made From Material">
+            <objectSet source="GET6MadeFromMatl.GET6Material" sortdirection="ascending" sortby="object_string" defaultdisplay="listDisplay">
+                <tableDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </tableDisplay>
+                <thumbnailDisplay/>
+                <treeDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </treeDisplay>
+                <listDisplay/>
+                <command actionKey="newBusinessObjectContextualAction" commandId="com.teamcenter.rac.common.AddNew" renderingHint="commandbutton"/>
+                <command actionKey="pasteAction" commandId="com.teamcenter.rac.viewer.pastewithContext" renderingHint="commandbutton"/>
+                <command actionKey="cutAction" commandId="org.eclipse.ui.edit.cut" renderingHint="commandbutton">
+                    <parameter name="localSelection" value="true"/>
+                </command>
+            </objectSet>
+        </section>
+		<section titleKey="tc_xrt_MadeFromPart" title = "Made From Part">
+            <objectSet source="GET6MadeFromPart.GET6AbsUniPart" sortdirection="ascending" sortby="object_string" defaultdisplay="listDisplay">
+                <tableDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </tableDisplay>
+                <thumbnailDisplay/>
+                <treeDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </treeDisplay>
+                <listDisplay/>
+                <command actionKey="newBusinessObjectContextualAction" commandId="com.teamcenter.rac.common.AddNew" renderingHint="commandbutton"/>
+                <command actionKey="pasteAction" commandId="com.teamcenter.rac.viewer.pastewithContext" renderingHint="commandbutton"/>
+                <command actionKey="cutAction" commandId="org.eclipse.ui.edit.cut" renderingHint="commandbutton">
+                    <parameter name="localSelection" value="true"/>
+                </command>
+            </objectSet>
+        </section>
+    </page>
+    <inject type="dataset" src="WorkflowSummary" /> 
+    <inject type="dataset" src="RelationsSummary" />
+</rendering>

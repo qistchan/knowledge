@@ -1,0 +1,89 @@
+ <project name="MasterPost-BMIDE section 01" default="deploy">
+    <import file="common_logging.xml" />
+    <target name="deploy" depends="antlog" description="Master Build of all Post-BMIDE Sub-Projects">
+        <!--    build the deploy target for all files in the ant-script directory
+         The pattern you see in the fileset is the set of files that will get processed
+         In this case we will execute all xml files starting with "post-bmide_"
+         -->
+    	<condition property="access_manager" value="TRUE">
+    		<equals arg1="${access_manager.skip}" arg2="TRUE"/>
+		</condition>
+		<condition property="organization" value="TRUE">
+    		<equals arg1="${organization.skip}" arg2="TRUE"/>
+		</condition>
+    	<condition property="classification" value="TRUE">
+    		<equals arg1="${classification.skip}" arg2="TRUE"/>
+		</condition>
+    	<condition property="nxtc_attribute_mapping" value="TRUE">
+    		<equals arg1="${nxtc_attribute_mapping.skip}" arg2="TRUE"/>
+		</condition>
+    	<condition property="plmxml" value="TRUE">
+    		<equals arg1="${plmxml.skip}" arg2="TRUE"/>
+		</condition>
+    	<condition property="preference" value="TRUE">
+    		<equals arg1="${preference.skip}" arg2="TRUE"/>
+		</condition>
+    	<condition property="project" value="TRUE">
+			<equals arg1="${project.skip}" arg2="TRUE"/>
+		</condition>
+    	<condition property="revision_rule" value="TRUE">
+			<equals arg1="${revision_rule.skip}" arg2="TRUE"/>
+		</condition>
+		<condition property="closure_rule" value="TRUE">
+			<equals arg1="${closure_rule.skip}" arg2="TRUE"/>
+		</condition>
+    	<condition property="saved_query" value="TRUE">
+			<equals arg1="${saved_query.skip}" arg2="TRUE"/>
+		</condition>
+    	<condition property="stylesheet" value="TRUE">
+			<equals arg1="${stylesheet.skip}" arg2="TRUE"/>
+		</condition>
+    	<condition property="product_configurator" value="TRUE">
+			<equals arg1="${product_configurator.deploy}" arg2="TRUE"/>
+		</condition>
+    	<condition property="transfer_mode" value="TRUE">
+			<equals arg1="${sbom.skip}" arg2="TRUE"/>
+		</condition>
+    	<condition property="report" value="TRUE">
+			<equals arg1="${report.skip}" arg2="TRUE"/>
+		</condition>
+    	<condition property="workflow" value="TRUE">
+			<equals arg1="${workflow.skip}" arg2="TRUE"/>
+		</condition>
+    	<condition property="batchlov" value="TRUE">
+			<equals arg1="${batchlov.skip}" arg2="TRUE"/>
+		</condition>
+		<condition property="awctile" value="TRUE">
+			<equals arg1="${awctile.skip}" arg2="TRUE"/>
+		</condition>
+		<subant target="deploy">
+            <fileset dir="." >
+            	<include name="ant-script/post-bmide_*.xml"/>
+            	<include name="ant-script/product_configurator_deploy.xml" if="product_configurator"/>
+            	<exclude name="ant-script/post-bmide_30_am.xml" if="access_manager"/>
+				<exclude name="ant-script/post-bmide_*organization*.xml" if="organization"/>
+            	<exclude name="ant-script/post-bmide_*classification*.xml" if="classification"/>
+        		<exclude name="ant-script/post-bmide_*plmxml*.xml" if="plmxml"/>
+        		<exclude name="ant-script/post-bmide_*nxtc_attribute_mapping*.xml" if="nxtc_attribute_mapping"/>
+            	<exclude name="ant-script/post-bmide_*pref*.xml" if="preference"/>
+        		<exclude name="ant-script/post-bmide_*project*.xml" if="project"/>
+    			<exclude name="ant-script/post-bmide_*revision_rule*.xml" if="revision_rule"/>
+				<exclude name="ant-script/post-bmide_*closure_rule*.xml" if="closure_rule"/>
+    			<exclude name="ant-script/post-bmide_*saved_query*.xml" if="saved_query"/>
+            	<exclude name="ant-script/post-bmide_*style_sheet*.xml" if="stylesheet"/>
+            	<exclude name="ant-script/post-bmide_*transfer_mode*.xml" if="transfer_mode"/>
+            	<exclude name="ant-script/post-bmide_*workflow*.xml" if="workflow"/>
+            	<exclude name="ant-script/post-bmide_*report*.xml" if="report"/>
+            	<exclude name="ant-script/post-bmide_*batch_lovs*.xml" if="batchlov"/>
+            	<exclude name="ant-script/post-bmide_*awc_tiles*.xml" if="awctile"/>
+        	</fileset>
+        </subant>
+    </target>
+
+    <target name="clean">
+        <subant target="clean">
+            <fileset dir="." includes="ant-script/post-bmide_*.xml"/>
+        	<fileset dir="." includes="ant-script/product_configurator_deploy.xml"/>
+        </subant>
+    </target>
+</project>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+=======================================================================
+Copyright 2009.
+Siemens Product Lifecycle Management Software Inc.
+All Rights Reserved.
+=======================================================================
+     Filename: GET9SupersessionFormCreate.xml
+
+    Style sheet rendering for Item creation.
+=======================================================================
+-->
+
+<rendering>
+    <page title="General" titleKey="tc_xrt_General">      
+<section title="Please Read" >
+<label text=" " />
+<label text="Is there existing inventory of the Original Item ID across the enterprise (Manufacturing and/or Services)? " />
+<label text=" " />
+           <property name="get6ExistingInventory" />
+        </section>
+<section title="Supersession Form Information" >
+            <property name="get6PrimaryReason" />
+            <property name="get6SupComments" />
+	<property name="get6Disposition" />
+        </section>
+    </page>
+
+</rendering>

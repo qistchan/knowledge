@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Manufacturing Category"
+            id="com.ge.transportation.plm.mfg.commands.category">
+      </category>
+      <command
+            name="Create GET Manufacturing Part"
+            categoryId="com.ge.transportation.plm.mfg.commands.category"
+            id="com.ge.transportation.plm.mfg.commands.getManufacturingCommand">
+      </command>
+       <command
+            name="Create GET Stock Material"
+            categoryId="com.ge.transportation.plm.mfg.commands.category"
+            id="com.ge.transportation.plm.mfg.commands.getStockMaterialCommand">
+      </command>
+       <command
+            name="Create GET Process"
+            categoryId="com.ge.transportation.plm.mfg.commands.category"
+            id="com.ge.transportation.plm.mfg.commands.getProcessCommand">
+      </command>
+      <command
+            name="Create GET Operation"
+            categoryId="com.ge.transportation.plm.mfg.commands.category"
+            id="com.ge.transportation.plm.mfg.commands.getOperationCommand">
+      </command>
+      <command
+            name="Create GET Machine"
+            categoryId="com.ge.transportation.plm.mfg.commands.category"
+            id="com.ge.transportation.plm.mfg.commands.getMachineCommand">
+      </command>
+      <command
+            name="Create GET Operator"
+            categoryId="com.ge.transportation.plm.mfg.commands.category"
+            id="com.ge.transportation.plm.mfg.commands.getOperatorCommand">
+      </command>
+      <command
+            categoryId="com.ge.transportation.plm.mfg.commands.category"
+            id="com.ge.transportation.plm.mfg.commands.getGenericResourceCommand"
+            name="Create GET Generic Resource">
+      </command>
+       <command
+            name="Create GET Manufacturing Change Notice"
+            categoryId="com.ge.transportation.plm.mfg.commands.category"
+            id="com.ge.transportation.plm.mfg.commands.getManufacturingChangeNoticeCommand">
+      </command>
+       <command
+            name="Manufacturing Attributes"
+            categoryId="com.ge.transportation.plm.mfg.commands.category"
+            id="com.ge.transportation.plm.mfg.commands.assignManufacturingAttributes">
+      </command>
+        <command
+            name="Stock Material Attributes"
+            categoryId="com.ge.transportation.plm.mfg.commands.category"
+            id="com.ge.transportation.plm.mfg.commands.assignStockMaterialAttributes">
+      </command>
+      <command
+            name="Create GET NCMachining"
+            categoryId="com.ge.transportation.plm.mfg.commands.category"
+            id="com.ge.transportation.plm.mfg.commands.getNCMachiningCommand">
+      </command>
+      
+      <command
+            name="Generate BOM Report"
+            categoryId="com.ge.transportation.plm.mfg.commands.category"
+            id="com.ge.transportation.plm.mfg.commands.getBomReportCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+     
+       <handler
+            commandId="com.ge.transportation.plm.mfg.commands.getManufacturingCommand"
+            class="com.ge.transportation.plm.mfg.handlers.CreateGetManufacturingHandlers">
+      </handler>
+       <handler
+            commandId="com.ge.transportation.plm.mfg.commands.getStockMaterialCommand"
+            class="com.ge.transportation.plm.mfg.handlers.CreateGetStockMaterialHandlers">
+      </handler>
+        <handler
+            commandId="com.ge.transportation.plm.mfg.commands.getManufacturingChangeNoticeCommand"
+            class="com.ge.transportation.plm.mfg.handlers.CreateGetManufacturingChangeNoticeHandler">
+      </handler>
+       <handler
+            commandId="com.ge.transportation.plm.mfg.commands.getProcessCommand"
+            class="com.ge.transportation.plm.mfg.handlers.CreateGetProcessHandler">
+      </handler>
+       <handler
+            commandId="com.ge.transportation.plm.mfg.commands.getOperationCommand"
+            class="com.ge.transportation.plm.mfg.handlers.CreateGetOperationHandler">
+      </handler>
+       <handler
+            commandId="com.ge.transportation.plm.mfg.commands.getMachineCommand"
+            class="com.ge.transportation.plm.mfg.handlers.CreateGetMachineHandler">
+      </handler>
+       <handler
+            commandId="com.ge.transportation.plm.mfg.commands.getOperatorCommand"
+            class="com.ge.transportation.plm.mfg.handlers.CreateGetOperatorHandler">
+      </handler>
+       <handler
+             class="com.ge.transportation.plm.mfg.handlers.CreateGetGenericResourceHandler"
+             commandId="com.ge.transportation.plm.mfg.commands.getGenericResourceCommand">
+       </handler>
+      <handler
+            commandId="com.ge.transportation.plm.mfg.commands.assignManufacturingAttributes"
+            class="com.ge.transportation.plm.mfg.handlers.ManufacturingAttributesHandlers">
+      </handler>
+      <handler
+            commandId="com.ge.transportation.plm.mfg.commands.assignStockMaterialAttributes"
+            class="com.ge.transportation.plm.mfg.handlers.StockMaterialAttributesHandlers">
+      </handler>
+      <handler
+            commandId="com.ge.transportation.plm.mfg.commands.getNCMachiningCommand"
+            class="com.ge.transportation.plm.mfg.handlers.CreateGetNCMachiningHandler">
+      </handler>
+      
+      <handler
+            commandId="com.ge.transportation.plm.mfg.commands.getBomReportCommand"
+            class="com.ge.transportation.plm.mfg.handlers.ReportStockBOMHandler">
+      </handler>
+      
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.ge.transportation.plm.mfg.commands.getManufacturingCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="GET Manufacturing"
+               mnemonic="M"
+               id="com.ge.transportation.plm.mfg.menus.ManufacturingMenu">
+               <menu
+                     id="com.ge.transportation.plm.mfg.menus.ManufacturingMenuNew"
+                     label="New"
+                     mnemonic="N">
+		            <command
+                    commandId="com.ge.transportation.plm.mfg.commands.getManufacturingCommand"
+                    icon="resource/icons/GET6MfgPart.png"
+                    id="com.ge.transportation.plm.mfg.menus.getManufacturingCommand"
+                    label="GET Manufacturing Part"
+                    mnemonic="u"
+                    tooltip="Manufacturing Part">
+		            </command>
+		             <command
+                    commandId="com.ge.transportation.plm.mfg.commands.getStockMaterialCommand"
+                    icon="resource/icons/GET6StockMtrl.png"
+                    id="com.ge.transportation.plm.mfg.commands.getStockMaterialCommand"
+                    label="GET Stock Material"
+                    mnemonic="S"
+                    tooltip="GET Stock Material">
+		            </command>
+		             <separator
+	                     name="Manufacturing Seperator"
+	                     visible="true">
+               		</separator>
+		            <command
+                    commandId="com.ge.transportation.plm.mfg.commands.getProcessCommand"
+                    icon="resource/icons/GET6Process.png"
+                    id="com.ge.transportation.plm.mfg.commands.getProcessCommand"
+                    label="GET Process"
+                    mnemonic="P"
+                    tooltip="GET Process">
+		            </command>
+		            
+		             <command
+                    commandId="com.ge.transportation.plm.mfg.commands.getMachineCommand"
+                    icon="resource/icons/GET6Machine.png"
+                    id="com.ge.transportation.plm.mfg.menus.getManufacturingCommand"
+                    label="GET Machine"
+                    mnemonic="h"
+                    tooltip="GET Machine">
+		            </command>
+		        <command
+                    commandId="com.ge.transportation.plm.mfg.commands.getOperatorCommand"
+                    icon="resource/icons/GET6Operator.png"
+                    id="com.ge.transportation.plm.mfg.menus.getManufacturingCommand"
+                    label="GET Operator"
+                    mnemonic="O"
+                    tooltip="GET Operator">
+		            </command>
+                <command
+                	commandId="com.ge.transportation.plm.mfg.commands.getGenericResourceCommand"
+                	icon="resource/icons/GET6GenResource.png"
+                	id="com.ge.transportation.plm.mfg.menus.getManufacturingCommand"
+                	label="GET Generic Resource"
+                	mnemonic="G"
+                	tooltip="GET Generic Resource">
+                </command>
+		            <separator
+	                     name="BOP Seperator"
+	                     visible="true">
+               		</separator>
+               		 <command
+                    commandId="com.ge.transportation.plm.mfg.commands.getManufacturingChangeNoticeCommand"
+                    icon="resource/icons/GET6MCN.png"
+                    id="com.ge.transportation.plm.mfg.commands.getManufacturingChangeNoticeCommand"
+                    label="GET MCN"
+                    mnemonic="C"
+                    tooltip="GET Manufacturing Change Notice">
+		            </command>
+		            <separator
+	                     name="C2C Seperator"
+	                     visible="true">
+               		</separator>
+               		<command
+                    commandId="com.ge.transportation.plm.mfg.commands.getNCMachiningCommand"
+                    icon="resource/icons/GET6NCMachining.png"
+                    id="com.ge.transportation.plm.mfg.commands.getNCMachiningCommand"
+                    label="GET NC Machining"
+                    mnemonic="N"
+                    tooltip="GET NC Machining">
+		            </command>
+		             	            
+		       </menu>
+         </menu>
+         
+      </menuContribution>
+      
+      <menuContribution
+         locationURI=
+         "popup:org.eclipse.ui.popup.any?after=additions">
+         <menu
+                     id="com.ge.transportation.plm.mfg.popup.manufacturing"
+                     label="GET Manufacturing"
+                     icon="resource/icons/GETManufacturing.png"
+                     mnemonic="M">
+	         <command
+                commandId="com.ge.transportation.plm.mfg.commands.assignManufacturingAttributes"
+                icon="resource/icons/ManufacturingAttributes.png"
+                label="Manufacturing Attributes"
+                mnemonic="M"
+                tooltip="Assign Manufacturing Attributes to Items">
+	         </command>
+	          <command
+                commandId="com.ge.transportation.plm.mfg.commands.assignStockMaterialAttributes"
+                icon="resource/icons/ManufacturingAttributes.png"
+                label="Stock Material Attributes"
+                mnemonic="S"
+                tooltip="Assign Stock Material Attributes">
+	         </command>
+	          <command
+                commandId="com.ge.transportation.plm.mfg.commands.getBomReportCommand"
+                icon="resource/icons/GET6BOMStockReport.png"
+                label="GET BOM STOCKMTL Report"
+                mnemonic="S"
+                tooltip="Generate BOM Report with Stock Material">
+	         </command>
+	      </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TcBusinessDataLocalization xmlns="http://teamcenter.com/BusinessModel/TcBusinessDataLocalization"
+    Date="">
+<Add>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsDRMasterS" status="Approved">Abs DR Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsDRMaster" status="Approved">Abs DR Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsDRRevMasterS" status="Approved">Abs DR Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsDRRevisionMaster" status="Approved">Abs DR Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsDRRevision" status="Approved">GET Abstract DR Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6AbsDR" status="Approved">GET Abstract DR</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DsgnRelPlanMasterS" status="Approved">Dsgn Rel Plan Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DsgnRelPlanMaster" status="Approved">Dsgn Rel Plan Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DsgnRelPlanRevMasterS" status="Approved">Dsgn Rel Plan Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DsgnRelPlanRevisionMaster" status="Approved">Dsgn Rel Plan Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DsgnRelPlanRevision" status="Approved">Design Release Plan Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DsgnRelPlan" status="Approved">GET Design Release Plan</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DsgnReleaseMasterS" status="Approved">Dsgn Release Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DsgnReleaseMaster" status="Approved">Dsgn Release Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DsgnReleasePlanRelation" status="Approved">Design Release Plan</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DsgnReleaseRelation" status="Approved">Design Release</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DsgnReleaseRevMasterS" status="Approved">Dsgn Release Revision Master Storage</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DsgnReleaseRevisionMaster" status="Approved">Dsgn Release Revision Master</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DsgnReleaseRevision" status="Approved">GET Design Release Revision</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DsgnReleaseTargetsRel" status="Approved">Design Release Targets</key>
+   <key locale="en_US" id="BusinessObject{::}GET6DsgnRelease" status="Approved">GET Design Release</key>
+   <key locale="en_US" id="Property{::}GET6DsgnReleaseRevision{::}get6ActivityDescription"
+       status="Approved">Activity Description</key>
+   <key locale="en_US" id="Property{::}GET6DsgnReleaseRevision{::}get6ActivityId"
+       status="Approved">Activity ID</key>
+   <key locale="en_US" id="Property{::}GET6DsgnReleaseRevision{::}get6DesignComments"
+       status="Approved">Design Comments</key>
+   <key locale="en_US" id="Property{::}GET6DsgnReleaseRevision{::}get6DesignDuration"
+       status="Approved">Design Duration</key>
+   <key locale="en_US" id="Property{::}GET6DsgnReleaseRevision{::}get6DesignPromiseDate"
+       status="Approved">Design Promise Date</key>
+   <key locale="en_US" id="Property{::}GET6DsgnReleaseRevision{::}get6DesignRequiredDate"
+       status="Approved">Design Required Date</key>
+   <key locale="en_US" id="Property{::}GET6DsgnReleaseRevision{::}get6DsgnRqdDateChangeReason"
+       status="Approved">Design Required Date Change Reason</key>
+   <key locale="en_US" id="Property{::}GET6DsgnReleaseRevision{::}get6EngrBackOff"
+       status="Approved">Back Off</key>
+   <key locale="en_US" id="Property{::}GET6DsgnReleaseRevision{::}get6EngrComments"
+       status="Approved">Engr Comments</key>
+   <key locale="en_US" id="Property{::}GET6DsgnReleaseRevision{::}get6EngrDuration"
+       status="Approved">Engr Duration</key>
+   <key locale="en_US" id="Property{::}GET6DsgnReleaseRevision{::}get6EngrPromiseDate"
+       status="Approved">Engr Promise Date</key>
+   <key locale="en_US" id="Property{::}GET6DsgnReleaseRevision{::}get6EngrRequiredDate"
+       status="Approved">Engr Required Date</key>
+   <key locale="en_US" id="Property{::}GET6DsgnReleaseRevision{::}get6EngrRqdDateChangeReason"
+       status="Approved">Engr Required Date Change Reason</key>
+   <key locale="en_US" id="Property{::}GET6DsgnReleaseRevision{::}get6EngrStartDate"
+       status="Approved">Engr Start Date</key>
+   <key locale="en_US" id="Property{::}GET6DsgnReleaseRevision{::}get6IsAutoCloseRqd"
+       status="Approved">Is Auto Close Required?</key>
+   <key locale="en_US" id="Property{::}GET6DsgnReleaseRevision{::}get6SourceTemplate"
+       status="Approved">Source Template</key>
+   <key locale="en_US" id="ReleaseStatus{::}GET6Closed" status="Approved">Closed</key>
+</Add>
+</TcBusinessDataLocalization>

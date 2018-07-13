@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>get9service</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>com.teamcenter.bmide.server.ui.TcBusinessDataProjectNature</nature>
+		<nature>com.teamcenter.bmide.server.ui.FileRepositoryProjectNature</nature>
+		<nature>com.teamcenter.bmide.server.ui.ExternalProjectNature</nature>
+	</natures>
+</projectDescription>

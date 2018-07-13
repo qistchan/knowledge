@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2015.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+-->
+<!-- Default style sheet for displaying CR rev summary. -->
+<rendering>
+    <header>
+        <image source="type"/>
+        <property name="owning_user"/>
+        <property name="creation_date"/>
+        <property name="release_status_list" renderingHint="label"/>
+        <property name="object_type"/>
+    </header>
+    <page titleKey="tc_xrt_Overview">
+        <column>
+            <section titleKey="tc_xrt_properties">
+                <property name="item_id" renderingHint="label"/>
+				<property name="items_tag" renderingHint="objectlink" modifiable="false" />
+                <property name="item_revision_id" renderingHint="label"/>
+                <property name="object_name"/>
+				<property name="ip_classification"/>
+                <property name="object_type"/>
+				<property name="owning_group" />
+				<property name="release_status_list" renderingHint="label"/>
+                <property name="date_released" renderingHint="label"/>
+                <property name="effectivity_text" renderingHint="label"/>
+                <break/>
+                <!--<property name="CMReason"/>
+                <property name="CMProposedSolution" renderingHint="textarea" column="10" row="6"/>
+                <property name="CMTechReviewPriority"/>
+                <property name="CMIsFastTrack"/>
+                <property name="CMRecurringCost" />
+                <property name="CMNonrecurringCost" />
+                <property name="CMTechnicalRecommendation" />
+                <property name="CMTestResultsAttached" />
+                <property name="CMTechRecommDate" />
+                <property name="CMTimingFactors" renderingHint="textarea" column="10" row="6" />
+                -->
+                <break/>
+				<property name="CMClosure"/>
+                <property name="CMDisposition"/>
+                <command commandId="com.teamcenter.rac.properties" titleKey="moreProperties"/>
+                <separator/>
+                <property name="CMImplements" renderingHint="label"/>
+                <property name="CMImplementedBy" renderingHint="label"/>
+            </section>
+            
+        </column>
+        <column>
+            <!--<section titleKey="WorkflowInfo" title="Active Process Information">
+            <customPanel java="com.teamcenter.rac.cm.views.WorkflowTasksView" />
+            </section>-->
+            <section titleKey="tc_xrt_actions">
+                <command actionKey="copyAction" commandId="com.teamcenter.rac.copy"/>
+                <command actionKey="reviseAction" commandId="com.teamcenter.rac.revise"/>
+            </section>
+            <!--<section titleKey="ProcessInfo" title="Process Info">
+            <objectSet source="process_stage_list.WorkspaceObject" defaultdisplay="tableDisplay" sortdirection="descending" sortby="real_state">
+            <treeDisplay>
+            <property name="object_string"/>
+            <property name="resp_party"/>
+            <property name="last_mod_date"/>
+            </treeDisplay>
+            </objectSet>
+            </section>-->
+        </column>
+    </page>
+	<page titleKey="tc_xrt_Details" title="Details">
+	
+			<column>
+			<section titleKey="tc_xrt_get_ecr_Details" title="ECR Details">
+				<property name="get6EngrProdLine" />
+				<property name="get6Customers" />
+				<property name="get6OrderNo" />
+				<property name="get6OnTrackItems" />
+				<property name="get6Copies" />
+			</section>	
+			</column>
+			<column>
+				<break/>
+				<break/>
+				<property name="get6FastTrack" renderingHint="radiobutton" modifiable="true" />
+				<property name="get6RedMarkDesign" renderingHint="radiobutton" modifiable="true" />
+				<property name="get6PriPrjNo" />
+				<property name="get6SecPrjNo" />
+				<property name="get6EstHours" />
+				<property name="get6DateReqd" />
+			</column>
+			<column>
+				<break/>
+				<break/>
+				<property name="get6ServiceImpact" renderingHint="radiobutton" modifiable="true" />
+				<property name="get6ReasonCode" />
+				<property name="get6ChangeReason" />
+				<property name="get6EngrDisp" />
+				<label text=" Disposition Help Document: (http://libraries.ge.com/SCData/upload/15831/doc_1408154.ppt) "/>
+			</column>
+	</page>
+	<page titleKey="tc_xrt_Description" title="Description">
+		<column>
+			<section titleKey="tc_xrt_get_ecr_ReasonForChg" title="Reason For Change">
+				<property name="get6ReasonForChg" />
+			</section>	
+		</column>	
+		<column>
+			<section titleKey="tc_xrt_get_ecr_DetailDesc" title="Description of Change">
+				<property name="get6ChgDesc" />
+			</section>	
+		</column>
+	</page>
+	<page titleKey="tc_xrt_compliance" title="Compliance">
+		<column>
+		<section titleKey="tc_xrt_get_ecr_USExportControl" title="United States Export Control">
+				<property name="get6EngrInUSA" renderingHint="radiobutton"/>
+				<property name="get6ExpControl" />	
+				<property name="get6ECCNSource" />	
+				<property name="get6ObjEvidence" /> 
+				<property name="ip_classification"/>
+				<label text=" EC 1.1 - EC Guidance Document: (http://libraries.ge.com/download?fileid=370899934101&amp;entity_id=32150575101&amp;sid=101) "/>
+		</section>	
+		</column>
+		<column>
+		<section titleKey="tc_xrt_get_ecr_Compliance" title="GET Compliance Attributes ">
+			<label text="Does the ECR affect or possibly affect the following:" style="font-weight:normal"/>
+				<property name="get6ECC" renderingHint="radiobutton"/>
+				<property name="get6CCC"  renderingHint="radiobutton"/>
+				<property name="get6CriticalPart" renderingHint="radiobutton"/>
+				<property name="get6Homologation" renderingHint="radiobutton"/>
+				<property name="get6AddlCompComments" />
+				
+        </section>
+		</column>
+		<column>
+		<section titleKey="tc_xrt_get_dra" title="Applied Practice">
+				<property name="get6AppliedPractice" />
+				<property name="get6ApplAppPractice" />
+				<property name="get6DefTolIden" />
+				<label text="By Selecting Specific, The DE acknowledges that the following AP shall be applied on ALL design of this ECR. Enter required Applicable Applied Practice and Default Tolerance Identifier"  style="font-weight:lighter" />
+				<break/>			
+				<label text="By Selecting Existing,The DE acknowledges that there is NO change to existing AP to ALL designs of this ECR." style="font-weight:lighter" />
+				<break/>			
+				<label text="By Selecting Multiple, The DE acknowledges that there are multiple Applied Practice and Default tolerances pertaining to designs associated with the ECR and that they are specified in the description of change for each design." style="font-weight:lighter" />
+		</section>
+		</column>
+	</page>	
+	<page titleKey="tc_xrt_AffectedItems">
+        <section titleKey="tc_xrt_ImpactedItems">
+            <label textKey="tc_xrt_ImpactedItemsInfo"/>
+            <objectSet source="CMHasImpactedItem.ItemRevision" defaultdisplay="tableDisplay" sortdirection="descending" sortby="last_mod_date">
+                <tableDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                    <property name="CMHasImpactedItem.cm0ImplementingChgNotices"/>
+                </tableDisplay>
+                <treeDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                    <property name="CMHasImpactedItem.cm0ImplementingChgNotices"/>
+                </treeDisplay>
+                <thumbnailDisplay/>
+                <listDisplay/>
+                <command actionKey="newBusinessObjectContextualAction" commandId="com.teamcenter.rac.common.AddNew" renderingHint="commandbutton"/>
+                <command actionKey="cutAction" commandId="org.eclipse.ui.edit.cut" renderingHint="commandbutton">
+                    <parameter name="localSelection" value="true"/>
+                </command>
+                <command actionKey="pasteAction" commandId="com.teamcenter.rac.viewer.pastewithContext" renderingHint="commandbutton"/>
+            </objectSet>
+        </section>
+        <section titleKey="tc_xrt_CMImplements">
+            <label textKey="CMImplementsInfo"/>
+            <objectSet source="CMImplements.ChangeItemRevision" defaultdisplay="tableDisplay">
+                <tableDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </tableDisplay>
+                <treeDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </treeDisplay>
+                <thumbnailDisplay/>
+                <listDisplay/>
+                <command actionKey="newBusinessObjectContextualAction" commandId="com.teamcenter.rac.common.AddNew" renderingHint="commandbutton"/>
+                <command actionKey="cutAction" commandId="org.eclipse.ui.edit.cut" renderingHint="commandbutton">
+                    <parameter name="localSelection" value="true"/>
+                </command>
+                <command actionKey="pasteAction" commandId="com.teamcenter.rac.viewer.pastewithContext" renderingHint="commandbutton"/>
+            </objectSet>
+        </section>
+        <section titleKey="tc_xrt_CMImplementedBy">
+            <label textKey="CMImplementedByInfo"/>
+            <objectSet source="CMImplementedBy.ChangeItemRevision" defaultdisplay="tableDisplay">
+                <tableDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                    <property name="CMHasSolutionItem"/>
+                </tableDisplay>
+                <treeDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                    <property name="CMHasSolutionItem"/>
+                </treeDisplay>
+                <thumbnailDisplay/>
+                <listDisplay/>
+                <command actionKey="newBusinessObjectContextualAction" commandId="com.teamcenter.rac.common.AddNew" renderingHint="commandbutton"/>
+                <command actionKey="cutAction" commandId="org.eclipse.ui.edit.cut" renderingHint="commandbutton">
+                    <parameter name="localSelection" value="true"/>
+                </command>
+                <command actionKey="pasteAction" commandId="com.teamcenter.rac.viewer.pastewithContext" renderingHint="commandbutton"/>
+            </objectSet>
+        </section>
+    </page>
+    <page titleKey="tc_xrt_ReferenceItems">
+        <section title="Attachments" titleKey="tc_xrt_Attachments">
+            <label textKey="tc_xrt_ReferenceItemsInfo"/>
+            <objectSet source="CMReferences.Lis0Link,CMReferences.WorkspaceObject,CMReferences.Dataset" defaultdisplay="tableDisplay" sortdirection="ascending" sortby="object_string">
+                <tableDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </tableDisplay>
+                <treeDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </treeDisplay>
+                <thumbnailDisplay/>
+                <listDisplay/>
+                <command actionKey="newBusinessObjectContextualAction" commandId="com.teamcenter.rac.common.AddNew" renderingHint="commandbutton"/>
+                <command actionKey="cutAction" commandId="org.eclipse.ui.edit.cut" renderingHint="commandbutton">
+                    <parameter name="localSelection" value="true"/>
+                </command>
+                <command actionKey="pasteAction" commandId="com.teamcenter.rac.viewer.pastewithContext" renderingHint="commandbutton"/>
+            </objectSet>
+        </section>
+    </page>
+	<page titleKey="tc_xrt_Participants" title="Participants">
+        <content visibleWhen="awp0ShowParticipants==Requestor">
+            <section titleKey="tc_xrt_Requestor">
+                <objectSet source="HasParticipant.Requestor" defaultdisplay="tableDisplay">
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.addParticipant" renderingHint="commandbutton"/>
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.replaceParticipant" renderingHint="commandbutton"/>
+                    <tableDisplay>
+                        <property name="fnd0AssigneeUser"/>
+                        <property name="fnd0AssigneeRole"/>
+                        <property name="fnd0AssigneeGroup"/>
+                     </tableDisplay>
+                    <listDisplay/>
+                </objectSet>
+                <content visibleWhen="awp0RequiredParticipants==Requestor">
+                    <htmlPanel id = "com.siemens.splm.client.workflow.requiredParticipantTile"/>
+                </content>
+            </section>
+        </content>
+        <content visibleWhen="awp0ShowParticipants==GET6Compliance">
+            <section titleKey="tc_xrt_GET6Compliance" title="Compliance">
+                <objectSet source="HasParticipant.GET6Compliance" defaultdisplay="tableDisplay">
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.addParticipant" renderingHint="commandbutton"/>
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.replaceParticipant" renderingHint="commandbutton"/>
+                    <tableDisplay>
+                        <property name="fnd0AssigneeUser"/>
+                        <property name="fnd0AssigneeRole"/>
+                        <property name="fnd0AssigneeGroup"/>
+                    </tableDisplay>
+                    <listDisplay/>
+                </objectSet>
+                <content visibleWhen="awp0RequiredParticipants==GET6Compliance">
+                    <htmlPanel id = "com.siemens.splm.client.workflow.requiredParticipantTile"/>
+                </content>
+            </section>
+        </content>
+        <content visibleWhen="awp0ShowParticipants==GET6PrincipalEngr">
+            <section titleKey="tc_xrt_GET6PrincipalEngr" title="Principal Engineer">
+                <objectSet source="HasParticipant.GET6PrincipalEngr" defaultdisplay="tableDisplay">
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.addParticipant" renderingHint="commandbutton"/>
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.replaceParticipant" renderingHint="commandbutton"/>
+                    <tableDisplay>
+                        <property name="fnd0AssigneeUser"/>
+                        <property name="fnd0AssigneeRole"/>
+                        <property name="fnd0AssigneeGroup"/>
+                    </tableDisplay>
+                    <listDisplay/>
+                </objectSet>
+                <content visibleWhen="awp0RequiredParticipants==GET6PrincipalEngr">
+                    <htmlPanel id = "com.siemens.splm.client.workflow.requiredParticipantTile"/>
+                </content>
+            </section>
+        </content>
+        <content visibleWhen="awp0ShowParticipants==GET6SubgroupMgr">
+            <section titleKey="tc_xrt_GET6SubgroupMgr" title="Engineering Manager">
+                <objectSet source="HasParticipant.GET6SubgroupMgr" defaultdisplay="tableDisplay">
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.addParticipant" renderingHint="commandbutton"/>
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.replaceParticipant" renderingHint="commandbutton"/>
+                    <tableDisplay>
+                        <property name="fnd0AssigneeUser"/>
+                        <property name="fnd0AssigneeRole"/>
+                        <property name="fnd0AssigneeGroup"/>
+                    </tableDisplay>
+                    <listDisplay/>
+                </objectSet>
+                <content visibleWhen="awp0RequiredParticipants==GET6SubgroupMgr">
+                    <htmlPanel id = "com.siemens.splm.client.workflow.requiredParticipantTile"/>
+                </content>
+            </section>
+        </content>
+        <content visibleWhen="awp0ShowParticipants==GET6SystemsEngr">
+            <section titleKey="tc_xrt_GET6SystemsEngr" title="Transportation Systems Engineer">
+                <objectSet source="HasParticipant.GET6SystemsEngr" defaultdisplay="tableDisplay">
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.addParticipant" renderingHint="commandbutton"/>
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.replaceParticipant" renderingHint="commandbutton"/>
+                    <tableDisplay>
+                        <property name="fnd0AssigneeUser"/>
+                        <property name="fnd0AssigneeRole"/>
+                        <property name="fnd0AssigneeGroup"/>
+                    </tableDisplay>
+                    <listDisplay/>
+                </objectSet>
+                <content visibleWhen="awp0RequiredParticipants==GET6SystemsEngr">
+                    <htmlPanel id = "com.siemens.splm.client.workflow.requiredParticipantTile"/>
+                </content>
+            </section>
+        </content>
+        <content visibleWhen="awp0ShowParticipants==GET6OptionalReviewer">
+            <section titleKey="tc_xrt_GET6OptionalReviewer" title="Optional Reviewer(s)">
+                <objectSet source="HasParticipant.GET6OptionalReviewer" defaultdisplay="tableDisplay">
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.addParticipant" renderingHint="commandbutton"/>
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.replaceParticipant" renderingHint="commandbutton"/>
+                    <tableDisplay>
+                        <property name="fnd0AssigneeUser"/>
+                        <property name="fnd0AssigneeRole"/>
+                        <property name="fnd0AssigneeGroup"/>
+                    </tableDisplay>
+                    <listDisplay/>
+                </objectSet>
+                <content visibleWhen="awp0RequiredParticipants==GET6OptionalReviewer">
+                    <htmlPanel id = "com.siemens.splm.client.workflow.requiredParticipantTile"/>
+                </content>
+            </section>
+        </content>
+        <content visibleWhen="awp0ShowParticipants==GET6CCBCo">
+            <section titleKey="tc_xrt_GET6CCBCo" title="CCB Coordinator">
+                <objectSet source="HasParticipant.GET6CCBCo" defaultdisplay="tableDisplay">
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.addParticipant" renderingHint="commandbutton"/>
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.replaceParticipant" renderingHint="commandbutton"/>
+                    <tableDisplay>
+                        <property name="fnd0AssigneeUser"/>
+                        <property name="fnd0AssigneeRole"/>
+                        <property name="fnd0AssigneeGroup"/>
+                    </tableDisplay>
+                    <listDisplay/>
+                </objectSet>
+                <content visibleWhen="awp0RequiredParticipants==GET6CCBCo">
+                    <htmlPanel id = "com.siemens.splm.client.workflow.requiredParticipantTile"/>
+                </content>
+            </section>
+        </content>
+		<content visibleWhen="awp0ShowParticipants==GET6WorkAssignCo">
+            <section titleKey="tc_xrt_GET6WorkAssignCo" title="Design Coordinator">
+                <objectSet source="HasParticipant.GET6WorkAssignCo" defaultdisplay="tableDisplay">
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.addParticipant" renderingHint="commandbutton"/>
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.replaceParticipant" renderingHint="commandbutton"/>
+                    <tableDisplay>
+                        <property name="fnd0AssigneeUser"/>
+                        <property name="fnd0AssigneeRole"/>
+                        <property name="fnd0AssigneeGroup"/>
+                    </tableDisplay>
+                    <listDisplay/>
+                </objectSet>
+                <content visibleWhen="awp0RequiredParticipants==GET6WorkAssignCo">
+                    <htmlPanel id = "com.siemens.splm.client.workflow.requiredParticipantTile"/>
+                </content>
+            </section>
+        </content>
+		<content visibleWhen="awp0ShowParticipants==GET6Designer">
+            <section titleKey="tc_xrt_GET6Designer" title="Design Team">
+                <objectSet source="HasParticipant.GET6Designer" defaultdisplay="tableDisplay">
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.addParticipant" renderingHint="commandbutton"/>
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.replaceParticipant" renderingHint="commandbutton"/>
+                    <tableDisplay>
+                        <property name="fnd0AssigneeUser"/>
+                        <property name="fnd0AssigneeRole"/>
+                        <property name="fnd0AssigneeGroup"/>
+                    </tableDisplay>
+                    <listDisplay/>
+                </objectSet>
+                <content visibleWhen="awp0RequiredParticipants==GET6Designer">
+                    <htmlPanel id = "com.siemens.splm.client.workflow.requiredParticipantTile"/>
+                </content>
+            </section>
+        </content>
+	</page>
+	<inject type="dataset" src="WorkflowSummary"/>
+    <inject type="dataset" src="RelationsSummary" />
+</rendering>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences version="10.0">
+ <category name="GET">
+  <category_description></category_description>
+  <preference name="ActiveWorkspaceHosting.URL" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>ActiveWorkspaceHosting.URL</preference_description>
+      <context name="Teamcenter">
+        <value>http://CHANGE_ME:8080/awc</value>
+      </context>
+    </preference>
+    <preference name="ActiveWorkspaceHosting.WorkflowEmail.URL" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>ActiveWorkspaceHosting WorkflowEmail URL</preference_description>
+      <context name="Teamcenter">
+        <value>http://CHANGE_ME:8080/awc</value>
+      </context>
+    </preference>
+     <preference name="GET.CAM.RIN.CREDENTIALS" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Get RIN database credentials.</preference_description>
+      <context name="Teamcenter">
+        <value>apps:CHANGE_ME_PASSWORD:CHANGE_ME_SID</value>
+      </context>
+    </preference>
+    <preference name="GET_CAS_DATA_DOWNLOADER_URL" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Web application url of GET_CASDataDownloader. Replace CHANGE_ME with the web server host name</preference_description>
+      <context name="Teamcenter">
+        <value>http://CHANGE_ME:8080/GET_CASDataDownloader</value>
+      </context>
+    </preference>
+    <preference name="GET_RELEASE_CLERK_DISTRIBUTION_LIST" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>For Production environment use the value: RELEASE.CLERK@ge.com
+For Non-Production environment use the value: NONPROD.releaseclerk@ge.com</preference_description>
+      <context name="Teamcenter">
+        <value>CHANGE_ME@ge.com</value>
+      </context>
+    </preference>
+    <preference name="GET_WaitTime_For_File_Transfer" type="Integer" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Custom preference to wait for file transfer, Default value is set to 2. Value can be changed based on the file transfer speed in the environments</preference_description>
+      <context name="Teamcenter">
+        <value>2</value>
+      </context>
+    </preference>
+ </category>
+ <category name="GET6_Integrations">
+  <category_description>Teamcenter Preferences</category_description>
+  <preference name="GET.INTEGRATION.RIN.CREDENTIALS" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+    <preference_description>RIN database credentials.</preference_description>
+    <context name="Teamcenter">
+      <value>gets_rin:CHANGE_ME_PASSWORD:CHANGE_ME_SID</value>
+    </context>
+  </preference>
+ </category>
+ <category name="Configuration.Mail Gateway">
+  <category_description></category_description>
+  <preference name="Mail_server_name" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Information about the mail gateway server.
+    This is a site preference.
+    It can be set to either a mail server name or to a numeric IP address.
+    The mail server name should be a machine running a send mail daemon.
+    Leaving it as &quot;your mail server machine&quot; while the &quot;Mail_OSMail_activated&quot; preference is true may give you errors telling you to set this preference if you try to use the &quot;Send&quot; command.</preference_description>
+      <context name="Teamcenter">
+        <value>po.ae.ge.com</value>
+      </context>
+    </preference>
+  <preference name="Mail_server_port" type="Integer" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Sets the port number used by the SMTP mail server to send OS mail.
+    This is a site preference.
+    The default value is 25.</preference_description>
+      <context name="Teamcenter">
+        <value>25</value>
+      </context>
+    </preference>
+ </category>
+ <category name="EBS Gateway">
+    <preference name="GET_T4O_Transfer_Decision" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Preference to turn on/off T4O Transfer. YES or NO are valid values.</preference_description>
+      <context name="Teamcenter">
+        <value>CHANGE_ME_YES_NO</value>
+      </context>
+    </preference>
+ </category>
+ <category name="Interface.Thin Client.General">
+    <category_description></category_description>
+    <preference name="WEB_default_site_server" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Defines the URL of the default site server used for mail notifications (CR-Notify) and other server oriented tasks.
+The format is for instance &quot;www.foo.com:8080&quot;.</preference_description>
+      <context name="Teamcenter">
+        <value>CHANGE_ME:8080</value>
+      </context>
+    </preference>
+ </category>
+</preferences>

@@ -1,0 +1,82 @@
+<project name="common_loops">
+
+    <!-- Use ant-contrib tasks -->
+    <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+    
+    <!-- Macro for looping targets using a filter -->
+    
+    <target name="deploy_loop">
+        <macrodef name="deploy_loop">
+            <attribute name="src.dir" />
+            <attribute name="info" />
+            <attribute name="filesetref" />
+            <attribute name="file.ext" />
+        
+            <sequential>
+        
+            <for param="file">
+                <path>
+                    <fileset  refid="@{filesetref}"/>
+                </path>
+                <sequential>
+			<!--
+                    <trycatch property="exception.message" reference="exception.object">
+                        <try>
+			 -->
+                            <!--
+                             ======================================================
+                             Strip off the extension of the source file for a base name
+                             Note that this is super tricky.
+                             you have to create a unique property each time you iterate the loop
+                             or else your target file will be the same as the first time thru the loop
+                             you MUST refer to the property as: ${target@{file}}
+                             ======================================================
+                             -->
+			    
+                            <propertyregex property="target@{file}"
+                            input="@{file}"
+                            regexp="(.*?[\\/])*(.*?)((?:\.\w+\z|\z))"
+                            select="\2"
+                            casesensitive="false" />
+			    
+			    <antcallback target="check_local" return="already.processed" >
+                                <param name="target.file" value="${src.dir}/.target_${target@{file}}"/>
+				<param name="target.base" value="{target.base}"/>
+			    </antcallback>
+                            <if>
+                                <equals arg1="${already.processed}" arg2="true" />
+                                <then>
+                                    <echo message="@{file} has already been processed"/>
+                                </then>
+                                <else>
+					<!--
+                                    <trycatch>
+                                        <try>
+					 -->
+					    <antcall target="process_target">
+                                                <param name="file" value="@{file}"/>
+						<param name="base" value="${target.base}"/>
+					    </antcall>
+                                            <touch file="${src.dir}/.target_${target@{file}}"/>
+					    <!--
+                                        </try>
+                                        <catch>
+                                            <fail message="@{info} failed on @{file}"/>
+                                        </catch>
+                                    </trycatch>
+					     -->
+                                </else>
+                            </if>
+			    <!--
+                        </try>
+                        <catch>
+                            <fail message="${exception.message}" />
+                        </catch>
+                    </trycatch>
+			     -->
+                </sequential>
+            </for>
+            </sequential>
+        </macrodef>
+    </target>
+</project>

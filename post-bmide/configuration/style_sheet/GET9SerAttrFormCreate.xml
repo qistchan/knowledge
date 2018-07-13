@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+=======================================================================
+Copyright 2009.
+Siemens Product Lifecycle Management Software Inc.
+All Rights Reserved.
+=======================================================================
+     Filename: GET9SrvFormCreate.xml
+
+    Style sheet rendering for Item creation.
+=======================================================================
+-->
+
+<rendering>
+    <page title="General" titleKey="tc_xrt_General">      
+<section title="Please Read" >
+<label text=" " />
+<label text="Is there an impact to quality, safety, compliance, or reliability? If yes, contact engineering." />
+<label text="Do you have a purchase specification or quality CTQs? No, contact engineering" />
+<label text=" " />
+        </section>
+<section title="Service Form Information" >
+           <property name="get9Serviceable" />
+		    <property name="get9Repairable" />
+			<property name="get9Serialized" />
+			<property name="get9PositionTracked" />
+			<property name="get9ServiceItemType" />
+			<property name="get9TierType" renderingHint="togglebuttonoptionlov" />
+			<property name="get9EngineFamily" />
+			<property name="get9CatalogNo" />
+			<property name="get9ComponentID" />
+     </section>
+    </page>
+</rendering>

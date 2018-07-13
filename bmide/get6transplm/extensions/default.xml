@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TcBusinessData xmlns="http://teamcenter.com/BusinessModel/TcBusinessData" Date="">
+<Add>
+   <TcGlobalConstantAttach constantName="Fnd0SelectedLocales" value="en_US"/>
+   <Functionality name="GET6transplm" displayName="GET6_transplm" enabledForVerificationRules="false"
+       description="Component for the template - get6transplm"/>
+</Add>
+</TcBusinessData>

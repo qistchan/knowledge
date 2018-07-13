@@ -1,0 +1,39 @@
+Engineering Admin - (C)|Engineering Admin - (C)|Project for Engineering Admin - (C)|A|dba.DBA|
+Engineering Admin - (R)|Engineering Admin - (R)|Project for Engineering Admin - (R)|A|dba.DBA|
+Global Lab - (C)|Global Lab - (C)|Project for Global Lab - (C)|A|dba.DBA|
+Global Lab - (R)|Global Lab - (R)|Project for Global Lab - (R)|A|dba.DBA|
+Product Definition - (C)|Product Definition - (C)|Project for Product Definition - (C)|A|dba.DBA|
+Product Definition - (R)|Product Definition - (R)|Project for Product Definition - (R)|A|dba.DBA|
+Digital Engineering - (C)|Digital Engineering - (C)|Project for Digital Engineering - (C)|A|dba.DBA|
+Digital Engineering - (R)|Digital Engineering - (R)|Project for Digital Engineering - (R)|A|dba.DBA|
+Engineering Support - (C)|Engineering Support - (C)|Project for Engineering Support - (C)|A|dba.DBA|
+Engineering Support - (R)|Engineering Support - (R)|Project for Engineering Support - (R)|A|dba.DBA|
+Electrical COE - (C)|Electrical COE - (C)|Project for Electrical COE - (C)|A|dba.DBA|
+Electrical COE - (R)|Electrical COE - (R)|Project for Electrical COE - (R)|A|dba.DBA|
+Mechanical COE - (C)|Mechanical COE - (C)|Project for Mechanical COE - (C)|A|dba.DBA|
+Mechanical COE - (R)|Mechanical COE - (R)|Project for Mechanical COE - (R)|A|dba.DBA|
+GETSA Engineering - (C)|GETSA Engineering - (C)|Project for GETSA Engineering - (C)|A|dba.DBA|
+GETSA Engineering - (R)|GETSA Engineering - (R)|Project for GETSA Engineering - (R)|A|dba.DBA|
+Compliance - (C)|Compliance - (C)|Project for Compliance - (C)|A|dba.DBA|
+Compliance - (R)|Compliance - (R)|Project for Compliance - (R)|A|dba.DBA|
+Off Highway Vehicle (OHV) - (C)|Off Highway Vehicle (OHV) - (C)|Project for Off Highway Vehicle (OHV) - (C)|A|dba.DBA|
+Off Highway Vehicle (OHV) - (R)|Off Highway Vehicle (OHV) - (R)|Project for Off Highway Vehicle (OHV) - (R)|A|dba.DBA|
+Propulsion - (C)|Propulsion - (C)|Project for Propulsion - (C)|A|dba.DBA|
+Propulsion - (R)|Propulsion - (R)|Project for Propulsion - (R)|A|dba.DBA|
+Services - (C)|Services - (C)|Project for Services - (C)|A|dba.DBA|
+Services - (R)|Services - (R)|Project for Services - (R)|A|dba.DBA|
+Software - (C)|Software - (C)|Project for Software - (C)|A|dba.DBA|
+Software - (R)|Software - (R)|Project for Software - (R)|A|dba.DBA|
+Technical Publications - (C)|Technical Publications - (C)|Project for Technical Publications - (C)|A|dba.DBA|
+Technical Publications - (R)|Technical Publications - (R)|Project for Technical Publications - (R)|A|dba.DBA|
+Transportation Systems - (C)|Transportation Systems - (C)|Project for Transportation Systems - (C)|A|dba.DBA|
+Transportation Systems - (R)|Transportation Systems - (R)|Project for Transportation Systems - (R)|A|dba.DBA|
+Engine - (C)|Engine - (C)|Project for Engine - (C)|A|dba.DBA|
+Engine - (R)|Engine - (R)|Project for Engine - (R)|A|dba.DBA|
+Underground Mining - (C)|Underground Mining - (C)|Project for Underground Mining - (C)|A|dba.DBA|
+Underground Mining - (R)|Underground Mining - (R)|Project for Underground Mining - (R)|A|dba.DBA|
+PrncplEngg-Safety-CybrSec - (C)|PrncplEngg-Safety-CybrSec - (C)|Principal Engineering, Safety, and Cyber Security - (C)|A|dba.DBA|
+PrncplEngg-Safety-CybrSec - (R)|PrncplEngg-Safety-CybrSec - (R)|Principal Engineering, Safety, and Cyber Security - (C)|A|dba.DBA|
+GRR|Grove City Engine Remanufacturi|Project for Manufacturing|A|dba.DBA|
+GRV|Grove City Engine Manufacturing|Project for Manufacturing|A|dba.DBA|
+TXO|Texas OHV Manufacturing|Project for UGM|A|dba.DBA|

@@ -1,0 +1,1333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TcBusinessDataLocalization xmlns="http://teamcenter.com/BusinessModel/TcBusinessDataLocalization"
+    batchXSDVersion="1.0" Date="Thu Sep 21 05:33:49 PM 2017"
+>
+<!--This file can be used to update the LOV Value and Description localizations for LOV: GET9SCNCustomers. 
+1. Please ensure that the LOV has been deployed to the Teamcenter Server. 
+2. Modify the LOV data file at <BMIDE Project Folder>\output\wntx64\Samples\LOVS\GET9SCNCustomers\GET9SCNCustomers.xml by replacing the commented code with your values. 
+3. Modify the localization files in the lang folder by replacing the commented code with your values. 
+4. Run the command: 
+bmide_manage_batch_lovs -u=<username> -p=<password> -g=<group> -option=update -file=<BMIDE Project Folder>\output\wntx64\Samples\LOVS\GET9SCNCustomers\GET9SCNCustomers.xml.-->
+
+  <Add>
+<!--The following LOV value localizations, enclosed in comments, are there as a sample. You can replace them by your own LOV value localizations.-->
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}11994" status="Approved">ABG Shipyard Ltd</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}7684" status="Approved">ACL Transportation Services, LLC</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}35661" status="Approved">AENERGIA, SA</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}44897" status="Approved">America Latina Logistica Holding</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}13090" status="Approved">America Latina Logistica Malha Norte S/A</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}7672" status="Approved">Americas Export Corporation</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}15405" status="Approved">AMIMER ENERGIE SPA</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1017" status="Approved">AMTRAK</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}64048" status="Approved">ANGLO COAL (FOXLEIGH MANAGEMENT) PTY LTD</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}15465" status="Approved">Anglo Platinum Management Services Limited</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1136" status="Approved">Aqaba Railways</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}16845" status="Approved">Arcelor Mittal Liberia</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1125" status="Approved">ArcelorMittal Infrastructure Canada G.P.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}7696" status="Approved">AS EVR Cargo Ltd.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}49641" status="Approved">Aurizon Operations Limited</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}120943" status="Approved">AZERBAYCAN DEMIR YOLLARI QSC</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1084" status="Approved">BC Rail Limited</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}5614" status="Approved">BHP Billiton Iron Ore</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}18779" status="Approved">Black Mountain Mining Company</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1041" status="Approved">BNSF</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}55105" status="Approved">BOKUK ELECTRIC IND. CO., LTD.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1068" status="Approved">Bombardier Transportation GmbH</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}9544" status="Approved">Bowfluvial S.A.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}514948" status="Approved">BTP EQUIPMENT PTY LTD</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}18010" status="Approved">C.I. Colombian Natural Resources I S.A.S</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}8420" status="Approved">Canadian Maritime Engineering Ltd</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1011" status="Approved">Canadian National Railway   (Loco)</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1023" status="Approved">Canadian Pacific Railway</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}7466" status="Approved">Carbones De Los Andes SA</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1109" status="Approved">Carbones del Cerrejon Limited (L)</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}12956" status="Approved">CB Rail S.a.r.l.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}9440" status="Approved">CDN - Corredor de Desenvolvimento do Norte, SARL</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}8407" status="Approved">Cemex SAB</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}27870" status="Approved">Centennial Myuna Pty Limited</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1142" status="Approved">CFM (Caminhos de Ferro de Mocambique) - Mozambique</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}27293" status="Approved">Chicago Freight Car Leasing Australia</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}10266" status="Approved">China National Technical Import and Export Corp.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1072" status="Approved">China Railways Matl and Su</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}63567" status="Approved">CHINOVA RESOURCES PTY LTD</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}12350" status="Approved">CI Prodeco SA</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}26211" status="Approved">Citicorp Railmark, Inc</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}13957" status="Approved">CNR III LTD Sucursal Colombia</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}23910" status="Approved">COLAS RAIL LTD</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1060" status="Approved">Consolidated Rail Corp</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}51605" status="Approved">CSR (HONG KONG) CORPORATION LIMITED</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1119" status="Approved">CSX Transportation</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}12973" status="Approved">Cummins Mid-South</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}7478" status="Approved">CVG Ferrominera Orinoco CA</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}9591" status="Approved">DAQIN Railway Company</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}16905" status="Approved">Detroit Chile S.A.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1066" status="Approved">Drummond Ltd - Colombia</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}596949" status="Approved">DT-INTERLINK A/S</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1063" status="Approved">EGYPTIAN NATIONAL RAILWAYS</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}277947" status="Approved">ERNEST HENRY MINING PTY LTD</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}8378" status="Approved">Ferrocarril Central Andino S.A.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1247" status="Approved">Ferrocarril Mexicano SA de CV</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}2594" status="Approved">FERRONORTE S.A.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}5511" status="Approved">FERROSUR, SA de CV</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}8761" status="Approved">Ferroviaria Oriental SA</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}62425" status="Approved">Fletchers International Exports Pty Ltd</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}34917" status="Approved">Florida East Coast Railway, LLC</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}13370" status="Approved">Fortescue Metals Group Ltd.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}13638" status="Approved">Freightliner Group Limited</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}28377" status="Approved">Frontier Power Products Ltd.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}21746" status="Approved">GE South Africa Technologies (Pty) Limited (MandS)</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}8868" status="Approved">Genesee and Wyoming Inc.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}5751" status="Approved">GEVISA - MRS</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}14261" status="Approved">Global Denizcilik Hizmetleri Ltd. Sti.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}7618" status="Approved">Government of Malaysia</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}14263" status="Approved">Great Western Railway</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}870949" status="Approved">HARLEY MARINE SERVICES, INC.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}40217" status="Approved">Heavy Haul Power Intl. GmbH</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}23415" status="Approved">Hyundai Rotem Company</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}13715" status="Approved">IML IMPIANTI S.R.L.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1075" status="Approved">Indian Railway - DLW</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1146" status="Approved">Indonesian State Railway</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}64936" status="Approved">Industrea Mining Services Pty Ltd</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}7908" status="Approved">Iowa Interstate Railroad</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}52025" status="Approved">JSC Ivano-Frankivskcement</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}5425" status="Approved">Kansas City Southern de Mexico, S. A. de C.V.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}5510" status="Approved">Kansas City Southern Railway</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1160" status="Approved">Kiwirail Infrastructure and Engineering</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1058" status="Approved">KTZ-Freight Transportation Joint Stock Company</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}9344" status="Approved">Lake Superior and Ishpeming</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}51765" status="Approved">Locomotive Depot Branch of SE NC Kyrgyz Temir Jolu</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}8730" status="Approved">Marinsa International, Inc.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1103" status="Approved">Massachusetts Bay Transp Auth</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1124" status="Approved">Metro-North Commuter RR (Loco)</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}8370" status="Approved">MINERACAO RIO DO NORTE S/A</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}55025" status="Approved">Mineral Resources Limited</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}63865" status="Approved">MINISTRY OF RAILROAD TRANSPORT OF TURKMENISTAN</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}9162" status="Approved">Mongolian Railway</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}7860" status="Approved">Montreal, Maine and Atlantic Railway</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}278947" status="Approved">MOUNT ISA MINES LIMITED</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}6731" status="Approved">MRS LOGISTICA S.A.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}7941" status="Approved">National Maint and Repair Inc (Marine)</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}5475" status="Approved">National Rail Corporation Ltd</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}5760" status="Approved">National Railway Equipment Company</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}9430" status="Approved">Natural Waters of Viti, Ltd</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1122" status="Approved">New Jersey Transit Rail   (Loco)</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}12971" status="Approved">Newag S.A.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}5694" status="Approved">Nigeria Railway Corporation</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1126" status="Approved">Norfolk Southern Corp</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}7954" status="Approved">Ohio Central Railroad</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}11571" status="Approved">OJSC (OAO) AK Railways of Yakutia</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}11850" status="Approved">Osthannoversche Eisenbahnen AG</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}8881" status="Approved">Pacific National</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1150" status="Approved">Pakistan Railways</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}47497" status="Approved">Panama Canal Authority</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}8356" status="Approved">Pesquera Diamante</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}456950" status="Approved">PILBARA IRON PTY LTD</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}27104" status="Approved">PJ Brand</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1029" status="Approved">Providence and Worcester Co</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}8486" status="Approved">PT Kereta API (Persero)</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}9350" status="Approved">Qinghai-Tibet Railway Co</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1086" status="Approved">Quebec North Shore Labrador</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}16805" status="Approved">Railroad Project Execution and Management Board</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}14159" status="Approved">Richards Bay Coal Terminal Company</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}14157" status="Approved">Richards Bay Minerals</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}51189" status="Approved">Robin Johnson Engineering Pty Ltd</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}60005" status="Approved">Roy Hill Infrastructure Pty Ltd.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}14100" status="Approved">Royston Limited</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}9038" status="Approved">SAKR Power Systems</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}21947" status="Approved">Salt River Project</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}16528" status="Approved">Savatran LLC</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}27106" status="Approved">Schiffsdieseltechnik Kiel GmbH</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}8914" status="Approved">Seminole Gulf Railway</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}11550" status="Approved">Sheltam (Pty) Ltd</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}37019" status="Approved">Sishen Iron Ore Company (Pty) Ltd</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}33048" status="Approved">SOLUTION POWER PARTNER SAL (OFFSHORE)</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1070" status="Approved">Southern Peru Copper Corp.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1044" status="Approved">State Railways of Thailand</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}37212" status="Approved">State Unitary Enterprise Rohi ohani Tojikiston</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1153" status="Approved">Syrian Railways</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}39097" status="Approved">Texas Power and Associates LLC</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}28589" status="Approved">Thelo Rolling Stock Leasing</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}7257" status="Approved">Thunder Basin Coal Co.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}8898" status="Approved">Tidewater Marine</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}21526" status="Approved">Transnet Freight Rail (Locomotive)</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}7260" status="Approved">Triton Coal Co LLC</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}13819" status="Approved">Tulomsas (Turkiye Lokomotif ve Motor Sanayii A.S.)</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1295" status="Approved">UMW Industrial Power</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1116" status="Approved">Union Pacific Railroad</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1253" status="Approved">United Group Rail Services Ltd.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}7818" status="Approved">Usiminas</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}33610" status="Approved">VALE MOCAMBIQUE LTDA</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}45397" status="Approved">VALE MOCAMBIQUE S.A</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1415" status="Approved">VALE S/A  EF</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1046" status="Approved">Via Rail Canada Inc</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}31148" status="Approved">VLI MULTIMODAL S.A.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}1131" status="Approved">Wabush Mines</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}47717" status="Approved">WARKWORTH MINING LTD</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}8415" status="Approved">Washington State Ferries</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}8011" status="Approved">Watco Switching Inc</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}278944" status="Approved">WONBINDI COAL PTY LTD</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}20767" status="Approved">Xstrata Rail Network</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNCustomers{::}18170" status="Approved">Xstrata South Africa (Pty) Ltd.</key>	
+<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1" status="Approved">BC1</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2" status="Approved">BC2</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3" status="Approved">BC3</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4" status="Approved">BN1</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5" status="Approved">C36</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6" status="Approved">CN1</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}7" status="Approved">CN2</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}8" status="Approved">CN3</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}9" status="Approved">CN4</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}10" status="Approved">CN5</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}11" status="Approved">CP1</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}12" status="Approved">CP2</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}15" status="Approved">LMX</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}16" status="Approved">SF1</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}21" status="Approved">SF6</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}22" status="Approved">SF7</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}24" status="Approved">SF9</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}26" status="Approved">SFB</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}27" status="Approved">SFC</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}28" status="Approved">SFD</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}29" status="Approved">SP4</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}31" status="Approved">SP6</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}32" status="Approved">UP1</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}33" status="Approved">UP10</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}34" status="Approved">UP10A</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}35" status="Approved">UP10B</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}36" status="Approved">UP10C</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}37" status="Approved">UP11</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}38" status="Approved">UP12A</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}39" status="Approved">UP12B</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}40" status="Approved">UP13</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}41" status="Approved">UP14</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}42" status="Approved">UP15</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}43" status="Approved">UP15A</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}44" status="Approved">UP15B</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}45" status="Approved">UP16</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}46" status="Approved">UP1A</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}47" status="Approved">UP2</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}48" status="Approved">UP2A</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}49" status="Approved">UP2B</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}50" status="Approved">UP3</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}51" status="Approved">UP3A</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}52" status="Approved">UP4</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}53" status="Approved">UP4A</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}54" status="Approved">UP5</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}56" status="Approved">UP6</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}57" status="Approved">UP7</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}58" status="Approved">UP8</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}59" status="Approved">UP8A</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}60" status="Approved">UP8B</key>
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}61" status="Approved">UP8C</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}62" status="Approved">UP9</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}63" status="Approved">UP9A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}64" status="Approved">CN Over-the-Counter Trans</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}65" status="Approved">CP Over-the-Counter Trans</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}66" status="Approved">BNSF Over-the-Counter Trans</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}67" status="Approved">UP Over-the-Counter Trans</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}68" status="Approved">UP17</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}100" status="Approved">CP3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}120" status="Approved">SFE</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}140" status="Approved">UP18</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}160" status="Approved">UP Dasher Only Transactions</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}180" status="Approved">QNSL Dasher Only Transactions</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}200" status="Approved">TFM1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}201" status="Approved">FMX1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}221" status="Approved">FMX Over-the-Counter Trans</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}222" status="Approved">TFM Over-the-Counter Trans</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}240" status="Approved">LS1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}260" status="Approved">HELM3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}280" status="Approved">UP19</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}320" status="Approved">NR1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}360" status="Approved">SFF</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}400" status="Approved">KS1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}420" status="Approved">NS</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}462" status="Approved">NS8</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}463" status="Approved">NS9</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}464" status="Approved">NS10</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}465" status="Approved">NS11</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}467" status="Approved">NS2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}468" status="Approved">NS3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}469" status="Approved">NS3A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}470" status="Approved">NS4</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}471" status="Approved">NS4A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}472" status="Approved">NS4B</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}473" status="Approved">NS5</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}474" status="Approved">NS6</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}475" status="Approved">NS7</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}478" status="Approved">CSX1C</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}479" status="Approved">CSX1D</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}485" status="Approved">CSX6A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}486" status="Approved">CSX7A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}487" status="Approved">CSX8</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}488" status="Approved">CSX9</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}496" status="Approved">CSX7B</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}497" status="Approved">CSX6B</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}536" status="Approved">CSX Over-the-Counter Transacti</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}556" status="Approved">UP20</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}576" status="Approved">KCS Over-the-Counter Trans</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}617" status="Approved">AMTK1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}618" status="Approved">AMTK2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}619" status="Approved">AMTK3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}620" status="Approved">AMTK4</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}621" status="Approved">AMTK5</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}622" status="Approved">AMTK6</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}623" status="Approved">AMTK7</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}624" status="Approved">MNC1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}625" status="Approved">MNC2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}626" status="Approved">MNC3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}647" status="Approved">SF1A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}648" status="Approved">SF9A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}649" status="Approved">SFDA</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}650" status="Approved">SFEA</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}667" status="Approved">SFG</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}687" status="Approved">NS12</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}767" status="Approved">CN6</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}792" status="Approved">SFH</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}807" status="Approved">FSRR1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}808" status="Approved">AMTK8</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}831" status="Approved">NS1A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}833" status="Approved">NS8A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}835" status="Approved">NS4C</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}848" status="Approved">CSXM-GE</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}852" status="Approved">CRX-D8-PRE 87</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}853" status="Approved">CRX-D8-POST 87</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}854" status="Approved">CRX-D7</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}861" status="Approved">BCRX-D7</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}862" status="Approved">BCRX-D8-POST 87</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}863" status="Approved">BCRX-D9</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}907" status="Approved">UP21</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}927" status="Approved">NS13</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}928" status="Approved">NS14</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}987" status="Approved">UP22</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1007" status="Approved">MNC4</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1028" status="Approved">CPFF</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1048" status="Approved">CSX16</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1049" status="Approved">PIL1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1069" status="Approved">CVRD9</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1089" status="Approved">FERROSUR Over-the-Counter Tran</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1109" status="Approved">1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1129" status="Approved">CVRD10</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1149" status="Approved">BHP1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1169" status="Approved">KS2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1170" status="Approved">KS3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1175" status="Approved">EGYP1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1177" status="Approved">FNRR1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1189" status="Approved">CP4</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1210" status="Approved">CVRD4</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1212" status="Approved">FMX0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1213" status="Approved">PRC0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1229" status="Approved">VR1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1230" status="Approved">CNLM1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1269" status="Approved">NS15</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1289" status="Approved">BT1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1309" status="Approved">North Rochelle Fleet 1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1329" status="Approved">PIL3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1369" status="Approved">CPL-CIT</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1389" status="Approved">UP23</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1410" status="Approved">CVRD11</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1429" status="Approved">NREC1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1489" status="Approved">FMX1A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1589" status="Approved">SFI</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1609" status="Approved">CSX17</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1629" status="Approved">CVRD2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1630" status="Approved">QCM0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1649" status="Approved">CVRD12</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1689" status="Approved">CVRD3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1709" status="Approved">CVRD5</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1729" status="Approved">CVRD7</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1749" status="Approved">CVRD8</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1789" status="Approved">USIM1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1829" status="Approved">BTG01</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1849" status="Approved">CRC1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1909" status="Approved">MRN1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1929" status="Approved">CN7</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1949" status="Approved">SYR1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1969" status="Approved">CP5</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1989" status="Approved">CFCLA</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}1990" status="Approved">NS16</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2029" status="Approved">UP-EMD</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2049" status="Approved">CSX15</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2069" status="Approved">UP23A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2070" status="Approved">UP24</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2089" status="Approved">SYR2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2109" status="Approved">CRC2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2129" status="Approved">MRS1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2130" status="Approved">MRS2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2134" status="Approved">EVR1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2135" status="Approved">EVR2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2137" status="Approved">INDO1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2230" status="Approved">PIL4</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2270" status="Approved">SFL</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2289" status="Approved">PIL2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2290" status="Approved">PIL5</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2329" status="Approved">BTG02</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2349" status="Approved">FSRR2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2369" status="Approved">PWRR0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2370" status="Approved">MMA0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2449" status="Approved">BNSF-RCL1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2469" status="Approved">UP-RCL1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2489" status="Approved">CP6</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2509" status="Approved">CN8</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2510" status="Approved">SFJ</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2511" status="Approved">SFK</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2529" status="Approved">GECX7</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2589" status="Approved">KTMB1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2609" status="Approved">UP25</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2689" status="Approved">CN8A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2709" status="Approved">CVRD13</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2710" status="Approved">NS18</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2729" status="Approved">SFM</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2749" status="Approved">NS17</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2769" status="Approved">UP25A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2810" status="Approved">INDIA4</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2811" status="Approved">INDIA1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2829" status="Approved">UP25B</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2849" status="Approved">CP7</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2949" status="Approved">GLS_Internal1Fleet 15</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2950" status="Approved">TFM10</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2951" status="Approved">TFM11</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2952" status="Approved">TFM12</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2953" status="Approved">TFM13</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2954" status="Approved">TFM14</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}2989" status="Approved">PIL6</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3009" status="Approved">CN9</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3029" status="Approved">UP26</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3049" status="Approved">GENERAL MOTORS MATERIALS</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3109" status="Approved">CPL-CIT2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3151" status="Approved">FMX5</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3169" status="Approved">NREC_BUILD_FLEET</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3210" status="Approved">FMX BUILD FLEET</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3229" status="Approved">FSRR3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3249" status="Approved">SFN</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3250" status="Approved">UP27</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3269" status="Approved">CVRD14</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3270" status="Approved">CVRD15</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3309" status="Approved">PIL7</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3329" status="Approved">FMO1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3369" status="Approved">UP27A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3489" status="Approved">VMT0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3509" status="Approved">PQD0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3529" status="Approved">NWV0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3569" status="Approved">CSX18</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3570" status="Approved">QNSL3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3589" status="Approved">SFX21</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3649" status="Approved">QTR1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3669" status="Approved">NS19</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3729" status="Approved">WAT-RCL</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3769" status="Approved">CP8</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3770" status="Approved">UP28</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3771" status="Approved">CN10</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3789" status="Approved">PIL8</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3809" status="Approved">SFNA</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3829" status="Approved">DQ1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3849" status="Approved">DLC0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3889" status="Approved">CSX19</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}3909" status="Approved">SFX23</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4009" status="Approved">FMXHS</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4051" status="Approved">KTZ2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4052" status="Approved">KTZ2A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4054" status="Approved">MR2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4055" status="Approved">KTZ3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4056" status="Approved">KTZ1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4057" status="Approved">QCM2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4061" status="Approved">SPS0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4101" status="Approved">BNL-CIT</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4102" status="Approved">PIL9</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4105" status="Approved">CP9</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4108" status="Approved">CERR1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4110" status="Approved">FMXEVO</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4111" status="Approved">MMC0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4137" status="Approved">SLPL0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4154" status="Approved">CSX20</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4155" status="Approved">SFX24</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4156" status="Approved">SFMA</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4157" status="Approved">UP29</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4160" status="Approved">UMW0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4163" status="Approved">ABGS0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4164" status="Approved">TR0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4165" status="Approved">YR1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4167" status="Approved">KS8</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4168" status="Approved">QNSL4</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4169" status="Approved">KS9</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4170" status="Approved">KTZ4</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4171" status="Approved">QRHV1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4172" status="Approved">QR1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4187" status="Approved">BTG03</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4188" status="Approved">NS20</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4189" status="Approved">PIL10</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4190" status="Approved">SFX25</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4192" status="Approved">MRS5</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4209" status="Approved">AST1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4228" status="Approved">ARC0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4229" status="Approved">MMC1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4230" status="Approved">BFV1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4231" status="Approved">BFV2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4233" status="Approved">CBRS0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4269" status="Approved">CIPS0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4328" status="Approved">FMG0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4349" status="Approved">CN11</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4369" status="Approved">KS11</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4395" status="Approved">FMXEVO1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4430" status="Approved">CSX21</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4470" status="Approved">CDLA0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4489" status="Approved">SPS1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4492" status="Approved">NS21</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4494" status="Approved">QCM3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4495" status="Approved">CN11A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4496" status="Approved">ABGS1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4497" status="Approved">YR2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4510" status="Approved">ISRL0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4515" status="Approved">KS10</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4532" status="Approved">UP30</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4533" status="Approved">CP10</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4534" status="Approved">CML IMP</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4551" status="Approved">SFX25A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4553" status="Approved">CML1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4554" status="Approved">CP9A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4611" status="Approved">CVRD16</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4615" status="Approved">PIL11</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4631" status="Approved">GON0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4633" status="Approved">PCC1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4634" status="Approved">HHPI1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4671" status="Approved">CMSA0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4672" status="Approved">NJTR0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4673" status="Approved">NSA0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4674" status="Approved">CICC0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4675" status="Approved">PN_BUILD</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4695" status="Approved">CVRD17</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4697" status="Approved">KS12</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4698" status="Approved">EGYP2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4699" status="Approved">SFX26</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4716" status="Approved">AES0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4717" status="Approved">PN0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4718" status="Approved">APMS0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4739" status="Approved">IAIS0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4760" status="Approved">CSX22</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4801" status="Approved">SFX27</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4802" status="Approved">NS22</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4881" status="Approved">ABR</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4882" status="Approved">AMV</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4883" status="Approved">BGKT</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4884" status="Approved">BNDM</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4885" status="Approved">BWN</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4886" status="Approved">CBS</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4887" status="Approved">ED</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4888" status="Approved">ERS</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4889" status="Approved">ET</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4890" status="Approved">GD</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4891" status="Approved">GOC</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4892" status="Approved">GTL</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4893" status="Approved">GY</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4894" status="Approved">HWH</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4895" status="Approved">JHS</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4896" status="Approved">JMP</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4897" status="Approved">KGP</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4898" status="Approved">KJM</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4899" status="Approved">KYN</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4900" status="Approved">KZJ</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4901" status="Approved">LDH</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4902" status="Approved">MGS</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4903" status="Approved">MLDT</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4904" status="Approved">MLY</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4905" status="Approved">NGC</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4906" status="Approved">NKJ</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4907" status="Approved">NTPC</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4908" status="Approved">PA</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4909" status="Approved">PTRU</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4910" status="Approved">RP</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4911" status="Approved">RTM</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4912" status="Approved">SPJ</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4913" status="Approved">TKD</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4914" status="Approved">UDL</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4915" status="Approved">VSKP</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4916" status="Approved">VTA</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4941" status="Approved">SFX28</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4942" status="Approved">SFX29</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}4961" status="Approved">NMRM0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5002" status="Approved">AML1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5061" status="Approved">UP31</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5081" status="Approved">MNC2A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5102" status="Approved">RBCT0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5103" status="Approved">RBM0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5124" status="Approved">PIL12</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5141" status="Approved">CVRD18</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5142" status="Approved">SFX28A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5143" status="Approved">SFX28B</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5161" status="Approved">DCSA0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5183" status="Approved">KTZ5</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5184" status="Approved">RBM_BUILD</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5190" status="Approved">CSX21A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5191" status="Approved">GDHL0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5192" status="Approved">MR3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5193" status="Approved">CN11B</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5204" status="Approved">KTZ6</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5224" status="Approved">CMS0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5244" status="Approved">CSX_TRUCK_OH</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5284" status="Approved">CML2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5285" status="Approved">CML3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5286" status="Approved">CML4</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5287" status="Approved">CML CKD</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5288" status="Approved">BMMC0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5289" status="Approved">ROYL0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5290" status="Approved">XSA0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5310" status="Approved">FRL1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5350" status="Approved">QRIM</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5351" status="Approved">SFX29A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5373" status="Approved">CML5</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5393" status="Approved">KiwiRail</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5395" status="Approved">CN12</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5396" status="Approved">SFX29B</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5398" status="Approved">NIRC1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5402" status="Approved">CN13A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5403" status="Approved">CN13B</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5422" status="Approved">SFX30A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5423" status="Approved">SFX30</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5462" status="Approved">CP10-2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5502" status="Approved">SRP1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5522" status="Approved">AMMC1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5543" status="Approved">PIL13</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5544" status="Approved">FMX09</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5545" status="Approved">NS23</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5547" status="Approved">CVRD20</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5548" status="Approved">CVRD19</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5551" status="Approved">CSX23</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5552" status="Approved">CSX24</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5553" status="Approved">CN13C</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5555" status="Approved">QRNC1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5556" status="Approved">XRN1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5557" status="Approved">CSX8A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5577" status="Approved">PIL14</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5597" status="Approved">SF9AR</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5637" status="Approved">CNR1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5657" status="Approved">CP11</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5658" status="Approved">CP12</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5660" status="Approved">QRHV2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5661" status="Approved">ARG2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5662" status="Approved">UP32</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5689" status="Approved">TFR1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5691" status="Approved">LAR1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5693" status="Approved">APMS0-1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5698" status="Approved">PIL15</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5701" status="Approved">KTZ7</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5702" status="Approved">KTZ8</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5703" status="Approved">KTZ9</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5704" status="Approved">NS24</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5716" status="Approved">CFCLA1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5717" status="Approved">GWA</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5719" status="Approved">CML6</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5720" status="Approved">SFX31</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5740" status="Approved">KS14</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5741" status="Approved">KS13</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5765" status="Approved">SVTX1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5780" status="Approved">XRN2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5781" status="Approved">ARG1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5800" status="Approved">SDT(MandS)</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5820" status="Approved">SDT0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5840" status="Approved">PIL16</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5842" status="Approved">SFX31W</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5843" status="Approved">CVRD22</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5844" status="Approved">INDO2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5845" status="Approved">INDO3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5846" status="Approved">INDO4</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5847" status="Approved">INDO5</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5848" status="Approved">CVRD21</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5855" status="Approved">PIL17</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5856" status="Approved">MRSL4</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5857" status="Approved">MRSL6</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5858" status="Approved">MRSLS1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5859" status="Approved">MRSL7</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5860" status="Approved">MRSL8</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5862" status="Approved">MRSL7A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5882" status="Approved">ALL2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5883" status="Approved">UP33</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5888" status="Approved">QRNI1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5890" status="Approved">PN1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5892" status="Approved">CERR2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5893" status="Approved">RRIA3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5895" status="Approved">KS15</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5896" status="Approved">CFCLA2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5897" status="Approved">PJBR0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5898" status="Approved">UGL1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5901" status="Approved">CEY01</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5956" status="Approved">CREX2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5957" status="Approved">CIPS1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5959" status="Approved">CVRD23</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5960" status="Approved">CVRD24</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5961" status="Approved">MBTA1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5965" status="Approved">NS25</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5966" status="Approved">KORR1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5969" status="Approved">CN15</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5971" status="Approved">TFR2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5974" status="Approved">FPPL</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5975" status="Approved">CN14</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5976" status="Approved">KTZ10</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5988" status="Approved">CVRD25</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5989" status="Approved">CVRD26</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5990" status="Approved">BHP2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5993" status="Approved">PIL18</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5996" status="Approved">SFX32AFW</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}5998" status="Approved">UP34</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6001" status="Approved">AESA0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6002" status="Approved">PIL19</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6003" status="Approved">PIL20</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6004" status="Approved">PIL21</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6005" status="Approved">DLC1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6006" status="Approved">CML7</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6009" status="Approved">CVRD27</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6013" status="Approved">NS26</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6017" status="Approved">ALL-B1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6018" status="Approved">ALL-A1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6019" status="Approved">ALL-C2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6020" status="Approved">ALL-A2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6021" status="Approved">CREX3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6022" status="Approved">CREX3F</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6026" status="Approved">HHPI2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6029" status="Approved">ACLT0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6033" status="Approved">WASH0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6036" status="Approved">TIDE0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6048" status="Approved">CFM2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6050" status="Approved">CLR1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6051" status="Approved">SIOC1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6066" status="Approved">PACA</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6081" status="Approved">CN16</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6082" status="Approved">XRN3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6086" status="Approved">CVRD28A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6099" status="Approved">ALL-E1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6102" status="Approved">TPAL</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6105" status="Approved">TJK1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6106" status="Approved">SFX32BFW</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6107" status="Approved">KS17</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6108" status="Approved">SGRX1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6111" status="Approved">SFX32BW</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6113" status="Approved">FSRRW4</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6114" status="Approved">FSRRW5</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6115" status="Approved">TFR3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6116" status="Approved">SFX33W</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6117" status="Approved">SFX33FW</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6118" status="Approved">Indo_14</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6119" status="Approved">ALL-F1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6122" status="Approved">ARG-P</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6124" status="Approved">UP35</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6125" status="Approved">CVRD28B</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6126" status="Approved">AML2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6129" status="Approved">AZER1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6131" status="Approved">KS19</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6133" status="Approved">QRHV3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6137" status="Approved">SFX21A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6138" status="Approved">GECX7A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6139" status="Approved">MOZ1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6141" status="Approved">CN17</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6142" status="Approved">MRL1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6143" status="Approved">CREX4</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6144" status="Approved">FEC1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6146" status="Approved">QRNC2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6147" status="Approved">RHI1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6148" status="Approved">TCDD1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6150" status="Approved">ALL-G1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6151" status="Approved">TNZ1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6152" status="Approved">BOKU</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6153" status="Approved">ALLs-01</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6159" status="Approved">TFR4</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6160" status="Approved">ALL-08</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6161" status="Approved">FOSA1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6164" status="Approved">GECX10A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6167" status="Approved">MRSL9</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6168" status="Approved">CVRD30</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6170" status="Approved">PN2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6171" status="Approved">WBSH-CIT</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6179" status="Approved">SFX34W</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6180" status="Approved">SPPS0</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6181" status="Approved">UP35F</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6185" status="Approved">FIE01</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6186" status="Approved">FCA1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6187" status="Approved">MOZ2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6188" status="Approved">SFX34FW</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6189" status="Approved">CSX27A</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6190" status="Approved">IAIS1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6191" status="Approved">CVRD31</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6193" status="Approved">CSX27B</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6196" status="Approved">CSX16T</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6198" status="Approved">CSX2T</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6199" status="Approved">CSX3AT</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6200" status="Approved">CSX3BT</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6201" status="Approved">CSX4T</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6202" status="Approved">CSX4AT</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6203" status="Approved">CSX5T</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6204" status="Approved">CSX5AT</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6220" status="Approved">CSX25T</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6221" status="Approved">CSX26T</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6222" status="Approved">KTZ11</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6223" status="Approved">CN18</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6224" status="Approved">CN19</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6225" status="Approved">CN20</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6226" status="Approved">CN21</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6227" status="Approved">UP36C</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6228" status="Approved">UP36CF</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6229" status="Approved">CN22</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6230" status="Approved">CLN1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6231" status="Approved">SFX32WT</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6234" status="Approved">KS16</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6235" status="Approved">MRSL10</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6236" status="Approved">INDO_15</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6238" status="Approved">PIL22</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6239" status="Approved">CERR3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6240" status="Approved">SOLU</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6242" status="Approved">IMS_ANGLO_COAL_FOXLEIGH</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6243" status="Approved">IMS_WONBINDI_BARALABA</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6244" status="Approved">IMS_CHINOVA_OSBORNE</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6249" status="Approved">IMS_MOUNT_ISA_BLACKSTAR</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6250" status="Approved">IMS_MOUNT_ISA_HHOC</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6251" status="Approved">IMS_WAKWORTH</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6252" status="Approved">IMS_WAKWORTH_ANC</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6253" status="Approved">IMS_MOUNT_ISA_ZOPS_TAILINGS</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6254" status="Approved">IMS_MOUNT_ISA_BPL_TAILINGS</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6255" status="Approved">IMS_MOUNT_ISA_BPL_TRANSPORT</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6256" status="Approved">IMS_ERNEST</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6257" status="Approved">CSX28</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6258" status="Approved">IMS_NORTHRIDGE</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6259" status="Approved">ALL-C1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6260" status="Approved">ALL-D1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6261" status="Approved">ALL-D2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6262" status="Approved">ALL-E2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6263" status="Approved">ALL-E3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6264" status="Approved">SFX35W</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6265" status="Approved">SFX35FW</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6266" status="Approved">UP36T</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6267" status="Approved">UP36TF</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6268" status="Approved">SFX31WT</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6269" status="Approved">SFX32FWT</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6270" status="Approved">ALL-09</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6273" status="Approved">KS11-(KKC) MX</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6274" status="Approved">KS15-(KKC) MX</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6275" status="Approved">KS17-(KKC) MX</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6276" status="Approved">KS19-(KKC) MX</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6277" status="Approved">KCS-WARRANTY MX</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6279" status="Approved">CDN01</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6281" status="Approved">TFR5</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6283" status="Approved">FCA_NS</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6284" status="Approved">KS1T</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6285" status="Approved">SFX36FW</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6286" status="Approved">VLI29</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6293" status="Approved">DLC2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6294" status="Approved">CREX5</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6295" status="Approved">CLN2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6296" status="Approved">SFX37FW</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6297" status="Approved">RJEP</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6298" status="Approved">QCM4</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6299" status="Approved">ALLS-03</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6300" status="Approved">ALLS-04</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6301" status="Approved">KS13-(KKC) MX</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6302" status="Approved">PAK3</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6304" status="Approved">CSX29</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6306" status="Approved">GON1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6307" status="Approved">IMS_BTP_EQUIPMENT_WAMBO</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6310" status="Approved">SFX38FW</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6312" status="Approved">NS27</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6313" status="Approved">NS28</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6314" status="Approved">SPCC01</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6318" status="Approved">CITI RM</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6322" status="Approved">FMXEVO2</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6323" status="Approved">IFC1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6325" status="Approved">SFX32AWT</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6326" status="Approved">SFX32AFWT</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6327" status="Approved">SFX32BWT</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6328" status="Approved">SFX32BFWT</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6329" status="Approved">ADY1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6330" status="Approved">KYR1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6331" status="Approved">TUR1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6333" status="Approved">UP37TF</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6338" status="Approved">HMS1</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6339" status="Approved">DT-INTERLINK A/S</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6340" status="Approved">FSRRW6</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6342" status="Approved">SFX39FW</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6343" status="Approved">UP38CF</key>	
+	<key locale="en_US" id="LOVValue{::}GET9SCNFleet{::}6347" status="Approved">CSX3XT</key>
+	<key locale="en_US" id="LOVValue{::}GET9ServiceItemType{::}FGI" status="Approved">FGI</key>
+    <key locale="en_US" id="LOVValueDescription{::}GET9ServiceItemType{::}FGI" status="Approved">Finished Goods</key>
+    <key locale="en_US" id="LOVValue{::}GET9ServiceItemType{::}INSTRUCTION" status="Approved">INSTRUCTION</key>
+    <key locale="en_US" id="LOVValueDescription{::}GET9ServiceItemType{::}INSTRUCTION"
+        status="Approved">Instruction</key>
+    <key locale="en_US" id="LOVValue{::}GET9ServiceItemType{::}KIT" status="Approved">KIT</key>
+    <key locale="en_US" id="LOVValueDescription{::}GET9ServiceItemType{::}KIT" status="Approved">Kits</key>
+    <key locale="en_US" id="LOVValue{::}GET9ServiceItemType{::}LR" status="Approved">LR</key>
+    <key locale="en_US" id="LOVValueDescription{::}GET9ServiceItemType{::}LR" status="Approved">Local Repair</key>
+    <key locale="en_US" id="LOVValue{::}GET9ServiceItemType{::}RR" status="Approved">RR</key>
+    <key locale="en_US" id="LOVValueDescription{::}GET9ServiceItemType{::}RR" status="Approved">Repair and Return</key>
+    <key locale="en_US" id="LOVValue{::}GET9ServiceItemType{::}UX" status="Approved">UX</key>
+    <key locale="en_US" id="LOVValueDescription{::}GET9ServiceItemType{::}UX" status="Approved">Unit Exchange</key>
+    <key locale="en_US" id="LOVValue{::}GET9ServiceItemType{::}PB" status="Approved">PB</key>
+    <key locale="en_US" id="LOVValueDescription{::}GET9ServiceItemType{::}PB" status="Approved">Parts Bulletin</key>
+	<key locale="en_US" id="LOVValue{::}GET9ServiceItemType{::}OP" status="Approved">OP</key>
+    <key locale="en_US" id="LOVValueDescription{::}GET9ServiceItemType{::}OP" status="Approved">Outside Processing</key>
+	<key locale="en_US" id="LOVValue{::}GET9ServiceItemType{::}ORS" status="Approved">ORS</key>
+    <key locale="en_US" id="LOVValueDescription{::}GET9ServiceItemType{::}ORS" status="Approved">Out Right Sale</key>
+	<key locale="en_US" id="LOVValue{::}GET9ServiceItemType{::}REFURB" status="Approved">REFURB</key>
+    <key locale="en_US" id="LOVValueDescription{::}GET9ServiceItemType{::}REFURB" status="Approved">Refurbished</key>
+	<key locale="en_US" id="LOVValue{::}GET9ServiceItemType{::}REQUAL" status="Approved">REQUAL</key>
+    <key locale="en_US" id="LOVValueDescription{::}GET9ServiceItemType{::}REQUAL" status="Approved">Requalified</key>
+	<key locale="en_US" id="LOVValue{::}GET9ServiceItemType{::}RTO" status="Approved">RTO</key>
+    <key locale="en_US" id="LOVValueDescription{::}GET9ServiceItemType{::}RTO" status="Approved">Running Take Out</key>
+	<key locale="en_US" id="LOVValue{::}GET9ServiceItemType{::}SA" status="Approved">SA</key>
+    <key locale="en_US" id="LOVValueDescription{::}GET9ServiceItemType{::}SA" status="Approved">Service Assembly</key>
+	<key locale="en_US" id="LOVValue{::}GET9TierType{::}Tier 0" status="Approved">0</key>
+    <key locale="en_US" id="LOVValue{::}GET9TierType{::}Tier 0+" status="Approved">0+</key>
+    <key locale="en_US" id="LOVValue{::}GET9TierType{::}Tier 1" status="Approved">1</key>
+    <key locale="en_US" id="LOVValue{::}GET9TierType{::}Tier 1+" status="Approved">1+</key>
+    <key locale="en_US" id="LOVValue{::}GET9TierType{::}Tier 1+C" status="Approved">1+C</key>
+    <key locale="en_US" id="LOVValue{::}GET9TierType{::}Tier 2" status="Approved">2</key>
+    <key locale="en_US" id="LOVValue{::}GET9TierType{::}Tier 2+" status="Approved">2+</key>
+    <key locale="en_US" id="LOVValue{::}GET9TierType{::}Tier 3" status="Approved">3</key>
+    <key locale="en_US" id="LOVValue{::}GET9TierType{::}Tier 4C" status="Approved">4C</key>
+    <key locale="en_US" id="LOVValue{::}GET9TierType{::}Tier 4T" status="Approved">4T</key>
+    <key locale="en_US" id="LOVValue{::}GET9TierType{::}NA" status="Approved">NA</key>
+	<key locale="en_US" id="LOVValue{::}GET9SCNImpact{::}Safety" status="Approved">Safety</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNImpact{::}Reliability" status="Approved">Reliability</key>
+    <key locale="en_US" id="LOVValue{::}GET9SCNImpact{::}FMI" status="Approved">FMI</key>
+	<key locale="en_US" id="LOVValue{::}GET9EngineFamily{::}HGETK0958T1" status="Approved">HGETK0958T1</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineFamily{::}HGETK0958T2" status="Approved">HGETK0958T2</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineFamily{::}HGETK0958T3" status="Approved">HGETK0958T3</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineFamily{::}HGETG0958T4" status="Approved">HGETG0958T4</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineFamily{::}HGETK0668T0" status="Approved">HGETK0668T0</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineFamily{::}HGETK0668T1" status="Approved">HGETK0668T1</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineFamily{::}NA" status="Approved">NA</key>
+	<key locale="en_US" id="LOVValue{::}GET9HGETG0958T4{::}HGETG0958T4A" status="Approved">HGETG0958T4A</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETG0958T4{::}HGETG0958T4B" status="Approved">HGETG0958T4B</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETG0958T4{::}HGETG0958T4C" status="Approved">HGETG0958T4C</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETG0958T4{::}HGETG0958T4D" status="Approved">HGETG0958T4D</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETG0958T4{::}HGETG0958T4E" status="Approved">HGETG0958T4E</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETG0958T4{::}HGETG0958T4F" status="Approved">HGETG0958T4F</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETG0958T4{::}HGETG0958T4G" status="Approved">HGETG0958T4G</key>
+	<key locale="en_US" id="LOVValue{::}GET9HGETK0668T0{::}HGETK0668T0A" status="Approved">HGETK0668T0A</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T0{::}HGETK0668T0B" status="Approved">HGETK0668T0B</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T0{::}HGETK0668T0C" status="Approved">HGETK0668T0C</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T0{::}HGETK0668T0D" status="Approved">HGETK0668T0D</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T0{::}HGETK0668T0E" status="Approved">HGETK0668T0E</key>
+	<key locale="en_US" id="LOVValue{::}GET9HGETK0958T3{::}HGETK0958T3A" status="Approved">HGETK0958T3A</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T3{::}HGETK0958T3B" status="Approved">HGETK0958T3B</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T3{::}HGETK0958T3C" status="Approved">HGETK0958T3C</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T3{::}HGETK0958T3D" status="Approved">HGETK0958T3D</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T3{::}HGETK0958T3E" status="Approved">HGETK0958T3E</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T3{::}HGETK0958T3F" status="Approved">HGETK0958T3F</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T3{::}HGETK0958T3G" status="Approved">HGETK0958T3G</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T3{::}HGETK0958T3H" status="Approved">HGETK0958T3H</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T3{::}HGETK0958T3J" status="Approved">HGETK0958T3J</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T3{::}HGETK0958T3K" status="Approved">HGETK0958T3K</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T3{::}HGETK0958T3L" status="Approved">HGETK0958T3L</key>
+	<key locale="en_US" id="LOVValue{::}GET9HGETK0668T1{::}HGETK0668T1A" status="Approved">HGETK0668T1A</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T1{::}HGETK0668T1B" status="Approved">HGETK0668T1B</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T1{::}HGETK0668T1C" status="Approved">HGETK0668T1C</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T1{::}HGETK0668T1D" status="Approved">HGETK0668T1D</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T1{::}HGETK0668T1E" status="Approved">HGETK0668T1E</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T1{::}HGETK0668T1H" status="Approved">HGETK0668T1H</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T1{::}HGETK0668T1N" status="Approved">HGETK0668T1N</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T1{::}HGETK0668T1P" status="Approved">HGETK0668T1P</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T1{::}HGETK0668T1R" status="Approved">HGETK0668T1R</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T1{::}erie pa" status="Approved">erie pa</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T1{::}HGETK0668T1S" status="Approved">HGETK0668T1S</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T1{::}HGETK0668T1T" status="Approved">HGETK0668T1T</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T1{::}HGETK0668T1U" status="Approved">HGETK0668T1U</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T1{::}HGETK0668T1V" status="Approved">HGETK0668T1V</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T1{::}HGETK0668T1W" status="Approved">HGETK0668T1W</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T1{::}HGETK0668T1X" status="Approved">HGETK0668T1X</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T1{::}HGETK0668T1Y" status="Approved">HGETK0668T1Y</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0668T1{::}HGETK0668T1Z" status="Approved">HGETK0668T1Z</key>
+	<key locale="en_US" id="LOVValue{::}GET9HGETK0958T1{::}HGETK0958T1J" status="Approved">HGETK0958T1J</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T1{::}HGETK0958T1K" status="Approved">HGETK0958T1K</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T1{::}HGETK0958T1L" status="Approved">HGETK0958T1L</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T1{::}HGETK0958T1M" status="Approved">HGETK0958T1M</key>
+	<key locale="en_US" id="LOVValue{::}GET9HGETK0958T2{::}HGETK0958T2A" status="Approved">HGETK0958T2A</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T2{::}HGETK0958T2B" status="Approved">HGETK0958T2B</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T2{::}HGETK0958T2C" status="Approved">HGETK0958T2C</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T2{::}HGETK0958T2D" status="Approved">HGETK0958T2D</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T2{::}HGETK0958T2E" status="Approved">HGETK0958T2E</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T2{::}HGETK0958T2F" status="Approved">HGETK0958T2F</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T2{::}HGETK0958T2G" status="Approved">HGETK0958T2G</key>
+    <key locale="en_US" id="LOVValue{::}GET9HGETK0958T2{::}HGETK0958T2H" status="Approved">HGETK0958T2H</key>
+	<key locale="en_US" id="LOVValue{::}GET9ComponentID{::}Locomotive" status="Approved">Locomotive</key>
+	<key locale="en_US" id="LOVValue{::}GET9AuxCab{::}ALC" status="Approved">ALC</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}ARMATURE ASM" status="Approved">ARMATURE ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}AUX CAB" status="Approved">AUX CAB</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}Aux Cab Equipment" status="Approved">Aux Cab Equipment</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}AUX CAB WELDMT" status="Approved">AUX CAB WELDMT</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}BATTERY" status="Approved">BATTERY</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}BATTERY BOX" status="Approved">BATTERY BOX</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}DBM" status="Approved">DBM</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}DP RADIO" status="Approved">DP RADIO</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}DYN BRK BOX" status="Approved">DYN BRK BOX</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}EQPT BLOWER" status="Approved">EQPT BLOWER</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}EXHAUSTER BLWR" status="Approved">EXHAUSTER BLWR</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}GATE DRIVER" status="Approved">GATE DRIVER</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}GRID BLWR MTR" status="Approved">GRID BLWR MTR</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}GRIDS" status="Approved">GRIDS</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}IGBT" status="Approved">IGBT</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}IGBT BUSBAR" status="Approved">IGBT BUSBAR</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}IGBT HEATSINK" status="Approved">IGBT HEATSINK</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}IGBT MODULE" status="Approved">IGBT MODULE</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}INV VERT BB" status="Approved">INV VERT BB</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}PHASE MODULE" status="Approved">PHASE MODULE</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}PRP" status="Approved">PRP</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}Transformer Arrangement" status="Approved">Transformer Arrangement</key>
+	<key locale="en_US" id="LOVValue{::}GET9AuxCab{::}AFR/BFR/BRP Pnl" status="Approved">AFR/BFR/BRP Pnl</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}EBP/RFP Panel" status="Approved">EBP/RFP Panel</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}EGU" status="Approved">EGU</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}EPS" status="Approved">EPS</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}ESW" status="Approved">ESW</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}FCFP" status="Approved">FCFP</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}GDPS" status="Approved">GDPS</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}HMV/SBCV" status="Approved">HMV/SBCV</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}HVM" status="Approved">HVM</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}ICO" status="Approved">ICO</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}LPS" status="Approved">LPS</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}PANEL POWER TAP" status="Approved">PANEL POWER TAP</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}PSC PANEL" status="Approved">PSC PANEL</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}SDPP" status="Approved">SDPP</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}SENSOR" status="Approved">SENSOR</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}SENSOR - BP" status="Approved">SENSOR - BP</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}TIC/IMC" status="Approved">TIC/IMC</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}TIC/IMC CPU CRD" status="Approved">TIC/IMC CPU CRD</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}TIO PANEL" status="Approved">TIO PANEL</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}TM RECTIFIER" status="Approved">TM RECTIFIER</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}TMC Panel" status="Approved">TMC Panel</key>
+    <key locale="en_US" id="LOVValue{::}GET9AuxCab{::}TMC Prcsr Card" status="Approved">TMC Prcsr Card</key>
+	<key locale="en_US" id="LOVValue{::}GET9BlowerCab{::}ALT BLWR" status="Approved">ALT BLWR</key>
+    <key locale="en_US" id="LOVValue{::}GET9BlowerCab{::}ALT ROTOR ASM" status="Approved">ALT ROTOR ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9BlowerCab{::}ALTERNATOR" status="Approved">ALTERNATOR</key>
+    <key locale="en_US" id="LOVValue{::}GET9BlowerCab{::}AUX GEN" status="Approved">AUX GEN</key>
+    <key locale="en_US" id="LOVValue{::}GET9BlowerCab{::}AUX ROTOR" status="Approved">AUX ROTOR</key>
+    <key locale="en_US" id="LOVValue{::}GET9BlowerCab{::}AUX STATOR" status="Approved">AUX STATOR</key>
+    <key locale="en_US" id="LOVValue{::}GET9BlowerCab{::}BLOWER CAB" status="Approved">BLOWER CAB</key>
+    <key locale="en_US" id="LOVValue{::}GET9BlowerCab{::}BLWR CAB WELDMT" status="Approved">BLWR CAB WELDMT</key>
+	<key locale="en_US" id="LOVValue{::}GET9BlowerCab{::}ALT COLL RING" status="Approved">ALT COLL RING</key>
+    <key locale="en_US" id="LOVValue{::}GET9BlowerCab{::}ALT STATOR ASM" status="Approved">ALT STATOR ASM</key>
+	<key locale="en_US" id="LOVValue{::}GET9EngineCab{::}A ROD ASM" status="Approved">A ROD ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Air Manifold Assembly" status="Approved">Air Manifold Assembly</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}ART ROD" status="Approved">ART ROD</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}AUX DR GEAR" status="Approved">AUX DR GEAR</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}BC" status="Approved">BC</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}BCA" status="Approved">BCA</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}C ROD" status="Approved">C ROD</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}C ROD ASM" status="Approved">C ROD ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}CAM" status="Approved">CAM</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}CAM ASM" status="Approved">CAM ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}CAM GEAR" status="Approved">CAM GEAR</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}CAM JOURNAL" status="Approved">CAM JOURNAL</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}CMPRSSR WHL ASM" status="Approved">CMPRSSR WHL ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}COALESCER" status="Approved">COALESCER</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Coalescer Installation" status="Approved">Coalescer Installation</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}COMPRESSOR WHL" status="Approved">COMPRESSOR WHL</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Control Parts" status="Approved">Control Parts</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}CRANK" status="Approved">CRANK</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}CROWN" status="Approved">CROWN</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}CYL ASM" status="Approved">CYL ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}CYL JACKET" status="Approved">CYL JACKET</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}DIFFUSER" status="Approved">DIFFUSER</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}DIFFUSER DISC" status="Approved">DIFFUSER DISC</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Dipstick Assembly" status="Approved">Dipstick Assembly</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}ECU PANEL" status="Approved">ECU PANEL</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Eductor Assembly" status="Approved">Eductor Assembly</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}EGR Assembly" status="Approved">EGR Assembly</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}EGR COOLER" status="Approved">EGR COOLER</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}EGR Cooler Inlet Assembly"
+        status="Approved">EGR Cooler Inlet Assembly</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}EGR VALVE ASM" status="Approved">EGR VALVE ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}EGR Valve Oil Piping" status="Approved">EGR Valve Oil Piping</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}ENG CAB WELDMT" status="Approved">ENG CAB WELDMT</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}ENG SUPT SKID" status="Approved">ENG SUPT SKID</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}ENGINE" status="Approved">ENGINE</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}ENGINE CAB" status="Approved">ENGINE CAB</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Engine Mount Assembly" status="Approved">Engine Mount Assembly</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}ENGINE OIL PAN" status="Approved">ENGINE OIL PAN</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Exhaust Muffler" status="Approved">Exhaust Muffler</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Exhaust System" status="Approved">Exhaust System</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}FEC" status="Approved">FEC</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}FEC ASM" status="Approved">FEC ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Fuel Injector Installation"
+        status="Approved">Fuel Injector Installation</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Fuel Leak Collection Installation"
+        status="Approved">Fuel Leak Collection Installation</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}FUEL PUMP - HP" status="Approved">FUEL PUMP - HP</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Fuel Pump Assy" status="Approved">Fuel Pump Assy</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}GOVERNOR" status="Approved">GOVERNOR</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}HEAD LINER ASM" status="Approved">HEAD LINER ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}HEAD MACHINED" status="Approved">HEAD MACHINED</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Heat Shield Assembly" status="Approved">Heat Shield Assembly</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}High Pressure Turbine Bypass Assembly"
+        status="Approved">High Pressure Turbine Bypass Assembly</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}High Pressure Turbo" status="Approved">High Pressure Turbo</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}High Pressure Turbo Installation"
+        status="Approved">High Pressure Turbo Installation</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Hot Box Assembly" status="Approved">Hot Box Assembly</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}HP Fuel Line Installation"
+        status="Approved">HP Fuel Line Installation</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}IFE Installation Asm" status="Approved">IFE Installation Asm</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}INJECTOR" status="Approved">INJECTOR</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Inlet Metering Valve Filter"
+        status="Approved">Inlet Metering Valve Filter</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}INTRCLR-WATER" status="Approved">INTRCLR-WATER</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}L ROD BRG" status="Approved">L ROD BRG</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Lifting Lug" status="Approved">Lifting Lug</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}LINER" status="Approved">LINER</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}LINER ASM" status="Approved">LINER ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Low Pressure Fuel Piping"
+        status="Approved">Low Pressure Fuel Piping</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Low Pressure Turbo" status="Approved">Low Pressure Turbo</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Low Pressure Turbo Installation"
+        status="Approved">Low Pressure Turbo Installation</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}LUBE OIL PUMP" status="Approved">LUBE OIL PUMP</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Lube Oil Pump Arrangement"
+        status="Approved">Lube Oil Pump Arrangement</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}LUBE PUMP GEAR" status="Approved">LUBE PUMP GEAR</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}M ROD ASM" status="Approved">M ROD ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}MAIN BEARINGS" status="Approved">MAIN BEARINGS</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Manifold Assembly" status="Approved">Manifold Assembly</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}MASTER ROD" status="Approved">MASTER ROD</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Name Plate Asm" status="Approved">Name Plate Asm</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}NOSE PIECE" status="Approved">NOSE PIECE</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}O/S GOV" status="Approved">O/S GOV</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}OIL FILTER HSG" status="Approved">OIL FILTER HSG</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Oil Pan Assy" status="Approved">Oil Pan Assy</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Pipe Installation" status="Approved">Pipe Installation</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}PIST/CR ASM" status="Approved">PIST/CR ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}PISTON PIN" status="Approved">PISTON PIN</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}PISTON RINGS" status="Approved">PISTON RINGS</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}PRE LUBE PUMP" status="Approved">PRE LUBE PUMP</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}PWR ASM (ART)" status="Approved">PWR ASM (ART)</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}PWR ASM (HEAD)" status="Approved">PWR ASM (HEAD)</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}PWR ASM (LONG)" status="Approved">PWR ASM (LONG)</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}PWR ASM (MSTR)" status="Approved">PWR ASM (MSTR)</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}PWR ASM (SHORT)" status="Approved">PWR ASM (SHORT)</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Rain Drain" status="Approved">Rain Drain</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}RET" status="Approved">RET</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}ROOTS BLOWER" status="Approved">ROOTS BLOWER</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}ROOTS BLWR GEAR" status="Approved">ROOTS BLWR GEAR</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Sensor" status="Approved">Sensor</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Sensor Installation" status="Approved">Sensor Installation</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}SHROUD" status="Approved">SHROUD</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}SKIRT" status="Approved">SKIRT</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}SPLIT GEAR" status="Approved">SPLIT GEAR</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Step Arrangement" status="Approved">Step Arrangement</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}Strainer Assembly" status="Approved">Strainer Assembly</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}STRONG BACK" status="Approved">STRONG BACK</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}STRONG BACK ASM" status="Approved">STRONG BACK ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}T4 Fuel Shield Installation"
+        status="Approved">T4 Fuel Shield Installation</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}TC" status="Approved">TC</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}TCA" status="Approved">TCA</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}THRUST BEARING" status="Approved">THRUST BEARING</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}TURBINE WHL ASM" status="Approved">TURBINE WHL ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}TURBO ASSEMBLY" status="Approved">TURBO ASSEMBLY</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}TURBO DUCT" status="Approved">TURBO DUCT</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}TURBO INLET ASM" status="Approved">TURBO INLET ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}TURBO NOZZL RNG" status="Approved">TURBO NOZZL RNG</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}TURBO ROTOR ASM" status="Approved">TURBO ROTOR ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}TURBO SHAFT" status="Approved">TURBO SHAFT</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}TURBO TRANS SEC" status="Approved">TURBO TRANS SEC</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}U ROD BRG" status="Approved">U ROD BRG</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}WATER PUMP" status="Approved">WATER PUMP</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}WATER PUMP GEAR" status="Approved">WATER PUMP GEAR</key>
+	<key locale="en_US" id="LOVValue{::}GET9EngineCab{::}AIR INLET" status="Approved">AIR INLET</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}AUTO WTR D VLV" status="Approved">AUTO WTR D VLV</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}BONDED DRIVE" status="Approved">BONDED DRIVE</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}ENG MAIN FRAME" status="Approved">ENG MAIN FRAME</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}ENGINE - UX" status="Approved">ENGINE - UX</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}FUEL FILTER" status="Approved">FUEL FILTER</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}FUEL HEATER" status="Approved">FUEL HEATER</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}HP FUEL LINE" status="Approved">HP FUEL LINE</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}IDLER GEAR" status="Approved">IDLER GEAR</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}IMV" status="Approved">IMV</key>
+	<key locale="en_US" id="LOVValue{::}GET9EngineCab{::}RETAINER" status="Approved">RETAINER</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}ROCKER ARM" status="Approved">ROCKER ARM</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}SENSOR - ECS" status="Approved">SENSOR - ECS</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}SENSOR - FRP" status="Approved">SENSOR - FRP</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}SENSOR - MAP" status="Approved">SENSOR - MAP</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}SENSOR - MAT" status="Approved">SENSOR - MAT</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}SENSOR - NOX" status="Approved">SENSOR - NOX</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}TIMING GEAR" status="Approved">TIMING GEAR</key>
+	<key locale="en_US" id="LOVValue{::}GET9EngineCab{::}TUBE ASSEMBLY" status="Approved">TUBE ASSEMBLY</key>
+    <key locale="en_US" id="LOVValue{::}GET9EngineCab{::}WATER TANK" status="Approved">WATER TANK</key>
+   	<key locale="en_US" id="LOVValue{::}GET9LocomotiveLocation2{::}Locomotive" status="Approved">Locomotive</key>
+    <key locale="en_US" id="LOVValue{::}GET9LocomotiveLocation2{::}Aux Cab" status="Approved">Aux Cab</key>
+    <key locale="en_US" id="LOVValue{::}GET9LocomotiveLocation2{::}Blower Cab" status="Approved">Blower Cab</key>
+    <key locale="en_US" id="LOVValue{::}GET9LocomotiveLocation2{::}Engine Cab" status="Approved">Engine Cab</key>
+	<key locale="en_US" id="LOVValue{::}GET9LocomotiveLocation2{::}General" status="Approved">General</key>
+    <key locale="en_US" id="LOVValue{::}GET9LocomotiveLocation2{::}Main Cab" status="Approved">Main Cab</key>
+	<key locale="en_US" id="LOVValue{::}GET9LocomotiveLocation2{::}Parts Bulletin" status="Approved">Parts Bulletin</key>
+    <key locale="en_US" id="LOVValue{::}GET9LocomotiveLocation2{::}Platform" status="Approved">Platform</key>
+    <key locale="en_US" id="LOVValue{::}GET9LocomotiveLocation2{::}Radiator Cab" status="Approved">Radiator Cab</key>
+    <key locale="en_US" id="LOVValue{::}GET9LocomotiveLocation2{::}Software" status="Approved">Software</key>
+    <key locale="en_US" id="LOVValue{::}GET9LocomotiveLocation2{::}Truck" status="Approved">Truck</key>
+    <key locale="en_US" id="LOVValue{::}GET9LocomotiveLocation2{::}Wire Harness" status="Approved">Wire Harness</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}ACP CARD" status="Approved">ACP CARD</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Air Brake Piping" status="Approved">Air Brake Piping</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Air Duct and Filter Arr" status="Approved">Air Duct and Filter Arr</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}AIR RACK WEL" status="Approved">AIR RACK WEL</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Airbrake" status="Approved">Airbrake</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}AUX PANEL" status="Approved">AUX PANEL</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}CA1" status="Approved">CA1</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}CAB PANEL" status="Approved">CAB PANEL</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Cable Seal Arr" status="Approved">Cable Seal Arr</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}CIO PANEL" status="Approved">CIO PANEL</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}CMU" status="Approved">CMU</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}CONSOLE DESK" status="Approved">CONSOLE DESK</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}CONSOLE ENGR" status="Approved">CONSOLE ENGR</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}CONSOLE HELPER" status="Approved">CONSOLE HELPER</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}CSB" status="Approved">CSB</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}DID PANEL" status="Approved">DID PANEL</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Door Seal/Door Stop Arr" status="Approved">Door Seal/Door Stop Arr</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}Doors Arr" status="Approved">Doors Arr</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}ELEC AIR BRK" status="Approved">ELEC AIR BRK</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}ELEC BRK VALVE" status="Approved">ELEC BRK VALVE</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}EOT / HTD" status="Approved">EOT / HTD</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}EVENT RECORDER" status="Approved">EVENT RECORDER</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}EXC PANEL" status="Approved">EXC PANEL</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}FB CARD" status="Approved">FB CARD</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}FE CARD" status="Approved">FE CARD</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}Floor Arr" status="Approved">Floor Arr</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Headlight" status="Approved">Headlight</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}HVAC" status="Approved">HVAC</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}IFC PANEL" status="Approved">IFC PANEL</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}IFD" status="Approved">IFD</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Insulation Arr" status="Approved">Insulation Arr</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}IPM/EIPM" status="Approved">IPM/EIPM</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}LED/Number Light" status="Approved">LED/Number Light</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Mirror Arr" status="Approved">Mirror Arr</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}MSTR CONTROLLER" status="Approved">MSTR CONTROLLER</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}NOSE CAB WLDMNT" status="Approved">NOSE CAB WLDMNT</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}OPER CAB WLDMNT" status="Approved">OPER CAB WLDMNT</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Operator Cab Lining" status="Approved">Operator Cab Lining</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Order/Desk Light" status="Approved">Order/Desk Light</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}PRP" status="Approved">PRP</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}PTP" status="Approved">PTP</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}RADIO" status="Approved">RADIO</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}RADIO - HELPER" status="Approved">RADIO - HELPER</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}RDM" status="Approved">RDM</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}REFRIDGERATOR" status="Approved">REFRIDGERATOR</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}RLA" status="Approved">RLA</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}RPS/SPS" status="Approved">RPS/SPS</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Sand Panel Assembly" status="Approved">Sand Panel Assembly</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Sand Piping" status="Approved">Sand Piping</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Sand Trap Door" status="Approved">Sand Trap Door</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}SDIS/CFD" status="Approved">SDIS/CFD</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Seat Bases" status="Approved">Seat Bases</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Seat Install" status="Approved">Seat Install</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Seats" status="Approved">Seats</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}SPD IND - HLPR" status="Approved">SPD IND - HLPR</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Step/Floor Light" status="Approved">Step/Floor Light</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Strip Heater" status="Approved">Strip Heater</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Strip Heater Arr" status="Approved">Strip Heater Arr</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Strip Heater Switch" status="Approved">Strip Heater Switch</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}SUPR CAB WLDMNT" status="Approved">SUPR CAB WLDMNT</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}System CPU" status="Approved">System CPU</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}TOILET" status="Approved">TOILET</key>
+	<key locale="en_US" id="LOVValue{::}GET9MainCab{::}TIO PANEL" status="Approved">TIO PANEL</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Toilet Arr" status="Approved">Toilet Arr</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Toilet Vent Arr" status="Approved">Toilet Vent Arr</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}VIDEO CAMERA" status="Approved">VIDEO CAMERA</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Window Arr" status="Approved">Window Arr</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Window Washer Arr" status="Approved">Window Washer Arr</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Window Washer Piping" status="Approved">Window Washer Piping</key>
+    <key locale="en_US" id="LOVValue{::}GET9MainCab{::}Window Wiper Arr" status="Approved">Window Wiper Arr</key>
+	<key locale="en_US" id="LOVValue{::}GET9Platform{::}AIR DRYER" status="Approved">AIR DRYER</key>
+    <key locale="en_US" id="LOVValue{::}GET9Platform{::}AIR FILTER" status="Approved">AIR FILTER</key>
+    <key locale="en_US" id="LOVValue{::}GET9Platform{::}AIR RESERVOIR" status="Approved">AIR RESERVOIR</key>
+    <key locale="en_US" id="LOVValue{::}GET9Platform{::}COUPLER" status="Approved">COUPLER</key>
+    <key locale="en_US" id="LOVValue{::}GET9Platform{::}Fuel Gages" status="Approved">Fuel Gages</key>
+	<key locale="en_US" id="LOVValue{::}GET9Platform{::}FUEL MONITOR" status="Approved">FUEL MONITOR</key>
+	<key locale="en_US" id="LOVValue{::}GET9Platform{::}FUEL SHUT OFF" status="Approved">FUEL SHUT OFF</key>
+    <key locale="en_US" id="LOVValue{::}GET9Platform{::}FUEL TANK ASM" status="Approved">FUEL TANK ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9Platform{::}MAIN SILL" status="Approved">MAIN SILL</key>
+    <key locale="en_US" id="LOVValue{::}GET9Platform{::}PLAT END ASM" status="Approved">PLAT END ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9Platform{::}PLATFORM" status="Approved">PLATFORM</key>
+	<key locale="en_US" id="LOVValue{::}GET9Platform{::}RESERVOIR" status="Approved">RESERVOIR</key>
+    <key locale="en_US" id="LOVValue{::}GET9Platform{::}TRACTION PIN" status="Approved">TRACTION PIN</key>
+    <key locale="en_US" id="LOVValue{::}GET9Platform{::}Uncoupling Lever" status="Approved">Uncoupling Lever</key>
+	<key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}A2A-WTR-INTRCLR" status="Approved">A2A-WTR-INTRCLR</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}AFTRCLR-AIR" status="Approved">AFTRCLR-AIR</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}AIR COMP MOTOR" status="Approved">AIR COMP MOTOR</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}AIR COMPRESSOR" status="Approved">AIR COMPRESSOR</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}AIR TO AIR ASM" status="Approved">AIR TO AIR ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}AIR TO AIR FILTER" status="Approved">AIR TO AIR FILTER</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}AIR TO AIR INTERCOOLER FAN"
+        status="Approved">AIR TO AIR INTERCOOLER FAN</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}AMOT VALVE" status="Approved">AMOT VALVE</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}BREATHER" status="Approved">BREATHER</key>
+	<key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}COMP AIR FILTER HSG" status="Approved">COMP AIR FILTER HSG</key>
+	<key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}COMP HP HEAD" status="Approved">COMP HP HEAD</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}COMP MTR ROTOR" status="Approved">COMP MTR ROTOR</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}COMP MTR STATOR" status="Approved">COMP MTR STATOR</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}COMPRESSOR" status="Approved">COMPRESSOR</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}EQPT BLOWER" status="Approved">EQPT BLOWER</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}FILTER" status="Approved">FILTER</key>
+	<key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}FUEL TRNS PUMP" status="Approved">FUEL TRNS PUMP</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}HEATER" status="Approved">HEATER</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}OIL COOLER" status="Approved">OIL COOLER</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}Piping" status="Approved">Piping</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}Pump" status="Approved">Pump</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}RAD BLADE ASM" status="Approved">RAD BLADE ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}RAD CAB WLDMNT" status="Approved">RAD CAB WLDMNT</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}RAD FAN ASM" status="Approved">RAD FAN ASM</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}RAD FAN ROTOR" status="Approved">RAD FAN ROTOR</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}RAD FAN STATOR" status="Approved">RAD FAN STATOR</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}RAD SHUTTERS" status="Approved">RAD SHUTTERS</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}RADIATOR" status="Approved">RADIATOR</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}RADIATOR CAB" status="Approved">RADIATOR CAB</key>
+    <key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}Strainer" status="Approved">Strainer</key>
+	<key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}TRACTION BLOWER" status="Approved">TRACTION BLOWER</key>
+	<key locale="en_US" id="LOVValue{::}GET9RadiatorCab{::}WTR FLOW VALVE" status="Approved">WTR FLOW VALVE</key>
+	<key locale="en_US" id="LOVValue{::}GET9Software{::}SOFTWARE" status="Approved">SOFTWARE</key>
+	<key locale="en_US" id="LOVValue{::}GET9GENERAL{::}CONTROL GROUP" status="Approved">CONTROL GROUP</key>
+	<key locale="en_US" id="LOVValue{::}GET9GENERAL{::}GENERAL" status="Approved">GENERAL</key>
+	<key locale="en_US" id="LOVValue{::}GET9GENERAL{::}TOOLING" status="Approved">TOOLING</key>
+	<key locale="en_US" id="LOVValue{::}GET9PartsBulletin{::}PARTS BULLETIN" status="Approved">PARTS BULLETIN</key>
+	<key locale="en_US" id="LOVValue{::}GET9Truck{::}AC MOTOR" status="Approved">AC MOTOR</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}ARMATURE" status="Approved">ARMATURE</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}AXLES" status="Approved">AXLES</key>
+	<key locale="en_US" id="LOVValue{::}GET9Truck{::}BRAKE LEVER" status="Approved">BRAKE LEVER</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}AXLE MOUNTING" status="Approved">AXLE MOUNTING</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}BULL GEAR" status="Approved">BULL GEAR</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}COMMUTATOR" status="Approved">COMMUTATOR</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}DAMPER" status="Approved">DAMPER</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}HANDBRAKE" status="Approved">HANDBRAKE</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}JOURNAL BEARING" status="Approved">JOURNAL BEARING</key>
+	<key locale="en_US" id="LOVValue{::}GET9Truck{::}MOTOR COMBO" status="Approved">MOTOR COMBO</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}Motor Suspension" status="Approved">Motor Suspension</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}PINION" status="Approved">PINION</key>
+	<key locale="en_US" id="LOVValue{::}GET9Truck{::}ROTOR" status="Approved">ROTOR</key>
+	<key locale="en_US" id="LOVValue{::}GET9Truck{::}SENSOR - TM CUR" status="Approved">SENSOR - TM CUR</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}SENSOR - TMSS" status="Approved">SENSOR - TMSS</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}SHOCK" status="Approved">SHOCK</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}SPRINGS" status="Approved">SPRINGS</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}TM COMBO - AC" status="Approved">TM COMBO - AC</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}TM COMBO - DC" status="Approved">TM COMBO - DC</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}TM FRAME-COIL" status="Approved">TM FRAME-COIL</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}TM FRAME-FAB" status="Approved">TM FRAME-FAB</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}TM FRAME-MACH" status="Approved">TM FRAME-MACH</key>
+	<key locale="en_US" id="LOVValue{::}GET9Truck{::}TM FRAME-WOUND" status="Approved">TM FRAME-WOUND</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}TM GEAR CASE" status="Approved">TM GEAR CASE</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}TM OPE BRG" status="Approved">TM OPE BRG</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}TM PE BRG" status="Approved">TM PE BRG</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}TM SHAFT" status="Approved">TM SHAFT</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}TRACTION MOTOR" status="Approved">TRACTION MOTOR</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}TRUCK" status="Approved">TRUCK</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}TRUCK FRAME" status="Approved">TRUCK FRAME</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}U-TUBE" status="Approved">U-TUBE</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}U-TUBE BRG" status="Approved">U-TUBE BRG</key>
+    <key locale="en_US" id="LOVValue{::}GET9Truck{::}WHEELS" status="Approved">WHEELS</key>
+	<key locale="en_US" id="LOVValue{::}GET9Truck{::}YAW DAMPER" status="Approved">YAW DAMPER</key>
+	<key locale="en_US" id="LOVValue{::}GET9WireHarness{::}HARNESS" status="Approved">HARNESS</key>
+	<key locale="en_US" id="LOVValue{::}GET9WireHarness{::}EFI HRNSS ECC" status="Approved">EFI HRNSS ECC</key>
+	<key locale="en_US" id="LOVValue{::}GET9WireHarness{::}EFI HRNSS ECC" status="Approved">EFI HRNSS ECC</key>
+	
+
+
+
+
+<!--The following LOV value description localizations, enclosed in comments, are there as a sample. You can replace them by your own LOV value description localizations.-->
+<!--
+<key locale="en_US" id="LOVValueDescription{::}GET9SCNCustomers{::}SampleValueOne" status="Approved">Sample Description Localization One</key>
+<key locale="en_US" id="LOVValueDescription{::}GET9SCNCustomers{::}SampleValueTwo" status="Approved">Sample Description Localization Two</key>
+<key locale="en_US" id="LOVValueDescription{::}GET9SCNCustomers{::}SampleValueThree" status="Approved">Sample Description Localization Three</key>
+-->
+  </Add>
+</TcBusinessDataLocalization>

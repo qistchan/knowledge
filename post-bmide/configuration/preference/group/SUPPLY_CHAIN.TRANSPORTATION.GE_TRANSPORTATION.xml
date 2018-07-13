@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences version="10.0">
+  <category name="Product Structure.PSE.Behaviour">
+    <category_description></category_description>
+        <preference name="TC_config_rule_name" type="String" array="false" disabled="false" protectionScope="User" envEnabled="false">
+      <preference_description>Indicates the default config rule that will be used when opening/printing Imprecise BOMView or BOMViewRevisions. If this rule does not exist, the system will default to &quot;Latest Working&quot;.</preference_description>
+      <context name="Teamcenter">
+        <value>GET GRV WIP</value>
+      </context>
+    </preference>
+  </category>
+</preferences>

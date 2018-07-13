@@ -1,0 +1,79 @@
+<project name="PLM XML Conf" default="deploy" >
+    
+    <!--
+     ==============================================================================================================================
+     ===== Use ant contrib
+     ==============================================================================================================================
+     -->
+    <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+    
+    
+    <!--
+     ==============================================================================================================================
+     ===== Set the property for the directory you desire to process and the Info display string
+     ==============================================================================================================================
+     -->
+    
+    <property environment="env"/>
+    <property name="dir.name" value="templates/3Dpdf_excel_template"/>
+    <property name="info" value="PLM XML Import"/>
+    <property name="base.dir" location="${user.dir}/post-bmide/configuration"/>
+    <property name="src.dir" location="${base.dir}/${dir.name}"/>
+
+    <!--
+     ==============================================================================================================================
+     ===== NOTE you must define {src.dir} BEFORE including "common_task.xml"
+     ==============================================================================================================================
+     -->
+
+    <import file="../../../../common_loop.xml" />
+    <import file="../../../../common_task.xml" />
+
+    <!--
+     ==============================================================================================================================
+     ===== Initialize ant properties not set elsewhere
+     ==============================================================================================================================
+     -->
+
+    <target name="init-properties">
+    </target>
+
+    <fileset id="targetcheckfs" dir="${src.dir}" casesensitive="yes">
+        <include name="**/*.xml"/>
+    	<exclude name="**/build.xml"/>
+        <exclude name="**/.target*"/>
+    </fileset>
+
+    <target name="check_local">
+        <property name="target.file" value="${target.file}"/>
+        <echo message="Target ${target.file}"/>
+        <echo message="Dir ${src.dir}"/>
+        <uptodate property="isUpToDate"
+            targetfile="${target.file}">
+            <srcfiles dir="${src.dir}">
+                <include name="*.xml"/>
+            </srcfiles>
+        </uptodate>
+        <property name="already.processed" value="${isUpToDate}"/>
+    </target>
+
+    <target name="deploy" depends="deploy_loop">
+        <deploy_loop filesetref="targetcheckfs" info="${info}" src.dir="${src.dir}" file.ext=".xml"/>
+    </target>
+
+
+    <target name="process_target" depends="common_task" >
+        <property name="file" value="${file}"/>
+        <plmxml_import_data_import_mode file="${file}"/>
+    </target>
+
+<!--
+ ==============================================================================================================================
+ ===== clean up after yourself
+ ==============================================================================================================================
+ -->
+    <target name="clean" depends="common_task">
+        <remove_targets dir="${src.dir}"/>
+    </target>
+
+</project>

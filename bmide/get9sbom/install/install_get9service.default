@@ -1,0 +1,39 @@
+#!/bin/sh 
+# install_get9service.default:
+#    
+# 
+#
+# This script installs the Data Model for get9service solution.
+# _____________________________________________________________________________
+#
+
+
+
+# ..............................................................................
+# SECTION: Utilites
+# ..............................................................................
+#    Use this section if your solution needs to install any workflow templates,
+#    transfer modes, or any other data that must be installed before the BMIDE tools install 
+#    Business Objects (Items, Datasets, Forms, Item Element, App Interface, IntDataCapture),
+#    Business Rules, LOVs, Change Objects, Validation Data, Tools.
+# ..............................................................................
+#
+<pre-non-schema-add>
+
+
+</pre-non-schema-add>
+
+
+# ..............................................................................
+# SECTION: Utilities - Post BMIDE
+# .............................................................................. 
+#    Use this section if your solution needs to install any solution objects
+#    that must be installed after the BMIDE tools install 
+#    Business Objects (Items, Datasets, Forms, Item Element, App Interface, IntDataCapture),
+#    Business Rules, LOVs, Change Objects, Validation Data, Tools.
+# ..............................................................................
+#
+<post-non-schema-add>
+
+
+</post-non-schema-add>

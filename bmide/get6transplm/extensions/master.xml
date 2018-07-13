@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<TcBusinessDataIncludes>
+    <include file="default.xml"/>
+    <include file="get6_engineering.xml"/>
+    <include file="get6_manufacturing.xml"/>
+    <include file="get6_project.xml"/>
+    <include file="get6_designrelease.xml"/>
+</TcBusinessDataIncludes>

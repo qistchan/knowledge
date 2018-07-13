@@ -1,0 +1,6 @@
+SQL> @"/package/ugiman/ug/utilities/DIRT/SQL/item_part_family_no_members.sql"
+
+PITEM_ID
+------------------------------
+TEST1
+SQL> spool off;

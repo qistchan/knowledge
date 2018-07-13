@@ -1,0 +1,6 @@
+SQL> @"/package/ugiman/ug/utilities/DIRT/SQL/empty_datasets.sql"
+
+POBJECT_NAME                            PUID
+------------------------------------------------------------
+84A229919AB-2/A                         gKed9$hHIrRweB
+SQL> spool off;

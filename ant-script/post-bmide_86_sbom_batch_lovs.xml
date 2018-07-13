@@ -1,0 +1,101 @@
+<project name="batch_lov" default="deploy" >
+
+    <!--
+     ==============================================================================================================================
+     ===== Use ant contrib
+     ==============================================================================================================================
+     -->
+    <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+
+    <!--
+     ==============================================================================================================================
+     ===== Set the property for the directory you desire to process and the Info display string
+     ==============================================================================================================================
+     -->
+    <property environment="env"/>
+    <property name="dir.name" value="batch_lov"/>
+    <property name="info" value="Create/update batch lov"/>
+    <property name="base.dir" location="${user.dir}/post-bmide/configuration"/>
+    <property name="src.dir" location="${base.dir}/${dir.name}"/>
+
+    <!--
+     ==============================================================================================================================
+     ===== NOTE you must define {src.dir} BEFORE including "common_task.xml"
+     ==============================================================================================================================
+     -->
+    <import file="../common_loop.xml" />
+    <import file="../common_task.xml" />
+
+    <fileset id="targetcheckfs" dir="${src.dir}" casesensitive="yes">
+        <include name="**/get9*.xml"/>
+        <exclude name="**/.target*"/>
+    	<exclude name="**/lang/get9*.xml"/>
+    </fileset>
+
+    <!--
+     ==============================================================================================================================
+     ===== Initialize ant properties not set elsewhere
+     ==============================================================================================================================
+     -->
+
+	<!-- Define platform -->
+	<condition property="ge.win">
+		<os family="windows"/>
+	</condition>
+	<condition property="ge.sol">
+		<os name="SunOS"/>
+	</condition>
+	<condition property="ge.linux">
+		<os name="linux"/>
+	</condition>
+    <if>
+        <equals arg1="${ge.win}" arg2="true"/>
+        <then>
+            <property name="platform.extn" value=""/>
+        	<property name="osexecutable" value="cmd"/>
+        	<property name="osarg" value="/c"/>
+        </then>
+        <else>
+            <property name="platform.extn" value=".sh"/>
+        	<property name="osexecutable" value="/bin/ksh"/>
+        	<property name="osarg" value=""/>
+        </else>
+    </if>
+
+    <target name="init-properties">
+    </target>
+
+	<target name="check_local">
+        <property name="target.file" value="${target.file}"/>
+        <echo message="Target ${target.file}"/>
+        <echo message="Dir ${src.dir}"/>
+        <uptodate property="isUpToDate"
+            targetfile="${target.file}">
+            <srcfiles dir="${src.dir}">
+                <include name="get9*.xml"/>
+                <exclude name="**/lang/get9*.xml"/>
+            </srcfiles>
+        </uptodate>
+        <property name="already.processed" value="${isUpToDate}"/>
+    </target>
+
+    <target name="deploy" depends="deploy_loop">
+			<deploy_loop filesetref="targetcheckfs" info="${info}" src.dir="${src.dir}" file.ext=".xml"/>			
+    </target>
+
+    <target name="process_target" depends="common_task">
+        <property name="file" value="${file}"/>
+        <property name="exe.extn" value="${platform.extn}"/>
+        <bmide_manage_batch_lovs file="${file}" osarg="${osarg}" osexecutable="${osexecutable}" exe.extn="${exe.extn}"/>
+    </target>
+
+<!--
+ ==============================================================================================================================
+ ===== clean up after yourself
+ ==============================================================================================================================
+ -->
+    <target name="clean" depends="common_task">
+           <remove_targets dir="${src.dir}"/>
+    </target>
+
+</project>

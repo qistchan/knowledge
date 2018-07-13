@@ -1,0 +1,82 @@
+<project name="XMLParserDOM" default="build64" basedir=".">
+  <description>
+    Build file to build XMLParserDOM jar
+  </description>
+  <!-- set global properties for this build -->
+  <property name="src" location="src"/>
+  <property name="lib" location="lib"/>
+  <property name="build" location="lib"/>
+  <property name="dist" location="dist"/>
+  <property name="dist.dir" value="./dist"/>
+  <property name="src.dir" location="${basedir}/.."/>
+
+
+ <path id="build.classpath.jar">
+   <fileset dir="lib">
+      <include name="**/*.jar"/>
+   </fileset>
+   <pathelement path="${build}"/>
+</path>
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compile" depends="init"
+        description="compile the source">
+    
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac srcdir="${src}" destdir="${build}" debug="true" optimize="false" failonerror="true">
+    <classpath refid="build.classpath.jar"/>
+    </javac>
+    
+  </target>
+
+  <target name="build64" depends="compile">
+	<mkdir dir="${dist}"/>
+   <jar jarfile="${dist}/XMLParserDOM.jar" basedir="${build}">
+	  <manifest>
+		<attribute name="Main-Class" value="XMLParserDOM"/>
+	  </manifest>
+      <zipgroupfileset dir="lib" includes="**/*.jar" />
+   </jar>
+   <copy todir="${dist}" verbose="true" failonerror="false">
+	   <fileset dir="${src}">
+		   <include name="*.xsl" />		   
+	   </fileset>
+   </copy>
+</target>
+	
+	<!-- deploy64 targets to deploy libraries -->
+	<target name="deploy64" depends="build64">
+		<sequential>
+			<echo message="Deploy Test Executables" />
+			<copy todir="${src.dir}/bin" verbose="true" failonerror="false">
+			  <fileset dir="${dist.dir}">
+				<include name="*.jar" />
+			  </fileset>
+			</copy>
+		</sequential>
+	</target>
+	
+	<target name="deploy" depends="build64">
+		<sequential>
+			<echo message="Deploy Test Executables" />
+			<copy todir="${src.dir}/bin" verbose="true" failonerror="false">
+			  <fileset dir="${dist.dir}">
+				<include name="*.jar" />
+			  </fileset>
+			</copy>
+		</sequential>
+	</target>
+
+	<target name="clean"
+        description="clean up">
+    <!-- Delete the ${build} and ${dist} directory trees -->
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+  </target>
+</project>

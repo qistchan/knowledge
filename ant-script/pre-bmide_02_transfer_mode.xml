@@ -1,0 +1,66 @@
+<project name="Transfer_Mode" default="deploy" >
+
+<!--
+ ==============================================================================================================================
+ ===== Use ant contrib
+ ==============================================================================================================================
+ -->
+<taskdef resource="net/sf/antcontrib/antlib.xml"/>
+
+<!--
+ ==============================================================================================================================
+ ===== Set the property for the directory you desire to process and the Info display string
+ ==============================================================================================================================
+ -->
+
+<property environment="env"/>
+<property name="dir.name" value="transfer_mode"/>
+<property name="info" value="Transfer mode import/overwrite"/>
+<property name="base.dir" location="${user.dir}/pre-bmide"/>
+<property name="src.dir" location="${base.dir}/${dir.name}"/>
+
+<!--
+ ==============================================================================================================================
+ ===== NOTE you must define {src.dir} BEFORE including "common_task.xml"
+ ==============================================================================================================================
+ -->
+
+<import file="../common_loop.xml" />
+<import file="../common_task.xml" />
+
+<!--
+ ==============================================================================================================================
+ ===== Initialize ant properties not set elsewhere
+ ==============================================================================================================================
+ -->
+
+<target name="init-properties">
+</target>
+
+<!--
+ ==================================================================================================
+ ===== All the ugly code for the standard plmxml import stuff is in the imported file
+ ===================================================================================================
+ -->
+
+<import file="../common_tcxml_import_with_scope_task.xml" />
+
+<!--
+ ==============================================================================================================================
+ ===== clean up after yourself
+ ==============================================================================================================================
+ -->
+
+<target name="clean">
+	<sequential>
+        <echo message="Cleaning ${src.dir}"/>
+        <delete>
+            <fileset dir="${src.dir}" includes="**/*_failed_*"/>
+        	<fileset dir="${src.dir}" includes="**/*.out"/>
+        	<fileset dir="${src.dir}" includes="**/*.log"/>
+        	<fileset dir="${src.dir}" includes="**/.target_*"/>
+        </delete>
+    </sequential>
+</target>
+
+</project>

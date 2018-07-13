@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<preferences version="10.0">
+  <category name="GET6_Integrations">
+    <category_description>Teamcenter Preferences</category_description>   
+	<preference name="GET.INTEGRATION.CONTROLCARD.TURNON" type="Logical" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Pref to enable Control card validation</preference_description>
+      <context name="Teamcenter">
+        <value>true</value>
+      </context>
+    </preference>
+    </category>
+    <category name="GET6_DRS_TRANSLATOR">
+    <category_description>Teamcenter Preferences</category_description>   
+	<preference name="ETS.PROVIDERS" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>This preference lists the available providers of translators to show provider filters in AdminConsole and list of available providers in SingleSelection.</preference_description>
+      <context name="Teamcenter">
+        <value>SIEMENS</value>
+		<value>GE</value>
+      </context>
+    </preference>
+	<preference name="ETS.TRANSLATORS.GE" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Custom Dispatcher settings</preference_description>
+      <context name="Teamcenter">
+        <value>get6DrsPush</value>
+        <value>get6NXPDF</value>
+		<value>get6UGEXPDF</value>		
+      </context>
+    </preference>
+    <preference name="ETS.PRIORITY.GE.get6DrsPush" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Custom Dispatcher settings</preference_description>
+      <context name="Teamcenter">
+        <value>2</value>
+      </context>
+    </preference>
+    <preference name="ETS.TRANSLATOR_ARGS.GE.get6DrsPush" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Custom Dispatcher settings</preference_description>
+      <context name="Teamcenter">
+      </context>
+    </preference>
+    <preference name="ETS.REPEATING_UI.GE.get6DrsPush" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Custom Dispatcher settings</preference_description>
+      <context name="Teamcenter">
+        <value>false</value>
+      </context>
+    </preference>
+    <preference name="GEget6DrsPush_ets_ds_types " type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Custom Dispatcher settings</preference_description>
+      <context name="Teamcenter">
+        <value>PDF</value>
+		<value>DrawingSheet</value>
+     </context>
+    </preference>
+    <preference name="GEget6DrsPush_translation_service_name" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Custom Dispatcher settings</preference_description>
+      <context name="Teamcenter">
+        <value>GE.get6DrsPush</value>
+      </context>
+    </preference>
+    <preference name="GEget6DrsPush_on_demand_priority" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Custom Dispatcher settings</preference_description>
+      <context name="Teamcenter">
+        <value>2</value>
+      </context>
+    </preference> 
+    <preference name="ETS.DATASETTYPES.GE.get6DrsPush" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Custom Dispatcher settings</preference_description>
+      <context name="Teamcenter">
+        <value>PDF</value>
+		<value>DrawingSheet</value>
+      </context>
+    </preference>
+    <preference name="ETS.PRIORITY.SIEMENS.GE_PDF" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Custom Dispatcher settings</preference_description>
+      <context name="Teamcenter">
+        <value>2</value>
+      </context>
+    </preference>
+    <preference name="ETS.TRANSLATOR_ARGS.SIEMENS.GE_PDF" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Custom Dispatcher settings</preference_description>
+      <context name="Teamcenter">
+        <value>STAMP</value>
+      </context>
+    </preference>
+    <preference name="ETS.REPEATING_UI.SIEMENS.GE_PDF" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Custom Dispatcher settings</preference_description>
+      <context name="Teamcenter">
+        <value>false</value>
+      </context>
+    </preference>   
+    <preference name="get6DrsPush_PDF_ets_dst_ds_type" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>The destination dataset type under which the result of a SIEMENS ge_pdf translation of an MSWordX dataset will be stored. If no destination dataset type is specified, the configuration is invalid and will be reported as an error.</preference_description>
+      <context name="Teamcenter">
+        <value>PDF</value>
+      </context>
+    </preference>
+    <preference name="get6DrsPush_PDF_ets_dst_nr_type" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>The destination named reference type under which the result of a SIEMENS ge_pdf translation of an MSWordX dataset will be stored. If no destination named reference type is specified, the configuration is invalid and will be reported as an error.</preference_description>
+      <context name="Teamcenter">
+        <value>PDF_Reference</value>
+      </context>
+    </preference>
+    <preference name="get6DrsPush_PDF_ets_dst_relation_to_src" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>The relation is to be created between the MSWordX source dataset and destination dataset.</preference_description>
+      <context name="Teamcenter">
+        <value>false</value>
+      </context>
+    </preference>
+    <preference name="get6DrsPush_PDF_ets_dst_relation_type" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>The relation type of the relation to be created between the source dataset item revision and the destination dataset. If the source and destination dataset types are the same, this preference is ignored. If the source and destination dataset types are different, this preference must be specified; otherwise the configuration is invalid and will be reported as an error.</preference_description>
+      <context name="Teamcenter">
+        <value>IMAN_specification</value>
+      </context>
+    </preference>
+    <preference name="get6DrsPush_PDF_ets_nr_types" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>The source dataset named references necessary for translation. All dataset named reference types specified by this preference must exist for the MSWordX dataset to be valid for translation. If no named reference types are specified, the configuration is invalid and will be reported as an error.</preference_description>
+      <context name="Teamcenter">
+        <value>pdf</value>
+      </context>
+    </preference>
+	<preference name="get6DrsPush_DrawingSheet_ets_dst_ds_type" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>The destination dataset type under which the result of a SIEMENS ge_pdf translation of an MSWordX dataset will be stored. If no destination dataset type is specified, the configuration is invalid and will be reported as an error.</preference_description>
+      <context name="Teamcenter">
+        <value>DrawingSheet</value>
+      </context>
+    </preference>
+    <preference name="get6DrsPush_DrawingSheet_ets_dst_nr_type" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>The destination named reference type under which the result of a SIEMENS ge_pdf translation of an MSWordX dataset will be stored. If no destination named reference type is specified, the configuration is invalid and will be reported as an error.</preference_description>
+      <context name="Teamcenter">
+        <value>GET6Sheet</value>
+      </context>
+    </preference>
+    <preference name="get6DrsPush_DrawingSheet_ets_dst_relation_to_src" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>The relation is to be created between the MSWordX source dataset and destination dataset.</preference_description>
+      <context name="Teamcenter">
+        <value>false</value>
+      </context>
+    </preference>
+    <preference name="get6DrsPush_DrawingSheet_ets_dst_relation_type" type="String" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>The relation type of the relation to be created between the source dataset item revision and the destination dataset. If the source and destination dataset types are the same, this preference is ignored. If the source and destination dataset types are different, this preference must be specified; otherwise the configuration is invalid and will be reported as an error.</preference_description>
+      <context name="Teamcenter">
+        <value>IMAN_Drawing</value>
+      </context>
+    </preference>
+    <preference name="get6DrsPush_DrawingSheet_ets_nr_types" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>The source dataset named references necessary for translation. All dataset named reference types specified by this preference must exist for the MSWordX dataset to be valid for translation. If no named reference types are specified, the configuration is invalid and will be reported as an error.</preference_description>
+      <context name="Teamcenter">
+        <value>RAS</value>
+      </context>
+    </preference>     	
+    </category>
+</preferences>

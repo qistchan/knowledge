@@ -1,0 +1,440 @@
+#===================================================
+##
+#
+# \file          GET_t4o_item_mapping_template.sd
+#
+# \brief         Mapping file for T4O item transfer
+#
+# \details       The file contains the custom specific part of a T4O item transfer:
+#                \li Procedure \b TC_Object2EBS_Item maps Teamcenter attributes to EBS attributes (so called \c mapping).
+#                \li Procedure \b EBS_Item2TC_Object maps EBS attributes back to Teamcenter attributes (so called \c reverse \c mapping).
+#
+# \note          For the data exchange between Teamcenter and T4O the internal TCL dictionary \c ::TcData is used.
+#                It contains specific attributes of the Teamcenter object to be transferred
+#                and additional information about the current transaction.
+#                For the data exchange between T4O and EBS the internal TCL array \c ::EBSDat is used.\n
+#                Teamcenter attributes can be read from \c ::TcData with function \c ::T4X::TC::MAPPING::FieldMapping.\n
+#                Teamcenter attributes can be written to \c ::TcData with function \c ::T4X::TC::MAPPING::storeReverseMappingAttribute.\n
+#                EBS attributes can be read from \c ::EBSDat using function \c ::T4O::TC::MAPPING::EBSFieldMapping.\n
+#                EBS attributes can be written to \c ::EBSDat with \c set \c ::EBSDat(<key>) \c value.\n
+#
+# \pre           For the item transfer the following preferences are used:
+#                \li \c T4O_ItemTypeList : list of allowed Teamcenter object types
+#                \li \c T4O_ItemMapping4<ObjectType> : list of Teamcenter data types to read attributes from
+#                \li \c T4O_ItemMapping2<ObjectType> : list of Teamcenter data types to write back during reverse mapping
+#                \li \c T4O_ItemFieldMapping2<DataType> : list of Teamcenter attributes to write back during reverse mapping (optional)
+#
+# \author        kh, 20131022
+#
+# \copyright     2014
+#                Siemens Product Lifecycle Management Software Inc.
+#                All Rights Reserved.
+#
+namespace eval ::T4O::ITEM::CUSTOM::MAPPING {
+  namespace export TC_Object2EBS_Item
+  namespace export EBS_Item2TC_Object
+  #
+  variable OrgMfgForm
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::ITEM::CUSTOM::MAPPING::TC_Object2EBS_Item
+  # \brief          Customer specific EBS item mapping function template.
+  #                 This function will be used if a simple EBS item transfer is executed.
+  #
+  # \param          TransactionId - Unique ID for the transfer transaction
+  # \param          ItemType
+  # \param          ItemRevisionType
+  # \param          args - Not used
+  #
+  # \author         kh, 20110804
+  # \return         MappingStatus used by the following transfer function.
+  #                 The following values are valid:
+  #                   - OK                    -> T4O will continue with the next transfer step
+  #                   - REVERSEMAPPINGONLY    -> T4O will skip the transfer to EBS and will just do the reverse mapping
+  #                   - ADDITIONALUPDATESONLY -> T4O will skip the main transfer but will excecute all additional
+  #                                              transfers like ECO implement (if activated in the mapping)
+  #                   - SKIPPED               -> T4O will skip the transfer to EBS
+  #                   - ERROR                 -> T4O will stop transfer and raise an error
+  #
+  # Initial Creation    Padma
+  proc TC_Object2EBS_Item { TransactionId ItemType ItemRevisionType args } {
+    variable OrgMfgForm
+    #
+    set Status "OK"
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    set ::EBSDat(Item:CtrlParam:ItemRevTransfer) $::T4O_Defaults(FALSE)
+    set ebsItemStatus ""
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with $ItemType $ItemRevisionType"
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN [concat $FunctionName {$Id: GET_t4o_item_mapping.sd,v 1.11 2018/03/23 19:26:27 scjones Exp $}]
+    #
+    set Item        "$ItemRevisionType:items_tag:$ItemType"
+    set ItemRev     "$ItemRevisionType"
+    set MCNPath     "RootTask:EPM_target_attachment:GET6MCNRevision"
+    set ECNPath     "RootTask:EPM_target_attachment:GET6ECNRevision"
+    set mfgFormPath "$Item:GET6PartOrgRelation:*"
+
+    set MCNName [::T4X::TC::MAPPING::RootTaskFieldMapping $MCNPath "item_id"]
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId INFO "Processing MCN $MCNName"
+    tpco_setLogIndex -logchannel $TransactionId -key mcn_name -value $MCNName
+
+    #Getting MCN org value, if item belongs to multiple orgs say GRR, GRV nad MCN belongs to GRV..then transfer only to GRV
+    set MCNOrgValues         [::T4X::TC::MAPPING::RootTaskFieldMapping   $MCNPath "project_ids"]
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId INFO " Org list $MCNOrgValues"
+
+    # Multi Org Change : Tokenizing the List of Org from MCN
+    set MCNOrgList [split $MCNOrgValues ","]
+
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId INFO "Multi Org : Org list After Token - $MCNOrgList"
+
+    set ItemId            [::T4X::TC::MAPPING::FieldMapping $Item    "item_id"]
+    set productLine       [::T4X::TC::MAPPING::FieldMapping $Item    "get6EngrProdLine"]
+    set tcUOM             [::T4X::TC::MAPPING::FieldMapping $Item    "ItemUnitOfMeasure"]
+    set ItemRevId         [::T4X::TC::MAPPING::FieldMapping $ItemRev "item_revision_id"]
+    set weight            [::T4X::TC::MAPPING::FieldMapping $ItemRev "get6ObjWt"]
+    set releaseStatusList [::T4X::TC::MAPPING::FieldMapping $ItemRev "release_status_list"]
+    set weightUOMTemp     [::T4X::TC::MAPPING::FieldMapping $ItemRev "get6ObjWtUOM"]
+    set weightUOM         [lindex [split $weightUOMTemp "-"] 0]
+
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: releaseStatusList is $releaseStatusList"
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: weight is $weight"
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: weight uom is $weightUOM"
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: Product Line is $productLine"
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: unit of measure $tcUOM"
+
+    #get the list of organizations for item if exists
+    set ItemNumber   [string toupper $ItemId]
+    set rc_func  [::TPEBS::ITEM::getItemOrganizations $ItemNumber]
+    switch [lindex $rc_func 0] {
+      NOT_FOUND {
+        set ItemOrgs [dict create]
+      }
+      OK {
+        set ItemOrgs [dict create {*}[join [lrange $rc_func 1 end]]]
+      }
+      default {
+        ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId ERROR "ERROR: Unable to get organizations for Item $ItemId: [::T4O::hex2String [lindex $rc_func 1]]."
+        return "ERROR"
+      }
+    }
+    # Mapping plannercode and productline
+    switch $productLine \
+      $::T4O_Defaults(Locomotive) {
+        set productLine  $::T4O_Defaults(MECHANICAL)
+      } \
+      $::T4O_Defaults(UndergroundMining) {
+        set productLine  $::T4O_Defaults(MINING_OHV)
+      } \
+      $::T4O_Defaults(MnS) {
+        set productLine  $::T4O_Defaults(M_S)
+      } \
+      default {
+        set productLine  [string toupper $productLine]
+      }
+
+    ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: Planner code is $productLine"
+    set ::EBSDat(Item:PARAMETER:P_ITEM_NUMBER)  $ItemId
+
+    if { [dict size $ItemOrgs] == 0 } {
+      set ::EBSDat(Item:PARAMETER:P_DESCRIPTION)       [::T4X::TC::MAPPING::FieldMapping $Item "object_name"]
+
+      set ::EBSDat(Item:PARAMETER:P_PRIMARY_UOM_CODE)  $tcUOM
+
+      #Map weight and weight uom only for 1st time transfer
+      if {$weightUOM ne "" } {
+
+        #::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: weightUOM is not blank $weightUOM"
+
+        set ::EBSDat(Item:PARAMETER:P_WEIGHT_UOM_CODE) $weightUOM
+        set ::EBSDat(Item:PARAMETER:P_UNIT_WEIGHT)     $weight
+      }
+      #Set Oracle status to prelim if tc status is prelim
+      if { $releaseStatusList eq $::T4O_Defaults(PRELIMSTATUS) } {
+        set ::EBSDat(Item:PARAMETER:P_INVENTORY_ITEM_STATUS_CODE) $::T4O_Defaults(PRELIM)
+      } else {
+        #Set Oracle status to new-part if plm status is other than prelim
+        set ::EBSDat(Item:PARAMETER:P_INVENTORY_ITEM_STATUS_CODE) $::T4O_Defaults(NewPart)
+      }
+    } else {
+      set ::EBSDat(Item:PARAMETER:P_DESCRIPTION)  $::EBSDat(Item:PARAMETER:P_DESCRIPTION)
+
+      #get the item staus from EBS
+      set Status [::TPEBS::ITEM::getItemInfo $ItemNumber $::T4O_Defaults(MASTER_ORG)]
+      if { $Status eq "OK" } {
+        set ebsItemStatus [::T4O::TC::MAPPING::EBSFieldMapping "Item" X_ITEM_REC:INVENTORY_ITEM_STATUS_CODE]
+        ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: ebsItemStatus is $ebsItemStatus"
+      }
+      #if EBS status is blank,  update the status
+      if {$ebsItemStatus eq ""} {
+        #if TC status is prelim, update ebs status to prelim
+        if {$releaseStatusList eq $::T4O_Defaults(PRELIMSTATUS)} {
+          #Set Oracle status to prelim if plm status is prelim
+          ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: ebsItemStatus is blank and teamcenter status is prelim"
+          set ::EBSDat(Item:PARAMETER:P_INVENTORY_ITEM_STATUS_CODE) $::T4O_Defaults(PRELIM)
+        } else {
+          #Set Oracle status to new-part if plm status is other than prelim and ebsstatus is not New-Part
+          ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: ebsItemStatus is blank and teamcenter status is not prelim"
+          set ::EBSDat(Item:PARAMETER:P_INVENTORY_ITEM_STATUS_CODE) $::T4O_Defaults(NewPart)
+        }
+      }
+      #if EBS status is prelim, update the status
+      if {$ebsItemStatus eq $::T4O_Defaults(PRELIM)} {
+        if {$releaseStatusList ne $::T4O_Defaults(PRELIMSTATUS)} {
+          #Set Oracle status to new-part if plm status is other than prelim and ebsstatus is not New-Part
+          ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: ebsItemStatus is prelim and teamcenter status is not prelim"
+          set ::EBSDat(Item:PARAMETER:P_INVENTORY_ITEM_STATUS_CODE) $::T4O_Defaults(NewPart)
+        }
+      }
+    }
+
+    #
+    # As a default, we create manufacturing items, which can be used in manufacturing BOMs.
+    # If engineering items should be created, set the following parameter to "Y"
+    #
+    set ::EBSDat(Item:PARAMETER:P_APPLY_TEMPLATE) $::T4O_Defaults(ALL)
+    set ::EBSDat(Item:PARAMETER:P_PROCESS_CONTROL) $::T4O_Defaults(YES)
+    #Get the template ID for GLO
+    set EbsTemplateName $::T4O_Defaults(TEAMCENTER_GLO)
+    set GLOTemplateID ""
+    #
+    if { $EbsTemplateName ne "" } {
+      #
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - EBS Template >$EbsTemplateName< ist used for this item transfer..."
+      #
+      set  rc_func [::TPEBS::BASE::getOrgId4OrgCode $::T4O_Defaults(MASTER_ORG)]
+      #
+      if { [lindex $rc_func 0] eq "OK" } {
+        set OrgId [lindex $rc_func 1]
+        set rc_func [::TPEBS::ITEM::getItemTemplateId $EbsTemplateName $OrgId]
+        if { [lindex $rc_func 0] eq "OK" } {
+          set GLOTemplateID [lindex $rc_func 1]
+        } else {
+          ::T4X::CORE::storeMessage2 MAPPING "No valid item template id was found for item template name $EbsTemplateName (Org: $::EBSDat(Item:CtrlParam:P_ORGANIZATION_CODE))" ERROR
+          return "ERROR"
+        }
+      } else {
+        ::T4X::CORE::storeMessage2 MAPPING "No valid organization id was found for organization code $::EBSDat(Item:CtrlParam:P_ORGANIZATION_CODE)" ERROR
+        return "ERROR"
+      }
+    }
+    #set Organization code to Master org code
+    set ::EBSDat(Item:CtrlParam:P_ORGANIZATION_CODE) $::T4O_Defaults(MASTER_ORG)
+
+    #Mapping teamcenter engineering  product line to GLO planner code
+    set ::EBSDat(Item:PARAMETER:P_PLANNER_CODE) $productLine
+
+    #Apply GLO template only for first time creation of item in GLO
+    if { [dict size $ItemOrgs] == 0 } {
+      ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: New item, so applying GLO template"
+      set ::EBSDat(Item:PARAMETER:P_TEMPLATE_ID) $GLOTemplateID
+    }
+    #Mapping teamcenter itemrev ID to GLO DFF drawing revision
+    set ::EBSDat(Item:PARAMETER:P_ATTRIBUTE_CATEGORY)   $::T4O_Defaults(ATTRIBUTE_CATEGORY)
+    set ::EBSDat(Item:PARAMETER:P_ATTRIBUTE4)           $ItemRevId
+
+    ::T4O::storeEBSDat2MultiTransferCache "Item"
+
+    # Clear master specific attributes
+    set ::EBSDat(Item:PARAMETER:P_PLANNER_CODE)         ""
+    set ::EBSDat(Item:PARAMETER:P_ATTRIBUTE_CATEGORY)   ""
+    set ::EBSDat(Item:PARAMETER:P_ATTRIBUTE4)           ""
+
+    #Check ECO type
+    set ECONumber      [::T4X::TC::MAPPING::RootTaskFieldMapping $ECNPath "item_id"]
+    set ECOType        "ECN"
+    if { $ECONumber eq "" } {
+      set ECOType     "MCN"
+    }
+
+    # Decide whether to send to all orgs or just master, if ECO type is MCN then send to multi org
+    set Multiarg  [expr { $ECOType eq "MCN" }]
+    if {$Multiarg} {
+      set NewOrg ""
+      set structureCode ""
+      set makeBuy ""
+      set OrgId ""
+      set Index 1
+      set MCNOrgValue [lindex $MCNOrgList 0]
+
+      ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: MCNOrgValue is $MCNOrgValue"
+      if { $ItemRevisionType eq $::T4O_Defaults(STOCKMATERIAL)} {
+        # Stock Material does not have Mfg form, so transferring to MCN org
+        set NewOrg $MCNOrgValue
+        set makeBuy $::T4O_Defaults(BUY_VALUE)
+      } else {
+        #Get the manufacturing form list of target item
+        #Get the properties from manufacturing form and transfer item to multiorg
+        set mfgFormList [::T4X::TC::MAPPING::findObjectId4Value $mfgFormPath "project_ids" $MCNOrgValue]
+        if { [lindex $mfgFormList 0] eq "OK" } {
+          set OrgMfgForm  [lindex $mfgFormList 1]
+          set NewOrg      $MCNOrgValue
+
+          #Get the structure code
+          set structureCode [lindex [::T4X::TC::MAPPING::getObjectAttributeValue $OrgMfgForm $mfgFormPath "get6StructureCode"] 1]
+          ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: structure code is $structureCode"
+
+          #Get the makebuy value
+          set makeBuy [lindex [::T4X::TC::MAPPING::getObjectAttributeValue $OrgMfgForm $mfgFormPath "get6MakeBuy"] 1]
+          ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note:  Make Buy value is $makeBuy"
+        }
+      }
+      if { $NewOrg eq "" } {
+        ::T4X::CORE::storeMessage2 MAPPING "MCN does not belong to the item org" ERROR
+        set Status "ERROR"
+      } else {
+        set ::EBSDat(Item:CtrlParam:P_ORGANIZATION_CODE) $NewOrg
+
+        #Get the orgID from org name
+        set rc_func [::TPEBS::BASE::getOrgId4OrgCode $NewOrg]
+        if { [lindex $rc_func 0] ne "OK" } {
+          ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId ERROR "ERROR: No valid organization id was found for organization $NewOrg."
+          set Status "ERROR"
+        }
+        set OrgId [lindex $rc_func 1]
+
+        if { ![dict exists $ItemOrgs $NewOrg] } {
+          ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: Item does not exists in org, so applying template"
+
+          set templates [lindex [::T4X::TC::MAPPING::getPreferenceValue "site" "string" $::T4O_Defaults(ITEMTEMPLATES)] 1]
+          set OrgTemplateValue [lindex [split [lsearch -glob -inline $templates "$NewOrg:$makeBuy:*"] ":"] end]
+          ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note:  make buy template name is $OrgTemplateValue"
+
+          #Get the template id from template name
+          set rc_func [::TPEBS::ITEM::getItemTemplateId $OrgTemplateValue $OrgId]
+          #
+          set OrgTemplateId ""
+          if { [lindex $rc_func 0] eq "OK" } {
+            set OrgTemplateId [lindex $rc_func 1]
+            ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId DEBUG "Note: OrgTemplateId is $OrgTemplateId"
+          } else {
+            ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId ERROR "ERROR: No valid template id was found for template $OrgTemplateId."
+            set Status "ERROR"
+          }
+          set ::EBSDat(Item:PARAMETER:P_TEMPLATE_ID) $OrgTemplateId
+        } else {
+          switch $makeBuy {
+            "Make" {
+              set ::EBSDat(Item:PARAMETER:P_POSTPROCESSING_LEAD_TIME) 0
+              set ::EBSDat(Item:PARAMETER:P_PLANNING_MAKE_BUY_CODE) "1"
+            }
+            "Buy" -
+            "BUB" {
+              set ::EBSDat(Item:PARAMETER:P_PLANNING_MAKE_BUY_CODE) "2"
+            }
+            "" {}
+            default {
+              ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage $TransactionId WARNING "Warning: Unexpected make/buy value: $makeBuy"
+            }
+          }
+        }
+        if { $structureCode ne ""} {
+          #Assign item to category
+          set ::EBSDat(Item:CtrlParam:AssignItem2Category)       $::T4O_Defaults(TRUE)
+          set ::EBSDat(Item:CtrlParam:UpdateCategoryIfSetExists) $::T4O_Defaults(TRUE)
+          #
+          set ::EBSDat(AssignItem2Category:CtrlParam:P_ITEM_NUMBER:$Index)        $::EBSDat(Item:PARAMETER:P_ITEM_NUMBER)
+          set ::EBSDat(AssignItem2Category:CtrlParam:P_ORGANIZATION_CODE:$Index)  $NewOrg
+          set ::EBSDat(AssignItem2Category:PARAMETER:P_CATEGORY_ID:$Index)        [lindex [::TPEBS::ITEM::getCategoryId4CodeWithSet $structureCode "Item Structure Code"] 1]
+          set ::EBSDat(AssignItem2Category:PARAMETER:P_CATEGORY_SET_ID:$Index)    [lindex [::TPEBS::ITEM::getCategorySetId4Code "Item Structure Code"] 1]
+        }
+        ::T4O::storeEBSDat2MultiTransferCache "Item"
+      }
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype [::T4X::CORE::getLogLineMessageType4rc $Status] "$FunctionName finished with >$Status<"
+    #
+    return $Status
+  }
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::ITEM::CUSTOM::MAPPING::EBS_Item2TC_Object
+  # \brief          Customer specific EBS item reverse mapping function template.
+  #                 This function will be used if a simple EBS item transfer is executed.
+  #
+  # \param          TransactionId - Unique ID for the transfer transaction
+  # \param          Status - EBS transfer status
+  #                 The following values are valid:
+  #                   - SKIPPED the transfer was skipped
+  #                   - ERROR the transfer was stopped by an error
+  #                   - UNKNOWN the transfer was stopped by an unknown error
+  #                   - UPDATED_WITH_ERROR the main transfer was successful but one of the additional transfers failed (like ECO implement)
+  #                   - CREATED, CHANGED, UPDATED and some other values are used for a successful transfer
+  # \param          ObjectNumber - EBS item number
+  # \param          OrgCode - EBS item organization code
+  # \param          ObjectId - EBS item id (optional - default -> empty)
+  # \param          OrgId - EBS item organization id (optional - default -> empty)
+  # \param          args - Not used
+  #
+  # \author         kh, 20110804
+  #
+  # \return         MappingStatus used by the following Tc object update function
+  #                 The following values are valid:
+  #                   - OK      -> T4O will update the Tc object based on the reverse mapping
+  #                                preferences and the reverse mapping buffer
+  #                   - SKIPPED -> T4O will skip the TcData object
+  #                   - ERROR   -> T4O will stop transfer and raise an error
+  #
+  #
+  proc EBS_Item2TC_Object { TransactionId Status ItemNumber OrgCode {ItemId {}} {OrgId {}} args } {
+    variable OrgMfgForm
+    #
+    set MappingStatus "OK"
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with $Status >$ItemNumber< >$OrgCode< >$ItemId< >$OrgId<"
+    #
+    set ItemRevisionType $::TcData(ItemInfo:TypeName)
+    regsub -all "Revision" $ItemRevisionType {} ItemType
+    set ItemType [string trim $ItemType]
+    #
+    set Item        "$ItemRevisionType:items_tag:$ItemType"
+    #
+    # Map EBS Item data back to TC
+    #
+    if { $Status eq "CREATED" || $Status eq "CHANGED" || $Status eq "UPDATED" } {
+      if { $ItemRevisionType ne $::T4O_Defaults(STOCKMATERIAL) } {
+        set ECONumber      [::T4X::TC::MAPPING::RootTaskFieldMapping   RootTask:EPM_target_attachment:GET6ECNRevision "item_id"]
+        set ECOType      "ECN"
+        if { $ECONumber eq "" } {
+          set ECOType    "MCN"
+        }
+        # Decide whether to set publish date on the plant specific form or not
+        set Multiarg  [expr { $ECOType eq "MCN" }]
+
+        #Perform Publish Date reverse mapping
+        if {$Multiarg} {
+          set strTransferDate [clock format [clock seconds] -format "%Y.%m.%d %T"]
+          ::T4X::TC::MAPPING::storeReverseMappingObjectAttribute $OrgMfgForm "GET6MfgAttrForm" "get6ItemPublishDate" $strTransferDate
+        }
+      }
+    } else {
+      set MappingStatus "SKIPPED"
+    }
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype [::T4X::CORE::getLogLineMessageType4rc $MappingStatus] "$FunctionName returns $MappingStatus"
+    #
+    return $MappingStatus
+  }
+
+
+  # ---------------------------------------------------------------------
+  #
+  # Method:          ::T4O::ITEM::CUSTOM::MAPPING::writeLogMessage
+  # \brief          writes an entry to the internal message buffer so
+  #                 that the information can written to the log-file dataset
+  #
+  # \author         L.J., 20140507
+  #
+  # \param          TransactionId, transaction log channel
+  # \param          Kind,  ERROR | DEBUG | WARNING
+  # \param          Message, messages string default format is hex encoded
+  #
+  # \return         none
+  #
+  proc writeLogMessage {TransactionId Kind Message} {
+    ::T4X::CORE::storeMessage2 MAPPING $Message $Kind
+    ::T4X::CORE::storeMessage2DatasetLogfile MAPPING $Message $Kind
+    if { $Kind ne "ERROR" } { ::T4X::TRANSLOG::writeCustomMappingLog $TransactionId $Kind $Message }
+  }
+}

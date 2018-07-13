@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences version="10.0">
+  <category name="Product Structure.PSE.Behaviour">
+    <category_description></category_description>
+        <preference name="TC_config_rule_name" type="String" array="false" disabled="false" protectionScope="User" envEnabled="false">
+      <preference_description>Indicates the default config rule that will be used when opening/printing Imprecise BOMView or BOMViewRevisions. If this rule does not exist, the system will default to &quot;Latest Working&quot;.</preference_description>
+      <context name="Teamcenter">
+        <value>GET Released, (No GET Working)</value>
+      </context>
+    </preference>
+  </category>
+     <category name="Interface.Rich Client">
+   <category_description></category_description>
+   <preference name="HiddenPerspectives" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Lists the Teamcenter perspectives to hide from the end-users.
+Valid values are the activity names as defined in the com.teamcenter.rac.activity&apos;s plugin.xml file.</preference_description>
+      <context name="Teamcenter">
+        <value>ReportDesigner</value>
+        <value>LaunchPad</value>
+        <value>AuditManager</value>
+        <value>PlatformDesigner</value>
+        <value>ResourceManager</value>
+      </context>
+    </preference>
+   </category>
+  <category name="GET">
+    <category_description></category_description>
+    <preference name="TC_GET6ECNRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>Submit ECN for Review</value>
+        <value>Submit to Cancel Change</value>
+        <value>GET Admin - Remove Status</value>
+        <value>GET Admin - Reset Change</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6ECRRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>Submit ECR for Review</value>
+        <value>Submit to Cancel Change</value>
+        <value>Submit to Close Change</value>
+        <value>GET Admin - Remove Status</value>
+        <value>GET Admin - Reset Change</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6MCNRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET MCN Process</value>
+        <value>GET Admin - Remove Status</value>
+        <value>GET Admin - Reset Change</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6MechPart_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Obsolete Process</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6ElectPart_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Obsolete Process</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6MechPartRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Baseline Process</value>
+        <value>GET Part Prel Release Process</value>
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6ElectPartRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Baseline Process</value>
+        <value>GET Part Prel Release Process</value>
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6FlatPatternRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6DrawingRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6SpecsRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6DocumentRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Document Release</value>
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6MaterialRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Material Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+	<preference name="TC_GET6DesignMiscRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6ProjectRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6WorkareaRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6ModuleRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Admin - Quick Release</value>
+        <value>GET Admin - Remove Status</value>
+      </context>
+    </preference>
+    <preference name="TC_Text_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET Process Import</value>
+      </context>
+    </preference>
+    <preference name="TC_GET6ProcessRevision_release_procedure" type="String" array="true" disabled="false" protectionScope="Group" envEnabled="false">
+      <preference_description>Preference for template filters</preference_description>
+      <context name="Teamcenter">
+        <value>GET BOP Obsolete</value>
+      </context>
+    </preference>
+  </category>
+</preferences>

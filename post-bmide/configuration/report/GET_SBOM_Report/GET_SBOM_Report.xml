@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TC Encapsulation : Mapping X-File  -->
+
+<ReportDefinition>
+	<Id value="GET_SBOM_Report"/>
+	<name value="GET_SBOM_Report">
+		<Text primary="en_US">
+			<Item language="en_US" value="GET_SBOM_Report"/>
+		</Text>
+	</name>
+	<Description value="">
+		<Text primary="en_US">
+			<Item language="en_US" value=""/>
+		</Text>
+	</Description>
+	<Class value="ItemRevision"/>
+	<Type value="1"/>
+	<Source value="Teamcenter"/>
+	<ShowForPrint value="true"/>
+	<QuerySource>
+		<TransferMode>
+			<Name value="GET_SBOM_Export_TM"/>
+			<Description value="GET Transfermode created for exporting BOM from TC"/>
+			<ContextString value="DEFAULT_PIE_CONTEXT_STRING"/>
+			<Direction value="0"/>
+			<SchemaFormat value="0"/>
+			<ClosureRule>
+				<Name value="GET_sBOM_Export_CR"/>
+				<Description value="GET Closure rule for exporting BOM from TC"/>
+				<Scope value="0"/>
+				<SchemaFormat value="0"/>
+				<NoOfClauses value="13"/>
+				<Clauses>
+					<clause_0 value="CLASS.BOMWindow:CLASS.BOMLine:PROPERTY.top_line:PROCESS+TRAVERSE:"/>
+					<clause_1 value="CLASS.BOMLine:CLASS.BOMLine:PROPERTY.bl_child_lines:PROCESS+TRAVERSE:SECONDARY.bl_window_is_BOPWin==&quot;false&quot; &amp;&amp; PRIMARY.bl_window_is_BOPWin==&quot;false&quot;"/>
+					<clause_2 value="CLASS.BOMLine:CLASS.Item:PROPERTY.bl_item:PROCESS+TRAVERSE:"/>
+					<clause_3 value="CLASS.BOMLine:CLASS.ItemRevision:PROPERTY.bl_revision:PROCESS+TRAVERSE:PRIMARY.bl_window_is_BOPWin==&quot;false&quot;"/>
+					<clause_4 value="CLASS.WorkspaceObject:CLASS.ReleaseStatus:ATTRIBUTE.*:TRAVERSE+PROCESS:"/>
+					<clause_5 value="CLASS.ItemRevision:CLASS.Item:PROPERTY.items_tag:TRAVERSE+PROCESS:"/>
+					<clause_6 value="CLASS.ItemRevision:CLASS.itemRevision:RELATIONP2S.*:TRAVERSE+PROCESS:"/>
+					<clause_7 value="TYPE.GET6MechPart:TYPE.GET6MechPart:RELATIONP2S.GET6MadeFromPart:PROCESS+TRAVERSE:"/>
+					<clause_8 value="TYPE.GET6MechPart:TYPE.GET6Material:RELATIONP2S.GET6MadeFromMatl:PROCESS+TRAVERSE:"/>
+					<clause_9 value="TYPE.GET6ElectPart:TYPE.GET6ElectPart:RELATIONP2S.GET6MadeFromPart:PROCESS+TRAVERSE:"/>
+					<clause_10 value="TYPE.GET6ElectPart:TYPE.GET6Material:RELATIONP2S.GET6MadeFromMatl:PROCESS+TRAVERSE:"/>
+					<clause_11 value="TYPE.GET6MechPartRevision:TYPE.GET9SerAttrForm:RELATIONP2S.GET9ServFormAtt:PROCESS:"/>
+					<clause_12 value="TYPE.GET9SrvPartRevision:TYPE.GET9SerAttrForm:RELATIONP2S.GET9ServFormAtt:PROCESS:"/>
+				</Clauses>
+			</ClosureRule>
+			<PropertySet>
+				<Name value="GET_SBOM_Export_PS"/>
+				<Description value="GET Property Sey for exporting BOM from TC"/>
+				<Scope value="0"/>
+				<NoOfClauses value="76"/>
+				<Clauses>
+					<clause_0 value="CLASS.Role:PROPERTY.role_name:DO"/>
+					<clause_1 value="CLASS.Group:PROPERTY.name:DO"/>
+					<clause_2 value="CLASS.Item:PROPERTY.item_id:DO"/>
+					<clause_3 value="CLASS.Item:PROPERTY.object_name:DO"/>
+					<clause_4 value="CLASS.Item:PROPERTY.object_desc:DO"/>
+					<clause_5 value="CLASS.Item:ATTRIBUTE.revision_number:DO"/>
+					<clause_6 value="CLASS.Item:PROPERTY.creation_date:DO"/>
+					<clause_7 value="CLASS.Item:PROPERTY.release_status_list:DO"/>
+					<clause_8 value="CLASS.Item:ATTRIBUTE.last_mod_user:DO"/>
+					<clause_9 value="CLASS.ItemRevision:PROPERTY.item_revision_id:DO"/>
+					<clause_10 value="CLASS.ItemRevision:PROPERTY.object_string:DO"/>
+					<clause_11 value="CLASS.ItemRevision:PROPERTY.object_name:DO"/>
+					<clause_12 value="CLASS.ItemRevision:PROPERTY.object_desc:DO"/>
+					<clause_13 value="CLASS.ItemRevision:PROPERTY.object_type:DO"/>
+					<clause_14 value="CLASS.ItemRevision:PROPERTY.process_stage:DO"/>
+					<clause_15 value="CLASS.ItemRevision:PROPERTY.creation_date:DO"/>
+					<clause_16 value="CLASS.ItemRevision:PROPERTY.last_mod_date:DO"/>
+					<clause_17 value="CLASS.ItemRevision:PROPERTY.date_released:DO"/>
+					<clause_18 value="CLASS.ItemRevision:PROPERTY.owning_user:DO"/>
+					<clause_19 value="CLASS.ItemRevision:PROPERTY.owning_group:DO"/>
+					<clause_20 value="CLASS.ItemRevision:PROPERTY.release_status_list:DO"/>
+					<clause_21 value="CLASS.ItemRevision:PROPERTY.last_mod_user:DO"/>
+					<clause_22 value="CLASS.User:PROPERTY.user_id:DO"/>
+					<clause_23 value="CLASS.User:PROPERTY.user_name:DO"/>
+					<clause_24 value="TYPE.ItemRevision:PROPERTY.item_id:DO"/>
+					<clause_25 value="CLASS.ReleaseStatus:PROPERTY.name:DO"/>
+					<clause_26 value="TYPE.GET6MechPartRevision:PROPERTY.get6EngMB:DO"/>
+					<clause_27 value="TYPE.GET6MechPart:PROPERTY.GET6MadeFromPart:DO"/>
+					<clause_28 value="TYPE.GET6MechPart:PROPERTY.GET6MadeFromMatl:DO"/>
+					<clause_29 value="TYPE.GET6MechPart:PROPERTY.item_id:DO"/>
+					<clause_30 value="TYPE.GET6MechPart:PROPERTY.object_name:DO"/>
+					<clause_31 value="TYPE.GET6MechPartRevision:PROPERTY.item_revision_id:DO"/>
+					<clause_32 value="TYPE.GET6MechPartRevision:PROPERTY.item_id:DO"/>
+					<clause_33 value="TYPE.GET6ElectPartRevision:PROPERTY.get6EngMB:DO"/>
+					<clause_34 value="TYPE.GET6ElectPart:PROPERTY.GET6MadeFromPart:DO"/>
+					<clause_35 value="TYPE.GET6ElectPart:PROPERTY.GET6MadeFromMatl:DO"/>
+					<clause_36 value="TYPE.GET6ElectPart:PROPERTY.item_id:DO"/>
+					<clause_37 value="TYPE.GET6ElectPart:PROPERTY.object_name:DO"/>
+					<clause_38 value="TYPE.GET6ElectPartRevision:PROPERTY.item_revision_id:DO"/>
+					<clause_39 value="TYPE.GET6ElectPartRevision:PROPERTY.item_id:DO"/>
+					<clause_40 value="TYPE.BOMLine:PROPERTY.bl_level_starting_0:DO"/>
+					<clause_41 value="TYPE.GET6MechPartRevision:PROPERTY.get6ObjWtUOM:DO"/>
+					<clause_42 value="TYPE.GET6MechPartRevision:PROPERTY.ip_classification:DO"/>
+					<clause_43 value="TYPE.GET6MechPartRevision:PROPERTY.get6DataModel:DO"/>
+					<clause_44 value="TYPE.GET6MechPartRevision:PROPERTY.get6CTQ:DO"/>
+					<clause_45 value="TYPE.GET6ElectPartRevision:PROPERTY.get6ObjWtUOM:DO"/>
+					<clause_46 value="TYPE.GET6ElectPartRevision:PROPERTY.ip_classification:DO"/>
+					<clause_47 value="TYPE.GET6ElectPartRevision:PROPERTY.get6DataModel:DO"/>
+					<clause_48 value="TYPE.GET6ElectPartRevision:PROPERTY.get6CTQ:DO"/>
+					<clause_49 value="TYPE.GET6MechPart:PROPERTY.get6ECCN:DO"/>
+					<clause_50 value="TYPE.GET6MechPart:PROPERTY.get6ECCNSource:DO"/>
+					<clause_51 value="TYPE.GET6MechPart:PROPERTY.get6ObjEvidence:DO"/>
+					<clause_52 value="TYPE.GET6MechPart:PROPERTY.get6CCC:DO"/>
+					<clause_53 value="TYPE.GET6MechPart:PROPERTY.get6ECC:DO"/>
+					<clause_54 value="TYPE.GET6MechPart:PROPERTY.get6Homologation:DO"/>
+					<clause_55 value="TYPE.GET6MechPart:PROPERTY.get6CriticalPart:DO"/>
+					<clause_56 value="TYPE.GET6MechPart:PROPERTY.get6ObjWt:DO"/>
+					<clause_57 value="TYPE.GET6ElectPart:PROPERTY.get6ECCN:DO"/>
+					<clause_58 value="TYPE.GET6ElectPart:PROPERTY.get6ECCNSource:DO"/>
+					<clause_59 value="TYPE.GET6ElectPart:PROPERTY.get6ObjEvidence:DO"/>
+					<clause_60 value="TYPE.GET6ElectPart:PROPERTY.get6CCC:DO"/>
+					<clause_61 value="TYPE.GET6ElectPart:PROPERTY.get6ECC:DO"/>
+					<clause_62 value="TYPE.GET6ElectPart:PROPERTY.get6Homologation:DO"/>
+					<clause_63 value="TYPE.GET6ElectPart:PROPERTY.get6CriticalPart:DO"/>
+					<clause_64 value="TYPE.GET6ElectPart:PROPERTY.get6ObjWt:DO"/>
+					<clause_65 value="TYPE.GET6MechPart:PROPERTY.ip_classification:DO"/>
+					<clause_66 value="TYPE.GET6ElectPart:PROPERTY.ip_classification:DO"/>
+					<clause_67 value="TYPE.GET6ElectPartRevision:PROPERTY.get6ObjWt:DO"/>
+					<clause_68 value="TYPE.GET6MechPartRevision:PROPERTY.get6ObjWt:DO"/>
+					<clause_69 value="TYPE.GET6ElectPart:PROPERTY.get6EngrProdLine:DO"/>
+					<clause_70 value="TYPE.GET6MechPart:PROPERTY.get6EngrProdLine:DO"/>
+					<clause_71 value="TYPE.GET9SerAttrForm:PROPERTY.get9EngineFamily:DO"/>
+					<clause_72 value="TYPE.BOMLine:PROPERTY.bl_item_global_alt_list:DO"/>
+					<clause_73 value="TYPE.BOMLine:PROPERTY.bl_item_preferred_global_alt:DO"/>
+					<clause_74 value="TYPE.BOMLine:PROPERTY.bl_occ_date_range:DO"/>
+					<clause_75 value="TYPE.BOMLine:PROPERTY.bl_rev_last_release_status:DO"/>
+				</Clauses>
+			</PropertySet>
+		</TransferMode>
+	</QuerySource>
+	<PropertySet>
+		<Name value="GET_SBOM_Export_PS"/>
+		<Description value="GET Property Sey for exporting BOM from TC"/>
+		<Scope value="0"/>
+		<NoOfClauses value="76"/>
+		<Clauses>
+			<clause_0 value="CLASS.Role:PROPERTY.role_name:DO"/>
+			<clause_1 value="CLASS.Group:PROPERTY.name:DO"/>
+			<clause_2 value="CLASS.Item:PROPERTY.item_id:DO"/>
+			<clause_3 value="CLASS.Item:PROPERTY.object_name:DO"/>
+			<clause_4 value="CLASS.Item:PROPERTY.object_desc:DO"/>
+			<clause_5 value="CLASS.Item:ATTRIBUTE.revision_number:DO"/>
+			<clause_6 value="CLASS.Item:PROPERTY.creation_date:DO"/>
+			<clause_7 value="CLASS.Item:PROPERTY.release_status_list:DO"/>
+			<clause_8 value="CLASS.Item:ATTRIBUTE.last_mod_user:DO"/>
+			<clause_9 value="CLASS.ItemRevision:PROPERTY.item_revision_id:DO"/>
+			<clause_10 value="CLASS.ItemRevision:PROPERTY.object_string:DO"/>
+			<clause_11 value="CLASS.ItemRevision:PROPERTY.object_name:DO"/>
+			<clause_12 value="CLASS.ItemRevision:PROPERTY.object_desc:DO"/>
+			<clause_13 value="CLASS.ItemRevision:PROPERTY.object_type:DO"/>
+			<clause_14 value="CLASS.ItemRevision:PROPERTY.process_stage:DO"/>
+			<clause_15 value="CLASS.ItemRevision:PROPERTY.creation_date:DO"/>
+			<clause_16 value="CLASS.ItemRevision:PROPERTY.last_mod_date:DO"/>
+			<clause_17 value="CLASS.ItemRevision:PROPERTY.date_released:DO"/>
+			<clause_18 value="CLASS.ItemRevision:PROPERTY.owning_user:DO"/>
+			<clause_19 value="CLASS.ItemRevision:PROPERTY.owning_group:DO"/>
+			<clause_20 value="CLASS.ItemRevision:PROPERTY.release_status_list:DO"/>
+			<clause_21 value="CLASS.ItemRevision:PROPERTY.last_mod_user:DO"/>
+			<clause_22 value="CLASS.User:PROPERTY.user_id:DO"/>
+			<clause_23 value="CLASS.User:PROPERTY.user_name:DO"/>
+			<clause_24 value="TYPE.ItemRevision:PROPERTY.item_id:DO"/>
+			<clause_25 value="CLASS.ReleaseStatus:PROPERTY.name:DO"/>
+			<clause_26 value="TYPE.GET6MechPartRevision:PROPERTY.get6EngMB:DO"/>
+			<clause_27 value="TYPE.GET6MechPart:PROPERTY.GET6MadeFromPart:DO"/>
+			<clause_28 value="TYPE.GET6MechPart:PROPERTY.GET6MadeFromMatl:DO"/>
+			<clause_29 value="TYPE.GET6MechPart:PROPERTY.item_id:DO"/>
+			<clause_30 value="TYPE.GET6MechPart:PROPERTY.object_name:DO"/>
+			<clause_31 value="TYPE.GET6MechPartRevision:PROPERTY.item_revision_id:DO"/>
+			<clause_32 value="TYPE.GET6MechPartRevision:PROPERTY.item_id:DO"/>
+			<clause_33 value="TYPE.GET6ElectPartRevision:PROPERTY.get6EngMB:DO"/>
+			<clause_34 value="TYPE.GET6ElectPart:PROPERTY.GET6MadeFromPart:DO"/>
+			<clause_35 value="TYPE.GET6ElectPart:PROPERTY.GET6MadeFromMatl:DO"/>
+			<clause_36 value="TYPE.GET6ElectPart:PROPERTY.item_id:DO"/>
+			<clause_37 value="TYPE.GET6ElectPart:PROPERTY.object_name:DO"/>
+			<clause_38 value="TYPE.GET6ElectPartRevision:PROPERTY.item_revision_id:DO"/>
+			<clause_39 value="TYPE.GET6ElectPartRevision:PROPERTY.item_id:DO"/>
+			<clause_40 value="TYPE.BOMLine:PROPERTY.bl_level_starting_0:DO"/>
+			<clause_41 value="TYPE.GET6MechPartRevision:PROPERTY.get6ObjWtUOM:DO"/>
+			<clause_42 value="TYPE.GET6MechPartRevision:PROPERTY.ip_classification:DO"/>
+			<clause_43 value="TYPE.GET6MechPartRevision:PROPERTY.get6DataModel:DO"/>
+			<clause_44 value="TYPE.GET6MechPartRevision:PROPERTY.get6CTQ:DO"/>
+			<clause_45 value="TYPE.GET6ElectPartRevision:PROPERTY.get6ObjWtUOM:DO"/>
+			<clause_46 value="TYPE.GET6ElectPartRevision:PROPERTY.ip_classification:DO"/>
+			<clause_47 value="TYPE.GET6ElectPartRevision:PROPERTY.get6DataModel:DO"/>
+			<clause_48 value="TYPE.GET6ElectPartRevision:PROPERTY.get6CTQ:DO"/>
+			<clause_49 value="TYPE.GET6MechPart:PROPERTY.get6ECCN:DO"/>
+			<clause_50 value="TYPE.GET6MechPart:PROPERTY.get6ECCNSource:DO"/>
+			<clause_51 value="TYPE.GET6MechPart:PROPERTY.get6ObjEvidence:DO"/>
+			<clause_52 value="TYPE.GET6MechPart:PROPERTY.get6CCC:DO"/>
+			<clause_53 value="TYPE.GET6MechPart:PROPERTY.get6ECC:DO"/>
+			<clause_54 value="TYPE.GET6MechPart:PROPERTY.get6Homologation:DO"/>
+			<clause_55 value="TYPE.GET6MechPart:PROPERTY.get6CriticalPart:DO"/>
+			<clause_56 value="TYPE.GET6MechPart:PROPERTY.get6ObjWt:DO"/>
+			<clause_57 value="TYPE.GET6ElectPart:PROPERTY.get6ECCN:DO"/>
+			<clause_58 value="TYPE.GET6ElectPart:PROPERTY.get6ECCNSource:DO"/>
+			<clause_59 value="TYPE.GET6ElectPart:PROPERTY.get6ObjEvidence:DO"/>
+			<clause_60 value="TYPE.GET6ElectPart:PROPERTY.get6CCC:DO"/>
+			<clause_61 value="TYPE.GET6ElectPart:PROPERTY.get6ECC:DO"/>
+			<clause_62 value="TYPE.GET6ElectPart:PROPERTY.get6Homologation:DO"/>
+			<clause_63 value="TYPE.GET6ElectPart:PROPERTY.get6CriticalPart:DO"/>
+			<clause_64 value="TYPE.GET6ElectPart:PROPERTY.get6ObjWt:DO"/>
+			<clause_65 value="TYPE.GET6MechPart:PROPERTY.ip_classification:DO"/>
+			<clause_66 value="TYPE.GET6ElectPart:PROPERTY.ip_classification:DO"/>
+			<clause_67 value="TYPE.GET6ElectPartRevision:PROPERTY.get6ObjWt:DO"/>
+			<clause_68 value="TYPE.GET6MechPartRevision:PROPERTY.get6ObjWt:DO"/>
+			<clause_69 value="TYPE.GET6ElectPart:PROPERTY.get6EngrProdLine:DO"/>
+			<clause_70 value="TYPE.GET6MechPart:PROPERTY.get6EngrProdLine:DO"/>
+			<clause_71 value="TYPE.GET9SerAttrForm:PROPERTY.get9EngineFamily:DO"/>
+			<clause_72 value="TYPE.BOMLine:PROPERTY.bl_item_global_alt_list:DO"/>
+			<clause_73 value="TYPE.BOMLine:PROPERTY.bl_item_preferred_global_alt:DO"/>
+			<clause_74 value="TYPE.BOMLine:PROPERTY.bl_occ_date_range:DO"/>
+			<clause_75 value="TYPE.BOMLine:PROPERTY.bl_rev_last_release_status:DO"/>
+		</Clauses>
+	</PropertySet>
+	<Stylesheets>
+		<Stylesheet>
+			<StylesheetType value="CrfExcelStylesheet"/>
+			<StylesheetName value="GET_SBOM_Report_EXCEL.xsl"/>
+		</Stylesheet>
+	</Stylesheets>
+	<NoOfParameters value="2"/>
+	<Params>
+		<param_0 value="BOM_REPORT"/>
+		<param_1 value="FORMAT"/>
+	</Params>
+	<Values>
+		<param_0 value="TRUE"/>
+		<param_1 value="PLMXML"/>
+	</Values>
+</ReportDefinition>

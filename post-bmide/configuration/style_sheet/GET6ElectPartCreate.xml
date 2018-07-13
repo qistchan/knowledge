@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+=======================================================================
+Copyright 2009.
+Siemens Product Lifecycle Management Software Inc.
+All Rights Reserved.
+=======================================================================
+     Filename: GET6MechPartCreate.xml
+
+    Style sheet rendering for Item creation.
+=======================================================================
+-->
+
+<rendering>
+    <page title="General" titleKey="tc_xrt_General">      
+        <section title="Item Information" titleKey="tc_xrt_ItemInformation">
+            <property name="item_id" />
+            <property name="revision:item_revision_id" /> 
+            <property name="object_name" />
+            <property name="ip_classification" />
+            <separator/>
+            <property name="uom_tag" /> 
+            <!-- OOTB configuration item check box is not visibile, you can remove the comment once is_configuration_item in createInput is turned on in BMIDE -->
+            <!--
+            <property name="is_configuration_item" renderingHint="checkbox" />
+            -->
+        </section>
+
+        <section title="Additional Item Information" titleKey="tc_xrt_AdditionalItemInformation" initialstate="collapsed">
+            <property name="IMAN_master_form:project_id" />
+            <property name="IMAN_master_form:previous_item_id"  />
+            <property name="IMAN_master_form:serial_number" />
+            <property name="IMAN_master_form:item_comment" />
+            <property name="IMAN_master_form:user_data_1"  />
+            <property name="IMAN_master_form:user_data_2"  />
+            <property name="IMAN_master_form:user_data_3"  />
+        </section>
+
+        <section title="Item Revision Information" titleKey="tc_xrt_ItemRevisionInformation" initialstate="collapsed">
+            <property name="revision:IMAN_master_form_rev:project_id" />
+            <property name="revision:IMAN_master_form_rev:previous_version_id" />
+            <property name="revision:IMAN_master_form_rev:serial_number" />
+            <property name="revision:IMAN_master_form_rev:item_comment" />
+            <property name="revision:IMAN_master_form_rev:user_data_1"  />
+            <property name="revision:IMAN_master_form_rev:user_data_2"  />
+            <property name="revision:IMAN_master_form_rev:user_data_3"  />
+        </section>
+    </page>
+
+</rendering>

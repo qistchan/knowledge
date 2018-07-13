@@ -1,0 +1,95 @@
+/* "C" header files */
+#include <stdio.h>
+
+/* iMAN  header files */
+
+#include <tc/tc.h>
+#include <tccore/item.h>
+#include <tccore/tctype.h>
+#include <sa/tcfile.h>
+#include <ae/ae_types.h>
+#include <ae/dataset.h>
+#include <tccore/aom.h>
+#include <tccore/workspaceobject.h>
+#include <pom/pom/pom.h>
+#include <sa/sa.h>
+#include <tc/emh.h>
+#include <ss/ss_const.h>
+#include <ae/ae.h>
+#include <tccore/aom.h>
+#include <tccore/grm.h>
+/* GETS Decryption Header Files */
+//#include <gets_tc_common.h>
+
+#define CHK_ERR(x) {                                                      \
+  int status;                                                             \
+  char *error_string;                                                     \
+  if( (status = (x)) != ITK_ok )                                          \
+  {                                                                       \
+    /* EMH_get_error_string(NULLTAG, status, &error_string);  */		\
+    EMH_ask_error_text(status, &error_string);               \
+    printf("\nERROR #: %d ERROR MSG: %s.\n", status, error_string);       \
+    printf("FUNCTION: %s FILE: %s LINE: %d\n",#x, __FILE__, __LINE__);    \
+    MEM_free(error_string);                                                \
+    ITK_exit_module( true );                                              \
+    return 21;                                                        \
+  }                                                                       \
+}
+
+
+int ITK_user_main( int argc, char *argv[] )
+{
+	int	ret_code = ITK_ok;
+	int retVal = 0;
+	char item_id[ITEM_id_size_c+1];
+	char rev_id[ITEM_id_size_c+1];
+	char dataset[WSO_name_size_c + 1];
+	char obj_type[WSO_name_size_c + 1];
+	char obj_name[WSO_name_size_c + 1];
+
+	int i = 0;
+
+	tag_t itemtag;
+	tag_t revtag;
+	tag_t usertag;
+	tag_t grouptag;
+	tag_t dstag;
+
+	int cnt1 = 0;
+	int cnt2 = 0;
+
+	tag_t *bvs;
+	tag_t *bvrs;
+
+	char user[SA_name_size_c + 1];
+	char group[SA_name_size_c + 1];
+
+	int no_of_attachment = 0;
+	/*ITEM_attached_object_t *attachment_obj = NULL;*/
+	GRM_relation_t *attachment_obj = NULL;
+	logical is_co;
+
+    /* Srikanth - 09-May-2013 : Added to Login TC using ITK_init_module */
+    //ret_code = GETS_HPA_secured_login();
+    if (ret_code != ITK_ok)
+	 {
+			//GETS_info_log ("ERROR NOT ABLE TO CONNECT TO IMAN\n" );
+			return ( !ITK_ok );
+	 }
+
+
+
+	ITK_set_bypass ( TRUE );
+
+	strcpy( item_id, argv[3] );
+	strcpy( rev_id, argv[4] );
+	strcpy( user, argv[5] );
+	strcpy( group, argv[6] );
+	strcpy( dataset, argv[7] );
+
+	CHK_ERR( SA_find_user( user, &usertag ) );
+	CHK_ERR( SA_find_group( group, &grouptag ) );
+
+	ret_code = ITK_exit_module( true );
+	return retVal;
+}

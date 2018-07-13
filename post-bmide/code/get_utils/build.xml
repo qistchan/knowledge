@@ -1,0 +1,105 @@
+<project name="get_utils" default="help">
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+    <classpath> 
+		<pathelement location="${ANT_HOME}/lib/ant-contrib-0.6.jar" />
+    </classpath> 
+    </taskdef>
+	<property name="cc.debug" value="false"/>
+
+	<property environment="env"/>
+	<property name="src.dir" location="${basedir}/.."/>
+	<property name="deploy_bin.dir" location="${src.dir}/get_utils_bin/data_migration"/>
+	<property name="link.dir" value="./data_migration/bin"/>
+	
+	<!-- OS Check targets -->
+	<target name="OSCheck">
+		<condition property="isOSWindows">
+		    <os family="windows"/>
+		</condition>
+		<condition property="isOSUnix">
+		   <os family="unix" />
+		</condition>
+	</target>
+
+	<!-- build64 targets -->
+	<target name="build64">
+		<subant target="build64">
+			<filelist dir="./AdminLOVTCXMLCreationUtil" files="build.xml"/>
+			<filelist dir="./sbom_migration_utils/GenerateReport" files="build.xml"/>
+			<filelist dir="./sbom_migration_utils/CreateInputFiles" files="build.xml"/>
+			<filelist dir="./Encryption" files="build.xml"/>
+			<filelist dir="./itk_utils" files="build.xml"/>
+			<filelist dir="./data_migration" files="build.xml"/>
+			<!--<filelist dir="./cam_utils" files="build.xml"/>-->
+		</subant>
+	</target>
+
+	<!-- clean targets -->
+	<target name="clean" description="clean lib,dll and obj files in the directory">
+		<subant target="clean">
+			<filelist dir="./AdminLOVTCXMLCreationUtil" files="build.xml"/>
+			<filelist dir="./sbom_migration_utils/GenerateReport" files="build.xml"/>
+			<filelist dir="./sbom_migration_utils/CreateInputFiles" files="build.xml"/>
+			<filelist dir="./Encryption" files="build.xml"/>
+			<filelist dir="./itk_utils" files="build.xml"/>
+			<filelist dir="./data_migration" files="build.xml"/>
+			<!--<filelist dir="./cam_utils" files="build.xml"/>-->
+		 </subant>
+		 <delete>
+			<fileset dir=".">
+				<include name="**/build*.log"/>
+			</fileset>
+		</delete>
+		<delete dir="buildlogs"/>
+
+	</target>
+	
+	<!-- deploy64 targets to deploy libraries -->
+	<target name="deploy" depends = "build64">
+		<subant target="deploy">
+			<filelist dir="./AdminLOVTCXMLCreationUtil" files="build.xml"/>
+			<filelist dir="./sbom_migration_utils/GenerateReport" files="build.xml"/>
+			<filelist dir="./sbom_migration_utils/CreateInputFiles" files="build.xml"/>
+			<filelist dir="./Encryption" files="build.xml"/>
+			<filelist dir="./itk_utils" files="build.xml"/>
+			<filelist dir="./data_migration" files="build.xml"/>
+			<!--<filelist dir="./cam_utils" files="build.xml"/>-->
+		</subant>
+		<mkdir dir="${deploy_bin.dir}"/>
+		<sequential>
+			<echo message="Deploy Test Executables" />
+			<copy todir="${deploy_bin.dir}" verbose="true" failonerror="false">
+				<fileset dir="${link.dir}">
+					<include name="**" />
+				</fileset>
+			</copy>
+		</sequential>
+	</target>
+	
+	<!-- deploy64 targets to deploy libraries -->
+	<!-- <target name="deploy64" depends = "build64">
+		<subant target="deploy">
+			<filelist dir="./AdminLOVTCXMLCreationUtil" files="build.xml"/>
+			<filelist dir="./Encryption" files="build.xml"/>
+			<filelist dir="./itk_utils" files="build.xml"/>
+			<filelist dir="./data_migration" files="build.xml"/>
+			<filelist dir="./sbom_migration_utils/com.ge.transportation.plm.sbom" files="build.xml"/>
+			<filelist dir="./cam_utils" files="build.xml"/>
+		</subant>
+		<mkdir dir="${deploy_bin.dir}"/>
+		<sequential>
+			<echo message="Deploy Test Executables" />
+			<copy todir="${deploy_bin.dir}" verbose="true" failonerror="false">
+				<fileset dir="${link.dir}">					
+					<include name="**" />
+				</fileset>
+			</copy>
+		</sequential>
+	</target>  -->
+
+	<!-- help targets -->
+	<target name="help" description="print usage">
+        <echo message="Please specify target as build64"/>
+    </target>
+    
+</project>

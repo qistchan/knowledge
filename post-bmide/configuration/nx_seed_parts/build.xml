@@ -1,0 +1,59 @@
+<project name="PLM XML Conf" default="deploy" >
+    
+    <!--
+     ==============================================================================================================================
+     ===== Use ant contrib
+     ==============================================================================================================================
+     -->
+    <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+    
+    
+    <!--
+     ==============================================================================================================================
+     ===== Set the property for the directory you desire to process and the Info display string
+     ==============================================================================================================================
+     -->
+    
+    <property environment="env"/>
+    <property name="dir.name" value="nx_seed_parts"/>
+    <property name="info" value="PLM XML Import"/>
+    <property name="base.dir" location="${user.dir}/post-bmide/configuration"/>
+    <property name="src.dir" location="${base.dir}/${dir.name}"/>
+
+    <!--
+     ==============================================================================================================================
+     ===== NOTE you must define {src.dir} BEFORE including "common_task.xml"
+     ==============================================================================================================================
+     -->
+    
+	<target name="deploy" description="Deploy PLM XML">
+		<echo message="Build and deploy code"/>
+		<subant target="deploy" >
+			<fileset dir="${src.dir}/SEED_NX_PLM20_SIT" includes="build.xml"/>
+		</subant>
+	</target>
+
+    <import file="../../../common_task.xml" />
+
+    <!--
+     ==============================================================================================================================
+     ===== Initialize ant properties not set elsewhere
+     ==============================================================================================================================
+     -->
+
+    <target name="init-properties">
+    </target>
+    
+<!--
+ ==============================================================================================================================
+ ===== clean up after yourself
+ ==============================================================================================================================
+ -->
+    <target name="clean" depends="common_task">
+        <remove_targets dir="${src.dir}"/>
+    	<subant target="clean" >
+			<fileset dir="${src.dir}/SEED_NX_PLM20_SIT" includes="build.xml"/>
+		</subant>
+    </target>
+
+</project>

@@ -1,0 +1,8 @@
+ug_clone Starting...
+FCC interface version fms.11.1.0.20140716.00.
+Loaded implementation library 'C:\PROGRA~1\Siemens\TEAMCE~1\tccs\lib\FCCClientProxyDllv11064.dll'.
+FCC Interface Implementation fms.11.2.2.20160902.00 initialized.
+FCC interface version fms.10.1.0.20130514.00.
+Loaded implementation library 'C:\PROGRA~1\Siemens\TEAMCE~1\tccs\lib\FCCClientProxyDllv11064.dll'.
+
+ERROR: Value required for default_directory switch

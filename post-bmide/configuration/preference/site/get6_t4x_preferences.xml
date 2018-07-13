@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<preferences version="10.0">
+  <category name="Gateway Foundation">
+    <preference name="T4X_PropertyListMode4GET6ECNRevision" type="Integer" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Defines the processing of the properties specified by the #__getAllProperties__# entry in the preference.
+             0 - process all properties
+             1 - use black-list preference ..Property2IgnoreList4.. (e.g. T4X_Property2IgnoreList4ItemRevision)
+             2 - use white-list preference ..Property2ProcessList4.. (e.g. T4X_Property2ProcessList4ItemRevision)
+      </preference_description>
+      <context name="Teamcenter">
+        <value>2</value>
+      </context>
+    </preference>
+    <preference name="T4X_Property2ProcessList4GET6ECNRevision" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Generic white-list</preference_description>
+      <context name="Teamcenter">
+        <value>item_id</value>
+        <value>project_ids</value>
+      </context>
+    </preference>
+    <preference name="T4X_PropertyListMode4GET6MCNRevision" type="Integer" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Defines the processing of the properties specified by the #__getAllProperties__# entry in the preference.
+             0 - process all properties
+             1 - use black-list preference ..Property2IgnoreList4.. (e.g. T4X_Property2IgnoreList4ItemRevision)
+             2 - use white-list preference ..Property2ProcessList4.. (e.g. T4X_Property2ProcessList4ItemRevision)
+      </preference_description>
+      <context name="Teamcenter">
+        <value>2</value>
+      </context>
+    </preference>
+    <preference name="T4X_Property2ProcessList4GET6MCNRevision" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Generic white-list</preference_description>
+      <context name="Teamcenter">
+        <value>item_id</value>
+        <value>project_ids</value>
+        <value>get6AffectsBOP</value>
+        <value>get6BOPEffEndDate</value>
+        <value>get6BOPEffStartDate</value>
+        <value>get6EffectivityDecision</value>
+        <value>get6MBOMEffEndDate</value>
+        <value>get6MBOMEffStartDate</value>
+        <value>get6MCNFlipToBuy</value>
+      </context>
+    </preference>
+    <preference name="T4X_PropertyListMode4GET6ElectPart" type="Integer" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Defines the processing of the properties specified by the #__getAllProperties__# entry in the preference.
+             0 - process all properties
+             1 - use black-list preference ..Property2IgnoreList4.. (e.g. T4X_Property2IgnoreList4Item)
+             2 - use white-list preference ..Property2ProcessList4.. (e.g. T4X_Property2ProcessList4Item)
+      </preference_description>
+      <context name="Teamcenter">
+        <value>2</value>
+      </context>
+    </preference>
+    <preference name="T4X_Property2ProcessList4GET6ElectPart" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Generic white-list</preference_description>
+      <context name="Teamcenter">
+        <value>item_id</value>
+        <value>object_name</value>
+        <value>get6EngrProdLine</value>
+      </context>
+    </preference>
+    <preference name="T4X_PropertyListMode4GET6ElectPartRevision" type="Integer" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Defines the processing of the properties specified by the #__getAllProperties__# entry in the preference.
+             0 - process all properties
+             1 - use black-list preference ..Property2IgnoreList4.. (e.g. T4X_Property2IgnoreList4ItemRevision)
+             2 - use white-list preference ..Property2ProcessList4.. (e.g. T4X_Property2ProcessList4ItemRevision)
+      </preference_description>
+      <context name="Teamcenter">
+        <value>2</value>
+      </context>
+    </preference>
+    <preference name="T4X_Property2ProcessList4GET6ElectPartRevision" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Generic white-list</preference_description>
+      <context name="Teamcenter">
+        <value>has_module</value>
+        <value>item_revision_id</value>
+        <value>ps_children</value>
+        <value>release_status_list</value>
+        <value>get6ObjWt</value>
+        <value>get6ObjWtUOM</value>
+      </context>
+    </preference>
+    <preference name="T4X_PropertyListMode4GET6MechPart" type="Integer" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Defines the processing of the properties specified by the #__getAllProperties__# entry in the preference.
+             0 - process all properties
+             1 - use black-list preference ..Property2IgnoreList4.. (e.g. T4X_Property2IgnoreList4Item)
+             2 - use white-list preference ..Property2ProcessList4.. (e.g. T4X_Property2ProcessList4Item)
+      </preference_description>
+      <context name="Teamcenter">
+        <value>2</value>
+      </context>
+    </preference>
+    <preference name="T4X_Property2ProcessList4GET6MechPart" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Generic white-list</preference_description>
+      <context name="Teamcenter">
+        <value>item_id</value>
+        <value>object_name</value>
+        <value>get6EngrProdLine</value>
+      </context>
+    </preference>
+    <preference name="T4X_PropertyListMode4GET6MechPartRevision" type="Integer" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Defines the processing of the properties specified by the #__getAllProperties__# entry in the preference.
+             0 - process all properties
+             1 - use black-list preference ..Property2IgnoreList4.. (e.g. T4X_Property2IgnoreList4ItemRevision)
+             2 - use white-list preference ..Property2ProcessList4.. (e.g. T4X_Property2ProcessList4ItemRevision)
+      </preference_description>
+      <context name="Teamcenter">
+        <value>2</value>
+      </context>
+    </preference>
+    <preference name="T4X_Property2ProcessList4GET6MechPartRevision" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Generic white-list</preference_description>
+      <context name="Teamcenter">
+        <value>has_module</value>
+        <value>item_revision_id</value>
+        <value>ps_children</value>
+        <value>release_status_list</value>
+        <value>get6ObjWt</value>
+        <value>get6ObjWtUOM</value>
+      </context>
+    </preference>
+    <preference name="T4X_PropertyListMode4GET6MfgPart" type="Integer" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Defines the processing of the properties specified by the #__getAllProperties__# entry in the preference.
+             0 - process all properties
+             1 - use black-list preference ..Property2IgnoreList4.. (e.g. T4X_Property2IgnoreList4Item)
+             2 - use white-list preference ..Property2ProcessList4.. (e.g. T4X_Property2ProcessList4Item)
+      </preference_description>
+      <context name="Teamcenter">
+        <value>2</value>
+      </context>
+    </preference>
+    <preference name="T4X_Property2ProcessList4GET6MfgPart" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Generic white-list</preference_description>
+      <context name="Teamcenter">
+        <value>item_id</value>
+        <value>object_name</value>
+        <value>get6EngrProdLine</value>
+      </context>
+    </preference>
+    <preference name="T4X_PropertyListMode4GET6MfgPartRevision" type="Integer" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Defines the processing of the properties specified by the #__getAllProperties__# entry in the preference.
+             0 - process all properties
+             1 - use black-list preference ..Property2IgnoreList4.. (e.g. T4X_Property2IgnoreList4ItemRevision)
+             2 - use white-list preference ..Property2ProcessList4.. (e.g. T4X_Property2ProcessList4ItemRevision)
+      </preference_description>
+      <context name="Teamcenter">
+        <value>2</value>
+      </context>
+    </preference>
+    <preference name="T4X_Property2ProcessList4GET6MfgPartRevision" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Generic white-list</preference_description>
+      <context name="Teamcenter">
+        <value>has_module</value>
+        <value>item_revision_id</value>
+        <value>release_status_list</value>
+        <value>get6ObjWt</value>
+        <value>get6ObjWtUOM</value>
+      </context>
+    </preference>
+    <preference name="T4X_PropertyListMode4GET6StockMtrl" type="Integer" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Defines the processing of the properties specified by the #__getAllProperties__# entry in the preference.
+             0 - process all properties
+             1 - use black-list preference ..Property2IgnoreList4.. (e.g. T4X_Property2IgnoreList4Item)
+             2 - use white-list preference ..Property2ProcessList4.. (e.g. T4X_Property2ProcessList4Item)
+      </preference_description>
+      <context name="Teamcenter">
+        <value>2</value>
+      </context>
+    </preference>
+    <preference name="T4X_Property2ProcessList4GET6StockMtrl" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Generic white-list</preference_description>
+      <context name="Teamcenter">
+        <value>item_id</value>
+        <value>object_name</value>
+        <value>get6EngrProdLine</value>
+      </context>
+    </preference>
+    <preference name="T4X_PropertyListMode4GET6StockMtrlRevision" type="Integer" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Defines the processing of the properties specified by the #__getAllProperties__# entry in the preference.
+             0 - process all properties
+             1 - use black-list preference ..Property2IgnoreList4.. (e.g. T4X_Property2IgnoreList4ItemRevision)
+             2 - use white-list preference ..Property2ProcessList4.. (e.g. T4X_Property2ProcessList4ItemRevision)
+      </preference_description>
+      <context name="Teamcenter">
+        <value>2</value>
+      </context>
+    </preference>
+    <preference name="T4X_Property2ProcessList4GET6StockMtrlRevision" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Generic white-list</preference_description>
+      <context name="Teamcenter">
+        <value>has_module</value>
+        <value>item_revision_id</value>
+        <value>release_status_list</value>
+        <value>get6ObjWt</value>
+        <value>get6ObjWtUOM</value>
+      </context>
+    </preference>
+    <preference name="T4X_PropertyListMode4GET6MfgAttrForm1" type="Integer" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Defines the processing of the properties specified by the #__getAllProperties__# entry in the preference.
+             0 - process all properties
+             1 - use black-list preference ..Property2IgnoreList4.. (e.g. T4X_Property2IgnoreList4ItemRevision)
+             2 - use white-list preference ..Property2ProcessList4.. (e.g. T4X_Property2ProcessList4ItemRevision)
+      </preference_description>
+      <context name="Teamcenter">
+        <value>2</value>
+      </context>
+    </preference>
+    <preference name="T4X_Property2ProcessList4GET6MfgAttrForm1" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Generic white-list</preference_description>
+      <context name="Teamcenter">
+        <value>object_type</value>
+        <value>project_ids</value>
+        <value>get6BOMPublishDate</value>
+        <value>get6isMfgAttrModT4OXfer</value>
+        <value>get6ItemPublishDate</value>
+        <value>get6MakeBuy</value>
+        <value>get6OrgTemplate</value>
+        <value>get6PlanningCode</value>
+        <value>get6StockMaterial</value>
+        <value>get6StockMtrlConsumedQty</value>
+        <value>get6StructureCode</value>
+        <value>get6WIPSupplyType</value>
+      </context>
+    </preference>
+    <preference name="T4X_PropertyListMode4GET6MfgAttrForm2" type="Integer" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Defines the processing of the properties specified by the #__getAllProperties__# entry in the preference.
+             0 - process all properties
+             1 - use black-list preference ..Property2IgnoreList4.. (e.g. T4X_Property2IgnoreList4ItemRevision)
+             2 - use white-list preference ..Property2ProcessList4.. (e.g. T4X_Property2ProcessList4ItemRevision)
+      </preference_description>
+      <context name="Teamcenter">
+        <value>2</value>
+      </context>
+    </preference>
+    <preference name="T4X_Property2ProcessList4GET6MfgAttrForm2" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Generic white-list</preference_description>
+      <context name="Teamcenter">
+        <value>object_type</value>
+        <value>project_ids</value>
+        <value>get6BOMPublishDate</value>
+        <value>get6isMfgAttrModT4OXfer</value>
+        <value>get6ItemPublishDate</value>
+        <value>get6MakeBuy</value>
+        <value>get6OrgTemplate</value>
+        <value>get6PlanningCode</value>
+        <value>get6StockMaterial</value>
+        <value>get6StockMtrlConsumedQty</value>
+        <value>get6StructureCode</value>
+        <value>get6WIPSupplyType</value>
+      </context>
+    </preference>
+    <preference name="T4X_PropertyListMode4GET6MfgAttrForm3" type="Integer" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Defines the processing of the properties specified by the #__getAllProperties__# entry in the preference.
+             0 - process all properties
+             1 - use black-list preference ..Property2IgnoreList4.. (e.g. T4X_Property2IgnoreList4ItemRevision)
+             2 - use white-list preference ..Property2ProcessList4.. (e.g. T4X_Property2ProcessList4ItemRevision)
+      </preference_description>
+      <context name="Teamcenter">
+        <value>2</value>
+      </context>
+    </preference>
+    <preference name="T4X_Property2ProcessList4GET6MfgAttrForm3" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Generic white-list</preference_description>
+      <context name="Teamcenter">
+        <value>object_type</value>
+        <value>project_ids</value>
+        <value>get6BOMPublishDate</value>
+        <value>get6isMfgAttrModT4OXfer</value>
+        <value>get6ItemPublishDate</value>
+        <value>get6MakeBuy</value>
+        <value>get6OrgTemplate</value>
+        <value>get6PlanningCode</value>
+        <value>get6StockMaterial</value>
+        <value>get6StockMtrlConsumedQty</value>
+        <value>get6StructureCode</value>
+        <value>get6WIPSupplyType</value>
+      </context>
+    </preference>
+    <preference name="T4X_PropertyListMode4GET6MadeFromPart" type="Integer" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Defines the processing of the properties specified by the #__getAllProperties__# entry in the preference.
+             0 - process all properties
+             1 - use black-list preference ..Property2IgnoreList4.. (e.g. T4X_Property2IgnoreList4Item)
+             2 - use white-list preference ..Property2ProcessList4.. (e.g. T4X_Property2ProcessList4Item)
+      </preference_description>
+      <context name="Teamcenter">
+        <value>2</value>
+      </context>
+    </preference>
+    <preference name="T4X_Property2ProcessList4GET6MadeFromPart" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Generic white-list</preference_description>
+      <context name="Teamcenter">
+        <value>primary_object</value>
+        <value>secondary_object</value>
+      </context>
+    </preference>
+    <preference name="T4X_PropertyListMode4GET6PartOrgRelation" type="Integer" array="false" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Defines the processing of the properties specified by the #__getAllProperties__# entry in the preference.
+             0 - process all properties
+             1 - use black-list preference ..Property2IgnoreList4.. (e.g. T4X_Property2IgnoreList4ItemRevision)
+             2 - use white-list preference ..Property2ProcessList4.. (e.g. T4X_Property2ProcessList4ItemRevision)
+      </preference_description>
+      <context name="Teamcenter">
+        <value>2</value>
+      </context>
+    </preference>
+    <preference name="T4X_Property2ProcessList4GET6PartOrgRelation" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>Generic white-list</preference_description>
+      <context name="Teamcenter">
+      </context>
+    </preference>
+  </category>
+</preferences>

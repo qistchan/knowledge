@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<TCXML xmlns="http://www.tcxml.org/Schemas/TCXMLSchema" format="high_level">
+<ClosureRule clauses="TYPE.PIESession:CLASS.CCObject:PROPERTY.target_list:TRAVERSE:,TYPE.PIESession:CLASS.StructureContext:PROPERTY.target_list:TRAVERSE:,TYPE.PIESession:CLASS.*:PROPERTY.target_list:TRAVERSE_AND_PROCESS:,TYPE.PIESession:TYPE.*:PROPERTY.target_list:TRAVERSE_AND_PROCESS:,CLASS.CCObject:TYPE.CfgAttachmentLine:PROPERTY.top_line:TRAVERSE_AND_PROCESS:,CLASS.StructureContext:TYPE.CfgAttachmentLine:PROPERTY.top_line:TRAVERSE_AND_PROCESS:,TYPE.CfgActivityLine:TYPE.*:PROPERTY.me_cl_source:PROCESS:,TYPE.CfgActivityLine:TYPE.*:PROPERTY.me_cl_child_lines:TRAVERSE_AND_PROCESS:,CLASS.CfgAbsOccAttachmentLine:TYPE.*:PROPERTY.al_absocc_rootline:TRAVERSE_AND_PROCESS:,CLASS.CfgAttachmentLine:TYPE.CfgAttachmentLine:PROPERTY.me_cl_child_lines:TRAVERSE_AND_PROCESS:SECONDARY.al_source_class!=&quot;PseudoFolder&quot;,CLASS.CfgAttachmentLine:TYPE.*:PROPERTY.al_structure_line:TRAVERSE_AND_PROCESS:,CLASS.CfgAttachmentLine:TYPE.*:PROPERTY.me_cl_source:PROCESS:,CLASS.BOMLine:CLASS.AbsOccGenerator:PROPERTY.bl_absocc_generator:PROCESS:,TYPE.MEAppearanceGroupLine:CLASS.AppearanceGroup:PROPERTY.me_cl_source:TRAVERSE_AND_PROCESS:,TYPE.MEAppearanceLine:TYPE.ImanItemLine:PROPERTY.me_apprl_bom_line:TRAVERSE_AND_PROCESS:,TYPE.MEAppearanceLine:TYPE.GDELine:PROPERTY.me_apprl_bom_line:TRAVERSE_AND_PROCESS:,TYPE.MEAppearanceGroupLine:TYPE.*:PROPERTY.me_cl_child_lines:TRAVERSE_AND_PROCESS:,TYPE.ImanItemLine:TYPE.*:PROPERTY.bl_all_child_lines:TRAVERSE_AND_PROCESS:$bom_cb != &quot;1&quot;,TYPE.BOMWindow:TYPE.ImanItemLine:PROPERTY.top_line:TRAVERSE_AND_PROCESS:,TYPE.ImanItemLine:TYPE.*:PROPERTY.bl_revision:TRAVERSE_AND_PROCESS:,TYPE.BOMLine:TYPE.*:PROPERTY.bl_all_child_lines:TRAVERSE_AND_PROCESS:PRIMARY.bl_level_starting_0==&quot;0&quot;,TYPE.BOMLine:TYPE.*:PROPERTY.bl_all_child_lines:TRAVERSE_AND_PROCESS:PRIMARY.bl_level_starting_0==&quot;1&quot;,TYPE.BOMLine:TYPE.*:PROPERTY.bl_revision:TRAVERSE_AND_PROCESS:,CLASS.BOMLine:CLASS.BOMLine:PROPERTY.bl_predecessor_lines:TRAVERSE_AND_PROCESS:SECONDARY.bom_cb != &quot;1&quot; &amp;&amp; $depth != &quot;0&quot;,TYPE.BOMLine:TYPE.*:PROPERTY.bl_connected_lines_tags:TRAVERSE_AND_PROCESS:,TYPE.GDELine:TYPE.*:PROPERTY.bl_connected_lines_tags:TRAVERSE_AND_PROCESS:,TYPE.GDELine:TYPE.*:PROPERTY.bl_line_object:TRAVERSE_AND_PROCESS:,TYPE.GDELine:TYPE.*:PROPERTY.bl_all_child_lines:TRAVERSE_AND_PROCESS:$bom_cb != &quot;1&quot;,CLASS.ImanItemBOPLine:TYPE.*:PROPERTY.bl_all_child_lines:SKIP:PRIMARY.bl_me_refline != &quot;0&quot;,CLASS.ImanItemBOPLine:TYPE.CfgActivityLine:PROPERTY.bl_me_activity_lines:TRAVERSE_AND_PROCESS:,CLASS.ImanItemBOPLine:TYPE.*:PROPERTY.bl_all_child_lines:TRAVERSE_AND_PROCESS:$bom_cb != &quot;1&quot;,CLASS.ImanItemBOPLine:TYPE.*:PROPERTY.bl_revision:TRAVERSE_AND_PROCESS:,CLASS.ImanItemBOPLine:TYPE.ImanItemLine:PROPERTY.bl_me_refline:REFERENCE:$reference==&quot;true&quot;,CLASS.ImanItemBOPLine:TYPE.BOMLine:PROPERTY.bl_me_refline:REFERENCE:$reference==&quot;true&quot;,CLASS.ImanItemBOPLine:TYPE.ImanItemLine:PROPERTY.bl_me_refline:TRAVERSE_AND_PROCESS:,CLASS.ImanItemBOPLine:TYPE.BOMLine:PROPERTY.bl_me_refline:TRAVERSE_AND_PROCESS:,TYPE.Mfg0BvrWorkarea:TYPE.*:PROPERTY.bl_all_child_lines:TRAVERSE_AND_PROCESS:$bom_cb != &quot;1&quot;,TYPE.Mfg0BvrWorkarea:TYPE.*:PROPERTY.bl_revision:TRAVERSE_AND_PROCESS:,TYPE.GDEBOPLine:TYPE.*:PROPERTY.bl_all_child_lines:TRAVERSE_AND_PROCESS:$bom_cb != &quot;1&quot;,TYPE.GDEBOPLine:TYPE.*:PROPERTY.bl_revision:TRAVERSE_AND_PROCESS:,TYPE.GDEBOPLine:TYPE.GDELine:PROPERTY.bl_me_refline:REFERENCE:$reference==&quot;true&quot;,TYPE.GDEBOPLine:TYPE.BOMLine:PROPERTY.bl_me_refline:REFERENCE:$reference==&quot;true&quot;,TYPE.GDEBOPLine:TYPE.GDELine:PROPERTY.bl_me_refline:TRAVERSE_AND_PROCESS:,TYPE.GDEBOPLine:TYPE.BOMLine:PROPERTY.bl_me_refline:TRAVERSE_AND_PROCESS:,TYPE.AppGroupBOPLine:TYPE.MEAppearanceGroupLine:PROPERTY.appgrpbl_get_appgrpline:REFERENCE:$reference==&quot;true&quot;,TYPE.AppGroupBOPLine:TYPE.MEAppearanceGroupLine:PROPERTY.appgrpbl_get_appgrpline:TRAVERSE_AND_PROCESS:,CLASS.MEActivity:CLASS.*:PROPERTY.contents:TRAVERSE_AND_PROCESS:,CLASS.ItemRevision:CLASS.Item:PROPERTY.items_tag:TRAVERSE_AND_PROCESS:,CLASS.ItemRevision:CLASS.VariantExpressionBlock:PROPERTY.variant_expression_block:TRAVERSE_NO_PROCESS:,CLASS.Item:CLASS.Form:PROPERTY.GET6PartOrgRelation:PROCESS:" description="Closure Rules for Exporting BOP Structure and Properties used by Teamcenter to Oracle Transfers." elemId="id8" name="GET_EBS2ClosureRule_Export_EBS" owning_site="#id2" schema_format="0" scope="0" transient_island_id="1">
+
+  <GSIdentity elemId="id5" label="g4FAAABe6bPpxA"/>
+
+</ClosureRule>
+<Filter clauses="" description="Filter Rules for Exporting BOP Structure and Properties used by Teamcenter to Oracle Transfers." elemId="id9" name="GET_EBS2FilterRule_Export_EBS" owning_site="#id2" schema_format="0" scope="0" transient_island_id="1">
+
+  <GSIdentity elemId="id6" label="g4JAAABe6bPpxA"/>
+
+</Filter>
+<Group elemId="id12" list_of_role="#id10 #id11" name="dba" owning_site="#id2" transient_island_id="1">
+
+  <GSIdentity elemId="id4" label="AYPAAAAY6bPpxA"/>
+
+</Group>
+<POM_imc elemId="id13" name="IMC--1351661037" owning_site="#id2" site_id="-1351661037" transient_island_id="0">
+
+  <GSIdentity elemId="id2" label="AuFAAAAE6bPpxA"/>
+
+</POM_imc>
+<PropertySet clauses="TYPE.GET6MEDepartmentRevision:PROPERTY.get6Department:DO,TYPE.GET6AbsResourceRevision:PROPERTY.get6OracleResourceName:DO,TYPE.GET6AbsResourceRevision:PROPERTY.get6ResourceUnits:DO,TYPE.Mfg0BvrProcess:PROPERTY.Mfg0allocated_time:DO,TYPE.GET6ProcessRevision:PROPERTY.project_ids:DO,TYPE.GET6ProcessRevision:PROPERTY.get6Alternate:DO,TYPE.GET6ProcessRevision:PROPERTY.get6Autocharge:DO,TYPE.GET6ProcessRevision:PROPERTY.get6Checkpoint:DO,TYPE.GET6ProcessRevision:PROPERTY.get6ScheduledFlag:DO,TYPE.BOMLine:PROPERTY.bl_formula:DO,TYPE.BOMLine:PROPERTY.bl_item_uom_tag:DO,TYPE.BOMLine:PROPERTY.bl_substitute:DO,TYPE.BOMLine:PROPERTY.bl_variant_condition:DO,TYPE.ItemRevision:PROPERTY.has_module:DO,TYPE.GET6AbsMfgAttrForm:PROPERTY.project_ids:DO" description="Property Sets for exporting BOP Properties used by Teamcenter to Oracle Transfers." elemId="id14" name="GET_PropertySet_Export_EBS" owning_site="#id2" scope="0" transient_island_id="1">
+
+  <GSIdentity elemId="id7" label="QFKAAAiP6bPpxA"/>
+
+</PropertySet>
+<TransferMode action_list="" closure_rules="#id5" config_objs="" context_string="DEFAULT_PIE_CONTEXT_STRING" direction="0" elemId="id15" filters="#id6" fnd0RevisionId="" gov_classification="" incremental="Y" ip_classification="" license_list="" multi_site="N" object_desc="Custom Transfer Mode to Export BOP Structure and Properties used by T40 Oracle Transfer." object_name="GET_EBS2TransferMode_Export_EBS" owning_site="#id2" project_list="" prop_sets="#id7" schema_format="0" transient_island_id="1">
+
+  <GSIdentity elemId="id1" label="g4PAAABe6bPpxA"/>
+
+</TransferMode>
+<User elemId="id16" owning_site="#id2" transient_island_id="1" user_id="infodba">
+
+  <GSIdentity elemId="id3" label="AgLAAAAY6bPpxA"/>
+
+</User>
+<Role elemId="id17" owning_site="#id2" role_name="DBA" transient_island_id="0">
+
+  <GSIdentity elemId="id10" label="AYAAAAAY6bPpxA"/>
+
+</Role>
+<Role elemId="id18" owning_site="#id2" role_name="Material Analyst" transient_island_id="0">
+
+  <GSIdentity elemId="id11" label="gwJAAAAX6bPpxA"/>
+
+</Role>
+<Header author="infodba" date="2018-07-05" elemId="id19" originatingSite="-1351661037" targetSite="" time="08:19:00" version="Teamcenter V11000.2.2.21_20170330.00">
+
+  <TransferFormula elemId="id20">
+    <SessionOptions elemId="id21">
+      <Option elemId="id22" name="tcxmlArrayDataDelimiter" value=","/>
+    </SessionOptions>
+    <TransferMode elemId="id23" fnd0RevisionId="" gov_classification="" ip_classification="" license_list="" object_name="PLMXMLAdminDataExport" owning_site="id2" project_list=""/>
+    <Reason elemId="id24"></Reason>
+  </TransferFormula>
+
+  <TraverseRootRefs>#id1</TraverseRootRefs>
+
+</Header></TCXML>

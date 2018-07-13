@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+  Filename: GET6ECRRevisionSummary.xml
+-->
+  
+<rendering>
+    <page title="Summary" titleKey="tc_xrt_Summary">
+        <column>
+         <section titleKey="tc_xrt_properties">
+		<property name="object_string" />
+		<separator />
+		<property name="item_id" />
+		<property name="item_revision_id" />
+		<property name="object_name" />
+		<property name="object_desc" />
+		<property name="items_tag" />
+		<property name="ip_classification"/>
+		<separator />
+		<property name="CMClosure" />
+		<property name="CMDisposition" />
+		<separator />
+		<property name="owning_user" renderingHint="objectlink" modifiable="false" />
+		<property name="owning_group" renderingHint="objectlink" modifiable="false" />
+		<separator />
+		<property name="last_mod_user" />
+		<separator />
+		<property name="checked_out_user" />
+		<property name="checked_out" />
+		<separator />
+		<property name="Requestor" modifiable="false"/>
+		<property name="Analyst" modifiable="false"/>
+		<property name="ChangeSpecialist1" modifiable="false"/>
+		<separator />
+		<property name="ChangeImplementationBoard" />
+		<separator />
+        <property name="creation_date" />
+        <property name="last_mod_date" /> 
+         </section>
+        </column>
+        <column>
+        <section titleKey="tc_xrt_Preview">
+             <image source="preview"/>
+        </section>
+         <section titleKey="tc_xrt_AssignedParticipants" title="Assigned Participants">
+     	<command commandId="com.teamcenter.rac.assignparticipants" actionKey="assignParticipantsAction" titleKey="tc_xrt_AssignParticipants" title="Assign Participants..."/>
+           </section>
+            <section titleKey="tc_xrt_actions">
+               <command actionKey="copyAction" commandId="com.teamcenter.rac.copy"/>
+               <command actionKey="reviseAction" commandId="com.teamcenter.rac.revise"/>
+               <command actionKey="saveAsAction" commandId="org.eclipse.ui.file.saveAs"/>
+               <command actionKey="newProcessAction" commandId="com.teamcenter.rac.newProcess" titleKey="tc_xrt_newProc"/>
+         </section>
+         <section titleKey="tc_xrt_attachments" title="Attachments">
+            <objectSet source="IMAN_specification.UGMASTER, IMAN_reference.MSExcel, IMAN_Rendering.DirectModel" defaultdisplay="linkDisplay" sortby="object_string" sortdirection="ascending">
+                <linkDisplay/>
+            </objectSet>
+         </section>
+         </column>
+    </page>
+	<page titleKey="tc_xrt_Details" title="ECR Details">
+			<section titleKey="tc_xrt_get_ecr_Details" title="ECR Details">
+				<property name="get6EngrProdLine" />
+				<property name="get6Customers" />
+				<property name="get6OrderNo" />
+				<property name="get6OnTrackItems" />
+				<property name="get6Copies" />
+				<separator />
+				<property name="get6FastTrack" />
+				<property name="get6RedMarkDesign"/>
+				<property name="get6PriPrjNo" />
+				<property name="get6SecPrjNo" />
+				<property name="get6EstHours" />
+				<property name="get6DateReqd" />
+				<separator />
+				 <property name="get6ServiceImpact" />
+				<property name="get6ReasonCode" />
+				<property name="get6ChangeReason" />
+				<property name="get6EngrDisp" />
+				<label text=" Disposition Help Document: (http://libraries.ge.com/SCData/upload/15831/doc_1408154.ppt) "/>
+			</section>	
+	</page>
+	<page titleKey="tc_xrt_Description" title="Description">
+		
+			<section titleKey="tc_xrt_get_ecr_ReasonForChg" title="Reason For Change">
+				<property name="get6ReasonForChg" />
+			</section>	
+		
+			<section titleKey="tc_xrt_get_ecr_DetailDesc" title="Description of Change">
+				<property name="get6ChgDesc" />
+			</section>	
+		
+	</page>
+	<page titleKey="tc_xrt_compliance" title="Compliance">
+		
+		<section titleKey="tc_xrt_get_ecr_USExportControl" title="United States Export Control">
+				<property name="get6EngrInUSA" />
+				<property name="get6ExpControl" />	
+				<property name="get6ECCNSource" />	
+				<property name="get6ObjEvidence" /> 
+				<property name="ip_classification"/>
+				<label text=" EC 1.1 - EC Guidance Document: (http://libraries.ge.com/download?fileid=370899934101&amp;entity_id=32150575101&amp;sid=101) "/>
+		</section>	
+		<separator/>
+		<section titleKey="tc_xrt_get_ecr_Compliance" title="GET Compliance Attributes ">
+			<label text="Does the ECR affect or possibly affect the following:" style="font-weight:normal"/>
+				<property name="get6ECC"/>
+				<property name="get6CCC" />
+				<property name="get6CriticalPart"/>
+				<property name="get6Homologation"/>
+				<property name="get6AddlCompComments" />
+				
+        </section>
+		<separator/>
+		<section titleKey="tc_xrt_get_dra" title="Applied Practice">
+				<property name="get6AppliedPractice" />
+				<property name="get6ApplAppPractice" />
+				<property name="get6DefTolIden" />
+				<label text="By Selecting Specific, The DE acknowledges that the following AP shall be applied on ALL design of this ECR."  style="font-weight:lighter" />
+				<label text="By Selecting Existing,The DE acknowledges that there is NO change to existing AP to ALL designs of this ECR." style="font-weight:lighter" />
+				<label text="By Selecting Multiple, The DE acknowledges that there are multiple Applied Practice and Default tolerances pertaining to designs associated with the ECR and that they are specified in the description of change for each design." style="font-weight:lighter" />
+		</section>
+		
+	</page>	
+		
+</rendering>

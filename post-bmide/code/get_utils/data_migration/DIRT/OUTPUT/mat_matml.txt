@@ -1,0 +1,2 @@
+SQL> @"/package/ugiman/ug/utilities/DIRT/SQL/mat_matml.sql"
+SQL> spool off;

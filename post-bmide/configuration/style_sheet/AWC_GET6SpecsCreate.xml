@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2014.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+-->
+<!-- Style sheet rendering for special Document creation (#1). -->
+<rendering>
+  <page>
+    <section>
+      <property name="item_id" renderingHint="textfield"/>
+      <property name="revision:item_revision_id"/>
+      <property name="object_name"/>
+      <property name="get6EngrProdLine"/>
+	</section>
+				
+	<section title="United States Export Control " titleKey="tc_xrt_USExportControl">
+	  <property name="get6ECCN"/>
+	  <property name="get6ECCNSource"/>
+	  <property name="get6ObjEvidence"/>	
+	  <property name="ip_classification" />
+    </section>  
+	<section title="Compliance" titleKey="tc_xrt_ComplianceAttr">
+	  <property name="get6ECC"/>
+	  <property name="get6CCC"/>
+	  <property name="get6CriticalPart" renderingHint="radiobutton"/>
+	  <property name="get6Homologation" renderingHint="radiobutton"/>
+    </section>
+  </page>
+</rendering>

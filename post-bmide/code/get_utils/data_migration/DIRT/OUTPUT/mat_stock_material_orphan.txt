@@ -1,0 +1,2 @@
+SQL> @"/package/ugiman/ug/utilities/DIRT/SQL/mat_stock_material_orphan.sql"
+SQL> spool off;

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TcBusinessDataLocalization xmlns="http://teamcenter.com/BusinessModel/TcBusinessDataLocalization"
+    Date="">
+<Add>
+   <key locale="en_US" id="Property{::}GET6Project{::}get6AppBuildRefDatePrimary"
+       status="Approved">Apparatus Build Reference date - Primary</key>
+   <key locale="en_US" id="Property{::}GET6Project{::}get6AppBuildRefDateSecond" status="Approved">Apparatus Build Reference date - Secondary</key>
+   <key locale="en_US" id="Property{::}GET6Project{::}get6CustomerName" status="Approved">Customer Name</key>
+   <key locale="en_US" id="Property{::}GET6Project{::}get6Model" status="Approved">Model</key>
+   <key locale="en_US" id="Property{::}GET6Project{::}get6OrderNumber" status="Approved">Order Number</key>
+   <key locale="en_US" id="Property{::}GET6Project{::}get6PrimaryProjectNumber" status="Approved">Primary Project Number</key>
+   <key locale="en_US" id="Property{::}GET6Project{::}get6SalesForceID" status="Approved">Sales Force ID</key>
+   <key locale="en_US" id="Property{::}GET6Project{::}get6SecondaryProjectNumber"
+       status="Approved">Secondary Project Number</key>
+</Add>
+</TcBusinessDataLocalization>

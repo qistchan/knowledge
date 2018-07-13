@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2014.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+-->
+<!-- Style sheet rendering for AWC_GET6Workarea creation. -->
+<rendering>
+    <page titleKey="tc_xrt_CreateItem">
+        <section titleKey="tc_xrt_properties">
+            <property name="item_id"/>
+            <property name="revision:item_revision_id" />
+            <property name="object_name"/>
+            <property name="uom_tag"/>
+			<property name="ip_classification" />
+			<property name="get6EngrProdLine" />
+			<property name="IMAN_master_form:project_id"/>
+            <property name="IMAN_master_form:previous_item_id"/>
+            <property name="IMAN_master_form:serial_number"/>
+        </section>
+    </page>
+</rendering>

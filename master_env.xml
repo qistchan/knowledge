@@ -1,0 +1,19 @@
+ <project name="Master ENV" default="deploy">
+    <import file="common_logging.xml" />
+    <target name="deploy" depends="antlog, -env.deploy" description="Master Build of all Post-BMIDE Sub-Projects">
+    </target>
+
+ 	<target name="-env.deploy">
+		<subant target="deploy">
+        <fileset dir="." >
+        	<include name="ant-script/env_*.xml"/>
+    	</fileset>
+        </subant>
+    </target>
+ 	<target name="clean">
+        <subant target="clean">
+            <fileset dir="." includes="ant-script/bmide_*.xml"/>
+        	<fileset dir="." includes="ant-script/env_*.xml"/>
+        </subant>
+    </target>
+</project>

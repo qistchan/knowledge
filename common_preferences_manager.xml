@@ -1,0 +1,148 @@
+<project name="PreferencesManager" >
+  
+  
+  <!--
+   ==============================================================================================================================
+   ===== Use ant contrib
+   ==============================================================================================================================
+   -->
+  <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+  
+  
+  <!--
+   ==============================================================================================================================
+   ===== Set the property for the directory you desire to process and the Info display string
+   ==============================================================================================================================
+   -->
+  
+  <property environment="env"/>
+<!--
+  <property name="preferences.check.orig" location="preferences.orig"/>
+  <property name="preferences.check.mod"  location="preferences.mod"/>
+-->
+  <!--
+   ==============================================================================================================================
+   ===== NOTE you must define {src.dir} BEFORE including "common_task.xml"
+   ==============================================================================================================================
+   -->
+  
+    <import file="common_task.xml" />
+
+	<target name="preferences_manager_import">
+       		<echo message="Importing preferences ${file}"/>
+       		<preferences_manager scope="${preferences.scope}" file="${file}"/>
+	</target>
+	
+	<target name="preferences_manager_import_group">
+		<basename property="group.base" file="${file}" suffix=".xml"/>
+		<propertyregex property="groupname.smashed" input="${group.base}" regexp="_" replace=" " global="true" defaultValue="${group.base}" />
+		<var name="newfile" value="${target.dir}/${basename.smashed}.xml"/>
+		<echo message="Importing group preferences for: ${groupname.smashed}"/>
+		<echo message="Preferences file ${file}"/>
+		<preferences_manager_group scope="${preferences.scope}" group="${groupname.smashed}" file="${file}"/>
+	</target>
+
+	<target name="preferences_manager_delete">
+            	<echo message="Deleting preferences listed in ${file}"/>
+            	<preferences_manager_delete file="${file}"/>
+	</target>
+
+	<target name="preferences_manager_cleanup">
+  		<echo message="Cleaning unreferenced preferences"/>
+  		<preferences_manager_cleanup/> 
+	</target>
+
+	<target name="preferences_manager_clean">
+		<preferences_manager_clean/>
+    	<delete file="${preferences.check.orig}"/>
+    	<delete file="${preferences.check.mod}"/>
+	</target>
+
+	<target name="get_file_directory">
+		<propertyregex property="file_dir" input="${file}" regexp=".*artifactid-(.*).xml" select="\1" />
+		<echo message="artifact.id: ${artifact.id}"/>
+	</target>
+	
+</project>
+
+<!--
+ ==============================================================================================================================
+ ===== These routines were used when we were trying to compare prefs to make sure an import was successful
+ ===== We don't use them any longer this way
+ ==============================================================================================================================
+ -->
+<!--
+
+<target name="preferences_manager_compare" >
+    <condition property="filesmatch-identical">
+        <filesmatch
+        file1="${preferences.check.orig}"
+        file2="${preferences.check.mod}"/>
+    </condition>
+</target>
+
+    
+<target name="preferences_manager_update" depends="common_task , preferences_manager_clean , preferences_manager_export_original , preferences_manager_import , preferences_manager_export_modified , preferences_manager_check , preferences_manager_compare ">
+    <if>
+        <isset property="filesmatch-identical"/>
+        <then>
+            <fail message="Preferences file failed to import successfully!!"/>
+        </then>
+        <else>
+            <echo message="Preferences import was successful"/>
+        </else>
+    </if>
+</target>
+
+<target name="preferences_manager_import">
+    <if>
+        <available file="${preferences.check.orig}"/>
+        <then>
+            <echo message="Importing preferences ${file}"/>
+            <preferences_manager scope="${preferences.scope}" file="${file}"/>
+        </then>
+        <else>
+            <fail message="Could not find ${preferences.check.orig} for comparison"/>
+        </else>
+    </if>
+</target>
+
+<target name="preferences_manager_export_original">
+    <echo message="Exporting original preferences"/>
+    <preferences_manager_export scope="${preferences.scope}" file="${preferences.check.orig}"/>
+</target>
+
+<target name="preferences_manager_export_modified">
+    <if>
+        <available file="${preferences.check.orig}"/>
+        <then>
+            <echo message="Exporting modified preferences"/>
+            <preferences_manager_export scope="${preferences.scope}" file="${preferences.check.mod}"/>
+        </then>
+        <else>
+            <fail message="Could not find ${preferences.check.orig} for comparison"/>
+        </else>
+    </if>
+</target>
+
+    <target name="preferences_manager_check">
+        <if>
+            <available file="${preferences.check.orig}"/>
+            <then>
+                <if>
+                    <available file="${preferences.check.mod}"/>
+                    <then>
+                        <echo message="Found all files"/>
+                    </then>
+                    <else>
+                        <fail message="Could not find ${preferences.check.mod} for comparison"/>
+                    </else>
+                </if>
+            </then>
+            <else>
+                <fail message="Could not find ${preferences.check.orig} for comparison"/>
+            </else>
+        </if>
+    </target>
+-->
+ 

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+=======================================================================
+Copyright 2014.
+Siemens Product Lifecycle Management Software Inc.
+All Rights Reserved.
+=======================================================================
+    Filename: RB_UIConfigure.xml
+
+    File used to configure control panel of relation browser.
+=======================================================================
+-->
+<RelationBrowser>
+    <OptionPanel>
+        <view name="General">
+            <ruleName>GenericRule</ruleName>
+            <defaultLayout>IncrementalHierarchic</defaultLayout>
+            <group name="relations">
+                <filter name="Attach" parameterSet="Attach" color="(64,100,142)"/>
+                <filter name="Folder" parameterSet="FolderRelation" color="(196,189,151)"/>
+                <filter name="Master" parameterSet="Master" color="(167,153,80)"/>
+                <filter name="Traceability" parameterSet="Traceability" color="(255,182,121)" />
+                <filter name="WhereUsed" parameterSet="WhereUsed" color="(149,179,215)"/>
+                <filter name="Simulation" parameterSet="SimulationRelations" color="(32,176,100)"/>
+                <filter name="Attribute" parameterSet="AttributeRelations" color="(221,222,157)"/>
+            </group>
+            <group name="objects">
+                <filter name="File" parameterSet="Dataset" color="(202,216,234)"/>
+                <filter name="Folder" parameterSet="Folder" color="(196,189,151)"/>
+                <filter name="Functional" parameterSet="Functional" color="(255,182,121)"/>
+                <filter name="Logical" parameterSet="Logical" color="(191,161,229)"/>
+                <filter name="Physical" parameterSet="Physical" color="(138,66,8)"/>
+                <filter name="Plant" parameterSet="Plant" color="(184,214,150)"/>
+                <filter name="Requirement" parameterSet="Requirement" color="(64,100,142)"/>
+                <filter name="Simulation" parameterSet="Simulation" color="(32,176,100)"/>
+                <filter name="Attribute" parameterSet="Attribute" color="(221,222,157)"/>
+                <filter name="Other" parameterSet="WorkspaceObject" color="(238,236,225)"/>
+            </group>
+        </view>
+        <view name="System">
+            <ruleName>GenericRule</ruleName>
+            <defaultLayout>IncrementalHierarchic</defaultLayout>
+            <group name="relations">
+                <filter name="Attach" parameterSet="Attach" color="(64,100,142)"/>
+                <filter name="Connectivity" parameterSet="Connectivity" color="(221,115,115)"/>
+                <filter name="Folder" parameterSet="FolderRelation" color="(196,189,151)"/>
+                <filter name="Master" parameterSet="Master" color="(167,153,80)"/>
+                <filter name="Traceability" parameterSet="Traceability" color="(255,182,121)" />
+                <filter name="WhereUsed" parameterSet="WhereUsed" color="(149,179,215)"/>
+            </group>
+            <group name="objects">
+                <filter name="File" parameterSet="Dataset" color="(202,216,234)"/>
+                <filter name="Functional" parameterSet="Functional" color="(255,182,121)"/>
+                <filter name="Logical" parameterSet="Logical" color="(191,161,229)"/>
+                <filter name="Physical" parameterSet="Physical" color="(138,66,8)"/>
+                <filter name="Plant" parameterSet="Plant" color="(184,214,150)"/>
+                <filter name="Requirement" parameterSet="Requirement" color="(64,100,142)"/>
+            </group>
+        </view>
+        <view name="Design">
+            <ruleName>GenericRule</ruleName>
+            <defaultLayout>IncrementalHierarchic</defaultLayout>
+            <group name="relations">
+                <filter name="Attach" parameterSet="Attach" color="(64,100,142)"/>
+                <filter name="Impact" parameterSet="Impact" color="(243,130,37)"/>
+                <filter name="Master" parameterSet="Master" color="(167,153,80)"/>
+                <filter name="Traceability" parameterSet="Traceability" color="(255,182,121)"/>
+                <filter name="WhereUsed" parameterSet="WhereUsed" color="(149,179,215)"/>
+            </group>
+            <group name="objects">
+                <filter name="Change" parameterSet="Change" color="(243,130,37)"/>
+                <filter name="File" parameterSet="Dataset" color="(202,216,234)"/>
+                <filter name="Physical" parameterSet="Physical" color="(138,66,8)"/>
+                <filter name="Requirement" parameterSet="Requirement" color="(64,100,142)"/>
+            </group>
+        </view>
+    </OptionPanel>
+    <parameterSets>
+        <parameterSet name="Attach">
+            <clipsfacts>
+                <fact>source=GRM,key=Attach,relationType=TC_Attaches,targetDirection=forward,inputTypes=ItemRevision</fact>
+                <fact>source=GRM,key=Attach,relationType=TC_Attaches,targetDirection=backward,inputTypes=Dataset</fact>
+                <fact>source=GRM,key=Attach,relationType=IMAN_specification,targetDirection=forward,inputTypes=ItemRevision,excludeTypes=FullText</fact>
+                <fact>source=GRM,key=Attach,relationType=IMAN_specification,targetDirection=backward,inputTypes=WorkspaceObject</fact>
+				<fact>source=GRM,key=Attach,relationType=IMAN_manifestation,targetDirection=backward,inputTypes=WorkspaceObject</fact>
+				<fact>source=GRM,key=Attach,relationType=IMAN_Drawing,targetDirection=backward,inputTypes=WorkspaceObject</fact>
+                <fact>source=Property,key=Attach,propertyName=IMAN_Rendering,targetDirection=forward,inputTypes=ItemRevision</fact>
+                <fact>source=Property,key=Attach,propertyName=IMAN_Simulation,targetDirection=forward,inputTypes=ItemRevision</fact>
+            </clipsfacts>
+        </parameterSet>
+        <parameterSet name="FolderRelation">
+            <clipsfacts>
+                <fact>source=Property,key=Folder,propertyName=contents,targetDirection=forward,inputTypes=Folder</fact>
+                <fact>source=WhereReferenced,key=Folder,level=1,inputTypes=Item|ItemRevision|Folder,outputTypes=Folder</fact>
+            </clipsfacts>
+        </parameterSet>
+        <parameterSet name="Impact">
+            <clipsfacts>
+                <fact>source=GRM,key=Impact,relationType=CMReferences,targetDirection=forward,inputTypes=ChangeItemRevision</fact>
+                <fact>source=GRM,key=Impact,relationType=CMReferences,targetDirection=backward,inputTypes=WorkspaceObject</fact>
+                <fact>source=GRM,key=Impact,relationType=CMHasProblemItem,targetDirection=forward,inputTypes=ChangeItemRevision</fact>
+                <fact>source=GRM,key=Impact,relationType=CMHasProblemItem,targetDirection=backward,inputTypes=WorkspaceObject</fact>
+                <fact>source=GRM,key=Impact,relationType=CMHasWorkBreakdown,targetDirection=forward,inputTypes=ChangeItemRevision</fact>
+                <fact>source=GRM,key=Impact,relationType=CMHasWorkBreakdown,targetDirection=backward,inputTypes=WorkspaceObject</fact>
+                <fact>source=GRM,key=Impact,relationType=CMHasSolutionItem,targetDirection=forward,inputTypes=ChangeItemRevision</fact>
+                <fact>source=GRM,key=Impact,relationType=CMHasSolutionItem,targetDirection=backward,inputTypes=WorkspaceObject</fact>
+                <fact>source=GRM,key=Impact,relationType=CMImplements,targetDirection=forward,inputTypes=ChangeItemRevision</fact>
+                <fact>source=GRM,key=Impact,relationType=CMImplements,targetDirection=backward,inputTypes=WorkspaceObject</fact>
+                <fact>source=GRM,key=Impact,relationType=CMHasImpactedItem,targetDirection=forward,inputTypes=ChangeItemRevision</fact>
+                <fact>source=GRM,key=Impact,relationType=CMHasImpactedItem,targetDirection=backward,inputTypes=WorkspaceObject</fact>
+            </clipsfacts>
+        </parameterSet>
+        <parameterSet name="Master">
+            <clipsfacts>
+                <fact>source=Property,key=Master,propertyName=items_tag,targetDirection=backward,inputTypes=ItemRevision</fact>
+            </clipsfacts>
+        </parameterSet>
+        <parameterSet name="Structure">
+            <clipsfacts>
+                <fact>source=BOMRelation,key=Structure,inputTypes=ItemRevision|BOMLine</fact>
+                <fact>source=Property,key=Structure,propertyName=ps_parents,targetDirection=backward,inputTypes=ItemRevision</fact>
+            </clipsfacts>
+        </parameterSet>
+        <parameterSet name="WhereUsed">
+            <clipsfacts>
+                <fact>source=Property,key=WhereUsed,propertyName=ps_parents,targetDirection=backward,inputTypes=ItemRevision</fact>
+            </clipsfacts>
+        </parameterSet>
+        <parameterSet name="Traceability">
+            <clipsfacts>
+                <fact>source=GRM,key=Traceability,relationType=FND_TraceLink,targetDirection=backward,inputTypes=WorkspaceObject</fact>
+                <fact>source=GRM,key=Traceability,relationType=FND_TraceLink,targetDirection=forward,inputTypes=WorkspaceObject</fact>
+            </clipsfacts>
+            <typesForCreation>
+                <type>FND_TraceLink</type>
+            </typesForCreation>
+        </parameterSet>
+        <parameterSet name="Connectivity">
+            <clipsfacts>
+                <fact>source=PSConnection,key=Connectivity,relationType=PSConnection</fact>
+            </clipsfacts>
+            <typesForCreation>
+                <type>Fnd0LogicConn</type>
+                <type>Network</type>
+                <type>Connection</type>
+            </typesForCreation>
+        </parameterSet>
+        <parameterSet name="Requirement">
+            <clipsfacts>
+                <fact>Requirement</fact>
+                <fact>Requirement Revision</fact>
+                <fact>RequirementSpec</fact>
+                <fact>RequirementSpec Revision</fact>
+                <fact>BOMLine</fact>
+            </clipsfacts>
+            <typesForCreation>
+                <type>Requirement</type>
+                <type>RequirementSpec</type>
+            </typesForCreation>
+        </parameterSet>
+        <parameterSet name="Functional">
+            <clipsfacts>
+                <fact>Functionality</fact>
+                <fact>FunctionalityRevision</fact>
+                <fact>BOMLine</fact>
+            </clipsfacts>
+            <typesForCreation>
+                <type>Functionality</type>
+            </typesForCreation>
+        </parameterSet>
+        <parameterSet name="Logical">
+            <clipsfacts>
+                <fact>Fnd0LogicalBlock</fact>
+                <fact>Fnd0LogicalBlockRevision</fact>
+                <fact>BOMLine</fact>
+            </clipsfacts>
+            <typesForCreation>
+                <type>Fnd0LogicalBlock</type>
+            </typesForCreation>
+        </parameterSet>
+        <parameterSet name="Physical">
+            <clipsfacts>
+                <fact>Part</fact>
+                <fact>Part Revision</fact>
+                <fact>Design</fact>
+                <fact>Design Revision</fact>
+                <fact>BOMLine</fact>
+            </clipsfacts>
+            <typesForCreation>
+                <type>Part</type>
+                <type>Design</type>
+            </typesForCreation>
+        </parameterSet>
+        <parameterSet name="Dataset">
+            <clipsfacts>
+                <fact>Dataset</fact>
+            </clipsfacts>
+        </parameterSet>
+        <parameterSet name="Plant">
+            <clipsfacts>
+                <fact>MEWorkarea</fact>
+                <fact>MEWorkareaRevision</fact>
+                <fact>BOMLine</fact>
+            </clipsfacts>
+        </parameterSet>
+        <parameterSet name="Folder">
+            <clipsfacts>
+                <fact>Folder</fact>
+            </clipsfacts>
+        </parameterSet>
+        <parameterSet name="WorkspaceObject">
+            <clipsfacts>
+                <fact>WorkspaceObject</fact>
+            </clipsfacts>
+        </parameterSet>
+        <parameterSet name="Change">
+            <clipsfacts>
+                <fact>ProblemReport</fact>
+                <fact>ProblemReportRevision</fact>
+                <fact>ChangeRequest</fact>
+                <fact>ChangeRequestRevision</fact>
+                <fact>ChangeNotice</fact>
+                <fact>ChangeNoticeRevision</fact>
+                <fact>Schedule</fact>
+            </clipsfacts>
+            <!--set attribute 'allSubTypes' to true if need all sub types-->
+            <typesForCreation allSubTypes="false"/>
+        </parameterSet>
+        <parameterSet name="Simulation">
+            <clipsfacts>
+                <fact>CAEGeometry</fact>
+                <fact>CAEGeometryRevision</fact>
+                <fact>CAEModel</fact>
+                <fact>CAEModelRevision</fact>
+                <fact>CAEAnalysis</fact>
+                <fact>CAEAnalysisRevision</fact>
+                <fact>CAEResult</fact>
+                <fact>CAEResultRevision</fact>
+            </clipsfacts>
+        </parameterSet>
+        <parameterSet name="SimulationRelations">
+            <clipsfacts>
+                <fact>source=GRM,key=Simulation,relationType=TC_CAE_Source,targetDirection=backward,inputTypes=ItemRevision</fact>
+                <fact>source=GRM,key=Simulation,relationType=TC_CAE_Target,targetDirection=backward,inputTypes=ItemRevision</fact>
+                <fact>source=GRM,key=Simulation,relationType=TC_CAE_Source,targetDirection=backward,inputTypes=CAEGeometryRevision</fact>
+                <fact>source=GRM,key=Simulation,relationType=TC_CAE_Defining,targetDirection=backward,inputTypes=CAEModelRevision</fact>
+                <fact>source=GRM,key=Simulation,relationType=TC_CAE_Source,targetDirection=forward,inputTypes=CAEGeometryRevision</fact>
+                <fact>source=GRM,key=Simulation,relationType=TC_CAE_Target,targetDirection=forward,inputTypes=CAEGeometryRevision</fact>
+                <fact>source=GRM,key=Simulation,relationType=TC_CAE_Source,targetDirection=forward,inputTypes=CAEModelRevision</fact>
+                <fact>source=GRM,key=Simulation,relationType=TC_CAE_Target,targetDirection=forward,inputTypes=CAEModelRevision</fact>
+                <fact>source=GRM,key=Simulation,relationType=TC_CAE_Defining,targetDirection=forward,inputTypes=CAEAnalysisRevision</fact>
+                <fact>source=GRM,key=Simulation,relationType=TC_CAE_Results,targetDirection=forward,inputTypes=CAEAnalysisRevision</fact>
+                <fact>source=GRM,key=Simulation,relationType=TC_CAE_Include,targetDirection=forward,inputTypes=CAEAnalysisRevision</fact>
+                <fact>source=GRM,key=Simulation,relationType=TC_CAE_Include,targetDirection=backward,inputTypes=CAEAnalysisRevision</fact>
+                <fact>source=GRM,key=Simulation,relationType=TC_CAE_Results,targetDirection=backward,inputTypes=CAEResultRevision</fact>
+            </clipsfacts>
+        </parameterSet>
+        <parameterSet name="Attribute">
+            <clipsfacts>
+                <fact>Att0MeasurableAttributeInt</fact>
+                <fact>Att0MeasurableAttributeDbl</fact>
+                <fact>Att0MeasurableAttributeStr</fact>
+                <fact>Att0MeasurableAttributeBool</fact>
+            </clipsfacts>
+        </parameterSet>
+        <parameterSet name="AttributeRelations">
+            <clipsfacts>
+                <fact>source=GRM,key=Attribute,relationType=Att0AttrRelation,targetDirection=backward,inputTypes=WorkspaceObject</fact>
+                <fact>source=GRM,key=Attribute,relationType=Att0InputAttrRelation,targetDirection=backward,inputTypes=WorkspaceObject</fact>
+                <fact>source=GRM,key=Attribute,relationType=Att0OutputAttrRelation,targetDirection=backward,inputTypes=WorkspaceObject</fact>
+            </clipsfacts>
+        </parameterSet>
+    </parameterSets>
+</RelationBrowser>

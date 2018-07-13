@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences version="10.0">
+	<category name="GET">
+		
+		<!--Preference to set UGM RAC Stylesheet for GET Mechanical Part Summary -->
+		<preference name="GET6MechPart.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Group" envEnabled="false">
+			<preference_description>Mechanical Part Summary Stylesheet</preference_description>
+			<context name="Teamcenter">
+				<value>GET6MechPartSummary_UGM</value>
+			</context>
+		</preference>
+		
+		<!--Preference to set UGM RAC Stylesheet for GET Electrical Part Summary -->
+		<preference name="GET6ElectPart.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Group" envEnabled="false">
+			<preference_description>Electrical Part Summary Stylesheet</preference_description>
+			<context name="Teamcenter">
+				<value>GET6ElectPartSummary_UGM</value>
+			</context>
+		</preference>
+		
+		<!--Preference to set UGM RAC Stylesheet for ECR -->
+		<preference name="GET6ECR.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Group" envEnabled="false">
+			<preference_description>ECR Summary Stylesheet</preference_description>
+			<context name="Teamcenter">
+				<value>GET6ECRSummary_UGM</value>
+			</context>
+		</preference>
+		<preference name="GET6ECRRevision.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Group" envEnabled="false">
+			<preference_description>ECR Revision Summary Stylesheet</preference_description>
+			<context name="Teamcenter">
+				<value>GET6ECRRevisionSummary_UGM</value>
+			</context>
+		</preference>
+		
+		<!--Preference to set UGM RAC Stylesheet for ECN -->
+		<preference name="GET6ECN.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Group" envEnabled="false">
+			<preference_description>ECN Summary Stylesheet</preference_description>
+			<context name="Teamcenter">
+				<value>GET6ECNSummary_UGM</value>
+			</context>
+		</preference>
+		<preference name="GET6ECNRevision.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Group" envEnabled="false">
+			<preference_description>ECN Revision Summary Stylesheet</preference_description>
+			<context name="Teamcenter">
+				<value>GET6ECNRevisionSummary_UGM</value>
+			</context>
+		</preference>
+		
+		<!--Preference to set UGM AWC Stylesheet for GET Mechanical Part Summary -->
+		<preference name="AWC_GET6MechPart.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Group" envEnabled="false">
+			<preference_description>Mechanical Part Summary Stylesheet</preference_description>
+			<context name="Teamcenter">
+				<value>AWC_GET6MechPartSummary_UGM</value>
+			</context>
+		</preference>
+		
+		<!--Preference to set UGM AWC Stylesheet for GET Electrical Part Summary -->
+		<preference name="AWC_GET6ElectPart.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Group" envEnabled="false">
+			<preference_description>Electrical Part Summary Stylesheet</preference_description>
+			<context name="Teamcenter">
+				<value>AWC_GET6ElectPartSummary_UGM</value>
+			</context>
+		</preference>
+		
+		<!--Preference to set UGM AWC Stylesheet for ECR -->
+		<preference name="AWC_GET6ECR.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Group" envEnabled="false">
+			<preference_description>ECR Summary Stylesheet</preference_description>
+			<context name="Teamcenter">
+				<value>AWC_GET6ECRSummary_UGM</value>
+			</context>
+		</preference>
+		<preference name="AWC_GET6ECRRevision.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Group" envEnabled="false">
+			<preference_description>ECR Revision Summary Stylesheet</preference_description>
+			<context name="Teamcenter">
+				<value>AWC_GET6ECRRevisionSummary_UGM</value>
+			</context>
+		</preference>
+		
+		<!--Preference to set UGM AWC Stylesheet for ECN -->
+		<preference name="AWC_GET6ECN.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Group" envEnabled="false">
+			<preference_description>ECN Summary Stylesheet</preference_description>
+			<context name="Teamcenter">
+				<value>AWC_GET6ECNSummary_UGM</value>
+			</context>
+		</preference>
+		<preference name="AWC_GET6ECNRevision.SUMMARYRENDERING" type="String" array="false" disabled="false" protectionScope="Group" envEnabled="false">
+			<preference_description>ECN Revision Summary Stylesheet</preference_description>
+			<context name="Teamcenter">
+				<value>AWC_GET6ECNRevisionSummary_UGM</value>
+			</context>
+		</preference>
+		
+	</category>
+</preferences>

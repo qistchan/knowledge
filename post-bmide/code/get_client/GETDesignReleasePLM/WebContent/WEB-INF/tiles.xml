@@ -1,0 +1,40 @@
+<!DOCTYPE tiles-definitions PUBLIC
+    "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+    "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>  
+    <definition name="base.definition" template="/WEB-INF/views/layout.jsp">  
+        <put-attribute name="header2" value="/WEB-INF/views/header2.jsp"></put-attribute> 
+        <put-attribute name="header" value="/WEB-INF/views/header3.jsp"></put-attribute>  
+        <put-attribute name="body" value=""></put-attribute>  
+        <put-attribute name="footer" value="/WEB-INF/views/footer.jsp"></put-attribute>  
+    </definition>  
+   
+     <definition extends="base.definition" name="Home">  
+        <put-attribute name="body" value="/WEB-INF/views/Home.jsp"></put-attribute>  
+    </definition>
+    
+    
+    <definition extends="base.definition" name="Home1">  
+        <put-attribute name="body" value="/WEB-INF/views/Home1.jsp"></put-attribute>  
+    </definition>
+    <definition extends="base.definition" name="ssologin">  
+        <put-attribute name="body" value="/WEB-INF/views/ssologin.jsp"></put-attribute>  
+    </definition>
+      
+    <definition extends="base.definition" name="UserHome">  
+        <put-attribute name="body" value="/WEB-INF/views/UserHome.jsp"></put-attribute>  
+    </definition> 
+    
+    <definition extends="base.definition" name="EngManagerHome">  
+        <put-attribute name="body" value="/WEB-INF/views/EngManagerHome.jsp"></put-attribute>  
+    </definition>
+    
+    <definition extends="base.definition" name="EngHome">  
+        <put-attribute name="body" value="/WEB-INF/views/EngHome.jsp"></put-attribute>  
+    </definition>
+    
+    <definition extends="base.definition" name="DesigncordHome">  
+        <put-attribute name="body" value="/WEB-INF/views/DesigncordHome.jsp"></put-attribute>  
+    </definition>  
+   
+</tiles-definitions>  

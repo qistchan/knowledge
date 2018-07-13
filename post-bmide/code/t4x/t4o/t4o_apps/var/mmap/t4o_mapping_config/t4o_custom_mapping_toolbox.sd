@@ -1,0 +1,359 @@
+##
+# @file          t4o_custom_mapping_toolbox.sd
+# @brief         repeatedly called code - summed in procedures to simplify the mapping code
+#
+#
+# @author        L.J., 20150917
+#
+#
+namespace eval ::T4O::CUSTOM::MAPPING::TOOLBOX {
+
+  namespace export getLocationName
+  namespace export getLookup
+  namespace export storeAttribute
+  namespace export translateAssemblyTypeCode
+  namespace export translateBomTypeCode
+  namespace export translateCountPointTypeCode
+  namespace export translateInvPlanningCode
+  namespace export translateMakeBuyCode
+  namespace export translateMRPPlanningCode
+  namespace export translatePeggingCode
+  namespace export translateScheduleTypeCode
+  namespace export translateVMIForecastTypeCode
+  namespace export translateWIPSupplyTypeCode
+  namespace export TTime2time
+
+  variable EBSMap [dict create]
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::CUSTOM::MAPPING::TOOLBOX::getLookup
+  # \brief          Returns a dictionary for the specified EBS Lookup where the key is LOOKUP_CODE
+  #
+  # \author         L.J., 20150922
+  #
+  # \param          strLookupType - Lookup Type
+  # \param          keyField - Optional (default LOOKUP_CODE)
+  # \param          CaseSensitive "" (default) | UPPERCASE | LOWERCASE
+  # \param          strLanguage - Optional (default Empty) - If no language is specified, USERENV('LANG') is used
+  #
+  # \return         OK and TCL dict, NOT_FOUND, or ERROR with message in hex format
+  #
+  proc getLookup { strLookupType {keyField LOOKUP_CODE} {caseSensitive {}} {strLanguage {}}} {
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    set Status "OK"
+    set Result [dict create]
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with strLookupType >$strLookupType<, keyField >$keyField<, caseSensitive >$caseSensitive<, and strLanguage >$strLanguage<"
+    #
+    if { $keyField eq "" } { set keyField "LOOKUP_CODE" }
+    set Status [::TPEBS::BASE::getLookupInfo $strLookupType $strLanguage]
+    if { [lindex $Status 0] eq "OK" } {
+      foreach row [::T4X::CORE::sortIndexedInterfaceTable [array names ::EbsResultDat X_LOOKUP_TBL:X_LOOKUP_TBL_ITEM:$keyField:*]] {
+        set n [lindex [split $row :] end]
+        set id $::EbsResultDat($row)
+        if { $caseSensitive eq "UPPERCASE" } { set id [string toupper $id] }
+        if { $caseSensitive eq "LOWERCASE" } { set id [string tolower $id] }
+        foreach entry [lsort -dictionary [array names ::EbsResultDat X_LOOKUP_TBL:X_LOOKUP_TBL_ITEM:*:$n]] {
+          set name [lindex [split $entry :] end-1]
+          dict set Result $id $name $::EbsResultDat($entry)
+        }
+      }
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName: read [dict size $Result] entries..."
+      dict for { desc info } $Result {
+        tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName: $desc: $info"
+      }
+      lappend Status $Result
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName returns $Status"
+    return $Status
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::CUSTOM::MAPPING::TOOLBOX::translateEBSCode
+  # \brief          Translates an EBS Code to a meaningful string using the specified map and lookup
+  #
+  # \author         L.J., 20160716
+  #
+  # \param          Code, EBS code value to be translated
+  # \param          LookupType, EBS lookup name
+  #
+  # \return         EBS Code meaning
+  #
+  proc translateEBSCode { Code LookupType } {
+    variable EBSMap
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with >$Code< >$LookupType<"
+    #
+    if { ![dict exists $EBSMap $LookupType] } {
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName: reading lookup from EBS"
+      set rc_func [::T4O::CUSTOM::MAPPING::TOOLBOX::getLookup $LookupType]
+      if { [lindex $rc_func 0] eq "OK" } {
+        dict set EBSMap $LookupType [lindex $rc_func 1]
+      } else {
+        tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype ERROR "$FunctionName: ::T4O::CUSTOM::MAPPING::TOOLBOX::getLookup failed: $rc_func"
+        dict set EBSMap $LookupType $Code [dict create MEANING $Code]
+      }
+    }
+    #
+    if { [dict exists $EBSMap $LookupType $Code MEANING] } {
+      set Code [dict get $EBSMap $LookupType $Code MEANING]
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName returns $Code"
+    #
+    return $Code
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::CUSTOM::MAPPING::TOOLBOX::translateMRPPlanningCode
+  # \brief          Translates an MRP Planning Code to a meaningful string
+  #
+  # \author         L.J., 20151013
+  #
+  # \param          MrpPlanCode, MRP Planning Code
+  #
+  # \return         MRP Planning Code meaning
+  #
+  proc translateMRPPlanningCode { MrpPlanCode } {
+    return [::T4O::CUSTOM::MAPPING::TOOLBOX::translateEBSCode $MrpPlanCode "MRP_PLANNING_CODE"]
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::CUSTOM::MAPPING::TOOLBOX::translateInvPlanningCode
+  # \brief          Translates an Inventory Planning Code to a meaningful string
+  #
+  # \author         L.J., 20151013
+  #
+  # \param          InvPlanCode, Inv Planning Code
+  #
+  # \return         Inventory Planning Code meaning
+  #
+  proc translateInvPlanningCode { InvPlanCode } {
+    return [::T4O::CUSTOM::MAPPING::TOOLBOX::translateEBSCode $InvPlanCode "MTL_MATERIAL_PLANNING"]
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::CUSTOM::MAPPING::TOOLBOX::translatePeggingCode
+  # \brief          Translates an End Assembly Pegging Flag to a meaningful string
+  #
+  # \author         L.J., 20151013
+  #
+  # \param          PeggingCode, End Assembly Pegging Flag
+  #
+  # \return         End Assembly Pegging Flag meaning
+  #
+  proc translatePeggingCode { PeggingCode } {
+    return [::T4O::CUSTOM::MAPPING::TOOLBOX::translateEBSCode $PeggingCode "ASSEMBLY_PEGGING_CODE"]
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::CUSTOM::MAPPING::TOOLBOX::translateBomTypeCode
+  # \brief          Translates a Bom Item Type to a meaningful string
+  #
+  # \author         L.J., 20151013
+  #
+  # \param          BomTypeCode, Bom Item Type Code
+  #
+  # \return         Bom Item Type meaning
+  #
+  proc translateBomTypeCode { BomTypeCode } {
+    return [::T4O::CUSTOM::MAPPING::TOOLBOX::translateEBSCode $BomTypeCode "BOM_ITEM_TYPE"]
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::CUSTOM::MAPPING::TOOLBOX::translateWIPSupplyTypeCode
+  # \brief          Translates a WIP Supply Type to a meaningful string
+  #
+  # \author         L.J., 20160716
+  #
+  # \param          WIPSupplyTypeCode, WIP Supply Type Code
+  #
+  # \return         WIP Supply Type meaning
+  #
+  proc translateWIPSupplyTypeCode { WIPSupplyTypeCode } {
+    return [::T4O::CUSTOM::MAPPING::TOOLBOX::translateEBSCode $WIPSupplyTypeCode "WIP_SUPPLY"]
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::CUSTOM::MAPPING::TOOLBOX::translateAssemblyTypeCode
+  # \brief          Translates an Assembly Type to a meaningful string
+  #
+  # \author         L.J., 20160716
+  #
+  # \param          AssemblyTypeCode, Assembly Type Code
+  #
+  # \return         Assembly Type meaning
+  #
+  proc translateAssemblyTypeCode { AssemblyTypeCode } {
+    return [::T4O::CUSTOM::MAPPING::TOOLBOX::translateEBSCode $AssemblyTypeCode "ECG_BOM_COMP_SEL"]
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::CUSTOM::MAPPING::TOOLBOX::translateMakeBuyCode
+  # \brief          Translates a Make Buy Code to a meaningful string
+  #
+  # \author         L.J., 20160716
+  #
+  # \param          MakeBuyCode, Make/Buy Code
+  #
+  # \return         Make/Buy meaning
+  #
+  proc translateMakeBuyCode { MakeBuyCode } {
+    return [::T4O::CUSTOM::MAPPING::TOOLBOX::translateEBSCode $MakeBuyCode "MTL_PLANNING_MAKE_BUY"]
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::CUSTOM::MAPPING::TOOLBOX::translateVMIForecastTypeCode
+  # \brief          Translates a VMI Forecast Type to a meaningful string
+  #
+  # \author         L.J., 20160716
+  #
+  # \param          VMIForecastTypeCode, VMI Forecast Type Code
+  #
+  # \return         VMI Forecast Type meaning
+  #
+  proc translateVMIForecastTypeCode { VMIForecastTypeCode } {
+    return [::T4O::CUSTOM::MAPPING::TOOLBOX::translateEBSCode $VMIForecastTypeCode "MTL_MSI_GP_FORECAST_TYPE"]
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::CUSTOM::MAPPING::TOOLBOX::translateCountPointTypeCode
+  # \brief          Translates a Count Point Type to a meaningful string
+  #
+  # \author         L.J., 20180326
+  #
+  # \param          Code, Count Point Type Code
+  #
+  # \return         Count Point Type meaning
+  #
+  proc translateCountPointTypeCode { Code } {
+    return [::T4O::CUSTOM::MAPPING::TOOLBOX::translateEBSCode $Code "BOM_COUNT_POINT_TYPE"]
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::CUSTOM::MAPPING::TOOLBOX::translateScheduleTypeCode
+  # \brief          Translates a Schedule Type to a meaningful string
+  #
+  # \author         L.J., 20180326
+  #
+  # \param          Code, Schedule Type Code
+  #
+  # \return         Schedule Type meaning
+  #
+  proc translateScheduleTypeCode { Code } {
+    return [::T4O::CUSTOM::MAPPING::TOOLBOX::translateEBSCode $Code "BOM_RESOURCE_SCHEDULE_TYPE"]
+  }
+
+# ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::CUSTOM::MAPPING::TOOLBOX::TTime2time
+  # \brief          Converts a Teamcenter timestamp into an EBS timestamp
+  #
+  # \author         L.J., 20151023
+  #
+  # \param          ttime - Teamcenter timestamp
+  #
+  # \return         EBS timestamp or "UNKNOWN"
+  #
+  proc TTime2time { ttime args } {
+    #
+    set rc "UNKNOWN"
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with >$ttime<..."
+    #
+    if { [catch { set rc [::T4O::CTime2time [clock scan $ttime -format "%Y.%m.%d %T" -timezone "-0000"]] }] != 0 } {
+      # Not in DB format, maybe UI format
+      catch { set rc [::T4O::CTime2time [clock scan $ttime -format "%d-%b-%Y %H:%M" -timezone "-0000"]] }
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype [::T4X::CORE::getLogLineMessageType4rc $rc] "$FunctionName finished with >$rc<"
+    #
+    return $rc
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::CUSTOM::MAPPING::TOOLBOX::storeAttribute
+  # \brief          Stores a possibly blank attribute value into ::EBSDat
+  #
+  # \author         L.J., 20170421
+  #
+  # \param          field - field to set (e.g., "Item:PARAMETER:P_DESCRIPTION")
+  # \param          value - value to set
+  #
+  proc storeAttribute { field value } {
+    #
+    if { $value eq "" } {
+      ::T4O::TC::MAPPING::EBSClearAttribute $field
+    } else {
+      set ::EBSDat($field) $value
+    }
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:         ::T4O::CUSTOM::MAPPING::TOOLBOX::getLocationName
+  # \brief          Gets the location name for an id
+  #
+  # \author         L.J., 20180515
+  #
+  # \param          LocatorId
+  # \param          OrgCode
+  # \param          OrgId - OPTIONAL (can be used instead of OrgCode)
+  # \param          blnDisableCache - Disables internal caching (optional TRUE/FALSE - Default: FALSE)
+  #
+  proc getLocationName { LocatorId OrgCode {OrgId {}} {blnDisableCache {FALSE}} args } {
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName starts with LocatorId >$LocatorId<, OrgCode >$OrgCode<, OrgId >$OrgId<, blnDisableCache >$blnDisableCache<"
+    #
+    if { $OrgId eq "" } {
+      set OrgId [lindex [::TPEBS::BASE::getOrgId4OrgCode $OrgCode] 1]
+    }
+    #
+    set strSystem [::T4O::getActiveEBSSystem]
+    set strCacheProcFlagName "INTERN.T4O.EBSCache.LocationName.[::T4O::string2Hex $strSystem].[::T4O::string2Hex $LocatorId].[::T4O::string2Hex $OrgId]"
+    set rc_cache [::TPEBS::BASE::getCacheValue4Key $strCacheProcFlagName $blnDisableCache]
+    if { [lindex $rc_cache 0] eq "OK" } {
+      set locationName [lindex $rc_cache 1]
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - LocationName for System $strSystem, LocatorId $LocatorId, and OrgId $OrgId found in internal cache..."
+    } else {
+      set conn [::TPEBS::BASE::JDBC::getConnectionHandle4System $strSystem]
+      ::T4X::OBJECTS::tplet statement $conn prepareStatement "SELECT segment1 FROM apps.MTL_ITEM_LOCATIONS_KFV where organization_id = ? AND INVENTORY_LOCATION_ID = ?"
+      set intIndex 0
+      ::T4X::OBJECTS::tpwith $statement setString [incr intIndex] $OrgId
+      ::T4X::OBJECTS::tpwith $statement setString [incr intIndex] $LocatorId
+      ::T4X::OBJECTS::tplet CollectionsResultSet $statement executeQuery
+      #
+      set locationName ""
+      if {[::T4X::OBJECTS::tpwith $CollectionsResultSet next]} {
+        ::T4X::OBJECTS::tpletovl locationName $CollectionsResultSet getString "(int)1";
+        ::TPEBS::BASE::setCacheValue4Key $strCacheProcFlagName $locationName
+      }
+      #
+      ::T4X::OBJECTS::tpwith $CollectionsResultSet close
+      ::T4X::OBJECTS::tpwith $statement close
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName returns $locationName"
+    return $locationName
+  }
+}

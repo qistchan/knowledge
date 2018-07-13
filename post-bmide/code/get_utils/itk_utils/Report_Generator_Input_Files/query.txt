@@ -1,0 +1,3 @@
+D:\Workspace\WS1\get_transplm_trunk\post-bmide\code\get_utils\itk_utils\mfg_attr_form.txt
+D:\Workspace\WS1\get_transplm_trunk\post-bmide\code\get_utils\itk_utils\query2.txt
+D:\Workspace\WS1\get_transplm_trunk\post-bmide\code\get_utils\itk_utils\query3.txt

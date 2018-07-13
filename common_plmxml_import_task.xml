@@ -1,0 +1,37 @@
+<project name="common_plmxml">
+    
+    <import file="common_task.xml" />
+    <import file="common_loop.xml" />
+
+    
+    <fileset id="targetcheckfs" dir="${src.dir}" casesensitive="yes">
+        <include name="**/*.xml"/>
+    	<exclude name="**/build.xml"/>
+        <exclude name="**/.target*"/>
+    </fileset>
+
+    <target name="check_local">
+        <property name="target.file" value="${target.file}"/>
+        <echo message="Target ${target.file}"/>
+        <echo message="Dir ${src.dir}"/>
+        <uptodate property="isUpToDate"
+            targetfile="${target.file}">
+            <srcfiles dir="${src.dir}">
+                <include name="*.xml"/>
+            </srcfiles>
+        </uptodate>
+        <property name="already.processed" value="${isUpToDate}"/>
+    </target>
+
+
+    <target name="deploy" depends="deploy_loop">
+        <deploy_loop filesetref="targetcheckfs" info="${info}" src.dir="${src.dir}" file.ext=".xml"/>
+    </target>
+
+
+    <target name="process_target" depends="common_task" >
+        <property name="file" value="${file}"/>
+        <plmxml_import file="${file}"/>
+    </target>
+
+</project>

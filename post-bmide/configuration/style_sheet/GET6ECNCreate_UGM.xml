@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+=======================================================================
+Copyright 2012.
+Siemens Product Lifecycle Management Software Inc.
+All Rights Reserved.
+=======================================================================
+     Filename: GET6ECNCreate_UGM.xml
+
+    Style sheet rendering for ECN Item Create.
+=======================================================================
+-->
+<rendering> 
+   <page title="General Information" titleKey="tc_xrt_cm_general_information">
+        <section titleKey="tc_xrt_properties">
+            <property name="revision:item_revision_id" renderingHint="textfield" /> 
+            <property name="object_name" renderingHint="textfield" />
+            <property name="ip_classification" />
+            <customPanel java="com.teamcenter.rac.cm.wizards.ui.PropsPageRelationshipPanel" js="displayCMCustomePanel"/> 
+        </section>
+   </page>
+</rendering>

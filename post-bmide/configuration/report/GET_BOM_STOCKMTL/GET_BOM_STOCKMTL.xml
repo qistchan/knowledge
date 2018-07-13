@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TC Encapsulation : Mapping X-File  -->
+
+<ReportDefinition>
+	<Id value="GET_BOM_STOCKMTL"/>
+	<name value="GET_BOM_STOCKMTL">
+		<Text primary="en_US">
+			<Item language="en_US" value="GET_BOM_STOCKMTL"/>
+		</Text>
+	</name>
+	<Description value="">
+		<Text primary="en_US">
+			<Item language="en_US" value=""/>
+		</Text>
+	</Description>
+	<Class value="ItemRevision"/>
+	<Type value="1"/>
+	<Source value="Teamcenter"/>
+	<QuerySource>
+		<TransferMode>
+			<Name value="GET_PS_MBOM_REPORT"/>
+			<Description value="MBOM export report"/>
+			<ContextString value="DEFAULT_PIE_CONTEXT_STRING"/>
+			<Direction value="0"/>
+			<SchemaFormat value="0"/>
+			<ClosureRule>
+				<Name value="GET_PS_MBOM_Structure"/>
+				<Description value="MBOM export report"/>
+				<Scope value="0"/>
+				<SchemaFormat value="0"/>
+				<NoOfClauses value="11"/>
+				<Clauses>
+					<clause_0 value="CLASS.ImanItemLine:CLASS.ImanItemLine:PROPERTY.bl_child_lines:PROCESS+TRAVERSE:SECONDARY.bl_window_is_BOPWin==&quot;false&quot; &amp;&amp; PRIMARY.bl_window_is_BOPWin==&quot;false&quot;"/>
+					<clause_1 value="CLASS.ImanItemLine:CLASS.ItemRevision:PROPERTY.bl_revision:PROCESS+TRAVERSE:PRIMARY.bl_window_is_BOPWin==&quot;false&quot;"/>
+					<clause_2 value="CLASS.WorkspaceObject:CLASS.ReleaseStatus:ATTRIBUTE.*:TRAVERSE+PROCESS:"/>
+					<clause_3 value="CLASS.ItemRevision:CLASS.Item:PROPERTY.items_tag:TRAVERSE+PROCESS:"/>
+					<clause_4 value="CLASS.ItemRevision:CLASS.itemRevision:RELATIONP2S.*:TRAVERSE+PROCESS:"/>
+					<clause_5 value="CLASS.Item:CLASS.UnitOfMeasure:PROPERTY.uom_tag:TRAVERSE+PROCESS:"/>
+					<clause_6 value="CLASS.ItemRevision:CLASS.Form:RELATIONP2S.IMAN_specification:PROCESS:"/>
+					<clause_7 value="CLASS.Item:CLASS.Form:RELATIONP2S.GET6PartOrgRelation:TRAVERSE+PROCESS:"/>
+					<clause_8 value="CLASS.Item:CLASS.Form:RELATIONP2S.IMAN_reference:PROCESS:"/>
+					<clause_9 value="CLASS.Item:CLASS.Item:RELATIONP2S.GET6MadeFromMatl:TRAVERSE+PROCESS:"/>
+					<clause_10 value="CLASS.Item:CLASS.Item:RELATIONP2S.GET6HasStockMatl:TRAVERSE+PROCESS:"/>
+				</Clauses>
+			</ClosureRule>
+			<PropertySet>
+				<Name value="GET_CrfBOMReport"/>
+				<Description value="MBOM property set."/>
+				<Scope value="0"/>
+				<NoOfClauses value="42"/>
+				<Clauses>
+					<clause_0 value="CLASS.Role:PROPERTY.role_name:DO"/>
+					<clause_1 value="CLASS.Group:PROPERTY.name:DO"/>
+					<clause_2 value="CLASS.Item:PROPERTY.item_id:DO"/>
+					<clause_3 value="CLASS.Item:PROPERTY.object_name:DO"/>
+					<clause_4 value="CLASS.Item:PROPERTY.object_desc:DO"/>
+					<clause_5 value="CLASS.Item:ATTRIBUTE.revision_number:DO"/>
+					<clause_6 value="CLASS.Item:PROPERTY.creation_date:DO"/>
+					<clause_7 value="CLASS.Item:PROPERTY.release_status_list:DO"/>
+					<clause_8 value="CLASS.Item:ATTRIBUTE.last_mod_user:DO"/>
+					<clause_9 value="CLASS.ItemRevision:PROPERTY.item_revision_id:DO"/>
+					<clause_10 value="CLASS.ItemRevision:PROPERTY.object_string:DO"/>
+					<clause_11 value="CLASS.ItemRevision:PROPERTY.object_name:DO"/>
+					<clause_12 value="CLASS.ItemRevision:PROPERTY.object_desc:DO"/>
+					<clause_13 value="CLASS.ItemRevision:PROPERTY.object_type:DO"/>
+					<clause_14 value="CLASS.ItemRevision:PROPERTY.last_mod_date:DO"/>
+					<clause_15 value="CLASS.ItemRevision:PROPERTY.date_released:DO"/>
+					<clause_16 value="CLASS.ItemRevision:PROPERTY.owning_user:DO"/>
+					<clause_17 value="CLASS.ItemRevision:PROPERTY.owning_group:DO"/>
+					<clause_18 value="CLASS.ItemRevision:PROPERTY.release_status_list:DO"/>
+					<clause_19 value="CLASS.ItemRevision:PROPERTY.last_mod_user:DO"/>
+					<clause_20 value="CLASS.User:PROPERTY.user_id:DO"/>
+					<clause_21 value="CLASS.User:PROPERTY.user_name:DO"/>
+					<clause_22 value="TYPE.ItemRevision:PROPERTY.item_id:DO"/>
+					<clause_23 value="CLASS.ReleaseStatus:PROPERTY.name:DO"/>
+					<clause_24 value="TYPE.GET6MfgAttrForm2:PROPERTY.get6MakeBuy:DO"/>
+					<clause_25 value="TYPE.GET6MfgAttrForm2:PROPERTY.get6Stockmaterial:DO"/>
+					<clause_26 value="TYPE.GET6MfgPart:PROPERTY.item_id:DO"/>
+					<clause_27 value="CLASS.UnitOfMeasure:ATTRIBUTE.unit:DO"/>
+					<clause_28 value="CLASS.UnitOfMeasure:ATTRIBUTE.symbol:DO"/>
+					<clause_29 value="TYPE.GET6MfgPart:PROPERTY.item_id:DO"/>
+					<clause_30 value="TYPE.PSSignal Master:PROPERTY.object_name:DO"/>
+					<clause_31 value="TYPE.BOMLine:PROPERTY.bl_formatted_parent_name:DO"/>
+					<clause_32 value="CLASS.RevisionRule:PROPERTY.entry_list:DO"/>
+					<clause_33 value="TYPE.GET6MechPartRevision:PROPERTY.get6EngMB:DO"/>
+					<clause_34 value="TYPE.BOMLine:PROPERTY.bl_config_string:DO"/>
+					<clause_35 value="TYPE.GET6MfgAttrForm2:PROPERTY.get6StructureCode:DO"/>
+					<clause_36 value="CLASS.WorkspaceObject:PROPERTY.project_ids:DO"/>
+					<clause_37 value="CLASS.UnitOfMeasure:PROPERTY.unit:DO"/>
+					<clause_38 value="CLASS.Item:PROPERTY.uom_tag:DO"/>
+					<clause_39 value="TYPE.BOMLine:PROPERTY.bl_pack_count:DO"/>
+					<clause_40 value="CLASS.GET6AbsUniPart:PROPERTY.GET6MadeFromMatl:DO"/>
+					<clause_41 value="CLASS.GET6AbsUniPart:PROPERTY.GET6HasStockMatl:DO"/>
+				</Clauses>
+			</PropertySet>
+		</TransferMode>
+	</QuerySource>
+	<PropertySet>
+		<Name value="GET_CrfBOMReport"/>
+		<Description value="MBOM property set."/>
+		<Scope value="0"/>
+		<NoOfClauses value="42"/>
+		<Clauses>
+			<clause_0 value="CLASS.Role:PROPERTY.role_name:DO"/>
+			<clause_1 value="CLASS.Group:PROPERTY.name:DO"/>
+			<clause_2 value="CLASS.Item:PROPERTY.item_id:DO"/>
+			<clause_3 value="CLASS.Item:PROPERTY.object_name:DO"/>
+			<clause_4 value="CLASS.Item:PROPERTY.object_desc:DO"/>
+			<clause_5 value="CLASS.Item:ATTRIBUTE.revision_number:DO"/>
+			<clause_6 value="CLASS.Item:PROPERTY.creation_date:DO"/>
+			<clause_7 value="CLASS.Item:PROPERTY.release_status_list:DO"/>
+			<clause_8 value="CLASS.Item:ATTRIBUTE.last_mod_user:DO"/>
+			<clause_9 value="CLASS.ItemRevision:PROPERTY.item_revision_id:DO"/>
+			<clause_10 value="CLASS.ItemRevision:PROPERTY.object_string:DO"/>
+			<clause_11 value="CLASS.ItemRevision:PROPERTY.object_name:DO"/>
+			<clause_12 value="CLASS.ItemRevision:PROPERTY.object_desc:DO"/>
+			<clause_13 value="CLASS.ItemRevision:PROPERTY.object_type:DO"/>
+			<clause_14 value="CLASS.ItemRevision:PROPERTY.last_mod_date:DO"/>
+			<clause_15 value="CLASS.ItemRevision:PROPERTY.date_released:DO"/>
+			<clause_16 value="CLASS.ItemRevision:PROPERTY.owning_user:DO"/>
+			<clause_17 value="CLASS.ItemRevision:PROPERTY.owning_group:DO"/>
+			<clause_18 value="CLASS.ItemRevision:PROPERTY.release_status_list:DO"/>
+			<clause_19 value="CLASS.ItemRevision:PROPERTY.last_mod_user:DO"/>
+			<clause_20 value="CLASS.User:PROPERTY.user_id:DO"/>
+			<clause_21 value="CLASS.User:PROPERTY.user_name:DO"/>
+			<clause_22 value="TYPE.ItemRevision:PROPERTY.item_id:DO"/>
+			<clause_23 value="CLASS.ReleaseStatus:PROPERTY.name:DO"/>
+			<clause_24 value="TYPE.GET6MfgAttrForm2:PROPERTY.get6MakeBuy:DO"/>
+			<clause_25 value="TYPE.GET6MfgAttrForm2:PROPERTY.get6Stockmaterial:DO"/>
+			<clause_26 value="TYPE.GET6MfgPart:PROPERTY.item_id:DO"/>
+			<clause_27 value="CLASS.UnitOfMeasure:ATTRIBUTE.unit:DO"/>
+			<clause_28 value="CLASS.UnitOfMeasure:ATTRIBUTE.symbol:DO"/>
+			<clause_29 value="TYPE.GET6MfgPart:PROPERTY.item_id:DO"/>
+			<clause_30 value="TYPE.PSSignal Master:PROPERTY.object_name:DO"/>
+			<clause_31 value="TYPE.BOMLine:PROPERTY.bl_formatted_parent_name:DO"/>
+			<clause_32 value="CLASS.RevisionRule:PROPERTY.entry_list:DO"/>
+			<clause_33 value="TYPE.GET6MechPartRevision:PROPERTY.get6EngMB:DO"/>
+			<clause_34 value="TYPE.BOMLine:PROPERTY.bl_config_string:DO"/>
+			<clause_35 value="TYPE.GET6MfgAttrForm2:PROPERTY.get6StructureCode:DO"/>
+			<clause_36 value="CLASS.WorkspaceObject:PROPERTY.project_ids:DO"/>
+			<clause_37 value="CLASS.UnitOfMeasure:PROPERTY.unit:DO"/>
+			<clause_38 value="CLASS.Item:PROPERTY.uom_tag:DO"/>
+			<clause_39 value="TYPE.BOMLine:PROPERTY.bl_pack_count:DO"/>
+			<clause_40 value="CLASS.GET6AbsUniPart:PROPERTY.GET6MadeFromMatl:DO"/>
+			<clause_41 value="CLASS.GET6AbsUniPart:PROPERTY.GET6HasStockMatl:DO"/>
+		</Clauses>
+	</PropertySet>
+	<Stylesheets>
+		<Stylesheet>
+			<StylesheetType value="CrfExcelStylesheet"/>
+			<StylesheetName value="GET_BOM_STOCKMATL.xsl"/>
+		</Stylesheet>
+	</Stylesheets>
+	<NoOfParameters value="1"/>
+	<Params>
+		<param_0 value="BOM_REPORT"/>
+	</Params>
+	<Values>
+		<param_0 value="TRUE"/>
+	</Values>
+</ReportDefinition>

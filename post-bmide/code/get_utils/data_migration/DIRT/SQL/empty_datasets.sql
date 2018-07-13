@@ -1,0 +1,1 @@
+select distinct wso.pobject_name, wso.puid from infodba.pworkspaceobject wso, infodba.pdataset ds, infodba.pref_list_0 rl where wso.puid=ds.puid and ds.puid not in (select distinct rl.puid from infodba.pref_list_0 rl ) and upper(wso.pobject_type) in ('MSWord', 'MSWordX', 'MSExcel', 'MSExcelX', 'MSPowerPoint', 'MSPowerPointX', 'UGMASTER') and wso.RWSO_THREADC is null;

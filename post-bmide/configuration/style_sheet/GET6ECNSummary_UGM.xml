@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+=================================================================================
+Copyright 2012.
+Siemens Product Lifecycle Management Software Inc.
+All Rights Reserved.
+=================================================================================
+     Filename: GET6ECNSummary_UGM.xml
+
+    Style sheet rendering for ChangeItem summary when Change Management is installed.
+=================================================================================
+-->
+<rendering xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XMLRenderingStylesheet_Schema.xsd">
+    <header>
+        <image source="thumbnail"/>
+        <classificationTrace/>
+        <property name="owning_user"/>
+        <property name="last_mod_date"/>
+        <property name="release_status_list"/>
+        <property name="object_type"/>
+    </header>
+    <page titleKey="tc_xrt_Overview">
+        <column>
+            <section titleKey="tc_xrt_AvailableRevisions">
+                <objectSet source="revision_list.ItemRevision" defaultdisplay="listDisplay" sortdirection="descending" sortby="item_revision_id">
+                    <tableDisplay>
+                        <property name="object_string"/>
+                        <property name="item_revision_id"/>
+                        <property name="release_status_list"/>
+                        <property name="last_mod_date"/>
+                        <property name="last_mod_user"/>
+                        <property name="checked_out_user"/>
+                    </tableDisplay>
+                    <thumbnailDisplay/>
+                    <treeDisplay>
+                        <property name="object_string"/>
+                        <property name="item_revision_id"/>
+                        <property name="release_status_list"/>
+                        <property name="last_mod_date"/>
+                        <property name="last_mod_user"/>
+                        <property name="checked_out_user"/>
+                    </treeDisplay>
+                    <listDisplay/>
+                </objectSet>
+            </section>
+            <section titleKey="tc_xrt_ItemProperties">
+                <property name="ip_classification"/>
+                <separator/>
+                <property name="owning_user" renderingHint="objectlink" modifiable="false"/>
+                <property name="owning_group" renderingHint="objectlink" modifiable="false"/>
+                <property name="last_mod_user"/>
+                <separator/>
+                <property name="checked_out"/>
+                <property name="checked_out_user"/>
+                <separator/>
+                <command commandId="com.teamcenter.rac.properties" titleKey="tc_xrt_moreProperties"/>
+            </section>
+            <section titleKey="tc_xrt_ClassificationProperties">
+                <classificationProperties/>
+            </section>
+        </column>
+        <column>
+            <section titleKey="tc_xrt_Preview">
+                <image source="preview"/>
+            </section>
+            <section titleKey="tc_xrt_actions" commandLayout="vertical">
+                <command actionKey="copyAction" commandId="com.teamcenter.rac.copy"/>
+                <command actionKey="newProcessAction" commandId="com.teamcenter.rac.newProcess" titleKey="tc_xrt_newProc"/>
+            </section>
+        </column>
+    </page>
+    <page titleKey="tc_xrt_AttachedFiles">
+        <objectSet source="IMAN_reference.Dataset,IMAN_manifestation.Dataset,IMAN_Rendering.Dataset" defaultdisplay="tableDisplay" sortby="object_string" sortdirection="ascending">
+            <tableDisplay>
+                <property name="object_string"/>
+                <property name="release_status_list"/>
+                <property name="relation"/>
+                <property name="last_mod_date"/>
+                <property name="last_mod_user"/>
+                <property name="checked_out_user"/>
+            </tableDisplay>
+            <thumbnailDisplay/>
+            <treeDisplay>
+                <property name="object_string"/>
+                <property name="release_status_list"/>
+                <property name="relation"/>
+                <property name="last_mod_date"/>
+                <property name="last_mod_user"/>
+                <property name="checked_out_user"/>
+            </treeDisplay>
+            <listDisplay/>
+            <command actionKey="newBusinessObjectContextualAction" commandId="com.teamcenter.rac.common.AddNew" renderingHint="commandbutton"/>
+            <command actionKey="pasteAction" commandId="com.teamcenter.rac.viewer.pastewithContext" renderingHint="commandbutton"/>
+            <command actionKey="cutAction" commandId="org.eclipse.ui.edit.cut" renderingHint="commandbutton">
+                <parameter name="localSelection" value="true"/>
+            </command>
+        </objectSet>
+    </page>
+    <page title="Related Links" titleKey="tc_xrt_RelatedLinks" visibleWhen="{pref:LIS_RelatedLinkTabVisible}==true">
+        <objectSet source="IMAN_specification.Osl0Link,IMAN_reference.Osl0Link" defaultdisplay="tableDisplay" sortby="object_string" sortdirection="ascending">
+            <tableDisplay>
+                <property name="object_string"/>
+                <property name="lis0site"/>
+                <property name="lis0serviceProvider"/>
+                <property name="relation"/>
+                <property name="last_mod_date"/>
+                <property name="last_mod_user"/>
+                <property name="checked_out_user"/>
+            </tableDisplay>
+            <command actionKey="newBusinessObjectContextualAction" commandId="com.teamcenter.rac.lisfmwrk.newRelatedLink" renderingHint="commandbutton"/>
+            <command actionKey="copyAction" commandId="com.teamcenter.rac.copy" renderingHint="commandbutton">
+                <parameter name="localSelection" value="true"/>
+            </command>
+            <command actionKey="pasteAction" commandId="com.teamcenter.rac.viewer.pastewithContext" renderingHint="commandbutton"/>
+            <command actionKey="cutAction" commandId="org.eclipse.ui.edit.cut" renderingHint="commandbutton">
+                <parameter name="localSelection" value="true"/>
+            </command>
+        </objectSet>
+    </page>
+    <page titleKey="tc_xrt_AuditLogs" visibleWhen="{pref:TC_audit_manager_version}==3">
+        <command titleKey="tc_xrt_ExportToExcel" actionKey="exportExcelAction" commandId="com.teamcenter.rac.exportAuditSummaryToExcel" renderingHint="commandbutton"/>
+        <command titleKey="tc_xrt_ExportToCSV" actionKey="exportCSVAction" commandId="com.teamcenter.rac.exportAuditSummaryToCSV" renderingHint="commandbutton"/>
+        <section titleKey="tc_xrt_WorkflowLogs" initialstate="collapsed">
+            <customPanel java="com.teamcenter.rac.auditmanager.WorkflowLegacyAuditLinkPanel"/>
+            <objectSet source="fnd0WorkflowAuditLogs.Fnd0WorkflowAudit" defaultdisplay="tableDisplay" sortby="fnd0LoggedDate" sortdirection="ascending">
+                <tableDisplay>
+                    <property name="fnd0LoggedDate"/>
+                    <property name="object_type"/>
+                    <property name="fnd0EventTypeName"/>
+                    <property name="object_name"/>
+                    <property name="job_name"/>
+                    <property name="process_templateDisp"/>
+                    <property name="fnd0UserId"/>
+                    <property name="task_state"/>
+                    <property name="task_result"/>
+                    <property name="fnd0Comments"/>
+                    <property name="responsible_party"/>
+                    <property name="fnd0SignoffUserID"/>
+                    <property name="fnd0SignoffGroupName"/>
+                    <property name="fnd0SignoffRoleName"/>
+                    <property name="fnd0SecondaryObjectType"/>
+                    <property name="fnd0SecondaryObjDispName"/>
+                    <property name="fnd0SecondaryObjQualifier"/>
+                </tableDisplay>
+            </objectSet>
+            <customPanel java="com.teamcenter.rac.auditmanager.WorkflowSecondaryAuditPanel" js="displayWorkflowCustomPanel"/>
+        </section>
+        <section titleKey="tc_xrt_GeneralLogs" initialstate="collapsed">
+            <customPanel java="com.teamcenter.rac.auditmanager.CheckoutHistoyLinkPanel"/>
+            <objectSet source="fnd0GeneralAuditLogs.Fnd0GeneralAudit" defaultdisplay="tableDisplay" sortby="fnd0LoggedDate" sortdirection="ascending">
+                <tableDisplay>
+                    <property name="fnd0LoggedDate"/>
+                    <property name="object_type"/>
+                    <property name="fnd0EventTypeName"/>
+                    <property name="object_name"/>
+                    <property name="fnd0PrimaryObjectID"/>
+                    <property name="fnd0PrimaryObjectRevID"/>
+                    <property name="fnd0UserId"/>
+                    <property name="fnd0GroupName"/>
+                    <property name="fnd0RoleName"/>
+                    <property name="sequence_id"/>
+                    <property name="fnd0ChangeID"/>
+                    <property name="fnd0Reason"/>
+                    <property name="fnd0SecondaryObjectType"/>
+                    <property name="fnd0SecondaryObjDispName"/>
+                </tableDisplay>
+            </objectSet>
+        </section>
+        <section titleKey="tc_xrt_LicenseExportLogs" initialstate="collapsed">
+            <objectSet source="fnd0LicenseExportAuditLogs.Fnd0LicenseExportAudit" defaultdisplay="tableDisplay" sortby="fnd0LoggedDate" sortdirection="ascending">
+                <tableDisplay>
+                    <property name="fnd0LoggedDate"/>
+                    <property name="object_type"/>
+                    <property name="fnd0EventTypeName"/>
+                    <property name="object_name"/>
+                    <property name="fnd0UserId"/>
+                    <property name="fnd0GroupName"/>
+                    <property name="fnd0RoleName"/>
+                    <property name="id"/>
+                    <property name="fnd0SecondaryObjectID"/>
+                    <property name="fnd0SecondaryObjectRevID"/>
+                    <property name="fnd0SecondaryObjectType"/>
+                    <property name="fnd0SecondaryObjectName"/>
+                    <property name="fnd0SecondaryObjDispName"/>
+                    <property name="fnd0SecondaryObjectSeqID"/>
+                    <property name="ead_paragraph"/>
+                </tableDisplay>
+            </objectSet>
+            <customPanel java="com.teamcenter.rac.auditmanager.LicenseExportSecondaryAuditPanel" js="displayLicenseExportCustomPanel"/>
+        </section>
+        <section titleKey="tc_xrt_StructureLogs" initialstate="collapsed">
+            <objectSet source="fnd0StructureAuditLogs.Fnd0StructureAudit" defaultdisplay="tableDisplay" sortby="fnd0LoggedDate" sortdirection="ascending">
+                <tableDisplay>
+                    <property name="fnd0LoggedDate"/>
+                    <property name="object_type"/>
+                    <property name="fnd0EventTypeName"/>
+                    <property name="object_name"/>
+                    <property name="fnd0UserId"/>
+                    <property name="fnd0GroupName"/>
+                    <property name="fnd0RoleName"/>
+                    <property name="item_id"/>
+                    <property name="item_revision_id"/>
+                    <property name="sequence_id"/>
+                    <property name="fnd0SecondaryObjectID"/>
+                    <property name="fnd0SecondaryObjectRevID"/>
+                    <property name="fnd0SecondaryObjectType"/>
+                    <property name="fnd0SecondaryObjectName"/>
+                    <property name="fnd0SecondaryObjDispName"/>
+                    <property name="fnd0SecondaryObjectSeqID"/>
+                    <property name="comp_position"/>
+                </tableDisplay>
+            </objectSet>
+            <customPanel java="com.teamcenter.rac.auditmanager.StructureSecondaryAuditPanel" js="displayStructureCustomPanel"/>
+        </section>
+    </page>
+    <page titleKey="tc_xrt_impactanalysis">
+        <view name="impactanalysis"/>
+    </page>
+</rendering>

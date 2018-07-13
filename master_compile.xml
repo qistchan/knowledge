@@ -1,0 +1,184 @@
+<project name="MasterCompile" default="deploy">
+	<!--
+	 ==============================================================================================================================
+	 ===== Use ant contrib
+	 ==============================================================================================================================
+	 -->
+	<taskdef resource="net/sf/antcontrib/antlib.xml"/>
+	
+	<!--
+	 ==============================================================================================================================
+	 ===== Set the property for the directory you desire to process and the Info display string
+	 ==============================================================================================================================
+	 -->
+	<property environment="env"/>
+	<property name="dir.name" value="code"/>
+	<property name="info" value="Source Code"/>
+	<property name="src.dir" location="${user.dir}/post-bmide/${dir.name}"/>
+	<property name="bmf.dir" location="${user.dir}/bmide/GET6Datamodel"/>
+	
+	<property name="cpptest_home.dir" location="${src.dir}/cpptest"/>
+	<property name="gtest_home.dir" location="${src.dir}/googletest-release-1.5.0"/>
+	<property name="local_deploy.dir" location="${src.dir}/deploy"/>
+	
+	<property name="deploy_include.dir" location="${src.dir}/deploy/include"/>
+	<property name="deploy_bin.dir" location="${src.dir}/bin/deploy"/>
+	<property name="deploy_lib.dir" location="${src.dir}/lib/deploy"/>
+	
+	<!-- Define platform -->
+	<condition property="ge.win">
+		<os family="windows"/>
+	</condition>
+	<condition property="ge.sol">
+		<os name="SunOS"/>
+	</condition>
+	<condition property="ge.linux">
+		<os name="linux"/>
+	</condition>
+    <if>
+        <equals arg1="${ge.win}" arg2="true"/>
+        <then>
+            <property name="copybin" value="*.dll"/>
+        	<property name="copypdb" value="*.pdb"/>
+        	<property name="copylib" value="*.lib"/>
+        </then>
+        <else>
+        	<property name="copybin" value=""/>
+        	<property name="copypdb" value=""/>
+        	<property name="copylib" value="*.so"/>
+        </else>
+    </if>
+	<!--
+	 ==============================================================================================================================
+	 ===== NOTE you must define {src.dir} BEFORE including "common_task.xml"
+	 ==============================================================================================================================
+	 -->
+	
+	<import file="common_task.xml" />
+	
+	<!--<target name="compile">
+		<sequential>
+			<echo message="Dir ${src.dir}"/>
+			<exec dir="${src.dir}" executable="/bin/ksh" failonerror="true">
+				<arg value="gmake -f makefile.lnx64 OPT_CXX_FLAGS=${compile.opts} OPT_LD_FLAGS=${link.opts}"/>
+			</exec>
+			-->
+			<!-- we have to do this becauae Unisx permissions are not preserved with the move -->
+			<!-- <echo message="********************************************"/>
+			<echo message="Deploy ${deploy_bin.dir}"/>
+			<for param="file">
+				<path>
+					<fileset dir="${deploy_bin.dir}">
+						<include name="**/*" />
+					</fileset>
+				</path>
+				<sequential>
+					<basename file="@{file}" property="@{file}" />
+					 <move file="${deploy_bin.dir}/${@{file}}" todir="${env.TC_ROOT}/util"/>
+					 <chmod file="${env.TC_ROOT}/util/${@{file}}" perm="755"/>
+					 <echo message="${env.TC_ROOT}/util/${@{file}}"/>
+				</sequential>
+			</for>
+			<echo message="********************************************"/>-->
+
+			<!-- we have to do this becauae Unisx permissions are not preserved with the move -->
+			<!-- <echo message="********************************************"/>
+			<echo message="Deploy ${deploy_lib.dir}"/>
+			<for param="file">
+				<path>
+					<fileset dir="${deploy_lib.dir}">
+						<include name="**/*" />
+					</fileset>
+				</path>
+				<sequential>
+					<basename file="@{file}" property="@{file}" />
+					<move file="${deploy_lib.dir}/${@{file}}" todir="${env.TC_ROOT}/lib"/>
+					<chmod file="${env.TC_ROOT}/lib/${@{file}}" perm="755"/>
+					<echo message="${env.TC_ROOT}/lib/${@{file}}"/>
+				</sequential>
+			</for>
+			<echo message="********************************************"/>
+
+
+		</sequential>
+	</target>-->
+	
+	<target name="compile_bmf">
+		<sequential>
+			<echo message="BMF Dir ${bmf.dir}"/>
+			<if>
+				<available file="${bmf.dir}/makefile.lnx64"/>
+				<then>
+					<exec dir="${bmf.dir}" executable="/bin/ksh" failonerror="true">
+					</exec>
+					
+					<arg value="gmake -f makefile.lnx64 OPT_CXX_FLAGS=${compile.opts} OPT_LD_FLAGS=${link.opts}"/>
+					<move todir="${env.TC_ROOT}/lib/">
+						<fileset dir="${bmf.dir}/output/lnx64/lib">
+							<include name="**/*" />
+						</fileset>
+					</move>
+				</then>
+				<else>
+					<echo message="No BMF makefile found in ${${bmf.dir}}"/>
+				</else>
+			</if>
+		</sequential>
+	</target>
+	
+	<target name="deploy" description="Build and deploy code">
+		<echo message="Build and deploy code"/>
+		<subant target="deploy64" >
+			<fileset dir="${src.dir}" includes="build.xml"/>
+		</subant>
+		<copy todir="${env.TC_ROOT}/lib/" verbose="true" failonerror="false">
+              <fileset dir="${src.dir}/lib">
+              <include name="${copylib}" />
+          </fileset>
+        </copy>
+		<copy todir="${env.TC_ROOT}/bin/" verbose="true" failonerror="false">
+          <fileset dir="${src.dir}/bin">
+              <include name="${copybin}" />
+          	  <include name="${copypdb}" />
+          </fileset>
+        </copy>
+	</target>
+
+	<!--<target name="deploy" depends="compile , compile_bmf">
+		<echo message="Building code"/>
+	</target>-->
+	<!--
+	 ==============================================================================================================================
+	 ===== clean up after yourself
+	 ==============================================================================================================================
+	 -->
+	 <target name="clean">
+		<subant target="clean" >
+			<fileset dir="${src.dir}" includes="build.xml"/>
+		</subant>
+			<!-- Clean everything -->
+			<delete>
+			<fileset dir="${src.dir}">
+				<exclude name="**/googletest-release-1.5.0/**" />
+				<include name="**/*.pdb"/>
+				<include name="**/*.exe"/>
+				<include name="**/*.manifest"/>
+				<include name="**/history.xml"/>
+				<include name="**/dependencies.xml"/>
+			</fileset>
+		</delete>
+		<delete dir="${src.dir}/bin"/>
+	 	<delete dir="${src.dir}/get_utils_bin"/>
+		<delete dir="${src.dir}/lib"/>
+		<delete dir="${src.dir}/include"/>
+	</target>
+	 
+	<!--<target name="clean">
+		<sequential>
+			<exec dir="${src.dir}" executable="/bin/ksh" failonerror="true">
+				<arg value="gmake -f makefile.lnx64 clean"/>
+			</exec>
+		</sequential>
+	</target>-->
+	
+</project>

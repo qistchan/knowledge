@@ -1,0 +1,8 @@
+
+<project name="get_unx">
+	<import file="../common.xml" />
+    
+	<property name="link.dir" value="../lib"/>
+	<property name="obj.dir" value="../obj"/>
+    
+</project>

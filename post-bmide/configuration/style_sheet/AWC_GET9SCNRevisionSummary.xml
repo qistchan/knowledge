@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2015.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+-->
+<!-- Default style sheet for displaying SCN rev summary. -->
+<rendering>
+    <header>
+        <image source="type"/>
+        <property name="owning_user"/>
+        <property name="creation_date"/>
+        <property name="release_status_list" renderingHint="label"/>
+        <property name="object_type"/>
+    </header>
+    <page titleKey="tc_xrt_Overview">
+        <column>
+            <section titleKey="tc_xrt_properties">
+                <property name="item_id" renderingHint="label"/>
+				<property name="items_tag" renderingHint="objectlink" modifiable="false" />
+                <property name="item_revision_id" renderingHint="label"/>
+                <property name="object_name"/>
+                <property name="object_type"/>
+				<property name="owning_group" />
+				<property name="ip_classification"/>
+                <property name="release_status_list" renderingHint="label"/>
+                <property name="date_released" renderingHint="label"/>
+                <property name="effectivity_text" renderingHint="label"/>
+                <break/>
+                <!--<property name="CMReason"/>
+                <property name="CMProposedSolution" renderingHint="textarea" column="10" row="6"/>
+                <property name="CMTechReviewPriority"/>
+                <property name="CMIsFastTrack"/>
+                <property name="CMRecurringCost" />
+                <property name="CMNonrecurringCost" />
+                <property name="CMTechnicalRecommendation" />
+                <property name="CMTestResultsAttached" />
+                <property name="CMTechRecommDate" />
+                <property name="CMTimingFactors" renderingHint="textarea" column="10" row="6" />
+                -->
+                <break/>
+				<property name="CMClosure"/>
+                <property name="CMDisposition"/>
+                <command commandId="com.teamcenter.rac.properties" titleKey="moreProperties"/>
+                <separator/>
+                <property name="CMImplements" renderingHint="label"/>
+                <property name="CMImplementedBy" renderingHint="label"/>
+            </section>
+            
+        </column>
+        <column>
+            <!--<section titleKey="WorkflowInfo" title="Active Process Information">
+            <customPanel java="com.teamcenter.rac.cm.views.WorkflowTasksView" />
+            </section>-->
+            <section titleKey="tc_xrt_actions">
+                <command actionKey="copyAction" commandId="com.teamcenter.rac.copy"/>
+                <command actionKey="reviseAction" commandId="com.teamcenter.rac.revise"/>
+            </section>
+            <!--<section titleKey="ProcessInfo" title="Process Info">
+            <objectSet source="process_stage_list.WorkspaceObject" defaultdisplay="tableDisplay" sortdirection="descending" sortby="real_state">
+            <treeDisplay>
+            <property name="object_string"/>
+            <property name="resp_party"/>
+            <property name="last_mod_date"/>
+            </treeDisplay>
+            </objectSet>
+            </section>-->
+            
+        </column>
+    </page>
+	<page titleKey="tc_xrt_Details" title="Details">
+		<column>
+
+
+			<section titleKey="tc_xrt_get_scn_Details" title="SCN Details">
+				<property name="get6EngrProdLine"/>
+				<property name="get9SCNCustomers" renderingHint=" lovuicomp"/>
+				<property name="get9SCNFleet" renderingHint=" lovuicomp"/>
+				<property name="get6Copies" />	
+			</section>	
+			</column>
+			<column>
+				<section titleKey="tc_xrt_get_scn_ImpactAnalysis" title="SCN Impact Analysis">			
+					<label text=" Does this change affect..."/>
+					<break/>	
+					<property name="get9SCNSafety" renderingHint="radiobutton"/>
+					<property name="get9SCNReliability" renderingHint="radiobutton"/>
+					<property name="get9SCNFMI" renderingHint="radiobutton"/>
+					</section>
+			</column>
+			<column>
+				<section titleKey="tc_xrt_get_scn_ReasonForChng" title="SCN Reason For Change">		
+					<property name="get6ChangeReason" />
+					<property name="get6ReasonForChg" renderingHint="textarea" column="25" row="50"/>
+				</section>	
+			</column>
+	</page>
+	<page titleKey="tc_xrt_Disposition" title="Change Description/Disposition">
+		<section title ="SCN Material Disposition">
+			<break/>
+			<tableProperty name="get6ECNEngrDisp" renderingHint="tableProperty" modifiable="true">
+			<property name="get6PartNo"/>             
+			<property name="get6Disposition"/>
+			<property name="get6ChangeDesc"/> 
+			</tableProperty>
+		</section>
+	</page>
+	<page titleKey="tc_xrt_AffectedItems">
+        <section titleKey="tc_xrt_SolutionItems">
+            <label textKey="tc_xrt_SolutionItemsInfo"/>
+            <objectSet source="CMHasSolutionItem.ItemRevision" defaultdisplay="tableDisplay" sortdirection="descending" sortby="last_mod_date">
+                <tableDisplay>
+                    <property name="object_string"/>
+                    <property name="CMHasSolutionItem.cm0LineageGroupId"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </tableDisplay>
+                <treeDisplay>
+                    <property name="object_string"/>
+                    <property name="CMHasSolutionItem.cm0LineageGroupId"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </treeDisplay>
+                <thumbnailDisplay/>
+                <listDisplay/>
+                <command actionKey="newBusinessObjectContextualAction" commandId="com.teamcenter.rac.common.AddNew" renderingHint="commandbutton"/>
+                <command actionKey="cutAction" commandId="org.eclipse.ui.edit.cut" renderingHint="commandbutton">
+                    <parameter name="localSelection" value="true"/>
+                </command>
+                <command actionKey="pasteAction" commandId="com.teamcenter.rac.viewer.pastewithContext" renderingHint="commandbutton"/>
+            </objectSet>
+        </section>
+        <section titleKey="tc_xrt_ImpactedItems">
+            <label textKey="tc_xrt_ImpactedItemsInfo"/>
+            <objectSet source="CMHasImpactedItem.ItemRevision" defaultdisplay="tableDisplay" sortdirection="descending" sortby="last_mod_date">
+                <tableDisplay>
+                    <property name="object_string"/>
+                    <property name="CMHasImpactedItem.cm0LineageGroupId"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+					<property name="CMHasImpactedItem.cm0Disposition"/>
+                </tableDisplay>
+                <treeDisplay>
+                    <property name="object_string"/>
+                    <property name="CMHasImpactedItem.cm0LineageGroupId"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </treeDisplay>
+                <thumbnailDisplay/>
+                <listDisplay/>
+                <command actionKey="newBusinessObjectContextualAction" commandId="com.teamcenter.rac.common.AddNew" renderingHint="commandbutton"/>
+                <command actionKey="cutAction" commandId="org.eclipse.ui.edit.cut" renderingHint="commandbutton">
+                    <parameter name="localSelection" value="true"/>
+                </command>
+                <command actionKey="pasteAction" commandId="com.teamcenter.rac.viewer.pastewithContext" renderingHint="commandbutton"/>
+            </objectSet>
+        </section>
+        <section titleKey="tc_xrt_CMImplements">
+            <label textKey="CMImplementsInfo"/>
+            <objectSet source="CMImplements.WorkspaceObject" defaultdisplay="tableDisplay">
+                <tableDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </tableDisplay>
+                <treeDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </treeDisplay>
+                <thumbnailDisplay/>
+                <listDisplay/>
+                <command actionKey="newBusinessObjectContextualAction" commandId="com.teamcenter.rac.common.AddNew" renderingHint="commandbutton"/>
+                <command actionKey="cutAction" commandId="org.eclipse.ui.edit.cut" renderingHint="commandbutton">
+                    <parameter name="localSelection" value="true"/>
+                </command>
+                <command actionKey="pasteAction" commandId="com.teamcenter.rac.viewer.pastewithContext" renderingHint="commandbutton"/>
+            </objectSet>
+        </section>
+        <section titleKey="tc_xrt_CMImplementedBy">
+            <label textKey="CMImplementedByInfo"/>
+            <objectSet source="CMImplementedBy.ChangeItemRevision" defaultdisplay="tableDisplay">
+                <tableDisplay>
+                    <property name="object_string"/>
+                    <property name="CMClosure"/>
+                    <property name="CMDisposition"/>
+                    <property name="CMMaturity"/>
+                    <property name="cm0Requestor"/>
+                    <property name="CMHasSolutionItem"/>
+                </tableDisplay>
+                <treeDisplay>
+                    <property name="object_string"/>
+                    <property name="CMClosure"/>
+                    <property name="CMDisposition"/>
+                    <property name="CMMaturity"/>
+                    <property name="cm0Requestor"/>
+                    <property name="CMHasSolutionItem"/>
+                </treeDisplay>
+                <thumbnailDisplay/>
+                <listDisplay/>
+                <command actionKey="newBusinessObjectContextualAction" commandId="com.teamcenter.rac.common.AddNew" renderingHint="commandbutton"/>
+                <command actionKey="cutAction" commandId="org.eclipse.ui.edit.cut" renderingHint="commandbutton">
+                    <parameter name="localSelection" value="true"/>
+                </command>
+                <command actionKey="pasteAction" commandId="com.teamcenter.rac.viewer.pastewithContext" renderingHint="commandbutton"/>
+            </objectSet>
+        </section>
+    </page>
+    <page titleKey="tc_xrt_ReferenceItems">
+       <section title = "Attachments" titleKey="tc_xrt_Attachments">
+            <label textKey="tc_xrt_ReferenceItemsInfo"/>
+            <objectSet source="CMReferences.WorkspaceObject,CMReferences.Dataset" defaultdisplay="tableDisplay" sortdirection="descending" sortby="object_string">
+                <tableDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </tableDisplay>
+                <treeDisplay>
+                    <property name="object_string"/>
+                    <property name="object_type"/>
+                    <property name="release_status_list"/>
+                    <property name="date_released"/>
+                    <property name="owning_user"/>
+                </treeDisplay>
+                <thumbnailDisplay/>
+                <listDisplay/>
+                <command actionKey="newBusinessObjectContextualAction" commandId="com.teamcenter.rac.common.AddNew" renderingHint="commandbutton"/>
+                <command actionKey="cutAction" commandId="org.eclipse.ui.edit.cut" renderingHint="commandbutton">
+                    <parameter name="localSelection" value="true"/>
+                </command>
+                <command actionKey="pasteAction" commandId="com.teamcenter.rac.viewer.pastewithContext" renderingHint="commandbutton"/>
+            </objectSet>
+        </section>
+    </page>
+    <page titleKey="tc_xrt_Participants" title="Participants">
+        <content visibleWhen="awp0ShowParticipants==Requestor">
+            <section titleKey="tc_xrt_Requestor">
+                <objectSet source="HasParticipant.Requestor" defaultdisplay="tableDisplay">
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.addParticipant" renderingHint="commandbutton"/>
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.replaceParticipant" renderingHint="commandbutton"/>
+                    <tableDisplay>
+                        <property name="fnd0AssigneeUser"/>
+                        <property name="fnd0AssigneeRole"/>
+                        <property name="fnd0AssigneeGroup"/>
+                    </tableDisplay>
+                    <listDisplay/>
+                </objectSet>
+                <content visibleWhen="awp0RequiredParticipants==Requestor">
+                    <htmlPanel id = "com.siemens.splm.client.workflow.requiredParticipantTile"/>
+                </content>
+            </section>
+        </content>
+
+		<content visibleWhen="awp0ShowParticipants==GET6OptionalReviewer">
+            <section titleKey="tc_xrt_GET6OptionalReviewer" title="Optional Reviewer(s)">
+                <objectSet source="HasParticipant.GET6OptionalReviewer" defaultdisplay="tableDisplay">
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.addParticipant" renderingHint="commandbutton"/>
+                    <command actionKey="newBusinessObjectContextualAction" commandId="com.siemens.splm.client.workflow.replaceParticipant" renderingHint="commandbutton"/>
+                    <tableDisplay>
+                        <property name="fnd0AssigneeUser"/>
+                        <property name="fnd0AssigneeRole"/>
+                        <property name="fnd0AssigneeGroup"/>
+                    </tableDisplay>
+                    <listDisplay/>
+                </objectSet>
+                <content visibleWhen="awp0RequiredParticipants==GET6OptionalReviewer">
+                    <htmlPanel id = "com.siemens.splm.client.workflow.requiredParticipantTile"/>
+                </content>
+            </section>
+        </content>
+
+   </page>
+	<inject type="dataset" src="WorkflowSummary"/>
+    <inject type="dataset" src="RelationsSummary" />
+</rendering>

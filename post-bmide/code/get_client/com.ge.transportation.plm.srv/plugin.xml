@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Services Category"
+            id="com.ge.transportation.plm.srv.commands.category">
+      </category>
+      <command
+            name="Create GET Service Part"
+            categoryId="com.ge.transportation.plm.srv.commands.category"
+            id="com.ge.transportation.plm.srv.commands.getServiceCommand">
+      </command>
+       <command
+            name="Create GET Service Part From Engineering Part"
+            categoryId="com.ge.transportation.plm.srv.commands.category"
+            id="com.ge.transportation.plm.srv.commands.getSrvPrtFrmEngPrtCommand">
+      </command>
+      <command
+            name="Create GET Operation"
+            categoryId="com.ge.transportation.plm.srv.commands.category"
+            id="com.ge.transportation.plm.srv.commands.getOperationCommand">
+      </command>
+      <command
+            name="Create GET Supercedure/Obsolete Form"
+            categoryId="com.ge.transportation.plm.srv.commands.category"
+            id="com.ge.transportation.plm.srv.commands.getObsoleteCommand">
+      </command>
+      <command
+            name="Create GET Functional"
+            categoryId="com.ge.transportation.plm.srv.commands.category"
+            id="com.ge.transportation.plm.srv.commands.getFunctionalCommand">
+      </command>
+       <command
+            name="Create GET Zonal Part"
+            categoryId="com.ge.transportation.plm.srv.commands.category"
+            id="com.ge.transportation.plm.srv.commands.getZonalPartCommand">
+      </command>
+        <command
+            name="Service Attributes"
+            categoryId="com.ge.transportation.plm.srv.commands.category"
+            id="com.ge.transportation.plm.srv.commands.assignManufacturingAttributes">
+      </command>
+     
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+     
+       <handler
+            commandId="com.ge.transportation.plm.srv.commands.getServiceCommand"
+            class="com.ge.transportation.plm.srv.handlers.CreateGetServicePartHandlers">
+      </handler>
+      <handler
+            commandId="com.ge.transportation.plm.srv.commands.getZonalPartCommand"
+            class="com.ge.transportation.plm.srv.handlers.CreateGetZonalPartHandler">
+      </handler>
+       <handler
+            commandId="com.ge.transportation.plm.srv.commands.getSrvPrtFrmEngPrtCommand"
+            class="com.ge.transportation.plm.srv.handlers.CreateGetSrvItemHandler">
+      </handler>
+       <handler
+            commandId="com.ge.transportation.plm.srv.commands.getFunctionalCommand"
+            class="com.ge.transportation.plm.srv.handlers.CreateGetFunctionalHandler">
+      </handler>
+      <handler
+            commandId="com.ge.transportation.plm.srv.commands.getObsoleteCommand"
+            class="com.ge.transportation.plm.srv.handlers.CreateGetObsoleteFormHandler">
+      </handler>
+      <handler
+            commandId="com.ge.transportation.plm.srv.commands.assignManufacturingAttributes"
+            class="com.ge.transportation.plm.srv.handlers.ServicesAttributesHandlers">
+      </handler>
+      <handler
+            commandId="com.ge.transportation.plm.srv.commands.assignStockMaterialAttributes"
+            class="com.ge.transportation.plm.srv.handlers.StockMaterialAttributesHandlers">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="com.ge.transportation.plm.srv.commands.getServiceCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               label="GET Service"
+               mnemonic="M"
+               id="com.ge.transportation.plm.srv.menus.ServiceMenu">
+               <menu
+                     id="com.ge.transportation.plm.srv.menus.ServiceMenuNew"
+                     label="New"
+                     mnemonic="N">
+		            <command
+                    commandId="com.ge.transportation.plm.srv.commands.getServiceCommand"
+                    icon="resource/icons/GET6GET6ServicePart.png"
+                    id="com.ge.transportation.plm.srv.menus.getServiceCommand"
+                    label="GET Service Part"
+                    mnemonic="M"
+                    tooltip="Service Part">
+		            </command>
+		             <command
+                    commandId="com.ge.transportation.plm.srv.commands.getSrvPrtFrmEngPrtCommand"
+                    icon="resource/icons/GET6ElectPart.png"
+                    id="com.ge.transportation.plm.srv.menus.getSrvPrtFrmEngPrtCommand"
+                    label="GET Service Part From Engineering Part"
+                    mnemonic="S"
+                    tooltip="GET Service Part From Engineering Part">
+		            </command>
+		             <separator
+	                     name="Seperator"
+	                     visible="true">
+               		</separator>
+               		<command
+                    commandId="com.ge.transportation.plm.srv.commands.getZonalPartCommand"
+                    icon="resource/icons/GET6zonal.png"
+                    id="com.ge.transportation.plm.srv.commands.getZonalPartCommand"
+                    label="GET Zonal"
+                    mnemonic="N"
+                    tooltip="GET Zonal">
+		            </command>
+		            <command
+                    commandId="com.ge.transportation.plm.srv.commands.getFunctionalCommand"
+                    icon="resource/icons/GET6functional.png"
+                    id="com.ge.transportation.plm.srv.menus.getServiceCommand"
+                    label="GET Functional"
+                    mnemonic="E"
+                    tooltip="GET Functional">
+		            </command>
+		       </menu>
+         </menu>
+         
+      </menuContribution>
+      
+      <menuContribution
+         locationURI=
+         "popup:org.eclipse.ui.popup.any?after=additions">
+         <menu
+              id="com.ge.transportation.plm.srv.popup.manufacturing"
+              label="GET Services"
+              icon="resource/icons/GETManufacturing.png"
+              mnemonic="M">
+	         <command
+                commandId="com.ge.transportation.plm.srv.commands.assignManufacturingAttributes"
+                icon="resource/icons/ManufacturingAttributes.png"
+                label="Services Attributes"
+                mnemonic="M"
+                tooltip="Assign Service Attributes to Items">
+	         </command>
+	         <command
+                commandId="com.ge.transportation.plm.srv.commands.getObsoleteCommand"
+                icon="resource/icons/GET6Orange.png"
+                label="GET Supercedure/Obsolete Form"
+                mnemonic="N"
+                tooltip="GET Supercedure/Obsolete Form">
+		     </command>
+	         
+	      </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>

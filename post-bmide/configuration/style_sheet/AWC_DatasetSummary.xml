@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2015.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+-->
+<!-- Style sheet rendering for Dataset summary. -->
+<rendering xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XMLRenderingStylesheet_Schema.xsd">
+    <header>
+        <image source="type"/>
+        <property name="owning_user"/>
+        <property name="last_mod_date"/>
+        <property name="release_status_list"/>
+        <property name="object_type"/>
+    </header>
+    <page titleKey="tc_xrt_Overview">
+        <column>
+            <section titleKey="tc_xrt_properties">
+                <property name="object_string"/>
+                <separator/>
+                <property name="object_name"/>
+                <property name="object_desc"/>
+                <separator/>
+                <property name="owning_user" renderingHint="objectlink" modifiable="false"/>
+                <property name="owning_group" renderingHint="objectlink" modifiable="false"/>
+                <property name="last_mod_user"/>
+                <separator/>
+                <property name="checked_out"/>
+                <property name="checked_out_user"/>
+                <property name="checked_out_date"/>
+                <property name="checked_out_change_id"/>
+                <separator/>
+                <command commandId="com.teamcenter.rac.properties" titleKey="tc_xrt_moreProperties" />
+            </section>
+            <inject type="dataset" src="ProjectListInfo"/>
+        </column>
+        <column>
+            <section titleKey="tc_xrt_Preview">
+                <image source="thumbnail"/>
+            </section>
+            <section titleKey="tc_xrt_actions" commandLayout="vertical">
+                <command actionKey="openAction" commandId="com.teamcenter.rac.open" />
+            </section>
+        </column>
+    </page>
+    <!-- <page titleKey="dummy" visibleWhen="1==2">
+        <property name="ref_list"/>
+    </page> -->
+    <page titleKey="tc_xrt_viewer" visibleWhen="object_type==PDF">
+        <customPanel java="com.siemens.splm.client.docmgmt.viewer.xrtViewer"/>
+    </page>
+    <page titleKey="tc_xrt_AuditLogs" visibleWhen="{pref:TC_audit_manager_version}==3">
+        <command titleKey="tc_xrt_ExportToExcel"  actionKey="exportExcelAction" commandId="com.teamcenter.rac.exportAuditSummaryToExcel" renderingHint="commandbutton"/>
+        <command titleKey="tc_xrt_ExportToCSV" actionKey="exportCSVAction" commandId="com.teamcenter.rac.exportAuditSummaryToCSV" renderingHint="commandbutton"/>
+        <section titleKey="tc_xrt_WorkflowLogs" initialstate="collapsed">
+            <customPanel java="com.teamcenter.rac.auditmanager.WorkflowLegacyAuditLinkPanel"/>
+            <objectSet source="fnd0WorkflowAuditLogs.Fnd0WorkflowAudit" defaultdisplay="tableDisplay" sortby="fnd0LoggedDate" sortdirection="ascending">
+                <tableDisplay>
+                    <property name="fnd0LoggedDate"/>
+                    <property name="object_type"/>
+                    <property name="fnd0EventTypeName"/>
+                    <property name="object_name"/>
+                    <property name="job_name"/>
+                    <property name="process_templateDisp"/>
+                    <property name="fnd0UserId"/>
+                    <property name="task_state"/>
+                    <property name="task_result"/>
+                    <property name="fnd0Comments"/>
+                    <property name="responsible_party"/>
+                    <property name="fnd0SignoffUserID"/>
+                    <property name="fnd0SignoffGroupName"/>
+                    <property name="fnd0SignoffRoleName"/>
+                    <property name="fnd0SecondaryObjectType"/>
+                    <property name="fnd0SecondaryObjDispName"/>
+                    <property name="fnd0SecondaryObjQualifier"/>
+                </tableDisplay>
+            </objectSet>
+            <customPanel java="com.teamcenter.rac.auditmanager.WorkflowSecondaryAuditPanel" js="displayWorkflowCustomPanel" />
+        </section>
+        <section titleKey="tc_xrt_GeneralLogs" initialstate="collapsed">
+            <customPanel java="com.teamcenter.rac.auditmanager.CheckoutHistoyLinkPanel"/>
+            <objectSet source="fnd0GeneralAuditLogs.Fnd0GeneralAudit" defaultdisplay="tableDisplay" sortby="fnd0LoggedDate" sortdirection="ascending">
+                <tableDisplay>
+                    <property name="fnd0LoggedDate"/>
+                    <property name="object_type"/>
+                    <property name="fnd0EventTypeName"/>
+                    <property name="object_name"/>
+                    <property name="fnd0PrimaryObjectID"/>
+                    <property name="fnd0PrimaryObjectRevID"/>
+                    <property name="fnd0UserId"/>
+                    <property name="fnd0GroupName"/>
+                    <property name="fnd0RoleName"/>
+                    <property name="sequence_id"/>
+                    <property name="fnd0ChangeID"/>
+                    <property name="fnd0Reason"/>
+                    <property name="fnd0SecondaryObjectType"/>
+                    <property name="fnd0SecondaryObjDispName"/>
+                </tableDisplay>
+            </objectSet>
+        </section>
+        <section titleKey="tc_xrt_LicenseExportLogs" initialstate="collapsed">
+            <objectSet source="fnd0LicenseExportAuditLogs.Fnd0LicenseExportAudit" defaultdisplay="tableDisplay" sortby="fnd0LoggedDate" sortdirection="ascending">
+                <tableDisplay>
+                    <property name="fnd0LoggedDate"/>
+                    <property name="object_type"/>
+                    <property name="fnd0EventTypeName"/>
+                    <property name="object_name"/>
+                    <property name="fnd0UserId"/>
+                    <property name="fnd0GroupName"/>
+                    <property name="fnd0RoleName"/>
+                    <property name="id"/>
+                    <property name="fnd0SecondaryObjectID"/>
+                    <property name="fnd0SecondaryObjectRevID"/>
+                    <property name="fnd0SecondaryObjectType"/>
+                    <property name="fnd0SecondaryObjectName"/>
+                    <property name="fnd0SecondaryObjDispName"/>
+                    <property name="fnd0SecondaryObjectSeqID"/>
+                    <property name="ead_paragraph"/>
+                </tableDisplay>
+            </objectSet>
+            <customPanel java="com.teamcenter.rac.auditmanager.LicenseExportSecondaryAuditPanel" js="displayLicenseExportCustomPanel" />
+        </section>
+        <section titleKey="tc_xrt_FileAccessLogs" initialstate="collapsed">
+            <objectSet source="fnd0FileAccessAuditLogs.Fnd0FileAccessAudit" defaultdisplay="tableDisplay" sortby="fnd0LoggedDate" sortdirection="ascending">
+                <tableDisplay>
+                    <property name="fnd0LoggedDate"/>
+                    <property name="object_type"/>
+                    <property name="fnd0EventTypeName"/>
+                    <property name="object_name"/>
+                    <property name="fnd0UserId"/>
+                    <property name="fnd0GroupName"/>
+                    <property name="fnd0RoleName"/>
+                    <property name="volume_tag"/>
+                    <property name="original_file_name"/>
+                </tableDisplay>
+            </objectSet>
+        </section>
+    </page>
+    <inject type="dataset" src="Awn0DatasetSummary"/>
+    <inject type="dataset" src="RelationsSummary" />
+</rendering>

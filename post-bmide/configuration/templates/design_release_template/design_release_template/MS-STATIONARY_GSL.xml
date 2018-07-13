@@ -1,0 +1,1245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<template-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TaskData>
+		<ActivityId>DL002</ActivityId>
+		<Description>ENGRG NOTICE</Description>
+		<EngrComponentNo>TSEAAY</EngrComponentNo>
+		<DesignComponentNo>TSEAAY</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL003</ActivityId>
+		<Description>SOFTWARE AMSC</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0100</ActivityId>
+		<Description>FLYWHEEL &amp; CRANKSHAFT CCW</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>56</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0100</ActivityId>
+		<Description>FLYWHEEL &amp; CRANKSHAFT CW</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>56</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0110</ActivityId>
+		<Description>OIL PAN ASSEMBLY</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>30</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0120</ActivityId>
+		<Description>COVER CRANKCASE</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>30</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0130</ActivityId>
+		<Description>CAM SHAFT ASM V16 CCW</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>33</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0130</ActivityId>
+		<Description>CAM SHAFT ASM V16 CW</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>33</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0140</ActivityId>
+		<Description>GEAR ASM IDLER</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>35</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0150</ActivityId>
+		<Description>SEAL ASM ALTERNATOR END</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>22</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0160</ActivityId>
+		<Description>STARTER ASM TURNING DEVICE</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>40</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0170</ActivityId>
+		<Description>VIBR DAMPNER ASSEMBLY</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>31</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0180</ActivityId>
+		<Description>FORWARD END ASM GEVO</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>33</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0190</ActivityId>
+		<Description>OIL PUMP ARR CCW</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>26</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0190</ActivityId>
+		<Description>OIL PUMP ARR CW</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>26</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0200</ActivityId>
+		<Description>INSTALLATION AUX PTO</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>14</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0210</ActivityId>
+		<Description>OIL PIPE ASM</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>21</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0215</ActivityId>
+		<Description>HOSE ASM OIL SUPPLY</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>11</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0220</ActivityId>
+		<Description>PUMP WATER INSTLN</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>32</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0230</ActivityId>
+		<Description>COVER INST AUX 16V250</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>29</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0230</ActivityId>
+		<Description>SHAFT PTO INSTALLATIO</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>26</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0240</ActivityId>
+		<Description>WATER PIPE GEVO</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>30</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0250</ActivityId>
+		<Description>COALESCER GEVO</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>24</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0260</ActivityId>
+		<Description>AIR MANIFOLD AS GEVO 16V250</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>33</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0270</ActivityId>
+		<Description>WATER HEADER CYL OUTLET</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>25</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0275</ActivityId>
+		<Description>DIPSTICK OIL DIPSTICK</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>17</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0280</ActivityId>
+		<Description>LUBE OIL FILL</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>14</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0280</ActivityId>
+		<Description>DIPSTICK DIPSTICK ASM</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0290</ActivityId>
+		<Description>PISTON &amp;ROD ASM</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>48</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0300</ActivityId>
+		<Description>POWER ASM</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>34</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0310</ActivityId>
+		<Description>POWER ASM INSTAL</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>37</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0320</ActivityId>
+		<Description>TURBO ASM LEFT</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>41</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0330</ActivityId>
+		<Description>TURBO ASM RIGHT</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>41</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0340</ActivityId>
+		<Description>TURBO INSTL</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>26</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0350</ActivityId>
+		<Description>INTERCOOLER INTERCLR INSTL</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>31</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0360</ActivityId>
+		<Description>EXH MANIF ASM GEVO 16LDB1</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>23</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0370</ActivityId>
+		<Description>FUEL HOSE ARRGT GEVO STAT. 16</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>25</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0380</ActivityId>
+		<Description>FUEL FILTER ASM</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>19</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0390</ActivityId>
+		<Description>WIREWAY ASM</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>19</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0395</ActivityId>
+		<Description>HARDWARE ASM </Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>19</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0400</ActivityId>
+		<Description>SENSOR ASM ENGINE REAR</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>29</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0410</ActivityId>
+		<Description>SENSOR FWD END INST</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>18</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0415</ActivityId>
+		<Description>NAMEPLATE 16V250</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>14</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0420</ActivityId>
+		<Description>NAMEPLATE MOUNTING</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>13</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0421</ActivityId>
+		<Description>NAMEPLATE 16V250</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>14</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0425</ActivityId>
+		<Description>LIFTING LUG</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>26</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0430</ActivityId>
+		<Description>STARTER ASM CCW</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>30</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0430</ActivityId>
+		<Description>STARTER ASM CW</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>30</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0440</ActivityId>
+		<Description>GUARD ASM FLYWHEEL</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>19</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0470</ActivityId>
+		<Description>SHIPPING INST V250 M&amp;S</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>21</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0480</ActivityId>
+		<Description>HEAT BLANKET </Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>22</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0490</ActivityId>
+		<Description>SHIELD ASM INSTALL-IFE</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>19</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0500</ActivityId>
+		<Description>VALVE, RELIEF INSTALLATION</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>26</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL0505</ActivityId>
+		<Description>FLYWHEEL ASM</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>41</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL051</ActivityId>
+		<Description>DIESEL ENGINE TEST LIMIT</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL060</ActivityId>
+		<Description>CRANKCASE ASSEMBLY</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>27</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL070</ActivityId>
+		<Description>ENGINE MOUNT ASM</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>19</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL080</ActivityId>
+		<Description>BEARING ASM CRANKCASE V16</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>42</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>DL090</ActivityId>
+		<Description>SENSOR ASM MAIN BEARING</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>22</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AM0100</ActivityId>
+		<Description>AUX BASEFRAME ASM</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AM0110</ActivityId>
+		<Description>AUX ENCLOSURE ASM</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AM0200</ActivityId>
+		<Description>ACCESSORY RACK</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>22</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AM0201</ActivityId>
+		<Description>ACCESSORY RACK PIPE ASM</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>15</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AM0205</ActivityId>
+		<Description>AIR CLEANER INERTIAL</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>14</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AM0210</ActivityId>
+		<Description>FILTER BAGGIE 184 DAY</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>11</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AM0230</ActivityId>
+		<Description>FLEX DUCT</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>23</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>AM0240</ActivityId>
+		<Description>CLAMP TURBO BOOT</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>13</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>EM0100</ActivityId>
+		<Description>ELECTRICAL BASEFRAME ASM</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>EM0110</ActivityId>
+		<Description>ELECTRICAL ENCLOSURE ASM</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>EM0300</ActivityId>
+		<Description>MCC</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>EM0305</ActivityId>
+		<Description>ECP</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>28</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>EM0310</ActivityId>
+		<Description>GCP</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>29</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>EM0320</ActivityId>
+		<Description>BATTERY</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>EM0330</ActivityId>
+		<Description>BATTERY CHARGER</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0100</ActivityId>
+		<Description>CORE BASEFRAME</Description>
+		<EngrComponentNo>TSEABW</EngrComponentNo>
+		<DesignComponentNo>TSEABW</DesignComponentNo>
+		<BackOff>17</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0105</ActivityId>
+		<Description>FINAL BASEFRAME</Description>
+		<EngrComponentNo>TSEABW</EngrComponentNo>
+		<DesignComponentNo>TSEABW</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0110</ActivityId>
+		<Description>ENCLOSURE ENG/ALT</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0115</ActivityId>
+		<Description>DETECTOR ARR SYSTEM</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0130</ActivityId>
+		<Description>SUPPORT HOIST ASM</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0140</ActivityId>
+		<Description>COMPRESSOR SUPPORT FRAME</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0150</ActivityId>
+		<Description>TROLLEY HOIST</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0210</ActivityId>
+		<Description>COUPLING</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0230</ActivityId>
+		<Description>EXHAUST STACK INSTALL</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>43</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0255</ActivityId>
+		<Description>HARDWARE/GASKET KIT</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>22</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0270</ActivityId>
+		<Description>BELLOW</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0300</ActivityId>
+		<Description>REGULATOR VAL AIR STARTER</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>11</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0310</ActivityId>
+		<Description>STRAINER Y AIR START MOT</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>12</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0320</ActivityId>
+		<Description>CENTRIFUGE INSTALLATION</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>23</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0325</ActivityId>
+		<Description>CENTRIFUGE  </Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>13</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0330</ActivityId>
+		<Description>ENGINE MTG</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0400</ActivityId>
+		<Description>ALTERNATOR</Description>
+		<EngrComponentNo>TSEADU</EngrComponentNo>
+		<DesignComponentNo>TSEADU</DesignComponentNo>
+		<BackOff>22</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0410</ActivityId>
+		<Description>ALTERNATOR INSTALLATION</Description>
+		<EngrComponentNo>TSEABW</EngrComponentNo>
+		<DesignComponentNo>TSEABW</DesignComponentNo>
+		<BackOff>10</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0420</ActivityId>
+		<Description>AIR RECEIVER</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0427</ActivityId>
+		<Description>LUBE OIL PRESSURE SENSOR</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>10</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0430</ActivityId>
+		<Description>VENT FAN ASM</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0440</ActivityId>
+		<Description>AIR COMPRESSOR</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0510</ActivityId>
+		<Description>ACCES LIST, ENG STATIONARY EC2</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>35</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0540</ActivityId>
+		<Description>ECU - A HARNESS</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>19</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0550</ActivityId>
+		<Description>ECU - B HARNESS</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>19</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0560</ActivityId>
+		<Description>HPFS - HARNESS</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>19</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0565</ActivityId>
+		<Description>MBT - HARNESS</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>17</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0570</ActivityId>
+		<Description>EGT - HARNESS</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>17</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0580</ActivityId>
+		<Description>STATIONARY HARNESS</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>19</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0590</ActivityId>
+		<Description>EAFP HARNESS</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>18</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0600</ActivityId>
+		<Description>INDICATOR FLTR SERVICE </Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>9</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>PM0700</ActivityId>
+		<Description>AVM</Description>
+		<EngrComponentNo>TSEABW</EngrComponentNo>
+		<DesignComponentNo>TSEABW</DesignComponentNo>
+		<BackOff>13</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>RM0100</ActivityId>
+		<Description>RADIATOR</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>44</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0100</ActivityId>
+		<Description>NGR</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>18</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0110</ActivityId>
+		<Description>NGR OUTLINE</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0150</ActivityId>
+		<Description>PACKAGER PURCHASE SPEC</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>29</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0155</ActivityId>
+		<Description>INTEGRATED DRAWING LIST</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0320</ActivityId>
+		<Description>SFS</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>16</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0325</ActivityId>
+		<Description>CONTROL SDS</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0330</ActivityId>
+		<Description>PLC/O SPEC</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0335</ActivityId>
+		<Description>MODBUS COMMUNICATION ICD</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0340</ActivityId>
+		<Description>TORQUE CURVE</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0350</ActivityId>
+		<Description>ENGINE DATA SHEET</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0410</ActivityId>
+		<Description>GENSET OUTLINE</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0420</ActivityId>
+		<Description>ENGINE OUTLINE</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0430</ActivityId>
+		<Description>ENGINE SERVICE ENVELOPE</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0440</ActivityId>
+		<Description>LIFTING ARGT-PM</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>4</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0445</ActivityId>
+		<Description>ENGINE LIFTING ARR</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>4</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0510</ActivityId>
+		<Description>System Validation Plan</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>4</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0540</ActivityId>
+		<Description>Control Validation Plan</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>4</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0610</ActivityId>
+		<Description>ELEC SCHEMATIC GENSET</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>2</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0620</ActivityId>
+		<Description>WIRE LIST</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>4</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0630</ActivityId>
+		<Description>CONTROL WIRELIST</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>4</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0640</ActivityId>
+		<Description>ENGINE WIRELIST</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>4</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration></DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0650</ActivityId>
+		<Description>P&amp;ID</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEAAS</DesignComponentNo>
+		<BackOff>4</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0830</ActivityId>
+		<Description>PART CATALOG</Description>
+		<EngrComponentNo>TSEABY</EngrComponentNo>
+		<DesignComponentNo>TSEABY</DesignComponentNo>
+		<BackOff>4</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0840</ActivityId>
+		<Description>MANUALS MAINTEN ANCE</Description>
+		<EngrComponentNo>TSEABY</EngrComponentNo>
+		<DesignComponentNo>TSEABY</DesignComponentNo>
+		<BackOff>4</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0850</ActivityId>
+		<Description>A&amp;I GUIDE</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEABY</DesignComponentNo>
+		<BackOff>8</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0860</ActivityId>
+		<Description>INSPECTION PRE-STARTUP</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>12</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0870</ActivityId>
+		<Description>ALTERNATOR MOUNTING INST</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>12</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0890</ActivityId>
+		<Description>ALIGNMENT SPECI FICATION</Description>
+		<EngrComponentNo>TSEACN</EngrComponentNo>
+		<DesignComponentNo>TSEACN</DesignComponentNo>
+		<BackOff>12</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0900</ActivityId>
+		<Description>OPERATORS MANUAL</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEABY</DesignComponentNo>
+		<BackOff>4</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0910</ActivityId>
+		<Description>TROUBLESHOOTING GUIDE</Description>
+		<EngrComponentNo>TSEAAS</EngrComponentNo>
+		<DesignComponentNo>TSEABY</DesignComponentNo>
+		<BackOff>4</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+	<TaskData>
+		<ActivityId>SG0970</ActivityId>
+		<Description>MDRB</Description>
+		<EngrComponentNo>TSEABY</EngrComponentNo>
+		<DesignComponentNo>TSEABY</DesignComponentNo>
+		<BackOff>4</BackOff>
+		<EngrDuration></EngrDuration>
+		<DesignDuration>4</DesignDuration>
+	</TaskData>
+</template-data>

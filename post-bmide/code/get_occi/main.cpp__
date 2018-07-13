@@ -1,0 +1,30 @@
+#include <crtdbg.h>
+
+#include "GET_OCCI_includes.h"
+
+using namespace get;
+using namespace std;
+
+int main (void)
+{
+	cout<<"test.. "<<endl;
+	try
+	{
+		cout<<"test 1.. "<<endl;
+		shared_ptr<GET_OCCI> occi(new GET_OCCI("transdev", "transdev", "ORCL") );
+		cout<<"test 2.. "<<endl;
+		occi->createConnection();
+		cout<<"test 3.. "<<endl;
+		//shared_ptr<GET_ResultSet> resultSet = occi->executeSelect("select * from ITEM_HEADER where rownum<200");
+		cout<<"here 1"<<endl;
+		int testNo;
+		cin>>testNo;
+		
+	}
+	catch (exception *ex)
+	{
+		cout<<"exception: " << ex->what()<<endl;
+		delete ex;
+	}
+	return (0);
+}

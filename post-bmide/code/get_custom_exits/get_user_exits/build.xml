@@ -1,0 +1,105 @@
+<project name="get_user_exits">
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+    <classpath> 
+		<pathelement location="${ANT_HOME}/lib/ant-contrib-0.6.jar" />
+    </classpath> 
+    </taskdef>
+    <!-- Define properties -->
+    <property environment="env"/>
+    
+    <property name="cc.debug" value="false"/>
+    
+    <!-- Import common targets -->
+    <import file="common.xml"/>
+	<property name="link.type" value="shared"/>
+	<property name="link.dir" value="../lib"/>
+	<property name="obj.dir" value="../obj"/>
+	
+	<condition property="link.prefix" value="lib">
+	        <equals arg1="${ge.win}" arg2="true"/>
+	    </condition>
+	    <condition property="link.prefix" value="">
+	        <equals arg1="${ge.linux}" arg2="true"/>
+	    </condition>
+		
+		<if>
+	        <equals arg1="${ge.win}" arg2="true"/>
+	        <then>
+	            <property name="platform.dir" value="get_win32"/>
+				<property name="obj.set" value="*.obj"/>
+	        </then>
+	        <else>
+	            <property name="platform.dir" value="get_unx"/>
+				<property name="obj.set" value="*.o"/>
+	        </else>
+	    </if>
+	
+	
+	
+    <!-- Help -->
+    <target name="help" description="print usage">
+        <echo message="Please specify target as build32 or build64"/>
+        <echo message="or docs to generate HTML documentation."/>
+    </target>
+	
+    
+    <!-- 32 bit build with debug enabled -->
+    <target name="build32_debug" description="32 bit build (debug)">
+        <subant target="build32">
+            <property name="cc.debug" value="true"/>
+            <filelist dir="." files="build.xml"/>
+        </subant>
+    </target>
+    
+    <!-- 32 bit build -->
+    <target name="build32" description="32 bit build">
+    	<subant target="compile32">
+    	    <filelist dir="." files="build.xml"/>
+    	 </subant>
+    	 <subant target="link32">
+         <property name="link.name" value="${link.prefix}GET_tc_common"/>
+    	     <filelist dir="." files="build.xml"/>
+    	 </subant>  	
+    </target>
+	
+	<!-- Doxygen 32bit -->
+				<target name="doxygen32">
+					<property name="DOXYGEN32_HOME" value="${DOXYGEN32_HOME}"/>
+					<mkdir dir="doc"/>
+					<exec executable="${DOXYGEN32_HOME}\doxygen">
+					   	<arg value="Doxyfile" />
+					</exec>
+				</target>
+		
+		<!-- Doxygen 64 bit-->
+				<target name="doxygen64">
+					<property name="DOXYGEN64_HOME" value="${DOXYGEN64_HOME}"/>
+					<mkdir dir="doc"/>
+					<exec executable="${DOXYGEN64_HOME}\doxygen">
+						<arg value="Doxyfile" />
+					</exec>
+				</target>	
+    
+    <!-- 64 bit build with debug enabled -->
+    <target name="build64_debug" description="64 bit build (debug)">
+        <subant target="build64">
+            <property name="cc.debug" value="true"/>
+            <filelist dir="." files="build.xml"/>
+        </subant>
+    </target>
+    
+    <!-- 64 bit build -->
+    <target name="build64" description="64 bit build">
+    	<subant target="compile64">
+    	  <filelist dir="." files="build.xml"/>
+    	</subant>
+    	<!--<subant target="link64">
+    	   <property name="link.name" value="${link.prefix}get6_tc_common64"/>
+    	    <filelist dir="." files="build.xml"/>
+    	</subant>-->
+    	<subant target="build_test_cases">
+    	   <filelist dir="test" files="build.xml"/>
+    	</subant>
+    </target>
+    
+</project>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+<meta charset="utf-8"/>
+<style type="text/css">
+
+table
+    {
+    width: 100%;
+    padding: 0;
+    border: 1px solid rgb(50%, 50%, 50%);
+    border-collapse:collapse;
+    }
+
+th
+    {
+    font: bold 16px "Times New Roman";
+    text-align: left;
+    padding: 4px 4px 4px 4px;
+    border: 1px solid rgb(50%, 50%, 50%);
+    background: #CCCCFF;
+    vertical-align:top;
+    }
+
+td
+    {
+    font: normal 14px "Times New Roman";
+    padding: 4px 4px 4px 4px;
+    border: 1px solid rgb(50%, 50%, 50%);
+    vertical-align:top;
+    }
+
+th.light { background:#EEEEFF; font: bold 16px "Times New Roman"  }
+td.diff { background:#ffffcc; }
+td.userAction { background:#ffebeb; }
+td.noUserAction { background:#ebffeb; }
+td.merged { background:#ebebff; }
+td.bold { font: bold 14px "Times New Roman"; }
+tr.collapsed { visibility:collapse; background:#ebffeb; }
+
+</style>
+
+<script type="text/javascript">
+    function hideDetailSection(id)
+        {
+        row = document.getElementById(id);
+        row.style.visibility ="collapse";
+        str = "<a style='color: #0000FF; font-size: 12pt; cursor: pointer;' onclick='showDetailSection(\""+id+"\")'>Show details</a>";
+        document.getElementById(id+"detailsLink").innerHTML = str;
+    }
+    function showDetailSection( id )    {        row = document.getElementById( id );
+        row.style.visibility ="visible";
+        str = "<a style='color: #0000FF; font-size: 12pt' onclick='hideDetailSection(\""+id+"\")'>Hide details</a>";
+        document.getElementById(id+"detailsLink").innerHTML = str;
+    }
+    function hideErrorMessage(id)
+        {
+        row = document.getElementById(id);
+        row.style.visibility ="collapse";
+        str = "<a style='color: #0000FF; font-size: 12pt; cursor: pointer;' onclick='showErrorMessage(\""+id+"\")'>Show Error</a>";
+        document.getElementById(id+"Link").innerHTML = str;
+    }
+    function showErrorMessage( id )    {        row = document.getElementById( id );
+        row.style.visibility ="visible";
+        str = "<a style='color: #0000FF; font-size: 12pt; cursor: pointer;' onclick='hideErrorMessage(\""+id+"\")'>Hide Error</a>";
+        document.getElementById(id+"Link").innerHTML = str;
+    }
+    function hideWarningMessage(id)
+        {
+        row = document.getElementById(id);
+        row.style.visibility ="collapse";
+        str = "<a style='color: #0000FF; font-size: 12pt; cursor: pointer;' onclick='showWarningMessage(\""+id+"\")'>Show Warning</a>";
+        document.getElementById(id+"Link").innerHTML = str;
+    }
+    function showWarningMessage( id )    {        row = document.getElementById( id );
+        row.style.visibility ="visible";
+        str = "<a style='color: #0000FF; font-size: 12pt; cursor: pointer;' onclick='hideWarningMessage(\""+id+"\")'>Hide Warning</a>";
+        document.getElementById(id+"Link").innerHTML = str;
+    }
+</script>
+<TITLE>Project Migration Report</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<H2>Project Migration Report</H2>
+<H2>Project Name = get6transplm</H2>
+<H3>Start Time: Wed May 31 11:19:38 EDT 2017</H3>
+<BR/>
+</CENTER>
+<h4>Migration Summary:  
+The migration and loading of the project has completed successfully.<h4>Project Location = D:\ProjectFolder\LocalTrans\BMIDE\Project\get6transplm</h4><h4>Upgrade Log = <a href = "D:\ProjectFolder\LocalTrans\BMIDE\Project\get6transplm\output\upgrade\upgrade_template_2017_05_31_11-19-37.log">D:\ProjectFolder\LocalTrans\BMIDE\Project\get6transplm\output\upgrade\upgrade_template_2017_05_31_11-19-37.log</a></h4>
+</h4><table border="1" width="100%"  CELLPADDING="1" CELLSPACING="0">
+    <th width="32%">Tasks</th>
+    <th width="8%">Status</th>
+    <th width="60%">Description</th>
+    <tr>
+        <table border="1" width="100%" id="com.teamcenter.bmide.migration.core.ProjectInfoFileMigrationServiceTbl">
+            <td width="32%"><b>Project Info file Migration Service</b></td>
+            <td width="8%"><b>Passed</b></td>
+            <td width="60%">Successfully removed the Release information.<br/>
+                <div id="com.teamcenter.bmide.migration.core.ProjectInfoFileMigrationServicedetailsLink"><a style="color: #0000FF; font-size: 12pt; cursor: pointer;" onclick="showDetailSection('com.teamcenter.bmide.migration.core.ProjectInfoFileMigrationService')">Show details</a></div>
+            </td>
+        <tr id="com.teamcenter.bmide.migration.core.ProjectInfoFileMigrationService" class="collapsed">
+            <td colspan="3">This service modifies the following files: <br/>
+D:\ProjectFolder\LocalTrans\BMIDE\Project\get6transplm\ProjectInfo.xml<br/>
+</td>        </tr>
+        </table>
+    </tr>
+    <tr>
+        <table border="1" width="100%" id="Load Project ModelTbl">
+            <td width="32%"><b>Load Project Model</b></td>
+            <td width="8%"><b>Passed</b></td>
+            <td width="60%">Loads Project Model<br/>Project "get6transplm" upgraded successfully.<br/>
+                <div id="Load Project ModeldetailsLink"><a style="color: #0000FF; font-size: 12pt; cursor: pointer;" onclick="showDetailSection('Load Project Model')">Show details</a></div>
+            </td>
+        <tr id="Load Project Model" class="collapsed">
+            <td colspan="3">Loads Project Model
+This service modifies the following files: <br/>
+No file modified<br/>
+</td>        </tr>
+        </table>
+    </tr>
+    <tr>
+        <table border="1" width="100%" id="com.teamcenter.bmide.migration.core.ExtensionFileSorterServiceTbl">
+            <td width="32%"><b>Extension file sorting service</b></td>
+            <td width="8%"><b>Passed</b></td>
+            <td width="60%">This service sorts the groups of the Elements (like TcClass, TcStandardType, etc.) defined in the BMIDE extension files. This will help the user in easily identifying the changes done with a file diff tool.<br/>Sorting of elements in the extension files is successful.<br/>
+                <div id="com.teamcenter.bmide.migration.core.ExtensionFileSorterServicedetailsLink"><a style="color: #0000FF; font-size: 12pt; cursor: pointer;" onclick="showDetailSection('com.teamcenter.bmide.migration.core.ExtensionFileSorterService')">Show details</a></div>
+            </td>
+        <tr id="com.teamcenter.bmide.migration.core.ExtensionFileSorterService" class="collapsed">
+            <td colspan="3">Until now the elements were just grouped, e.g. all the TcClass elements would be together then TcStandardType and so on. In these groups, however, there was no ordering for the elements that were written, so modifying just an element used to create a lot of shuffling in the text in the extension file. This used to result in a lot of issues at the time of validating the changes done to the extension files. (The diff tools would return a lot of changes just from re-ordering of the lines.)
+ After running this service the extension files will still have the elements written in groups, but the elements within each group will be sorted. With elements now sorted the changes done to the extension file will not shuffle all the contents, and the user will be able understand the diff generated.
+This service modifies the following files: <br/>
+D:\ProjectFolder\LocalTrans\BMIDE\Project\get6transplm\extensions\default.xml<br/>
+D:\ProjectFolder\LocalTrans\BMIDE\Project\get6transplm\extensions\get6_engineering.xml<br/>
+D:\ProjectFolder\LocalTrans\BMIDE\Project\get6transplm\extensions\get6_manufacturing.xml<br/>
+D:\ProjectFolder\LocalTrans\BMIDE\Project\get6transplm\extensions\get6_project.xml<br/>
+D:\ProjectFolder\LocalTrans\BMIDE\Project\get6transplm\extensions\get6_designrelease.xml<br/>
+D:\ProjectFolder\LocalTrans\BMIDE\Project\get6transplm\extensions\lang\en_US\get6_engineering_en_US.xml<br/>
+D:\ProjectFolder\LocalTrans\BMIDE\Project\get6transplm\extensions\lang\en_US\get6_manufacturing_en_US.xml<br/>
+D:\ProjectFolder\LocalTrans\BMIDE\Project\get6transplm\extensions\lang\en_US\get6_project_en_US.xml<br/>
+D:\ProjectFolder\LocalTrans\BMIDE\Project\get6transplm\extensions\lang\en_US\get6_designrelease_en_US.xml<br/>
+</td>        </tr>
+        </table>
+    </tr>
+    <tr>
+        <table border="1" width="100%" id="com.teamcenter.bmide.migration.core.ConditionDescLocalizationMigrationServiceTbl">
+            <td width="32%"><b>Condition Description Localization Migration Service</b></td>
+            <td width="8%"><b>Passed</b></td>
+            <td width="60%">This service adds a localization for every condition description that does not have a localization. The localization is added only for Site Master Locale. The service does not create localizations for empty or blank descriptions.<br/>The Migration Service successfully created missing condition description localizations.<br/>
+                <div id="com.teamcenter.bmide.migration.core.ConditionDescLocalizationMigrationServicedetailsLink"><a style="color: #0000FF; font-size: 12pt; cursor: pointer;" onclick="showDetailSection('com.teamcenter.bmide.migration.core.ConditionDescLocalizationMigrationService')">Show details</a></div>
+            </td>
+        <tr id="com.teamcenter.bmide.migration.core.ConditionDescLocalizationMigrationService" class="collapsed">
+            <td colspan="3">
+This service modifies the following files: <br/>
+D:\ProjectFolder\LocalTrans\BMIDE\Project\get6transplm\extensions\lang\en_US\get6_manufacturing_en_US.xml<br/>
+D:\ProjectFolder\LocalTrans\BMIDE\Project\get6transplm\extensions\lang\en_US\get6_manufacturing_en_US.xml<br/>
+D:\ProjectFolder\LocalTrans\BMIDE\Project\get6transplm\extensions\lang\en_US\get6_manufacturing_en_US.xml<br/>
+D:\ProjectFolder\LocalTrans\BMIDE\Project\get6transplm\extensions\lang\en_US\get6_manufacturing_en_US.xml<br/>
+D:\ProjectFolder\LocalTrans\BMIDE\Project\get6transplm\extensions\lang\en_US\get6_manufacturing_en_US.xml<br/>
+</td>        </tr>
+        </table>
+    </tr>
+    </table>
+</BODY>
+</HTML>
+

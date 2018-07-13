@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences version="10.0">
+  <category name="General">
+    <category_description></category_description>
+    <preference name="TC_NX_FileNewPAXFiles_NX10" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="true">
+      <preference_description>PAX files for NX10</preference_description>
+      <context name="Teamcenter">
+        <value>PAX_MODELING_DEFAULT/A</value>
+        <value>PAX_DRAFTING_DEFAULT/A</value>
+        <value>PAX_SHEET_DEFAULT/A</value>
+      </context>
+    </preference>
+  </category>
+  <category name="Manufacturing">
+    <category_description></category_description>
+    <preference name="NX_supported_operation_types" type="String" array="true" disabled="false" protectionScope="Site" envEnabled="false">
+      <preference_description>List of MEOP types that are supported in the NXCAM/TCM integration.</preference_description>
+      <context name="Teamcenter">
+        <value>MENCMachining</value>
+        <value>GET6NCMachining</value>
+      </context>
+    </preference>
+  </category>
+</preferences>
+

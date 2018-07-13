@@ -1,0 +1,27 @@
+<!--
+// @<COPYRIGHT>@
+// ==================================================
+// Copyright 2015.
+// Siemens Product Lifecycle Management Software Inc.
+// All Rights Reserved.
+// ==================================================
+// @<COPYRIGHT>@
+-->
+<!--
+ Default style sheet for displaying Form properties. 
+ type=form displays only properties that are available directly on the form
+ type=property displays all properties
+-->
+<rendering xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XMLRenderingStylesheet_Schema.xsd">
+    <page titleKey="tc_xrt_Summary">
+            <property name="get9Serviceable" />
+		    <property name="get9Repairable" />
+			<property name="get9Serialized" />
+			<property name="get9PositionTracked" />
+			<property name="get9ServiceItemType" />
+			<property name="get9TierType" renderingHint="togglebuttonoptionlov" />
+			<property name="get9EngineFamily" />
+			<property name="get9CatalogNo" />
+			<property name="get9ComponentID" />
+    </page>
+</rendering>

@@ -1,0 +1,451 @@
+#
+#===================================================
+# Siemens Product Lifecycle Management Software Inc.
+# All Rights Reserved.
+#
+#==================================================
+#
+#
+# Patch to correctly merge alternate routings
+#
+#
+# author         ljj, 20180614
+#
+#
+#
+namespace eval ::TPEBS::RTG {
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:        ::TPEBS::RTG::mergeRoutingOperations
+  # \tpinternal
+  # \brief         Combines the EBSDat array from the mapping with actual data
+  #                from the EBS to update the Routing operations
+  #
+  # \author        kh, 20111116
+  #
+  #
+  proc mergeRoutingOperations { datDisabledDate args } {
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    set LastEBSDatIndex 0
+    set dictStartEffectiveDate4OperationsWithTypeUPDATE {}
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "Custom $FunctionName starts with datDisabledDate = >$datDisabledDate<"
+    #
+    # Wir berechnen noch den höchsten Index im EBSDat Array, da wir evtl. weiter unten noch Einträge an das Array anfügen müssen...
+    # Und legen die EBSDat Daten für die Operations in anderer, besser (schneller) verarbeitbarer Form ab
+    #
+    foreach Line [array names ::EBSDat Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:*] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      # Per Default sind alle EBSDat Operation Lines erst mal mit CREATE gekennzeichnet und werden weiter unten dann entsprechend angepasst.
+      #
+      if { $::EBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:TRANSACTION_TYPE:$LineIndex) eq ""} {
+        set ::EBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:TRANSACTION_TYPE:$LineIndex) "CREATE"
+      }
+      #
+      if { $LineIndex > $LastEBSDatIndex } {
+        set LastEBSDatIndex $LineIndex
+      }
+      #
+      set OperationSequence $::EBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndex)
+      #
+      set tag $OperationSequence
+      #
+      set EBSDatTags($tag) $LineIndex
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - LastEBSDatIndex = >$LastEBSDatIndex<"
+
+    #
+    # Jetzt die Daten aus des aktuellen Routings in der EBS mit denen des EBSDat Arrays zusammenfügen
+    #
+
+    #
+    # Loop über alle EBS Operations
+    #
+    foreach Line [array names ::RoutingResultDat X_RTG_OPERATION_TBL:X_RTG_OPERATION_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:*] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      set blnFound "FALSE"
+      #
+      set OperationCode       $::RoutingResultDat(X_RTG_OPERATION_TBL:X_RTG_OPERATION_TBL_ITEM:STANDARD_OPERATION_CODE:$LineIndex)
+      set OperationSequence   $::RoutingResultDat(X_RTG_OPERATION_TBL:X_RTG_OPERATION_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndex)
+      set OperationSequenceId $::RoutingResultDat(X_RTG_OPERATION_TBL:X_RTG_OPERATION_TBL_ITEM:OPERATION_SEQUENCE_ID:$LineIndex)
+      set EffectivityDateFrom $::RoutingResultDat(X_RTG_OPERATION_TBL:X_RTG_OPERATION_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndex)
+      set OrganizationCode    $::RoutingResultDat(X_RTG_OPERATION_TBL:X_RTG_OPERATION_TBL_ITEM:ORGANIZATION_CODE:$LineIndex)
+      set EffectivityDateTo   $::RoutingResultDat(X_RTG_OPERATION_TBL:X_RTG_OPERATION_TBL_ITEM:DISABLE_DATE:$LineIndex)
+      set AssemblyItemName    $::RoutingResultDat(X_RTG_OPERATION_TBL:X_RTG_OPERATION_TBL_ITEM:ASSEMBLY_ITEM_NAME:$LineIndex)
+      set AlternateRtgCode    $::RoutingResultDat(X_RTG_OPERATION_TBL:X_RTG_OPERATION_TBL_ITEM:ALTERNATE_ROUTING_CODE:$LineIndex)
+      #
+      set tag $OperationSequence
+      #
+      # Erst mal auf Operation Sequence Number prüfen
+      #
+      if { [info exists EBSDatTags($tag)] } {
+        #
+        # Wenn der tag (also die Operations in dem EBSDatTags existiert, dann können wir
+        # darüber nun den Index der BOMLine im EBSDat ermitteln...
+        #
+        set LineIndexTC $EBSDatTags($tag)
+        #
+        set OperationSequenceTC   $::EBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndexTC)
+        set EffectivityDateFromTC $::EBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndexTC)
+        set EffectivityDateToTC   $::EBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:DISABLE_DATE:$LineIndexTC)
+        #
+        # Jetzt können wir noch auf die Effectivity Dates abprüfen...
+        #
+        set EffectivityDateFromTC_CTime [::T4O::time2CTime $EffectivityDateFromTC]
+        set EffectivityDateFrom_CTime   [::T4O::time2CTime $EffectivityDateFrom]
+        set EffectivityDateToTC_CTime   [::T4O::time2CTime $EffectivityDateToTC]
+        set EffectivityDateTo_CTime     [::T4O::time2CTime $EffectivityDateTo]
+        #
+        if { $EffectivityDateFromTC_CTime >= $EffectivityDateFrom_CTime && ($EffectivityDateTo_CTime eq "-1" || ($EffectivityDateToTC_CTime <= $EffectivityDateTo_CTime))} {
+          #
+          # Gefunden -> Transaction Type auf UPDATE stellen
+          #
+          set ::EBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:TRANSACTION_TYPE:$LineIndexTC) "UPDATE"
+          #
+          # In diesem Dict werden alle Components und deren altes START_EFFECTIVE_DATE mit TRANSACTION_TYPE UPDATE als Key hinterlegt,
+          # da für diese später noch das START_EFFECTIVE_DATE aller dazugehöriger Substitutes and Reference Designators
+          # geändert werden muss. Die neue START_EFFECTIVE_DATE ist dabei als Value im Dict abgelegt
+          #
+          dict set dictStartEffectiveDate4OperationsWithTypeUPDATE $OperationSequenceTC$EffectivityDateFromTC $EffectivityDateFrom
+          #
+          # Bei einem Operation Update darf das START_EFFECTIVE_DATE nicht mehr geändert werden!
+          #
+          set ::EBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:START_EFFECTIVE_DATE:$LineIndexTC) $EffectivityDateFrom
+          #
+          set blnFound "TRUE"
+        }
+      }
+      #
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - OperationCode = >$OperationCode< (LineIndex >$LineIndex<) -> blnFound = >$blnFound<"
+      #
+      if { $blnFound eq "FALSE" } {
+        #
+        # EBS Operation existiert nicht mehr im TC - zum Löschen vormerken...
+        #
+        incr LastEBSDatIndex
+        #
+        set tmpEBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:STANDARD_OPERATION_CODE:$LastEBSDatIndex)   $OperationCode
+        set tmpEBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LastEBSDatIndex) $OperationSequence
+        set tmpEBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:ORGANIZATION_CODE:$LastEBSDatIndex)         $OrganizationCode
+        set tmpEBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:ASSEMBLY_ITEM_NAME:$LastEBSDatIndex)        $AssemblyItemName
+        set tmpEBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:ALTERNATE_ROUTING_CODE:$LastEBSDatIndex)    $AlternateRtgCode
+        set tmpEBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:START_EFFECTIVE_DATE:$LastEBSDatIndex)      $EffectivityDateFrom
+        if { $::EBSDat(Routing:CtrlParam:DELETE_GROUP_NAME) ne "" } {
+          #
+          # Mittel Delete Group löschen
+          #
+          set tmpEBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:TRANSACTION_TYPE:$LastEBSDatIndex)          "DELETE"
+          set tmpEBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:DELETE_GROUP_NAME:$LastEBSDatIndex)         $::EBSDat(Routing:CtrlParam:DELETE_GROUP_NAME)
+        } else {
+          #
+          # Mittels Effectivity Date löschen
+          #
+          set tmpEBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:TRANSACTION_TYPE:$LastEBSDatIndex)          "UPDATE"
+          set tmpEBSDat(Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:DISABLE_DATE:$LastEBSDatIndex)              $datDisabledDate
+        }
+      }
+    }
+    #
+    array unset EBSDatTags
+    #
+    # Nachdem wir oben das START_EFFECTIVE_DATE aller Component mit TRANSACTION_TYPE UPDATE geändert haben, müssen
+    # wir noch das entsprechende START_EFFECTIVE_DATE aller Reference Designators und Substitutes anpassen
+    #
+    if { [dict size $dictStartEffectiveDate4OperationsWithTypeUPDATE] > 0 } {
+      ::TPEBS::RTG::mergeOperationStartEffectiveDate4Resources $dictStartEffectiveDate4OperationsWithTypeUPDATE
+    }
+    #
+    # Jetzt noch alle zum Löschen markierten Elemente in das EBSDat übernehmen...
+    #
+    foreach Line [array names tmpEBSDat Routing:P_OPERATION_TBL:P_OPERATION_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:*] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      # Init Structure
+      #
+      ::TPEBS::RTG::initRoutingStructure_P_OPERATION_TBL $LineIndex
+    }
+    #
+    foreach elem [array names tmpEBSDat] {
+      set ::EBSDat($elem) $tmpEBSDat($elem)
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished!"
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:        ::TPEBS::RTG::mergeRoutingResources
+  # \tpinternal
+  # \brief         Combines the EBSDat array from the mapping with actual data
+  #                from the EBS to update the Routing resources
+  #
+  # \author        kh, 20111116
+  #
+  #
+  proc mergeRoutingResources { args } {
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    set LastEBSDatIndex 0
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "Custom $FunctionName starts..."
+    #
+    # Wir berechnen noch den höchsten Index im EBSDat Array, da wir evtl. weiter unten noch Einträge an das Array anfügen müssen...
+    #
+    set EBSDatTags {}
+    #
+    foreach Line [array names ::EBSDat Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:RESOURCE_SEQUENCE_NUMBER:*] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      if { $::EBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:TRANSACTION_TYPE:$LineIndex) eq "" } {
+        set ::EBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:TRANSACTION_TYPE:$LineIndex) "CREATE"
+      }
+      #
+      if { $LineIndex > $LastEBSDatIndex } {
+        set LastEBSDatIndex $LineIndex
+      }
+      #
+      # Bei dieser Gelegenheit legen wir gleich noch alle Operation Resources in besser (schneller) verarbeitbarer Form ab...
+      #
+      set ResourceSequenceTC             $::EBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:RESOURCE_SEQUENCE_NUMBER:$LineIndex)
+      set OperationSequenceNumberTC      $::EBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndex)
+      set OperationEffectivityDateFromTC $::EBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:OP_START_EFFECTIVE_DATE:$LineIndex)
+      #
+      set tag [list $ResourceSequenceTC $OperationSequenceNumberTC $OperationEffectivityDateFromTC]
+      #
+      dict set EBSDatTags $tag $LineIndex
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - LastEBSDatIndex = >$LastEBSDatIndex<"
+
+    #
+    # Jetzt die Daten aus des aktuellen Routings in der EBS mit denen des EBSDat Arrays zusammenfügen
+    #
+
+    #
+    # Loop über alle EBS Resources
+    #
+    foreach Line [array names ::RoutingResultDat X_RTG_OP_RESOURCE_TBL:X_RTG_OP_RESOURCE_TBL_ITEM:RESOURCE_SEQUENCE_NUMBER:*] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      set blnFound "FALSE"
+      #
+      set AssemblyItemName             $::RoutingResultDat(X_RTG_OP_RESOURCE_TBL:X_RTG_OP_RESOURCE_TBL_ITEM:ASSEMBLY_ITEM_NAME:$LineIndex)
+      set AlternateRtgCode             $::RoutingResultDat(X_RTG_OP_RESOURCE_TBL:X_RTG_OP_RESOURCE_TBL_ITEM:ALTERNATE_ROUTING_CODE:$LineIndex)
+      set OrganizationCode             $::RoutingResultDat(X_RTG_OP_RESOURCE_TBL:X_RTG_OP_RESOURCE_TBL_ITEM:ORGANIZATION_CODE:$LineIndex)
+      set ResourceSequence             $::RoutingResultDat(X_RTG_OP_RESOURCE_TBL:X_RTG_OP_RESOURCE_TBL_ITEM:RESOURCE_SEQUENCE_NUMBER:$LineIndex)
+      set OperationSequenceId          $::RoutingResultDat(X_RTG_OP_RESOURCE_TBL:X_RTG_OP_RESOURCE_TBL_ITEM:OPERATION_SEQUENCE_ID:$LineIndex)
+      set OperationSequenceNumber      $::RoutingResultDat(X_RTG_OP_RESOURCE_TBL:X_RTG_OP_RESOURCE_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndex)
+      set OperationEffectivityDateFrom $::RoutingResultDat(X_RTG_OP_RESOURCE_TBL:X_RTG_OP_RESOURCE_TBL_ITEM:OP_START_EFFECTIVE_DATE:$LineIndex)
+      #
+      set tag [list $ResourceSequence $OperationSequenceNumber $OperationEffectivityDateFrom]
+      #
+      # Auf OperationSequenceId, OperationSequenceNumber und das OperationEffectivityDateFrom prüfen
+      #
+      if { [dict exists $EBSDatTags $tag] } {
+        #
+        # Wenn der tag (also die Ref Designator im EBSDatTags existiert, dann können wir
+        # darüber nun den Index der Ref Designator im EBSDat ermitteln...
+        #
+        set LineIndexTC [dict get $EBSDatTags $tag]
+        #
+        # Gefunden -> Transaction Type auf UPDATE stellen
+        #
+        set ::EBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:TRANSACTION_TYPE:$LineIndexTC) "UPDATE"
+        #
+        set blnFound "TRUE"
+      }
+      #
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - ResourceSequence = >$ResourceSequence< (LineIndex >$LineIndex<) -> blnFound = >$blnFound< and ::EBSDat(Routing:CtrlParam:CleanRoutingResources) = >$::EBSDat(Routing:CtrlParam:CleanRoutingResources)<"
+      #
+      # Die nicht mehr übertragenen Resources werden nur mit DELETE übertragen, wenn diese Aktion auch gewünscht ist,
+      # also per ::EBSDat(Routing:CtrlParam:CleanRoutingResources) aktiviert ist
+      #
+      if { $blnFound eq "FALSE" && $::EBSDat(Routing:CtrlParam:CleanRoutingResources) eq "TRUE" } {
+        #
+        # EBS Resource existiert nicht mehr im TC - zum Löschen vormerken...
+        #
+        incr LastEBSDatIndex
+        #
+        # Löschen...
+        #
+        set tmpEBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:OPERATION_SEQUENCE_ID:$LastEBSDatIndex)       $OperationSequenceId
+        set tmpEBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LastEBSDatIndex)   $OperationSequenceNumber
+        set tmpEBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:OP_START_EFFECTIVE_DATE:$LastEBSDatIndex)     $OperationEffectivityDateFrom
+        set tmpEBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:RESOURCE_SEQUENCE_NUMBER:$LastEBSDatIndex)    $ResourceSequence
+        set tmpEBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:ORGANIZATION_CODE:$LastEBSDatIndex)           $OrganizationCode
+        set tmpEBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:ASSEMBLY_ITEM_NAME:$LastEBSDatIndex)          $AssemblyItemName
+        set tmpEBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:ALTERNATE_ROUTING_CODE:$LastEBSDatIndex)      $AlternateRtgCode
+        set tmpEBSDat(Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:TRANSACTION_TYPE:$LastEBSDatIndex)            "DELETE"
+      }
+    }
+    #
+    unset -nocomplain EBSDatTags
+    #
+    # Jetzt noch alle zum Löschen markierten Elemente in das EBSDat übernehmen...
+    #
+    foreach Line [array names tmpEBSDat Routing:P_OP_RESOURCE_TBL:P_OP_RESOURCE_TBL_ITEM:RESOURCE_SEQUENCE_NUMBER:*] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      # Init Structure
+      #
+      ::TPEBS::RTG::initRoutingStructure_P_OP_RESOURCE_TBL $LineIndex
+    }
+    #
+    foreach elem [array names tmpEBSDat] {
+      set ::EBSDat($elem) $tmpEBSDat($elem)
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished!"
+  }
+
+  # ---------------------------------------------------------------------
+  ##
+  # Method:        ::TPEBS::RTG::mergeRoutingAlternateResources
+  # \tpinternal
+  # \brief         Combines the EBSDat array from the mapping with actual data
+  #                from the EBS to update the Routing alternate resources
+  #
+  # \author        kh, 20111116
+  #
+  #
+  proc mergeRoutingAlternateResources { args } {
+    #
+    set FunctionName "[lindex [info level 0] 0]"
+    set LastEBSDatIndex 0
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "Custom $FunctionName starts..."
+    #
+    # Wir berechnen noch den höchsten Index im EBSDat Array, da wir evtl. weiter unten noch Einträge an das Array anfügen müssen...
+    #
+    set EBSDatTags {}
+    #
+    foreach Line [array names ::EBSDat Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:SUBSTITUTE_GROUP_NUMBER:*] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      if { $::EBSDat(Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:TRANSACTION_TYPE:$LineIndex) eq "" } {
+        set ::EBSDat(Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:TRANSACTION_TYPE:$LineIndex) "CREATE"
+      }
+      #
+      if { $LineIndex > $LastEBSDatIndex } {
+        set LastEBSDatIndex $LineIndex
+      }
+      #
+      # Bei dieser Gelegenheit legen wir gleich noch alle Alternate Resources in besser (schneller) verarbeitbarer Form ab...
+      #
+      set ResourceCodeTC                 $::EBSDat(Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:SUB_RESOURCE_CODE:$LineIndex)
+      set SubstituteGroupNumberTC        $::EBSDat(Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:SUBSTITUTE_GROUP_NUMBER:$LineIndex)
+      set ReplacementGroupNumberTC       $::EBSDat(Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:REPLACEMENT_GROUP_NUMBER:$LineIndex)
+      set OperationSequenceNumberTC      $::EBSDat(Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndex)
+      set OperationEffectivityDateFromTC $::EBSDat(Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:OP_START_EFFECTIVE_DATE:$LineIndex)
+      #
+      set tag [list $ResourceCodeTC $SubstituteGroupNumberTC $ReplacementGroupNumberTC $OperationSequenceNumberTC $OperationEffectivityDateFromTC]
+      #
+      dict set EBSDatTags $tag $LineIndex
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - LastEBSDatIndex = >$LastEBSDatIndex<"
+
+    #
+    # Jetzt die Daten aus des aktuellen Routings in der EBS mit denen des EBSDat Arrays zusammenfügen
+    #
+
+    #
+    # Loop über alle EBS Alternate Resources
+    #
+    foreach Line [array names ::RoutingResultDat X_RTG_SUB_RESOURCE_TBL:X_RTG_SUB_RESOURCE_TBL_ITEM:SUBSTITUTE_GROUP_NUMBER:*] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      set blnFound "FALSE"
+      #
+      # Da von der EBS im Falle nicht vorhandener Elemente trotzdem ein leerer Tabelleneintrag zurück kommt, müssen wir hier noch prüfen, ob dies ein
+      # solcher, leerer Eintrag ist, der dann nicht berücksichtigt werden darf!
+      #
+      set AssemblyItemName             $::RoutingResultDat(X_RTG_SUB_RESOURCE_TBL:X_RTG_SUB_RESOURCE_TBL_ITEM:ASSEMBLY_ITEM_NAME:$LineIndex)
+      set AlternateRtgCode             $::RoutingResultDat(X_RTG_SUB_RESOURCE_TBL:X_RTG_SUB_RESOURCE_TBL_ITEM:ALTERNATE_ROUTING_CODE:$LineIndex)
+      set OrganizationCode             $::RoutingResultDat(X_RTG_SUB_RESOURCE_TBL:X_RTG_SUB_RESOURCE_TBL_ITEM:ORGANIZATION_CODE:$LineIndex)
+      set ResourceCode                 $::RoutingResultDat(X_RTG_SUB_RESOURCE_TBL:X_RTG_SUB_RESOURCE_TBL_ITEM:SUB_RESOURCE_CODE:$LineIndex)
+      set SubstituteGroupNumber        $::RoutingResultDat(X_RTG_SUB_RESOURCE_TBL:X_RTG_SUB_RESOURCE_TBL_ITEM:SUBSTITUTE_GROUP_NUMBER:$LineIndex)
+      set ReplacementGroupNumber       $::RoutingResultDat(X_RTG_SUB_RESOURCE_TBL:X_RTG_SUB_RESOURCE_TBL_ITEM:REPLACEMENT_GROUP_NUMBER:$LineIndex)
+      set OperationSequenceId          $::RoutingResultDat(X_RTG_SUB_RESOURCE_TBL:X_RTG_SUB_RESOURCE_TBL_ITEM:OPERATION_SEQUENCE_ID:$LineIndex)
+      set OperationSequenceNumber      $::RoutingResultDat(X_RTG_SUB_RESOURCE_TBL:X_RTG_SUB_RESOURCE_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LineIndex)
+      set OperationEffectivityDateFrom $::RoutingResultDat(X_RTG_SUB_RESOURCE_TBL:X_RTG_SUB_RESOURCE_TBL_ITEM:OP_START_EFFECTIVE_DATE:$LineIndex)
+      set ResourceId                   $::RoutingResultDat(X_RTG_SUB_RESOURCE_TBL:X_RTG_SUB_RESOURCE_TBL_ITEM:RESOURCE_ID:$LineIndex)
+      #
+      set tag [list $ResourceCode $SubstituteGroupNumber $ReplacementGroupNumber $OperationSequenceNumber $OperationEffectivityDateFrom]
+      #
+      # Auf ResourceCode, SubstituteGroupNumber, ReplacementGroupNumber, OperationSequenceNumber und das OperationEffectivityDateFrom prüfen
+      #
+      if { [dict exists $EBSDatTags $tag] } {
+        #
+        # Wenn der tag (also die Ref Designator im EBSDatTags existiert, dann können wir
+        # darüber nun den Index der Ref Designator im EBSDat ermitteln...
+        #
+        set LineIndexTC [dict get $EBSDatTags $tag]
+        #
+        # Gefunden -> Transaction Type auf UPDATE stellen
+        #
+        set ::EBSDat(Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:TRANSACTION_TYPE:$LineIndexTC) "UPDATE"
+        #
+        set blnFound "TRUE"
+      }
+      #
+      tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName - ResourceCode = >$ResourceCode<, SubstituteGroupNumber = >$SubstituteGroupNumber< and ReplacementGroupNumber = >$ReplacementGroupNumber< (LineIndex >$LineIndex<) -> blnFound = >$blnFound< and ::EBSDat(Routing:CtrlParam:CleanRoutingAlternateResources) = >$::EBSDat(Routing:CtrlParam:CleanRoutingAlternateResources)<"
+      #
+      # Die nicht mehr übertragenen Alternate Resources werden nur mit DELETE übertragen, wenn diese Aktion auch gewünscht ist,
+      # also per ::EBSDat(Routing:CtrlParam:CleanRoutingAlternateResources) aktiviert ist
+      #
+      if { $blnFound eq "FALSE" && $::EBSDat(Routing:CtrlParam:CleanRoutingAlternateResources) eq "TRUE" } {
+        #
+        # EBS Operation existiert nicht mehr im TC - zum Löschen vormerken...
+        #
+        incr LastEBSDatIndex
+        #
+        set tmpEBSDat(Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:OPERATION_SEQUENCE_ID:$LastEBSDatIndex)       $OperationSequenceId
+        set tmpEBSDat(Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:OPERATION_SEQUENCE_NUMBER:$LastEBSDatIndex)   $OperationSequenceNumber
+        set tmpEBSDat(Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:OP_START_EFFECTIVE_DATE:$LastEBSDatIndex)     $OperationEffectivityDateFrom
+        set tmpEBSDat(Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:RESOURCE_ID:$LastEBSDatIndex)                 $ResourceId
+        set tmpEBSDat(Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:SUBSTITUTE_GROUP_NUMBER:$LastEBSDatIndex)     $SubstituteGroupNumber
+        set tmpEBSDat(Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:REPLACEMENT_GROUP_NUMBER:$LastEBSDatIndex)    $ReplacementGroupNumber
+        set tmpEBSDat(Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:SUB_RESOURCE_CODE:$LastEBSDatIndex)           $ResourceCode
+        set tmpEBSDat(Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:ORGANIZATION_CODE:$LastEBSDatIndex)           $OrganizationCode
+        set tmpEBSDat(Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:ASSEMBLY_ITEM_NAME:$LastEBSDatIndex)          $AssemblyItemName
+        set tmpEBSDat(Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:ALTERNATE_ROUTING_CODE:$LastEBSDatIndex)      $AlternateRtgCode
+        set tmpEBSDat(Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:TRANSACTION_TYPE:$LastEBSDatIndex)            "DELETE"
+      }
+    }
+    #
+    unset -nocomplain EBSDatTags
+    #
+    # Jetzt noch alle zum Löschen markierten Elemente in das EBSDat übernehmen...
+    #
+    foreach Line [array names tmpEBSDat Routing:P_SUB_RESOURCE_TBL:P_SUB_RESOURCE_TBL_ITEM:SUBSTITUTE_GROUP_NUMBER:*] {
+      set LineList [split $Line :]
+      set LineIndex [lindex $LineList end]
+      #
+      # Init Structure
+      #
+      ::TPEBS::RTG::initRoutingStructure_P_SUB_RESOURCE_TBL $LineIndex
+    }
+    #
+    foreach elem [array names tmpEBSDat] {
+      set ::EBSDat($elem) $tmpEBSDat($elem)
+    }
+    #
+    tpwrite -logchannel [::T4X::CORE::getSessionLogChannel] -mtype INTERN "$FunctionName finished"
+  }
+##
+# Ende tpinternal
+}

@@ -1,0 +1,99 @@
+<project name="test">
+	
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+    <classpath> 
+		<pathelement location="${ANT_HOME}/lib/ant-contrib-0.6.jar" />
+    </classpath> 
+    </taskdef>
+    <import file="../common.xml"/>
+    <property name="cpptest" value="yes"/>
+    <property name="link.type" value="executable"/>
+    <property name="link.dir" value="."/>
+    <property name="obj.dir" value="."/>
+    <property name="cc.debug" value="false"/>
+	
+	<condition property="link.prefix" value="lib">
+        <equals arg1="${ge.win}" arg2="true"/>
+    </condition>
+    <condition property="link.prefix" value="">
+        <equals arg1="${ge.linux}" arg2="true"/>
+    </condition>
+	
+    <if>
+        <equals arg1="${ge.win}" arg2="true"/>
+        <then>
+			<property name="obj.ext" value="obj"/>
+        </then>
+        <else>
+			<property name="obj.ext" value="o"/>
+        </else>
+    </if>
+    
+    <!-- Define the include path -->
+    <path id="include.path">
+        <pathelement path=".;../src"/>
+    </path>
+    
+	<!-- 64 bit linkage -->
+	<target name="linklnx64_exe" description="64 bit linkage for linux executable" depends="logging">
+        <mkdir dir="${link.dir}"/>
+        <cc outtype="${link.type}" subsystem="console" outfile="${link.dir}/${link.name}">
+            <linker name="g++" if="ge.linux">
+                <linkerarg value="-m64" />
+                <linkerarg value="-Wl" />              
+                <syslibset libs="dl,m,resolv,rt,pthread" />
+                <fileset dir="${obj.dir}">
+                    <include name="${obj.set}"/>
+                </fileset>
+                <libset dir="${lib.dir}" libs="${lib.set}" if="lib.required"/>
+            </linker>
+        </cc>
+	</target>
+	
+    <target name="mytest32">
+        <subant target="compile32">
+            <filelist dir="." files="build.xml"/>
+        </subant>
+        <subant target="link32">
+            <property name="link.name" value="mytest"/>
+            <property name="obj.set" value="mytest.${obj.ext}"/>
+            <property name="lib.required" value="on"/>
+            <property name="lib.dir" value="../lib"/>
+            <property name="lib.set" value="${link.prefix}cpptest32"/>
+            <filelist dir="." files="build.xml"/>
+        </subant>
+    </target>
+    
+    <target name="mytest64">
+        <subant target="compile64">
+            <filelist dir="." files="build.xml"/>
+        </subant>
+        <subant target="link64">
+            <property name="link.name" value="mytest"/>
+            <property name="obj.set" value="mytest.${obj.ext}"/>
+            <property name="lib.required" value="on"/>
+            <property name="lib.dir" value="../lib"/>
+            <property name="lib.set" value="${link.prefix}cpptest64"/>
+            <filelist dir="." files="build.xml"/>
+        </subant>
+    </target>
+	
+	 <target name="mytest_lnx64">
+        <subant target="compile64">
+            <filelist dir="." files="build.xml"/>
+        </subant>
+        <subant target="linklnx64_exe">
+            <property name="link.name" value="mytest"/>
+            <property name="obj.set" value="mytest.${obj.ext}"/>
+            <property name="lib.required" value="on"/>
+            <property name="lib.dir" value="../lib"/>
+            <property name="lib.set" value="${link.prefix}cpptest64"/>
+            <filelist dir="." files="build.xml"/>
+        </subant>
+	    </target>
+    
+    <target name="win32" depends="mytest32" />
+    <target name="win64" depends="mytest64"/>
+	<target name="lnx64" depends="mytest_lnx64"/>
+    
+</project>

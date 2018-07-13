@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<TCXML xmlns="http://www.tcxml.org/Schemas/TCXMLSchema" format="high_level">
+<ClosureRule clauses="CLASS.Document:CLASS.DocumentHeader:CONTENT.*:DO:,CLASS.DocumentHeader:CLASS.AssociatedAttachment:Attribute.traverseRootRefs:DO:,CLASS.DocumentHeader:CLASS.Occurrence:Attribute.traverseRootRefs:DO:,CLASS.DocumentHeader:CLASS.ConfiguredOccurrenceGroup:Attribute.traverseRootRefs:DO:,CLASS.DocumentHeader:CLASS.Form:ATTRIBUTE.traverseRootRefs:DO:,CLASS.AssociatedAttachment:CLASS.*:Attribute.childRefs:DO:,CLASS.AssociatedAttachment:CLASS.*:Attribute.AttachmentRef:DO:,CLASS.Occurrence:CLASS.Occurrence:Attribute.occurrenceRefs:DO:PRIMARY.linkedOccurrenceRef==&quot;&quot;,CLASS.Occurrence:CLASS.ExternalReference:Attribute.occurrenceRefs:DO:,CLASS.Occurrence:CLASS.*:Attribute.AssociatedAttachmentRefs:DO:,CLASS.Occurrence:CLASS.Instance:Attribute.instanceRefs:PROCESS:,CLASS.Occurrence:CLASS.UserData:Content.*:DO:,CLASS.Occurrence:CLASS.VariantCondition:Content.*:DO:,CLASS.Occurrence:CLASS.*:Attribute.configuredActivityRootRef:DO:,CLASS.Occurrence:CLASS.*:Attribute.predecessorRefs:DO:,CLASS.ConfiguredActivity:CLASS.*:Attribute.predecessorRefs:DO:,CLASS.Activity:CLASS.*:Attribute.predecessorRefs:DO:,CLASS.ConfiguredOccurrenceGroup:CLASS.*:Attribute.childRefs:DO:,CLASS.ConfiguredOccurrenceGroup:CLASS.*:Attribute.associatedAttachmentRefs:DO:,CLASS.Structure:CLASS.*:Attribute.*:DO:,CLASS.Structure:CLASS.*:Content.*:DO:,CLASS.StructureRevision:CLASS.*:Attribute.*:DO:,CLASS.StructureRevision:CLASS.*:Content.*:DO:,CLASS.Form:CLASS.*:Attribute.*:DO:,CLASS.Form:CLASS.*:Content.*:DO:,CLASS.DataSet:CLASS.*:Attribute.*:DO:,CLASS.DataSet:CLASS.*:Content.*:DO:,CLASS.Folder:CLASS.*:Attribute.*:DO:,CLASS.Folder:CLASS.*:Content.*:DO:" description="" elemId="id8" name="GET_EBS2ClosureRule_Import_EBS" owning_site="#id2" schema_format="0" scope="1" transient_island_id="1">
+
+  <GSIdentity elemId="id4" label="r1WhHEcmIfRWvB"/>
+
+</ClosureRule>
+<Filter clauses="" description="" elemId="id9" name="GET_EBS2FilterRule_Import_EBS" owning_site="#id2" schema_format="0" scope="1" transient_island_id="1">
+
+  <GSIdentity elemId="id5" label="r1ZhHEcmIfRWvB"/>
+
+</Filter>
+<Group elemId="id12" list_of_role="#id10 #id11" name="dba" owning_site="#id2" transient_island_id="1">
+
+  <GSIdentity elemId="id3" label="AYddKvuuIfRWvB"/>
+
+</Group>
+<POM_imc elemId="id13" name="IMC--1938713098" owning_site="#id2" site_id="-1938713098" transient_island_id="0">
+
+  <GSIdentity elemId="id2" label="AKWdKv_kIfRWvB"/>
+
+</POM_imc>
+<PropertySet clauses="CLASS.ItemRevision:PROPERTY.last_mod_date:DO,CLASS.ItemRevision:PROPERTY.object_string:DO" description="" elemId="id14" name="GET_EBS2PropertySet_Import_EBS" owning_site="#id2" scope="1" transient_island_id="1">
+
+  <GSIdentity elemId="id6" label="r1ThHEcmIfRWvB"/>
+
+</PropertySet>
+<TransferMode action_list="" closure_rules="#id4" config_objs="" context_string="DEFAULT_PIE_CONTEXT_STRING" direction="1" elemId="id15" filters="#id5" fnd0RevisionId="" gov_classification="" incremental="Y" ip_classification="" license_list="" multi_site="N" object_desc="Custom Transfer Mode to Import Oracle BOP Structure and Properties to Teamcenter." object_name="GET_EBS2TransferMode_Import_EBS" owning_site="#id2" project_list="" prop_sets="#id6" schema_format="0" transient_island_id="1">
+
+  <GSIdentity elemId="id1" label="7IYhHEcmIfRWvB"/>
+
+</TransferMode>
+<User elemId="id16" owning_site="#id2" transient_island_id="1" user_id="502658726">
+
+  <GSIdentity elemId="id7" label="gwRdKzUBIfRWvB"/>
+
+</User>
+<Role elemId="id17" owning_site="#id2" role_name="DBA" transient_island_id="0">
+
+  <GSIdentity elemId="id10" label="AUedKvuuIfRWvB"/>
+
+</Role>
+<Role elemId="id18" owning_site="#id2" role_name="Designer" transient_island_id="0">
+
+  <GSIdentity elemId="id11" label="gcSdKvuuIfRWvB"/>
+
+</Role>
+<Header author="infodba" date="2017-01-08" elemId="id19" originatingSite="-1938713098" targetSite="" time="12:32:13" version="Teamcenter V11000.2.2.20_20160504.00">
+
+  <TransferFormula elemId="id20">
+    <SessionOptions elemId="id21">
+      <Option elemId="id22" name="is_scope_rules_export" value="yes"/>
+      <Option elemId="id23" name="tcxmlArrayDataDelimiter" value=","/>
+    </SessionOptions>
+    <TransferMode elemId="id24" fnd0RevisionId="" gov_classification="" ip_classification="" license_list="" object_name="PLMXMLAdminDataExport" owning_site="id2" project_list=""/>
+    <Reason elemId="id25"></Reason>
+  </TransferFormula>
+
+  <TraverseRootRefs>#id1</TraverseRootRefs>
+
+</Header></TCXML>

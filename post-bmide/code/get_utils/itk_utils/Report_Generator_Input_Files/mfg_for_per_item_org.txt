@@ -1,0 +1,3 @@
+QUERY.HEADER=ITEM.PITEMID~FORM.NAME~FORM.TYPE~COUNT
+QUERY.OUTPUTTYPES=string,string,string,int
+QUERY.SQL=SELECT distinct i.pitem_id, wso.pobject_name, wso.pobject_type, COUNT(*) count FROM pworkspaceobject wso, pitem i, pimanrelation rel, pimantype it where wso.puid=rel.rsecondary_objectu and rel.rprimary_objectu=i.puid and rel.rrelation_typeu=it.puid and upper(it.ptype_name)=upper('GET6PartOrgRelation') GROUP BY i.pitem_id, wso.pobject_name, wso.pobject_type Having COUNT(*) > 1

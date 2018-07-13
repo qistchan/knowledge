@@ -1,0 +1,172 @@
+<project name="get_core" default="help">
+	
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties">
+    <classpath> 
+		<pathelement location="${ANT_HOME}/lib/ant-contrib-0.6.jar" />
+    </classpath> 
+    </taskdef>
+	<property name="cc.debug" value="false"/>
+	
+	<property environment="env"/>
+	
+	<!-- OS Check targets -->
+	<target name="OSCheck">
+		<condition property="isOSWindows">
+		    <os family="windows"/>
+
+		</condition>
+		<condition property="isOSUnix">
+		   <os family="unix" />
+		</condition>
+	</target>
+	<!-- Define platform -->
+	<condition property="ge.win">
+		<os family="windows"/>
+	</condition>
+	<condition property="ge.sol">
+		<os name="SunOS"/>
+	</condition>
+	<condition property="ge.linux">
+		<os name="linux"/>
+	</condition>
+    <if>
+        <equals arg1="${ge.win}" arg2="true"/>
+        <then>
+            <property name="copybin" value="*.dll"/>
+        	<property name="copypdb" value="*.pdb"/>
+        	<property name="copylib" value="*.lib"/>
+        </then>
+        <else>
+        	<property name="copybin" value=""/>
+        	<property name="copypdb" value=""/>
+        	<property name="copylib" value="*.so"/>
+        </else>
+    </if>
+	
+	<!-- build64 targets -->
+	<target name="build64">
+		<subant target="build64">
+			<filelist dir="./get_sysapi" files="build.xml"/>
+			<filelist dir="./get_common" files="build.xml"/>
+			<filelist dir="./get_occi" files="build.xml"/>
+			<filelist dir="./get_custom_exits" files="build.xml"/>
+			<filelist dir="./get_utils" files="build.xml"/>
+		</subant>
+	</target>
+	
+	<!-- build32 targets -->
+	<target name="build32" >
+			<subant target="build32">
+				<filelist dir="./get_sysapi" files="build.xml"/>
+				<filelist dir="./get_common" files="build.xml"/>
+				<filelist dir="./get_occi" files="build.xml"/>
+				<filelist dir="./get_custom_exits" files="build.xml"/>
+				<filelist dir="./get_utils" files="build.xml"/>
+			</subant>
+	</target>
+	
+	<!-- build32_debug targets -->
+	<target name="build32_debug" >
+			<subant target="build32">
+				<filelist dir="./get_sysapi" files="build.xml"/>
+				<filelist dir="./get_common" files="build.xml"/>
+				<filelist dir="./get_occi" files="build.xml"/>
+				<filelist dir="./get_custom_exits" files="build.xml"/>
+				<filelist dir="./get_utils" files="build.xml"/>
+			</subant>
+	</target>
+	
+	<!-- build64_debug targets -->
+	<target name="build64_debug">
+		<subant target="build64">
+				<filelist dir="./get_sysapi" files="build.xml"/>
+				<filelist dir="./get_common" files="build.xml"/>
+				<filelist dir="./get_occi" files="build.xml"/>
+				<filelist dir="./get_custom_exits" files="build.xml"/>
+				<filelist dir="./get_utils" files="build.xml"/>
+		</subant>
+	</target>
+
+	<!-- clean targets -->
+	<target name="clean" description="clean lib,dll and obj files in the directory">
+		<subant target="clean">
+			<filelist dir="./get_sysapi" files="build.xml"/>
+			<filelist dir="./get_common" files="build.xml"/>
+			<filelist dir="./get_occi" files="build.xml"/>
+			<filelist dir="./get_custom_exits" files="build.xml"/>
+			<filelist dir="./get_utils" files="build.xml"/>
+		 </subant>
+		 <delete>
+			<fileset dir=".">
+				<include name="**/build*.log"/>
+			</fileset>
+		</delete>
+		<delete dir="buildlogs"/>
+		<delete dir="test_bin"/>
+	</target>
+
+	<!-- deploy64 targets to deploy libraries -->
+	<target name="deploy64" depends = "build64">
+		<subant target="deploy">
+			<filelist dir="./get_sysapi" files="build.xml"/>
+			<filelist dir="./get_common" files="build.xml"/>
+			<filelist dir="./get_occi" files="build.xml"/>
+			<filelist dir="./get_custom_exits" files="build.xml"/>
+		</subant>
+		<copy todir="${env.TC_ROOT}/lib/" verbose="true" failonerror="false">
+              <fileset dir="${src.dir}/lib">
+              <include name="${copylib}" />
+          </fileset>
+        </copy>
+		<copy todir="${env.TC_ROOT}/bin/" verbose="true" failonerror="false">
+          <fileset dir="${src.dir}/bin">
+              <include name="${copybin}" />
+          	  <include name="${copypdb}" />
+          </fileset>
+        </copy>
+		<subant target="build64">
+			<filelist dir="./get_utils" files="build.xml"/>
+		</subant>
+	    <subant target="deploy">
+			<filelist dir="./get_utils" files="build.xml"/>
+		</subant>
+	</target>
+	
+	<!-- deploy32 targets to deploy libraries-->
+	<target name="deploy32" depends = "build32" description="deploy libraries">
+			<subant target="deploy">
+				<filelist dir="./get_sysapi" files="build.xml"/>
+				<filelist dir="./get_common" files="build.xml"/>
+				<filelist dir="./get_occi" files="build.xml"/>
+				<filelist dir="./get_custom_exits" files="build.xml"/>
+				<filelist dir="./get_utils" files="build.xml"/>
+			</subant>
+	</target>
+	
+	<!-- doxygen64 targets -->
+	<target name="doxygen64" depends = "build64" description="generate html documentation">
+			<subant target="doxygen64">
+				<filelist dir="./get_sysapi" files="build.xml"/>
+				<filelist dir="./get_common" files="build.xml"/>
+				<filelist dir="./get_custom_exits" files="build.xml"/>
+				<filelist dir="./get_utils" files="build.xml"/>
+			</subant>
+	</target>
+	
+	<!-- doxygen32 targets -->
+	<target name="doxygen32" depends = "build32" description="generate html documentation">
+			<subant target="doxygen32">
+				<filelist dir="./get_sysapi" files="build.xml"/>
+				<filelist dir="./get_common" files="build.xml"/>
+				<filelist dir="./get_occi" files="build.xml"/>
+				<filelist dir="./get_custom_exits" files="build.xml"/>
+				<filelist dir="./get_utils" files="build.xml"/>
+			</subant>
+	</target>
+    
+	<!-- help targets -->
+	<target name="help" description="print usage">
+        <echo message="Please specify target as build32 or build64"/>
+    </target>
+    
+</project>

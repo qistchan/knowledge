@@ -1,0 +1,3 @@
+!|ItemID|ItemName|ItemType|Uom|I:ip_classification|I:get6EngrProdLine|R:get6DataModel|I:get6ECCN|I:get6ECCNSource|R:get6CTQ|I:get6CCC|I:get6ECC|I:get6Homologation|I:get6CriticalPart|R:get6EngMB|R:get6ObjWt|R:get6ObjWtUOM
+338B207P1      |HANDRAIL                      |GET6MechPart|EA|GE Confidential|Locomotive|MC|ECCN-EAR99-NLR| | |No|No|FALSE|FALSE|Buy| | |
+41A213226P1    |COMPOUND       FELPRO C5-A    |GET6MechPart|OZ|GE Internal|Locomotive|MC|ECCN-EAR99-NLR| | |No|No|FALSE|FALSE|Buy| | |

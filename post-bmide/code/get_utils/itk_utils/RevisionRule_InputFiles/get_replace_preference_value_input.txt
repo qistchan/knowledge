@@ -1,0 +1,7 @@
+<value>GET Baseline/Released – No Working</value>~<value>GET Baselined, GET Released, (No GET Working)</value>
+<value>GET Baseline/Released, Working</value>~<value>GET Baselined, GET Released, GET Working</value>
+<value>GET Latest Prelim/GET Released, Working</value>~<value>GET Latest Prelim, GET Released, GET Working</value>
+<value>GET My Working, GET Baselined/GET Released</value>~<value>GET My Working, GET Baselined, GET Released</value>
+<value>GET Working, GET Baselined/GET Released</value>~<value>GET Working, GET Baselined, GET Released</value>
+<value>GET Released</value>~<value>GET Released, GET Working</value>
+<value>GET Baselined</value>~<value>GET Baselined, GET Released, GET Working</value>

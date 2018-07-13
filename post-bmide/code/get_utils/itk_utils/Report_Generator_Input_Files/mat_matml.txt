@@ -1,0 +1,3 @@
+QUERY.HEADER=MATERIAL_ITEMID
+QUERY.OUTPUTTYPES=string
+QUERY.SQL=select distinct i1.pitem_id from pitem i1, pworkspaceobject wso1, pitemrevision ir1 where ir1.puid=wso1.puid and i1.puid= ir1.ritems_tagu and upper(wso1.pobject_type)='GET6MaterialRevision' and i1.puid not in (select distinct i.puid from pitem i, pworkspaceobject wso, pitemrevision ir, pimanrelation rel, pimantype it, pdataset d, pdatasettype dt where ir.puid=wso.puid and i.puid= ir.ritems_tagu and rel.rprimary_objectu=ir.puid and rel.rsecondary_objectu=d.puid and rel.rrelation_typeu=it.puid and upper(it.ptype_name)='IMAN_specification' and d.rdataset_typeu= dt.puid and upper(dt.pdatasettype_name)='Mat1MatML' and upper(wso.pobject_type)='GET6MaterialRevision')

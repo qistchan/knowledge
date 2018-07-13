@@ -1,0 +1,3 @@
+QUERY.HEADER=ITEM.ITEM_ID~ITEMREVISION.ITEM_REVISION_ID
+QUERY.OUTPUTTYPES=string,string
+QUERY.SQL=select distinct i.pitem_id, ir.pitem_revision_id from pitemrevision ir, pitem i, pdataset ds, pimanrelation rel where ir.ritems_tagu=i.puid and rel.rprimary_objectu=ir.puid and rel.rsecondary_objectu=ds.puid and (select count(rsl1.puid) from prelease_status_list rsl1 where ir.puid=rsl1.puid) != (select count(rsl.puid) from prelease_status_list rsl where ds.puid=rsl.puid)
